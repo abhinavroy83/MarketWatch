@@ -10,12 +10,17 @@ function App() {
   useEffect(() => {
     const storeused = JSON.parse(localStorage.getItem("userdetails"));
     if (storeused) {
-      dispatch(authlogin({ token: storeused.data.jwttoken }));
+      dispatch(
+        authlogin({
+          token: storeused.data.jwttoken,
+          user: storeused.data.data.name,
+        })
+      );
     }
   });
 
   return (
-    <div className="flex flex-col  min-h-screen">
+    <div className="flex flex-col h-screen">
       <Ads />
       <Header />
       <Outlet />

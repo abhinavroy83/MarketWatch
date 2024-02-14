@@ -11,6 +11,9 @@ import store from "./store/store.js";
 import { Authlayout } from "./components/index.js";
 import PostProduct from "./pages/PostProduct.jsx";
 import User from "./pages/User/User.jsx";
+import Getuserroom from "./pages/User/UserRooms/Getuserroom.jsx";
+import Getuserjobs from "./pages/User/Userjobs/Getuserjobs.jsx";
+import Addrooms from "./pages/User/UserRooms/Addrooms.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +50,30 @@ const router = createBrowserRouter([
           <Authlayout authentication>
             <User />
           </Authlayout>
+        ),
+      },
+      {
+        path: "/user/room",
+        element: (
+          <Getuserroom authentication>
+            <User />
+          </Getuserroom>
+        ),
+      },
+      {
+        path: "/addroom",
+        element: (
+          <Addrooms authentication>
+            <User />
+          </Addrooms>
+        ),
+      },
+      {
+        path: "/user/job",
+        element: (
+          <Getuserjobs authentication>
+            <User />
+          </Getuserjobs>
         ),
       },
     ],

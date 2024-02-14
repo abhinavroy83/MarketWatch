@@ -15,14 +15,15 @@ function Login() {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
-    console.log(data);
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
       if (res) {
-        console.log(res.data.jwttoken);
+        console.log(res.data.data.name);
         alert("Successfully logged");
         localStorage.setItem("userdetails", JSON.stringify(res));
-        dispatch(authlogin({ token: res.data.jwttoken }));
+        dispatch(
+          authlogin({ token: res.data.jwttoken, user: res.data.data.name })
+        );
         Navigate("/");
       }
     } catch (error) {

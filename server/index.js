@@ -18,8 +18,10 @@ connectiondb();
 
 //routes
 const user = require("./src/Routes/user");
+const room = require("./src/Routes/room");
 
 app.use("/user", user);
+app.use(room);
 
 //healt check
 

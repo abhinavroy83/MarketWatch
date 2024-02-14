@@ -8,7 +8,7 @@ import Container from "./Container/Container";
 function Home() {
   return (
     <Container>
-      {/* <Getlocations /> */}
+      <Getlocations />
       {/* <Getproduct /> */}
       <h1>This is your home page</h1>
     </Container>
