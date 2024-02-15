@@ -6,6 +6,8 @@ import PostProduct from "../pages/PostProduct";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
+  const userID = useSelector((state) => state.auth.userID);
+  // console.log(userID);
   // console.log(authstatus);
   const [ismodalopen, setismodalopen] = useState(false);
   const dispatch = useDispatch();
@@ -56,7 +58,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => {
-                navigate("/signup");
+                navigate("/signup/");
               }}
               className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
@@ -65,7 +67,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => {
-                navigate("/postproduct");
+                navigate("/login");
               }}
               className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
@@ -77,7 +79,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => {
-                navigate("/myaccount");
+                navigate(`/myaccount/${userID}`);
               }}
               className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >

@@ -3,8 +3,9 @@ const User = require("../model/user");
 const { Schema } = mongoose;
  
 const roomSchema = mongoose.Schema({
-  UserId: { type: Schema.Types.ObjectId, ref: User, required: true },
+  UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   city: { type: String, required: true },
+  Hotelname: { type: String, required: true },
   PrdImage: { type: String, required: true },
   rent: { type: String, required: true },
   address: { type: String, required: true }, 

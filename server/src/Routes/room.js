@@ -6,6 +6,7 @@ const getroombycurrentlocation = require("../Controllers/Rooms/Getroombyloc");
 const IsloggedIn = require("../middleware/isloggedin");
 
 router.post("/api/addrooms", IsloggedIn, addroom);
-router.get("/api/getrooms/:userID", IsloggedIn, getroomforspeficuser);
+router.get("/api/getrooms/:userID", getroomforspeficuser);
 router.get("/api/getallrooms", getroombycurrentlocation);
 module.exports = router;
+ 

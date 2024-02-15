@@ -4,7 +4,7 @@ import { DashConatiner } from "../../components";
 
 function User() {
   const username = useSelector((state) => state.auth.user);
-  console.log(username);
+  // console.log(username);
   return (
     <DashConatiner>
       <div>{username}</div>

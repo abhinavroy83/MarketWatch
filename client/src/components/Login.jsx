@@ -18,11 +18,15 @@ function Login() {
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
       if (res) {
-        console.log(res.data.data.name);
+        console.log(res.data.data._id);
         alert("Successfully logged");
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(
-          authlogin({ token: res.data.jwttoken, user: res.data.data.name })
+          authlogin({
+            token: res.data.jwttoken,
+            user: res.data.data.name,
+            userID: res.data.data._id,
+          })
         );
         Navigate("/");
       }

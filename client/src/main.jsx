@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myaccount",
+        path: "/myaccount/:userID",
         element: (
           <Authlayout authentication>
             <User />
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/user/room",
+        path: "/user/room/:userID",
         element: (
           <Getuserroom authentication>
             <User />
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/user/job",
+        path: "/user/job/:userID",
         element: (
           <Getuserjobs authentication>
             <User />
