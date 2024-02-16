@@ -8,10 +8,10 @@ function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
-  const [roomsdeatails, setroomdeatils] = useState([]);
-  // console.log(token);
-  // console.log("userID", userID);
-  const fetchuserroomdetails = async () => {
+  const [roomsdeatails, setRoomDetails] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const fetchUserRoomDetails = async () => {
     try {
       const res = await axios.get(
         `http://localhost:8000/api/getrooms/${userID}`
@@ -19,18 +19,65 @@ function Getuserroom() {
       if (!res) {
         console.log("unable to fetch the data or it may be empty");
       }
-      // console.log("response", res.data.rooms);
-      setroomdeatils(res.data.rooms);
+      setRoomDetails(res.data.rooms);
     } catch (error) {
       console.error(
-        "error during fetching data in room details for persnol user",
+        "error during fetching data in room details for personal user",
         error
       );
     }
   };
+
   useEffect(() => {
-    fetchuserroomdetails();
+    fetchUserRoomDetails();
   }, [userID]);
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const renderRows = () => {
+    const startIndex = (currentPage - 1) * 4;
+    const endIndex = Math.min(startIndex + 4, roomsdeatails.length);
+    return roomsdeatails.slice(startIndex, endIndex).map((items) => (
+      <tr key={items.name}>
+        <td className="whitespace-nowrap px-4 py-4">
+          <div className="flex items-center">
+            <div className="h-10 w-10 flex-shrink-0">
+              <img
+                className="h-10 w-10 rounded-full object-cover"
+                src={items.PrdImage}
+                alt=""
+              />
+            </div>
+            <div className="ml-4">
+              <div className="text-sm font-medium text-gray-900">
+                {items.Hotelname}
+              </div>
+            </div>
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-12 py-4">
+          <div className="text-sm text-gray-700">{items.city}</div>
+        </td>
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+          {items.address}
+        </td>
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+          {items.rent}
+        </td>
+        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
+          <a href="#" className="text-gray-700">
+            Edit
+          </a>
+        </td>
+      </tr>
+    ));
+  };
 
   return (
     <DashConatiner>
@@ -93,53 +140,33 @@ function Getuserroom() {
                       </th>
                     </tr>
                   </thead>
-                  {roomsdeatails ? (
-                    <tbody className="divide-y divide-gray-200 bg-white overflow-y-scroll h-80 ">
-                      {roomsdeatails.map((items) => (
-                        <tr key={items.name}>
-                          <td className="whitespace-nowrap px-4 py-4">
-                            <div className="flex items-center">
-                              <div className="h-10 w-10 flex-shrink-0">
-                                <img
-                                  className="h-10 w-10 rounded-full object-cover"
-                                  src={items.PrdImage}
-                                  alt=""
-                                />
-                              </div>
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">
-                                  {items.Hotelname}
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="whitespace-nowrap px-12 py-4">
-                            <div className="text-sm text-gray-700">
-                              {items.city}
-                            </div>
-                          </td>
-
-                          <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                            {items.address}
-                          </td>
-                          <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                            {items.rent}
-                          </td>
-                          <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-                            <a href="#" className="text-gray-700">
-                              Edit
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  ) : (
-                    <div>
-                      <p>loading...</p>
-                    </div>
-                  )}
+                  <tbody className="divide-y divide-gray-200 bg-white ">
+                    {renderRows()}
+                  </tbody>
                 </table>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-4 w-full border-gray-300">
+          <div className="mt-2 flex items-center justify-end">
+            <div className="space-x-2">
+              {currentPage > 1 && (
+                <button
+                  className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  onClick={prevPage}
+                >
+                  &larr; Previous
+                </button>
+              )}
+              {roomsdeatails.length > currentPage * 4 && (
+                <button
+                  className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  onClick={nextPage}
+                >
+                  Next &rarr;
+                </button>
+              )}
             </div>
           </div>
         </div>
