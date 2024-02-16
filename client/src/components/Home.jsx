@@ -5,13 +5,14 @@ import { useSelector } from "react-redux";
 import Getproduct from "../pages/Getproduct";
 import Container from "./Container/Container";
 import Getrooms from "../pages/Rooms/Getrooms";
+import Getjob from "../pages/Job/Getjob";
 
 function Home() {
   return (
     <Container>
       <Getlocations />
-      <h1>This is your home page</h1>
       <Getrooms />
+      <Getjob />
       {/* <Getproduct /> */}
     </Container>
   );

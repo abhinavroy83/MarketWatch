@@ -14,6 +14,7 @@ import User from "./pages/User/User.jsx";
 import Getuserroom from "./pages/User/UserRooms/Getuserroom.jsx";
 import Getuserjobs from "./pages/User/Userjobs/Getuserjobs.jsx";
 import Addrooms from "./pages/User/UserRooms/Addrooms.jsx";
+import Addjob from "./pages/User/Userjobs/Addjob.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addroom",
+        path: "/addroom/:userID",
         element: (
           <Addrooms authentication>
             <User />
@@ -74,6 +75,14 @@ const router = createBrowserRouter([
           <Getuserjobs authentication>
             <User />
           </Getuserjobs>
+        ),
+      },
+      {
+        path: "/addjobs/:userID",
+        element: (
+          <Addjob authentication>
+            <User />
+          </Addjob>
         ),
       },
     ],

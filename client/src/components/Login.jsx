@@ -41,19 +41,21 @@ function Login() {
           Login
         </h1>
         <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col">
-          <Input
+          <input
             label="Email"
             type="text"
+            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             {...register("email", { required: "Email is required" })}
           />
-          <Input
+          <input
             label="Password"
             type="password"
+            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             {...register("password", { required: true })}
           />
           <button
             type="submit"
-            className="text-black rounded-md border-2 my-2 w-1/3 bg-white mx-auto"
+            className="rounded-md bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Login
           </button>

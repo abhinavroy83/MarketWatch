@@ -16,6 +16,7 @@ export default function Header() {
   const handlelogout = () => {
     dispatch(logout());
     localStorage.removeItem("userdetails");
+    navigate("/login");
   };
   const handlemodelopen = () => {
     if (authstatus) {
