@@ -13,7 +13,7 @@ function Getjob() {
       const res = await axios.get(
         `http://localhost:8000/api/job/getalljobs?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
-      console.log(res.data.Alljob);
+      // console.log(res.data.Alljob);
       setJobdata(res.data.Alljob);
     } catch (error) {
       console.log("error during fetcing api", error);
@@ -33,7 +33,7 @@ function Getjob() {
     const startIndex = (currentPage - 1) * 4;
     const endIndex = Math.min(startIndex + 4, jobdata.length);
     return jobdata.slice(startIndex, endIndex).map((job) => (
-      <tr key={job.name} className="divide-x divide-gray-200">
+      <tr key={job._id} className="divide-x divide-gray-200">
         <td className="whitespace-nowrap px-4 py-4">
           <div className="flex items-center">
             <div className="h-10 w-10 flex-shrink-0">

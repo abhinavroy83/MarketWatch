@@ -15,6 +15,8 @@ import Getuserroom from "./pages/User/UserRooms/Getuserroom.jsx";
 import Getuserjobs from "./pages/User/Userjobs/Getuserjobs.jsx";
 import Addrooms from "./pages/User/UserRooms/Addrooms.jsx";
 import Addjob from "./pages/User/Userjobs/Addjob.jsx";
+import AllRooms from "./pages/Rooms/AllRooms.jsx";
+import Rooms from "./pages/Rooms/Rooms.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,33 +58,49 @@ const router = createBrowserRouter([
       {
         path: "/user/room/:userID",
         element: (
-          <Getuserroom authentication>
-            <User />
-          </Getuserroom>
+          <Authlayout authentication>
+            <Getuserroom />
+          </Authlayout>
         ),
       },
       {
         path: "/addroom/:userID",
         element: (
-          <Addrooms authentication>
-            <User />
-          </Addrooms>
+          <Authlayout authentication>
+            <Addrooms />
+          </Authlayout>
         ),
       },
       {
         path: "/user/job/:userID",
         element: (
-          <Getuserjobs authentication>
-            <User />
-          </Getuserjobs>
+          <Authlayout authentication>
+            <Getuserjobs />
+          </Authlayout>
         ),
       },
       {
         path: "/addjobs/:userID",
         element: (
-          <Addjob authentication>
-            <User />
-          </Addjob>
+          <Authlayout authentication>
+            <Addjob />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/rooms",
+        element: (
+          <Authlayout authentication>
+            <AllRooms />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/rooms/:_id",
+        element: (
+          <Authlayout authentication>
+            <Rooms />
+          </Authlayout>
         ),
       },
     ],

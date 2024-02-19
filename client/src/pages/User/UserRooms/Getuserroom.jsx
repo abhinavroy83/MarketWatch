@@ -27,6 +27,14 @@ function Getuserroom() {
       );
     }
   };
+  // const handledeleterooms = async (deleteid) => {
+  //   console.log(deleteid);
+  //   // try {
+  //   //   await axios.delete(`http://localhost:8000/rooms/${deleteid}`);
+  //   // } catch (error) {
+  //   //   console.error(error);
+  //   // }
+  // };
 
   useEffect(() => {
     fetchUserRoomDetails();
@@ -71,9 +79,7 @@ function Getuserroom() {
           {items.rent}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <a href="#" className="text-gray-700">
-            Delete
-          </a>
+          <a className="text-gray-700">Delete</a>
         </td>
       </tr>
     ));

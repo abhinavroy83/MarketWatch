@@ -21,6 +21,8 @@ function Getuserjobs() {
       console.error("error during the fetching job deatails for usee", error);
     }
   };
+  // console.log(jobdata)
+
   useEffect(() => {
     fetchusejobsdeatails();
   }, [userID]);
