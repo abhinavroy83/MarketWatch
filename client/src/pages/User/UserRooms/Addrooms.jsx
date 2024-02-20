@@ -52,6 +52,7 @@ function Addrooms() {
     <DashConatiner>
       <div>
         <p>Here u can add room</p>
+        <h1>chekc schema </h1>
       
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}

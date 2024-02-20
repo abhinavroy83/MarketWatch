@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { LeafletMap } from "../../components";
 
 function Rooms() {
   const { _id } = useParams();
@@ -20,6 +21,9 @@ function Rooms() {
   useEffect(() => {
     fetchroomdetails();
   }, []);
+  const locationsendString = rooms.location.coordinates.join(",");
+  console.log(locationsendString);
+  // console.log(rooms.location.coordinates);
   return (
     <div className=" w-full max-w-7xl mx-auto px-4 py-2">
       <div className=" flex justify-between py-2">
@@ -60,15 +64,34 @@ function Rooms() {
           </svg>
         </div>
       </div>
-      <div>
+      <div className=" flex ">
         <div>
           <img
             src={rooms.PrdImage}
             alt="roomimg"
-            className="h-[500px] w-[700px] rounded-md object-cover"
+            className="h-[600px] w-[900px] rounded-md object-cover"
           />
+          <p>
+            {/* Posted By:{rooms.postedby} || Posted On:{" "}
+            {new Date(rooms.postedon).toISOString().split("T")[0]} */}
+          </p>
+        </div>
+        <div className=" px-3 border-red-500 border-2 ml-7">
+          <p className="mt-3 text-2xl font-semibold text-gray-800">
+            {rooms.Hotelname}
+          </p>
+          <p>{rooms.rent} monthly</p>
+          <p>{rooms.address}</p>
+          <p>
+            {rooms.bed}Bed / {rooms.bath}Bath
+          </p>
         </div>
       </div>
+      <div className=" py-2">{rooms.description}</div>
+      {/* <LeafletMap
+        onLocationReceived={locationsnd}
+        style={{ height: "300px", width: "500px" }}
+      /> */}
     </div>
   );
 }

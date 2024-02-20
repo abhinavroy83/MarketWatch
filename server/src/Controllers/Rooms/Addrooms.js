@@ -2,13 +2,30 @@ const Room = require("../../model/room");
 
 const addroom = async (req, res) => {
   try {
-    const { city, Hotelname, PrdImage, rent, address, location } = req.body;
+    const {
+      city,
+      State,
+      postedby,
+      Hotelname,
+      PrdImage,
+      rent,
+      address,
+      bed,
+      bath,
+      description,
+      location,
+    } = req.body;
     const UserId = req.user.user._id;
     const rooms = new Room({
       UserId,
       Hotelname,
+      postedby,
+      bed,
+      bath,
+      State,
       city,
       PrdImage,
+      description,
       rent,
       address,
       location,

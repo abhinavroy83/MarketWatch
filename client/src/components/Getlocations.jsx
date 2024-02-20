@@ -27,13 +27,17 @@ function Getlocations() {
       );
     }
   };
+  // console.log("currentlocation", currentlocation);
 
   return (
     <div className="flex flex-col justify-center">
       <Container>
         {currentlocation && showmap ? (
           <div className=" flex justify-center py-2">
-            <LeafletMap onLocationReceived={currentlocation} />
+            <LeafletMap
+              onLocationReceived={currentlocation}
+              style={{ height: "300px", width: "100%" }}
+            />
             {/* <p>{currentlocation}</p> */}
           </div>
         ) : (
