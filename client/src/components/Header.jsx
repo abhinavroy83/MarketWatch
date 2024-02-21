@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authslice";
 import { Link, useNavigate } from "react-router-dom";
 import PostProduct from "../pages/PostProduct";
+import Signup from "./Signup";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -19,9 +20,7 @@ export default function Header() {
     navigate("/login");
   };
   const handlemodelopen = () => {
-    if (authstatus) {
-      setismodalopen(true);
-    }
+    setismodalopen(true);
   };
   const ismodelclose = () => {
     setismodalopen(false);
@@ -53,14 +52,12 @@ export default function Header() {
             </button> */}
           </ul>
         </div>
-        {/* <PostProduct isOpen={ismodalopen} onClose={ismodelclose} /> */}
         {!authstatus ? (
           <div className="hidden space-x-2 lg:block">
+            <Signup isOpen={ismodalopen} onClose={ismodelclose} />
             <button
               type="button"
-              onClick={() => {
-                navigate("/signup/");
-              }}
+              onClick={handlemodelopen}
               className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Sign In

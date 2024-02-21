@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const usershema = new mongoose.Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -9,6 +13,19 @@ const usershema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+  },
+  dob: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    enum: ["Usa", "India"],
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
   },
   password: {
     type: String,

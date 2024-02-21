@@ -1,11 +1,20 @@
 const User = require("../../model/user");
-const bcrypt = require("bcrypt"); 
+const bcrypt = require("bcrypt");
 
 const singup = async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, lastName, dob, firstName, country, city } =
+      req.body;
     const encrytpass = await bcrypt.hash(password, 10);
-    const newUser = new User({ email, name, password: encrytpass });
+    const newUser = new User({
+      email,
+      lastName,
+      dob,
+      firstName,
+      country,
+      city,
+      password: encrytpass,
+    });
     await newUser.save();
     res.json({
       status: "Success",

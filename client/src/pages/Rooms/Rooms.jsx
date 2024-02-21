@@ -166,6 +166,7 @@ function Rooms() {
           <div className=" flex justify-between w-full">
             <p>Similar room in the Area</p>
             <p
+            className=" cursor-pointer"
               onClick={() => {
                 navigate("/rooms");
               }}
