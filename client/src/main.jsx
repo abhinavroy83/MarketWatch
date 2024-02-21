@@ -97,11 +97,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/rooms/:_id",
-        element: (
-          <Authlayout authentication>
-            <Rooms />
-          </Authlayout>
-        ),
+        element: <Rooms />,
       },
     ],
   },

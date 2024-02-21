@@ -13,13 +13,19 @@ const addroom = async (req, res) => {
       bed,
       bath,
       description,
+      email,
+      number,
       location,
     } = req.body;
     const UserId = req.user.user._id;
+    const postedon = new Date().toISOString().split("T")[0];
     const rooms = new Room({
       UserId,
+      postedon,
       Hotelname,
       postedby,
+      email,
+      number,
       bed,
       bath,
       State,

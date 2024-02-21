@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { location as redlocation } from "../store/authslice";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
-  // console.log(onLocationReceived);
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
   const dispatch = useDispatch();
@@ -13,6 +12,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     lat: 0,
     lng: 0,
   });
+  console.log("onLocationReceived",onLocationReceived)
 
   useEffect(() => {
     const [lat, lng] = onLocationReceived.split(",").map(parseFloat);
