@@ -20,10 +20,12 @@ connectiondb();
 const user = require("./src/Routes/user");
 const room = require("./src/Routes/room");
 const job = require("./src/Routes/Job");
+const business = require("./src/Routes/Bussiness");
 
 app.use("/user", user);
 app.use(room);
 app.use(job);
+app.use(business);
 
 //healt check
 

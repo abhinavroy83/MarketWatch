@@ -37,6 +37,9 @@ const addbusiness = async (req, res) => {
       location,
     });
     await bussiness.save();
+    res.json({
+      bussiness,
+    });
   } catch (error) {
     console.error("Error fetching products:", error);
     res.status(500).json({ error: "Internal Server Error" });

@@ -13,12 +13,12 @@ const getroomforspeficuser = async (req, res) => {
       msg: "success",
       rooms: rooms,
     });
-  } catch (error) {
+  } catch (error) { 
     console.log(error);
     res.status(404).json({
       msg: "internal server issue",
     });
-  }
+  } 
 };
 
 module.exports = getroomforspeficuser;

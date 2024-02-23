@@ -31,7 +31,7 @@ const bussinessSchema = mongoose.Schema({
   },
 });
 
-roomSchema.index({ location: "2dsphere" });
+bussinessSchema.index({ location: "2dsphere" });
 const Business = mongoose.model("business", bussinessSchema);
 
 module.exports = Business;
