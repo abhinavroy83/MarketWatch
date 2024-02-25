@@ -16,7 +16,7 @@ function AllRooms() {
         `http://localhost:8000/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setRooms(res.data.Allrooms);
-      console.log(res.data.Allrooms);
+      // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
     }

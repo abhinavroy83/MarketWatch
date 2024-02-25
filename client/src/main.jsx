@@ -17,6 +17,9 @@ import Addrooms from "./pages/User/UserRooms/Addrooms.jsx";
 import Addjob from "./pages/User/Userjobs/Addjob.jsx";
 import AllRooms from "./pages/Rooms/AllRooms.jsx";
 import Rooms from "./pages/Rooms/Rooms.jsx";
+import Getuserbussiness from "./pages/User/Userbussines/Getuserbussiness.jsx";
+import AllBusiness from "./pages/Bussiness/AllBusiness.jsx";
+import Bussiness from "./pages/Bussiness/Bussiness.jsx";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +97,26 @@ const router = createBrowserRouter([
       {
         path: "/rooms/:_id",
         element: <Rooms />,
+      },
+      {
+        path: "/user/bussiness/:userID",
+        element: (
+          <Authlayout authentication>
+            <Getuserbussiness />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/bussiness/:_id",
+        element: <Bussiness />,
+      },
+      {
+        path: "/bussiness",
+        element: (
+          <Authlayout authentication>
+            <AllBusiness />
+          </Authlayout>
+        ),
       },
     ],
   },
