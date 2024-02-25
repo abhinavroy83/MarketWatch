@@ -6,7 +6,7 @@ function BusinessCard({ ...item }) {
     <Link
       to={`/bussiness/${item._id}`}
       key={item._id}
-      className="flex flex-col items-center md:w-[400px] rounded-md border md:flex-row"
+      className="flex flex-col items-center md:w-[400px] rounded-md border-2 md:flex-row"
     >
       <div className=" md:h-[100px] md:w-[100px] m-2">
         <img src={item.Image} alt="Room" className="h-[100px] object-cover" />

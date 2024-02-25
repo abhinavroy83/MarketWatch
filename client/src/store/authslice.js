@@ -6,6 +6,7 @@ const initialState = {
   user: null,
   userID: null,
   location: null,
+  city: null,
 };
 
 const authSlice = createSlice({
@@ -27,9 +28,12 @@ const authSlice = createSlice({
     location: (state, action) => {
       state.location = action.payload.location;
     },
+    cities: (state, action) => {
+      state.city = action.payload.city;
+    },
   },
 });
 
-export const { login, logout, location } = authSlice.actions;
+export const { login, logout, location, cities } = authSlice.actions;
 
 export default authSlice.reducer;

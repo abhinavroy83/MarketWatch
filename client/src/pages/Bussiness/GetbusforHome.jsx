@@ -8,37 +8,49 @@ import { useNavigate } from "react-router-dom";
 function GetbusforHome() {
   const currentloc = useSelector((state) => state.auth.location);
   const navigate = useNavigate();
+  const usercity = useSelector((state) => state.auth.city);
+  // console.log("usercity", usercity);
 
   const [allbusi, setallbusi] = useState([]);
-  const fetchbus = async () => {
+  const fetchBusiness = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
+        usercity
+          ? `http://localhost:8000/api/getbusinessbyloc?city=${usercity}`
+          : `http://localhost:8000/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
-      // console.log(res.data.Allbusiness);
-      setallbusi(res.data.Allbusiness);
+      setallbusi(res.data.allBusiness);
     } catch (error) {
-      console.log("error during fetching api", error);
+      console.log("error during fetching API", error);
     }
   };
   useEffect(() => {
-    fetchbus();
-  }, [currentloc]);
+    fetchBusiness();
+  }, [usercity, currentloc]);
   const nextPage = () => {
     navigate("/bussiness");
   };
 
   const renderRooms = () => {
-    return allbusi.slice(0, 6).map((item) => <BusinessCard {...item} />);
+    if (allbusi && allbusi.length > 0) {
+      return allbusi.slice(0, 4).map((item) => <BusinessCard {...item} />);
+    } else {
+      return <p>Loading...</p>;
+    }
   };
+
   return (
     <Container>
       <div className="px-2 py-2 md:px-6 md:py-10">
         <h1 className="text-2xl font-bold capitalize text-black lg:text-3xl">
-          Bussiness Near You
+          {usercity ? (
+            <p>Bussiness In {usercity}</p>
+          ) : (
+            <p>Bussiness near you</p>
+          )}
         </h1>
         <hr />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-16">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-2 xl:gap-16">
           {renderRooms()}
         </div>
         <div className="mt-4 w-full border-gray-300">

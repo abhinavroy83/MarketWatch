@@ -25,7 +25,7 @@ const business = require("./src/Routes/Bussiness");
 app.use("/user", user);
 app.use(room);
 app.use(job);
-app.use(business);
+app.use(business);  
 
 //healt check
 

@@ -4,14 +4,11 @@ const Getbussinessbyloc = async (req, res) => {
   try {
     const { lat, lng, city } = req.query;
 
+    let allBusiness;
     if (city) {
-      const allbusi = await Business.find({ city });
-      res.json({
-        msg: "success",
-        AllBusiness: allbusi,
-      });
+      allBusiness = await Business.find({ city });
     } else {
-      const allbusi = await Business.find({
+      allBusiness = await Business.find({
         location: {
           $near: {
             $geometry: {
@@ -22,11 +19,12 @@ const Getbussinessbyloc = async (req, res) => {
           },
         },
       });
-      res.json({
-        msg: "success",
-        Allbusiness: allbusi,
-      });
     }
+
+    res.json({
+      msg: "success",
+      allBusiness,
+    });
   } catch (error) {
     console.log(error);
     res.status(404).json({
