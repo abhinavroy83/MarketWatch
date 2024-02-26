@@ -12,11 +12,12 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     lat: 0,
     lng: 0,
   });
-  console.log("onLocationReceived",onLocationReceived)
+
+  // console.log("onLocationReceived", onLocationReceived);
 
   useEffect(() => {
-    const [lat, lng] = onLocationReceived.split(",").map(parseFloat);
-
+    const lat = onLocationReceived.lat;
+    const lng = onLocationReceived.lng;
     if (mapContainerRef) {
       const map = L.map(mapContainerRef.current).setView([lat, lng], 15);
       setCurrentLocation({ lat, lng });

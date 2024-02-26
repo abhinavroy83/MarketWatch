@@ -5,40 +5,47 @@ import Container from "./Container/Container";
 import { location as redlocation } from "../store/authslice";
 
 function Getlocations() {
-  const [currentlocation, setcurrentlocation] = useState(null);
   const [showmap, setshowmap] = useState(true);
   const dispatch = useDispatch();
+  const [currentLocation, setcurrentLocation] = useState({
+    lat: 0,
+    lng: 0,
+  });
+  useEffect(() => {
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            setcurrentLocation({ lat: latitude, lng: longitude });
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    };
+
+    getLocation();
+  }, []);
 
   useEffect(() => {
-    Getlocations();
-    dispatch(redlocation({ location: currentlocation }));
-  }, [currentlocation]);
-
-  const Getlocations = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setcurrentlocation(`${latitude},${longitude}`);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    }
-  };
+    dispatch(redlocation({ location: currentLocation }));
+  }, [currentLocation, dispatch]);
   // console.log("currentlocation", currentlocation);
 
   return (
     <div className="flex flex-col justify-center">
       <Container>
-        {currentlocation && showmap ? (
+        {currentLocation && showmap ? (
           <div className=" flex justify-center py-2">
-            <LeafletMap
-              onLocationReceived={currentlocation}
+            {/* <LeafletMap
+              onLocationReceived={currentLocation}
               style={{ height: "300px", width: "100%" }}
-            />
-            {/* <p>{currentlocation}</p> */}
+            /> */}
+            {/* <p>{currentLocation.lat}</p> */}
           </div>
         ) : (
           <div>
