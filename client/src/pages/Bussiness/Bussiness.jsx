@@ -24,10 +24,11 @@ function Bussiness() {
         ? new Date(res.data.Allbusineses.date).toISOString().split("T")[0]
         : "";
       setposteddate(dates);
-      const latitude = res.data.Allbusineses.location.coordinates[0];
-      const longitude = res.data.Allbusineses.location.coordinates[1];
-      const locationString = `${latitude},${longitude}`;
-      setLocationsndString(locationString);
+      const loc = {
+        lat: res.data.Allbusineses.location.coordinates[0],
+        lng: res.data.Allbusineses.location.coordinates[1],
+      };
+      setLocationsndString(loc);
     } catch (error) {
       console.log("error during fetching api");
     }

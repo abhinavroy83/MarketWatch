@@ -10,7 +10,7 @@ const getroomforspeficuser = async (req, res) => {
       });
     }
     res.json({
-      msg: "success",
+      msg: "success", 
       rooms: rooms,
     });
   } catch (error) { 

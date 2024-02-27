@@ -18,6 +18,7 @@ const addbusiness = async (req, res) => {
       location,
     } = req.body;
     const UserId = req.user.user._id;
+    const { coordinates } = location;
     const date = new Date().toISOString().split("T")[0];
     const bussiness = new Business({
       Image,
@@ -34,7 +35,10 @@ const addbusiness = async (req, res) => {
       email,
       number,
       description,
-      location,
+      location: {
+        type: "Point",
+        coordinates,
+      },
     });
     await bussiness.save();
     res.json({

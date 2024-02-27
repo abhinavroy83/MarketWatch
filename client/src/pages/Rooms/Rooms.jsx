@@ -22,17 +22,19 @@ function Rooms() {
       const res = await axios.get(
         `http://localhost:8000/api/getspecificroom/${_id}`
       );
-      console.log(res.data.rooms);
+      
       setrooms(res.data.rooms);
-      const latitude = res.data.rooms.location.coordinates[0];
-      const longitude = res.data.rooms.location.coordinates[1];
-      const locationString = `${latitude},${longitude}`;
+      const loc = {
+        lat: res.data.rooms.location.coordinates[0],
+        lng: res.data.rooms.location.coordinates[1],
+      };
+
       const date = res.data.rooms.postedon
         ? new Date(res.data.rooms.postedon).toISOString().split("T")[0]
         : "";
       setposteddate(date);
-      console.log("locationsnd", locationString);
-      setLocationsndString(locationString);
+      // console.log("locationsnd", locationString);
+      setLocationsndString(loc);
     } catch (error) {
       console.log("error during fetching api", error);
     }
@@ -166,7 +168,7 @@ function Rooms() {
           <div className=" flex justify-between w-full">
             <p>Similar room in the Area</p>
             <p
-            className=" cursor-pointer"
+              className=" cursor-pointer"
               onClick={() => {
                 navigate("/rooms");
               }}

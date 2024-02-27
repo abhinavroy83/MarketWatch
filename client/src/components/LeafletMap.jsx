@@ -12,9 +12,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     lat: 0,
     lng: 0,
   });
-
-  // console.log("onLocationReceived", onLocationReceived);
-
+  
   useEffect(() => {
     const lat = onLocationReceived.lat;
     const lng = onLocationReceived.lng;
