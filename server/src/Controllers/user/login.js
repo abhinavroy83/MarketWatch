@@ -15,6 +15,7 @@ const login = async (req, res) => {
         msg: "user not find",
       });
     }
+    
     let ispassmatched = await bcrypt.compare(password, user.password);
     if (ispassmatched) {
       const jwttoken = jwt.sign(

@@ -12,4 +12,4 @@ router.get("/api/getrooms/:userID", getroomforspeficuser);
 router.get("/api/getallrooms", getroombycurrentlocation);
 router.get('/api/getspecificroom/:roomID',getspecficroom)
 router.delete("/rooms/:roomsID", deleterooms);
-module.exports = router; 
+module.exports = router;  
