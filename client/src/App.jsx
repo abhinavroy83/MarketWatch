@@ -6,6 +6,7 @@ import { Header } from "./components";
 import Ads from "./pages/Ads/Ads";
 
 function App() {
+  console.log("first")
   const dispatch = useDispatch();
   useEffect(() => {
     const storeused = JSON.parse(localStorage.getItem("userdetails"));
