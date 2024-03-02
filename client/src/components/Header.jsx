@@ -11,7 +11,8 @@ export default function Header() {
   const userID = useSelector((state) => state.auth.userID);
   // console.log(userID);
   // console.log(authstatus);
-  const [ismodalopen, setismodalopen] = useState(false);
+  const [issignupmodel, setissignupmodalopen] = useState(false);
+  const [isloginmodalopen, setloginmodeopen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,11 +21,21 @@ export default function Header() {
     localStorage.removeItem("userdetails");
     navigate("/login");
   };
-  const handlemodelopen = () => {
-    setismodalopen(true);
+  const handlesignmodelopen = () => {
+    setissignupmodalopen(true);
   };
-  const ismodelclose = () => {
-    setismodalopen(false);
+
+  const handleloginmodelopen = () => {
+    setloginmodeopen(true);
+  };
+
+  //close
+
+  const isloginmodelclose = () => {
+    setloginmodeopen(false);
+  };
+  const issignupmodelclose = () => {
+    setissignupmodalopen(false);
   };
 
   return (
@@ -48,18 +59,18 @@ export default function Header() {
         </div>
         {!authstatus ? (
           <div className="hidden space-x-2 lg:block">
-            <Signup isOpen={ismodalopen} onClose={ismodelclose} />
-            <Login isOpen={ismodalopen} onClose={ismodelclose} />
+            <Signup isOpen={issignupmodel} onClose={issignupmodelclose} />
+            <Login isOpen={isloginmodalopen} onClose={isloginmodelclose} />
             <button
               type="button"
-              onClick={handlemodelopen}
+              onClick={handlesignmodelopen}
               className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               SignUp
             </button>
             <button
               type="button"
-              onClick={handlemodelopen}
+              onClick={handleloginmodelopen}
               className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Log In
