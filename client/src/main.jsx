@@ -20,6 +20,7 @@ import Rooms from "./pages/Rooms/Rooms.jsx";
 import Getuserbussiness from "./pages/User/Userbussines/Getuserbussiness.jsx";
 import AllBusiness from "./pages/Bussiness/AllBusiness.jsx";
 import Bussiness from "./pages/Bussiness/Bussiness.jsx";
+import Adminlogin from "./components/AdminCompontents/Adminlogin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +118,11 @@ const router = createBrowserRouter([
             <AllBusiness />
           </Authlayout>
         ),
+      },
+      // adminpanel components
+      {
+        path: "/admin/login",
+        element: <Adminlogin />,
       },
     ],
   },
