@@ -19,9 +19,17 @@ const adminsignup = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.json({
-      status: "failed",
-    });
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.username) {
+      return res.status(400).json({
+        status: "failed",
+        msg: "Username is already Exits",
+      });
+    } else {
+      return res.status(500).json({
+        status: "failed",
+        msg: "An error occurred while processing your request",
+      });
+    }
   }
 };
 

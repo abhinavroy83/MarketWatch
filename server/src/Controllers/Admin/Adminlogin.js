@@ -1,5 +1,6 @@
 const Admin = require("../../model/Admin");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const adminlogin = async (req, res) => {
   try {
@@ -13,10 +14,18 @@ const adminlogin = async (req, res) => {
     }
     let ispassmatched = await bcrypt.compare(password, user.password);
     if (ispassmatched) {
+      const jwttoken = jwt.sign(
+        { user: user.toJSON(), role: user.role },
+        process.env.JWTSECRETKEY,
+        {
+          expiresIn: "100m",
+        }
+      );
       res.json({
         Status: "success",
         msg: "successfuly loggedIN",
-        //   data: user,
+        jwttoken,
+        data: user,
       });
     }
   } catch (error) {

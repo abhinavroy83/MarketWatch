@@ -4,6 +4,7 @@ import { logout } from "../store/authslice";
 import { Link, useNavigate } from "react-router-dom";
 import PostProduct from "../pages/PostProduct";
 import Signup from "./Signup";
+import Login from "./Login";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -43,30 +44,22 @@ export default function Header() {
             >
               Home
             </button>
-            {/* <button
-              type="button"
-              onClick={handlemodelopen}
-              className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Postproduct
-            </button> */}
           </ul>
         </div>
         {!authstatus ? (
           <div className="hidden space-x-2 lg:block">
             <Signup isOpen={ismodalopen} onClose={ismodelclose} />
+            <Login isOpen={ismodalopen} onClose={ismodelclose} />
             <button
               type="button"
               onClick={handlemodelopen}
               className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Sign In
+              SignUp
             </button>
             <button
               type="button"
-              onClick={() => {
-                navigate("/login");
-              }}
+              onClick={handlemodelopen}
               className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Log In

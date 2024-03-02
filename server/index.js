@@ -44,9 +44,10 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/dashboard", IsloggedIn, (req, res) => {
+const verifyadminpage = require("./src/middleware/adminmiddleware");
+app.get("/dashboard", verifyadminpage, (req, res) => {
   try {
-    const user = req.user.user._id;
+    const user = req.user.user.role;
     res.json({
       Status: "Success",
       msg: "you haved logged success",

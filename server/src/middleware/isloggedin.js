@@ -5,7 +5,7 @@ const IsloggedIn = (req, res, next) => {
     const { jwttoken } = req.headers;
     const user = jwt.verify(jwttoken, process.env.JWTSECRETKEY);
     req.user = user;
-    next();
+    next(); 
   } catch (error) {
     res.json({
       status: "failed",

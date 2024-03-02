@@ -43,7 +43,7 @@ function Signup({ isOpen, onClose }) {
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
-        }}
+        }}  
       >
         <div className=" w-full flex h-full">
           <div className="bg-slate-800 w-1/2">

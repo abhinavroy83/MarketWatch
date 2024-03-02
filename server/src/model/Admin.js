@@ -4,6 +4,7 @@ const adminschema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   uniqueid: {
     type: Number,
