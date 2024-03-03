@@ -59,8 +59,8 @@ function Login({ isOpen, onClose }) {
     >
       <div className="flex justify-center items-center">
         <div className="flex flex-col items-center justify-center border-2 border-solid border-red-500 px-4 py-10">
-          <h1 className="text-3xl font-bold underline text-red-400 my-2">
-            Login
+        <h1 className="text-3xl font-bold text-[#17b19f] mt-3">
+            DISCOVER NOW!
           </h1>
           <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col">
             <Input
@@ -77,7 +77,7 @@ function Login({ isOpen, onClose }) {
             />
             <button
               type="submit"
-              className="rounded-md bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-[#17b19f] my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Login
             </button>
