@@ -34,8 +34,8 @@ function Signup({ isOpen, onClose }) {
 						top: "50%",
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						width: 900,
-						height: 700,
+						width: 1000,
+						height: 770,
 						border: "none",
 						padding: "0",
 						backgroundColor: "#FFF",
@@ -51,7 +51,7 @@ function Signup({ isOpen, onClose }) {
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Signup</p>
-							<p className=" text-white text-center mt-5 text-sm px-7 text-base/7">Stay Connected With US Add Your Personal Details. For More Details.</p>
+							<p className=" text-white text-center mt-5 text-sm px-10 text-base/7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<button
 								className="place-items-center items-center rounded-md bg-[#17b19f] px-5 py-2 text-sm font-semibold text-white hover:bg-black/80 mt-5"
 								type="submit">
@@ -67,7 +67,7 @@ function Signup({ isOpen, onClose }) {
 							<div className="mx-10">
 								<div className="flex gap-5 mt-5">
 									<Input
-										label="FirstName"
+										label="First Name"
 										Placeholder="First name"
 										type="text"
 										{...register("firstName", {
@@ -118,13 +118,13 @@ function Signup({ isOpen, onClose }) {
 										{errors.dob && <p>{errors.msg?.dob}</p>}
 									</div>
 									<div>
-										{/* <label>Select a country:</label> */}
-										<select className="w-full flex h-10 rounded-md border border-black/0 bg-transparent px-3 py-2 mt-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"{...register("country", { required: true })}>
+										<label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Select a country</label>
+										<select className="w-full flex h-10 rounded-md border border-black/0 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"{...register("country", { required: true })}>
 											<option value="">Country</option>
 											<option value="USA">USA</option>
 											<option value="India">India</option>
 										</select>
-										{errors.country && <p className="mt-1 text-xs text-gray-500">Country is required.</p>}
+										{errors.country && <p className="mt-1 text-xs text-red-500">Country is required</p>}
 									</div>
 									<Input
 										label="City"
@@ -139,7 +139,7 @@ function Signup({ isOpen, onClose }) {
 									</div>
 									<div className="text-center">
 									<button
-										className="place-items-center items-center inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[16px] font-semibold text-white hover:bg-black/80"
+										className="place-items-center items-center inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/80"
 										type="submit"
 									>
 										Submit
