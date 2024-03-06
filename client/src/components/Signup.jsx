@@ -43,7 +43,7 @@ function Signup({ isOpen, onClose }) {
 						borderRadius: 10
 					},
 					overlay: {
-						backgroundColor: "rgba(0, 0, 0, 0.5)",
+						backgroundColor: "rgba(0, 0, 0, 0.9)",
 					},
 				}}
 			>
@@ -52,6 +52,7 @@ function Signup({ isOpen, onClose }) {
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Signup</p>
+							<p className=" text-white text-center mt-5 text-sm px-7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<p className=" text-white text-center mt-5 text-sm px-10 text-base/7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<button
 								className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/70 mt-5"
