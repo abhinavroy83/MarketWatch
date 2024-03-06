@@ -46,8 +46,8 @@ function Login({ isOpen, onClose }) {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 750,
-          height: 550,
+          width: 880,
+          height: 600,
           border: "none",
           padding: "0px",
           backgroundColor: "#FFF",
@@ -61,7 +61,7 @@ function Login({ isOpen, onClose }) {
     >
       {/* <div className="flex justify-center items-center h-full bg-gradient-to-tr from-[#17b19f] to-cyan-500 shadow-black bg-repeat-x bg-center bg-[url('https://img.freepik.com/premium-vector/blue-green-background-with-line-with-gradient-mesh-vector-illustration_103688-1644.jpg')] bg-cover"> */}
         <div className="flex flex-row items-center bg-white rounded-md h-full w-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover bg-gradient-to-tr from-[#17b19f] to-cyan-500 w-1/2 flex justify-center items-center h-full items-center">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Welcome Back</p>

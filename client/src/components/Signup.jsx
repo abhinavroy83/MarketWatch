@@ -35,7 +35,7 @@ function Signup({ isOpen, onClose }) {
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						width: 1000,
-						height: 770,
+						height: 750,
 						border: "none",
 						padding: "0",
 						backgroundColor: "#FFF",
@@ -48,11 +48,10 @@ function Signup({ isOpen, onClose }) {
 				}}
 			>
 				<div className=" w-full flex h-full">
-					<div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover bg-gradient-to-tr from-[#17b19f] to-cyan-500 w-1/2 flex justify-center items-center">
+					<div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center">
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Signup</p>
-							<p className=" text-white text-center mt-5 text-sm px-7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<p className=" text-white text-center mt-5 text-sm px-10 text-base/7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<button
 								className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/70 mt-5"
