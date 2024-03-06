@@ -65,14 +65,14 @@ function Login({ isOpen, onClose }) {
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Welcome Back</p>
-							<p className=" text-white text-center mt-5 text-sm px-10 text-base/7">Log In Here With Your Personal Details</p>
+							<p className=" text-white text-center mt-5 px-10 text-base/7">Log In Here With Your Personal Details</p>
 						</div>
 					</div>
         <div className="w-50 mx-20 items-center">
           <h1 className="text-3xl font-bold text-[#17b19f] text-center">
               GET STARTED
             </h1>
-            <p className=" text-black text-center mt-2 text-sm px-10 text-base/7">Start Your Journey</p>
+            <p className=" text-black text-center mt-2 px-10 text-base/7">Start Your Journey</p>
             <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col mt-3 gap-3">
             <Input  
                       label="Email"
