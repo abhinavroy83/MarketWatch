@@ -5,7 +5,7 @@ function Roomcard({ ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className="flex max-w-2xl flex-col items-center rounded-md md:flex-row border shadow-md hover:shadow-lg"
+      className="flex max-w-4xl flex-col items-center rounded-md md:flex-row border shadow-md hover:shadow-lg"
     >
       <img src={item.PrdImage} alt="" height={170} width={170} className="rounded-tl-md rounded-bl-md" />
       <div className="px-3">
