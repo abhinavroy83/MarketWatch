@@ -88,7 +88,7 @@ export default function Header() {
               onClick={handlesignmodelopen}
               className="rounded-md bg-transparent px-3 py-2 text-base/7 font-semibold text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              SignUp
+              Sign Up
             </button>
             <button
               type="button"

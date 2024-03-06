@@ -68,7 +68,7 @@ function Login({ isOpen, onClose }) {
 							<p className=" text-white text-center mt-5 px-10 text-base/7">Log In Here With Your Personal Details</p>
 						</div>
 					</div>
-        <div className="w-50 mx-20 items-center">
+        <div className="w-50 px-20 items-center grow">
           <h1 className="text-3xl font-bold text-[#17b19f] text-center">
               GET STARTED
             </h1>
