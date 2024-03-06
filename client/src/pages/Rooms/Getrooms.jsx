@@ -52,7 +52,7 @@ function Getrooms() {
           )}
         </h1>
         <hr />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-16">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-5">
           {renderRooms()}
         </div>
         <div className="mt-4 w-full border-gray-300">

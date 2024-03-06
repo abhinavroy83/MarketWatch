@@ -40,6 +40,7 @@ function Signup({ isOpen, onClose }) {
 						padding: "0",
 						backgroundColor: "#FFF",
 						boxShadow: "0px 0px 25px 0px rgba(0, 0, 0, 0.1)",
+						borderRadius: 10
 					},
 					overlay: {
 						backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -47,13 +48,13 @@ function Signup({ isOpen, onClose }) {
 				}}
 			>
 				<div className=" w-full flex h-full">
-					<div className="bg-slate-800 w-1/2 flex justify-center items-center">
+					<div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover bg-gradient-to-tr from-[#17b19f] to-cyan-500 w-1/2 flex justify-center items-center">
 						<div className="text-center">
 							<img className="w-[100px] m-auto" src={Logo} />
 							<p className=" text-white text-center mt-5 text-3xl">Signup</p>
 							<p className=" text-white text-center mt-5 text-sm px-10 text-base/7">Stay Connected With US Add Your Personal Details. For More Details.</p>
 							<button
-								className="place-items-center items-center rounded-md bg-[#17b19f] px-5 py-2 text-sm font-semibold text-white hover:bg-black/80 mt-5"
+								className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/70 mt-5"
 								type="submit">
 								Sign Up Now! 
 							</button>
@@ -119,7 +120,7 @@ function Signup({ isOpen, onClose }) {
 									</div>
 									<div>
 										<label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Select a country</label>
-										<select className="w-full flex h-10 rounded-md border border-black/0 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"{...register("country", { required: true })}>
+										<select className="w-full flex h-10 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"{...register("country", { required: true })}>
 											<option value="">Country</option>
 											<option value="USA">USA</option>
 											<option value="India">India</option>
@@ -139,7 +140,7 @@ function Signup({ isOpen, onClose }) {
 									</div>
 									<div className="text-center">
 									<button
-										className="place-items-center items-center inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/80"
+										className="place-items-center items-center inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
 										type="submit"
 									>
 										Submit
