@@ -8,6 +8,7 @@ import Roomcard from "./Roomcard";
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const usercity = useSelector((state) => state.auth.city);
+  const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
   const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ function AllRooms() {
           : `http://localhost:8000/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setRooms(res.data.Allrooms);
+
       // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
@@ -26,12 +28,17 @@ function AllRooms() {
   };
   useEffect(() => {
     getRooms();
+    const loc = {
+      lat: currentloc.lat,
+      lng: currentloc.lng,
+    };
+    setLocationsndString(loc);
   }, [currentloc, usercity]);
   const renderRooms = () => {
     return rooms.map((item) => <Roomcard {...item} />);
   };
   return (
-    <ChildContainer>
+    <ChildContainer onLocationReceived={locationsndString}>
       <div className="px-2 py-2 md:px-6 md:py-10">
         <h1 className="text-2xl font-bold capitalize text-black lg:text-3xl">
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}

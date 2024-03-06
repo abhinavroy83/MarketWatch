@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Login from "./Login";
 
 export default function Protected({ children, authentication = true }) {
+  const [isloginmodalopen, setloginmodeopen] = useState(false);
   const Navigate = useNavigate();
   const authstatus = useSelector((state) => state.auth.status);
   const [loader, setloader] = useState(true);
+
+  const isloginmodelclose = () => {
+    setloginmodeopen(false);
+  };
   useEffect(() => {
     //false && false !=false ==ture
     if (authentication && authstatus !== authentication) {

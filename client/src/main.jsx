@@ -1,5 +1,5 @@
 import "./index.css";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -22,6 +22,7 @@ import AllBusiness from "./pages/Bussiness/AllBusiness.jsx";
 import Bussiness from "./pages/Bussiness/Bussiness.jsx";
 import Adminlogin from "./components/AdminCompontents/Adminlogin.jsx";
 
+// const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         path: "/login",
         element: (
           <Authlayout authentication={false}>
-            <Login />
+            <Login isOpen={true} />
           </Authlayout>
         ),
       },
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: (
           <Authlayout authentication={false}>
-            <Signup />
+            <Signup isOpen={true} />
           </Authlayout>
         ),
       },
