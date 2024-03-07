@@ -56,6 +56,7 @@ function Home() {
       <Getrooms />
       <GetbusforHome />
       <Getjob />
+     
       {/* <Getproduct /> */}
     </Container>
   );
