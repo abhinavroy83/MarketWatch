@@ -27,6 +27,11 @@ const adminlogin = async (req, res) => {
         jwttoken,
         data: user,
       });
+    } else {
+      res.json({
+        Status: "Incorrect Password",
+        status: "failed",
+      });
     }
   } catch (error) {
     console.log("Error during login", error);

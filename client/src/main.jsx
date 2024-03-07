@@ -21,6 +21,10 @@ import Getuserbussiness from "./pages/User/Userbussines/Getuserbussiness.jsx";
 import AllBusiness from "./pages/Bussiness/AllBusiness.jsx";
 import Bussiness from "./pages/Bussiness/Bussiness.jsx";
 import Adminlogin from "./components/AdminCompontents/Adminlogin.jsx";
+import {
+  Adminauthlayout,
+  AdminHome,
+} from "./components/AdminCompontents/index.js";
 
 // const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
@@ -123,7 +127,19 @@ const router = createBrowserRouter([
       // adminpanel components
       {
         path: "/admin/login",
-        element: <Adminlogin />,
+        element: (
+          <Adminauthlayout authentication={false}>
+            <Adminlogin />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/dashboard",
+        element: (
+          <Adminauthlayout authentication>
+            <AdminHome />
+          </Adminauthlayout>
+        ),
       },
     ],
   },

@@ -1,3 +1,4 @@
 import Adminlogin from "./Adminlogin";
-
-export { Adminlogin };
+import Adminauthlayout from "./AdminAuthlayout";
+import AdminHome from "./AdminHome";
+export { Adminlogin, AdminHome, Adminauthlayout };
