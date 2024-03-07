@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../store/authslice";
+import { logout } from "../../store/authslice";
 import { Link, useNavigate } from "react-router-dom";
-import PostProduct from "../pages/PostProduct";
+import PostProduct from "../../pages/PostProduct";
 import Signup from "./Signup";
 import Login from "./Login";
 

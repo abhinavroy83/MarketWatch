@@ -1,12 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Container, Input } from "../components/index";
+import { Container, Input } from "../index";
 import axios from "axios";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
-import { login as authlogin } from "../store/authslice";
+import { login as authlogin } from "../../store/authslice";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 function Login({ isOpen, onClose }) {
   const {
     register,

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useDispatch } from "react-redux";
-import { location as redlocation } from "../store/authslice";
+import { location as redlocation } from "../../store/authslice";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
