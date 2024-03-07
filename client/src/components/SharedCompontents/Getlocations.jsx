@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import LeafletMap from "./LeafletMap";
+import LeafletMap from "../UserCompontents/LeafletMap";
 import { useDispatch, useSelector } from "react-redux";
-import Container from "./Container/Container";
-import { location as redlocation } from "../store/authslice";
+import Container from "../Container/Container";
+import { location as redlocation } from "../../store/authslice";
 
 function Getlocations() {
   const [showmap, setshowmap] = useState(true);

@@ -1,9 +1,9 @@
 import Modal from "react-modal";
 import React from "react";
 import { useForm } from "react-hook-form";
-import Input from "./Input";
+import Input from "../SharedCompontents/Input";
 import axios from "axios";
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 
 function Signup({ isOpen, onClose }) {
