@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Input from "../SharedCompontents/Input";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/adminauthslice";
+import { login as adminauth } from "../../store/adminauthslice";
 import { useNavigate } from "react-router-dom";
 
 function Adminlogin() {
@@ -24,15 +24,18 @@ function Adminlogin() {
       if (res.data.Status == "success") {
         console.log(res.data);
         dispatch(
-          login({
+          adminauth({
             token: res.data.jwttoken,
             role: res.data.data.role,
           })
         );
+        localStorage.setItem("admindetails", JSON.stringify(res));
         alert("successfully logged in");
         navigate("/admin/dashboard");
       } else if (res.data.Status === "Incorrect Password") {
         alert("incorrect password");
+      } else if (res.data.msg === "user not find") {
+        alert("user not find");
       } else {
         alert("something went wrong");
       }

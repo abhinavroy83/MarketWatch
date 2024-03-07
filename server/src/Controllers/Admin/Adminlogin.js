@@ -7,7 +7,7 @@ const adminlogin = async (req, res) => {
     const { password, username } = req.body;
     const user = await Admin.findOne({ username });
     if (!user) {
-      res.json({
+      return res.json({
         status: "failed",
         msg: "user not find",
       });

@@ -10,16 +10,17 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
-      res.json({
+      return res.json({
         status: "failed",
         msg: "user not find",
       });
-    }
-    
+    } 
+
     let ispassmatched = await bcrypt.compare(password, user.password);
     if (ispassmatched) {
       const jwttoken = jwt.sign(
-        { user: user.toJSON() },process.env.JWTSECRETKEY,
+        { user: user.toJSON() },
+        process.env.JWTSECRETKEY,
         {
           expiresIn: "100m",
         }

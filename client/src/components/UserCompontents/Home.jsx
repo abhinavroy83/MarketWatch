@@ -9,6 +9,7 @@ import Getjob from "../../pages/Job/Getjob";
 import GetbusforHome from "../../pages/Bussiness/GetbusforHome";
 import { cities } from "../../store/authslice";
 import Footer from "./Footer";
+import Geteventforhome from "../../pages/Events/Geteventforhome";
 
 function Home() {
   const [city, setcity] = useState();
@@ -53,10 +54,11 @@ function Home() {
           </svg>
         </button>
       </div>
+      <Geteventforhome />
       <Getrooms />
       <GetbusforHome />
       <Getjob />
-     
+
       {/* <Getproduct /> */}
     </Container>
   );

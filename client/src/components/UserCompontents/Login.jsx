@@ -101,7 +101,7 @@ function Login({ isOpen, onClose }) {
             <Input
               label="Password"
               Placeholder="Password"
-              type="text"
+              type="password"
               {...register("password", { required: "Password is required" })}
               errorMessage={errors.password?.message}
             />
