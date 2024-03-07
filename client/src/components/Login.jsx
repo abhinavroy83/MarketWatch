@@ -60,14 +60,14 @@ function Login({ isOpen, onClose }) {
       }}
     >
       {/* <div className="flex justify-center items-center h-full bg-gradient-to-tr from-[#17b19f] to-cyan-500 shadow-black bg-repeat-x bg-center bg-[url('https://img.freepik.com/premium-vector/blue-green-background-with-line-with-gradient-mesh-vector-illustration_103688-1644.jpg')] bg-cover"> */}
-      <div className="flex flex-row items-center bg-white rounded-md h-full w-full">
+      <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-[Roboto]">
         <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
           <div className="text-center">
             <img className="w-[100px] m-auto" src={Logo} />
-            <p className=" text-white text-center mt-5 text-3xl">
+            <p className=" text-black text-center mt-5 text-3xl">
               Welcome Back
             </p>
-            <p className=" text-white text-center mt-5 px-10 text-base/7">
+            <p className=" text-black text-center mt-5 px-10 text-base/7 font-[Roboto]">
               Log In Here With Your Personal Details
             </p>
           </div>
@@ -107,7 +107,7 @@ function Login({ isOpen, onClose }) {
             />
             <button
               type="submit"
-              className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-sm font-semibold text-white shadow-sm text-[16px] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-sm font-semibold text-white shadow-sm shadow-[#ccc] text-[16px] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Login Here
             </button>

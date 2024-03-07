@@ -50,11 +50,11 @@ function Signup({ isOpen, onClose }) {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-[Roboto]">
             <div className="text-center">
               <img className="w-[100px] m-auto" src={Logo} />
-              <p className=" text-white text-center mt-5 text-3xl">Signup</p>
-              <p className=" text-white text-center mt-5 px-10 text-base/7">
+              <p className=" text-black text-center mt-5 text-3xl">Sign Up Here</p>
+              <p className=" text-black text-center mt-5 px-10 text-base/7">
                 Stay Connected With US Add Your Personal Details. For More
                 Details.
               </p>
@@ -129,7 +129,7 @@ function Signup({ isOpen, onClose }) {
                     {errors.dob && <p>{errors.msg?.dob}</p>}
                   </div>
                   <div>
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Roboto]">
                       Select a country
                     </label>
                     <select
@@ -153,7 +153,7 @@ function Signup({ isOpen, onClose }) {
                     {...register("city", { required: "City is required" })}
                     errorMessage={errors.city?.message}
                   />
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 font-[Roboto]">
                     <input type="checkbox" />
                     <label className="w-full">
                       I agree to terms and conditions
@@ -161,10 +161,10 @@ function Signup({ isOpen, onClose }) {
                   </div>
                   <div className="text-center">
                     <button
-                      className="place-items-center items-center inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
-                      Submit
+                      Sign To Create Account
                     </button>
                   </div>
                 </div>
