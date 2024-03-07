@@ -8,6 +8,7 @@ import Getrooms from "../pages/Rooms/Getrooms";
 import Getjob from "../pages/Job/Getjob";
 import GetbusforHome from "../pages/Bussiness/GetbusforHome";
 import { cities } from "../store/authslice";
+import Footer from "./Footer";
 
 function Home() {
   const [city, setcity] = useState();
@@ -30,11 +31,32 @@ function Home() {
           }}
           className="w-1/2 text-center hover:bg-gray-300 mt-1 bg-gray-200 rounded-full px-1 py-1.5"
         />
-        <button className="hover:bg-black/80 ml-3 bg-black text-white px-5 mt-1 rounded-full" onClick={handleclick}><svg class="h-8 w-8 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="10" cy="10" r="7" />  <line x1="21" y1="21" x2="15" y2="15" /></svg></button>
+        <button
+          className="hover:bg-black/80 ml-3 bg-black text-white px-5 mt-1 rounded-full"
+          onClick={handleclick}
+        >
+          <svg
+            class="h-8 w-8 text-white"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <path stroke="none" d="M0 0h24v24H0z" />{" "}
+            <circle cx="10" cy="10" r="7" />{" "}
+            <line x1="21" y1="21" x2="15" y2="15" />
+          </svg>
+        </button>
       </div>
       <Getrooms />
       <GetbusforHome />
       <Getjob />
+      <Footer />
       {/* <Getproduct /> */}
     </Container>
   );

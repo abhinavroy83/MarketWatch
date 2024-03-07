@@ -14,6 +14,7 @@ function Getjob() {
         `http://localhost:8000/api/job/getalljobs?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       // console.log(res.data.Alljob);
+      // console.log(currentloc);
       setJobdata(res.data.Alljob);
     } catch (error) {
       console.log("error during fetcing api", error);

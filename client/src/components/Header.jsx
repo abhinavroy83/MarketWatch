@@ -9,8 +9,6 @@ import Login from "./Login";
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
-  // console.log(userID);
-  // console.log(authstatus);
   const [issignupmodel, setissignupmodalopen] = useState(false);
   const [isloginmodalopen, setloginmodeopen] = useState(false);
   const dispatch = useDispatch();
@@ -71,7 +69,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => {
-                navigate("/");
+                navigate("/rooms");
               }}
               className="rounded-md bg-transparent px-3 py-2 text-base/7 font-semibold text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
