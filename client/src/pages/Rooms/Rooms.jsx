@@ -120,15 +120,15 @@ function Rooms() {
               Posted By:{rooms.postedby} || Posted On:{posteddate}{" "}
             </p>
           </div>
-          <div className=" px-3 border-red-500 border-2 ml-7">
-            <p className="mt-3 text-2xl font-semibold text-gray-800">
-              {rooms.Hotelname}
-            </p>
-            <p>{rooms.rent} monthly</p>
-            <p>{rooms.address}</p>
-            <p>
-              {rooms.bed}Bed / {rooms.bath}Bath
-            </p>
+          <div className="px-3 border-black font-[Roboto] border-2 ml-7 flex flex-col gap-1">
+              <p className="mt-3 text-2xl font-semibold text-gray-800 font-[Poppins]">
+                {rooms.Hotelname}
+              </p>
+              <p>{rooms.rent} monthly</p>
+              <p>{rooms.address}</p>
+              <p>
+                {rooms.bed}Bed / {rooms.bath}Bath
+              </p>
             <div>
               {locationsndString ? (
                 <div>
@@ -150,9 +150,10 @@ function Rooms() {
                   setcontachdet(true);
                   // if(authstatus)
                 }}
-                className="rounded-md mx-auto bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
-                Get In touch
+                <svg class="h-6 w-6 text-white-500 pt-1"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                <span class="pt-1 ml-2">Get In touch </span>
               </button>
               {contactdet && authstatus ? (
                 <div>

@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <div className="relative w-full bg-[#17b19f] shadow-2xl">
+    <div className="relative w-full bg-[#17b19f] shadow-2xl font-[poppins]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <span className="font-bold text-white">Logo Here</span>
@@ -91,7 +91,7 @@ export default function Header() {
             <button
               type="button"
               onClick={handleloginmodelopen}
-              className="rounded-md px-3 py-2 text-base/7 font-semibold text-black hover:bg-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md px-3 py-2 text-base/7 font-semibold text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Log In
             </button>

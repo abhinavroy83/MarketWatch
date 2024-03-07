@@ -55,7 +55,7 @@ function Login({ isOpen, onClose }) {
           borderRadius: 10,
         },
         overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
         },
       }}
     >

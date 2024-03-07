@@ -24,17 +24,17 @@ function ChildContainer({ children, onLocationReceived }) {
   return (
     <div className="w-full mx-auto px-4 flex justify-center h-full">
       <main>{children}</main>
-      <aside className="border-red-400 border-2 w-1/5 m-2 h-2/3 mt-4">
+      <aside className="border-gray-400 border-2 w-1/5 m-2 h-2/3 mt-4 font-[Roboto]">
         <div className="h-full flex flex-col">
           {weatherData ? (
-            <div className="p-4 border-2 bg-blue-500">
+            <div className="p-10 rounded-xl border-2 bg-gradient-to-t from-cyan-500 to-blue-700 text-white text-[24px] font-[Roboto]">
               <div>{weatherData.name}</div>
               <div className="flex">
-                <div className="flex border-2 border-blue-200">
+                <div className="flex mt-5 text-white text-[47px]">
                   <div>
                     {weatherData.weather && weatherData.weather.length > 0 && (
                       <img
-                        className="h-12 w-12"
+                        className="h-16 w-16"
                         src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
                         alt="logo"
                       />
@@ -53,17 +53,22 @@ function ChildContainer({ children, onLocationReceived }) {
                     )}
                   </div>
                 </div>
-                <div className="pl-2">
+                <div className="pl-2 ml-10 mt-5">
                   {weatherData.weather && <p>{weatherData.weather[0].main}</p>}
                   {weatherData.main && <p>{weatherData.main.humidity}%</p>}
                 </div>
               </div>
-              <p>from OpenWeatherMap</p>
+              <p className="mt-5">from OpenWeatherMap</p>
             </div>
           ) : (
             <p>Loading...</p>
           )}
-          <div className="border-2 bg-yellow-300 h-2/4"></div>
+          <div className="border-2 bg-yellow-300 h-2/4 mt-4 rounded-xl">
+          <h1 className="text-2xl font-semibold text-black mt-5 ml-10">
+							Services
+						</h1>
+          </div>
+
         </div>
       </aside>
     </div>
