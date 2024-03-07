@@ -22,13 +22,15 @@ const room = require("./src/Routes/room");
 const job = require("./src/Routes/Job");
 const business = require("./src/Routes/Bussiness");
 const event = require("./src/Routes/Events");
+const movie = require("./src/Routes/Movie");
 const admin = require("./src/Routes/Admin");
 
 app.use("/user", user);
 app.use(room);
 app.use(job);
-app.use(business); 
+app.use(business);
 app.use(event);
+app.use(movie);
 app.use(admin);
 
 //healt check

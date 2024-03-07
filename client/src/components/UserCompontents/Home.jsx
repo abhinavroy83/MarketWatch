@@ -10,6 +10,7 @@ import GetbusforHome from "../../pages/Bussiness/GetbusforHome";
 import { cities } from "../../store/authslice";
 import Footer from "./Footer";
 import Geteventforhome from "../../pages/Events/Geteventforhome";
+import Getmovieforhome from "../../pages/movie/Getmovieforhome";
 
 function Home() {
   const [city, setcity] = useState();
@@ -57,6 +58,7 @@ function Home() {
       <Geteventforhome />
       <Getrooms />
       <GetbusforHome />
+      <Getmovieforhome />
       <Getjob />
 
       {/* <Getproduct /> */}
