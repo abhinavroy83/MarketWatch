@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "../../components";
 import BusinessCard from "./BusinessCard";
 import { useNavigate } from "react-router-dom";
+import { Container } from "../../../components";
 
 function GetbusforHome() {
   const currentloc = useSelector((state) => state.auth.location);

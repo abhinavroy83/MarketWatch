@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "../../components";
+import { Container } from "../../../components";
 
 function Getjob() {
   const currentloc = useSelector((state) => state.auth.location);

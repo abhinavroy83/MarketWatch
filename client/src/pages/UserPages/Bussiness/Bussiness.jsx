@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BusinessCard from "./BusinessCard";
 import { useSelector } from "react-redux";
-import { LeafletMap } from "../../components";
+import { LeafletMap } from "../../../components";
 
 function Bussiness() {
   const { _id } = useParams();

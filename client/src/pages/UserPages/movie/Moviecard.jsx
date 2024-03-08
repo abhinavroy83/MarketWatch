@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "../../components";
+import { Container } from "../../../components";
 
-function Eventcard({ ...item }) {
+function Moviecard({ ...item }) {
   return (
     <Container>
       <div className="mx-auto flex w-80 flex-col justify-center bg-white rounded-2xl shadow-xl shadow-gray-400/20">
@@ -23,4 +23,4 @@ function Eventcard({ ...item }) {
   );
 }
 
-export default Eventcard;
+export default Moviecard;

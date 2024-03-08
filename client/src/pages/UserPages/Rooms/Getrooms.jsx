@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "../../components";
 import { useNavigate } from "react-router-dom";
 import Roomcard from "./Roomcard";
+import { Container } from "../../../components";
 
 function Getrooms() {
   const currentloc = useSelector((state) => state.auth.location);

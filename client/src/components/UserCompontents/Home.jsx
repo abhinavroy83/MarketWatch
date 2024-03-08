@@ -4,13 +4,13 @@ import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import Getproduct from "../../pages/Getproduct";
 import Container from "../Container/Container";
-import Getrooms from "../../pages/Rooms/Getrooms";
-import Getjob from "../../pages/Job/Getjob";
-import GetbusforHome from "../../pages/Bussiness/GetbusforHome";
+import Getjob from "../../pages/UserPages/Job/Getjob";
+import GetbusforHome from "../../pages/UserPages/Bussiness/GetbusforHome";
 import { cities } from "../../store/authslice";
 import Footer from "./Footer";
-import Geteventforhome from "../../pages/Events/Geteventforhome";
-import Getmovieforhome from "../../pages/movie/Getmovieforhome";
+import Geteventforhome from "../../pages/UserPages/Events/Geteventforhome";
+import Getmovieforhome from "../../pages/UserPages/movie/Getmovieforhome";
+import Getrooms from "../../pages/UserPages/Rooms/Getrooms";
 
 function Home() {
   const [city, setcity] = useState();

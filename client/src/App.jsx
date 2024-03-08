@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
 import { login as authlogin } from "./store/authslice";
 import { Footer, Header } from "./components";
-import Ads from "./pages/Ads/Ads";
 import { login as adminauth } from "./store/adminauthslice";
+import Ads from "./pages/UserPages/Ads/Ads";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { ChildContainer } from "../../components";
 import BusinessCard from "./BusinessCard";
+import { ChildContainer } from "../../../components";
 
 function AllBusiness() {
   const currentloc = useSelector((state) => state.auth.location);

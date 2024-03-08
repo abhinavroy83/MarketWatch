@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../../components";
+import { Container } from "../../../components";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import Eventcard from "./Eventcard";
