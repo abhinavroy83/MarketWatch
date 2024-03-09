@@ -34,20 +34,25 @@ function Geteventforhome() {
     infinite: true,
     nextArrow: <div className="custom-arrow">Next</div>,
     prevArrow: <div className="custom-arrow">Previous</div>,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     rtl: true,
+    arrows: true
   };
   return (
     <Container>
-      <div>events</div>
-      <Slider {...settings}>
-        {events.map((item) => (
-          <Eventcard key={item.id} {...item} />
-        ))}
-      </Slider>
+      <div className="event-slick-holder pb-10">
+        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-5 mt-7">
+        <div>Events</div></h1>
+        <hr className="ml-5 mb-10"/>
+        <Slider {...settings}>
+          {events.map((item) => (
+            <Eventcard key={item.id} {...item} />
+          ))}
+        </Slider>
+      </div>
     </Container>
   );
 }

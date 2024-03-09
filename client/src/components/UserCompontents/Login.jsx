@@ -60,28 +60,29 @@ function Login({ isOpen, onClose }) {
       }}
     >
       {/* <div className="flex justify-center items-center h-full bg-gradient-to-tr from-[#17b19f] to-cyan-500 shadow-black bg-repeat-x bg-center bg-[url('https://img.freepik.com/premium-vector/blue-green-background-with-line-with-gradient-mesh-vector-illustration_103688-1644.jpg')] bg-cover"> */}
-      <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-[Roboto]">
+      <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-[Montserrat]">
         <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
-          <div className="text-center">
+          <div className="text-center font-bold">
             <img className="w-[100px] m-auto" src={Logo} />
             <p className=" text-black text-center mt-5 text-3xl">
               Welcome Back
             </p>
-            <p className=" text-black text-center mt-5 px-10 text-base/7 font-[Roboto]">
+            <p className=" text-black text-center mt-5 px-10 text-base/7 font-[Montserrat]">
               Log In Here With Your Personal Details
             </p>
           </div>
         </div>
         <div className="w-50 px-20 items-center grow">
+        <svg className="h-10 w-10 text-black-500 absolute top-3 right-3 cursor-pointer" onClick={onClose} viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
           <h1 className="text-3xl font-bold text-[#17b19f] text-center">
             GET STARTED
           </h1>
-          <p className=" text-black text-center mt-2 px-10 text-base/7">
+          <p className=" text-black text-center font-bold mt-2 px-10 text-base/7">
             Start Your Journey
           </p>
           <form
             onSubmit={handleSubmit(onsubmit)}
-            className="flex flex-col mt-3 gap-3"
+            className="flex flex-col mt-3 gap-3 font-[Montserrat]"
           >
             <Input
               label="Email"
@@ -139,7 +140,7 @@ function Login({ isOpen, onClose }) {
               </button>
               <button
                 type="button"
-                className="rounded-md bg-[#fff] flex mt-4 w-full text-center justify-center gap-4  py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#fff] flex mt-6 w-full text-center justify-center gap-4  py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <svg
                   class="h-6 w-6 text-gray-900"

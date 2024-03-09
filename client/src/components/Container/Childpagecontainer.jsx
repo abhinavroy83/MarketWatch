@@ -53,7 +53,7 @@ function ChildContainer({ children, onLocationReceived }) {
                     )}
                   </div>
                 </div>
-                <div className="pl-2 ml-4 mt-4 text-[26px]">
+                <div className="pl-2 ml-4 mt-0 text-[26px]">
                   {weatherData.weather && <p>{weatherData.weather[0].main}</p>}
                   <article className="flex ml-2 gap-2 mt-2">
                   <img

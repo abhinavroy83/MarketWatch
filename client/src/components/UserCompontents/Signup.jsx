@@ -50,7 +50,7 @@ function Signup({ isOpen, onClose }) {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-[Roboto]">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-[Montserrat] font-semibold">
             <div className="text-center">
               <img className="w-[100px] m-auto" src={Logo} />
               <p className=" text-black text-center mt-5 text-3xl">Sign Up Here</p>
@@ -67,7 +67,8 @@ function Signup({ isOpen, onClose }) {
             </div>
           </div>
           <div className="w-1/2 flex flex-col justify-center items-center">
-            <h1 className="text-3xl font-bold text-[#17b19f] mt-3">
+          <svg className="h-10 w-10 text-black-500 absolute top-3 right-3 cursor-pointer" onClick={onClose} viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+            <h1 className="text-3xl font-bold text-[#000] mt-3 font-[Montserrat]">
               CREATE YOUR ACCOUNT
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -129,11 +130,11 @@ function Signup({ isOpen, onClose }) {
                     {errors.dob && <p>{errors.msg?.dob}</p>}
                   </div>
                   <div>
-                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Roboto]">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
                       Select a country
                     </label>
                     <select
-                      className="w-full flex h-10 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("country", { required: true })}
                     >
                       <option value="">Country</option>
@@ -153,7 +154,7 @@ function Signup({ isOpen, onClose }) {
                     {...register("city", { required: "City is required" })}
                     errorMessage={errors.city?.message}
                   />
-                  <div className="flex gap-3 font-[Roboto]">
+                  <div className="flex gap-3 font-[Montserrat]">
                     <input type="checkbox" />
                     <label className="w-full">
                       I agree to terms and conditions
@@ -161,7 +162,7 @@ function Signup({ isOpen, onClose }) {
                   </div>
                   <div className="text-center">
                     <button
-                      className="place-items-center items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Sign To Create Account
