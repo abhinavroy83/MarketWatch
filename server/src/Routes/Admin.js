@@ -22,3 +22,4 @@ router.get("/api/admin/getroombycity/:city", getadminallroombycity);
 router.delete("/api/admin/deleteroom/:_id", deleteroom);
 
 module.exports = router;
+

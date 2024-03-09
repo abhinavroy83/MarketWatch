@@ -4,19 +4,22 @@ import { Container } from "../../../components";
 function Moviecard({ ...item }) {
   return (
     <Container>
-      <div className="mx-auto flex w-80 flex-col justify-center bg-white rounded-2xl shadow-xl shadow-gray-400/20">
+      <div className="relative h-[400px] w-[300px] rounded-md">
         <img
-          className="aspect-video w-80 rounded-t-2xl object-cover object-center"
           src={item.img}
+          alt="AirMax Pro"
+          className="z-0 h-full w-full rounded-md object-cover"
         />
-        <div className="p-6">
-          <h1 className="text-2xl font-medium text-gray-700 pb-2">
-            Your Heading
-          </h1>
-          <p className="text text-gray-500 leading-6">
-            A wonderful serenity has taken possession of my entire soul, like
-            these sweet mornings of spring which I enjoy with my whole heart.
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+        <div className="absolute bottom-4 left-4 text-left">
+          <h1 className="text-lg font-semibold text-white">Delba</h1>
+          <p className="mt-2 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+            debitis?
           </p>
+          <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
+            View Profile &rarr;
+          </button>
         </div>
       </div>
     </Container>
