@@ -48,7 +48,7 @@ function Alluser() {
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
-        <td className="whitespace-nowrap px-6 py-4">
+        <td className="whitespace-nowrap px-6 py-4">x
           <div className="text-sm text-gray-900">{items.email}</div>
         </td>
 

@@ -43,7 +43,7 @@ function Getrooms() {
   return (
     <Container>
       <div className="px-2 py-2 md:px-6 md:py-10">
-        <h1 className="text-2xl font-bold capitalize text-black lg:text-3xl font-[Roboto]">
+        <h1 className="text-4xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] text-[36px]">
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
         </h1>
         <hr />

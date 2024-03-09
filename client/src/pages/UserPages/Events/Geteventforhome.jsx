@@ -36,7 +36,7 @@ function Geteventforhome() {
     prevArrow: <div className="custom-arrow">Previous</div>,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     rtl: true,
     arrows: true

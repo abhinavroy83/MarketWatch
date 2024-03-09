@@ -19,3 +19,7 @@
 
 .slick-prev, .slick-next {
 }
+
+.slick-slide > div > div {
+    padding:  6px !important;
+}
