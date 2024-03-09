@@ -7,9 +7,14 @@ const findalluser = require("../Controllers/Admin/User/Alluser");
 const deleteuser = require("../Controllers/Admin/User/deleteuser");
 const deleteroom = require("../Controllers/Admin/Room/deleteroom");
 const {
+  getallBusiness,
+  getallBusinessbycity,
+} = require("../Controllers/Admin/Bussiness/Allbussiness");
+const {
   getadminallroom,
   getadminallroombycity,
 } = require("../Controllers/Admin/Room/Allrooms");
+const deletebusiness = require("../Controllers/Admin/Bussiness/deleteroom");
 
 router.post("/api/adminpage/signup", adminsignup);
 router.post("/api/adminpage/login", adminlogin);
@@ -21,5 +26,10 @@ router.get("/api/admin/getallrooms", getadminallroom);
 router.get("/api/admin/getroombycity/:city", getadminallroombycity);
 router.delete("/api/admin/deleteroom/:_id", deleteroom);
 
-module.exports = router;
+//business
 
+router.get("/api/admin/getallbussiness", getallBusiness);
+router.get("/api/admin/getallbussiness/:city", getallBusinessbycity);
+router.delete("/api/admin/deletebusiness/:_id", deletebusiness);
+
+module.exports = router;

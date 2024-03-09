@@ -37,7 +37,7 @@ function App() {
       {!isAdminPanel && <Ads />}
       {!isAdminPanel && <Header />}
       <Outlet />
-      {/* {!isAdminPanel && <Footer />} */}
+      {!isAdminPanel && <Footer />}
     </div>
   );
 }

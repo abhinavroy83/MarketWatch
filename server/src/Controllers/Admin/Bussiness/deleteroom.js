@@ -1,11 +1,12 @@
 const Business = require("../../../model/bussiness");
 
-const getallBusiness = async (req, res) => {
+const deletebusiness = async (req, res) => {
   try {
-    const Allbussiness = await Business.find({});
+    const { _id } = req.params;
+    await Business.findByIdAndDelete(_id);
     res.json({
       status: true,
-      Allbussiness,
+      msg: "successfully deleted",
     });
   } catch (error) {
     console.log(error);
@@ -15,3 +16,5 @@ const getallBusiness = async (req, res) => {
     });
   }
 };
+
+module.exports = deletebusiness;
