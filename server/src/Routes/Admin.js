@@ -5,6 +5,7 @@ const adminlogin = require("../Controllers/Admin/Adminlogin");
 const verifyadminpage = require("../middleware/adminmiddleware");
 const findalluser = require("../Controllers/Admin/User/Alluser");
 const deleteuser = require("../Controllers/Admin/User/deleteuser");
+const deleteroom = require("../Controllers/Admin/Room/deleteroom");
 const {
   getadminallroom,
   getadminallroombycity,
@@ -18,5 +19,6 @@ router.delete("/api/admin/deleteuser/:_id", deleteuser);
 //rooms
 router.get("/api/admin/getallrooms", getadminallroom);
 router.get("/api/admin/getroombycity/:city", getadminallroombycity);
+router.delete("/api/admin/deleteroom/:_id", deleteroom);
 
 module.exports = router;

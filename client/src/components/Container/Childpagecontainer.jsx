@@ -1,11 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function ChildContainer({ children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
+  const currentloc = useSelector((state) => state.auth.location);
+
   useEffect(() => {
-    const lat = onLocationReceived.lat;
-    const lng = onLocationReceived.lng;
+    let lat, lng;
+    if (onLocationReceived) {
+      lat = onLocationReceived.lat;
+      lng = onLocationReceived.lng;
+    } else if (currentloc) {
+      lat = currentloc.lat;
+      lng = currentloc.lng;
+    } else {
+      return; // No location data available
+    }
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
@@ -16,7 +27,7 @@ function ChildContainer({ children, onLocationReceived }) {
       .catch((error) => console.log("Error during fetcing whether", error));
     console.log("lat", lat);
     console.log("lat", lng);
-  }, [onLocationReceived]);
+  }, [onLocationReceived, currentloc]);
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };
@@ -56,26 +67,27 @@ function ChildContainer({ children, onLocationReceived }) {
                 <div className="pl-2 ml-4 mt-0 text-[26px]">
                   {weatherData.weather && <p>{weatherData.weather[0].main}</p>}
                   <article className="flex ml-2 gap-2 mt-2">
-                  <img
-                        className="h-15 w-10 pr-2 flex"
-                        src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
-                        alt="logo"
-                      />
-                  {weatherData.main && <p>{weatherData.main.humidity}%</p>}
+                    <img
+                      className="h-15 w-10 pr-2 flex"
+                      src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
+                      alt="logo"
+                    />
+                    {weatherData.main && <p>{weatherData.main.humidity}%</p>}
                   </article>
                 </div>
               </div>
-              <p className="mt-2 text-cyan-200 text-[20px]">from OpenWeatherMap</p>
+              <p className="mt-2 text-cyan-200 text-[20px]">
+                from OpenWeatherMap
+              </p>
             </div>
           ) : (
             <p>Loading...</p>
           )}
           <div className="border-2 bg-yellow-300 h-2/4 mt-4 rounded-xl shadow-sm shadow-[#000]">
-          <h1 className="text-2xl font-semibold text-black mt-5 ml-10">
-							Services
-						</h1>
+            <h1 className="text-2xl font-semibold text-black mt-5 ml-10">
+              Services
+            </h1>
           </div>
-
         </div>
       </aside>
     </div>

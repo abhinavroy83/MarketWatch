@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import Geteventforhome from "../../pages/UserPages/Events/Geteventforhome";
 import Getmovieforhome from "../../pages/UserPages/movie/Getmovieforhome";
 import Getrooms from "../../pages/UserPages/Rooms/Getrooms";
+import ChildContainer from "../Container/Childpagecontainer";
 
 function Home() {
   const [city, setcity] = useState();
@@ -21,7 +22,7 @@ function Home() {
     console.log(city);
   };
   return (
-    <Container>
+    <ChildContainer>
       <Getlocations />
       <div className="flex ml-9">
         <input
@@ -62,7 +63,7 @@ function Home() {
       <Getjob />
 
       {/* <Getproduct /> */}
-    </Container>
+    </ChildContainer>
   );
 }
 

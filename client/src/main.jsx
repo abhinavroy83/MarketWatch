@@ -27,6 +27,7 @@ import {
 } from "./components/AdminCompontents/index.js";
 import Alluser from "./pages/AdminPage/User/Alluser.jsx";
 import Allroom from "./pages/AdminPage/Rooms/Allroom.jsx";
+import Allbussiness from "./pages/AdminPage/Bussiness/Allbussiness.jsx";
 
 // const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
@@ -144,7 +145,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "admin/alluser",
+        path: "/admin/alluser",
         element: (
           <Adminauthlayout authentication>
             <Alluser />
@@ -152,10 +153,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "admin/allroom",
+        path: "/admin/allroom",
         element: (
           <Adminauthlayout authentication>
             <Allroom />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/allbussiness",
+        element: (
+          <Adminauthlayout authentication>
+            <Allbussiness />
           </Adminauthlayout>
         ),
       },
