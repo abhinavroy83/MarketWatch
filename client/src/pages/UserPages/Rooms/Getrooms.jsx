@@ -47,10 +47,80 @@ function Getrooms() {
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
         </h1>
         <hr />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-5">
-          {renderRooms()}
-        </div>
-        <div className="mt-4 w-full border-gray-300">
+        <article className="flex xl:mt-12">
+          <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 xl:gap-5">
+            {renderRooms()}
+          </div>
+          <div className="w-[500px] flex-grow ml-5">
+            <article className="flex gap-2 items-center">
+              <img  className="h-[70px] w-[70px]"
+              src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}/>
+              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $310 
+              </p>
+            </article>
+            <hr/>       
+            <article className="flex gap-2 items-center mt-2">
+              <img  className="h-[70px] w-[75px]"
+                src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}/>
+              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $550 
+              </p>
+            </article>
+            <hr/>     
+            <article className="flex gap-2 items-center mt-2">
+              <img  className="h-[70px] w-[75px]"
+              src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}/>
+              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $550 
+              </p>
+            </article>
+            <hr/>    
+            <article className="flex gap-2 items-center mt-2">
+              <img  className="h-[70px] w-[75px]"
+                src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}/>
+                <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $550 
+              </p>
+            </article>
+            <hr/>    
+            <article className="flex gap-2 items-center mt-2">
+              <img  className="h-[70px] w-[75px]"
+              src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}/>
+              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $550 
+              </p>
+            </article>
+            <hr/>    
+            <article className="flex gap-2 items-center mt-2">
+              <img  className="h-[70px] w-[75px]"
+                src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}/>
+                <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+                Company Name
+              </h1>
+              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+                $550 
+              </p>
+            </article>
+            <hr/>    
+          </div>
+        </article>
+        {/* <div className="mt-4 w-full border-gray-300">
           <div className="mt-2 flex items-center justify-end">
             <button
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -59,7 +129,7 @@ function Getrooms() {
               More..
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </Container>
   );
