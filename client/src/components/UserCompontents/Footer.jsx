@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-gray-300">
-      <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+    <div className="relative w-full bg-gray-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="md:max-w-md lg:col-span-2">
           <a
             href="/"
@@ -21,7 +21,6 @@ export default function Footer() {
               stroke="currentColor"
               fill="none"
               background-color="black"
-
             >
               <rect x="3" y="1" width="7" height="12" />
               <rect x="3" y="17" width="7" height="6" />

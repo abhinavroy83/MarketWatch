@@ -9,7 +9,6 @@ function Allbussiness() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cities, setCities] = useState([]);
-
   const [selectedCity, setselectedCity] = useState("");
 
   const fetchbussiness = async (city) => {
@@ -52,9 +51,6 @@ function Allbussiness() {
       console.log("Error during fetching rooms", error);
     }
   };
-  useEffect(() => {
-    fetchcity();
-  });
 
   const handlecity = (e) => {
     const selectedCity = e.target.value;
@@ -64,6 +60,10 @@ function Allbussiness() {
   useEffect(() => {
     fetchbussiness(selectedCity);
   }, [deleteuser, selectedCity]);
+
+  useEffect(() => {
+    fetchcity();
+  });
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
@@ -160,7 +160,7 @@ function Allbussiness() {
                 }}
                 className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Add new Room
+                Add new Bussiness
               </button>
             </div>
           </div>

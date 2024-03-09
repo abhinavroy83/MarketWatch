@@ -53,9 +53,6 @@ function Allroom() {
       console.log("Error during fetching rooms", error);
     }
   };
-  useEffect(() => {
-    fetchcity();
-  });
 
   const handlecity = (e) => {
     const selectedCity = e.target.value;
@@ -65,6 +62,10 @@ function Allroom() {
   useEffect(() => {
     fetchrooms(selectedCity);
   }, [deleteuser, selectedCity]);
+  
+  useEffect(() => {
+    fetchcity();
+  });
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);

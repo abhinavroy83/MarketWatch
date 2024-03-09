@@ -12,7 +12,7 @@ function Alluser() {
   const fetchuser = async () => {
     try {
       const res = await axios.get("http://localhost:8000/api/admin/alluser");
-      console.log(res.data);
+      // console.log(res.data);
       setdata(res.data.user);
     } catch (error) {
       console.log("error during fetcing all user", error);

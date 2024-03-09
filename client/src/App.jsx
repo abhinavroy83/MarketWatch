@@ -33,7 +33,7 @@ function App() {
   const isAdminPanel = location.pathname.startsWith("/admin");
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col ">
       {!isAdminPanel && <Ads />}
       {!isAdminPanel && <Header />}
       <Outlet />
