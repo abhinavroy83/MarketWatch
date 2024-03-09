@@ -44,9 +44,9 @@ function Geteventforhome() {
   return (
     <Container>
       <div className="event-slick-holder pb-10">
-        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-5 mt-7">
+        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-2 mt-7">
         <div>Events</div></h1>
-        <hr className="ml-5 mb-10"/>
+        <hr className="ml-2 mb-10"/>
         <Slider {...settings}>
           {events.map((item) => (
             <Eventcard key={item.id} {...item} />

@@ -63,6 +63,7 @@ function Home() {
       <Getjob />
 
       {/* <Getproduct /> */}
+      <Footer />
     </ChildContainer>
   );
 }

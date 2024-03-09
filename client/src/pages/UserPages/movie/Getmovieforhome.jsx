@@ -29,25 +29,27 @@ function Getmovieforhome() {
     fetchevents();
   }, [currentloc, usercity]);
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     nextArrow: <div className="custom-arrow">Next</div>,
     prevArrow: <div className="custom-arrow">Previous</div>,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     rtl: true,
   };
   return (
     <Container>
-      <div>Movie</div>
-
-      <Slider {...settings}>
+      <div className="text-black text-4xl font-[OpenSans] font-bold ml-2 mb-10">Movie
+      <hr/></div>
+    <div className="pb-10">
+      <Slider {...settings} className="pb-2">
         {movie.map((item) => (
           <Moviecard key={item.id} {...item} />
         ))}
       </Slider>
+      </div>
     </Container>
   );
 }

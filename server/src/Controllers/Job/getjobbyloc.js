@@ -10,7 +10,7 @@ const getjobbycurrentloc = async (req, res) => {
             type: "Point",
             coordinates: [parseFloat(lat), parseFloat(lng)],
           },
-          $maxDistance: 5000,
+          $maxDistance: 500000,
         },
       },
     });
