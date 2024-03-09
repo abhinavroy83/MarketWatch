@@ -19,7 +19,7 @@ function Allroom() {
           : `http://localhost:8000/api/admin/getallrooms`
       );
 
-      console.log(res.data.Allroom);
+      // console.log(res.data.Allroom);
 
       setdata(res.data.Allroom);
     } catch (error) {
