@@ -44,7 +44,7 @@ function Geteventforhome() {
   return (
     <Container>
       <div className="event-slick-holder">
-        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-2 mt-7">
+        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-6 mt-7">
         <div>Events</div></h1>
         <Slider {...settings}>
           {events.map((item) => (

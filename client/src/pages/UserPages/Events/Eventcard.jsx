@@ -4,7 +4,7 @@ import { Container } from "../../../components";
 function Eventcard({ ...item }) {
   return (
     <Container>
-     <div className="mx-auto flex w-70 flex-col justify-center bg-white rounded-lg shadow-md border-gray-700 mb-5">
+     <div className="mx-auto flex ml-4 w-70 flex-col justify-center bg-white rounded-lg shadow-md border-gray-700 mb-5">
         <img
           className="aspect-video w-90 rounded-t-lg object-cover object-center"
           src={item.img}

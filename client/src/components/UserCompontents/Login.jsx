@@ -154,7 +154,7 @@ function Login({ isOpen, onClose }) {
               </button>
               <button
                 type="button"
-                className="rounded-md bg-[#fff] flex mt-6 w-full text-center justify-center gap-4  py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#fff] flex mt-5 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <svg
                   class="h-6 w-6 text-gray-900"

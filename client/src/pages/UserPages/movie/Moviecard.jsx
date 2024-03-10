@@ -4,7 +4,7 @@ import { Container } from "../../../components";
 function Moviecard({ ...item }) {
   return (
     <Container>
-      <div className="relative h-[300px] rounded-lg rounded-b-xl font-bold font-[Montserrat]">
+      <div className="relative h-[300px] rounded-lg rounded-b-xl ml-5 font-bold font-[Montserrat]">
         <img
           src={item.img}
           alt="AirMax Pro"

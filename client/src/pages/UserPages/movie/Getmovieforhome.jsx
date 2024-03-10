@@ -41,7 +41,7 @@ function Getmovieforhome() {
   };
   return (
     <Container>
-      <div className="text-black text-4xl font-[OpenSans] font-bold ml-2 mb-1">Movie
+      <div className="text-black text-4xl font-[OpenSans] font-bold ml-6 mb-1">Movie
       </div>
     <div>
       <Slider {...settings} className="pb-2">
