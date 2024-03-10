@@ -30,7 +30,7 @@ function Geteventforhome() {
   }, [currentloc, usercity]);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     nextArrow: <div className="custom-arrow">Next</div>,
     prevArrow: <div className="custom-arrow">Previous</div>,
@@ -39,14 +39,13 @@ function Geteventforhome() {
     autoplay: false,
     autoplaySpeed: 2000,
     rtl: true,
-    arrows: true
+    arrows: true,
   };
   return (
     <Container>
-      <div className="event-slick-holder pb-10">
+      <div className="event-slick-holder">
         <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] ml-2 mt-7">
         <div>Events</div></h1>
-        <hr className="ml-2 mb-10"/>
         <Slider {...settings}>
           {events.map((item) => (
             <Eventcard key={item.id} {...item} />

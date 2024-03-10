@@ -8,7 +8,7 @@
 
 .slick-prev:before, .slick-next:before{
     color: white !important;
-    font-size: 30px !important;
+    font-size: 33px !important;
     background: black !important;
     border-radius: 50% !important;
 }

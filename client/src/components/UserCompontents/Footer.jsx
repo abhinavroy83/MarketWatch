@@ -42,7 +42,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 mx-[-36%] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
           <div>
             <p className="font-semibold tracking-wide text-gray-800">
               Category
@@ -209,7 +209,7 @@ export default function Footer() {
         <p className="text-sm text-gray-600 mx-[10%]">
           © Copyright 2020 Lorem Inc. All rights reserved.
         </p>
-        <div className="flex items-center mt-4 mx-[31%] space-x-4 sm:mt-0">
+        <div className="flex items-center mt-4 mx-[10%] space-x-4 sm:mt-0">
           <a
             href="/"
             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"

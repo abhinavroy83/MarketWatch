@@ -35,7 +35,7 @@ function ChildContainer({ children, onLocationReceived }) {
   return (
     <div className="w-full mx-auto px-4 flex justify-center h-full">
       <main>{children}</main>
-      <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20">
+      <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
         <div className="h-full flex flex-col">
           {weatherData ? (
             <div className="p-10 rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000]">
@@ -96,7 +96,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -107,7 +107,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -118,7 +118,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -129,7 +129,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -140,7 +140,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -151,7 +151,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -162,7 +162,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -173,7 +173,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -184,7 +184,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -195,7 +195,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -206,7 +206,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -217,7 +217,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -228,7 +228,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -239,7 +239,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -250,7 +250,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
               <li style={{ marginLeft: 0 }}>
@@ -261,7 +261,7 @@ function ChildContainer({ children, onLocationReceived }) {
                   }}
                   className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Home&Services
+                  HomeServices
                 </button>
               </li>
           </ul>

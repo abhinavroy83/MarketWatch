@@ -41,9 +41,9 @@ function Getmovieforhome() {
   };
   return (
     <Container>
-      <div className="text-black text-4xl font-[OpenSans] font-bold ml-2 mb-10">Movie
-      <hr/></div>
-    <div className="pb-10">
+      <div className="text-black text-4xl font-[OpenSans] font-bold ml-2 mb-1">Movie
+      </div>
+    <div>
       <Slider {...settings} className="pb-2">
         {movie.map((item) => (
           <Moviecard key={item.id} {...item} />

@@ -39,10 +39,10 @@ export default function Header() {
   return (
     <div className="w-full bg-gray-400 shadow-2xl font-[Montserrat] fixed z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center space-x-2">
+        <div className="inline-flex mx-[-18%] items-center space-x-2">
           <span className="font-bold text-white">Logo Here</span>
         </div>
-        <div className="hidden grow items-start lg:flex">
+        <div className="hidden grow items-start mx-[18%] lg:flex">
           <ul className="ml-12 inline-flex space-x-8">
             <button
               type="button"
@@ -78,7 +78,7 @@ export default function Header() {
           </ul>
         </div>
         {!authstatus ? (
-          <div className="hidden space-x-2 lg:block">
+          <div className="hidden space-x-2 lg:block mx-[-20%]">
             <Signup isOpen={issignupmodel} onClose={issignupmodelclose} />
             <Login isOpen={isloginmodalopen} onClose={isloginmodelclose} />
             <button
@@ -97,7 +97,7 @@ export default function Header() {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="mx-[-20%]">
             <button
               type="button"
               onClick={() => {
