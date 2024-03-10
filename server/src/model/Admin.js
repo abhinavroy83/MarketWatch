@@ -16,7 +16,7 @@ const adminschema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ["Admin", "Manager"],
+    enum: ["Admin", "Manager", "CustomerSupport"],
   },
 });
 

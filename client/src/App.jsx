@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="flex flex-col ">
-      {!isAdminPanel && <Ads />}
+      {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}
       <Outlet />
       {!isAdminPanel && <Footer />}

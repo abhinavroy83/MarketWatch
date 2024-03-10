@@ -6,7 +6,11 @@ const verifyAdminPage = (req, res, next) => {
     const user = jwt.verify(jwttoken, process.env.JWTSECRETKEY);
     req.user = user;
     const userRole = user.role;
-    if (userRole === "Admin" || userRole === "Manager") {
+    if (
+      userRole === "Admin" ||
+      userRole === "Manager" ||
+      userRole === "CustomerSupport"
+    ) {
       next();
     } else {
       return res.status(403).json({

@@ -4,7 +4,7 @@ import { Container } from "../../../components";
 function Ads() {
   return (
     <Container>
-      <div className="p-12 text-center bg-cover fixed">
+      <div className="p-12 text-center bg-cover z-50">
         Ads section
       </div>
     </Container>
