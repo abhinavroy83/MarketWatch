@@ -10,7 +10,7 @@ function Eventcard({ ...item }) {
           src={item.img}
         />
         <div className="p-2 ml-3">
-          <h1 className="text-[13px] font-semibold text-gray-500 pb-1 font-[Montserrat] ">
+          <h1 className="text-[13px] mt-2 font-semibold text-gray-500 pb-1 font-[Montserrat] ">
            LATEST EVENTS ARE - </h1>
           <p className="text-[18px] mt-1 font-semibold text-black-500 leading-6 font-[OpenSans]">
             A wonderful serenity has taken possession of soul. 
