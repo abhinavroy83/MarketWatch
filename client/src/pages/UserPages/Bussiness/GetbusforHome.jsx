@@ -33,7 +33,7 @@ function GetbusforHome() {
 
   const renderRooms = () => {
     if (allbusi && allbusi.length > 0) {
-      return allbusi.slice(0, 4).map((item) => <BusinessCard {...item} />);
+      return allbusi.slice(0, 6).map((item) => <BusinessCard {...item} />);
     } else {
       return <p>Loading...</p>;
     }
@@ -50,7 +50,7 @@ function GetbusforHome() {
           )}
         </h1>
         <hr />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-2 xl:gap-16">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-5">
           {renderRooms()}
         </div>
         <div className="mt-4 w-full border-gray-300">

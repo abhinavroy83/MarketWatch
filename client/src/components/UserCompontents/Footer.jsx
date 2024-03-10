@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="relative w-full bg-gray-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+    <div className="relative w-full bg-gray-300 font-[Montserrat]">
+      <div className="mx-[9%] py-10 flex max-w-7xl items-center justify-between pb-3 sm:px-6 lg:px-8">
         <div className="md:max-w-md lg:col-span-2">
           <a
             href="/"
@@ -27,7 +27,7 @@ export default function Footer() {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="text-xl font-bold tracking-wide text-gray-800 ml-2 uppercase">
               Company
             </span>
           </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
           <div>
             <p className="font-semibold tracking-wide text-gray-800">
               Category
@@ -117,14 +117,6 @@ export default function Footer() {
                   className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                 >
                   Entertainment
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  Portfolio
                 </a>
               </li>
             </ul>
@@ -214,10 +206,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 mx-[10%]">
           © Copyright 2020 Lorem Inc. All rights reserved.
         </p>
-        <div className="flex items-center mt-4 space-x-4 sm:mt-0">
+        <div className="flex items-center mt-4 mx-[31%] space-x-4 sm:mt-0">
           <a
             href="/"
             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"

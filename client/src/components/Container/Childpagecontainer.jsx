@@ -35,7 +35,7 @@ function ChildContainer({ children, onLocationReceived }) {
   return (
     <div className="w-full mx-auto px-4 flex justify-center h-full">
       <main>{children}</main>
-      <aside className="w-1/5 m-2 h-2/3 mt-4 font-[Montserrat]">
+      <aside className="w-1/5 m-2 h-2/3 mt-4 font-[Montserrat] mt-20">
         <div className="h-full flex flex-col">
           {weatherData ? (
             <div className="p-10 rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000]">
@@ -83,7 +83,7 @@ function ChildContainer({ children, onLocationReceived }) {
           ) : (
             <p>Loading...</p>
           )}
-          <div className="border-2 bg-yellow-300 h-2/4 mt-4 rounded-xl shadow-sm shadow-[#000]">
+          <div className="border-2 bg-yellow-300 h-[400px] mt-4 rounded-xl shadow-sm shadow-[#000]">
             <h1 className="text-2xl font-semibold text-black mt-5 ml-10">
               Services
             </h1>
