@@ -1,21 +1,31 @@
 import React, { useState, useRef, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
   const dispatch = useDispatch();
+  const currentloc = useSelector((state) => state.auth.location);
+
   const [currentLocation, setCurrentLocation] = useState({
     lat: 0,
     lng: 0,
   });
-  
+
   useEffect(() => {
-    const lat = onLocationReceived.lat;
-    const lng = onLocationReceived.lng;
+    let lat, lng;
+    if (onLocationReceived) {
+      lat = onLocationReceived.lat;
+      lng = onLocationReceived.lng;
+    } else if (currentloc) {
+      lat = currentloc.lat;
+      lng = currentloc.lng;
+    } else {
+      return;
+    }
     if (mapContainerRef) {
       const map = L.map(mapContainerRef.current).setView([lat, lng], 15);
       setCurrentLocation({ lat, lng });
