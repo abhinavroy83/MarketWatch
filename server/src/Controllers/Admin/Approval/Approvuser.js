@@ -1,4 +1,5 @@
 const Approvalrequest = require("../../../model/Approvalrequest");
+const User = require("../../../model/user");
 
 const createapproval = async (req, res) => {
   try {
@@ -21,12 +22,18 @@ const createapproval = async (req, res) => {
 
 const getapprovalrequest = async (req, res) => {
   try {
-    const pendignrequest = await Approvalrequest.find({
+    const pendingrequest = await Approvalrequest.find({
       status: "pending",
     });
-    res.json({
-      pendignrequest,
-    });
+    if (!pendingrequest || pendingrequest.length === 0) {
+      res.json({
+        msg: "Requests are not available",
+      });
+    } else {
+      res.json({
+        pendingrequest,
+      });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -58,4 +65,32 @@ const approvaluser = async (req, res) => {
   }
 };
 
-module.exports = { createapproval, getapprovalrequest, approvaluser };
+const deleteuser = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const finduser = await Approvalrequest.find({ _id, status: "approved" });
+    if (finduser && finduser.length > 0) {
+      const userId = finduser[0].userId;
+      const finddeletinuser = await User.findByIdAndDelete({ _id: userId });
+
+      if (finddeletinuser) {
+        res.json({
+          msg: "succesfully deleted",
+        });
+      }
+    }
+  } catch (error) {
+    console.log("something wrong", error);
+    res.json({
+      msg: "error in deleting",
+      status: "failed",
+    });
+  }
+};
+
+module.exports = {
+  createapproval,
+  deleteuser,
+  getapprovalrequest,
+  approvaluser,
+};
