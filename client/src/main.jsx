@@ -28,6 +28,8 @@ import {
 import Alluser from "./pages/AdminPage/User/Alluser.jsx";
 import Allroom from "./pages/AdminPage/Rooms/Allroom.jsx";
 import Allbussiness from "./pages/AdminPage/Bussiness/Allbussiness.jsx";
+import AllEvents from "./pages/UserPages/Events/AllEvents.jsx";
+import Allmovie from "./pages/UserPages/movie/Allmovie.jsx";
 
 // const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
@@ -124,6 +126,22 @@ const router = createBrowserRouter([
         element: (
           <Authlayout authentication>
             <AllBusiness />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/Events",
+        element: (
+          <Authlayout authentication>
+            <AllEvents />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/Movie",
+        element: (
+          <Authlayout authentication>
+            <Allmovie />
           </Authlayout>
         ),
       },
