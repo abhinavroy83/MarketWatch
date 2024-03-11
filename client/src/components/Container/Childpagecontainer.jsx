@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-function ChildContainer({ children, onLocationReceived }) {
+function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
   const currentloc = useSelector((state) => state.auth.location);
 
@@ -33,7 +33,7 @@ function ChildContainer({ children, onLocationReceived }) {
   };
   console.log("whetherdata", weatherData);
   return (
-    <div className="w-full mx-auto px-4 flex justify-center h-full">
+    <div className={`w-full mx-auto px-4 flex justify-center h-full ${className}`}>
       <main>{children}</main>
       <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
         <div className="h-full flex flex-col">
