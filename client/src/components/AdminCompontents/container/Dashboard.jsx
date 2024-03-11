@@ -25,7 +25,7 @@ function AdminDashboard({ children }) {
         >
           Users
         </button>
-        {role === "admin" || role === "CustomerSupport" ? (
+        {role === "Admin" || role === "CustomerSupport" ? (
           <button
             onClick={() => {
               navigate(`/admin/allroom`);
@@ -34,9 +34,7 @@ function AdminDashboard({ children }) {
           >
             Rooms
           </button>
-        ) : (
-          ''
-        )}
+        ) : null}
         {/* <button
           onClick={() => {
             // navigate(`/user/job/${userID}`);

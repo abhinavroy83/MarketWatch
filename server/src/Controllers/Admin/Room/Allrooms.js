@@ -10,7 +10,7 @@ const getadminallroom = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.json({
-      status: "failed",
+      status: "failed", 
       msg: "something went wrong",
     });
   }

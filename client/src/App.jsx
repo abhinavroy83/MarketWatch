@@ -24,7 +24,7 @@ function App() {
       dispatch(
         adminauth({
           token: adminstoredata.data.jwttoken,
-          role: adminstoredata.data.role,
+          role: adminstoredata.data.data.role,
         })
       );
     }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function BusinessCard({ ...item }) {
   return (
     <Link
-    to={`/rooms/${item._id}`}
+    to={`/bussiness/${item._id}`}
     key={item._id}
     className="flex max-w-4xl flex-col items-center gap-2 rounded-md md:flex-row border shadow-md hover:shadow-lg box-border"
   >

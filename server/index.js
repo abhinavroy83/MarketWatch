@@ -24,6 +24,7 @@ const business = require("./src/Routes/Bussiness");
 const event = require("./src/Routes/Events");
 const movie = require("./src/Routes/Movie");
 const admin = require("./src/Routes/Admin");
+const approval = require("./src/Routes/Approval");
 
 app.use("/user", user);
 app.use(room);
@@ -32,6 +33,7 @@ app.use(business);
 app.use(event);
 app.use(movie);
 app.use(admin);
+app.use(approval);
 
 //healt check
 
@@ -51,7 +53,7 @@ app.get("/", (req, res) => {
 const verifyadminpage = require("./src/middleware/adminmiddleware");
 app.get("/dashboard", verifyadminpage, (req, res) => {
   try {
-    const user = req.user.user.role;
+    const user = req.user.user._id;
     res.json({
       Status: "Success",
       msg: "you haved logged success",
