@@ -68,7 +68,7 @@ function Rooms() {
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2">
+      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-20">
         <div className=" flex justify-between py-2">
           <div>
           <svg class="h-10 w-10 ml-1 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
