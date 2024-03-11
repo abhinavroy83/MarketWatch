@@ -52,7 +52,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
 
       return () => map.remove();
     }
-  }, [onLocationReceived, currentloc]);
+  }, [onLocationReceived]);
 
   useEffect(() => {
     dispatch(redlocation({ location: currentLocation }));
