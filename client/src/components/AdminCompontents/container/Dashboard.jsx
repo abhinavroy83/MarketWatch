@@ -23,8 +23,18 @@ function AdminDashboard({ children }) {
           }}
           className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
-          Users
+          Basic Users
         </button>
+        {role === "Admin" && (
+          <button
+            onClick={() => {
+              // navigate(`/admin/alluser`);
+            }}
+            className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Admin Users
+          </button>
+        )}
         {role === "Admin" || role === "CustomerSupport" ? (
           <button
             onClick={() => {

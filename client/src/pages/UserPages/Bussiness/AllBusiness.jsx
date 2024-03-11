@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import BusinessCard from "./BusinessCard";
-import { ChildContainer } from "../../../components";
+import { ChildContainer, LeafletMap } from "../../../components";
 
 function AllBusiness() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -34,6 +34,7 @@ function AllBusiness() {
   };
   return (
     <ChildContainer>
+        <LeafletMap style={{ height: "300px", width: "100%" }} />
       <div className="px-2 py-2 md:px-6 md:py-10 font-[Montserrat]">
         <h1 className=" text-black text-4xl font-[Montserrat] font-bold lg:text-3xl">
           {usercity ? (
