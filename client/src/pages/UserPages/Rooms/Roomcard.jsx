@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Roomcard({ ...item }) {
+function Roomcard({ isRoomOnlyPage, ...item }) {
   return (
     <Link
       to={`/rooms/${item._id}`}
@@ -14,7 +14,7 @@ function Roomcard({ ...item }) {
         width={190}
         className="rounded-tl-md rounded-bl-md"
       />
-      <div className="px-4">
+      <div className="px-4 flex flex-col">
         <h1 className="inline-flex items-center text-xl font-semibold font-[OpenSans]">
           {item.Hotelname}
         </h1>
@@ -26,9 +26,11 @@ function Roomcard({ ...item }) {
           <h1 className="text-sm text-gray-600 font-[Montserrat] pb-2">
            1 Stop- 3 hr 24 min </h1>
         </article>
-        <p className="text-lg font-bold text-black-600 font-[OpenSans] mt-1 text-right">
-          $310
-        </p>
+        { !isRoomOnlyPage &&
+          <p className="text-lg font-bold text-black-600 font-[OpenSans] mt-1 text-right">
+            $310
+          </p>  
+        }
       </div>
     </Link>
   );

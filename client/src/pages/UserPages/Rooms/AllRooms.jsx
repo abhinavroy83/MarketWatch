@@ -35,7 +35,7 @@ function AllRooms() {
     setLocationsndString(loc);
   }, [currentloc, usercity]);
   const renderRooms = () => {
-    return rooms.map((item) => <Roomcard {...item} />);
+    return rooms.map((item) => <Roomcard isRoomOnlyPage={true} {...item} />);
   };
   return (
     <ChildContainer onLocationReceived={locationsndString}>
