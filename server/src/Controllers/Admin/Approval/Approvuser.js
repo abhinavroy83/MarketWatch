@@ -25,13 +25,33 @@ const getapprovalrequest = async (req, res) => {
     const pendingrequest = await Approvalrequest.find({
       status: "pending",
     });
-    if (!pendingrequest || pendingrequest.length === 0) {
+    if (!pendingrequest) {
       res.json({
         msg: "Requests are not available",
       });
     } else {
       res.json({
         pendingrequest,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const getallrequest = async (req, res) => {
+  try {
+    const { ID } = req.params;
+    const requestedID = req.user.user._id;
+    const allrequest = await Approvalrequest.find({ requestedID });
+    if (!allrequest) {
+      res.json({
+        msg: "Requests are not available",
+      });
+    } else {
+      res.json({
+        allrequest,
       });
     }
   } catch (error) {
@@ -74,10 +94,14 @@ const deleteuser = async (req, res) => {
       const finddeletinuser = await User.findByIdAndDelete({ _id: userId });
 
       if (finddeletinuser) {
+        const deltereq = await Approvalrequest.findByIdAndDelete({
+          _id,
+        });
+
         res.json({
           msg: "succesfully deleted",
         });
-      } 
+      }
     }
   } catch (error) {
     console.log("something wrong", error);
@@ -93,4 +117,5 @@ module.exports = {
   deleteuser,
   getapprovalrequest,
   approvaluser,
+  getallrequest,
 };

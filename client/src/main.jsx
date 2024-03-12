@@ -30,6 +30,9 @@ import Allroom from "./pages/AdminPage/Rooms/Allroom.jsx";
 import Allbussiness from "./pages/AdminPage/Bussiness/Allbussiness.jsx";
 import AllEvents from "./pages/UserPages/Events/AllEvents.jsx";
 import Allmovie from "./pages/UserPages/movie/Allmovie.jsx";
+import Getapproval from "./pages/AdminPage/PendingApproval/Getapproval.jsx";
+import Adminusers from "./pages/AdminPage/User/Adminusers.jsx";
+import Pendingrequest from "./pages/AdminPage/PendingRequest/Pendingrequest.jsx";
 
 // const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
@@ -183,6 +186,30 @@ const router = createBrowserRouter([
         element: (
           <Adminauthlayout authentication>
             <Allbussiness />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/getalladminsuser",
+        element: (
+          <Adminauthlayout authentication>
+            <Adminusers />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/getapproval",
+        element: (
+          <Adminauthlayout authentication>
+            <Getapproval />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/requests",
+        element: (
+          <Adminauthlayout authentication>
+            <Pendingrequest />
           </Adminauthlayout>
         ),
       },

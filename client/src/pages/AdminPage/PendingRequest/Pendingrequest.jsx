@@ -6,59 +6,44 @@ import {
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function Alluser() {
-  const [data, setdata] = useState([]);
+function Pendingrequest() {
   const [currentPage, setCurrentPage] = useState(1);
-  const role = useSelector((state) => state.adminauth.role);
-  const token = useSelector((state) => state.adminauth.token);
-  const [disabledButtons, setDisabledButtons] = useState([]);
-  const [status, setStatus] = useState("");
+  const [data, setdata] = useState([]);
 
-  const fetchuser = async () => {
+  const token = useSelector((state) => state.adminauth.token);
+
+  const fetchrequest = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/admin/alluser");
-      // console.log(res.data);
-      setdata(res.data.user);
+      const res = await axios.get(
+        "http://localhost:8000/api/admin/getallapproval",
+        {
+          headers: {
+            jwttoken: `${token}`,
+          },
+        }
+      );
+      setdata(res.data.allrequest);
     } catch (error) {
       console.log("error during fetcing all user", error);
     }
   };
-  useEffect(() => {
-    fetchuser();
-  }, []);
 
   const deleteuser = async (_id) => {
     try {
-      const userId = _id;
-
-      if (role === "CustomerSupport") {
-        // console.log("userId", userId);
-        const res = await axios.post(
-          `http://localhost:8000/api/admin/createapproval`,
-          { userId: _id },
-          {
-            headers: {
-              jwttoken: `${token}`,
-            },
-          }
-        );
-        if (res) {
-          alert("done");
-          setDisabledButtons((prevButtons) => [...prevButtons, _id]);
-        }
-      } else {
-        const dlt = await axios.delete(
-          `http://localhost:8000/api/admin/deleteuser/${_id}`
-        );
-        if (dlt) {
-          alert("successfully deleted");
-        }
+      const res = await axios.delete(
+        `http://localhost:8000/api/admin/dltaprvauser/${_id}`
+      );
+      if (res) {
+        alert("user Deleted");
       }
     } catch (error) {
-      console.log("some issue while deleting try again", error);
+      console.log("error during fetcing all user", error);
     }
   };
 
+  useEffect(() => {
+    fetchrequest();
+  }, [deleteuser]);
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
@@ -66,64 +51,46 @@ function Alluser() {
   const prevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
+
   const renderRows = () => {
     const itemsPerPage = 10;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
-        <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-sm text-gray-900">{items.email}</div>
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+          {items.userId}
+        </td>
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+          {items.reason}
         </td>
 
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.firstName}
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.lastName}
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.city}
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.country}
+          {items.status}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <a href="#" className="text-gray-500 hover:text-indigo-600">
-            Edit
-          </a>
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <button
-            onClick={() => {
-              const _id = items._id;
-              if (role === "CustomerSupport") {
-                if (confirm("Send Approved") == true) {
+          {items.status === "approved" ? (
+            <button
+              onClick={() => {
+                const _id = items._id;
+                // console.log(_id);
+                if (confirm("Confirm to dekete") == true) {
                   deleteuser(_id);
-                  console.log(token);
+                  // handleapprove(_id);
+                  console.log(_id);
                 } else {
                   console.log("cancle");
                 }
-              } else {
-                if (confirm("Confirm to delete") == true) {
-                  deleteuser(_id);
-                } else {
-                  console.log("cancle");
-                }
-              }
-            }}
-            disabled={disabledButtons.includes(items._id)}
-          >
-            {disabledButtons.includes(items._id) ? (
-              <p className=" cursor-not-allowed">process</p>
-            ) : (
-              "Delete"
-            )}
-          </button>
+              }}
+            >
+              Click here
+            </button>
+          ) : null}
         </td>
       </tr>
     ));
   };
+
   return (
     <div>
       <AdminHeader />
@@ -131,22 +98,9 @@ function Alluser() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-lg font-semibold">All User</h2>
               <p className="mt-1 text-sm text-gray-700">
-                This is a list of all All User. You can add new User, edit or
-                delete existing ones.
+                list of all pending Approval
               </p>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={() => {
-                  // navigate(`/addjobs/${userID}`);
-                }}
-                className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Add new User
-              </button>
             </div>
           </div>
           <div className="mt-6 flex flex-col">
@@ -158,46 +112,28 @@ function Alluser() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          <span>Email</span>
-                        </th>
-                        <th
-                          scope="col"
                           className="px-6 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          First Name
+                          User Id
                         </th>
 
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          Last Name
+                          reason
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          City
+                          status
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          Country
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          Edit
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          Delete
+                          Delete user
                         </th>
                       </tr>
                     </thead>
@@ -237,4 +173,4 @@ function Alluser() {
   );
 }
 
-export default Alluser;
+export default Pendingrequest;

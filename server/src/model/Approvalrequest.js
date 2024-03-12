@@ -10,13 +10,12 @@ const approvalrequestSchema = mongoose.Schema({
     require: true,
   }, // customer support want to delete
   userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
+    // ref: "User",
     require: true,
-  }, //want to delete 
+  }, //want to delete
   reason: {
     type: String,
-    require: true,
   },
   status: {
     type: String,
