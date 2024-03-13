@@ -49,7 +49,7 @@ function GetbusforHome() {
             <p className="text-4xl font-[opensans]">Bussiness near you</p>
           )}
         </h1>
-        <div className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-2 xl:grid-cols-3 xl:gap-5">
+        <div className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-2 xl:grid-cols-2 xl:gap-5">
           {renderRooms()}
         </div>
         <div className="mt-4 w-full border-gray-300">

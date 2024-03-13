@@ -29,7 +29,7 @@ function AllBusiness() {
     if (deatails && deatails.length > 0) {
       return deatails.map((item) => <BusinessCard {...item} />);
     } else {
-      return <p>Loading...</p>;
+      return <p className="font-[Opensans]">Loading...</p>;
     }
   };
   return (
