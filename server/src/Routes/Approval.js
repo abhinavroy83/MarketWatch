@@ -16,4 +16,3 @@ router.delete("/api/admin/dltaprvauser/:_id", deleteuser);
 router.get("/api/admin/getallapproval", verifyadminpage, getallrequest);
 
 module.exports = router;
- 

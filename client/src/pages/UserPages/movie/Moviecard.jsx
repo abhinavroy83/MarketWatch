@@ -1,10 +1,13 @@
 import React from "react";
 import { Container } from "../../../components";
+import { Link } from "react-router-dom";
 
 function Moviecard({ ...item }) {
   return (
     <Container>
-      <div className="relative h-[300px] rounded-lg rounded-b-xl ml-5 font-bold font-[Montserrat]">
+      <Link 
+      to={`/movie/${item._id}`}
+      className="relative h-[300px] rounded-lg rounded-b-xl ml-5 font-bold font-[Montserrat]">
         <img
           src={item.img}
           alt="AirMax Pro"
@@ -29,7 +32,7 @@ function Moviecard({ ...item }) {
             </button>
           </div>
         </div>
-      </div>
+      </Link>
     </Container>
   );
 }
