@@ -33,7 +33,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
   };
   console.log("whetherdata", weatherData);
   return (
-    <div className={`w-full mx-auto px-4 flex justify-center h-full ${className}`}>
+    <div className={`w-full mt-36 mx-auto px-4 flex justify-center h-full ${className}`}>
       <main>{children}</main>
       <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
         <div className="h-full flex flex-col">
