@@ -9,7 +9,6 @@ import Home from "./components/UserCompontents/Home.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Authlayout } from "./components/index.js";
-import PostProduct from "./pages/PostProduct.jsx";
 import User from "./pages/User/User.jsx";
 import Getuserroom from "./pages/User/UserRooms/Getuserroom.jsx";
 import Getuserjobs from "./pages/User/Userjobs/Getuserjobs.jsx";
@@ -33,8 +32,8 @@ import Allmovie from "./pages/UserPages/movie/Allmovie.jsx";
 import Getapproval from "./pages/AdminPage/PendingApproval/Getapproval.jsx";
 import Adminusers from "./pages/AdminPage/User/Adminusers.jsx";
 import Pendingrequest from "./pages/AdminPage/PendingRequest/Pendingrequest.jsx";
+import Events from "./pages/UserPages/Events/Events.jsx";
 
-// const [isloginmodalopen, setloginmodeopen] = useState(false);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -141,12 +140,20 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/events/:_id",
+        element: <Events />,
+      },
+      {
         path: "/Movie",
         element: (
           <Authlayout authentication>
             <Allmovie />
           </Authlayout>
         ),
+      },
+      {
+        path: "/events/:_id",
+        element: <Events />,
       },
       // adminpanel components
       {

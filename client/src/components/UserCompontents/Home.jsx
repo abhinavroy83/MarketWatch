@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Getlocations from "../SharedCompontents/Getlocations";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import Getproduct from "../../pages/Getproduct";
 import Container from "../Container/Container";
 import Getjob from "../../pages/UserPages/Job/Getjob";
 import GetbusforHome from "../../pages/UserPages/Bussiness/GetbusforHome";
@@ -61,8 +60,6 @@ function Home() {
       <GetbusforHome />
       <Getmovieforhome />
       <Getjob />
-
-      {/* <Getproduct /> */}
     </ChildContainer>
   );
 }
