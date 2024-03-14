@@ -34,7 +34,7 @@ function Ads() {
           alt=""
         />
       </div>
-    
+    </div>
   );
 }
 
