@@ -23,7 +23,7 @@ function Home() {
   return (
     <ChildContainer>
       <Getlocations />
-      <div className="flex ml-9">
+      <div className="flex ml-9 mt-10">
         <input
           placeholder="Start Your Search"
           type="text"
