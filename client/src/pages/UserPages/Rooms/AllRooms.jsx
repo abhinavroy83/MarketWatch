@@ -48,8 +48,10 @@ function AllRooms() {
           
         </div>
         <article className="flex gap-2 items-center mt-6 ml-2">
-              <div className="block">
-                <h1 className="text-lg font-semibold font-[OpenSans] text-black">
+              <div className="flex">
+              <img className="flex" height={40} width={40} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
+               </div>
+              <div className="block ml-5"> <h1 className="text-lg font-semibold font-[OpenSans] text-black">
                 Company Name
               </h1>
               <h1 className="text-sm font-semibold font-[OpenSans] text-gray-500 pb-2">

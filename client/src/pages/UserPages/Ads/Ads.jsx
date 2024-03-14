@@ -15,7 +15,6 @@ function Ads() {
           <img height={250} width={250} src={'https://media.istockphoto.com/id/610675644/photo/demo-sign-on-red-cubes.jpg?s=612x612&w=0&k=20&c=8dU_a2Th99KQ8ih6oIoLMh-Ge4hbFd32IUKgQrDP35s='} alt="" />
         </div>
       </div>
-    
   );
 }
 
