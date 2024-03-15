@@ -39,7 +39,7 @@ function AllRooms() {
   };
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className="px-2 py-2 font-[opensans] mt-10 md:px-6 md:py-10 text-[36px]">
+      <div className="px-2 py-2 font-[opensans] mt-3 md:px-6 md:py-10 text-lg">
         <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl">
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
         </h1>
@@ -47,9 +47,9 @@ function AllRooms() {
           {renderRooms()}
           
         </div>
-        <article className="flex gap-2 items-center mt-9 ml-2">
+        <article className="flex gap-2 items-center mt-9">
               <div className="flex">
-              <img className="flex" height={40} width={40} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
+              <img className="flex ml-2" height={35} width={35} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
                </div>
               <div className="block ml-5"> <h1 className="text-xl font-semibold font-[Montserrat] text-black">
                 Company Name
@@ -85,7 +85,7 @@ function AllRooms() {
             <hr/>
             <article className="flex gap-2 items-center mt-2">
               <div className="flex">
-              <img className="flex" height={40} width={40} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
+              <img className="flex ml-2" height={35} width={35} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
                </div>
               <div className="block ml-5"> <h1 className="text-xl font-semibold font-[Montserrat] text-black">
                 Company Name
@@ -157,7 +157,7 @@ function AllRooms() {
             <hr/>
             <article className="flex gap-2 items-center mt-2">
               <div className="flex">
-              <img className="flex" height={40} width={40} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
+              <img className="flex ml-2" height={35} width={35} src={'https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png'} alt="" />
                </div>
               <div className="block ml-5"> <h1 className="text-xl font-semibold font-[Montserrat] text-black">
                 Company Name
@@ -175,6 +175,7 @@ function AllRooms() {
             <hr/>  
       </div>
     </ChildContainer>
+    
   );
 }
 

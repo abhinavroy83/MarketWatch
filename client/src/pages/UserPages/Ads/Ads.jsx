@@ -4,7 +4,7 @@ import WebsiteLogo from "../../../assets/website_logo.png";
 
 function Ads() {
   return (
-    <div className="flex ml-[13rem] bg-white">
+    <div className="flex pl-[7rem] bg-white">
       <div class="bg-cover bg-center">
         <img
           height={300}

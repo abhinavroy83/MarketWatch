@@ -42,7 +42,7 @@ export default function Header() {
       <div className="w-full bg-gray-400 shadow-2xl font-[Montserrat] ">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <div className="inline-flex mx-[-19%] items-center space-x-2"></div>
-          <div className="hidden grow items-start mx-[18%] lg:flex">
+          <div className="hidden grow items-start mx-[12%] lg:flex">
             <ul className="ml-12 inline-flex space-x-8">
               <button
                 type="button"

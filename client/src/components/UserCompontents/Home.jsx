@@ -21,7 +21,7 @@ function Home() {
     console.log(city);
   };
   return (
-    <ChildContainer>
+    <ChildContainer className="justify-evenly">
       <Getlocations />
       <div className="flex ml-9 mt-10">
         <input

@@ -5,16 +5,16 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className="flex max-w-4xl flex-col items-center rounded-md md:flex-row border shadow-md hover:shadow-lg"
+      className={`flex max-w-4xl flex-col rounded-md md:flex-row border shadow-md hover:shadow-lg items-start ${isRoomOnlyPage ? "items-start" : "items-center"}`}
     >
       <img
         src={item.PrdImage}
         alt=""
-        height={180}
+        height={200}
         width={190}
         className="rounded-tl-md rounded-bl-md"
       />
-      <div className="px-4 flex flex-col">
+      <div className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}>
         <h1 className="inline-flex items-center text-xl font-semibold font-[OpenSans]">
           {item.Hotelname}
         </h1>
@@ -23,14 +23,13 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         </p>
         <article className="flex gap-2 mt-1">
         <svg class="h-7 w-7 text-gray-600"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <polyline points="12 6 12 12 16 14" /></svg>
-          <h1 className="text-sm text-gray-600 font-[Montserrat] pb-2">
+          <h1 className="text-sm text-gray-600 font-[Montserrat] flex items-center">
            1 Stop- 3 hr 24 min </h1>
         </article>
-        { !isRoomOnlyPage &&
-          <p className="text-lg font-bold text-black-600 font-[OpenSans] mt-1 text-right">
+          <p className="text-lg font-semibold text-black-600 font-[OpenSans] mt-1 text-right">
             $310
           </p>  
-        }
+       
       </div>
     </Link>
   );
