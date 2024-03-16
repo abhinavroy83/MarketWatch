@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className=" w-full">
       <div className=" bg-gray-300 font-[Montserrat]">
-        <div className=" py-10 flex items-center justify-around  pb-3">
+        <div className=" py-10 flex items-center justify-between pb-3 p-4">
           <div className="">
             <a
               href="/"
@@ -210,11 +210,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
-          <p className="text-sm text-gray-600 mx-[10%]">
+        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row p-4">
+          <p className="text-sm text-gray-600">
             © Copyright 2024 Lorem Inc. All rights reserved.
           </p>
-          <div className="flex items-center mt-4 mx-[10%] space-x-4 sm:mt-0">
+          <div className="flex items-center mt-4 p-4 space-x-4 sm:mt-0">
             <a
               href="/"
               className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"

@@ -40,7 +40,7 @@ export default function Header() {
     <div className=" w-full fixed z-50 flex  flex-col">
       <Ads />
       <div className=" w-screen bg-gray-400 shadow-2xl font-[Montserrat] ">
-        <div className="flex justify-around items-center  py-2 ">
+        <div className="flex justify-between items-center p-2 max-w-[1600px] w-full m-auto">
           <div className="">
             <ul className="ml-3 inline-flex space-x-8">
               <button

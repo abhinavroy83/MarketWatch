@@ -23,3 +23,7 @@
 .slick-slide > div > div {
     padding:  6px !important;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
