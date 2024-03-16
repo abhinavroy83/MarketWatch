@@ -9,23 +9,24 @@ const usershema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: { 
+  email: {
     type: String,
     required: true,
     unique: true,
-  },
-  dob: {
-    type: String,
-    required: true,
   },
   country: {
     type: String,
     enum: ["Usa", "India"],
     required: true,
-  },
+  }, 
   city: {
     type: String,
     required: true,
+  },
+  bussinessac: {
+    type: String,
+    required: true,
+    enum: ["yes", "no"],
   },
   password: {
     type: String,

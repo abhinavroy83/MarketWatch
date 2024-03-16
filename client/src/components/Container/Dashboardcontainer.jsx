@@ -8,8 +8,8 @@ function DashConatiner({ children }) {
   const { userID } = useParams();
   // console.log(userID);
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 flex justify-center items-center h-screen overflow-hidden">
-      <div className=" w-1/4  border-red-500 border-2 h-4/5 p-2 flex flex-col">
+    <div className="w-full mt-48 mb-10 h-full max-w-6xl mx-auto px-4 flex justify-center items-center overflow-hidden">
+      <div className=" w-1/4  border-red-500 border-2 h-screen p-2 flex flex-col">
         <button
           onClick={() => {
             navigate(`/myaccount/${userID}`);
@@ -43,7 +43,7 @@ function DashConatiner({ children }) {
           bussiness
         </button>
       </div>
-      <main className=" w-3/4 border-red-500 border-2 h-4/5 p-2 ">
+      <main className=" w-3/4 border-red-500 border-2 h-screen p-2 ">
         {children}
       </main>
     </div>

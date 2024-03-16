@@ -33,6 +33,9 @@ import Getapproval from "./pages/AdminPage/PendingApproval/Getapproval.jsx";
 import Adminusers from "./pages/AdminPage/User/Adminusers.jsx";
 import Pendingrequest from "./pages/AdminPage/PendingRequest/Pendingrequest.jsx";
 import Events from "./pages/UserPages/Events/Events.jsx";
+import City from "./pages/AdminPage/Area/Area.jsx";
+import Addarea from "./pages/AdminPage/Area/Addarea.jsx";
+import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
 
 const router = createBrowserRouter([
   {
@@ -217,6 +220,30 @@ const router = createBrowserRouter([
         element: (
           <Adminauthlayout authentication>
             <Pendingrequest />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/allarea",
+        element: (
+          <Adminauthlayout authentication>
+            <City />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/addarea",
+        element: (
+          <Adminauthlayout authentication>
+            <Addarea />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/confirmtodelete/:id",
+        element: (
+          <Adminauthlayout authentication>
+            <Cnf_to_dltuser />
           </Adminauthlayout>
         ),
       },

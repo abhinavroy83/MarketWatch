@@ -3,64 +3,29 @@ import {
   AdminDashboard,
   AdminHeader,
 } from "../../../components/AdminCompontents";
-import axios from "axios";
-import { useSelector } from "react-redux";
+import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { useNavigate } from "react-router-dom";
 
-function Alluser() {
+function City() {
   const [data, setdata] = useState([]);
+  const [cntry, setcountry] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const role = useSelector((state) => state.adminauth.role);
-  const token = useSelector((state) => state.adminauth.token);
-  const [disabledButtons, setDisabledButtons] = useState([]);
-  const [status, setStatus] = useState("");
+  const [selectcountry, setselectcountry] = useState("select");
   const navigate = useNavigate();
 
-  const fetchuser = async () => {
-    try {
-      const res = await axios.get("http://localhost:8000/api/admin/alluser");
-      // console.log(res.data);
-      setdata(res.data.user);
-    } catch (error) {
-      console.log("error during fetcing all user", error);
-    }
-  };
   useEffect(() => {
-    fetchuser();
-  }, []);
-
-  const deleteuser = async (_id) => {
-    try {
-      const userId = _id;
-
-      if (role === "CustomerSupport") {
-        // console.log("userId", userId);
-        const res = await axios.post(
-          `http://localhost:8000/api/admin/createapproval`,
-          { userId: _id },
-          {
-            headers: {
-              jwttoken: `${token}`,
-            },
-          }
-        );
-        if (res) {
-          alert("done");
-          setDisabledButtons((prevButtons) => [...prevButtons, _id]);
-        }
-      } else {
-        const dlt = await axios.delete(
-          `http://localhost:8000/api/admin/deleteuser/${_id}`
-        );
-        if (dlt) {
-          alert("successfully deleted");
-        }
-      }
-    } catch (error) {
-      console.log("some issue while deleting try again", error);
-    }
-  };
-
+    const fetchdata = async () => {
+      const citys = await fetchcity();
+      console.log(citys.data.city);
+      setdata(citys.data.city);
+      const uniqueCities = Array.from(
+        new Set(citys.data.city.map((item) => item.state))
+      );
+      //   console.log(uniqueCities)
+      setcountry(uniqueCities);
+    };
+    fetchdata();
+  }, [selectcountry]);
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
@@ -69,62 +34,22 @@ function Alluser() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
   const renderRows = () => {
-    const itemsPerPage = 10;
+    const itemsPerPage = 7;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
-        <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-sm text-gray-900">{items.email}</div>
-        </td>
-
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.firstName}
+          {items.country}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.lastName}
+          {items.state}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
           {items.city}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-          {items.country}
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <a href="#" className="text-gray-500 hover:text-indigo-600">
-            Edit
-          </a>
-        </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <button
-            onClick={() => {
-              const _id = items._id;
-              if (role === "CustomerSupport") {
-                if (confirm("Send Approved") == true) {
-                  deleteuser(_id);
-                  console.log(token);
-                } else {
-                  console.log("cancle");
-                }
-              } else {
-                if (confirm("Confirm to delete") == true) {
-                  // deleteuser(_id);
-                  navigate(`/admin/confirmtodelete/${_id}`, {
-                    state: { id: _id },
-                  });
-                } else {
-                  console.log("cancle");
-                }
-              }
-            }}
-            disabled={disabledButtons.includes(items._id)}
-          >
-            {disabledButtons.includes(items._id) ? (
-              <p className=" cursor-not-allowed">process</p>
-            ) : (
-              "Delete"
-            )}
-          </button>
+          {items.subarea}
         </td>
       </tr>
     ));
@@ -136,21 +61,31 @@ function Alluser() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-lg font-semibold">All User</h2>
-              <p className="mt-1 text-sm text-gray-700">
-                This is a list of all All User. You can add new User, edit or
-                delete existing ones.
-              </p>
+              <h2 className="text-lg font-semibold">All Area</h2>
+              <p className="mt-1 text-sm text-gray-700">List of all city</p>
             </div>
             <div>
+              <select
+                name="State"
+                onChange={() => {
+                  const selectcountry = e.target.value;
+                  setselectcountry(selectcountry);
+                }}
+              >
+                {cntry.map((state, index) => (
+                  <option key={index} value={state}>
+                    {state}
+                  </option>
+                ))}
+              </select>
               <button
                 type="button"
                 onClick={() => {
-                  // navigate(`/addjobs/${userID}`);
+                  navigate(`/admin/addarea`);
                 }}
                 className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Add new User
+                Add new City
               </button>
             </div>
           </div>
@@ -163,22 +98,16 @@ function Alluser() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          <span>Email</span>
-                        </th>
-                        <th
-                          scope="col"
                           className="px-6 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          First Name
+                          Country
                         </th>
 
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          Last Name
+                          State
                         </th>
                         <th
                           scope="col"
@@ -190,19 +119,7 @@ function Alluser() {
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
                         >
-                          Country
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          Edit
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
-                        >
-                          Delete
+                          Subarea
                         </th>
                       </tr>
                     </thead>
@@ -242,4 +159,4 @@ function Alluser() {
   );
 }
 
-export default Alluser;
+export default City;
