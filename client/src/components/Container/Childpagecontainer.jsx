@@ -15,7 +15,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
       lat = currentloc.lat;
       lng = currentloc.lng;
     } else {
-      return; // No location data available
+      return;
     }
     axios
       .get(
@@ -33,242 +33,268 @@ function ChildContainer({ className, children, onLocationReceived }) {
   };
   console.log("whetherdata", weatherData);
   return (
-    <div className={`w-full mt-36 mx-auto px-4 flex justify-center h-full ${className}`}>
-      <main>{children}</main>
-      <aside className="w-[21%] m-2 h-1/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
-        <div className="h-full flex flex-col">
-          {weatherData ? (
-            <div className="py-5 px-7 pt-5 items-center rounded-md border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-lg font-bold font-[Montserrat] shadow-sm shadow-[#000]">
-              <div>{weatherData.name}</div>
-              <div className="flex w-full items-center">
-                <div className="flex items-center text-white text-[47px] font-[OpenSans] mt-4">
-                  <div>
-                    {weatherData.weather && weatherData.weather.length > 0 && (
+    <div className={`w-full mt-36 h-full ${className}`}>
+      <div className="flex justify-center  ">
+        <main>{children}</main>
+        <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
+          <div className="h-full flex flex-col">
+            {weatherData ? (
+              <div className="p-10 rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000]">
+                <div>{weatherData.name}</div>
+                <div className="flex w-full">
+                  <div className="flex mt-5 text-white text-[47px] font-[OpenSans]">
+                    <div>
+                      {weatherData.weather &&
+                        weatherData.weather.length > 0 && (
+                          <img
+                            className="h-20 w-20 pr-2"
+                            src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+                            alt="logo"
+                          />
+                        )}
+                    </div>
+                    <div>
+                      {weatherData.main && (
+                        <div>
+                          <p>
+                            {convertKelvinToCelsius(
+                              weatherData.main.temp
+                            ).toFixed(1)}
+                            °C
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pl-2 ml-4 mt-0 text-[26px]">
+                    {weatherData.weather && (
+                      <p>{weatherData.weather[0].main}</p>
+                    )}
+                    <article className="flex ml-2 gap-2 mt-2">
                       <img
-                        className="h-30 w-[5rem]"
-                        src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+                        className="h-15 w-10 pr-2 flex"
+                        src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
                         alt="logo"
                       />
-                    )}
-                  </div>
-                  <div>
-                    {weatherData.main && (
-                      <div>
-                        <p>
-                          {convertKelvinToCelsius(
-                            weatherData.main.temp
-                          ).toFixed(1)}
-                          °C
-                        </p>
-                      </div>
-                    )}
+                      {weatherData.main && <p>{weatherData.main.humidity}%</p>}
+                    </article>
                   </div>
                 </div>
-                <div className="pl- ml-4 mt-10 text-lg">
-                  {weatherData.weather && <p>{weatherData.weather[0].main}</p>}
-                  <article className="flex ml-2 gap-2 mt-2">
-                    <img
-                      className="h-15 w-10 pr-2 flex"
-                      src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
-                      alt="logo"
-                    />
-                    {weatherData.main && <p>{weatherData.main.humidity}%</p>}
-                  </article>
-                </div>
+                <p className="mt-2 text-cyan-200 text-[20px]">
+                  from OpenWeatherMap
+                </p>
               </div>
-              <p className="mt-2 text-cyan-200 text-[15px]">
-                from OpenWeatherMap
-              </p>
-              </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-          <div className="border-2 bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
-            <h1 className="text-3xl text-black mt-5 ml-5">
-              Services
-            </h1>
-            <ul className="mx-5 mb-5 text-2xl flex space-x-8 flex-wrap justify-between">
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-lg text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-              <li style={{ marginLeft: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  className="rounded-md bg-transparent mt-1 text-xl text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  HomeServices
-                </button>
-              </li>
-          </ul>
-          
+            ) : (
+              <p>Loading...</p>
+            )}
+            <div className="border-2 bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
+              <h1 className="text-2xl font-semibold text-black mt-5 ml-5">
+                Services
+              </h1>
+              <ul className="mx-5 mb-5 text-2xl flex space-x-8 flex-wrap justify-between">
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent mt-1 text-xl font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    HomeServices
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </aside>
+          <div className="border-2 bg-white mt-4 rounded-md shadow-sm shadow-[#000]">
+            <h1 className="text-lg text-black mt-5 ml-5 font-black">
+              SEARCHES
+            </h1>
+            <div className="px-5">
+              <hr className="px-5 mt-4" />
+              <ul>
+                <li style={{ marginLeft: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    className="rounded-md bg-transparent font-bold mt-1 text-md text-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Demo Search
+                  </button>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }

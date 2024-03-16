@@ -43,9 +43,11 @@ function Signup({ isOpen, onClose }) {
             backgroundColor: "#FFF",
             boxShadow: "0px 0px 25px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: 10,
+            zIndex: 1000
           },
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
+            zIndex: 111
           },
         }}
       >
@@ -59,10 +61,10 @@ function Signup({ isOpen, onClose }) {
                 Details.
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/70 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
               >
-                Sign Up Now!
+                Already Have Account
               </button>
             </div>
           </div>
@@ -120,16 +122,6 @@ function Signup({ isOpen, onClose }) {
                     errorMessage={errors.password?.message}
                   />
                   <div>
-                    <Input
-                      label="Date of Birth"
-                      Placeholder="Enter Date of Birth"
-                      type="date"
-                      {...register("dob", { required: "DOB is required" })}
-                      className="w-full"
-                    />
-                    {errors.dob && <p>{errors.msg?.dob}</p>}
-                  </div>
-                  <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
                       Select a country
                     </label>
@@ -154,6 +146,13 @@ function Signup({ isOpen, onClose }) {
                     {...register("city", { required: "City is required" })}
                     errorMessage={errors.city?.message}
                   />
+                  <div className="font-[Montserrat]">
+                    <p className="font-bold text-sm">Want to have business account:</p>
+                     <input type="radio" id="age1" name="age" value=""/>
+                       <label for="yes">Yes</label><br/>
+                     <input type="radio" id="age2" name="age" value=""/>
+                      <label for="no">No</label>
+                    </div>
                   <div className="flex gap-3 font-[Montserrat]">
                     <input type="checkbox" />
                     <label className="w-full">
