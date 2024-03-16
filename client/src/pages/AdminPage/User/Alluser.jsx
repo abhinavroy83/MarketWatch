@@ -5,6 +5,7 @@ import {
 } from "../../../components/AdminCompontents";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Alluser() {
   const [data, setdata] = useState([]);
@@ -13,6 +14,7 @@ function Alluser() {
   const token = useSelector((state) => state.adminauth.token);
   const [disabledButtons, setDisabledButtons] = useState([]);
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   const fetchuser = async () => {
     try {
@@ -106,7 +108,10 @@ function Alluser() {
                 }
               } else {
                 if (confirm("Confirm to delete") == true) {
-                  deleteuser(_id);
+                  // deleteuser(_id);
+                  navigate(`/admin/confirmtodelete/${_id}`, {
+                    state: { id: _id },
+                  });
                 } else {
                   console.log("cancle");
                 }

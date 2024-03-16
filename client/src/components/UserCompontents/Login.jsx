@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
+import toast, { Toaster } from "react-hot-toast";
+
 function Login({ isOpen, onClose }) {
   const {
     register,
@@ -22,6 +24,7 @@ function Login({ isOpen, onClose }) {
       if (res) {
         console.log(res.data.data._id);
         alert("Successfully logged");
+        notify();
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(
           authlogin({
