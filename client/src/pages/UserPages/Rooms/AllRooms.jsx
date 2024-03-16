@@ -39,7 +39,7 @@ function AllRooms() {
   };
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className="px-2 py-2 font-[opensans] mt-3 md:px-6 md:py-10 text-lg">
+      <div className="px-5 py-2 font-[opensans] mt-3 md:px-6 md:py-10 text-lg">
         <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl">
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
         </h1>

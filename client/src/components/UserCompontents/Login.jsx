@@ -56,6 +56,7 @@ function Login({ isOpen, onClose }) {
         },
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.9)",
+          zIndex: 111
         },
       }}
     >
@@ -88,7 +89,7 @@ function Login({ isOpen, onClose }) {
             <line x1="15" y1="9" x2="9" y2="15" />{" "}
             <line x1="9" y1="9" x2="15" y2="15" />
           </svg>
-          <h1 className="text-3xl font-bold text-[#17b19f] text-center">
+          <h1 className="text-3xl font-bold text-black text-center">
             GET STARTED
           </h1>
           <p className=" text-black text-center font-bold mt-2 px-10 text-base/7">

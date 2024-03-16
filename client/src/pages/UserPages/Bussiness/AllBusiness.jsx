@@ -33,14 +33,14 @@ function AllBusiness() {
     }
   };
   return (
-    <ChildContainer className="mt-20">
+    <ChildContainer className="mt-30 w-full p-8 max-w-[1600px] m-auto">
       <LeafletMap style={{ height: "300px", width: "100%"}} />
-      <div className="px-2 py-2 md:px md:py-10 font-[opensans]">
+      <div className="px-2 py-2 md:px md:py-10 font-[opensans] w-full max-w-[1600px] m-auto">
         <h1 className=" text-black text-4xl font-bold lg:text-4xl">
           {usercity ? (
             <p>Bussiness In {usercity}</p>
           ) : (
-            <p>Bussiness near you</p>
+            <p>Bussiness Near You</p>
           )}
         </h1>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">

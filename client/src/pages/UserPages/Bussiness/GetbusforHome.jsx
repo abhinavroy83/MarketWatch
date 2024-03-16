@@ -52,16 +52,6 @@ function GetbusforHome() {
         <div className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-2 xl:grid-cols-2 xl:gap-5">
           {renderRooms()}
         </div>
-        <div className="mt-4 w-full border-gray-300">
-          <div className="mt-2 flex items-center justify-end">
-            <button
-              className="rounded-md bg-black text-lg font-[opensans] px-3 py-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              onClick={nextPage}
-            >
-              More.
-            </button>
-          </div>
-        </div>
       </div>
     </Container>
   );

@@ -149,9 +149,9 @@ function Signup({ isOpen, onClose }) {
                   <div className="font-[Montserrat]">
                     <p className="font-bold text-sm">Want to have business account:</p>
                      <input type="radio" id="age1" name="age" value=""/>
-                       <label for="yes">Yes</label><br/>
+                       <label className="ml-2" for="yes">Yes</label><br/>
                      <input type="radio" id="age2" name="age" value=""/>
-                      <label for="no">No</label>
+                      <label className="ml-2" for="no">No</label>
                     </div>
                   <div className="flex gap-3 font-[Montserrat]">
                     <input type="checkbox" />

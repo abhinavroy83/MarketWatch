@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <div className=" w-full fixed z-50 flex  flex-col">
+    <div className=" w-full fixed z-50 flex bg-white flex-col">
       <Ads />
       <div className=" w-screen bg-gray-400 shadow-2xl font-[Montserrat] ">
         <div className="flex justify-between items-center p-2 max-w-[1600px] w-full m-auto">
