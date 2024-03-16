@@ -119,16 +119,7 @@ function Signup({ isOpen, onClose }) {
                     })}
                     errorMessage={errors.password?.message}
                   />
-                  <div>
-                    <Input
-                      label="Date of Birth"
-                      Placeholder="Enter Date of Birth"
-                      type="date"
-                      {...register("dob", { required: "DOB is required" })}
-                      className="w-full"
-                    />
-                    {errors.dob && <p>{errors.msg?.dob}</p>}
-                  </div>
+                
                   <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
                       Select a country

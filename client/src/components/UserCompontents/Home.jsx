@@ -23,7 +23,7 @@ function Home() {
   return (
     <ChildContainer className="justify-evenly">
       <Getlocations />
-      <div className="flex ml-9 mt-10">
+      <div className="flex ">
         <input
           placeholder="Start Your Search"
           type="text"
