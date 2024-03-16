@@ -33,13 +33,13 @@ function ChildContainer({ className, children, onLocationReceived }) {
   };
   console.log("whetherdata", weatherData);
   return (
-    <div className={`w-full mt-36 h-full ${className}`}>
-      <div className="flex justify-center  ">
-        <main>{children}</main>
+    <div className={` w-full mt-36 h-full ${className}`}>
+      <div className="flex justify-center w-full">
+        <main className=" w-4/5">{children}</main>
         <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
-          <div className="h-full flex flex-col">
+          <div className="h-full flex flex-wrap">
             {weatherData ? (
-              <div className="p-10 rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000]">
+              <div className="rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000]">
                 <div>{weatherData.name}</div>
                 <div className="flex w-full">
                   <div className="flex mt-5 text-white text-[47px] font-[OpenSans]">
@@ -66,11 +66,11 @@ function ChildContainer({ className, children, onLocationReceived }) {
                       )}
                     </div>
                   </div>
-                  <div className="pl-2 ml-4 mt-0 text-[26px]">
+                  <div className="mt-0 text-[26px]">
                     {weatherData.weather && (
                       <p>{weatherData.weather[0].main}</p>
                     )}
-                    <article className="flex ml-2 gap-2 mt-2">
+                    <article className="flex  gap-2 mt-2">
                       <img
                         className="h-15 w-10 pr-2 flex"
                         src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
@@ -289,7 +289,6 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     Demo Search
                   </button>
                 </li>
-
               </ul>
             </div>
           </div>

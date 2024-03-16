@@ -23,7 +23,7 @@ function Home() {
   return (
     <ChildContainer className="justify-evenly">
       <Getlocations />
-      <div className="flex ">
+      {/* <div className="flex ">
         <input
           placeholder="Start Your Search"
           type="text"
@@ -54,7 +54,7 @@ function Home() {
             <line x1="21" y1="21" x2="15" y2="15" />
           </svg>
         </button>
-      </div>
+      </div> */}
       <Geteventforhome />
       <Getrooms />
       <GetbusforHome />
