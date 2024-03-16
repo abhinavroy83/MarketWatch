@@ -1,13 +1,15 @@
 import Modal from "react-modal";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../SharedCompontents/Input";
 import axios from "axios";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import { fetchcity } from "../../Services/CityApi/Cityapi";
 
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
+  const [currentcity, setcurrentcity] = useState([]);
   const {
     register,
     handleSubmit,
@@ -25,6 +27,18 @@ function Signup({ isOpen, onClose }) {
     }
     reset();
   };
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const cit = await fetchcity();
+      console.log(cit.data);
+      const uniqueCities = Array.from(
+        new Set(cit.data.city.map((item) => item.city))
+      );
+      setcurrentcity(uniqueCities);
+    };
+    fetchdata();
+  }, []);
   return (
     <div>
       <Modal
@@ -43,11 +57,11 @@ function Signup({ isOpen, onClose }) {
             backgroundColor: "#FFF",
             boxShadow: "0px 0px 25px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: 10,
-            zIndex: 1000
+            zIndex: 1000,
           },
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
-            zIndex: 111
+            zIndex: 111,
           },
         }}
       >
@@ -55,7 +69,9 @@ function Signup({ isOpen, onClose }) {
           <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-[Montserrat] font-semibold">
             <div className="text-center">
               <img className="w-[100px] m-auto" src={Logo} />
-              <p className=" text-black text-center mt-5 text-3xl">Sign Up Here</p>
+              <p className=" text-black text-center mt-5 text-3xl">
+                Sign Up Here
+              </p>
               <p className=" text-black text-center mt-5 px-10 text-base/7">
                 Stay Connected With US Add Your Personal Details. For More
                 Details.
@@ -69,7 +85,21 @@ function Signup({ isOpen, onClose }) {
             </div>
           </div>
           <div className="w-1/2 flex flex-col justify-center items-center">
-          <svg className="h-10 w-10 text-black-500 absolute top-3 right-3 cursor-pointer" onClick={onClose} viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+            <svg
+              className="h-10 w-10 text-black-500 absolute top-3 right-3 cursor-pointer"
+              onClick={onClose}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              {" "}
+              <circle cx="12" cy="12" r="10" />{" "}
+              <line x1="15" y1="9" x2="9" y2="15" />{" "}
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
             <h1 className="text-3xl font-bold text-[#000] mt-3 font-[Montserrat]">
               CREATE YOUR ACCOUNT
             </h1>
@@ -130,7 +160,7 @@ function Signup({ isOpen, onClose }) {
                       {...register("country", { required: true })}
                     >
                       <option value="">Country</option>
-                      <option value="USA">USA</option>
+                      <option value="Usa">USA</option>
                       <option value="India">India</option>
                     </select>
                     {errors.country && (
@@ -139,20 +169,52 @@ function Signup({ isOpen, onClose }) {
                       </p>
                     )}
                   </div>
-                  <Input
-                    label="City"
-                    Placeholder="Enter City"
-                    type="text"
-                    {...register("city", { required: "City is required" })}
-                    errorMessage={errors.city?.message}
-                  />
+                  <div>
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
+                      Select a country
+                    </label>
+                    <select
+                      className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("city", { required: true })}
+                    >
+                      {currentcity.map((city, index) => (
+                        <option key={index} value={city}>
+                          {city}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.country && (
+                      <p className="mt-1 text-xs text-red-500">
+                        Country is required
+                      </p>
+                    )}
+                  </div>
+
                   <div className="font-[Montserrat]">
-                    <p className="font-bold text-sm">Want to have business account:</p>
-                     <input type="radio" id="age1" name="age" value=""/>
-                       <label for="yes">Yes</label><br/>
-                     <input type="radio" id="age2" name="age" value=""/>
-                      <label for="no">No</label>
+                    <p className="font-bold text-sm">
+                      Want to have business account:
+                    </p>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          value="yes"
+                          {...register("bussinessac", { required: true })}
+                        />
+                        Yes
+                      </label>
                     </div>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          value="no"
+                          {...register("bussinessac", { required: true })}
+                        />
+                        No
+                      </label>
+                    </div>
+                  </div>
                   <div className="flex gap-3 font-[Montserrat]">
                     <input type="checkbox" />
                     <label className="w-full">

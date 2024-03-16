@@ -25,6 +25,7 @@ const event = require("./src/Routes/Events");
 const movie = require("./src/Routes/Movie");
 const admin = require("./src/Routes/Admin");
 const approval = require("./src/Routes/Approval");
+const city = require("./src/Routes/City");
 
 app.use("/user", user);
 app.use(room);
@@ -34,6 +35,7 @@ app.use(event);
 app.use(movie);
 app.use(admin);
 app.use(approval);
+app.use(city);
 
 //healt check
 

@@ -20,10 +20,17 @@ function Addrooms() {
   const onsubmit = async (data) => {
     const roomdata = {
       city: data.city,
+      State: data.State,
       Hotelname: data.Hotelname,
       PrdImage: data.PrdImage,
       rent: data.rent,
       address: data.address,
+      bed: data.bed,
+      bath: data.bath,
+      postedby: data.postedby,
+      description: data.description,
+      email: data.email,
+      number: data.number,
       location: {
         coordinates: [currentLocation.lat, currentLocation.lng],
       },
@@ -53,7 +60,7 @@ function Addrooms() {
       <div>
         <p>Here u can add room</p>
         <h1>chekc schema </h1>
-      
+
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
         <form
@@ -67,6 +74,14 @@ function Addrooms() {
               required: "city required",
             })}
             errorMessage={errors.city?.message}
+          />
+          <Input
+            label="State"
+            type="text"
+            {...register("State", {
+              required: "State required",
+            })}
+            errorMessage={errors.State?.message}
           />
           <Input
             label="Hotelname"
@@ -99,6 +114,54 @@ function Addrooms() {
               required: "address required",
             })}
             errorMessage={errors.address?.message}
+          />
+          <Input
+            label="bed"
+            type="text"
+            {...register("bed", {
+              required: "address required",
+            })}
+            errorMessage={errors.bed?.message}
+          />
+          <Input
+            label="bath"
+            type="text"
+            {...register("bath", {
+              required: "bath required",
+            })}
+            errorMessage={errors.bath?.message}
+          />
+          <Input
+            label="postedby"
+            type="text"
+            {...register("postedby", {
+              required: "postedby required",
+            })}
+            errorMessage={errors.postedby?.message}
+          />
+          <Input
+            label="description"
+            type="text"
+            {...register("description", {
+              required: "description required",
+            })}
+            errorMessage={errors.description?.message}
+          />
+          <Input
+            label="email"
+            type="text"
+            {...register("email", {
+              required: "email required",
+            })}
+            errorMessage={errors.email?.message}
+          />
+          <Input
+            label="number"
+            type="text"
+            {...register("number", {
+              required: "number required",
+            })}
+            errorMessage={errors.number?.message}
           />
 
           <button
