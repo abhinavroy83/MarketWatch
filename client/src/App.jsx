@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
-import { login as authlogin } from "./store/authslice";
+import { login as authlogin, cities } from "./store/authslice";
 import { Footer, Header } from "./components";
 import { login as adminauth } from "./store/adminauthslice";
 import Ads from "./pages/UserPages/Ads/Ads";
@@ -18,6 +18,7 @@ function App() {
           userID: storeused.data.data._id,
         })
       );
+      dispatch(cities({ city: storeused.data.data.city }));
     }
     const adminstoredata = JSON.parse(localStorage.getItem("admindetails"));
     if (adminstoredata) {

@@ -16,7 +16,7 @@ function City() {
   useEffect(() => {
     const fetchdata = async () => {
       const citys = await fetchcity();
-      console.log(citys.data.city);
+      // console.log(citys.data.city);
       setdata(citys.data.city);
       const uniqueCities = Array.from(
         new Set(citys.data.city.map((item) => item.state))
