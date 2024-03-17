@@ -43,6 +43,10 @@ function AllBusiness() {
             <p>Bussiness Near You</p>
           )}
         </h1>
+        <h1 className=" text-black text-xl mt-3 font-bold lg:text-2xl">
+         265 Jobs are here</h1>
+         <h1 className=" text-gray-500 mt-1 text-md font-bold lg:text-1xl">
+         Jobs displayed are -</h1>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
           {renderRooms()}
         </div>
