@@ -4,8 +4,8 @@ import { Container, Input } from "../index";
 import axios from "axios";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
-import { login as authlogin } from "../../store/authslice";
-import { useNavigate } from "react-router-dom";
+import { login as authlogin, cities } from "../../store/authslice";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -15,6 +15,7 @@ function Login({ isOpen, onClose }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const location = useLocation();
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -24,7 +25,8 @@ function Login({ isOpen, onClose }) {
       if (res) {
         console.log(res.data.data._id);
         alert("Successfully logged");
-        notify();
+        console.log("city", res.data.data.city);
+        // notify();
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(
           authlogin({
@@ -33,6 +35,8 @@ function Login({ isOpen, onClose }) {
             userID: res.data.data._id,
           })
         );
+        dispatch(cities({ city: res.data.data.city }));
+
         Navigate("/");
       }
     } catch (error) {
@@ -59,7 +63,7 @@ function Login({ isOpen, onClose }) {
         },
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.9)",
-          zIndex: 111
+          zIndex: 111,
         },
       }}
     >
@@ -79,7 +83,15 @@ function Login({ isOpen, onClose }) {
         <div className="w-50 px-20 items-center grow">
           <svg
             className="h-10 w-10 text-black-500 absolute top-3 right-3 cursor-pointer"
-            onClick={onClose}
+            onClick={() => {
+              if (location.pathname == "/login") {
+                Navigate("/");
+                isOpen(false)
+              } else {
+                onclose;
+              }
+              // onClose, Navigate("/");
+            }}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

@@ -31,7 +31,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };
-  console.log("whetherdata", weatherData);
+  // console.log("whetherdata", weatherData);
   return (
     <div className={` w-full mt-36 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
@@ -168,7 +168,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                   >
                     HomeServices
                   </button>
-                </li>
+                </li> 
                 <li style={{ marginLeft: 0 }}>
                   <button
                     type="button"
