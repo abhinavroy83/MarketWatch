@@ -55,6 +55,7 @@ function Home() {
           </svg>
         </button>
       </div> */}
+      
       <Geteventforhome />
       <Getrooms />
       <GetbusforHome />

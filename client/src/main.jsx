@@ -36,6 +36,7 @@ import Events from "./pages/UserPages/Events/Events.jsx";
 import City from "./pages/AdminPage/Area/Area.jsx";
 import Addarea from "./pages/AdminPage/Area/Addarea.jsx";
 import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
+import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
 
 const router = createBrowserRouter([
   {
@@ -244,6 +245,14 @@ const router = createBrowserRouter([
         element: (
           <Adminauthlayout authentication>
             <Cnf_to_dltuser />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/confirmtodelete/userrooms/:id",
+        element: (
+          <Adminauthlayout authentication>
+            <Userrooms />
           </Adminauthlayout>
         ),
       },
