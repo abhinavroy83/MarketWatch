@@ -67,7 +67,6 @@ function Login({ isOpen, onClose }) {
         },
       }}
     >
-      {/* <div className="flex justify-center items-center h-full bg-gradient-to-tr from-[#17b19f] to-cyan-500 shadow-black bg-repeat-x bg-center bg-[url('https://img.freepik.com/premium-vector/blue-green-background-with-line-with-gradient-mesh-vector-illustration_103688-1644.jpg')] bg-cover"> */}
       <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-[Montserrat]">
         <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
           <div className="text-center font-bold">

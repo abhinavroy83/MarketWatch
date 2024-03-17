@@ -53,16 +53,16 @@ function Getuserroom() {
     const endIndex = Math.min(startIndex + 4, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
-        <td className="whitespace-nowrap px-4 py-4">
-          <div className="flex items-center">
-            <div className="h-10 w-10 flex-shrink-0">
+        <td className="whitespace-nowrap px-4 py-4 font-[Montserrat]">
+          <div className="flex items-center font-[Montserrat]">
+            <div className="h-10 w-10 flex-shrink-0 font-[Montserrat]">
               <img
                 className="h-10 w-10 rounded-full object-cover"
                 src={items.PrdImage}
                 alt=""
               />
             </div>
-            <div className="ml-4">
+            <div className="ml-4 font-[Montserrat]">
               <div className="text-sm font-medium text-gray-900">
                 {items.Hotelname}
               </div>
@@ -70,16 +70,19 @@ function Getuserroom() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-sm text-gray-700">{items.city}</div>
+          <div className="text-sm text-gray-700 font-[Montserrat]">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700 font-[Montserrat]">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700 font-[Montserrat]">
           {items.rent}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
-          <a className="text-gray-700">Delete</a>
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-sm font-medium font-[Montserrat]">
+        <svg class="h-6 w-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+         </svg>
+          <a className="text-red-500 font-semibold">Delete</a>
         </td>
       </tr>
     ));
@@ -87,7 +90,7 @@ function Getuserroom() {
 
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl px-4 py-4">
+      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-[Montserrat]">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-lg font-semibold">Rooms</h2>
@@ -104,7 +107,7 @@ function Getuserroom() {
               }}
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Add new room
+              Add New Room
             </button>
           </div>
         </div>

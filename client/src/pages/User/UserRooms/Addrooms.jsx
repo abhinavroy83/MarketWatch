@@ -57,9 +57,9 @@ function Addrooms() {
   };
   return (
     <DashConatiner>
-      <div>
-        <p>Here u can add room</p>
-        <h1>chekc schema </h1>
+      <div className="font-[Montserrat] font-semibold">
+        <p className="text-3xl text-center mt-3">You Can Add New Room</p>
+        <h1 className="text-1xl text-center mt-3">Check Schema </h1>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -71,7 +71,7 @@ function Addrooms() {
             label="City"
             type="text"
             {...register("city", {
-              required: "city required",
+              required: "City required",
             })}
             errorMessage={errors.city?.message}
           />
@@ -103,7 +103,7 @@ function Addrooms() {
             label="rent"
             type="text"
             {...register("rent", {
-              required: "rent required",
+              required: "Rent required",
             })}
             errorMessage={errors.rent?.message}
           />
@@ -111,7 +111,7 @@ function Addrooms() {
             label="Hotel Address"
             type="text"
             {...register("address", {
-              required: "address required",
+              required: "Address required",
             })}
             errorMessage={errors.address?.message}
           />
@@ -119,7 +119,7 @@ function Addrooms() {
             label="bed"
             type="text"
             {...register("bed", {
-              required: "address required",
+              required: "Address required",
             })}
             errorMessage={errors.bed?.message}
           />
@@ -127,7 +127,7 @@ function Addrooms() {
             label="bath"
             type="text"
             {...register("bath", {
-              required: "bath required",
+              required: "Bath required",
             })}
             errorMessage={errors.bath?.message}
           />
@@ -135,7 +135,7 @@ function Addrooms() {
             label="postedby"
             type="text"
             {...register("postedby", {
-              required: "postedby required",
+              required: "Postedby required",
             })}
             errorMessage={errors.postedby?.message}
           />
@@ -143,7 +143,7 @@ function Addrooms() {
             label="description"
             type="text"
             {...register("description", {
-              required: "description required",
+              required: "Description required",
             })}
             errorMessage={errors.description?.message}
           />
@@ -151,7 +151,7 @@ function Addrooms() {
             label="email"
             type="text"
             {...register("email", {
-              required: "email required",
+              required: "Email required",
             })}
             errorMessage={errors.email?.message}
           />
@@ -159,14 +159,14 @@ function Addrooms() {
             label="number"
             type="text"
             {...register("number", {
-              required: "number required",
+              required: "Number required",
             })}
             errorMessage={errors.number?.message}
           />
 
           <button
             type="submit"
-            className="rounded-md bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md mt-7 bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add Hotel
           </button>
