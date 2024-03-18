@@ -39,19 +39,20 @@ function Getmovieforhome() {
     autoplaySpeed: 2000,
     rtl: true,
   };
-  return (
+  return movie.length > 0 ? (
     <Container>
-      <div className="text-black text-4xl font-[OpenSans] font-bold ml-6 mb-1">Movie
+      <div className="text-black text-4xl font-[OpenSans] font-bold ml-6 mb-1">
+        Movie
       </div>
-    <div>
-      <Slider {...settings} className="pb-2">
-        {movie.map((item) => (
-          <Moviecard key={item.id} {...item} />
-        ))}
-      </Slider>
+      <div>
+        <Slider {...settings} className="pb-2">
+          {movie.map((item) => (
+            <Moviecard key={item.id} {...item} />
+          ))}
+        </Slider>
       </div>
     </Container>
-  );
+  ) : null;
 }
 
 export default Getmovieforhome;

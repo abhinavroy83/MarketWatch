@@ -10,6 +10,8 @@ import { fetchcity } from "../../Services/CityApi/Cityapi";
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
+  const [businessstatus, setbusinessstatus] = useState(false);
+  const [signupdata, setsignupdata] = useState({});
   const {
     register,
     handleSubmit,
@@ -17,17 +19,22 @@ function Signup({ isOpen, onClose }) {
     reset,
   } = useForm();
   const onSubmit = async (data) => {
-    try {
-      const res = await axios.post("http://localhost:8000/user/signup", data);
-      if (res) {
-        alert("signup successfully added");
+    if (businessstatus) {
+      setsignupdata(data);
+      // console.log(data);
+    } else {
+      try {
+        const res = await axios.post("http://localhost:8000/user/signup", data);
+        if (res) {
+          alert("signup successfully added");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+      reset();
     }
-    reset();
   };
-
+  // console.log("signupdata",signupdata);
   useEffect(() => {
     const fetchdata = async () => {
       const cit = await fetchcity();
@@ -39,6 +46,7 @@ function Signup({ isOpen, onClose }) {
     };
     fetchdata();
   }, []);
+
   return (
     <div>
       <Modal
@@ -200,6 +208,7 @@ function Signup({ isOpen, onClose }) {
                           type="radio"
                           value="yes"
                           {...register("bussinessac", { required: true })}
+                          onChange={() => setbusinessstatus(true)}
                         />
                         Yes
                       </label>
@@ -210,6 +219,7 @@ function Signup({ isOpen, onClose }) {
                           type="radio"
                           value="no"
                           {...register("bussinessac", { required: true })}
+                          onChange={() => setbusinessstatus(false)}
                         />
                         No
                       </label>
@@ -222,12 +232,27 @@ function Signup({ isOpen, onClose }) {
                     </label>
                   </div>
                   <div className="text-center">
-                    <button
-                      className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
-                      type="submit"
-                    >
-                      Sign To Create Account
-                    </button>
+                    {businessstatus ? (
+                      <button
+                        className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                        type="submit"
+                        onClick={() => {
+                          navigate("/createbussinessprofile", {
+                            state: signupdata,
+                          });
+                          // onClose(true);
+                        }}
+                      >
+                        Next
+                      </button>
+                    ) : (
+                      <button
+                        className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                        type="submit"
+                      >
+                        Sign To Create Account
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

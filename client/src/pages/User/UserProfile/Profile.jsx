@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DashConatiner } from "../../../components";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -9,7 +9,7 @@ function Profile() {
   const { register, handleSubmit, setValue } = useForm();
   const [isedit, setisedit] = useState(false);
   const [data, setdata] = useState({});
-
+  const navigate = useNavigate();
   const fetchuser = async () => {
     try {
       const res = await axios.get(
@@ -22,11 +22,25 @@ function Profile() {
     }
   };
 
-  const toggleedit = () => {
+  const toggleEdit = () => {
     setisedit(true);
   };
-  const togglecancle = () => {
+  const toggleCancel = () => {
     setisedit(false);
+  };
+  const handleclick = (data) => {
+    try {
+      const res = axios.put(
+        `http://localhost:8000/user/updateuser/${userID}`,
+        data
+      );
+      if (res) {
+        alert("updated successfuly");
+        navigate(`/myaccount/${userID}`);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   useEffect(() => {
@@ -42,7 +56,7 @@ function Profile() {
   }, [data, setValue]);
   return (
     <DashConatiner>
-      <form onSubmit={handleSubmit(onclick)}>
+      <form onSubmit={handleSubmit(handleclick)}>
         <div className=" flex">
           <label>FirstName:</label>
           {isedit ? (
@@ -96,11 +110,17 @@ function Profile() {
         )}
 
         {isedit ? (
-          <button type="submit">Update</button>
+          <>
+            <button type="submit">Update</button>
+            <button type="button" onClick={toggleCancel}>
+              Cancel
+            </button>
+          </>
         ) : (
-          <button onClick={toggleedit}>Edit</button>
+          <button type="button" onClick={toggleEdit}>
+            Edit
+          </button>
         )}
-        {isedit && <button onClick={togglecancle}>Cancel</button>}
       </form>
     </DashConatiner>
   );

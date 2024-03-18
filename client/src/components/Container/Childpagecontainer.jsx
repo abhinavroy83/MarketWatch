@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
   const currentloc = useSelector((state) => state.auth.location);
+  const city = useSelector((state) => state.auth.city);
 
   useEffect(() => {
     let lat, lng;
@@ -19,7 +20,11 @@ function ChildContainer({ className, children, onLocationReceived }) {
     }
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
+        city
+          ? `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+              city
+            )}&appid=5e414d6a2d51b65b62d9b463859ae456`
+          : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
       )
       .then((res) => {
         console.log(res.data), setwhetherdata(res.data);
@@ -27,7 +32,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
       .catch((error) => console.log("Error during fetcing whether", error));
     console.log("lat", lat);
     console.log("lat", lng);
-  }, [onLocationReceived, currentloc]);
+  }, [onLocationReceived, currentloc, city]);
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };

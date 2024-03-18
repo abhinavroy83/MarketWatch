@@ -31,7 +31,7 @@ function Login({ isOpen, onClose }) {
         dispatch(
           authlogin({
             token: res.data.jwttoken,
-            user: res.data.data.name,
+            user: res.data.data.firstName,
             userID: res.data.data._id,
           })
         );
@@ -85,7 +85,7 @@ function Login({ isOpen, onClose }) {
             onClick={() => {
               if (location.pathname == "/login") {
                 Navigate("/");
-                isOpen(false)
+                isOpen(false);
               } else {
                 onclose;
               }

@@ -14,7 +14,7 @@ function App() {
       dispatch(
         authlogin({
           token: storeused.data.jwttoken,
-          user: storeused.data.data.name,
+          user: storeused.data.data.firstName,
           userID: storeused.data.data._id,
         })
       );

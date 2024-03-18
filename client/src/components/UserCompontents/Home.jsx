@@ -60,7 +60,7 @@ function Home() {
       <Getrooms />
       <GetbusforHome />
       <Getmovieforhome />
-      <Getjob />
+      {/* <Getjob /> */}
     </ChildContainer>
   );
 }

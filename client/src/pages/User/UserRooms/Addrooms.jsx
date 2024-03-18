@@ -75,7 +75,7 @@ function Addrooms() {
             errorMessage={errors.city?.message}
           />
 
-          <Input
+          <FormInput
             label="State"
             type="text"
             {...register("State", {
