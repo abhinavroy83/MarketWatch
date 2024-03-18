@@ -35,7 +35,7 @@ app.use(event);
 app.use(movie);
 app.use(admin);
 app.use(approval);
-app.use(city);
+app.use(city); 
 
 //healt check
 

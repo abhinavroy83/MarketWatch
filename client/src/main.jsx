@@ -37,6 +37,7 @@ import City from "./pages/AdminPage/Area/Area.jsx";
 import Addarea from "./pages/AdminPage/Area/Addarea.jsx";
 import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
 import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
+import Profile from "./pages/User/UserProfile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -158,6 +159,10 @@ const router = createBrowserRouter([
       {
         path: "/events/:_id",
         element: <Events />,
+      },
+      {
+        path: "/dashboard/profile/:userID",
+        element: <Profile />,
       },
       // adminpanel components
       {

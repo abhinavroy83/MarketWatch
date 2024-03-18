@@ -16,7 +16,7 @@ const deleteuser = async (req, res) => {
       msg: "something went wrong",
     });
   }
-};
+}; 
 
 const deleteuserbyalldata = async (req, res) => {
   try {

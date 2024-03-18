@@ -168,7 +168,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                   >
                     HomeServices
                   </button>
-                </li> 
+                </li>
                 <li style={{ marginLeft: 0 }}>
                   <button
                     type="button"
@@ -243,7 +243,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
               SEARCHES
             </h1>
             <div>
-              <hr className="px-7 mt-2"/>
+              <hr className="px-7 mt-2" />
               <ul className="mx-5 flex space-x-8 flex-wrap justify-between">
                 <li style={{ marginLeft: 0 }}>
                   <button
@@ -264,7 +264,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     }}
                     className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                     Find Search
+                    Find Search
                   </button>
                 </li>
               </ul>
@@ -288,7 +288,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     }}
                     className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                     Find Search
+                    Find Search
                   </button>
                 </li>
               </ul>
@@ -312,7 +312,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     }}
                     className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                     Find Search
+                    Find Search
                   </button>
                 </li>
               </ul>
@@ -336,7 +336,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     }}
                     className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                     Find Search
+                    Find Search
                   </button>
                 </li>
               </ul>
@@ -360,15 +360,20 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     }}
                     className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                     Find Search
+                    Find Search
                   </button>
                 </li>
               </ul>
-          </div>    
+            </div>
           </div>
           <div className="border-2 bg-white mt-4 rounded-md shadow-sm shadow-[#000]">
-            <img className="w-full h-full" src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlS2MyP82wFMKpr7e1CxfyAoqgDRx0Bg0seg&usqp=CAU'} alt="" />
-
+            <img
+              className="w-full h-full"
+              src={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlS2MyP82wFMKpr7e1CxfyAoqgDRx0Bg0seg&usqp=CAU"
+              }
+              alt=""
+            />
           </div>
         </aside>
       </div>

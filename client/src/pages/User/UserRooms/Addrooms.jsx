@@ -1,5 +1,5 @@
 import React from "react";
-import { DashConatiner, Input } from "../../../components";
+import { DashConatiner, FormInput, Input } from "../../../components";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -59,7 +59,6 @@ function Addrooms() {
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold">
         <p className="text-3xl text-center mt-3">You Can Add New Room</p>
-        <h1 className="text-1xl text-center mt-3">Check Schema </h1>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -67,7 +66,7 @@ function Addrooms() {
           onSubmit={handleSubmit(onsubmit)}
           className=" flex flex-col justify-center items-center"
         >
-          <Input
+          <FormInput
             label="City"
             type="text"
             {...register("city", {
@@ -75,6 +74,7 @@ function Addrooms() {
             })}
             errorMessage={errors.city?.message}
           />
+
           <Input
             label="State"
             type="text"
