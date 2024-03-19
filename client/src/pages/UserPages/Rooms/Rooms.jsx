@@ -68,7 +68,7 @@ function Rooms() {
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-20">
+      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-10 font-[Montserrat]">
         <div className=" flex justify-between py-2">
           <div>
           <svg class="h-10 w-10 ml-1 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,13 +76,13 @@ function Rooms() {
           </svg>
           <div className="flex pb-3">
           <img className="h-12 w-12 mt-3"src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL8yWJzDEZZIG2fKqx1CjPuRqdUDx5W-BWIg&usqp=CAU`}/>
-            <p className="mt-8 font-semibold text-[18px] font-[Roboto]">Washing Available Here</p>
+            <p className="mt-8 font-semibold text-[18px] font-[Montserrat]">Washing Available Here</p>
           </div>
           </div>
           <div className=" cursor-pointer">
             <CopyToClipboard text={url} onCopy={handlecopy}>
               <svg
-                class="h-8 w-8 text-red-500"
+                class="h-8 w-8 text-black"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -107,19 +107,19 @@ function Rooms() {
             <img
               src={rooms.PrdImage}
               alt="roomimg"
-              className="h-[600px] w-[880px] rounded-md object-cover"
+              className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="font-[Poppins] mt-4">
-              Posted By:{rooms.postedby} || Posted On:{posteddate}{" "}
+            <p className="font-[Montserrat] mt-4 text-sm">
+              Posted By : {rooms.postedby} || Posted On : {posteddate}{" "}
             </p>
           </div>
-          <div className="px-3 font-[Roboto] ml-7 flex flex-col gap-1">
-              <p className="mt-3 text-2xl font-semibold text-gray-800 font-[Poppins]">
+          <div className="px-3 font-[Montserrat] ml-7 flex flex-col gap-1">
+              <p className="mt-3 text-2xl font-semibold text-gray-800 font-[Montserrat]">
                 {rooms.Hotelname}
               </p>
-              <p className="text-red-700">{rooms.rent} monthly</p>
-              <p>{rooms.address}</p>
-              <p>
+              <p className="text-red-700 text-sm">{rooms.rent} monthly</p>
+              <p className="text-sm">{rooms.address}</p>
+              <p className="text-sm">
                 {rooms.bed}Bed / {rooms.bath}Bath
               </p>
             <div>
@@ -132,7 +132,7 @@ function Rooms() {
                 </div>
               ) : (
                 <div>
-                  <p>loading</p>
+                  <p className="font-[Montserrat]">loading</p>
                 </div>
               )}
             </div>
@@ -150,18 +150,18 @@ function Rooms() {
               </button>
               {contactdet && authstatus ? (
                 <div className="gap-4">
-                  <p className="mt-3 mb-1 text-[17px]">Email:{rooms.email}</p>
-                  <p className="text-[17px]">Number:{rooms.number}</p>
+                  <p className="mt-3 mb-1 text-sm">Email : {rooms.email}</p>
+                  <p className="text-sm">Number : {rooms.number}</p>
                 </div>
               ) : null}
             </div>
           </div>
         </div>
-        <div className="font-[Poppins] py-2 text-red-700">Description:{rooms.description}</div>
+        <div className="font-[Montserrat] py-2 mt-9 text-red-700">Description:{rooms.description}</div>
         <div className="mb-2">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[18px] font-[Poppins]">
-              <p>Similar room in the Area</p>
+            <div className=" flex justify-between w-full text-sm font-[Montserrat] font-semibold">
+              <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"
                 onClick={() => {
@@ -172,7 +172,7 @@ function Rooms() {
               </p>
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-10 xl:grid-cols-3 xl:gap-16">
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-5 xl:grid-cols-3 xl:gap-16">
             {renderRooms()}
           </div>
         </div>

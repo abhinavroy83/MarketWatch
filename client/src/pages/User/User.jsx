@@ -9,10 +9,9 @@ function User() {
   const { userID } = useParams();
   return (
     <DashConatiner>
-      <h1 className="text-4xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
+      <h1 className="text-4xl text-center font-bold text-[#000] mt-7 font-[Montserrat]">
         Welcome Back {username}
       </h1>
-     
       <div className="flex col-auto gap-4 flex-wrap w-[70%] m-auto justify-center mt-10">
         <Link to={`/dashboard/profile/${userID}`}>
           <div className="flex w-[200px] h-[150px]">

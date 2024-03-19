@@ -135,16 +135,16 @@ function Getrooms() {
             <hr />
           </div>
         </article>
-        {/* <div className="mt-4 w-full border-gray-300">
+        <div className="mt-4 w-full border-gray-300">
           <div className="mt-2 flex items-center justify-end">
             <button
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               onClick={nextPage}
             >
-              More..
+              More.
             </button>
           </div>
-        </div> */}
+        </div>
       </div>
     </Container>
   );
