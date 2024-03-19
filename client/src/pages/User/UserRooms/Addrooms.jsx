@@ -1,5 +1,5 @@
 import React from "react";
-import { DashConatiner, FormInput, Input } from "../../../components";
+import { DashConatiner, FormInput } from "../../../components";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -58,13 +58,13 @@ function Addrooms() {
   return (
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold">
-        <p className="text-3xl text-center mt-3">You Can Add New Room</p>
+        <p className="text-3xl ml-3 mt-3">You Can Add New Room</p>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
         <form
           onSubmit={handleSubmit(onsubmit)}
-          className=" flex flex-col justify-center items-center"
+          className="flex flex-col justify-center items-center mt-7 gap-5"
         >
           <FormInput
             label="City"
@@ -83,7 +83,7 @@ function Addrooms() {
             })}
             errorMessage={errors.State?.message}
           />
-          <Input
+          <FormInput
             label="Hotelname"
             type="text"
             {...register("Hotelname", {
@@ -91,7 +91,7 @@ function Addrooms() {
             })}
             errorMessage={errors.Hotelname?.message}
           />
-          <Input
+          <FormInput
             label="Hotel Image Url"
             type="text"
             {...register("PrdImage", {
@@ -99,15 +99,15 @@ function Addrooms() {
             })}
             errorMessage={errors.PrdImage?.message}
           />
-          <Input
-            label="rent"
+          <FormInput
+            label="Rent"
             type="text"
             {...register("rent", {
               required: "Rent required",
             })}
             errorMessage={errors.rent?.message}
           />
-          <Input
+          <FormInput
             label="Hotel Address"
             type="text"
             {...register("address", {
@@ -115,48 +115,48 @@ function Addrooms() {
             })}
             errorMessage={errors.address?.message}
           />
-          <Input
-            label="bed"
+          <FormInput
+            label="Bed"
             type="text"
             {...register("bed", {
               required: "Address required",
             })}
             errorMessage={errors.bed?.message}
           />
-          <Input
-            label="bath"
+          <FormInput
+            label="Bath"
             type="text"
             {...register("bath", {
               required: "Bath required",
             })}
             errorMessage={errors.bath?.message}
           />
-          <Input
-            label="postedby"
+          <FormInput
+            label="Postedby"
             type="text"
             {...register("postedby", {
               required: "Postedby required",
             })}
             errorMessage={errors.postedby?.message}
           />
-          <Input
-            label="description"
+          <FormInput
+            label="Description"
             type="text"
             {...register("description", {
               required: "Description required",
             })}
             errorMessage={errors.description?.message}
           />
-          <Input
-            label="email"
+          <FormInput
+            label="Email"
             type="text"
             {...register("email", {
               required: "Email required",
             })}
             errorMessage={errors.email?.message}
           />
-          <Input
-            label="number"
+          <FormInput
+            label="Number"
             type="text"
             {...register("number", {
               required: "Number required",
@@ -166,7 +166,7 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md mt-7 bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add Hotel
           </button>

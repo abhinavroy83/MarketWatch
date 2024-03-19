@@ -56,8 +56,8 @@ function Profile() {
   }, [data, setValue]);
   return (
     <DashConatiner>
-      <form onSubmit={handleSubmit(handleclick)}>
-        <div className=" flex">
+      <form onSubmit={handleSubmit(onclick)}>
+        <div className="flex font-[Montserrat] font-semibold">
           <label>FirstName:</label>
           {isedit ? (
             <input
@@ -69,7 +69,7 @@ function Profile() {
             <p>{data.firstName}</p>
           )}
         </div>
-        <div className=" flex">
+        <div className="flex font-[Montserrat] font-semibold">
           <label>LastName:</label>
           {isedit ? (
             <input
@@ -81,7 +81,7 @@ function Profile() {
             <p>{data.lastName}</p>
           )}
         </div>
-        <div className=" flex">
+        <div className=" flex font-[Montserrat] font-semibold">
           <label>City:</label>
           {isedit ? (
             <input type="text" {...register("city")} defaultValue={data.city} />
@@ -89,7 +89,7 @@ function Profile() {
             <p>{data.city}</p>
           )}
         </div>
-        <div className=" flex">
+        <div className=" flex font-[Montserrat] font-semibold">
           <label>Country:</label>
           {isedit ? (
             <input
@@ -110,17 +110,11 @@ function Profile() {
         )}
 
         {isedit ? (
-          <>
-            <button type="submit">Update</button>
-            <button type="button" onClick={toggleCancel}>
-              Cancel
-            </button>
-          </>
+          <button className="font-[Montserrat] font-semibold bg-black p-2 rounded-lg text-white mt-3" type="submit">Update</button>
         ) : (
-          <button type="button" onClick={toggleEdit}>
-            Edit
-          </button>
+          <button className="font-[Montserrat] font-semibold bg-black p-2 px-3 rounded-lg text-white mt-3" onClick={toggleEdit}>Edit</button>
         )}
+        {isedit && <button className="font-[Montserrat] ml-4 font-semibold" onClick={toggleCancel}>Cancel</button>}
       </form>
     </DashConatiner>
   );

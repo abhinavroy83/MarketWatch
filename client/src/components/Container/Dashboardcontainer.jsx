@@ -4,14 +4,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
+  console.log(username)
   const navigate = useNavigate();
   const { userID } = useParams();
   // console.log(userID);
   return (
-    <div className="mt-48 mb-10 h-screen mx-auto px-4 flex justify-between max-w-[1600px] w-full m-auto items-center overflow-hidden">
+    <div className="mt-48 mb-10 h-screen mx-auto px-4 flex max-w-[1600px] w-full m-auto items-center justify-center overflow-hidden">
       <div className=" w-1/4 bg-gray-300 border-2 h-screen p-2 flex flex-col font-[Montserrat]">
         <svg
-          class="h-[9rem] w-[24rem] text-black mt-2"
+          class="h-[9rem] w-[24rem] text-black mt-2 items-center"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -30,7 +31,7 @@ function DashConatiner({ children }) {
           onClick={() => {
             navigate(`/myaccount/${userID}`);
           }}
-          className="rounded-md bg-transparent mt-2 px-3 py-1 capitalize text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="rounded-md bg-transparent  mt-2 px-3 py-1 capitalize text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Hello {username}
         </button>
@@ -59,7 +60,7 @@ function DashConatiner({ children }) {
           Bussiness
         </button>
       </div>
-      <main className=" w-3/4 bg-gray-200 border-2 h-screen p-2 overflow-scroll">
+      <main className=" w-3/5 bg-gray-200 border-2 h-screen p-2 overflow-scroll">
         {children}
       </main>
     </div>
