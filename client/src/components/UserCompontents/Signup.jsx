@@ -11,7 +11,6 @@ function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
   const [businessstatus, setbusinessstatus] = useState(false);
-  const [signupdata, setsignupdata] = useState({});
   const {
     register,
     handleSubmit,
@@ -20,7 +19,11 @@ function Signup({ isOpen, onClose }) {
   } = useForm();
   const onSubmit = async (data) => {
     if (businessstatus) {
-      setsignupdata(data);
+      // setsignupdata(data);
+      navigate("/createbussinessprofile", {
+        state: data,
+      });
+      onClose(true);
       // console.log(data);
     } else {
       try {
@@ -236,12 +239,6 @@ function Signup({ isOpen, onClose }) {
                       <button
                         className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                         type="submit"
-                        onClick={() => {
-                          navigate("/createbussinessprofile", {
-                            state: signupdata,
-                          });
-                          // onClose(true);
-                        }}
                       >
                         Next
                       </button>
