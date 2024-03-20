@@ -79,7 +79,7 @@ function Getuserbussiness() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-[Montserrat]">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-lg font-semibold">Bussiness</h2>
+            <h2 className="text-lg font-semibold text-red-700">Bussiness</h2>
             <p className="mt-1 text-sm text-gray-700">
               This is a list of all rooms. You can add new rooms, edit or delete
               existing ones.
@@ -88,7 +88,7 @@ function Getuserbussiness() {
           <div>
             <button
               type="button"
-              className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-[#17b19f] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Add New Bussiness
             </button>
@@ -145,7 +145,7 @@ function Getuserbussiness() {
             <div className="space-x-2">
               {currentPage > 1 && (
                 <button
-                  className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-[#17b19f] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={prevPage}
                 >
                   &larr; Previous
@@ -153,7 +153,7 @@ function Getuserbussiness() {
               )}
               {details.length > currentPage * 4 && (
                 <button
-                  className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-[#17b19f] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={nextPage}
                 >
                   Next &rarr;

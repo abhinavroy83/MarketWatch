@@ -9,7 +9,7 @@ function User() {
   const { userID } = useParams();
   return (
     <DashConatiner>
-      <h1 className="text-4xl text-center font-bold text-[#000] mt-7 font-[Montserrat]">
+      <h1 className="text-4xl text-center font-bold text-red-700 mt-7 font-[Montserrat]">
         Welcome Back {username}
       </h1>
       <div className="flex col-auto gap-4 flex-wrap w-[70%] m-auto justify-center mt-10">
