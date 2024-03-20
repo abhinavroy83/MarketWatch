@@ -3,14 +3,29 @@ const bcrypt = require("bcrypt");
 
 const singup = async (req, res) => {
   try {
-    const { email, password, lastName, bussinessac, firstName, country, city } =
-      req.body;
+    const {
+      email,
+      password,
+      displaybussinessname,
+      legalbussinesname,
+      lastName,
+      bussinessac,
+      firstName,
+      website,
+      country,
+      address,
+      city,
+    } = req.body;
     const encrytpass = await bcrypt.hash(password, 10);
     const newUser = new User({
       email,
       lastName,
       bussinessac,
+      legalbussinesname,
+      address,
       firstName,
+      website,
+      displaybussinessname,
       country,
       city,
       password: encrytpass,

@@ -182,7 +182,7 @@ function Signup({ isOpen, onClose }) {
                   </div>
                   <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
-                      Select a country
+                      Select a City
                     </label>
                     <select
                       className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"

@@ -18,7 +18,7 @@ const usershema = new mongoose.Schema({
     type: String,
     enum: ["Usa", "India"],
     required: true,
-  }, 
+  },
   city: {
     type: String,
     required: true,
@@ -31,6 +31,18 @@ const usershema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  displaybussinessname: {
+    type: String,
+  },
+  legalbussinesname: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  website: {
+    type: String,
   },
 });
 
