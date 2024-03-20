@@ -54,35 +54,24 @@ function Profile() {
       }
     }
   }, [data, setValue]);
+
   return (
     <DashConatiner>
       <div className="flex justify-center items-center">
-        <h1 className="text-4xl p-2 ml-2 font-bold text-[#000] mt-7 font-[Montserrat]">
-          You Can Edit Your Profile
+        <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-7 font-[Montserrat]">
+          Your Profile
         </h1>
-        <svg
-          class="h-[3rem] w-[3rem] text-black mt-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1"
-            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-          />
-        </svg>
+        <svg class="h-[3rem] w-[3rem] text-red-700 mt-7"  width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <line x1="9" y1="9" x2="9.01" y2="9" />  <line x1="15" y1="9" x2="15.01" y2="9" />  <path d="M8 13a4 4 0 1 0 8 0m0 0H8" /></svg>
       </div>
-      <h1 className="text-lg ml-5 text-[#000] font-[Montserrat]">
-        Write Updated Changes Here-
+      <h1 className="text-lg ml-5 text-[#000] font-bold font-[Montserrat]">
+        Your Personal Details Are-
       </h1>
       <form onSubmit={handleSubmit(handleclick)}>
         <div className="flex font-[Montserrat] font-semibold p-2 mt-3 ml-4">
-          {/* <label>FirstName:</label> */}
+          <label>FirstName: {data.name}</label>
           {isedit ? (
             <FormInput
-              label="FirstName:"
+              // label="FirstName:"
               // className="ml-4 p-1 rounded-base"
               type="text"
               {...register("firstName")}
@@ -93,10 +82,10 @@ function Profile() {
           )}
         </div>
         <div className="flex font-[Montserrat] font-semibold p-2 ml-4">
-          {/* <label>LastName:</label> */}
+          <label>LastName:</label>
           {isedit ? (
             <FormInput
-              label="Lastname"
+              // label="Lastname"
               className="ml-4 p-1 rounded-base"
               type="text"
               {...register("lastName")}
@@ -109,7 +98,7 @@ function Profile() {
         <div className=" flex font-[Montserrat] font-semibold p-2 ml-4">
           <label>City:</label>
           {isedit ? (
-            <input
+            <FormInput
               className="ml-4 p-1 rounded-base"
               type="text"
               {...register("city")}
@@ -122,7 +111,7 @@ function Profile() {
         <div className=" flex font-[Montserrat] font-semibold p-2 ml-4">
           <label>Country:</label>
           {isedit ? (
-            <input
+            <FormInput
               className="ml-4 p-1 rounded-base"
               type="text"
               {...register("country")}
@@ -142,7 +131,7 @@ function Profile() {
 
         {isedit ? (
           <>
-            <button type="submit">Update</button>
+            <button className="rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-base" type="submit">Update</button>
             <button type="button" onClick={toggleCancel}>
               Cancel
             </button>
