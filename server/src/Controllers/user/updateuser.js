@@ -16,7 +16,7 @@ const updateuser = async (req, res) => {
     const user = await User.findById(_id);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
-    } 
+    }  
 
     user.lastName = lastName || user.lastName;
     user.firstName = firstName || user.firstName;
