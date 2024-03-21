@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const login = async (req, res) => {
-  console.log(req, res);
+  // console.log(req, res);
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -26,12 +26,17 @@ const login = async (req, res) => {
           expiresIn: "100m",
         }
       );
-      console.log(user);
+      // console.log(user);
       res.json({
         status: "success",
         msg: "LoggedIN sucess",
         jwttoken,
         data: user,
+      });
+    } else {
+      res.json({
+        Status: "Incorrect password",
+        status: "failed",
       });
     }
   } catch (error) {
