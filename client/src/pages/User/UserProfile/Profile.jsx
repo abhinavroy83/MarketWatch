@@ -129,12 +129,12 @@ function Profile() {
             )}
           </div>
 
-          {data.bussinessac === "no" && (
-            <div className="flex font-[Montserrat] font-semibold p-2">
-              <p>For bussiness account :</p>
-              <a className="cursor-pointer">Click here</a>
-            </div>
-          )}
+        {data.bussinessac === "no" && (
+          <div className="flex">
+            <p>for bussiness account :</p>
+            <a className=" cursor-pointer">Click here</a>
+          </div>
+        )}
 
           {isedit ? (
             <>

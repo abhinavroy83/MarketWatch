@@ -60,11 +60,6 @@ function BussinessPages() {
   return (
     <Container>
       <div className=" mt-44">
-        {firstName ? (
-          <div>BussinessPages: {firstName}</div>
-        ) : (
-          <div>No firstName found in signupdata</div>
-        )}
         <form onSubmit={handleSubmit(onsubmit)}>
           <FormInput
             label="FirstName"

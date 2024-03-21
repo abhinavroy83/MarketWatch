@@ -7,6 +7,7 @@ const initialState = {
   userID: null,
   location: null,
   city: null,
+  bussinessac: null,
 };
 
 const authSlice = createSlice({
@@ -18,12 +19,14 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.user = action.payload.user;
       state.userID = action.payload.userID;
+      state.bussinessac = action.payload.bussinessac;
     },
     logout: (state) => {
       state.status = false;
       state.token = null;
       state.user = null;
       state.userID = null;
+      state.bussinessac = null;
     },
     location: (state, action) => {
       state.location = action.payload.location;

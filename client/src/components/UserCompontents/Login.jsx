@@ -33,6 +33,7 @@ function Login({ isOpen, onClose }) {
             token: res.data.jwttoken,
             user: res.data.data.firstName,
             userID: res.data.data._id,
+            bussinessac: res.data.data.bussinessac,
           })
         );
         dispatch(cities({ city: res.data.data.city }));

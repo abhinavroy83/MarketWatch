@@ -4,7 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
-  console.log(username)
+  const bussinessac = useSelector((state) => state.auth.bussinessac);
+  console.log(username);
   const navigate = useNavigate();
   const { userID } = useParams();
   // console.log(userID);
@@ -43,22 +44,42 @@ function DashConatiner({ children }) {
         >
           Rooms
         </button>
-        <button
-          onClick={() => {
-            navigate(`/user/job/${userID}`);
-          }}
-          className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        >
-          Jobs
-        </button>
-        <button
-          onClick={() => {
-            navigate(`/user/bussiness/${userID}`);
-          }}
-          className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        >
-          Bussiness
-        </button>
+        {bussinessac == "yes" && (
+          <>
+            <button
+              onClick={() => {
+                navigate(`/user/job/${userID}`);
+              }}
+              className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Jobs
+            </button>
+            <button
+              onClick={() => {
+                // navigate(`/user/job/${userID}`);
+              }}
+              className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Events
+            </button>
+            <button
+              onClick={() => {
+                // navigate(`/user/job/${userID}`);
+              }}
+              className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Movies
+            </button>
+            <button
+              onClick={() => {
+                navigate(`/user/bussiness/${userID}`);
+              }}
+              className="rounded-md bg-transparent px-3 py-1 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Bussiness
+            </button>
+          </>
+        )}
       </div>
       <main className=" w-3/5 bg-gray-200 border-2 h-screen p-2 overflow-scroll">
         {children}
