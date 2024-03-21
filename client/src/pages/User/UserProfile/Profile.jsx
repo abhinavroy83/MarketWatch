@@ -66,7 +66,7 @@ function Profile() {
   return (
     <DashConatiner>
       <div className="px-10">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center mb-4">
           <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-7 font-[Montserrat]">
             Your Profile
           </h1>
@@ -93,8 +93,8 @@ function Profile() {
           Your Personal Details Are-
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
-          <div className="flex font-[Montserrat] font-semibold p-2">
-            <label className="min-w-[100px]">FirstName: </label>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">FirstName: </label>
             {isedit ? (
               <FormInput
                 // label="FirstName:"
@@ -107,8 +107,8 @@ function Profile() {
               <p>{data.firstName}</p>
             )}
           </div>
-          <div className="flex font-[Montserrat] font-semibold p-2">
-            <label className="min-w-[100px]">LastName:</label>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">LastName:</label>
             {isedit ? (
               <FormInput
                 // label="Lastname"
@@ -121,8 +121,8 @@ function Profile() {
               <p>{data.lastName}</p>
             )}
           </div>
-          <div className=" flex font-[Montserrat] font-semibold p-2">
-            <label className="min-w-[100px]">City:</label>
+          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">City:</label>
             {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
@@ -134,8 +134,8 @@ function Profile() {
               <p>{data.city}</p>
             )}
           </div>
-          <div className="flex font-[Montserrat] font-semibold p-2">
-            <label className="min-w-[100px]">Country:</label>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Country:</label>
             {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
@@ -149,8 +149,8 @@ function Profile() {
           </div>
 
           {data.bussinessac === "no" && (
-            <div className="flex">
-              <p>for bussiness account :</p>
+            <div className="flex font-bold font-[Montserrat] ml-2 text-red-700">
+              <p>For bussiness account : </p>
               <button
                 onClick={() => {
                   navigate("/createbussinessprofile", {
@@ -158,14 +158,14 @@ function Profile() {
                   });
                 }}
               >
-                click here
+                Click here
               </button>
             </div>
           )}
           {bussinessac === "yes" && (
             <div>
-              <div className="flex font-[Montserrat] font-semibold p-2">
-                <label className="min-w-[100px]">Bussines Name:</label>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Bussines Name:</label>
                 {isedit ? (
                   <FormInput
                     className="p-1 rounded-base"
@@ -177,8 +177,8 @@ function Profile() {
                   <p>{data.displaybussinessname}</p>
                 )}
               </div>
-              <div className="flex font-[Montserrat] font-semibold p-2">
-                <label className="min-w-[100px]">Legal Bussines Name:</label>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Legal Bussines Name:</label>
                 {isedit ? (
                   <FormInput
                     className="p-1 rounded-base"
@@ -190,8 +190,8 @@ function Profile() {
                   <p>{data.legalbussinesname}</p>
                 )}
               </div>
-              <div className="flex font-[Montserrat] font-semibold p-2">
-                <label className="min-w-[100px]">Address:</label>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Address:</label>
                 {isedit ? (
                   <FormInput
                     className="p-1 rounded-base"
@@ -203,8 +203,8 @@ function Profile() {
                   <p>{data.address}</p>
                 )}
               </div>
-              <div className="flex font-[Montserrat] font-semibold p-2">
-                <label className="min-w-[100px]">Website:</label>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Website:</label>
                 {isedit ? (
                   <FormInput
                     className="p-1 rounded-base"

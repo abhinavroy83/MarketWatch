@@ -61,8 +61,11 @@ function BussinessPages() {
 
   return (
     <Container>
-      <div className=" mt-44">
-        <form onSubmit={handleSubmit(onsubmit)}>
+      <div className="font-bold font-[Montserrat] mt-44">
+      <h1 className="text-4xl p-7 pl-0 font-bold text-red-700 mt-7 font-[Montserrat]">
+            Enter Your Bussiness Details Here
+          </h1>
+        <form className="flex flex-col gap-5 text-xl" onSubmit={handleSubmit(onsubmit)}>
           <FormInput
             label="FirstName"
             type="text"
@@ -101,12 +104,12 @@ function BussinessPages() {
             // defaultValue={pwd}
             errorMessage={errors.password?.message}
           />
-          <div>
-            <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
+          <div className="flex items-center">
+            <label className="text-sm min-w-[140px] ml-4 items-center font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
               Select a country
             </label>
             <select
-              className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-w-[540px] flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               {...register("country", { required: true })}
               defaultValue={cntry}
             >
@@ -118,12 +121,12 @@ function BussinessPages() {
               <p className="mt-1 text-xs text-red-500">Country is required</p>
             )}
           </div>
-          <div>
-            <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
+          <div className="flex items-center">
+            <label className="text-sm ml-4 font-bold min-w-[140px] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
               Select a City
             </label>
             <select
-              className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-w-[540px] flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               {...register("city", { required: true })}
               defaultValue={cityie}
             >
@@ -137,10 +140,10 @@ function BussinessPages() {
               <p className="mt-1 text-xs text-red-500">Country is required</p>
             )}
           </div>
-          <div className="font-[Montserrat] flex">
-            <p className="font-bold text-sm">Want to have business account:</p>
+          <div className="font-[Montserrat] flex items-start">
+            <p className="font-bold text-lg text-black">Want to have bussiness account:</p>
             <div>
-              <label>
+              <label className="text-lg ml-2">
                 <input
                   type="radio"
                   // defaultValue="yes"
@@ -184,7 +187,7 @@ function BussinessPages() {
             })}
             errorMessage={errors.website?.message}
           />
-          <button type="submit">Register</button>
+          <button className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base self-start ml-4" type="submit">Register</button>
         </form>
       </div>
     </Container>
