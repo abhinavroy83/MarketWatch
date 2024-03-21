@@ -3,6 +3,7 @@ import { DashConatiner, FormInput } from "../../../components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 function Profile() {
   const { userID } = useParams();
@@ -10,12 +11,14 @@ function Profile() {
   const [isedit, setisedit] = useState(false);
   const [data, setdata] = useState({});
   const navigate = useNavigate();
+  const bussinessac = useSelector((state) => state.auth.bussinessac);
 
   const fetchuser = async () => {
     try {
       const res = await axios.get(
         `http://localhost:8000/user/dashboard/profile/${userID}`
       );
+      // console.log(res.data.user);
       setdata(res.data.user);
       // const data = res.data.user;
       // navigate("/createbussinessprofile", {
@@ -46,7 +49,6 @@ function Profile() {
       console.log("error", error);
     }
   };
-  ///this is try
 
   useEffect(() => {
     fetchuser();
@@ -59,7 +61,7 @@ function Profile() {
       }
     }
   }, [data, setValue]);
-  console.log(data)
+  console.log(data);
 
   return (
     <DashConatiner>
@@ -68,7 +70,24 @@ function Profile() {
           <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-7 font-[Montserrat]">
             Your Profile
           </h1>
-          <svg class="h-[3rem] w-[3rem] text-red-700 mt-7" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="12" r="9" />  <line x1="9" y1="9" x2="9.01" y2="9" />  <line x1="15" y1="9" x2="15.01" y2="9" />  <path d="M8 13a4 4 0 1 0 8 0m0 0H8" /></svg>
+          <svg
+            class="h-[3rem] w-[3rem] text-red-700 mt-7"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <path stroke="none" d="M0 0h24v24H0z" />{" "}
+            <circle cx="12" cy="12" r="9" />{" "}
+            <line x1="9" y1="9" x2="9.01" y2="9" />{" "}
+            <line x1="15" y1="9" x2="15.01" y2="9" />{" "}
+            <path d="M8 13a4 4 0 1 0 8 0m0 0H8" />
+          </svg>
         </div>
         <h1 className="text-lg text-[#000] font-bold font-[Montserrat] mb-3">
           Your Personal Details Are-
@@ -82,10 +101,10 @@ function Profile() {
                 // className= p-1 rounded-base"
                 type="text"
                 {...register("firstName")}
-                defaultValue={data.name}
+                defaultValue={data.firstName}
               />
             ) : (
-              <p>{data.name}</p>
+              <p>{data.firstName}</p>
             )}
           </div>
           <div className="flex font-[Montserrat] font-semibold p-2">
@@ -129,22 +148,91 @@ function Profile() {
             )}
           </div>
 
-        {data.bussinessac === "no" && (
-          <div className="flex">
-            <p>for bussiness account :</p>
-            <a className=" cursor-pointer">Click here</a>
-          </div>
-        )}
+          {data.bussinessac === "no" && (
+            <div className="flex">
+              <p>for bussiness account :</p>
+              <a className=" cursor-pointer">Click here</a>
+            </div>
+          )}
+          {bussinessac === "yes" && (
+            <div>
+              <div className="flex font-[Montserrat] font-semibold p-2">
+                <label className="min-w-[100px]">Bussines Name:</label>
+                {isedit ? (
+                  <FormInput
+                    className="p-1 rounded-base"
+                    type="text"
+                    {...register("displaybussinessname")}
+                    defaultValue={data.displaybussinessname}
+                  />
+                ) : (
+                  <p>{data.displaybussinessname}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2">
+                <label className="min-w-[100px]">Legal Bussines Name:</label>
+                {isedit ? (
+                  <FormInput
+                    className="p-1 rounded-base"
+                    type="text"
+                    {...register("legalbussinesname")}
+                    defaultValue={data.legalbussinesname}
+                  />
+                ) : (
+                  <p>{data.legalbussinesname}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2">
+                <label className="min-w-[100px]">Address:</label>
+                {isedit ? (
+                  <FormInput
+                    className="p-1 rounded-base"
+                    type="text"
+                    {...register("address")}
+                    defaultValue={data.address}
+                  />
+                ) : (
+                  <p>{data.address}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2">
+                <label className="min-w-[100px]">Website:</label>
+                {isedit ? (
+                  <FormInput
+                    className="p-1 rounded-base"
+                    type="text"
+                    {...register("website")}
+                    defaultValue={data.website}
+                  />
+                ) : (
+                  <p>{data.website}</p>
+                )}
+              </div>
+            </div>
+          )}
 
           {isedit ? (
             <>
-              <button className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base" type="submit">Update Profile</button>
-              <button className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base ml-3" type="button" onClick={toggleCancel}>
+              <button
+                className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base"
+                type="submit"
+              >
+                Update Profile
+              </button>
+              <button
+                className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base ml-3"
+                type="button"
+                onClick={toggleCancel}
+              >
                 Cancel
               </button>
             </>
           ) : (
-            <button className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base" type="button" onClick={toggleEdit}>
+            <button
+              className="rounded-md font-[Montserrat] bg-[#17b19f] text-white mt-4 px-3 py-3 text-base"
+              type="button"
+              onClick={toggleEdit}
+            >
               Edit Details
             </button>
           )}
