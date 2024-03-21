@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -9,7 +9,7 @@ function Profile() {
   const { userID } = useParams();
   const { register, handleSubmit, setValue } = useForm();
   const [isedit, setisedit] = useState(false);
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState([]);
   const navigate = useNavigate();
   const bussinessac = useSelector((state) => state.auth.bussinessac);
 
@@ -151,7 +151,15 @@ function Profile() {
           {data.bussinessac === "no" && (
             <div className="flex">
               <p>for bussiness account :</p>
-              <a className=" cursor-pointer">Click here</a>
+              <button
+                onClick={() => {
+                  navigate("/createbussinessprofile", {
+                    state: data,
+                  });
+                }}
+              >
+                click here
+              </button>
             </div>
           )}
           {bussinessac === "yes" && (

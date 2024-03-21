@@ -5,13 +5,15 @@ import { useForm } from "react-hook-form";
 import { FormInput } from "../../../components";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function BussinessPages() {
   const location = useLocation();
   const [currentcity, setcurrentcity] = useState([]);
+  const bussinessac = useSelector((state) => state.auth.bussinessac);
 
   const data = location.state;
-  // console.log(data);
+  console.log(data);
 
   const firstName = data && data.firstName;
   const lName = data && data.lastName;
@@ -92,10 +94,11 @@ function BussinessPages() {
           <FormInput
             label="Password"
             type="password"
+            placeholder="Renter Password"
             {...register("password", {
-              required: "Password is required",
+              required: "Renter Password is required",
             })}
-            defaultValue={pwd}
+            // defaultValue={pwd}
             errorMessage={errors.password?.message}
           />
           <div>
