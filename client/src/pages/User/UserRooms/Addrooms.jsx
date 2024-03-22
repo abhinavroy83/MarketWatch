@@ -58,7 +58,7 @@ function Addrooms() {
   return (
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold">
-        <p className="text-3xl ml-3 mt-3 text-red-700">You Can Add New Room</p>
+        <p className="text-3xl ml-3 text-red-700">You Can Add New Room</p>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}

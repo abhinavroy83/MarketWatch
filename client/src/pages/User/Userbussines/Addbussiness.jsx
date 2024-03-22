@@ -75,11 +75,12 @@ function Addbussiness() {
   //   console.log(currentstate);
   return (
     <DashConatiner>
-      <div className="font-[Montserrat] font-semibold">
+      <div className="font-[Montserrat] font-semibold ml-4">
         <p className="text-3xl ml-3 mt-3 text-red-700">
           You Can Add New Bussiness
         </p>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}
+         className="mt-7 flex flex-col gap-5">
           <FormInput
             label="Business Name"
             type="text"
@@ -201,19 +202,21 @@ function Addbussiness() {
           />
           <label
             htmlFor="number"
-            className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]"
+            className="text-sm ml-4 flex items-center max-w-[100px] font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]"
           >
             Description
           </label>
           <textarea
             id="description"
-            className="w-full flex h-20 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-20 ml-4 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
             {...register("description", { required: true })}
           />
           {errors.description && (
             <p className="mt-1 text-xs text-red-500">Description is required</p>
           )}
-          <button type="submit">Create Bussiness</button>
+          <button
+            className="rounded-md bg-[#17b19f] my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            type="submit">Create Bussiness</button>
         </form>
       </div>
     </DashConatiner>

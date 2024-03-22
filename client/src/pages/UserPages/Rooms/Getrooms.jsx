@@ -42,7 +42,8 @@ function Getrooms() {
 
   return (
     <Container>
-      <div className="px-2 py-2 md:px-6 md:py-6">
+      <div className="px-2 py-2 md:px-6 mt-7 md:py-6">
+        <div className="flex justify-between">
         <h1 className="text-4xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] text-[36px]">
           {usercity ? (
             <p>Rooms & Roomates In {usercity}</p>
@@ -50,6 +51,13 @@ function Getrooms() {
             <p>Rooms near you</p>
           )}
         </h1>
+        <button
+              className="rounded-md bg-[#17b19f] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              onClick={nextPage}
+            >
+              More Rooms
+            </button>
+         </div>
         <article className="flex xl:mt-2">
           <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 xl:gap-5">
             {renderRooms()}
@@ -135,16 +143,7 @@ function Getrooms() {
             <hr />
           </div>
         </article>
-        <div className="mt-4 w-full border-gray-300">
-          <div className="mt-2 flex items-center justify-end">
-            <button
-              className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              onClick={nextPage}
-            >
-              More.
-            </button>
-          </div>
-        </div>
+        
       </div>
     </Container>
   );

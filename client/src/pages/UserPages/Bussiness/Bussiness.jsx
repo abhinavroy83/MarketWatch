@@ -40,7 +40,7 @@ function Bussiness() {
   //   return similardeatails.slice(0, 3).map((item) => <BusinessCard {...item} />);
   // };
   return (
-    <div className=" w-full max-w-7xl mx-auto px-4 py-2">
+    <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-20">
       <div className=" flex justify-between py-2">
         <div>
           <svg
