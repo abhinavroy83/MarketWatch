@@ -83,7 +83,7 @@ function Getuserjobs() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-[Montserrat]">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-lg font-semibold text-red-700">Jobs</h2>
+            <h2 className="text-2xl font-semibold text-red-700">Jobs</h2>
             <p className="mt-1 text-sm text-gray-700">
               This is a list of all employees. You can add new Jobs, edit or
               delete existing ones.

@@ -58,7 +58,7 @@ function Addrooms() {
   return (
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold">
-        <p className="text-3xl ml-3 mt-3">You Can Add New Room</p>
+        <p className="text-3xl ml-3 mt-3 text-red-700">You Can Add New Room</p>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -166,7 +166,7 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md bg-black  my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-[#17b19f] my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add Hotel
           </button>

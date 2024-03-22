@@ -56,36 +56,36 @@ function User() {
         <div className="flex w-[200px] h-[150px]">
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
+              className="w-[6.4rem] h-13"
+              src={`https://img.freepik.com/premium-vector/upcoming-events-announcement-megaphone-label-loudspeaker-speech-bubble_123447-5297.jpg`}
+              alt="logo"
+            />
+            <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
+              Events
+            </h1>
+          </div>
+        </div>
+        <div className="flex w-[200px] h-[150px]">
+          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
+            <img
+              className="w-[4.9rem] h-15"
+              src={`https://www.freeiconspng.com/thumbs/movie-icon/movie-icon-6.png`}
+              alt="logo"
+            />
+            <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
+              Movies
+            </h1>
+          </div>
+        </div>
+        <div className="flex w-[200px] h-[150px]">
+          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
+            <img
               className="w-[4.9rem] h-15"
               src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
               alt="logo"
             />
             <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
               Business
-            </h1>
-          </div>
-        </div>
-        <div className="flex w-[200px] h-[150px]">
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
-            <img
-              className="w-[4.9rem] h-15"
-              src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
-              alt="logo"
-            />
-            <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
-              Demo
-            </h1>
-          </div>
-        </div>
-        <div className="flex w-[200px] h-[150px]">
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
-            <img
-              className="w-[4.9rem] h-15"
-              src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
-              alt="logo"
-            />
-            <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
-              Demo
             </h1>
           </div>
         </div>
