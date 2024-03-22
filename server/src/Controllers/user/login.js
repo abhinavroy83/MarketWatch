@@ -34,6 +34,9 @@ const login = async (req, res) => {
         data: user,
       });
     }
+    res.json({
+      
+    })
   } catch (error) {
     console.log("Error during login", error);
     res.json({
