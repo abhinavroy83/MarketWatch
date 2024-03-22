@@ -72,7 +72,7 @@ function Addbussiness() {
     };
     fetchdata();
   }, []);
-  //   console.log(currentstate);
+  //   console.log(currentstate);   
   return (
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold ml-4">
