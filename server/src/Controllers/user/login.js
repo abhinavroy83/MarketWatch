@@ -39,9 +39,6 @@ const login = async (req, res) => {
         status: "failed",
       });
     }
-    res.json({
-      
-    })
   } catch (error) {
     console.log("Error during login", error);
     res.json({

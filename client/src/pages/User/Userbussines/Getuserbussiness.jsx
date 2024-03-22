@@ -134,12 +134,12 @@ function Getuserbussiness() {
                         Country
                       </th>
 
-                      <th
-                        scope="col"
-                        className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
-                      >
-                        Delete
-                      </th>
+                      <th className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-sm font-medium font-[Montserrat]">
+        <svg class="h-6 w-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+         </svg>
+          <a className="text-red-500 font-semibold">Delete</a>
+        </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white ">
