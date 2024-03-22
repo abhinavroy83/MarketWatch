@@ -51,7 +51,7 @@ function Addbussiness() {
       if (res) {
         alert("bussiness added succesfully");
         reset();
-        navigate(`/user/bussiness/${userID}`);
+        navigate(`/user/bussiness/${userID}`);  
       }
     } catch (error) {
       console.log("error during sending data to bussapi", error);
