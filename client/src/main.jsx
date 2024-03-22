@@ -39,6 +39,7 @@ import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
 import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
 import Profile from "./pages/User/UserProfile/Profile.jsx";
 import BussinessPages from "./pages/User/Bussinessprofile/BussinessPages.jsx";
+import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
 
 const router = createBrowserRouter([
   {
@@ -134,6 +135,14 @@ const router = createBrowserRouter([
         element: (
           <Authlayout authentication>
             <AllBusiness />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/addbussiness/:userID",
+        element: (
+          <Authlayout authentication>
+            <Addbussiness />
           </Authlayout>
         ),
       },

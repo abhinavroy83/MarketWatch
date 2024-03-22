@@ -22,7 +22,7 @@ function Login({ isOpen, onClose }) {
   const onsubmit = async (data) => {
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
-      if (res) {
+      if (res.data.status == "success") {
         console.log(res.data.data._id);
         alert("Successfully logged");
         console.log("city", res.data.data.city);
@@ -39,6 +39,12 @@ function Login({ isOpen, onClose }) {
         dispatch(cities({ city: res.data.data.city }));
 
         Navigate("/");
+      } else if (res.data.Status === "Incorrect password") {
+        alert("incorrect password");
+      } else if (res.data.msg === "user not find") {
+        alert("user not find");
+      } else {
+        alert("something went wrong");
       }
     } catch (error) {
       console.log(error);
