@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DashConatiner } from "../../../components";
 import { useState } from "react";
 
@@ -9,6 +9,7 @@ function Getuserbussiness() {
   const { userID } = useParams();
   const [details, setdetails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   const fetchuserbussinessdeatils = async () => {
     try {
@@ -18,11 +19,11 @@ function Getuserbussiness() {
       if (!res) {
         console.log("unable to fetch the data");
       }
-      console.log(res.data.business);
+      // console.log(res.data.business);
       setdetails(res.data.business);
     } catch (error) {
       console.error(
-        "error during fetching data in room details for personal user",
+        "error during fetching data in bussiness details for personal user",
         error
       );
     }
@@ -60,7 +61,9 @@ function Getuserbussiness() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-sm text-gray-700 font-[Montserrat]">{items.city}</div>
+          <div className="text-sm text-gray-700 font-[Montserrat]">
+            {items.city}
+          </div>
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
           {items.address1}
@@ -89,6 +92,9 @@ function Getuserbussiness() {
             <button
               type="button"
               className="rounded-md bg-[#17b19f] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              onClick={() => {
+                navigate(`/addbussiness/${userID}`);
+              }}
             >
               Add New Bussiness
             </button>
@@ -125,10 +131,14 @@ function Getuserbussiness() {
                         scope="col"
                         className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
                       >
-                        Price
+                        Country
                       </th>
-                      <th scope="col" className="relative px-4 py-3.5">
-                        <span className="sr-only">Edit</span>
+
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                      >
+                        Delete
                       </th>
                     </tr>
                   </thead>

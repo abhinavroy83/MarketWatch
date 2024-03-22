@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const User = require("../model/user");
 const { Schema } = mongoose;
- 
+
 const bussinessSchema = mongoose.Schema({
-  // UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   Image: { type: String, required: true },
   business_name: { type: String, required: true },
   address1: { type: String, required: true },

@@ -77,18 +77,20 @@ function User() {
             </h1>
           </div>
         </div>
-        <div className="flex w-[200px] h-[150px]">
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
-            <img
-              className="w-[4.9rem] h-15"
-              src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
-              alt="logo"
-            />
-            <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
-              Business
-            </h1>
+        <Link to={`/user/bussiness/${userID}`}>
+          <div className="flex w-[200px] h-[150px]">
+            <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
+              <img
+                className="w-[4.9rem] h-15"
+                src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
+                alt="logo"
+              />
+              <h1 className="text-xl text-center font-bold text-[#000] mt-3 font-[Montserrat]">
+                Business
+              </h1>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </DashConatiner>
   );

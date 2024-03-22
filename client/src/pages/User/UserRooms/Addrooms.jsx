@@ -9,7 +9,7 @@ function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
-  console.log(currentLocation);
+  // console.log(currentLocation);
   const {
     register,
     handleSubmit,
@@ -46,7 +46,7 @@ function Addrooms() {
         }
       );
       if (res) {
-        console.log(res);
+        // console.log(res);
         alert("rooms added successfully");
         reset();
         navigate(`/user/room/${userID}`);

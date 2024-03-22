@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
   const bussinessac = useSelector((state) => state.auth.bussinessac);
-  console.log(username);
+  // console.log(username);
   const navigate = useNavigate();
   const { userID } = useParams();
   // console.log(userID);
