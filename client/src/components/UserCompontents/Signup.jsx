@@ -111,7 +111,7 @@ function Signup({ isOpen, onClose }) {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-[#000] mt-3 font-[Montserrat]">
+            <h1 className="text-3xl font-bold text-red-700 mt-3 font-[Montserrat]">
               CREATE YOUR ACCOUNT
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
