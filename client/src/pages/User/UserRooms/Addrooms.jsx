@@ -33,7 +33,7 @@ function Addrooms() {
       number: data.number,
       location: {
         coordinates: [currentLocation.lat, currentLocation.lng],
-      },
+      },  
     };
     try {
       const res = await axios.post(

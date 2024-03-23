@@ -15,7 +15,7 @@ const jobschema = mongoose.Schema({
       type: String,
       enum: ["Point"],
       default: "Point",
-      required: true, 
+      required: true,    
     },
     coordinates: {
       type: [Number],

@@ -5,6 +5,7 @@ import { login as authlogin, cities } from "./store/authslice";
 import { Footer, Header } from "./components";
 import { login as adminauth } from "./store/adminauthslice";
 import Ads from "./pages/UserPages/Ads/Ads";
+import Getlocations from "./components/SharedCompontents/Getlocations";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className="flex flex-col ">
+      <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}
       <Outlet />
