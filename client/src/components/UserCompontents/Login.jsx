@@ -23,9 +23,9 @@ function Login({ isOpen, onClose }) {
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
       if (res.data.status == "success") {
-        console.log(res.data.data._id);
+        // console.log(res.data.data._id);
         alert("Successfully logged");
-        console.log("city", res.data.data.city);
+        // console.log("city", res.data.data.city);
         // notify();
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(

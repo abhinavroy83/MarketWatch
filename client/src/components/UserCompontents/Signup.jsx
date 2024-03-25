@@ -6,36 +6,62 @@ import axios from "axios";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
+import { useDispatch } from "react-redux";
+import { login as authlogin } from "../../store/authslice";
 
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
-  const [businessstatus, setbusinessstatus] = useState(false);
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const [businessstatus, setbusinessstatus] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
     reset,
   } = useForm();
   const onSubmit = async (data) => {
-    if (businessstatus) {
-      // setsignupdata(data);
-      navigate("/createbussinessprofile", {
-        state: data,
-      });
-      onClose(true);
-      // console.log(data);
-    } else {
-      try {
-        const res = await axios.post("http://localhost:8000/user/signup", data);
-        if (res) {
-          alert("signup successfully added");
-        }
-      } catch (error) {
-        console.log(error);
+    // if (businessstatus) {
+    //   // setsignupdata(data);
+    //   navigate("/createbussinessprofile", {
+    //     state: data,
+    //   });
+    //   onClose(true);
+    //   // console.log(data);
+    // } else {
+    // }
+    const datsa = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone_number: data.phone_number,
+      password: data.password,
+    };
+    try {
+      // console.log(datsa);
+      const res = await axios.post("http://localhost:8000/user/signup", datsa);
+      if (res) {
+        // console.log(res);
+        alert("signup successfully added");
+        localStorage.setItem("userdetails", JSON.stringify(res));
+        dispatch(
+          authlogin({
+            token: res.data.jwttoken,
+            user: res.data.data.firstName,
+            userID: res.data.data._id,
+            bussinessac: res.data.data.bussinessac,
+            isverified: res.data.data.isVerified,
+          })
+        );
+        navigate(`/dashboard/profile/${res.data.data._id}`);
+        onClose(true);
       }
-      reset();
+    } catch (error) {
+      console.log(error);
     }
+    reset();
   };
   // console.log("signupdata",signupdata);
   useEffect(() => {
@@ -154,6 +180,15 @@ function Signup({ isOpen, onClose }) {
                     className="!w-full"
                   />
                   <Input
+                    label="Phone Number"
+                    Placeholder="Phone Number"
+                    type="Number"
+                    {...register("phone_number", {
+                      required: "Phone Number is required",
+                    })}
+                    errorMessage={errors.phonenumber?.message}
+                  />
+                  <Input
                     label="Password"
                     Placeholder="Password"
                     type="text"
@@ -162,7 +197,23 @@ function Signup({ isOpen, onClose }) {
                     })}
                     errorMessage={errors.password?.message}
                   />
-                  <div>
+
+                  <Input
+                    label="Repeat Password"
+                    Placeholder="Repeat Password"
+                    type="text"
+                    {...register("cnf_password", {
+                      required: true,
+                      validate: (val) => {
+                        const pass = watch("password");
+                        if (pass !== val) {
+                          return "Password must be the same";
+                        }
+                      },
+                    })}
+                    errorMessage={errors.cnf_password?.message}
+                  />
+                  {/* <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
                       Select a country
                     </label>
@@ -179,8 +230,8 @@ function Signup({ isOpen, onClose }) {
                         Country is required
                       </p>
                     )}
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
                       Select a City
                     </label>
@@ -199,9 +250,9 @@ function Signup({ isOpen, onClose }) {
                         Country is required
                       </p>
                     )}
-                  </div>
+                  </div> */}
 
-                  <div className="font-[Montserrat]">
+                  {/* <div className="font-[Montserrat]">
                     <p className="font-bold text-sm">
                       Want to have business account:
                     </p>
@@ -227,15 +278,30 @@ function Signup({ isOpen, onClose }) {
                         No
                       </label>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex gap-3 font-[Montserrat]">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      {...register("chck", { required: "this is required" })}
+                    />
                     <label className="w-full">
                       I agree to terms and conditions
                     </label>
+                    {errors && (
+                      <p className=" text-red-600 text-sm">
+                        {errors.chck?.message}
+                      </p>
+                    )}
                   </div>
+                  <p>we add captcha later</p>
                   <div className="text-center">
-                    {businessstatus ? (
+                    <button
+                      className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                      type="submit"
+                    >
+                      Sign To Create Account
+                    </button>
+                    {/* {businessstatus ? (
                       <button
                         className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                         type="submit"
@@ -243,13 +309,7 @@ function Signup({ isOpen, onClose }) {
                         Next
                       </button>
                     ) : (
-                      <button
-                        className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
-                        type="submit"
-                      >
-                        Sign To Create Account
-                      </button>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>

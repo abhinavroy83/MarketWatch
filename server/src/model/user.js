@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const usershema = new mongoose.Schema({
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
   firstName: {
     type: String,
     required: true,
@@ -14,35 +18,28 @@ const usershema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  phone_number: {
+    type: Number,
+    required: true,
+  },
   country: {
     type: String,
     enum: ["Usa", "India"],
-    required: true,
+    // required: true,
   },
   city: {
     type: String,
-    required: true,
+    // required: true,
   },
   bussinessac: {
     type: String,
-    required: true,
+    // required: true,
     enum: ["yes", "no"],
+    default: "no",
   },
   password: {
     type: String,
     required: true,
-  },
-  displaybussinessname: {
-    type: String,
-  },
-  legalbussinesname: {
-    type: String,
-  },
-  address: {
-    type: String,
-  },
-  website: {
-    type: String,
   },
 });
 

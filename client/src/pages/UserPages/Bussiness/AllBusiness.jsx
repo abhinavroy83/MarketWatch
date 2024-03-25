@@ -8,7 +8,6 @@ function AllBusiness() {
   const currentloc = useSelector((state) => state.auth.location);
   const [deatails, setdetails] = useState([]);
   const usercity = useSelector((state) => state.auth.city);
-  //update
   const fetchallbusiness = async () => {
     try {
       const res = await axios.get(

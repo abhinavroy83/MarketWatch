@@ -28,12 +28,14 @@ function AllRooms() {
     }
   };
   useEffect(() => {
-    getRooms();
-    const loc = {
-      lat: currentloc.lat,
-      lng: currentloc.lng,
-    };
-    setLocationsndString(loc);
+    if (currentloc && currentloc.lat && currentloc.lng) {
+      getRooms();
+      const loc = {
+        lat: currentloc.lat,
+        lng: currentloc.lng,
+      };
+      setLocationsndString(loc);
+    }
   }, [usercity, currentloc]);
   const renderRooms = () => {
     return rooms.map((item) => <Roomcard isRoomOnlyPage={true} {...item} />);
@@ -41,7 +43,7 @@ function AllRooms() {
   return (
     <ChildContainer
       onLocationReceived={
-        locationsndString !== null ? locationsndString : undefined
+        locationsndString?.lat ? locationsndString : undefined
       }
     >
       <div className="px-5 py-2 font-[opensans] mt-3 md:px-6 md:py-10 text-lg">

@@ -20,10 +20,7 @@ const login = async (req, res) => {
     if (ispassmatched) {
       const jwttoken = jwt.sign(
         { user: user.toJSON() },
-        process.env.JWTSECRETKEY,
-        {
-          expiresIn: "100m",
-        }
+        process.env.JWTSECRETKEY
       );
       res.json({
         status: "success",

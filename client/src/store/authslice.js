@@ -8,6 +8,7 @@ const initialState = {
   location: null,
   city: null,
   bussinessac: null,
+  isverified: null,
 };
 
 const authSlice = createSlice({
@@ -20,6 +21,7 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.userID = action.payload.userID;
       state.bussinessac = action.payload.bussinessac;
+      state.isverified = action.payload.isverified;
     },
     logout: (state) => {
       state.status = false;
@@ -27,6 +29,7 @@ const authSlice = createSlice({
       state.user = null;
       state.userID = null;
       state.bussinessac = null;
+      state.isverified = null;
     },
     location: (state, action) => {
       state.location = action.payload.location;
