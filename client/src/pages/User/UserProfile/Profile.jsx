@@ -10,7 +10,10 @@ function Profile() {
   const { register, handleSubmit, setValue } = useForm();
   const [isedit, setisedit] = useState(false);
   const [data, setdata] = useState([]);
+  const [states, setStates] = useState([]);
+  const [citys, setcitys] = useState([]);
   const navigate = useNavigate();
+  const [selectedstate, setsetselectedstate] = useState("");
   const bussinessac = useSelector((state) => state.auth.bussinessac);
 
   const fetchuser = async () => {
@@ -27,6 +30,17 @@ function Profile() {
     } catch (error) {
       console.log("error during fetcing userdetails");
     }
+  };
+
+  const fetchstate = async () => {
+    try {
+      const res = await axios.get(
+        `https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/georef-united-states-of-america-state@public/records?select=ste_name&limit=50`
+      );
+      // console.log(res.data.results);
+
+      setStates(res.data.results);
+    } catch (error) {}
   };
 
   const toggleEdit = () => {
@@ -51,7 +65,33 @@ function Profile() {
   };
 
   useEffect(() => {
+    const fetchcity = async () => {
+      await axios
+        .get(
+          `https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/us-cities-demographics/records?where=state=${selectedstate}`
+        )
+        .then((res) => {
+          // res.data;
+          console.log(res.data.results);
+          setcitys(res.data.results);
+        })
+        .catch((error) => console.log(error));
+    };
+    fetchcity();
+  }, []);
+
+  const handlestatechange = (e) => {
+    const state = e.target.value;
+    setsetselectedstate(state);
+    // console.log(state);
+    setValue("state", state);
+    setValue("city", "");
+    setValue("address", "");
+  };
+
+  useEffect(() => {
     fetchuser();
+    fetchstate();
   }, [userID]);
 
   useEffect(() => {
@@ -61,7 +101,6 @@ function Profile() {
       }
     }
   }, [data, setValue]);
-  console.log(data);
 
   return (
     <DashConatiner>
@@ -121,34 +160,59 @@ function Profile() {
               <p>{data.lastName}</p>
             )}
           </div>
-          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">City:</label>
-            {isedit ? (
-              <FormInput
-                className="p-1 rounded-base"
-                type="text"
-                {...register("city")}
-                defaultValue={data.city}
-              />
-            ) : (
-              <p>{data.city}</p>
-            )}
-          </div>
           <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">Country:</label>
-            {isedit ? (
-              <FormInput
-                className="p-1 rounded-base"
-                type="text"
-                {...register("country")}
-                defaultValue={data.country}
-              />
-            ) : (
-              <p>{data.country}</p>
-            )}
+            <label className="min-w-[190px]">Email:</label>
+            {<p>{data.email}</p>}
           </div>
 
-          {data.bussinessac === "no" && (
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Number:</label>
+            {<p>{data.email}</p>}
+          </div>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Image:</label>
+            <input type="file" accept="image/*" />
+          </div>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Date of Birth:</label>
+            <input type="date" />
+          </div>
+          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Gender:</label>
+            <select {...register("gender")}>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="notspecified">Not Specified</option>
+            </select>
+          </div>
+          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">Country:</label>
+            <select {...register("country")}>
+              <option value="Usa">USA</option>
+            </select>
+          </div>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">State</label>
+            <select {...register("state")} onChange={handlestatechange}>
+              {states.map((state) => (
+                <option key={state.ste_name} value={state.ste_name}>
+                  {state.ste_name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+            <label className="min-w-[190px]">City</label>
+            <select {...register("state")} onChange={handlestatechange}>
+              {citys.map((cty) => (
+                <option key={cty.city} value={cty.city}>
+                  {cty.city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-[Montserrat] ml-2 text-red-700">
               <p>For bussiness account : </p>
               <button
@@ -161,7 +225,7 @@ function Profile() {
                 Click here
               </button>
             </div>
-          )}
+          )} */}
           {bussinessac === "yes" && (
             <div>
               <div className="flex font-[Montserrat] font-semibold p-2 items-center">
