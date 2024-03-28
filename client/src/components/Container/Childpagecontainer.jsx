@@ -41,13 +41,13 @@ function ChildContainer({ className, children, onLocationReceived }) {
     <div className={` w-full mt-36 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
         <main className=" w-4/5">{children}</main>
-        <aside className="w-1/5 m-2 h-2/3 font-[Montserrat] mt-20 bg-gray-300 py-5 px-5">
-          <div className="h-full flex flex-wrap">
+        <aside className="w-1/5 m-2 h-5/5 font-roboto mt-20 bg-gray-300 py-5 px-5">
+          <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
-              <div className="rounded-xl border-2 bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-[Montserrat] shadow-sm shadow-[#000] p-2">
+              <div className="rounded-sm bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-roboto mb-3 shadow-sm shadow-[#000] p-2">
                 <div>{weatherData.name}</div>
                 <div className="flex w-full flex-wrap justify-space-between">
-                  <div className="flex text-white text-[40px] font-[OpenSans] gap-2">
+                  <div className="flex text-white text-[40px] font-roboto gap-2">
                     <div>
                       {weatherData.weather &&
                         weatherData.weather.length > 0 && (
@@ -92,7 +92,19 @@ function ChildContainer({ className, children, onLocationReceived }) {
             ) : (
               <p>Loading...</p>
             )}
-            <div className="border-2 bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
+            <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <h1>
+                $ 1 = Rs.72
+            </h1>
+           </div>
+           <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <h1>
+                1 BTC = $ 70 K
+            </h1>
+            </div>
+            
+
+            {/* <div className="bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
               <h1 className="text-2xl font-semibold text-black mt-5 ml-5">
                 Services
               </h1>
@@ -241,9 +253,9 @@ function ChildContainer({ className, children, onLocationReceived }) {
                   </button>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
-          <div className="border-2 bg-white mt-4 rounded-md shadow-sm shadow-[#000]">
+          {/* <div className="border-2 bg-white mt-4 rounded-md shadow-sm shadow-[#000]">
             <h1 className="text-lg text-black mt-5 ml-5 font-black mx-5 mb-0 flex space-x-8 flex-wrap justify-between">
               SEARCHES
             </h1>
@@ -379,7 +391,8 @@ function ChildContainer({ className, children, onLocationReceived }) {
               }
               alt=""
             />
-          </div>
+          </div> */}
+          
         </aside>
       </div>
     </div>

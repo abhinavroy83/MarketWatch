@@ -68,15 +68,15 @@ function Rooms() {
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-10 font-[Montserrat]">
+      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-10 font-roboto">
         <div className=" flex justify-between py-2">
           <div>
           <svg class="h-10 w-10 ml-1 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           <div className="flex pb-3">
-          <img className="h-12 w-12 mt-3"src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL8yWJzDEZZIG2fKqx1CjPuRqdUDx5W-BWIg&usqp=CAU`}/>
-            <p className="mt-8 font-semibold text-[18px] font-[Montserrat]">Washing Available Here</p>
+          <img className="h-10 w-11 mt-3"src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL8yWJzDEZZIG2fKqx1CjPuRqdUDx5W-BWIg&usqp=CAU`}/>
+            {/* <p className="mt-8 font-semibold text-[18px] font-roboto">Washing Available Here</p> */}
           </div>
           </div>
           <div className=" cursor-pointer">
@@ -102,25 +102,25 @@ function Rooms() {
             </CopyToClipboard>
           </div>
         </div>
-        <div className=" flex font-bold text-[20px]">
+        <div className=" flex text-[20px]">
           <div>
             <img
               src={rooms.PrdImage}
               alt="roomimg"
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="font-[Montserrat] mt-4 text-sm">
+            <p className="font-roboto mt-4 text-lg">
               Posted By : {rooms.postedby} || Posted On : {posteddate}{" "}
             </p>
           </div>
-          <div className="px-3 font-[Montserrat] ml-7 flex flex-col gap-1">
-              <p className="mt-3 text-2xl font-semibold text-gray-800 font-[Montserrat]">
+          <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
+              <p className="mt-3 text-2xl font-bold text-gray-800 font-roboto">
                 {rooms.Hotelname}
               </p>
-              <p className="text-red-700 text-sm">{rooms.rent} monthly</p>
-              <p className="text-sm">{rooms.address}</p>
-              <p className="text-sm">
-                {rooms.bed}Bed / {rooms.bath}Bath
+              <p className="text-red-700 text-lg">{rooms.rent} monthly</p>
+              <p className="text-lg">{rooms.address}</p>
+              <p className="text-lg">
+                {rooms.bed} Bed / {rooms.bath} Bath
               </p>
             <div>
               {locationsndString ? (
@@ -132,7 +132,7 @@ function Rooms() {
                 </div>
               ) : (
                 <div>
-                  <p className="font-[Montserrat]">loading</p>
+                  <p className="font-roboto">loading</p>
                 </div>
               )}
             </div>
@@ -143,7 +143,7 @@ function Rooms() {
                   setcontachdet(true);
                   // if(authstatus)
                 }}
-                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-base text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
                 <svg class="h-6 w-6 text-white-500 pt-1"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 <span class="pt-1 ml-2">Get In touch </span>
@@ -157,10 +157,10 @@ function Rooms() {
             </div>
           </div>
         </div>
-        <div className="font-[Montserrat] py-2 mt-9 text-red-700">Description:{rooms.description}</div>
+        <div className="font-roboto py-2 mt-9 text-lg text-red-700">Description:{rooms.description}</div>
         <div className="mb-2">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-sm font-[Montserrat] font-semibold">
+            <div className=" flex justify-between w-full text-lg font-roboto">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"

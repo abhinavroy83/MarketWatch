@@ -46,8 +46,8 @@ function AllRooms() {
         locationsndString?.lat ? locationsndString : undefined
       }
     >
-      <div className="px-5 py-2 font-[opensans] mt-3 md:px-6 md:py-10 text-lg">
-        <h1 className="text-3xl font-bold capitalize text-black lg:text-4xl">
+      <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
+        <h1 className="text-3xl capitalize text-black lg:text-4xl">
           {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
         </h1>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
@@ -67,15 +67,15 @@ function AllRooms() {
           </div>
           <div className="block ml-5">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -95,15 +95,15 @@ function AllRooms() {
           </div>
           <div className="block">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -123,15 +123,15 @@ function AllRooms() {
           </div>
           <div className="block ml-5">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -151,15 +151,15 @@ function AllRooms() {
           </div>
           <div className="block">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -179,15 +179,15 @@ function AllRooms() {
           </div>
           <div className="block">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -207,15 +207,15 @@ function AllRooms() {
           </div>
           <div className="block">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
@@ -235,15 +235,15 @@ function AllRooms() {
           </div>
           <div className="block ml-5">
             {" "}
-            <h1 className="text-xl font-semibold font-[Montserrat] text-black">
+            <h1 className="text-xl font-roboto text-black">
               Company Name
             </h1>
-            <h1 className="text-lg font-semibold font-[Montserrat] text-gray-500 pb-2">
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
               June 13, 2024, 3:00 PM
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[45.5rem]">
-            <p className="text-xl font-semibold text-black font-[Montserrat]">
+          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+            <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
