@@ -168,7 +168,7 @@ function Rooms() {
                   navigate("/rooms");
                 }}
               >
-                See full list of Roommates
+                See full list of Roommates Now
               </p>
             </div>
           </div>
