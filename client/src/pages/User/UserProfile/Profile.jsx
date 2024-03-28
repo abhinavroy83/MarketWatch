@@ -4,10 +4,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import jsoncity from "./city.json";
 
 function Profile() {
   const { userID } = useParams();
-  const { register, handleSubmit, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
   const [isedit, setisedit] = useState(false);
   const [data, setdata] = useState([]);
   const [states, setStates] = useState([]);
@@ -50,6 +56,7 @@ function Profile() {
     setisedit(false);
   };
   const handleclick = (data) => {
+    console.log(data);
     try {
       const res = axios.put(
         `http://localhost:8000/user/updateuser/${userID}`,
@@ -64,22 +71,7 @@ function Profile() {
     }
   };
 
-  useEffect(() => {
-    const fetchcity = async () => {
-      await axios
-        .get(
-          `https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/us-cities-demographics/records?where=state=${selectedstate}`
-        )
-        .then((res) => {
-          // res.data;
-          console.log(res.data.results);
-          setcitys(res.data.results);
-        })
-        .catch((error) => console.log(error));
-    };
-    fetchcity();
-  }, []);
-
+  // console.log(citys);
   const handlestatechange = (e) => {
     const state = e.target.value;
     setsetselectedstate(state);
@@ -89,6 +81,17 @@ function Profile() {
     setValue("address", "");
   };
 
+  // console.log(selectedstate);
+
+  useEffect(() => {
+    const fetchcity = async () => {
+      // console.log(selectedstate);
+      const res = await jsoncity[selectedstate];
+      setcitys(res);
+      // console.log(res);
+    };
+    fetchcity();
+  }, [selectedstate]);
   useEffect(() => {
     fetchuser();
     fetchstate();
@@ -167,50 +170,115 @@ function Profile() {
 
           <div className="flex font-[Montserrat] font-semibold p-2 items-center">
             <label className="min-w-[190px]">Number:</label>
-            {<p>{data.email}</p>}
+            {<p>{data.phone_number}</p>}
           </div>
-          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">Image:</label>
-            <input type="file" accept="image/*" />
-          </div>
-          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">Date of Birth:</label>
-            <input type="date" />
-          </div>
-          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">Gender:</label>
-            <select {...register("gender")}>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="notspecified">Not Specified</option>
-            </select>
-          </div>
-          <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">Country:</label>
-            <select {...register("country")}>
-              <option value="Usa">USA</option>
-            </select>
-          </div>
-          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">State</label>
-            <select {...register("state")} onChange={handlestatechange}>
-              {states.map((state) => (
-                <option key={state.ste_name} value={state.ste_name}>
-                  {state.ste_name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-            <label className="min-w-[190px]">City</label>
-            <select {...register("state")} onChange={handlestatechange}>
-              {citys.map((cty) => (
-                <option key={cty.city} value={cty.city}>
-                  {cty.city}
-                </option>
-              ))}
-            </select>
-          </div>
+
+          {data.isVerified ? (
+            <div>
+              {/* <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Image:</label>
+                {isedit && (
+                  <input
+                    type="file"
+                    accept="image/*"
+                    {...register("userimg")}
+                  />
+                )}
+              </div> */}
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Date of Birth:</label>
+                {isedit ? (
+                  <input type="date" {...register("dob")} />
+                ) : (
+                  <p>{data.dob}</p>
+                )}
+              </div>
+              <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Gender:</label>
+                {isedit ? (
+                  <select {...register("gender")}>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="notspecified">Not Specified</option>
+                  </select>
+                ) : (
+                  <p>{data.gender}</p>
+                )}
+              </div>
+              <div className=" flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Country:</label>
+                {isedit ? (
+                  <select {...register("country")}>
+                    <option value="Usa">USA</option>
+                  </select>
+                ) : (
+                  <p>{data.country}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">State</label>
+                {isedit ? (
+                  <select {...register("state")} onChange={handlestatechange}>
+                    {states.map((state) => (
+                      <option key={state.ste_name} value={state.ste_name}>
+                        {state.ste_name}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <p>{data.state}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">City</label>
+                {isedit ? (
+                  <select {...register("city")}>
+                    {citys &&
+                      citys.length > 0 &&
+                      citys.map((cty) => (
+                        <option key={cty} value={cty}>
+                          {cty}
+                        </option>
+                      ))}
+                  </select>
+                ) : (
+                  <p>{data.city}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Address</label>
+                {isedit ? (
+                  <FormInput
+                    type="text"
+                    placeholder="Enter Address"
+                    {...register("address", {
+                      required: "Address is required",
+                    })}
+                    errorMessage={errors.address?.message}
+                  />
+                ) : (
+                  <p>{data.address}</p>
+                )}
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                <label className="min-w-[190px]">Pin</label>
+                {isedit ? (
+                  <FormInput
+                    type="text"
+                    placeholder="Enter Pin"
+                    {...register("pin", { required: "Pin is required" })}
+                    errorMessage={errors.pin?.message}
+                  />
+                ) : (
+                  <p>{data.pin}</p>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <p>please verify your email </p>
+            </div>
+          )}
 
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-[Montserrat] ml-2 text-red-700">
@@ -226,62 +294,6 @@ function Profile() {
               </button>
             </div>
           )} */}
-          {bussinessac === "yes" && (
-            <div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                <label className="min-w-[190px]">Bussines Name:</label>
-                {isedit ? (
-                  <FormInput
-                    className="p-1 rounded-base"
-                    type="text"
-                    {...register("displaybussinessname")}
-                    defaultValue={data.displaybussinessname}
-                  />
-                ) : (
-                  <p>{data.displaybussinessname}</p>
-                )}
-              </div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                <label className="min-w-[190px]">Legal Bussines Name:</label>
-                {isedit ? (
-                  <FormInput
-                    className="p-1 rounded-base"
-                    type="text"
-                    {...register("legalbussinesname")}
-                    defaultValue={data.legalbussinesname}
-                  />
-                ) : (
-                  <p>{data.legalbussinesname}</p>
-                )}
-              </div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                <label className="min-w-[190px]">Address:</label>
-                {isedit ? (
-                  <FormInput
-                    className="p-1 rounded-base"
-                    type="text"
-                    {...register("address")}
-                    defaultValue={data.address}
-                  />
-                ) : (
-                  <p>{data.address}</p>
-                )}
-              </div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                <label className="min-w-[190px]">Website:</label>
-                {isedit ? (
-                  <FormInput
-                    className="p-1 rounded-base"
-                    type="text"
-                    {...register("website")}
-                    defaultValue={data.website}
-                  />
-                ) : (
-                  <p>{data.website}</p>
-                )}
-              </div>
-            </div>
-          )}
 
           {isedit ? (
             <>

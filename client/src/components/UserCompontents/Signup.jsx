@@ -67,7 +67,7 @@ function Signup({ isOpen, onClose }) {
   useEffect(() => {
     const fetchdata = async () => {
       const cit = await fetchcity();
-      console.log(cit.data);
+      // console.log(cit.data);
       const uniqueCities = Array.from(
         new Set(cit.data.city.map((item) => item.city))
       );

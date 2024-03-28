@@ -22,14 +22,33 @@ const usershema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  userimg: {
+    type: String,
+  },
+  dob: {
+    type: String,
+  },
+  gender: {
+    type: String,
+    enum: ["male", "female", "notspecified"],
+  },
   country: {
     type: String,
-    enum: ["Usa", "India"],
+    enum: ["Usa"],
     // required: true,
+  },
+  state: {
+    type: String,
   },
   city: {
     type: String,
     // required: true,
+  },
+  address: {
+    type: String,
+  },
+  pin: {
+    type: String,
   },
   bussinessac: {
     type: String,

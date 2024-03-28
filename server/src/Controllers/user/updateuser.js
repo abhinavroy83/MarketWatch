@@ -1,4 +1,16 @@
 const User = require("../../model/user");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const updateuser = async (req, res) => {
   try {
@@ -6,36 +18,40 @@ const updateuser = async (req, res) => {
     const {
       lastName,
       firstName,
+      dob,
+      gender,
       country,
+      state,
       city,
-      displaybussinessname,
-      legalbussinesname,
       address,
-      website,
+      pin,
     } = req.body;
     const user = await User.findById(_id);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
-    }  
+    }
 
+    // if (req.file) {
+    //   user.userimg = req.file.path;
+    // }
     user.lastName = lastName || user.lastName;
     user.firstName = firstName || user.firstName;
+    user.dob = dob || user.dob;
+    user.gender = gender || user.gender;
     user.country = country || user.country;
+    user.state = state || user.state;
     user.city = city || user.city;
-    user.displaybussinessname =
-      displaybussinessname || user.displaybussinessname;
-    user.legalbussinesname = legalbussinesname || user.legalbussinesname;
     user.address = address || user.address;
-    user.website = website || user.website;
+    user.pin = pin || user.pin;
 
-    await user.save(); 
+    await user.save();
     res.json({
       msg: "user updated successfuly",
       user,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Internal server error" });
+    res.json({ error: "Internal server error", error });
   }
 };
 
