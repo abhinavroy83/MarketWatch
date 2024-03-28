@@ -31,9 +31,10 @@ const updateuser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // if (req.file) {
-    //   user.userimg = req.file.path;
-    // }
+    if (req.file) {
+      user.userimg = req.file.path;
+    }
+    console.log(req.file);
     user.lastName = lastName || user.lastName;
     user.firstName = firstName || user.firstName;
     user.dob = dob || user.dob;
@@ -43,7 +44,7 @@ const updateuser = async (req, res) => {
     user.city = city || user.city;
     user.address = address || user.address;
     user.pin = pin || user.pin;
-
+    console.log(req.body);
     await user.save();
     res.json({
       msg: "user updated successfuly",
@@ -55,4 +56,4 @@ const updateuser = async (req, res) => {
   }
 };
 
-module.exports = updateuser;
+(module.exports = upload.single("userimg")), updateuser;

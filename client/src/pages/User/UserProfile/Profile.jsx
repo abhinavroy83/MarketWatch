@@ -55,12 +55,19 @@ function Profile() {
   const toggleCancel = () => {
     setisedit(false);
   };
-  const handleclick = (data) => {
+  const handleclick = async (data) => {
+    // console.log(data.userimg[0]);
+    const formData = new FormData();
+    console.log(formData);
+
+    formData.append("userimg", data.userimg);
+    // formData.append("firstName", data.firstName);
+    // console.log(formData);
     console.log(data);
     try {
-      const res = axios.put(
+      const res = await axios.put(
         `http://localhost:8000/user/updateuser/${userID}`,
-        data
+        data.userimg[0]
       );
       if (res) {
         alert("updated successfuly");
@@ -193,7 +200,7 @@ function Profile() {
 
           {data.isVerified ? (
             <div>
-              {/* <div className="flex font-roboto p-2 items-center">
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
                 <label className="min-w-[190px]">Image:</label>
                 {isedit && (
                   <input
@@ -202,13 +209,15 @@ function Profile() {
                     {...register("userimg")}
                   />
                 )}
-              </div> */}
-
-              <div className="flex font-roboto p-2 items-center">
+              </div>
+              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
                 <label className="min-w-[190px]">Date of Birth:</label>
                 {isedit ? (
-
-                  <input className="flex h-10 font-roboto w-[540px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}" type="date" {...register("dob")} />
+                  <input
+                    type="date"
+                    {...register("dob")}
+                    defaultValue={data.dob}
+                  />
                 ) : (
                   <p>{data.dob}</p>
                 )}
@@ -217,7 +226,7 @@ function Profile() {
               <div className=" flex font-roboto p-2 items-center">
                 <label className="min-w-[190px]">Gender:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[540px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}" {...register("gender")}>
+                  <select {...register("gender")} defaultValue={data.gender}>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="notspecified">Not Specified</option>
@@ -229,7 +238,7 @@ function Profile() {
               <div className=" flex font-roboto p-2 items-center">
                 <label className="min-w-[190px]">Country:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[540px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}" {...register("country")}>
+                  <select {...register("country")} defaultValue={data.country}>
                     <option value="Usa">USA</option>
                   </select>
                 ) : (
@@ -239,7 +248,11 @@ function Profile() {
               <div className="flex font-roboto p-2 items-center">
                 <label className="min-w-[190px]">State:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[540px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}"{...register("state")} onChange={handlestatechange}>
+                  <select
+                    {...register("state")}
+                    onChange={handlestatechange}
+                    defaultValue={data.state}
+                  >
                     {states.map((state) => (
                       <option key={state.ste_name} value={state.ste_name}>
                         {state.ste_name}
@@ -253,7 +266,7 @@ function Profile() {
               <div className="flex font-roboto p-2 items-center">
                 <label className="min-w-[190px]">City: </label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[540px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}" {...register("city")}>
+                  <select {...register("city")} defaultValue={data.city}>
                     {citys &&
                       citys.length > 0 &&
                       citys.map((cty) => (
@@ -275,6 +288,7 @@ function Profile() {
                     {...register("address", {
                       required: "Address is required",
                     })}
+                    defaultValue={data.address}
                     errorMessage={errors.address?.message}
                   />
                 ) : (
@@ -288,6 +302,7 @@ function Profile() {
                     type="text"
                     placeholder="Enter Pin"
                     {...register("pin", { required: "Pin is required" })}
+                    defaultValue={data.pin}
                     errorMessage={errors.pin?.message}
                   />
                 ) : (
