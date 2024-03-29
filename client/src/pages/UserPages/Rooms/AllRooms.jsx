@@ -53,202 +53,209 @@ function AllRooms() {
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
           {renderRooms()}
         </div>
-        <article className="flex gap-2 items-center mt-9">
+        <article className="flex gap-5 items-center mt-9 justify-between px-4">
           <div className="flex">
             <img
-              className="flex ml-2"
-              height={35}
-              width={35}
+              className="flex"
+              height={30}
+              width={30}
               src={
                 "https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png"
               }
               alt=""
             />
           </div>
-          <div className="block ml-5">
+          <div className="block grow">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
-        <article className="flex gap-2 items-center mt-2">
+
+        <article className="flex gap-2 items-center mt-2 justify-between pr-4">
           <div className="flex">
             <img
               className="flex"
-              height={60}
-              width={60}
+              height={55}
+              width={55}
               src={
                 "https://media.istockphoto.com/id/1284444739/vector/female-symbol-on-transparent-background.jpg?s=612x612&w=0&k=20&c=EK8Uhpixm-Bo-Es4bVvaGWLlJQcFAf99lCOAR04qOTk="
               }
               alt=""
             />
           </div>
-          <div className="block">
+          <div className="block grow ">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
-        <article className="flex gap-2 items-center mt-2">
+
+        <article className="flex gap-5 items-center mt-2 justify-between px-4">
           <div className="flex">
             <img
-              className="flex ml-2"
-              height={35}
-              width={35}
+              className="flex"
+              height={30}
+              width={30}
               src={
                 "https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png"
               }
               alt=""
             />
           </div>
-          <div className="block ml-5">
+          <div className="block grow">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
-        <article className="flex gap-2 items-center mt-2">
+
+        <article className="flex gap-2 items-center mt-2 justify-between pr-4">
           <div className="flex">
             <img
               className="flex"
-              height={60}
-              width={60}
+              height={55}
+              width={55}
               src={
                 "https://media.istockphoto.com/id/1284444739/vector/female-symbol-on-transparent-background.jpg?s=612x612&w=0&k=20&c=EK8Uhpixm-Bo-Es4bVvaGWLlJQcFAf99lCOAR04qOTk="
               }
               alt=""
             />
           </div>
-          <div className="block">
+          <div className="block grow ">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
-        <article className="flex gap-2 items-center mt-2">
+
+        <article className="flex gap-2 items-center mt-2 justify-between pr-4">
           <div className="flex">
             <img
               className="flex"
-              height={60}
-              width={60}
+              height={55}
+              width={55}
               src={
                 "https://media.istockphoto.com/id/1284444739/vector/female-symbol-on-transparent-background.jpg?s=612x612&w=0&k=20&c=EK8Uhpixm-Bo-Es4bVvaGWLlJQcFAf99lCOAR04qOTk="
               }
               alt=""
             />
           </div>
-          <div className="block">
+          <div className="block grow ">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
-        <article className="flex gap-2 items-center mt-2">
+
+        <article className="flex gap-5 items-center mt-2 justify-between px-4">
           <div className="flex">
             <img
               className="flex"
-              height={60}
-              width={60}
-              src={
-                "https://media.istockphoto.com/id/1284444739/vector/female-symbol-on-transparent-background.jpg?s=612x612&w=0&k=20&c=EK8Uhpixm-Bo-Es4bVvaGWLlJQcFAf99lCOAR04qOTk="
-              }
-              alt=""
-            />
-          </div>
-          <div className="block">
-            {" "}
-            <h1 className="text-xl font-roboto text-black">
-              Company Name
-            </h1>
-            <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
-            </h1>
-          </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
-          </div>
-        </article>
-        <hr />
-        <article className="flex gap-2 items-center mt-2">
-          <div className="flex">
-            <img
-              className="flex ml-2"
-              height={35}
-              width={35}
+              height={30}
+              width={30}
               src={
                 "https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png"
               }
               alt=""
             />
           </div>
-          <div className="block ml-5">
+          <div className="block grow">
             {" "}
             <h1 className="text-xl font-roboto text-black">
-              Company Name
+            Name Of Ad
             </h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-              June 13, 2024, 3:00 PM
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
-          <div className="flex gap-4 justify-center items-center ml-[55.5rem]">
+          <div className="flex gap-4 justify-center items-center">
             <p className="text-xl text-black font-roboto">
               $550
             </p>
           </div>
         </article>
         <hr />
+
+        <article className="flex gap-5 items-center mt-2 justify-between px-4">
+          <div className="flex">
+            <img
+              className="flex"
+              height={30}
+              width={30}
+              src={
+                "https://static.vecteezy.com/system/resources/previews/017/415/378/original/gender-icon-symbols-male-sex-signs-illustration-png.png"
+              }
+              alt=""
+            />
+          </div>
+          <div className="block grow">
+            {" "}
+            <h1 className="text-xl font-roboto text-black">
+              Name Of Ad
+            </h1>
+            <h1 className="text-lg font-roboto text-gray-500 pb-2">
+            City Name, State Posted By[First Name] 30 Mins Ago
+            </h1>
+          </div>
+          <div className="flex gap-4 justify-center items-center">
+            <p className="text-xl text-black font-roboto">
+              $550
+            </p>
+          </div>
+        </article>
+        <hr />
+
       </div>
     </ChildContainer>
   );
