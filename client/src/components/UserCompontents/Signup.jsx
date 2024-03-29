@@ -103,7 +103,7 @@ function Signup({ isOpen, onClose }) {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-[Montserrat] font-semibold">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-roboto font-semibold">
             <div className="text-center">
               <img className="w-[100px] m-auto" src={Logo} />
               <p className=" text-black text-center mt-5 text-3xl">
@@ -137,7 +137,7 @@ function Signup({ isOpen, onClose }) {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-red-700 mt-3 font-[Montserrat]">
+            <h1 className="text-3xl font-bold text-red-700 mt-3 font-roboto">
               CREATE YOUR ACCOUNT
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -214,11 +214,11 @@ function Signup({ isOpen, onClose }) {
                     errorMessage={errors.cnf_password?.message}
                   />
                   {/* <div>
-                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-roboto">
                       Select a country
                     </label>
                     <select
-                      className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full flex h-10 rounded-md border font-roboto border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("country", { required: true })}
                     >
                       <option value="">Country</option>
@@ -232,11 +232,11 @@ function Signup({ isOpen, onClose }) {
                     )}
                   </div> */}
                   {/* <div>
-                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-[Montserrat]">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-roboto">
                       Select a City
                     </label>
                     <select
-                      className="w-full flex h-10 rounded-md border font-[Montserrat] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full flex h-10 rounded-md border font-roboto border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("city", { required: true })}
                     >
                       {currentcity.map((city, index) => (
@@ -252,7 +252,7 @@ function Signup({ isOpen, onClose }) {
                     )}
                   </div> */}
 
-                  {/* <div className="font-[Montserrat]">
+                  {/* <div className="font-roboto">
                     <p className="font-bold text-sm">
                       Want to have business account:
                     </p>
@@ -279,7 +279,7 @@ function Signup({ isOpen, onClose }) {
                       </label>
                     </div>
                   </div> */}
-                  <div className="flex gap-3 font-[Montserrat]">
+                  <div className="flex gap-3 font-roboto">
                     <input
                       type="checkbox"
                       {...register("chck", { required: "this is required" })}
@@ -296,14 +296,14 @@ function Signup({ isOpen, onClose }) {
                   <p>we add captcha later</p>
                   <div className="text-center">
                     <button
-                      className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Sign To Create Account
                     </button>
                     {/* {businessstatus ? (
                       <button
-                        className="place-items-center font-[Montserrat] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                        className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                         type="submit"
                       >
                         Next

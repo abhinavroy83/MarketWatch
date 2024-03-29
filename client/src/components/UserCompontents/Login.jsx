@@ -74,14 +74,14 @@ function Login({ isOpen, onClose }) {
         },
       }}
     >
-      <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-[Montserrat]">
+      <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-roboto">
         <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
           <div className="text-center font-bold">
             <img className="w-[100px] m-auto" src={Logo} />
             <p className=" text-black text-center mt-5 text-3xl">
               Welcome Back
             </p>
-            <p className=" text-black text-center mt-5 px-10 text-base/7 font-[Montserrat]">
+            <p className=" text-black text-center mt-5 px-10 text-base/7 font-roboto">
               Log In Here With Your Personal Details
             </p>
           </div>
@@ -118,7 +118,7 @@ function Login({ isOpen, onClose }) {
           </p>
           <form
             onSubmit={handleSubmit(onsubmit)}
-            className="flex flex-col mt-3 gap-3 font-[Montserrat]"
+            className="flex flex-col mt-3 gap-3 font-roboto"
           >
             <Input
               label="Email"
