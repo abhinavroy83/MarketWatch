@@ -30,7 +30,7 @@ const updateuser = async (req, res) => {
     user.city = city || user.city;
     user.address = address || user.address;
     user.pin = pin || user.pin;
-    // console.log(req.body);
+    console.log(req.body);
     await user.save();
     res.json({
       msg: "user updated successfuly",
@@ -43,5 +43,6 @@ const updateuser = async (req, res) => {
 };
 
 module.exports = updateuser;
+
 
 

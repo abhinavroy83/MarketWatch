@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import LeafletMap from "../UserCompontents/LeafletMap";
 
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
@@ -93,16 +94,17 @@ function ChildContainer({ className, children, onLocationReceived }) {
               <p>Loading...</p>
             )}
             <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-            <h1>
-                $ 1 = Rs.72
-            </h1>
-           </div>
-           <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-            <h1>
-                1 BTC = $ 70 K
-            </h1>
+              <h1>$ 1 = Rs.72</h1>
             </div>
-            
+            <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+              <h1>1 BTC = $ 70 K</h1>
+            </div>
+            <div className="mt-5">
+              <LeafletMap
+                onLocationReceived={currentloc}
+                style={{ height: "300px", width: "270px" }}
+              />
+            </div>
 
             {/* <div className="bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
               <h1 className="text-2xl font-semibold text-black mt-5 ml-5">
@@ -392,7 +394,6 @@ function ChildContainer({ className, children, onLocationReceived }) {
               alt=""
             />
           </div> */}
-          
         </aside>
       </div>
     </div>

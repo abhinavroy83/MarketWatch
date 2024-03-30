@@ -79,7 +79,7 @@ function Profile() {
         }
       );
       const uploadedImageUrl = response.data.secure_url;
-      // console.log(uploadedImageUrl);
+      console.log(uploadedImageUrl);
       setuserimg(uploadedImageUrl);
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -126,8 +126,6 @@ function Profile() {
     setsetselectedstate(state);
     // console.log(state);
     setValue("state", state);
-    setValue("city", "");
-    setValue("address", "");
   };
 
   useEffect(() => {

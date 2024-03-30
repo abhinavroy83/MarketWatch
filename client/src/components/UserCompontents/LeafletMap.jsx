@@ -55,8 +55,8 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   }, [onLocationReceived]);
 
   useEffect(() => {
-    dispatch(redlocation({ location: currentLocation }));
-    console.log(currentLocation);
+    // dispatch(redlocation({ location: currentLocation }));
+    // console.log(currentLocation);
   }, [currentLocation]);
 
   return (
