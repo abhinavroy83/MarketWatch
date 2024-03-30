@@ -11,10 +11,10 @@ function DashConatiner({ children }) {
   const { userID } = useParams();
   // console.log(userID);
   return (
-    <div className="mt-48 mb-10 h-screen mx-auto px-4 flex max-w-[1600px] w-full m-auto items-center justify-center overflow-hidden">
-      <div className=" w-1/4 bg-gray-300 border-2 h-screen p-2 flex flex-col font-roboto items-center">
+    <div className="mt-48 mb-10 h-screen mx-auto px-4 flex max-w-[1600px] w-full m-auto overflow-hidden">
+      <div className=" w-1/4 bg-[#737373] border-2 h-screen p-2 flex flex-col font-roboto items-center">
         {/* <svg
-          class="h-[9rem] w-[24rem] text-black hover:text-red-700 mt-2 items-center"
+          class="h-[9rem] w-[242em] text-black hover:text-white mt-2 items-center"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -27,11 +27,17 @@ function DashConatiner({ children }) {
           />
         </svg> */}
         <img className="rounded-full w-[14.5rem] items-center justify-center mt-4" src={imgss} alt="" />
+        <div className="text-center mt-2">
+          <p className="bg-transparent capitalize text-[22px] text-white">User Name</p>
+          <p className="bg-transparent capitalize text-[22px] text-white">St. Louis, MO</p>
+
+        </div>
+   <div className="flex flex-col self-start mt-4">    
         <button
           onClick={() => {
             navigate(`/myaccount/${userID}`);
           }}
-          className="rounded-md bg-transparent  mt-2 px-3 py-1 capitalize text-[20px]  text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+          className="rounded-md bg-transparent leading-8 self-start text-left mt-2 capitalize text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black" 
         >
           Hello {username}
         </button>
@@ -39,7 +45,7 @@ function DashConatiner({ children }) {
           onClick={() => {
             navigate(`/user/room/${userID}`);
           }}
-          className="rounded-md bg-transparent px-3 py-1 text-[20px] text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+          className="rounded-md bg-transparent self-start text-left text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
         >
           My Rooms
         </button>
@@ -49,7 +55,7 @@ function DashConatiner({ children }) {
               onClick={() => {
                 navigate(`/user/job/${userID}`);
               }}
-              className="rounded-md bg-transparent px-3 py-1 text-[20px] text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+              className="rounded-md text-left leading-8 bg-transparent text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
             >
               Jobs
             </button>
@@ -57,7 +63,7 @@ function DashConatiner({ children }) {
               onClick={() => {
                 // navigate(`/user/job/${userID}`);
               }}
-              className="rounded-md bg-transparent px-3 py-1 text-[20px] text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+              className="rounded-md text-left leading-8 bg-transparent text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black" 
             >
               Events
             </button>
@@ -65,7 +71,7 @@ function DashConatiner({ children }) {
               onClick={() => {
                 // navigate(`/user/job/${userID}`);
               }}
-              className="rounded-md bg-transparent px-3 py-1 text-[20px] text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+              className="rounded-md text-left leading-8 bg-transparent text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
             >
               Movies
             </button>
@@ -73,13 +79,14 @@ function DashConatiner({ children }) {
               onClick={() => {
                 navigate(`/user/bussiness/${userID}`);
               }}
-              className="rounded-md bg-transparent px-3 py-1 text-[20px] text-black hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"hover:text-red-700 
+              className="rounded-md text-left leading-8 bg-transparent text-[22px] text-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black" 
             >
               Bussiness
             </button>
           </>
         )}
       </div>
+      </div>  
       <main className=" w-4/5 bg-gray-200 border-2 h-screen p-2 overflow-scroll">
         {children}
       </main>
