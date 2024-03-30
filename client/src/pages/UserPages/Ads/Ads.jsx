@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "../../../components";
 import WebsiteLogo from "../../../assets/website_logo.png";
 import { useSelector } from "react-redux";
@@ -7,18 +7,7 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
   const name = useSelector((state) => state.auth.user);
-
-  useEffect(() => {
-    const fetchdata = async () => {
-      const citys = await fetchcity();
-      console.log(citys.data.city);
-    };
-
-    // const uniqueCities = Array.from(
-    //   new Set(citys.data.city.map((item) => item.city))
-    // );
-    fetchdata();
-  }, []);
+  const [cty, setcty] = useState([]);
 
   return (
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">

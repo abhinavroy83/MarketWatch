@@ -49,8 +49,8 @@ function Getuserroom() {
   };
 
   const renderRows = () => {
-    const startIndex = (currentPage - 1) * 4;
-    const endIndex = Math.min(startIndex + 4, roomsdeatails.length);
+    const startIndex = (currentPage - 1) * 10;
+    const endIndex = Math.min(startIndex + 10, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
         <td className="whitespace-nowrap px-4 py-4 font-[Montserrat]">

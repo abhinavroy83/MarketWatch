@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Getlocations from "../SharedCompontents/Getlocations";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,18 +12,15 @@ import Getmovieforhome from "../../pages/UserPages/movie/Getmovieforhome";
 import Getrooms from "../../pages/UserPages/Rooms/Getrooms";
 import ChildContainer from "../Container/Childpagecontainer";
 import AllRooms from "../../pages/UserPages/Rooms/AllRooms";
+import { fetchcity } from "../../Services/CityApi/Cityapi";
 
 function Home() {
-  const [city, setcity] = useState();
-  const dispatch = useDispatch();
-  const handleclick = (e) => {
-    e.preventDefault;
-    dispatch(cities({ city: city }));
-    console.log(city);
-  };
+  const [cty, setcty] = useState([]);
+
   return (
     <div>
       <Getlocations />
+
       <AllRooms />
     </div>
     // <ChildContainer className="justify-evenly">

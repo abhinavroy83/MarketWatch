@@ -2,11 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LeafletMap from "../UserCompontents/LeafletMap";
+import { fetchcity } from "../../Services/CityApi/Cityapi";
 
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
   const currentloc = useSelector((state) => state.auth.location);
   const city = useSelector((state) => state.auth.city);
+  const [cty, setcty] = useState([]);
+  const [data, setdata] = useState([]);
+  const [selectcity, setselectcity] = useState("");
+  const [subareas, setsubarea] = useState("");
 
   useEffect(() => {
     let lat, lng;
@@ -28,20 +33,55 @@ function ChildContainer({ className, children, onLocationReceived }) {
           : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
       )
       .then((res) => {
-        console.log(res.data), setwhetherdata(res.data);
+        setwhetherdata(res.data);
       })
       .catch((error) => console.log("Error during fetcing whether", error));
-    console.log("lat", lat);
-    console.log("lat", lng);
   }, [onLocationReceived, currentloc, city]);
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };
-  // console.log("whetherdata", weatherData);
+  // console.log(selectcity);
+  useEffect(() => {
+    const fetchdata = async () => {
+      const citys = await fetchcity();
+      // console.log(citys.data.city);
+      setdata(citys.data.city);
+      const uniqueCities = Array.from(
+        new Set(citys.data.city.map((item) => item.city))
+      );
+      // console.log(uniqueCities);
+      setcty(uniqueCities);
+      // const suburbs=citys.find()
+    };
+    fetchdata();
+  }, []);
+
+  const handleCityChange = (e) => {
+    const selectedCity = e.target.value;
+    setselectcity(selectedCity);
+    const updcity = data.filter((item) => item.city === selectedCity);
+    const subares = updcity.map((item) => item.subarea);
+    setsubarea(subares);
+  };
+  console.log(selectcity);
   return (
     <div className={` w-full mt-36 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
-        <main className=" w-4/5">{children}</main>
+        <div className=" w-4/5">
+          <div>
+            <select name="city" onChange={handleCityChange}>
+              {cty.map((city, index) => (
+                <option value={city} key={index}>
+                  {city}
+                </option>
+              ))}
+            </select>
+            <ul>
+              {subareas.length > 0 && subareas.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <main>{children}</main>
+        </div>
         <aside className="w-1/5 m-2 h-5/5 font-roboto mt-20 bg-gray-300 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (

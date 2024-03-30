@@ -25,7 +25,7 @@ function City() {
     };
     fetchdata();
   }, [selectcountry]);
-  
+
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
@@ -67,7 +67,7 @@ function City() {
             <div>
               <select
                 name="State"
-                onChange={() => {
+                onChange={(e) => {
                   const selectcountry = e.target.value;
                   setselectcountry(selectcountry);
                 }}
