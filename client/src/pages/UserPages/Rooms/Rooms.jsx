@@ -9,6 +9,9 @@ import { IoIosShareAlt } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { FaShare } from "react-icons/fa";
 
 
 
@@ -77,17 +80,39 @@ function Rooms() {
       <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-10 font-roboto">
         <div className="flex justify-between py-2 items-start">
           <div>
-          <svg class="h-10 w-10 ml-1 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-12 w-12 ml-1 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           <div className="flex pb-3">
           <div className="ml-1">
-            <GiWashingMachine size={40}/>
+            <GiWashingMachine size={45}/>
           </div>
             {/* <p className="mt-8 font-semibold text-[18px] font-roboto">Washing Available Here</p> */}
           </div>
           </div>
-         
+        
+         <div className="block">
+          <div className="flex gap-3">
+         <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">   
+          <MdKeyboardDoubleArrowLeft size={30} className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"/>        
+           <button
+              type="submit"
+              className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Previous
+            </button>
+        </button>  
+         <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">   
+          <button
+              type="submit"
+              className="rounded-full flex bg-white px-7 text-[22px] items-center text-blue-700 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Next
+            </button>
+            <MdKeyboardDoubleArrowRight size={30} className="text-blue-700 bg-white rounded-full flex shadow-sm shadow-[#000]"/>
+        </button>  
+        </div>    
+
           <div className="gap-2 flex">
             <div className="cursor-pointer p-2 bg-red-600 rounded-full"> 
              <FaHeart color="#fff" size={30} />
@@ -100,7 +125,13 @@ function Rooms() {
               <IoIosShareAlt color="#fff" size={30} />
             </CopyToClipboard>
           </div>
-          
+          <button
+              type="submit"
+              className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+             <FaShare className="text-black" /> Share Now
+            </button>
+         </div>  
         </div>
         </div>
         
