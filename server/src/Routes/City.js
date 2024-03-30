@@ -7,4 +7,4 @@ Router.post("/api/admin/postcity", verifyAdminPage, postcity);
 Router.get("/api/admin/getallcity", getcity);
 
 module.exports = Router;
- 
+

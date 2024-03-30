@@ -44,5 +44,3 @@ const updateuser = async (req, res) => {
 
 module.exports = updateuser;
 
-
-

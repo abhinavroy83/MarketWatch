@@ -38,7 +38,9 @@ function AllRooms() {
     }
   }, [usercity, currentloc]);
   const renderRooms = () => {
-    return rooms.map((item) => <Roomcard isRoomOnlyPage={true} {...item} />);
+    return rooms.map((item, index) => (
+      <Roomcard key={item._id} isRoomOnlyPage={true} {...item} />
+    ));
   };
   return (
     <ChildContainer
@@ -48,16 +50,16 @@ function AllRooms() {
     >
       <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
         <div className="flex justify-between">
-        <h1 className="text-3xl capitalize text-black lg:text-4xl">
-          {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
-        </h1>
-        <button
-              type="submit"
-              className="rounded-md bg-[#17b19f] mt-3 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Post Room
-            </button>
-         </div>   
+          <h1 className="text-3xl capitalize text-black lg:text-4xl">
+            {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
+          </h1>
+          <button
+            type="submit"
+            className="rounded-md bg-[#17b19f] mt-3 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Post Room
+          </button>
+        </div>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
           {renderRooms()}
         </div>
@@ -75,17 +77,13 @@ function AllRooms() {
           </div>
           <div className="block grow">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -104,17 +102,13 @@ function AllRooms() {
           </div>
           <div className="block grow ">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -133,17 +127,13 @@ function AllRooms() {
           </div>
           <div className="block grow">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -162,17 +152,13 @@ function AllRooms() {
           </div>
           <div className="block grow ">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -191,17 +177,13 @@ function AllRooms() {
           </div>
           <div className="block grow ">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -220,17 +202,13 @@ function AllRooms() {
           </div>
           <div className="block grow">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-            Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
               City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
@@ -249,21 +227,16 @@ function AllRooms() {
           </div>
           <div className="block grow">
             {" "}
-            <h1 className="text-xl font-roboto text-black">
-              Name Of Ad
-            </h1>
+            <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
             <h1 className="text-lg font-roboto text-gray-500 pb-2">
-            City Name, State Posted By[First Name] 30 Mins Ago
+              City Name, State Posted By[First Name] 30 Mins Ago
             </h1>
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-xl text-black font-roboto">
-              $550
-            </p>
+            <p className="text-xl text-black font-roboto">$550</p>
           </div>
         </article>
         <hr />
-
       </div>
     </ChildContainer>
   );

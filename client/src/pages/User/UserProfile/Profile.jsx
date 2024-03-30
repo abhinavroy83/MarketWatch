@@ -30,15 +30,7 @@ function Profile() {
       const res = await axios.get(
         `http://localhost:8000/user/dashboard/profile/${userID}`
       );
-      // console.log(res.data.user);
       setdata(res.data.user);
-      // console.log(res.data.user.userimg);
-      // dispatch(login({ userimg: res.data.user.userimg }));
-
-      // const data = res.data.user;
-      // navigate("/createbussinessprofile", {
-      //   state: data,
-      // });
     } catch (error) {
       console.log("error during fetcing userdetails");
     }
@@ -133,7 +125,7 @@ function Profile() {
       // console.log(selectedstate);
       const res = await jsoncity[selectedstate];
       setcitys(res);
-      // console.log(res);
+      
     };
     fetchcity();
   }, [selectedstate]);

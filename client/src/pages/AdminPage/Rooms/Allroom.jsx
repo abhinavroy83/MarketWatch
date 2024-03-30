@@ -62,7 +62,7 @@ function Allroom() {
   useEffect(() => {
     fetchrooms(selectedCity);
   }, [deleteuser, selectedCity]);
-  
+
   useEffect(() => {
     fetchcity();
   });
