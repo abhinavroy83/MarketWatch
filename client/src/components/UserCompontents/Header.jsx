@@ -48,7 +48,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                HOME
               </button>
@@ -59,7 +59,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Events");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 EVENTS
               </button>
@@ -70,7 +70,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/rooms");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 ROOMS
               </button>
@@ -81,7 +81,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/bussiness");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                BUSSINESS
               </button>
@@ -92,7 +92,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Movie");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 MOVIES
               </button>
@@ -105,39 +105,39 @@ export default function Header() {
               <button
                 type="button"
                 onClick={handlesignmodelopen}
-                className=" bg-transparent text-[17px]  px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className=" bg-transparent text-[17px]  px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
                 onClick={handleloginmodelopen}
-                className="text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 LOG IN
               </button>
             </div>
           ) : (
             <div className="flex">
+               <svg class="h-7 w-7 text-white mt-1"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
               <button
                 type="button"
                 onClick={() => {
                   navigate(`/myaccount/${userID}`);
                 }}
-                className=" bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className=" bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 MY ACCOUNT
               </button>
               <button
                 type="button"
                 onClick={handlelogout}
-                className=" bg-transparent text-[17px] px-3 py-2 text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className=" bg-transparent text-[17px] px-3 py-2 text-white font-bold hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 LOGOUT
               </button>
-              <svg class="h-8 w-8 text-white justify-items-center mt-1 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-          </svg>
             </div>
           )}
         </div>

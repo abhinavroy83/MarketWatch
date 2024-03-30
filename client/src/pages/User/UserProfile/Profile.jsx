@@ -178,13 +178,13 @@ function Profile() {
             <path d="M8 13a4 4 0 1 0 8 0m0 0H8" />
           </svg>
         </div>
-        <h1 className="text-lg text-[#000] font-bold font-roboto mb-3">
+        <h1 className="text-[22px] text-[#000] font-bold font-roboto mb-3">
           Your Personal Details Are -
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
           <div className="flex font-roboto p-2 items-center">
-            <img src={data.userimg} alt="" />
-            <label className="min-w-[190px]">FirstName: </label>
+            {/* <img src={data.userimg} alt="" /> */}
+            <label className="min-w-[190px] text-[19px]">FirstName: </label>
             {isedit ? (
               <FormInput
                 // label="FirstName:"
@@ -194,11 +194,11 @@ function Profile() {
                 defaultValue={data.firstName}
               />
             ) : (
-              <p>{data.firstName}</p>
+              <p className="text-[19px]">{data.firstName}</p>
             )}
           </div>
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px]">LastName:</label>
+            <label className="min-w-[190px] text-[19px] ">LastName:</label>
             {isedit ? (
               <FormInput
                 // label="Lastname"
@@ -208,70 +208,91 @@ function Profile() {
                 defaultValue={data.lastName}
               />
             ) : (
-              <p>{data.lastName}</p>
+              <p className="text-[19px]">{data.lastName}</p>
             )}
           </div>
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px]">Email:</label>
-            <p>{data.email}</p>
+            <label className="min-w-[190px] text-[19px]">Email:</label>
+            {isedit ? (
+              <FormInput
+                className="p-1 rounded-base"
+                type="text"
+                {...register("email")}
+                defaultValue={data.email}
+              />
+            ) : (
+              <p className="text-[19px]">{data.email}</p>
+            )}
           </div>
-
+          
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px]">Number:</label>
-            <p>{data.phone_number}</p>
+            <label className="min-w-[190px] text-[19px]">Number:</label>
+            {isedit ? (
+              <FormInput
+                className="p-1 rounded-base"
+                type="text"
+                {...register("number")}
+                defaultValue={data.phone_number}
+              />
+            ) : (
+              <p className="text-[19px]">{data.phone_number}</p>
+            )}
           </div>
 
           {data.isVerified ? (
             <div>
               {isedit && (
-                <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                  <label className="min-w-[190px]">Image:</label>
-                  <input
+                <div className="flex font-roboto p-2 items-center">
+                  <label className="min-w-[190px] text-[19px]">Image:</label>
+                  <input className=""
                     type="file"
                     accept="image/*"
                     onChange={handleimgchange}
                   />
                 </div>
               )}
-              <div className="flex font-[Montserrat]  p-2 items-center">
-                <label className="min-w-[190px]">Date of Birth:</label>
+              <div className="flex font-roboto  p-2 items-center">
+                <label className="min-w-[190px] text-[19px]">Date of Birth:</label>
                 {isedit ? (
-                  <input
+                  <input className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     type="date"
                     {...register("dob")}
                     defaultValue={data.dob}
                   />
                 ) : (
-                  <p>{data.dob}</p>
+                  <p className="text-[19px]">{data.dob}</p>
                 )}
               </div>
 
               <div className=" flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">Gender:</label>
+                <label className="min-w-[190px] text-[19px]">Gender:</label>
                 {isedit ? (
-                  <select {...register("gender")} defaultValue={data.gender}>
+                  <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  {...register("gender")} defaultValue={data.gender}>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="notspecified">Not Specified</option>
                   </select>
                 ) : (
-                  <p>{data.gender}</p>
+                  <p className="text-[19px]">{data.gender}</p>
                 )}
               </div>
               <div className=" flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">Country:</label>
+                <label className="min-w-[190px] text-[19px]">Country:</label>
                 {isedit ? (
-                  <select {...register("country")} defaultValue={data.country}>
+                  <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  {...register("country")} defaultValue={data.country}>
                     <option value="Usa">USA</option>
                   </select>
                 ) : (
-                  <p>{data.country}</p>
+                  <p className="text-[19px]">{data.country}</p>
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">State:</label>
+                <label className="min-w-[190px] text-[19px]">State:</label>
                 {isedit ? (
-                  <select
+                  <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+
                     {...register("state")}
                     onChange={handlestatechange}
                     defaultValue={data.state}
@@ -283,13 +304,14 @@ function Profile() {
                     ))}
                   </select>
                 ) : (
-                  <p>{data.state}</p>
+                  <p className="text-[19px]">{data.state}</p>
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">City: </label>
+                <label className="min-w-[190px] text-[19px]">City: </label>
                 {isedit ? (
-                  <select {...register("city")} defaultValue={data.city}>
+                  <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  {...register("city")} defaultValue={data.city}>
                     {citys &&
                       citys.length > 0 &&
                       citys.map((cty) => (
@@ -299,11 +321,11 @@ function Profile() {
                       ))}
                   </select>
                 ) : (
-                  <p>{data.city}</p>
+                  <p className="text-[19px]">{data.city}</p>
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">Address: </label>
+                <label className="min-w-[190px] text-[19px]">Address: </label>
                 {isedit ? (
                   <FormInput
                     type="text"
@@ -315,11 +337,11 @@ function Profile() {
                     errorMessage={errors.address?.message}
                   />
                 ) : (
-                  <p>{data.address}</p>
+                  <p className="text-[19px]">{data.address}</p>
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px]">Pin: </label>
+                <label className="min-w-[190px] text-[19px]">Pin: </label>
                 {isedit ? (
                   <FormInput
                     type="text"
@@ -329,13 +351,13 @@ function Profile() {
                     errorMessage={errors.pin?.message}
                   />
                 ) : (
-                  <p>{data.pin}</p>
+                  <p className="text-[19px]">{data.pin}</p>
                 )}
               </div>
             </div>
           ) : (
             <div className="font-roboto">
-              <p>Please verify your email </p>
+              <p className="text-[19px]">Please verify your email </p>
             </div>
           )}
 
@@ -357,13 +379,13 @@ function Profile() {
           {isedit ? (
             <>
               <button
-                className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-base"
+                className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-[19px]"
                 type="submit"
               >
                 Update Profile
               </button>
               <button
-                className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-base ml-3"
+                className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-[19px] ml-3"
                 type="button"
                 onClick={toggleCancel}
               >
@@ -372,7 +394,7 @@ function Profile() {
             </>
           ) : (
             <button
-              className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-base"
+              className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-[19px]"
               type="button"
               onClick={toggleEdit}
             >
