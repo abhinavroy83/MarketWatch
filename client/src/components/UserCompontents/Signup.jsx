@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
 import { useDispatch } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
+import WebsiteLogo from "../../assets/logo-transparent.png";
+
 
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
@@ -103,18 +105,26 @@ function Signup({ isOpen, onClose }) {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-roboto font-semibold">
-            <div className="text-center">
-              <img className="w-[100px] m-auto" src={Logo} />
-              <p className=" text-black text-center mt-5 text-3xl">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-roboto">
+            <div className="text-center justify-center flex flex-col items-center">
+            <div class="bg-cover bg-center justify-center">
+        <img
+          height={300}
+          width={350}
+          className="w-50 h-50"
+          src={WebsiteLogo}
+          alt=""
+        />
+      </div>
+              <p className="text-black text-center mt-5 text-[33px]">
                 Sign Up Here
               </p>
-              <p className=" text-black text-center mt-5 px-10 text-base/7">
+              <p className=" text-black text-center mt-5 px-10 text-[20px]">
                 Stay Connected With US Add Your Personal Details. For More
                 Details.
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] px-5 py-2 text-sm font-semibold text-white hover:bg-black/90 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
               >
                 Already Have Account
@@ -296,7 +306,7 @@ function Signup({ isOpen, onClose }) {
                   <p>we add captcha later</p>
                   <div className="text-center">
                     <button
-                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[18px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Sign To Create Account
