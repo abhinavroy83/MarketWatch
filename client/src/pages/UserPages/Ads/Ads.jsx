@@ -1,8 +1,11 @@
 import React from "react";
 import { Container } from "../../../components";
 import WebsiteLogo from "../../../assets/website_logo.png";
+import { useSelector } from "react-redux";
 
 function Ads() {
+  const img = useSelector((state) => state.auth.userimg);
+  const name = useSelector((state) => state.auth.user);
   return (
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">
       <div class="bg-cover bg-center">
@@ -14,7 +17,7 @@ function Ads() {
           alt=""
         />
       </div>
-     
+
       <div className="mt-2 items-center bg-cover z-50">
         <img
           height={100}
@@ -30,18 +33,21 @@ function Ads() {
                 Log In
       </button> */}
       <div className="mt-4 items-center justify-center flex flex-col">
-      {/* <svg class="h-12 w-12 text-black items-center justify-center"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        {/* <svg class="h-12 w-12 text-black items-center justify-center"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
        </svg> */}
-       <img
-          height={50} width={50}
-          src={"https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png"}
-          alt=""
+        <img
+          height={50}
+          width={50}
+          src={img}
+          alt={
+            "https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png"
+          }
         />
-       <p className="items-center justify-center text-[20px] mt-2">Hi, User Name</p>
-
+        <p className="items-center justify-center text-[20px] mt-2">
+          Hi, {name}
+        </p>
       </div>
-
     </div>
   );
 }

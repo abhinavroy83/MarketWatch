@@ -3,8 +3,9 @@ import { DashConatiner, FormInput } from "../../../components";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import jsoncity from "./city.json";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../../store/authslice";
 
 function Profile() {
   const { userID } = useParams();
@@ -20,7 +21,9 @@ function Profile() {
   const [citys, setcitys] = useState([]);
   const navigate = useNavigate();
   const [selectedstate, setsetselectedstate] = useState("");
-  const bussinessac = useSelector((state) => state.auth.bussinessac);
+  const [userimgs, setuserimg] = useState("");
+  const dispatch = useDispatch();
+  // const imgg = useSelector((state) => state.auth.userimg);
 
   const fetchuser = async () => {
     try {
@@ -29,6 +32,9 @@ function Profile() {
       );
       // console.log(res.data.user);
       setdata(res.data.user);
+      // console.log(res.data.user.userimg);
+      // dispatch(login({ userimg: res.data.user.userimg }));
+
       // const data = res.data.user;
       // navigate("/createbussinessprofile", {
       //   state: data,
@@ -55,19 +61,55 @@ function Profile() {
   const toggleCancel = () => {
     setisedit(false);
   };
-  const handleclick = async (data) => {
-    // console.log(data.userimg[0]);
-    const formData = new FormData();
-    console.log(formData);
 
-    formData.append("userimg", data.userimg);
-    // formData.append("firstName", data.firstName);
-    // console.log(formData);
-    console.log(data);
+  const handleimgchange = async (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default");
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dp3hpp62z/image/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const uploadedImageUrl = response.data.secure_url;
+      // console.log(uploadedImageUrl);
+      setuserimg(uploadedImageUrl);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        // Extract and log the error message
+        const errorMessage = error.response.data.error.message;
+        console.error("Error message:", errorMessage);
+      }
+    }
+  };
+
+  const handleclick = async (data) => {
+    const formdt = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      userimg: userimgs,
+      dob: data.dob,
+      gender: data.gender,
+      country: data.country,
+      state: data.state,
+      city: data.city,
+      address: data.address,
+      pin: data.pin,
+    };
+
     try {
       const res = await axios.put(
         `http://localhost:8000/user/updateuser/${userID}`,
-        data.userimg[0]
+        formdt
       );
       if (res) {
         alert("updated successfuly");
@@ -87,8 +129,6 @@ function Profile() {
     setValue("city", "");
     setValue("address", "");
   };
-
-  // console.log(selectedstate);
 
   useEffect(() => {
     const fetchcity = async () => {
@@ -143,6 +183,7 @@ function Profile() {
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
           <div className="flex font-roboto p-2 items-center">
+            <img src={data.userimg} alt="" />
             <label className="min-w-[190px]">FirstName: </label>
             {isedit ? (
               <FormInput
@@ -170,47 +211,29 @@ function Profile() {
               <p>{data.lastName}</p>
             )}
           </div>
-          <div className="flex font-roboto p-2 items-center">  
+          <div className="flex font-roboto p-2 items-center">
             <label className="min-w-[190px]">Email:</label>
-            {isedit ? (
-              <FormInput
-                className="p-1 rounded-base"
-                type="text"
-                {...register("email")}
-                defaultValue={data.email}
-              />
-            ) : (
-              <p>{data.email}</p>
-            )}
+            <p>{data.email}</p>
           </div>
 
           <div className="flex font-roboto p-2 items-center">
-          <label className="min-w-[190px]">Number:</label>
-            {isedit ? (
-              <FormInput
-                className="p-1 rounded-base"
-                type="text"
-                {...register("Number")}
-                defaultValue={data.phone_number}
-              />
-            ) : (
-              <p>{data.phone_number}</p>
-            )}
+            <label className="min-w-[190px]">Number:</label>
+            <p>{data.phone_number}</p>
           </div>
 
           {data.isVerified ? (
             <div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
-                <label className="min-w-[190px]">Image:</label>
-                {isedit && (
+              {isedit && (
+                <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                  <label className="min-w-[190px]">Image:</label>
                   <input
                     type="file"
                     accept="image/*"
-                    {...register("userimg")}
+                    onChange={handleimgchange}
                   />
-                )}
-              </div>
-              <div className="flex font-[Montserrat] font-semibold p-2 items-center">
+                </div>
+              )}
+              <div className="flex font-[Montserrat]  p-2 items-center">
                 <label className="min-w-[190px]">Date of Birth:</label>
                 {isedit ? (
                   <input

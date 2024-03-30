@@ -19,6 +19,7 @@ function App() {
           userID: storeused.data.data._id,
           bussinessac: storeused.data.data.bussinessac,
           isverified: storeused.data.data.isVerified,
+          userimg: storeused.data.data.userimg,
         })
       );
       dispatch(cities({ city: storeused.data.data.city }));

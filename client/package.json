@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
     "@reduxjs/toolkit": "^2.2.0",
     "axios": "^1.6.7",
+    "cloudinary-react": "^1.8.1",
     "google-map-react": "^2.2.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.331.0",

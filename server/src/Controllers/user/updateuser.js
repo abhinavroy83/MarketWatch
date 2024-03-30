@@ -1,16 +1,4 @@
 const User = require("../../model/user");
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
 
 const updateuser = async (req, res) => {
   try {
@@ -20,6 +8,7 @@ const updateuser = async (req, res) => {
       firstName,
       dob,
       gender,
+      userimg,
       country,
       state,
       city,
@@ -31,12 +20,9 @@ const updateuser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    if (req.file) {
-      user.userimg = req.file.path;
-    }
-    console.log(req.file);
     user.lastName = lastName || user.lastName;
     user.firstName = firstName || user.firstName;
+    user.userimg = userimg || user.userimg;
     user.dob = dob || user.dob;
     user.gender = gender || user.gender;
     user.country = country || user.country;
@@ -44,7 +30,7 @@ const updateuser = async (req, res) => {
     user.city = city || user.city;
     user.address = address || user.address;
     user.pin = pin || user.pin;
-    console.log(req.body);
+    // console.log(req.body);
     await user.save();
     res.json({
       msg: "user updated successfuly",
@@ -56,4 +42,4 @@ const updateuser = async (req, res) => {
   }
 };
 
-(module.exports = upload.single("userimg")), updateuser;
+module.exports = updateuser;

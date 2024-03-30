@@ -34,6 +34,7 @@ function Login({ isOpen, onClose }) {
             user: res.data.data.firstName,
             userID: res.data.data._id,
             bussinessac: res.data.data.bussinessac,
+            userimg: res.data.data.userimg,
           })
         );
         dispatch(cities({ city: res.data.data.city }));
