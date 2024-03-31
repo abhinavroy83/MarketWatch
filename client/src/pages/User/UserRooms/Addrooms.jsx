@@ -91,11 +91,14 @@ function Addrooms() {
 
   return (
     <DashConatiner>
-      <div className="font-[Montserrat] font-semibold">
-        <p className="text-3xl ml-3 text-red-700">You Can Add New Room</p>
+      <div className="font-roboto ml-5">
+        <p className="text-3xl text-red-700 font-semibold mt-4">You Can Add New Room</p>
+
+        {/* <p>{currentLocation.lat}</p>
+        <p>{currentLocation.lng}</p> */}
         <form
           onSubmit={handleSubmit(onsubmit)}
-          className="flex flex-col justify-center items-center mt-7 gap-5"
+          className="flex flex-col justify-center mt-7 gap-5"
         >
           <FormInput
             label="AdName"
@@ -121,9 +124,9 @@ function Addrooms() {
             errorMessage={errors.rent?.message}
           />
           <div>
-            <div>
-              <label htmlFor="">utilities</label>
-              <select
+            <div className="flex">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">Utilities</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("utilities", {
                   required: "utilities is required",
                 })}
@@ -139,9 +142,9 @@ function Addrooms() {
             {errors.utilities && <p>{errors.utilities.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">Bed</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">Bed</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bed", {
                   required: "bed is required",
                 })}
@@ -161,9 +164,9 @@ function Addrooms() {
             {errors.bed && <p>{errors.bed.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">Bath</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">Bath</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bath", {
                   required: "Bath is required",
                 })}
@@ -179,9 +182,9 @@ function Addrooms() {
             {errors.bath && <p>{errors.bath.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">Laundary</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">Laundary</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("laundary", {
                   required: "laundary is required",
                 })}
@@ -198,9 +201,9 @@ function Addrooms() {
             {errors.laundary && <p>{errors.bath?.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">State</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">State</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("state", {
                   required: "State is required",
                 })}
@@ -220,9 +223,9 @@ function Addrooms() {
             {errors.state && <p>{errors.state?.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">City</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">City</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("city", {
                   required: "City is required",
                 })}
@@ -242,9 +245,9 @@ function Addrooms() {
             {errors.city && <p>{errors.city?.message}</p>}
           </div>
           <div>
-            <div>
-              <label htmlFor="">subarea</label>
-              <select
+            <div className="flex items-center">
+              <label className="min-w-[140px] text-[19px]" htmlFor="">subarea</label>
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("subarea", {
                   required: "subarea is required",
                 })}
@@ -252,7 +255,7 @@ function Addrooms() {
                 // onChange={handlecities}
               >
                 <option value="" disabled hidden>
-                  Select subarea
+                  Select Subarea
                 </option>
                 {filtersubarea.map((subarea, index) => (
                   <option value={subarea} key={index}>
@@ -264,9 +267,9 @@ function Addrooms() {
             {errors.subarea && <p>{errors.subarea?.message}</p>}
           </div>
 
-          <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px] text-[19px]">Image:</label>
-            <input
+          <div className="flex font-roboto items-center">
+            <label className="min-w-[140px] text-[19px]">Image:</label>
+            <input 
               className=""
               type="file"
               accept="image/*"
@@ -318,9 +321,9 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md bg-[#17b19f] my-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-[#17b19f] my-2 px-3 py-2 text-[18px] self-start font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
-            Add Hotel
+            Add New Room
           </button>
         </form>
       </div>
