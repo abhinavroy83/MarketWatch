@@ -55,6 +55,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
     };
     fetchdata();
   }, []);
+  // console.log(first)
 
   const handleCityChange = (e) => {
     const selectedCity = e.target.value;
@@ -63,7 +64,6 @@ function ChildContainer({ className, children, onLocationReceived }) {
     const subares = updcity.map((item) => item.subarea);
     setsubarea(subares);
   };
-  console.log(selectcity);
   return (
     <div className={` w-full mt-36 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">

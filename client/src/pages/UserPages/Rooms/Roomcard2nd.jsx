@@ -47,7 +47,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       <div className="block grow">
         <h1 className="text-xl font-roboto text-black font-bold">
           {" "}
-          {truncateWords(item.Adname, 3)}
+          {truncateWords(item.Adname, 5)}
         </h1>
         <h1 className="text-lg font-roboto text-gray-500 ">
           {item.address}

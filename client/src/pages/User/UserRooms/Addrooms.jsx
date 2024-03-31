@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { fetchcity } from "../../../Services/CityApi/Cityapi";
 
 function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
-  // console.log(currentLocation);
+  const [areadata, setarea] = useState([]);
+  const [filterstate, setfilterstate] = useState([]);
+  const [filtercity, setfiltercity] = useState([]);
+  const [filtersubarea, setfiltersubarea] = useState([]);
   const {
     register,
     handleSubmit,
@@ -55,82 +59,235 @@ function Addrooms() {
       console.log("error during sending data to roomapi", error);
     }
   };
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const ststs = await fetchcity();
+      setarea(ststs.data.city);
+      const uniquestate = Array.from(
+        new Set(ststs.data.city.map((item) => item.state))
+      );
+      setfilterstate(uniquestate);
+    };
+
+    fetchdata();
+  }, []);
+  const handlestate = (e) => {
+    const selectedstate = e.target.value;
+    if (selectedstate) {
+      const upfcity = areadata.filter((item) => item.state === selectedstate);
+      const uniquecity = [...new Set(upfcity.map((item) => item.city))];
+      setfiltercity(uniquecity);
+    } else {
+      setfiltercity([]);
+    }
+  };
+
+  const handlecities = (e) => {
+    const selectedCity = e.target.value;
+    if (selectedCity) {
+      const subar = areadata.filter((item) => item.city === selectedCity);
+      setfiltersubarea(subar);
+    } else {
+      setfiltersubarea([]);
+    }
+  };
+
   return (
     <DashConatiner>
       <div className="font-[Montserrat] font-semibold">
         <p className="text-3xl ml-3 text-red-700">You Can Add New Room</p>
-
-        {/* <p>{currentLocation.lat}</p>
-        <p>{currentLocation.lng}</p> */}
         <form
           onSubmit={handleSubmit(onsubmit)}
           className="flex flex-col justify-center items-center mt-7 gap-5"
         >
           <FormInput
-            label="City"
+            label="AdName"
+            placeholder="AdName"
             type="text"
-            {...register("city", {
-              required: "City required",
-            })}
-            errorMessage={errors.city?.message}
-          />
-
-          <FormInput
-            label="State"
-            type="text"
-            {...register("State", {
-              required: "State required",
-            })}
-            errorMessage={errors.State?.message}
+            {...register("Adname", { required: "Adname is required" })}
+            errorMessage={errors.AdName?.message}
           />
           <FormInput
-            label="Hotelname"
+            label="Area"
             type="text"
-            {...register("Hotelname", {
-              required: "Hotelname required",
-            })}
-            errorMessage={errors.Hotelname?.message}
-          />
-          <FormInput
-            label="Hotel Image Url"
-            type="text"
-            {...register("PrdImage", {
-              required: "PrdImage required",
-            })}
-            errorMessage={errors.PrdImage?.message}
+            placeholder="for eg ... st louis greater area"
+            {...register("area", { required: "Area is required" })}
+            errorMessage={errors.area?.message}
           />
           <FormInput
             label="Rent"
             type="text"
+            placeholder="Enter the Rent"
             {...register("rent", {
               required: "Rent required",
             })}
             errorMessage={errors.rent?.message}
           />
+          <div>
+            <div>
+              <label htmlFor="">utilities</label>
+              <select
+                {...register("utilities", {
+                  required: "utilities is required",
+                })}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Select utilities
+                </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            {errors.utilities && <p>{errors.utilities.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">Bed</label>
+              <select
+                {...register("bed", {
+                  required: "bed is required",
+                })}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Select Bed
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            {errors.bed && <p>{errors.bed.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">Bath</label>
+              <select
+                {...register("bath", {
+                  required: "Bath is required",
+                })}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Select Bath
+                </option>
+                <option value="separate">Separate</option>
+                <option value="shared">Shared</option>
+              </select>
+            </div>
+            {errors.bath && <p>{errors.bath.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">Laundary</label>
+              <select
+                {...register("laundary", {
+                  required: "laundary is required",
+                })}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Select laundary
+                </option>
+                <option value="Available">Available</option>
+                <option value="Availableinapt">Available in apartment</option>
+                <option value="notAvailable">notAvailable</option>
+              </select>
+            </div>
+            {errors.laundary && <p>{errors.bath?.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">State</label>
+              <select
+                {...register("state", {
+                  required: "State is required",
+                })}
+                defaultValue=""
+                onChange={handlestate}
+              >
+                <option value="" disabled hidden>
+                  Select State
+                </option>
+                {filterstate.map((state, index) => (
+                  <option value={state} key={index}>
+                    {state}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {errors.state && <p>{errors.state?.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">City</label>
+              <select
+                {...register("city", {
+                  required: "City is required",
+                })}
+                defaultValue=""
+                onChange={handlecities}
+              >
+                <option value="" disabled hidden>
+                  Select city
+                </option>
+                {filtercity.map((city, index) => (
+                  <option value={city} key={index}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {errors.city && <p>{errors.city?.message}</p>}
+          </div>
+          <div>
+            <div>
+              <label htmlFor="">subarea</label>
+              <select
+                {...register("subarea", {
+                  required: "subarea is required",
+                })}
+                defaultValue=""
+                // onChange={handlecities}
+              >
+                <option value="" disabled hidden>
+                  Select subarea
+                </option>
+                <option>Select subarea2</option>
+                {/* {filtersubarea.map((subarea, index) => (
+                  <option value={subarea} key={index}>
+                    {subarea}
+                  </option>
+                ))} */}
+              </select>
+            </div>
+            {errors.subarea && <p>{errors.subarea?.message}</p>}
+          </div>
+
+          <div className="flex font-roboto p-2 items-center">
+            <label className="min-w-[190px] text-[19px]">Image:</label>
+            <input
+              className=""
+              type="file"
+              accept="image/*"
+              // onChange={handleimgchange}
+            />
+          </div>
+
           <FormInput
-            label="Hotel Address"
+            label="room Address"
             type="text"
             {...register("address", {
               required: "Address required",
             })}
             errorMessage={errors.address?.message}
           />
-          <FormInput
-            label="Bed"
-            type="text"
-            {...register("bed", {
-              required: "Address required",
-            })}
-            errorMessage={errors.bed?.message}
-          />
-          <FormInput
-            label="Bath"
-            type="text"
-            {...register("bath", {
-              required: "Bath required",
-            })}
-            errorMessage={errors.bath?.message}
-          />
+
           <FormInput
             label="Postedby"
             type="text"
