@@ -141,11 +141,11 @@ function Allroom() {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <section className="mx-auto w-full max-w-7xl px-4 py-4">
+        <section className="mx-auto font-roboto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
               <h2 className="text-lg font-semibold">All Rooms</h2>
-              <p className="mt-1 text-sm text-gray-700">
+              <p className="mt-1 text-sm text-gray-700 font-roboto">
                 This is a list of all All Rooms. You can add new User, edit or
                 delete existing ones.
               </p>

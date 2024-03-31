@@ -14,10 +14,10 @@ const FormInput = forwardRef(function Input(
   const id = useId();
   return (
     <div className={` w-full ${parentClassName}`}>
-      <div className=" flex items-center">
+      <div className="flex items-center">
         {label && (
           <label
-            className="text-sm font-semibold ml-4 w-[140px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-[18px] w-[140px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             htmlFor={id}
           >
             {label}

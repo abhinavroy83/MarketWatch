@@ -44,7 +44,7 @@ function Getrooms() {
     <Container>
       <div className="px-2 py-2 md:px-6 mt-7 md:py-6">
         <div className="flex justify-between">
-          <h1 className="text-4xl font-bold capitalize text-black lg:text-4xl font-[OpenSans] text-[36px]">
+          <h1 className="text-4xl font-bold capitalize text-black lg:text-4xl font-roboto text-[36px]">
             {usercity ? (
               <p>Rooms & Roomates In {usercity}</p>
             ) : (
@@ -68,10 +68,10 @@ function Getrooms() {
                 className="h-[70px] w-[70px]"
                 src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $310
               </p>
             </article>
@@ -81,10 +81,10 @@ function Getrooms() {
                 className="h-[70px] w-[75px]"
                 src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $550
               </p>
             </article>
@@ -94,10 +94,10 @@ function Getrooms() {
                 className="h-[70px] w-[75px]"
                 src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $550
               </p>
             </article>
@@ -107,10 +107,10 @@ function Getrooms() {
                 className="h-[70px] w-[75px]"
                 src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $550
               </p>
             </article>
@@ -120,10 +120,10 @@ function Getrooms() {
                 className="h-[70px] w-[75px]"
                 src={`https://g.foolcdn.com/art/companylogos/square/intc.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $550
               </p>
             </article>
@@ -133,10 +133,10 @@ function Getrooms() {
                 className="h-[70px] w-[75px]"
                 src={`https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png`}
               />
-              <h1 className="text-2xl font-semibold font-[OpenSans] text-black ml-2">
+              <h1 className="text-2xl font-semibold font-roboto text-black ml-2">
                 Company Name
               </h1>
-              <p className="text-2xl font-semibold text-black font-[OpenSans] text-right ml-[8.5rem]">
+              <p className="text-2xl font-semibold text-black font-roboto text-right ml-[8.5rem]">
                 $550
               </p>
             </article>
