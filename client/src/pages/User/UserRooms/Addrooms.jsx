@@ -87,7 +87,8 @@ function Addrooms() {
     const selectedCity = e.target.value;
     if (selectedCity) {
       const subar = areadata.filter((item) => item.city === selectedCity);
-      setfiltersubarea(subar);
+      const subarea = subar.map((item) => item.subarea);
+      setfiltersubarea(subarea);
     } else {
       setfiltersubarea([]);
     }
@@ -258,12 +259,11 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select subarea
                 </option>
-                <option>Select subarea2</option>
-                {/* {filtersubarea.map((subarea, index) => (
+                {filtersubarea.map((subarea, index) => (
                   <option value={subarea} key={index}>
                     {subarea}
                   </option>
-                ))} */}
+                ))}
               </select>
             </div>
             {errors.subarea && <p>{errors.subarea?.message}</p>}
