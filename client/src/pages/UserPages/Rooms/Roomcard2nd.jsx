@@ -1,6 +1,32 @@
 import React from "react";
 
-function Roomcard2nd({ isSingleRow }) {
+function Roomcard2nd({ isSingleRow, ...item }) {
+  function truncateWords(str, numWords) {
+    const words = str.split(" ");
+
+    const truncated = words.slice(0, numWords).join(" ");
+
+    if (words.length > numWords) {
+      return truncated + "...";
+    }
+
+    return truncated;
+  }
+
+  const calculateTimeDifference = (dateStr) => {
+    const date = new Date(dateStr);
+    const currentDate = new Date();
+    const diffInMs = currentDate - date;
+    const diffInMin = Math.floor(diffInMs / (1000 * 60));
+
+    if (diffInMin < 60) {
+      return `${diffInMin} min ago`;
+    } else {
+      const diffInHours = Math.floor(diffInMin / 60);
+      return `${diffInHours} hour${diffInHours > 1 ? "s" : ""} ago`;
+    }
+  };
+
   return (
     <article
       className={`flex gap-2 items-center mt-2 ${
@@ -17,10 +43,15 @@ function Roomcard2nd({ isSingleRow }) {
         />
       </div>
       <div className="block grow ">
-        <h1 className="text-xl font-roboto text-black">Name Of Ad</h1>
-        <h1 className="text-lg font-roboto text-gray-500 pb-2">
-          City Name, State Posted By[First Name] 30 Mins Ago
+        <h1 className="text-xl font-roboto text-black">
+          {" "}
+          {truncateWords(item.Adname, 3)}
         </h1>
+        <h1 className="text-lg font-roboto text-gray-500 pb-2">
+          {item.address}
+        </h1>
+        <p>{calculateTimeDifference(item.postedon)}</p>
+        <p>BY{item.postedby}</p>
       </div>
       <div className="flex gap-4 justify-center items-center">
         <p className="text-xl text-black font-roboto">$550</p>

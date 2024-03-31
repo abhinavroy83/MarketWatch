@@ -39,7 +39,6 @@ function AllRooms() {
     }
   }, [usercity, currentloc]);
 
-
   return (
     <ChildContainer
       onLocationReceived={
@@ -69,7 +68,7 @@ function AllRooms() {
         </div>
         <div className="mt-4">
           {rooms.slice(8).map((item) => (
-            <Roomcard2nd key={item._id} />
+            <Roomcard2nd key={item._id} {...item} />
           ))}
         </div>
       </div>
