@@ -87,9 +87,22 @@ function Rooms() {
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-10 font-roboto">
+      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-5 font-roboto">
         <div className="flex justify-between py-2 items-start">
           <div>
+          <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                <MdKeyboardDoubleArrowLeft
+                  size={30}
+                  className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
+                />
+                <button
+                  type="submit"
+                  className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Previous
+                </button>
+              </button>
+           <div className="flex">   
             <svg
               class="h-12 w-12 ml-1 text-black-500"
               fill="none"
@@ -106,25 +119,13 @@ function Rooms() {
             <div className="flex pb-3">
               <div className="ml-1">
                 <GiWashingMachine size={45} />
+                </div>
               </div>
-              {/* <p className="mt-8 font-semibold text-[18px] font-roboto">Washing Available Here</p> */}
             </div>
           </div>
 
           <div className="block">
-            <div className="flex gap-3">
-              <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-                <MdKeyboardDoubleArrowLeft
-                  size={30}
-                  className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Previous
-                </button>
-              </button>
+            <div className="flex justify-end">
               <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                 <button
                   type="submit"
@@ -176,7 +177,7 @@ function Rooms() {
             <p className=" text-[25px] font-bold text-gray-800 font-roboto">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p>
-            <p className="text-red-700 text-[20px]">{rooms.rent} monthly</p>
+            <p className="text-red-700 text-[20px] flex gap-3">{rooms.rent} monthly <p className="text-[20px] text-blue-800">[Extra Utilites Here]</p></p>
             <p className="text-[20px]">{rooms.address}</p>
             <p className="text-[20px]">
               {rooms.bed} Bed / {rooms.bath} Bath
@@ -195,14 +196,14 @@ function Rooms() {
                 </div>
               )}
             </div>
-            <div>
+            <div className="gap-4 flex items-center">
               <button
                 type="button"
                 onClick={() => {
                   setcontachdet(true);
                   // if(authstatus)
                 }}
-                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-[20px] text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-[22px] text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
                 <svg
                   class="h-8 w-8 text-white-500 pt-2"
@@ -216,11 +217,12 @@ function Rooms() {
                   {" "}
                   <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span class="pt-1 ml-2 items-center">Get In touch </span>
+                <span class="ml-2 items-center justify-center">Get In touch </span>
               </button>
               {contactdet && authstatus ? (
-                <div className="gap-4">
-                  <p className="mt-2 mb-1 text-[17px]">Email : {rooms.email}</p>
+                <div className="">
+                   <p className="text-[20px] mt-4 text-black font-roboto">Your Details Are -</p>
+                  <p className="text-[17px]">Email : {rooms.email}</p>
                   <p className="text-[17px]">Number : {rooms.number}</p>
                 </div>
               ) : null}

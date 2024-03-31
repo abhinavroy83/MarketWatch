@@ -52,7 +52,7 @@ function AllRooms() {
           </h1>
           <button
             type="submit"
-            className="rounded-md bg-[#17b19f] mt-3 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-[#17b19f] px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Post Room
           </button>
@@ -66,6 +66,7 @@ function AllRooms() {
             </React.Fragment>
           ))}
         </div>
+        <p className="text-[35px] text-black font-roboto mt-7">More Rooms</p>
         <div className="mt-4">
           {rooms.slice(8).map((item) => (
             <Roomcard2nd key={item._id} {...item} />

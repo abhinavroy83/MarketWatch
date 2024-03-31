@@ -1,4 +1,6 @@
 import React from "react";
+import femaleLogo from '../../../assets/female.png'
+
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   function truncateWords(str, numWords) {
@@ -29,8 +31,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
 
   return (
     <article
-      className={`flex gap-2 items-center mt-2 ${
-        isSingleRow ? "justify-between pr-4" : "justify-start px-4"
+      className={`flex gap-4 items-center mt-2 ${
+        isSingleRow ? "justify-between pr-4" : "justify-start px-4 border shadow-md p-5 rounded-xl hover:shadow-lg"
       }`}
     >
       <div className="flex">
@@ -38,23 +40,25 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           className="flex"
           height={55}
           width={55}
-          src="https://media.istockphoto.com/id/1284444739/vector/female-symbol-on-transparent-background.jpg?s=612x612&w=0&k=20&c=EK8Uhpixm-Bo-Es4bVvaGWLlJQcFAf99lCOAR04qOTk="
+          src={femaleLogo}        
           alt=""
         />
       </div>
-      <div className="block grow ">
-        <h1 className="text-xl font-roboto text-black">
+      <div className="block grow">
+        <h1 className="text-xl font-roboto text-black font-bold">
           {" "}
           {truncateWords(item.Adname, 3)}
         </h1>
-        <h1 className="text-lg font-roboto text-gray-500 pb-2">
+        <h1 className="text-lg font-roboto text-gray-500 ">
           {item.address}
         </h1>
-        <p>{calculateTimeDifference(item.postedon)}</p>
-        <p>BY{item.postedby}</p>
+       <div className="flex gap-2"> 
+       <p>BY : {item.postedby}</p> -
+        <p> {calculateTimeDifference(item.postedon)}</p>
+        </div> 
       </div>
       <div className="flex gap-4 justify-center items-center">
-        <p className="text-xl text-black font-roboto">$550</p>
+        <p className="text-xl text-black font-roboto font-bold">$550</p>
       </div>
     </article>
   );
