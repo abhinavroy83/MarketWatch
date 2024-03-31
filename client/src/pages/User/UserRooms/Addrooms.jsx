@@ -74,24 +74,19 @@ function Addrooms() {
   }, []);
   const handlestate = (e) => {
     const selectedstate = e.target.value;
-    if (selectedstate) {
-      const upfcity = areadata.filter((item) => item.state === selectedstate);
-      const uniquecity = [...new Set(upfcity.map((item) => item.city))];
-      setfiltercity(uniquecity);
-    } else {
-      setfiltercity([]);
-    }
+    const upfcity = areadata.filter((item) => item.state === selectedstate);
+    const uniquecity = [...new Set(upfcity.map((item) => item.city))];
+    setfiltercity(uniquecity);
+    const subar = areadata.filter((item) => item.state === selectedstate);
+    const subarea = subar.map((item) => item.subarea);
+    setfiltersubarea(subarea);
   };
 
   const handlecities = (e) => {
     const selectedCity = e.target.value;
-    if (selectedCity) {
-      const subar = areadata.filter((item) => item.city === selectedCity);
-      const subarea = subar.map((item) => item.subarea);
-      setfiltersubarea(subarea);
-    } else {
-      setfiltersubarea([]);
-    }
+    const subar = areadata.filter((item) => item.city === selectedCity);
+    const subarea = subar.map((item) => item.subarea);
+    setfiltersubarea(subarea);
   };
 
   return (
