@@ -156,7 +156,7 @@ function Rooms() {
                 type="submit"
                 className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <FaShare className="text-black" /> Share Now
+                <FaShare className="text-black"/> Share Now
               </button>
             </div>
           </div>
@@ -203,10 +203,10 @@ function Rooms() {
                   setcontachdet(true);
                   // if(authstatus)
                 }}
-                className="flex rounded-md bg-[#17b19f] mt-4 px-5 py-3 text-[22px] text-white shadow-sm hover:bg-[#17b19f]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex rounded-md bg-gray-400 mt-4 px-5 py-3 text-[22px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
                 <svg
-                  class="h-8 w-8 text-white-500 pt-2"
+                  class="h-8 w-8 text-white-500"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
