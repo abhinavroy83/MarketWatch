@@ -131,17 +131,17 @@ function Addrooms() {
           <div>
             <div className="flex">
               <label className="min-w-[140px] text-[19px]" htmlFor="">Utilities</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("utilities", {
                   required: "utilities is required",
                 })}
                 defaultValue=""
               >
                 <option value="" disabled hidden>
-                  Select utilities
+                Select utilities
                 </option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option className="text-[16px]" value="yes">Yes</option>
+                <option className="text-[16px]" value="no">No</option>
               </select>
             </div>
             {errors.utilities && <p>{errors.utilities.message}</p>}
@@ -149,7 +149,7 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">Bed</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bed", {
                   required: "bed is required",
                 })}
@@ -158,12 +158,12 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bed
                 </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+                <option className="text-[16px]" value="1">1</option>
+                <option className="text-[16px]" value="2">2</option>
+                <option className="text-[16px]" value="3">3</option>
+                <option className="text-[16px]" value="4">4</option>
+                <option className="text-[16px]" value="5">5</option>
+                <option className="text-[16px]" value="6">6</option>
               </select>
             </div>
             {errors.bed && <p>{errors.bed.message}</p>}
@@ -171,7 +171,7 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">Bath</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bath", {
                   required: "Bath is required",
                 })}
@@ -180,8 +180,8 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bath
                 </option>
-                <option value="separate">Separate</option>
-                <option value="shared">Shared</option>
+                <option className="text-[16px]" value="separate">Separate</option>
+                <option className="text-[16px]" value="shared">Shared</option>
               </select>
             </div>
             {errors.bath && <p>{errors.bath.message}</p>}
@@ -189,7 +189,7 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">Laundary</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("laundary", {
                   required: "laundary is required",
                 })}
@@ -198,9 +198,9 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select laundary
                 </option>
-                <option value="Available">Available</option>
-                <option value="Availableinapt">Available in apartment</option>
-                <option value="notAvailable">notAvailable</option>
+                <option  className="text-[16px]" value="Available">Available</option>
+                <option className="text-[16px]" value="Availableinapt">Available in apartment</option>
+                <option className="text-[16px]" value="notAvailable">notAvailable</option>
               </select>
             </div>
             {errors.laundary && <p>{errors.bath?.message}</p>}
@@ -208,7 +208,7 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">State</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("state", {
                   required: "State is required",
                 })}
@@ -230,14 +230,14 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">City</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("city", {
                   required: "City is required",
                 })}
                 defaultValue=""
                 onChange={handlecities}
               >
-                <option value="" disabled hidden>
+                <option className="text-gray-600" value="" disabled hidden>
                   Select city
                 </option>
                 {filtercity.map((city, index) => (
@@ -252,7 +252,7 @@ function Addrooms() {
           <div>
             <div className="flex items-center">
               <label className="min-w-[140px] text-[19px]" htmlFor="">subarea</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("subarea", {
                   required: "subarea is required",
                 })}

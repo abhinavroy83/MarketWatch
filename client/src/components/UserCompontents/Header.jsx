@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <div className=" w-full fixed z-50 flex bg-white bg-[url('https://w0.peakpx.com/wallpaper/323/21/HD-wallpaper-plain-white-abstract.jpg')] flex-col">
       <Ads />
-      <div className=" w-screen bg-gray-400 shadow-2xl font-roboto border-b-4 border-black">
+      <div className=" w-screen bg-gray-400 shadow-2xl font-roboto border-b-2 border-black">
         <div className="flex justify-between items-center py-1 px-2 max-w-[1600px] w-full m-auto">
           <div className="">
             <ul className="ml-3 inline-flex space-x-8">
@@ -48,7 +48,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                HOME
               </button>
@@ -59,7 +59,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Events");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 EVENTS
               </button>
@@ -70,7 +70,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/rooms");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 ROOMS
               </button>
@@ -81,7 +81,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/bussiness");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                BUSSINESS
               </button>
@@ -92,7 +92,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Movie");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 MOVIES
               </button>
@@ -105,14 +105,14 @@ export default function Header() {
               <button
                 type="button"
                 onClick={handlesignmodelopen}
-                className="rounded-md bg-transparent text-[17px]  px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px]  px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
                 onClick={handleloginmodelopen}
-                className="rounded-md text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 LOG IN
               </button>
@@ -127,14 +127,14 @@ export default function Header() {
                 onClick={() => {
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 MY ACCOUNT
               </button>
               <button
                 type="button"
                 onClick={handlelogout}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-bold hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 LOGOUT
               </button>
