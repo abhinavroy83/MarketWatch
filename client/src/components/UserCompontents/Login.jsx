@@ -123,7 +123,7 @@ function Login({ isOpen, onClose }) {
           <h1 className="text-3xl font-bold text-red-700 text-center">
             GET STARTED
           </h1>
-          <p className=" text-black text-center font-bold mt-2 px-10 text-[20px]">
+          <p className=" text-black text-center mt-2 px-10 text-[20px]">
             Start Your Journey
           </p>
           <form

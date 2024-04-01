@@ -175,10 +175,10 @@ function Addrooms() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>
-                  Select utilities
+                Select utilities
                 </option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option className="text-[16px]" value="yes">Yes</option>
+                <option className="text-[16px]" value="no">No</option>
               </select>
             </div>
             {errors.utilities && <p>{errors.utilities.message}</p>}
@@ -198,12 +198,12 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bed
                 </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+                <option className="text-[16px]" value="1">1</option>
+                <option className="text-[16px]" value="2">2</option>
+                <option className="text-[16px]" value="3">3</option>
+                <option className="text-[16px]" value="4">4</option>
+                <option className="text-[16px]" value="5">5</option>
+                <option className="text-[16px]" value="6">6</option>
               </select>
             </div>
             {errors.bed && <p>{errors.bed.message}</p>}
@@ -223,8 +223,8 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bath
                 </option>
-                <option value="separate">Separate</option>
-                <option value="shared">Shared</option>
+                <option className="text-[16px]" value="separate">Separate</option>
+                <option className="text-[16px]" value="shared">Shared</option>
               </select>
             </div>
             {errors.bath && <p>{errors.bath.message}</p>}
@@ -244,9 +244,9 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select laundary
                 </option>
-                <option value="Available">Available</option>
-                <option value="Availableinapt">Available in apartment</option>
-                <option value="notAvailable">notAvailable</option>
+                <option  className="text-[16px]" value="Available">Available</option>
+                <option className="text-[16px]" value="Availableinapt">Available in apartment</option>
+                <option className="text-[16px]" value="notAvailable">notAvailable</option>
               </select>
             </div>
             {errors.laundary && <p>{errors.bath?.message}</p>}
@@ -289,7 +289,7 @@ function Addrooms() {
                 defaultValue=""
                 onChange={handlecities}
               >
-                <option value="" disabled hidden>
+                <option className="text-gray-600" value="" disabled hidden>
                   Select city
                 </option>
                 {filtercity.map((city, index) => (
