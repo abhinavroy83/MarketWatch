@@ -68,7 +68,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
     <div className={` w-full mt-36 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
         <div className=" w-4/5">
-          <div>
+          {/* <div>
             <select name="city" onChange={handleCityChange}>
               {cty.map((city, index) => (
                 <option value={city} key={index}>
@@ -79,7 +79,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
             <ul>
               {subareas.length > 0 && subareas.map((item) => <li>{item}</li>)}
             </ul>
-          </div>
+          </div> */}
           <main>{children}</main>
         </div>
         <aside className="w-1/5 m-2 h-5/5 font-roboto mt-20 bg-gray-300 py-5 px-5">

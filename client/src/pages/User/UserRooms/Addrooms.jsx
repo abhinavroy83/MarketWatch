@@ -14,6 +14,8 @@ function Addrooms() {
   const [filterstate, setfilterstate] = useState([]);
   const [filtercity, setfiltercity] = useState([]);
   const [filtersubarea, setfiltersubarea] = useState([]);
+  const [userimgs, setuserimg] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -21,16 +23,50 @@ function Addrooms() {
     reset,
   } = useForm();
   const { userID } = useParams();
+  const handleimgchange = async (e) => {
+    const file = e.target.files[0];
+    // console.log(file);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default");
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dp3hpp62z/image/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const uploadedImageUrl = response.data.secure_url;
+      console.log(uploadedImageUrl);
+      setuserimg(uploadedImageUrl);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        // Extract and log the error message
+        const errorMessage = error.response.data.error.message;
+        console.error("Error message:", errorMessage);
+      }
+    }
+  };
   const onsubmit = async (data) => {
+    // console.log(data);
     const roomdata = {
-      city: data.city,
-      State: data.State,
-      Hotelname: data.Hotelname,
-      PrdImage: data.PrdImage,
+      Adname: data.Adname,
+      area: data.area,
       rent: data.rent,
-      address: data.address,
+      utilities: data.utilities,
       bed: data.bed,
       bath: data.bath,
+      laundary: data.laundary,
+      subarea: data.subarea,
+      city: data.city,
+      State: data.State,
+      PrdImage: userimgs,
+      address: data.address,
       postedby: data.postedby,
       description: data.description,
       email: data.email,
@@ -39,6 +75,7 @@ function Addrooms() {
         coordinates: [currentLocation.lat, currentLocation.lng],
       },
     };
+
     try {
       const res = await axios.post(
         "http://localhost:8000/api/addrooms",
@@ -74,30 +111,27 @@ function Addrooms() {
   }, []);
   const handlestate = (e) => {
     const selectedstate = e.target.value;
-    if (selectedstate) {
-      const upfcity = areadata.filter((item) => item.state === selectedstate);
-      const uniquecity = [...new Set(upfcity.map((item) => item.city))];
-      setfiltercity(uniquecity);
-    } else {
-      setfiltercity([]);
-    }
+    const upfcity = areadata.filter((item) => item.state === selectedstate);
+    const uniquecity = [...new Set(upfcity.map((item) => item.city))];
+    setfiltercity(uniquecity);
+    const subar = areadata.filter((item) => item.state === selectedstate);
+    const subarea = subar.map((item) => item.subarea);
+    setfiltersubarea(subarea);
   };
 
   const handlecities = (e) => {
     const selectedCity = e.target.value;
-    if (selectedCity) {
-      const subar = areadata.filter((item) => item.city === selectedCity);
-      const subarea = subar.map((item) => item.subarea);
-      setfiltersubarea(subarea);
-    } else {
-      setfiltersubarea([]);
-    }
+    const subar = areadata.filter((item) => item.city === selectedCity);
+    const subarea = subar.map((item) => item.subarea);
+    setfiltersubarea(subarea);
   };
 
   return (
     <DashConatiner>
       <div className="font-roboto ml-5">
-        <p className="text-3xl text-red-700 font-semibold mt-4">You Can Add New Room</p>
+        <p className="text-3xl text-red-700 font-semibold mt-4">
+          You Can Add New Room
+        </p>
 
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -130,8 +164,11 @@ function Addrooms() {
           />
           <div>
             <div className="flex">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">Utilities</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                Utilities
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("utilities", {
                   required: "utilities is required",
                 })}
@@ -148,8 +185,11 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">Bed</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                Bed
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bed", {
                   required: "bed is required",
                 })}
@@ -170,8 +210,11 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">Bath</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                Bath
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("bath", {
                   required: "Bath is required",
                 })}
@@ -188,8 +231,11 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">Laundary</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                Laundary
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("laundary", {
                   required: "laundary is required",
                 })}
@@ -207,9 +253,12 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">State</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                {...register("state", {
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                State
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                {...register("State", {
                   required: "State is required",
                 })}
                 defaultValue=""
@@ -229,8 +278,11 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">City</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                City
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("city", {
                   required: "City is required",
                 })}
@@ -251,8 +303,11 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">subarea</label>
-              <select className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+              <label className="min-w-[140px] text-[19px]" htmlFor="">
+                subarea
+              </label>
+              <select
+                className="flex h-10 font-roboto w-[540px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 {...register("subarea", {
                   required: "subarea is required",
                 })}
@@ -274,11 +329,11 @@ function Addrooms() {
 
           <div className="flex font-roboto items-center">
             <label className="min-w-[140px] text-[19px]">Image:</label>
-            <input 
+            <input
               className=""
               type="file"
               accept="image/*"
-              // onChange={handleimgchange}
+              onChange={handleimgchange}
             />
           </div>
 

@@ -56,7 +56,7 @@ function Profile() {
 
   const handleimgchange = async (e) => {
     const file = e.target.files[0];
-    console.log(file);
+    // console.log(file);
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "ml_default");
