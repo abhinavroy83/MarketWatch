@@ -45,20 +45,20 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         />
       </div>
       <div className="block grow">
-        <h1 className="text-xl font-roboto text-black font-bold">
+        <h1 className="text-xl font-roboto text-black font-medium">
           {" "}
           {truncateWords(item.Adname, 5)}
         </h1>
         <h1 className="text-lg font-roboto text-gray-500 ">
           {item.address}
         </h1>
-       <div className="flex gap-2"> 
+       <div className="flex gap-2 text-gray-500"> 
        <p>BY : {item.postedby}</p> -
         <p> {calculateTimeDifference(item.postedon)}</p>
         </div> 
       </div>
       <div className="flex gap-4 justify-center items-center">
-        <p className="text-xl text-black font-roboto font-bold">$550</p>
+        <p className="text-xl text-black font-roboto font-font-medium">$550</p>
       </div>
     </article>
   );

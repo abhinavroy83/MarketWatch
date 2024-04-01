@@ -187,7 +187,7 @@ function Rooms() {
             </p>
           </div>
           <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
-            <p className=" text-[25px] font-bold text-gray-800 font-roboto">
+            <p className=" text-[25px] font-font-medium text-gray-800 font-roboto">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p>
             <p className="text-red-700 text-[20px] flex gap-3">

@@ -139,7 +139,7 @@ function Addrooms() {
           onSubmit={handleSubmit(onsubmit)}
           className="flex flex-col justify-center mt-7 gap-5"
         >
-          <FormInput className=" w-[500px]"
+          <FormInput className="w-[500px]"
             label="AdName"
             placeholder="AdName"
             type="text"
