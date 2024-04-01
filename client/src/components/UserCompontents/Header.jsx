@@ -48,9 +48,9 @@ export default function Header() {
                 onClick={() => {
                   navigate("/");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-gray-900 hover:shadow-md"
               >
-               HOME
+                HOME
               </button>
             </ul>
             <ul className="ml-3 inline-flex space-x-8 ">
@@ -59,7 +59,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Events");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 EVENTS
               </button>
@@ -70,7 +70,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/rooms");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 ROOMS
               </button>
@@ -81,9 +81,9 @@ export default function Header() {
                 onClick={() => {
                   navigate("/bussiness");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
-               BUSSINESS
+                BUSSINESS
               </button>
             </ul>
             <ul className="ml-3 inline-flex space-x-8 ">
@@ -92,7 +92,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/Movie");
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 MOVIES
               </button>
@@ -105,36 +105,46 @@ export default function Header() {
               <button
                 type="button"
                 onClick={handlesignmodelopen}
-                className="rounded-md bg-transparent text-[17px]  px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
                 onClick={handleloginmodelopen}
-                className="rounded-md text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 LOG IN
               </button>
             </div>
           ) : (
             <div className="flex">
-               <svg class="h-7 w-7 text-black mt-1"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              <svg
+                class="h-7 w-7 text-black mt-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
               </svg>
               <button
                 type="button"
                 onClick={() => {
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 MY ACCOUNT
               </button>
               <button
                 type="button"
                 onClick={handlelogout}
-                className="rounded-md bg-transparent text-[17px] px-3 py-2 text-black font-medium hover:text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 LOGOUT
               </button>

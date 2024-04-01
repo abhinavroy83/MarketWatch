@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("../model/user");
 const { Schema } = mongoose;
-
+  
 const roomSchema = mongoose.Schema({
   UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   Adname: { type: String, required: true },
