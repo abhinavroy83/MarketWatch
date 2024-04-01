@@ -169,7 +169,7 @@ function Rooms() {
                 type="submit"
                 className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <FaShare className="text-black"/> Share Now
+                <FaShare className="text-black" /> Share Now
               </button>
             </div>
           </div>
@@ -215,10 +215,7 @@ function Rooms() {
             <div className="gap-4 flex items-center">
               <button
                 type="button"
-                onClick={() => {
-                  setcontachdet(true);
-                  // if(authstatus)
-                }}
+                onClick={handleloginmodelopen}
                 className="flex rounded-md bg-gray-400 mt-4 px-5 py-3 text-[22px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
                 <svg
