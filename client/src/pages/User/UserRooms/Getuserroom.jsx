@@ -3,6 +3,8 @@ import { DashConatiner } from "../../../components";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 function Getuserroom() {
   const { userID } = useParams();
@@ -63,22 +65,22 @@ function Getuserroom() {
               />
             </div>
             <div className="ml-4 font-roboto">
-              <div className="text-[18px] font-medium text-gray-900">
+              <div className="text-lg font-medium text-gray-900">
                 {items.Hotelname}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[18px] text-gray-700 font-roboto">{items.city}</div>
+          <div className="text-lg text-gray-700 font-roboto">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[18px] text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[18px] text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto">
           {items.rent}
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[18px] font-medium font-roboto">
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-lg font-medium font-roboto">
         <svg class="h-6 w-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
          </svg>
@@ -93,8 +95,8 @@ function Getuserroom() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-roboto">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-[25px] font-semibold text-red-700">Rooms</h2>
-            <p className="mt-1 text-[18px] text-gray-700">
+            <h2 className="text-3xl font-semibold text-red-700">Rooms</h2>
+            <p className="mt-1 text-lg text-gray-700">
               This is a list of all rooms. You can add new rooms, edit or delete
               existing ones.
             </p>
@@ -105,7 +107,7 @@ function Getuserroom() {
               onClick={() => {
                 navigate(`/addroom/${userID}`);
               }}
-              className="rounded-md bg-[#17b19f] px-3 py-2 text-[18px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Add New Room
             </button>
@@ -120,27 +122,27 @@ function Getuserroom() {
                     <tr>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[18px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
                         <span>Room</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left text-[18px] font-normal text-gray-700"
+                        className="px-12 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
                         City
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[18px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
                         Address
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[18px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
                         Price
                       </th>
@@ -159,21 +161,21 @@ function Getuserroom() {
         </div>
         <div className="mt-4 w-full border-gray-300">
           <div className="mt-2 flex items-center justify-end">
-            <div className="space-x-2">
+            <div className="space-x-2 flex" >
               {currentPage > 1 && (
                 <button
-                  className="rounded-md bg-[#17b19f] px-3 py-2 text-[18px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-black px-3 py-2 text-lg flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={prevPage}
                 >
-                  &larr; Previous
+                 <FaArrowAltCircleLeft /> Previous
                 </button>
               )}
               {roomsdeatails.length > currentPage * 4 && (
                 <button
-                  className="rounded-md bg-[#17b19f] px-3 py-2 text-[18px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-black px-3 py-2 text-lg flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={nextPage}
                 >
-                  Next &rarr;
+                  Next <FaArrowAltCircleRight />
                 </button>
               )}
             </div>
