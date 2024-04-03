@@ -11,12 +11,12 @@ function AdminHome() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="font-roboto text-[20px]">
       <AdminHeader />
       <AdminDashboard>
-        <div>
-          AdminHome
-          <p>hello {role}</p>
+        <div className="text-red-700 font-bold text-[27px] pl-4 mt-4 items-center justify-center text-center">
+          <p className="border-b-2 border-gray-500 pb-4">Home Page</p> <hr className="text-black"></hr>
+          <p className="mt-4">Welcome , {role}</p>
         </div>
       </AdminDashboard>
     </div>

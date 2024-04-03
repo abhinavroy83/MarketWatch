@@ -4,6 +4,8 @@ import {
   AdminHeader,
 } from "../../../components/AdminCompontents";
 import axios from "axios";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 function Allbussiness() {
   const [data, setdata] = useState([]);
@@ -72,7 +74,7 @@ function Allbussiness() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
   const renderRows = () => {
-    const itemsPerPage = 7;
+    const itemsPerPage = 6;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
@@ -87,34 +89,34 @@ function Allbussiness() {
               />
             </div>
             <div className="ml-4">
-              <div className="text-sm font-medium text-gray-900">
+              <div className="text-base font-medium text-gray-900">
                 {items.business_name}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-sm text-gray-900">{items.email}</div>
+          <div className="text-base text-gray-900">{items.email}</div>
         </td>
 
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.hours_open}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.address1}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.city}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
           <button
             onClick={() => {
               const _id = items._id;
@@ -139,16 +141,16 @@ function Allbussiness() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-lg font-semibold">All Business</h2>
-              <p className="mt-1 text-sm text-gray-700">
+              <h2 className="text-3xl font-semibold text-red-700">All Business</h2>
+              <p className="mt-1 text-lg text-gray-700 font-roboto">
                 This is a list of all All Business. You can add new User, edit
                 or delete existing ones.
               </p>
             </div>
             <div>
-              <select name="city" onChange={handlecity}>
+              <select  className="mr-4 bg-white p-2 rounded-md" name="city" onChange={handlecity}>
                 {cities.map((city, index) => (
-                  <option key={index} value={city}>
+                  <option className="text-base"  key={index} value={city}>
                     {city}
                   </option>
                 ))}
@@ -158,9 +160,9 @@ function Allbussiness() {
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
                 }}
-                className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Add new Bussiness
+                Add New Bussiness
               </button>
             </div>
           </div>
@@ -173,50 +175,50 @@ function Allbussiness() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <span>Name</span>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           <span>Email</span>
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-6 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Opening Time
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Address
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           City
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Country
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Edit
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Delete
                         </th>
@@ -232,21 +234,21 @@ function Allbussiness() {
           </div>
           <div className="mt-4 w-full border-gray-300">
             <div className="mt-2 flex items-center justify-end">
-              <div className="space-x-2">
+              <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-black px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
-                    &larr; Previous
+                    <FaArrowAltCircleLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-black px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={nextPage}
                   >
-                    Next &rarr;
+                    Next <FaArrowAltCircleRight />
                   </button>
                 )}
               </div>

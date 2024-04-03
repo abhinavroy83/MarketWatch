@@ -98,8 +98,8 @@ function Pendingrequest() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <p className="mt-1 text-sm text-gray-700">
-                list of all pending Approval
+              <p className="mt-1 text-lg text-gray-700">
+                List of all pending Approval
               </p>
             </div>
           </div>

@@ -52,19 +52,19 @@ function Getapproval() {
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.requestedID}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.userId}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.reason}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.status}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
           <button
             onClick={() => {
               const _id = items._id;
@@ -92,8 +92,9 @@ function Getapproval() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <p className="mt-1 text-sm text-gray-700">
-                list of all pending Approval
+            <h2 className="text-3xl font-semibold text-red-700">List</h2>
+              <p className="mt-1 text-lg text-gray-700">
+                List of all Pending and Approval
               </p>
             </div>
           </div>
@@ -106,32 +107,32 @@ function Getapproval() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-6 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Requested Id
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-6 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           User Id
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           reason
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           status
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           For Approve
                         </th>
@@ -150,7 +151,7 @@ function Getapproval() {
               <div className="space-x-2">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-black px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
                     &larr; Previous
@@ -158,7 +159,7 @@ function Getapproval() {
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-black px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={nextPage}
                   >
                     Next &rarr;
