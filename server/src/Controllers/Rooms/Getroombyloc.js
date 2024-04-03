@@ -14,7 +14,7 @@ const getroombycurrentlocation = async (req, res) => {
               type: "Point",
               coordinates: [parseFloat(lat), parseFloat(lng)],
             },
-            $maxDistance: 250000, 
+            $maxDistance: 250000,   
           },
         },
       });

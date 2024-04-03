@@ -9,8 +9,11 @@ import Roomcard2nd from "./Roomcard2nd";
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const usercity = useSelector((state) => state.auth.city);
+  const userID = useSelector((state) => state.auth.userID);
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const roomsPerPage = 6;
   const navigate = useNavigate();
   console.log(currentloc);
 
@@ -39,6 +42,18 @@ function AllRooms() {
     }
   }, [usercity, currentloc]);
 
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const indexOfLastRoom = currentPage * roomsPerPage;
+  const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
+  const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom);
+
   return (
     <ChildContainer
       onLocationReceived={
@@ -52,6 +67,9 @@ function AllRooms() {
           </h1>
           <button
             type="submit"
+            onClick={() => {
+              navigate(`/addroom/${userID}`);
+            }}
             className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Post Room
@@ -68,10 +86,28 @@ function AllRooms() {
         </div>
         <p className="text-[35px] text-black font-roboto mt-7">More Rooms</p>
         <div className="mt-4">
-          {rooms.slice(8).map((item) => (
+          {currentRooms.map((item) => (
             <Roomcard2nd key={item._id} {...item} />
           ))}
         </div>
+        {rooms.length > roomsPerPage && (
+          <div className="mt-4">
+            <button
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
+              className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+            >
+              Previous
+            </button>
+            <button
+              onClick={handleNextPage}
+              disabled={indexOfLastRoom >= rooms.length}
+              className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </ChildContainer>
   );

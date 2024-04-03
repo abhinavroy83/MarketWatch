@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   function truncateWords(str, numWords) {
+    if (!str) return "";
     const words = str.split(" ");
 
     const truncated = words.slice(0, numWords).join(" ");

@@ -10,7 +10,6 @@ import Logo from "../../assets/logo.png";
 import toast, { Toaster } from "react-hot-toast";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 
-
 function Login({ isOpen, onClose }) {
   const {
     register,
@@ -78,16 +77,15 @@ function Login({ isOpen, onClose }) {
       }}
     >
       <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-roboto">
-        
         <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
           <div className="text-center justify-center flex flex-col items-center">
-          <img
-          height={300}
-          width={350}
-          className="w-50 h-50"
-          src={WebsiteLogo}
-          alt=""
-        />
+            <img
+              height={300}
+              width={350}
+              className="w-50 h-50"
+              src={WebsiteLogo}
+              alt=""
+            />
             <p className=" text-black text-center mt-5 text-[33px]">
               Welcome Back
             </p>
@@ -97,21 +95,24 @@ function Login({ isOpen, onClose }) {
           </div>
         </div>
         <div className="w-50 px-20 items-center grow">
-        <svg
-              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
-              onClick={onClose}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              {" "}
-              <circle cx="12" cy="12" r="10" />{" "}
-              <line x1="15" y1="9" x2="9" y2="15" />{" "}
-              <line x1="9" y1="9" x2="15" y2="15" />
-            </svg>
+          <svg
+            className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
+            onClick={() => {
+              Navigate("/");
+              isOpen(false);
+            }}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <circle cx="12" cy="12" r="10" />{" "}
+            <line x1="15" y1="9" x2="9" y2="15" />{" "}
+            <line x1="9" y1="9" x2="15" y2="15" />
+          </svg>
           <h1 className="text-3xl font-bold text-red-700 text-center">
             GET STARTED
           </h1>
