@@ -19,7 +19,7 @@ function AllRooms() {
       const res = await axios.get(
         usercity
           ? `http://localhost:8000/api/getallrooms?city=${usercity}`
-          : `http://localhost:8000/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          : `http://localhost:8000/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setRooms(res.data.Allrooms);
 

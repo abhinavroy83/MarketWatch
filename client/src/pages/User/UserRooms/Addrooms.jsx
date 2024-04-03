@@ -72,7 +72,7 @@ function Addrooms() {
       email: data.email,
       number: data.number,
       location: {
-        coordinates: [currentLocation.lat, currentLocation.lng],
+        coordinates: [currentLocation.lng, currentLocation.lat],
       },
     };
 
@@ -278,7 +278,7 @@ function Addrooms() {
           </div>
           <div>
             <div className="flex items-center">
-              <label className="min-w-[140px] text-[19px]" htmlFor="">
+              <label className="min-w-[140px] text-[19px] " htmlFor="">
                 City
               </label>
               <select

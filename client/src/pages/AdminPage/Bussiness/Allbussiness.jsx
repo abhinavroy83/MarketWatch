@@ -113,7 +113,7 @@ function Allbussiness() {
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
-        </td>
+        </td> 
         <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
           <button
             onClick={() => {

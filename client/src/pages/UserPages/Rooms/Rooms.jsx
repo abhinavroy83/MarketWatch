@@ -32,8 +32,8 @@ function Rooms() {
       );
       setrooms(res.data.rooms);
       const loc = {
-        lat: res.data.rooms.location.coordinates[0],
-        lng: res.data.rooms.location.coordinates[1],
+        lat: res.data.rooms.location.coordinates[1],
+        lng: res.data.rooms.location.coordinates[0],
       };
       const date = res.data.rooms.postedon
         ? new Date(res.data.rooms.postedon).toISOString().split("T")[0]
@@ -54,7 +54,7 @@ function Rooms() {
   const getRooms = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+        `http://localhost:8000/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setsimilarrooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);
@@ -81,7 +81,9 @@ function Rooms() {
   const navigate = useNavigate();
 
   const renderRooms = () => {
-    return similarrooms.slice(0, 3).map((item) => <Roomcard {...item} />);
+    return similarrooms
+      .slice(0, 3)
+      .map((item) => <Roomcard {...item} key={item._id} />);
   };
 
   const [isloginmodalopen, setloginmodeopen] = useState(false);
@@ -234,7 +236,7 @@ function Rooms() {
                   Get In touch{" "}
                 </span>
               </button>
-              {contactdet ? (
+              {authstatus ? (
                 <div className="">
                   <p className="text-[20px] mt-4 text-black font-roboto">
                     Your Details Are -
