@@ -1,5 +1,6 @@
 import React from "react";
 import WebsiteLogo from "../../assets/logo-transparent.png";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -34,9 +35,12 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
             <div>
-              <p className="font-semibold tracking-wide text-gray-800">
+              <Link
+                to={`/admin/dashboard`}
+                className="font-semibold tracking-wide text-gray-800"
+              >
                 Category
-              </p>
+              </Link>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a
