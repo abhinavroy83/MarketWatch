@@ -28,7 +28,7 @@ function Profile() {
   const fetchuser = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/user/dashboard/profile/${userID}`
+        `https://marketwatch-e3hc.onrender.com/user/dashboard/profile/${userID}`
       );
       setdata(res.data.user);
     } catch (error) {
@@ -125,7 +125,6 @@ function Profile() {
       // console.log(selectedstate);
       const res = await jsoncity[selectedstate];
       setcitys(res);
-      
     };
     fetchcity();
   }, [selectedstate]);
@@ -214,7 +213,7 @@ function Profile() {
               <p className="text-[19px]">{data.email}</p>
             )}
           </div>
-          
+
           <div className="flex font-roboto p-2 items-center">
             <label className="min-w-[190px] text-[19px]">Number:</label>
             {isedit ? (
@@ -234,7 +233,8 @@ function Profile() {
               {isedit && (
                 <div className="flex font-roboto p-2 items-center">
                   <label className="min-w-[190px] text-[19px]">Image:</label>
-                  <input className=""
+                  <input
+                    className=""
                     type="file"
                     accept="image/*"
                     onChange={handleimgchange}
@@ -242,9 +242,12 @@ function Profile() {
                 </div>
               )}
               <div className="flex font-roboto  p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">Date of Birth:</label>
+                <label className="min-w-[190px] text-[19px]">
+                  Date of Birth:
+                </label>
                 {isedit ? (
-                  <input className="flex h-10 font-roboto w-[500px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  <input
+                    className="flex h-10 font-roboto w-[500px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     type="date"
                     {...register("dob")}
                     defaultValue={data.dob}
@@ -257,8 +260,11 @@ function Profile() {
               <div className=" flex font-roboto p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Gender:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                  {...register("gender")} defaultValue={data.gender}>
+                  <select
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    {...register("gender")}
+                    defaultValue={data.gender}
+                  >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="notspecified">Not Specified</option>
@@ -270,8 +276,11 @@ function Profile() {
               <div className=" flex font-roboto p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Country:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                  {...register("country")} defaultValue={data.country}>
+                  <select
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    {...register("country")}
+                    defaultValue={data.country}
+                  >
                     <option value="Usa">USA</option>
                   </select>
                 ) : (
@@ -281,8 +290,8 @@ function Profile() {
               <div className="flex font-roboto p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">State:</label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-
+                  <select
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("state")}
                     onChange={handlestatechange}
                     defaultValue={data.state}
@@ -300,8 +309,11 @@ function Profile() {
               <div className="flex font-roboto p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">City: </label>
                 {isedit ? (
-                  <select className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                  {...register("city")} defaultValue={data.city}>
+                  <select
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    {...register("city")}
+                    defaultValue={data.city}
+                  >
                     {citys &&
                       citys.length > 0 &&
                       citys.map((cty) => (

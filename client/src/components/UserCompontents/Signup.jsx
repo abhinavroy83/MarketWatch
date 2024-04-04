@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 
-
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
@@ -43,7 +42,10 @@ function Signup({ isOpen, onClose }) {
     };
     try {
       // console.log(datsa);
-      const res = await axios.post("http://localhost:8000/user/signup", datsa);
+      const res = await axios.post(
+        "https://marketwatch-e3hc.onrender.com/user/login/user/signup",
+        datsa
+      );
       if (res) {
         // console.log(res);
         alert("signup successfully added");
@@ -107,15 +109,15 @@ function Signup({ isOpen, onClose }) {
         <div className=" w-full flex h-full">
           <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-roboto">
             <div className="text-center justify-center flex flex-col items-center">
-            <div class="bg-cover bg-center justify-center">
-        <img
-          height={300}
-          width={350}
-          className="w-50 h-50"
-          src={WebsiteLogo}
-          alt=""
-        />
-      </div>
+              <div class="bg-cover bg-center justify-center">
+                <img
+                  height={300}
+                  width={350}
+                  className="w-50 h-50"
+                  src={WebsiteLogo}
+                  alt=""
+                />
+              </div>
               <p className="text-black text-center mt-5 text-[33px]">
                 Sign Up Here
               </p>
