@@ -10,7 +10,15 @@ app.use(bodyParser.json());
 dotenv.config();
 
 //cors
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    methods: "GET,HEAD,POST",
+    credentials: true,
+    exposedHeaders: "*",
+  })
+);
+app.options("*", cors());
 
 //connection
 const connectiondb = require("./src/db/dbcongif");
@@ -29,13 +37,13 @@ const city = require("./src/Routes/City");
 
 app.use("/user", user);
 app.use(room);
-app.use(job); 
+app.use(job);
 app.use(business);
 app.use(event);
 app.use(movie);
 app.use(admin);
 app.use(approval);
-app.use(city); 
+app.use(city);
 
 //healt check
 
@@ -71,4 +79,3 @@ app.get("/dashboard", verifyadminpage, (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`server running on localhost ${process.env.PORT}`);
 });
- 
