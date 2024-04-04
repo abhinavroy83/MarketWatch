@@ -7,7 +7,7 @@ function AdminDashboard({ children }) {
   const role = useSelector((state) => state.adminauth.role);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 flex justify-center items-center h-screen overflow-hidden font-roboto text-[20px]">
+    <div className="w-full max-w-7xl mx-auto px-4 mt-56 flex justify-center items-center h-screen overflow-hidden font-roboto text-[20px]">
       <div className=" w-2/6 bg-gray-300  h-4/5 p-2 flex flex-col">
         <button
           onClick={() => {
