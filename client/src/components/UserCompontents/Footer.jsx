@@ -1,4 +1,5 @@
 import React from "react";
+import WebsiteLogo from "../../assets/logo-transparent.png";
 
 export default function Footer() {
   return (
@@ -12,25 +13,13 @@ export default function Footer() {
               title="Company"
               className="inline-flex items-center"
             >
-              <svg
-                className="w-8 text-deep-purple-accent-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-                background-color="black"
-              >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
-              </svg>
-              <span className="text-xl font-bold tracking-wide text-gray-800 ml-2 uppercase">
-                Company
-              </span>
+              <img
+                height={200}
+                width={250}
+                className="w-50 h-50"
+                src={WebsiteLogo}
+                alt=""
+              />
             </a>
             <div className="mt-4 lg:max-w-sm">
               <p className="text-sm text-gray-800">

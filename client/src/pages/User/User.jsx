@@ -41,7 +41,12 @@ function User() {
             </div>
           </div>
         </Link>
-        <div className="flex w-[240px] h-[170px]">
+        <div
+          className="flex w-[240px] h-[170px]"
+          onClick={() => {
+            alert("Coming soon");
+          }}
+        >
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[4.9rem] h-15"
@@ -53,7 +58,12 @@ function User() {
             </h1>
           </div>
         </div>
-        <div className="flex w-[240px] h-[170px]">
+        <div
+          className="flex w-[240px] h-[170px]"
+          onClick={() => {
+            alert("Coming soon");
+          }}
+        >
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[6.4rem] h-13"
@@ -65,7 +75,12 @@ function User() {
             </h1>
           </div>
         </div>
-        <div className="flex w-[240px] h-[170px]">
+        <div
+          className="flex w-[240px] h-[170px]"
+          onClick={() => {
+            alert("Coming soon");
+          }}
+        >
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[4.9rem] h-15"
@@ -77,7 +92,12 @@ function User() {
             </h1>
           </div>
         </div>
-        <Link to={`/user/bussiness/${userID}`}>
+        <Link
+          onClick={() => {
+            alert("Coming soon");
+          }}
+          // to={`/user/bussiness/${userID}`}
+        >
           <div className="flex w-[240px] h-[170px]">
             <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
               <img

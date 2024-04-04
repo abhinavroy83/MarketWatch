@@ -40,7 +40,7 @@ function Getlocations() {
     <div className="flex flex-col justify-center">
       <Container>
         {currentLocation && showmap ? (
-          <div className=" flex justify-center py-2">
+          <div className=" flex justify-center">
             {/* <LeafletMap
               onLocationReceived={currentLocation}
               style={{ height: "300px", width: "100%" }}

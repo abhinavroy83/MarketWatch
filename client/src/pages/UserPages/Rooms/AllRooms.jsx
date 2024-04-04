@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Roomcard from "./Roomcard";
-import { ChildContainer } from "../../../components";
 import Roomcard2nd from "./Roomcard2nd";
+import { ChildContainer } from "../../../components";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -31,6 +31,7 @@ function AllRooms() {
       console.log("error during fetching api", error);
     }
   };
+
   useEffect(() => {
     if (currentloc && currentloc.lat && currentloc.lng) {
       getRooms();
@@ -60,55 +61,63 @@ function AllRooms() {
         locationsndString?.lat ? locationsndString : undefined
       }
     >
-      <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
-        <div className="flex justify-between">
-          <h1 className="text-3xl capitalize text-black lg:text-4xl">
-            {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
-          </h1>
-          <button
-            type="submit"
-            onClick={() => {
-              navigate(`/addroom/${userID}`);
-            }}
-            className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Post Room
-          </button>
-        </div>
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
-          {rooms.map((item, index) => (
-            <React.Fragment key={item._id}>
-              {index < 8 ? (
-                <Roomcard key={item._id} isRoomOnlyPage={true} {...item} />
-              ) : null}
-            </React.Fragment>
-          ))}
-        </div>
-        <p className="text-[35px] text-black font-roboto mt-7">More Rooms</p>
-        <div className="mt-4">
-          {currentRooms.map((item) => (
-            <Roomcard2nd key={item._id} {...item} />
-          ))}
-        </div>
-        {rooms.length > roomsPerPage && (
-          <div className="mt-4">
+      {rooms.length > 0 ? (
+        <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
+          <div className="flex justify-between">
+            <h1 className="text-3xl capitalize text-black lg:text-4xl">
+              {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
+            </h1>
             <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
-              className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+              type="submit"
+              onClick={() => {
+                navigate(`/addroom/${userID}`);
+              }}
+              className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Previous
-            </button>
-            <button
-              onClick={handleNextPage}
-              disabled={indexOfLastRoom >= rooms.length}
-              className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
-            >
-              Next
+              Post Room
             </button>
           </div>
-        )}
-      </div>
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
+            {rooms.slice(0, 6).map((item) => (
+              <Roomcard key={item._id} isRoomOnlyPage={true} {...item} />
+            ))}
+          </div>
+          {rooms.length > roomsPerPage && (
+            <>
+              <p className="text-[35px] text-black font-roboto mt-7">
+                More Rooms
+              </p>
+              <div className="mt-4">
+                {rooms.slice(6).map((item) => (
+                  <Roomcard2nd key={item._id} {...item} />
+                ))}
+              </div>
+            </>
+          )}
+          {rooms.length > roomsPerPage && (
+            <div className="mt-4 flex  justify-between">
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+              >
+                Previous
+              </button>
+              <button
+                onClick={handleNextPage}
+                disabled={indexOfLastRoom >= rooms.length}
+                className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className=" flex items-center text-black h-screen justify-center">
+          <p>Currently! There is no Room at your location</p>
+        </div>
+      )}
     </ChildContainer>
   );
 }

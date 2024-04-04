@@ -29,18 +29,21 @@ function Getuserroom() {
       );
     }
   };
-  // const handledeleterooms = async (deleteid) => {
-  //   console.log(deleteid);
-  //   // try {
-  //   //   await axios.delete(`http://localhost:8000/rooms/${deleteid}`);
-  //   // } catch (error) {
-  //   //   console.error(error);
-  //   // }
-  // };
+  const handledeleterooms = async (deleteid) => {
+    // console.log(deleteid);
+    try {
+      const res = await axios.delete(`http://localhost:8000/rooms/${deleteid}`);
+      if (res) {
+        alert("Room delete Sucessfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     fetchUserRoomDetails();
-  }, [userID]);
+  }, [userID, handledeleterooms]);
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -81,10 +84,27 @@ function Getuserroom() {
           {items.rent}
         </td>
         <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-lg font-medium font-roboto">
-        <svg class="h-6 w-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-         </svg>
-          <a className="text-red-500 font-semibold">Delete</a>
+          <svg
+            class="h-6 w-6 text-red-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <a
+            onClick={() => {
+              handledeleterooms(items._id);
+            }}
+            className="text-red-500 font-semibold cursor-pointer"
+          >
+            Delete
+          </a>
         </td>
       </tr>
     ));
@@ -146,8 +166,15 @@ function Getuserroom() {
                       >
                         Price
                       </th>
-                      <th scope="col" className="relative px-4 py-3.5">
-                        <span className="sr-only">Edit</span>
+                      <th
+                        scope="col"
+                        // onClick={() => {
+                        //   console.log(roomsdeatails);
+                        //   handledeleterooms(roomsdeatails._id);
+                        // }}
+                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                      >
+                        Delete
                       </th>
                     </tr>
                   </thead>
@@ -161,13 +188,13 @@ function Getuserroom() {
         </div>
         <div className="mt-4 w-full border-gray-300">
           <div className="mt-2 flex items-center justify-end">
-            <div className="space-x-2 flex" >
+            <div className="space-x-2 flex">
               {currentPage > 1 && (
                 <button
                   className="rounded-md bg-black px-3 py-2 text-lg flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={prevPage}
                 >
-                 <FaArrowAltCircleLeft /> Previous
+                  <FaArrowAltCircleLeft /> Previous
                 </button>
               )}
               {roomsdeatails.length > currentPage * 4 && (

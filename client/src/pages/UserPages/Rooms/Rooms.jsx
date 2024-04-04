@@ -66,6 +66,30 @@ function Rooms() {
     getRooms();
   }, [rooms]);
 
+  const fetchNextRoom = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/rooms/${_id}/next`
+      );
+      // console.log(res);
+      navigate(`/rooms/${res.data.nextRoom._id}`);
+    } catch (error) {
+      console.error("Error fetching next room:", error);
+    }
+  };
+
+  const fetchPreviousRoom = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/rooms/${_id}/previous`
+      );
+      // console.log(res);
+      navigate(`/rooms/${res.data.previousRoom._id}`);
+    } catch (error) {
+      console.error("Error fetching previous room:", error);
+    }
+  };
+
   function truncateWords(str, numWords) {
     const words = str.split(" ");
 
@@ -111,6 +135,7 @@ function Rooms() {
                 className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
               />
               <button
+                onClick={fetchPreviousRoom}
                 type="submit"
                 className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
@@ -144,6 +169,7 @@ function Rooms() {
               <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                 <button
                   type="submit"
+                  onClick={fetchNextRoom}
                   className="rounded-full flex bg-white px-7 text-[22px] items-center text-blue-700 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   Next

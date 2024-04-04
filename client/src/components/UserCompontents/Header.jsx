@@ -57,7 +57,8 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => {
-                  navigate("/Events");
+                  // navigate("/Events");
+                  alert("Coming soon");
                 }}
                 className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
@@ -79,7 +80,8 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => {
-                  navigate("/bussiness");
+                  // navigate("/bussiness");
+                  alert("Coming soon");
                 }}
                 className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
@@ -90,7 +92,8 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => {
-                  navigate("/Movie");
+                  // navigate("/Movie");
+                  alert("Coming soon");
                 }}
                 className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
