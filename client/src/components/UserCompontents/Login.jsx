@@ -39,6 +39,7 @@ function Login({ isOpen, onClose }) {
             userID: res.data.data._id,
             bussinessac: res.data.data.bussinessac,
             userimg: res.data.data.userimg,
+            isverified: res.data.data.isVerified,
           })
         );
         dispatch(cities({ city: res.data.data.city }));
