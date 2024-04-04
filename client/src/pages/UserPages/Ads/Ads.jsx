@@ -3,6 +3,7 @@ import { Container } from "../../../components";
 import WebsiteLogo from "../../../assets/website_logo.png";
 import { useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
+import { Link } from "react-router-dom";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -11,7 +12,7 @@ function Ads() {
 
   return (
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">
-      <div className="bg-cover bg-center">
+      <Link to={"/"} className="bg-cover bg-center">
         <img
           height={300}
           width={350}
@@ -19,7 +20,7 @@ function Ads() {
           src={WebsiteLogo}
           alt=""
         />
-      </div>
+      </Link>
 
       <div className="mt-2 items-center bg-cover z-50">
         <img
