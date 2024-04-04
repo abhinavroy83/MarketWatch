@@ -9,6 +9,7 @@ import Getlocations from "./components/SharedCompontents/Getlocations";
 
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
   useEffect(() => {
     const storeused = JSON.parse(localStorage.getItem("userdetails"));
     if (storeused) {
