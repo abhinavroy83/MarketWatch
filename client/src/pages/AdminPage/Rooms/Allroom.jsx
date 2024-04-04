@@ -7,20 +7,18 @@ import axios from "axios";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
-
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cities, setCities] = useState([]);
   const [selectedCity, setselectedCity] = useState("");
-  
 
   const fetchrooms = async (city) => {
     try {
       const res = await axios.get(
         city
-          ? `http://localhost:8000/api/admin/getroombycity/${city}`
-          : `http://localhost:8000/api/admin/getallrooms`
+          ? `https://marketwatch-e3hc.onrender.com/api/admin/getroombycity/${city}`
+          : `https://marketwatch-e3hc.onrender.com/api/admin/getallrooms`
       );
 
       // console.log(res.data.Allroom);
@@ -34,7 +32,7 @@ function Allroom() {
   const deleteuser = async (_id) => {
     try {
       const dlt = await axios.delete(
-        `http://localhost:8000/api/admin/deleteroom/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/admin/deleteroom/${_id}`
       );
       if (dlt) {
         alert("successfully deleted");
@@ -155,7 +153,11 @@ function Allroom() {
               </p>
             </div>
             <div>
-              <select className="mr-4 bg-white p-2 rounded-md" name="city" onChange={handlecity}>
+              <select
+                className="mr-4 bg-white p-2 rounded-md"
+                name="city"
+                onChange={handlecity}
+              >
                 {cities.map((city, index) => (
                   <option className="text-base" key={index} value={city}>
                     {city}
@@ -247,7 +249,7 @@ function Allroom() {
                     className="rounded-md bg-black px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
-                   <FaArrowAltCircleLeft /> Previous
+                    <FaArrowAltCircleLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (

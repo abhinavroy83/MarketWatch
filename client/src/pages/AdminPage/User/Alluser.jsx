@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
-
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +20,9 @@ function Alluser() {
 
   const fetchuser = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/admin/alluser");
+      const res = await axios.get(
+        "https://marketwatch-e3hc.onrender.com/api/admin/alluser"
+      );
       // console.log(res.data);
       setdata(res.data.user);
     } catch (error) {
@@ -39,12 +40,13 @@ function Alluser() {
       if (role === "CustomerSupport") {
         // console.log("userId", userId);
         const res = await axios.post(
-          `http://localhost:8000/api/admin/createapproval`,
+          `https://marketwatch-e3hc.onrender.com/api/admin/createapproval`,
           { userId: _id },
           {
             headers: {
               jwttoken: `${token}`,
             },
+            withCredentials: true,
           }
         );
         if (res) {
@@ -53,7 +55,7 @@ function Alluser() {
         }
       } else {
         const dlt = await axios.delete(
-          `http://localhost:8000/api/admin/deleteuser/${_id}`
+          `https://marketwatch-e3hc.onrender.com/api/admin/deleteuser/${_id}`
         );
         if (dlt) {
           alert("successfully deleted");
@@ -146,7 +148,7 @@ function Alluser() {
               </p>
             </div>
             <div>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
@@ -154,7 +156,7 @@ function Alluser() {
                 className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add new User
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="mt-6 flex flex-col">
@@ -225,7 +227,7 @@ function Alluser() {
                     className="rounded-md flex items-center justify-center gap-2 bg-black px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
-                   <FaArrowAltCircleLeft /> Previous
+                    <FaArrowAltCircleLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
@@ -234,7 +236,6 @@ function Alluser() {
                     onClick={nextPage}
                   >
                     Next <FaArrowAltCircleRight />
-
                   </button>
                 )}
               </div>

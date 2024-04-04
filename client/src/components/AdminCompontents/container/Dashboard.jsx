@@ -83,18 +83,16 @@ function AdminDashboard({ children }) {
         >
           Jobs
         </button> */}
-        <button
+        {/* <button
           onClick={() => {
             navigate(`/admin/allbussiness`);
           }}
           className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Bussiness
-        </button>
+        </button> */}
       </div>
-      <main className=" w-11/12 bg-gray-200 h-4/5 p-2 ">
-        {children}
-      </main>
+      <main className=" w-11/12 bg-gray-200 h-4/5 p-2 ">{children}</main>
     </div>
   );
 }

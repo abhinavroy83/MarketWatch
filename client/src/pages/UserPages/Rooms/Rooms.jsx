@@ -13,6 +13,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
+import Roomcardforsimilar from "./Roomcardforsimilar";
 
 function Rooms() {
   const { _id } = useParams();
@@ -47,7 +48,7 @@ function Rooms() {
   };
   useEffect(() => {
     fetchroomdetails();
-  }, []);
+  }, [_id]);
   const handlecopy = () => {
     alert("Link Copied");
   };
@@ -107,7 +108,7 @@ function Rooms() {
   const renderRooms = () => {
     return similarrooms
       .slice(0, 3)
-      .map((item) => <Roomcard {...item} key={item._id} />);
+      .map((item) => <Roomcardforsimilar {...item} key={item._id} />);
   };
 
   const [isloginmodalopen, setloginmodeopen] = useState(false);
