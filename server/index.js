@@ -12,7 +12,7 @@ dotenv.config();
 //cors
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://market-watch-woad.vercel.app", "http://localhost:5173"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     exposedHeaders: "*",
