@@ -9,6 +9,7 @@ import { ChildContainer } from "../../../components";
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const usercity = useSelector((state) => state.auth.city);
+  const isverified = useSelector((state) => state.auth.isverified);
   const userID = useSelector((state) => state.auth.userID);
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
@@ -67,15 +68,17 @@ function AllRooms() {
             <h1 className="text-3xl capitalize text-black lg:text-4xl">
               {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
             </h1>
-            <button
-              type="submit"
-              onClick={() => {
-                navigate(`/addroom/${userID}`);
-              }}
-              className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Post Room
-            </button>
+            {isverified && (
+              <button
+                type="submit"
+                onClick={() => {
+                  navigate(`/addroom/${userID}`);
+                }}
+                className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Post Room
+              </button>
+            )}
           </div>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
             {rooms.slice(0, 6).map((item) => (

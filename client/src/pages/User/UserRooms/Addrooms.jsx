@@ -78,12 +78,14 @@ function Addrooms() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/addrooms",
+        "https://marketwatch-e3hc.onrender.com/api/addrooms",
         roomdata,
         {
           headers: {
             jwttoken: `${token}`,
+            "Content-Type": "application/json",
           },
+          withCredentials: true,
         }
       );
       if (res) {
@@ -139,7 +141,8 @@ function Addrooms() {
           onSubmit={handleSubmit(onsubmit)}
           className="flex flex-col justify-center mt-7 gap-5"
         >
-          <FormInput className="w-[500px]"
+          <FormInput
+            className="w-[500px]"
             label="AdName"
             placeholder="AdName"
             type="text"
@@ -175,10 +178,14 @@ function Addrooms() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>
-                Select utilities
+                  Select utilities
                 </option>
-                <option className="text-[16px]" value="yes">Yes</option>
-                <option className="text-[16px]" value="no">No</option>
+                <option className="text-[16px]" value="yes">
+                  Yes
+                </option>
+                <option className="text-[16px]" value="no">
+                  No
+                </option>
               </select>
             </div>
             {errors.utilities && <p>{errors.utilities.message}</p>}
@@ -198,12 +205,24 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bed
                 </option>
-                <option className="text-[16px]" value="1">1</option>
-                <option className="text-[16px]" value="2">2</option>
-                <option className="text-[16px]" value="3">3</option>
-                <option className="text-[16px]" value="4">4</option>
-                <option className="text-[16px]" value="5">5</option>
-                <option className="text-[16px]" value="6">6</option>
+                <option className="text-[16px]" value="1">
+                  1
+                </option>
+                <option className="text-[16px]" value="2">
+                  2
+                </option>
+                <option className="text-[16px]" value="3">
+                  3
+                </option>
+                <option className="text-[16px]" value="4">
+                  4
+                </option>
+                <option className="text-[16px]" value="5">
+                  5
+                </option>
+                <option className="text-[16px]" value="6">
+                  6
+                </option>
               </select>
             </div>
             {errors.bed && <p>{errors.bed.message}</p>}
@@ -223,8 +242,12 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select Bath
                 </option>
-                <option className="text-[16px]" value="separate">Separate</option>
-                <option className="text-[16px]" value="shared">Shared</option>
+                <option className="text-[16px]" value="separate">
+                  Separate
+                </option>
+                <option className="text-[16px]" value="shared">
+                  Shared
+                </option>
               </select>
             </div>
             {errors.bath && <p>{errors.bath.message}</p>}
@@ -244,9 +267,15 @@ function Addrooms() {
                 <option value="" disabled hidden>
                   Select laundary
                 </option>
-                <option  className="text-[16px]" value="Available">Available</option>
-                <option className="text-[16px]" value="Availableinapt">Available in apartment</option>
-                <option className="text-[16px]" value="notAvailable">notAvailable</option>
+                <option className="text-[16px]" value="Available">
+                  Available
+                </option>
+                <option className="text-[16px]" value="Availableinapt">
+                  Available in apartment
+                </option>
+                <option className="text-[16px]" value="notAvailable">
+                  notAvailable
+                </option>
               </select>
             </div>
             {errors.laundary && <p>{errors.bath?.message}</p>}

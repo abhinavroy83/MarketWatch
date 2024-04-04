@@ -100,8 +100,14 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        `http://localhost:8000/user/updateuser/${userID}`,
-        formdt
+        `https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
+        formdt,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
       );
       if (res) {
         alert("updated successfuly");
@@ -202,7 +208,8 @@ function Profile() {
           </div>
           <div className="flex font-roboto p-2 items-center">
             <label className="min-w-[190px] text-[19px]">Email:</label>
-            {isedit ? (
+            <p className="text-[19px]">{data.email}</p>
+            {/* {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
                 type="text"
@@ -210,8 +217,7 @@ function Profile() {
                 defaultValue={data.email}
               />
             ) : (
-              <p className="text-[19px]">{data.email}</p>
-            )}
+            )} */}
           </div>
 
           <div className="flex font-roboto p-2 items-center">

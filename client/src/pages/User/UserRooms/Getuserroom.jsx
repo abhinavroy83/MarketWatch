@@ -9,6 +9,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
+  const isverified = useSelector((state) => state.auth.isverified);
   const navigate = useNavigate();
   const [roomsdeatails, setRoomDetails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,7 +17,7 @@ function Getuserroom() {
   const fetchUserRoomDetails = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/getrooms/${userID}`
+        `https://marketwatch-e3hc.onrender.com/api/getrooms/${userID}`
       );
       if (!res) {
         console.log("unable to fetch the data or it may be empty");
@@ -32,7 +33,9 @@ function Getuserroom() {
   const handledeleterooms = async (deleteid) => {
     // console.log(deleteid);
     try {
-      const res = await axios.delete(`http://localhost:8000/rooms/${deleteid}`);
+      const res = await axios.delete(
+        `https://marketwatch-e3hc.onrender.com/rooms/${deleteid}`
+      );
       if (res) {
         alert("Room delete Sucessfully");
       }
@@ -121,17 +124,19 @@ function Getuserroom() {
               existing ones.
             </p>
           </div>
-          <div>
-            <button
-              type="button"
-              onClick={() => {
-                navigate(`/addroom/${userID}`);
-              }}
-              className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Add New Room
-            </button>
-          </div>
+          {isverified && (
+            <div>
+              <button
+                type="button"
+                onClick={() => {
+                  navigate(`/addroom/${userID}`);
+                }}
+                className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Add New Room
+              </button>
+            </div>
+          )}
         </div>
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
