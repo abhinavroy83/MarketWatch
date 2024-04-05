@@ -23,9 +23,9 @@ function Allroom() {
 
       // console.log(res.data.Allroom);
 
-      setdata(res.data.Allroom);
+      setdata(res.data.Allroom.reverse());
     } catch (error) {
-      console.log("Error during fetching rooms", error);
+      console.log("Error during fetching rooms", error);r
     }
   };
 

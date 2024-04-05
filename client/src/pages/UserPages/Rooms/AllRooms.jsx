@@ -25,7 +25,7 @@ function AllRooms() {
           ? `https://marketwatch-e3hc.onrender.com/api/getallrooms?city=${usercity}`
           : `https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
-      setRooms(res.data.Allrooms);
+      setRooms(res.data.Allrooms.reverse());
 
       // console.log(res.data.Allrooms);
     } catch (error) {
