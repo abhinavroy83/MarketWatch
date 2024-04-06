@@ -43,7 +43,7 @@ function Signup({ isOpen, onClose }) {
     try {
       // console.log(datsa);
       const res = await axios.post(
-        "https://marketwatch-e3hc.onrender.com/user/signup",
+        "http://localhost:8000/user/signup",
         datsa
       );
       if (res) {

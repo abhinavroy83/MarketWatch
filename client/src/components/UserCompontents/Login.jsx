@@ -23,7 +23,7 @@ function Login({ isOpen, onClose }) {
   const onsubmit = async (data) => {
     try {
       const res = await axios.post(
-        "https://marketwatch-e3hc.onrender.com/user/login",
+        "http://localhost:8000/user/login",
         data
       );
       if (res.data.status == "success") {

@@ -17,8 +17,8 @@ function Allroom() {
     try {
       const res = await axios.get(
         city
-          ? `https://marketwatch-e3hc.onrender.com/api/admin/getroombycity/${city}`
-          : `https://marketwatch-e3hc.onrender.com/api/admin/getallrooms`
+          ? `http://localhost:8000/api/admin/getroombycity/${city}`
+          : `http://localhost:8000/api/admin/getallrooms`
       );
 
       // console.log(res.data.Allroom);
@@ -32,7 +32,7 @@ function Allroom() {
   const deleteuser = async (_id) => {
     try {
       const dlt = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com/api/admin/deleteroom/${_id}`
+        `http://localhost:8000/api/admin/deleteroom/${_id}`
       );
       if (dlt) {
         alert("successfully deleted");

@@ -17,7 +17,7 @@ function Getuserroom() {
   const fetchUserRoomDetails = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com/api/getrooms/${userID}`
+        `http://localhost:8000/api/getrooms/${userID}`
       );
       if (!res) {
         console.log("unable to fetch the data or it may be empty");
@@ -34,7 +34,7 @@ function Getuserroom() {
     // console.log(deleteid);
     try {
       const res = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com/rooms/${deleteid}`
+        `http://localhost:8000/rooms/${deleteid}`
       );
       if (res) {
         alert("Room delete Sucessfully");
