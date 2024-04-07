@@ -29,7 +29,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       <img
         src={item.PrdImage}
         alt=""
-        width={250}
+        width={200}
         className="rounded-tl-md rounded-bl-md h-[100%]"
       />
       <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">

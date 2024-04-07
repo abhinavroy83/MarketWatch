@@ -17,7 +17,7 @@ export default function Header() {
   const handlelogout = () => {
     dispatch(logout());
     localStorage.removeItem("userdetails");
-    navigate("/login");
+    // navigate("/login");
   };
   const handlesignmodelopen = () => {
     setissignupmodalopen(true);
@@ -37,9 +37,9 @@ export default function Header() {
   };
 
   return (
-    <div className=" w-full fixed z-50 flex bg-white bg-[url('https://w0.peakpx.com/wallpaper/323/21/HD-wallpaper-plain-white-abstract.jpg')] flex-col">
+    <div className=" w-full fixed z-50 flex bg-white flex-col">
       <Ads />
-      <div className=" w-screen bg-gray-400 shadow-2xl font-roboto border-b-2 border-black">
+      <div className="w-full bg-gray-400 shadow-2xl font-roboto border-b-2 border-black">
         <div className="flex justify-between items-center py-1 px-2 max-w-[1600px] w-full m-auto">
           <div className="">
             <ul className="ml-3 inline-flex space-x-8">

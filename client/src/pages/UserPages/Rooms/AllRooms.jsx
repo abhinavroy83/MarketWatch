@@ -7,6 +7,7 @@ import Roomcard2nd from "./Roomcard2nd";
 import { ChildContainer } from "../../../components";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import Loader from "../../../components/UserCompontents/Loader";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -18,6 +19,7 @@ function AllRooms() {
   const [currentPage, setCurrentPage] = useState(1);
   const roomsPerPage = 6;
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
   console.log(currentloc);
 
   const getRooms = async () => {
@@ -28,7 +30,7 @@ function AllRooms() {
           : `http://localhost:8000/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setRooms(res.data.Allrooms.reverse());
-
+      setLoading(false)
       // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
@@ -58,13 +60,16 @@ function AllRooms() {
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
   const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom);
 
+  if(loading) return <Loader className={'h-screen flex justify-center items-center'} />;
+
   return (
     <ChildContainer
       onLocationReceived={
         locationsndString?.lat ? locationsndString : undefined
       }
     >
-      {rooms.length > 0 ? (
+    {
+      rooms.length > 0 ? (
         <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
           <div className="flex justify-between">
             <h1 className="text-3xl capitalize text-black lg:text-4xl">
@@ -83,7 +88,7 @@ function AllRooms() {
             )}
           </div>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
-            {rooms.slice(0, 6).map((item) => (
+            {currentRooms.map((item) => (
               <Roomcard key={item._id} isRoomOnlyPage={true} {...item} />
             ))}
           </div>
@@ -122,7 +127,8 @@ function AllRooms() {
         <div className="font-roboto text-lg flex items-center text-black h-screen justify-center">
           <p>Currently! There is no Room at your location</p>
         </div>
-      )}
+      )
+    }
     </ChildContainer>
   );
 }
