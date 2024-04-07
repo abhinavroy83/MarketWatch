@@ -82,7 +82,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="w-1/5 m-2 h-5/5 font-roboto mt-20 bg-gray-300 py-5 px-5">
+        <aside className="w-1/5 m-2 h-5/6 font-roboto mt-20 bg-gray-300 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
               <div className="rounded-sm bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-roboto mb-3 shadow-sm shadow-[#000] p-2">
@@ -133,13 +133,13 @@ function ChildContainer({ className, children, onLocationReceived }) {
             ) : (
               <p>Loading...</p>
             )}
-            <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-2xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>$ 1 = Rs.72</h1>
             </div>
-            <div className="text-xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-2xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>1 BTC = $ 70 K</h1>
             </div>
-            <div className="mt-5">
+            <div className="mt-4">
               <LeafletMap
                 onLocationReceived={currentloc}
                 style={{ height: "300px", width: "270px" }}

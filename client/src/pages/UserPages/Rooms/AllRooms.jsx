@@ -5,6 +5,8 @@ import axios from "axios";
 import Roomcard from "./Roomcard";
 import Roomcard2nd from "./Roomcard2nd";
 import { ChildContainer } from "../../../components";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -74,7 +76,7 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-gray-400 px-3 py-2 text-[19px] items-center text-black shadow-sm shadow-[#ccc] hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-black px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
@@ -102,22 +104,22 @@ function AllRooms() {
               <button
                 onClick={handlePreviousPage}
                 disabled={currentPage === 1}
-                className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-black text-white hover:bg-black/80"
               >
-                Previous
+                <FaArrowAltCircleLeft /> Previous
               </button>
               <button
                 onClick={handleNextPage}
                 disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 px-4 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-black text-white hover:bg-black/80"
               >
-                Next
+                Next<FaArrowAltCircleRight />
               </button>
             </div>
           )}
         </div>
       ) : (
-        <div className=" flex items-center text-black h-screen justify-center">
+        <div className="font-roboto text-lg flex items-center text-black h-screen justify-center">
           <p>Currently! There is no Room at your location</p>
         </div>
       )}
