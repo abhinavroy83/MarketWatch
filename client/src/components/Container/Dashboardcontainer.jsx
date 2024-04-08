@@ -27,7 +27,7 @@ function DashConatiner({ children }) {
           />
         </svg> */}
         <img
-          className="rounded-full w-[14.5rem] items-center justify-center mt-4 cover"
+          className="rounded-full w-[14.5rem] h-[14.5rem] items-center justify-center mt-4 cover"
           src={imgss}
           alt=""
         />
