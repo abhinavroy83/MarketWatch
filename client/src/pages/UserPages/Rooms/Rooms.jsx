@@ -211,7 +211,7 @@ function Rooms() {
               alt="roomimg"
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="font-roboto mt-4 text-[23px]">
+            <p className="font-roboto mt-4 text-[23px] text-black">
               Posted By : {rooms.postedby} || Posted On : {posteddate}{" "}
             </p>
           </div>
@@ -241,11 +241,11 @@ function Rooms() {
                 </div>
               )}
             </div>
-            <div className="">
+            <div className={`flex ${authstatus && 'flex-row-reverse'} justify-between mt-4`}>
               <button
                 type="button"
                 onClick={handleloginmodelopen}
-                className="flex rounded-md bg-gray-400 mt-4 px-5 py-3 text-[22px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex self-center rounded-md bg-gray-400 px-5 py-4 text-[22px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
                 <svg
                   class="h-8 w-8 text-white-500"
@@ -263,24 +263,24 @@ function Rooms() {
                   Get In touch{" "}
                 </span>
               </button>
-              {authstatus ? (
-                <div>
-                  <p className="text-[20px] mt-4 font-bold font-roboto text-blue-800">
+              {authstatus && (
+                <div className="">
+                  <p className="text-[20px] font-bold font-roboto text-blue-800">
                     Your Details Are -
                   </p>
                   <p className="text-[20px]">Email : {rooms.email}</p>
                   <p className="text-[20px]">Number : {rooms.number}</p>
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
         <div className="font-roboto py-2 mt-2 text-[23px] text-black">
-          Description : {rooms.description}
+          <p className="text-blue-800 font-bold ">Description : </p>{rooms.description}
         </div>
         <div className="mb-2">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[23px] font-roboto">
+            <div className=" flex justify-between w-full text-[23px] font-roboto text-blue-800 font-bold">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"
