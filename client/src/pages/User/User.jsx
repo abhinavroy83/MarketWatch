@@ -2,13 +2,28 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { DashConatiner } from "../../components";
 import { Link, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function User() {
   const username = useSelector((state) => state.auth.user);
   // console.log(username);
+  const notify = () => toast("Coming Soon...");
   const { userID } = useParams();
   return (
     <DashConatiner>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <h1 className="text-4xl text-center font-bold text-red-700 mt-7 font-roboto">
         Welcome Back {username}
       </h1>
@@ -41,12 +56,7 @@ function User() {
             </div>
           </div>
         </Link>
-        <div
-          className="flex w-[240px] h-[170px]"
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="flex w-[240px] h-[170px]" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[4.9rem] h-15"
@@ -58,12 +68,7 @@ function User() {
             </h1>
           </div>
         </div>
-        <div
-          className="flex w-[240px] h-[170px]"
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="flex w-[240px] h-[170px]" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[6.4rem] h-13"
@@ -75,12 +80,7 @@ function User() {
             </h1>
           </div>
         </div>
-        <div
-          className="flex w-[240px] h-[170px]"
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="flex w-[240px] h-[170px]" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center">
             <img
               className="w-[4.9rem] h-15"
@@ -93,9 +93,7 @@ function User() {
           </div>
         </div>
         <Link
-          onClick={() => {
-            alert("Coming soon");
-          }}
+          onClick={notify}
           // to={`/user/bussiness/${userID}`}
         >
           <div className="flex w-[240px] h-[170px]">

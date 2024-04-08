@@ -63,17 +63,18 @@ function City() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-3xl font-semibold text-red-700">All Area</h2>
+              <h2 className="text-3xl font-semibold text-red-700">Add Area</h2>
               <p className="mt-1 text-lg text-gray-700">List of all city</p>
             </div>
             <div>
-              <select className="mr-4 bg-white p-2 rounded-md"
+              <select
+                className="mr-4 bg-white p-2 rounded-md"
                 name="State"
                 onChange={(e) => {
                   const selectcountry = e.target.value;
                   setselectcountry(selectcountry);
                 }}
-              >
+              >admin
                 {cntry.map((state, index) => (
                   <option className="text-base" key={index} value={state}>
                     {state}
@@ -141,7 +142,7 @@ function City() {
                     className="rounded-md bg-black px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
-                    <FaArrowAltCircleLeft />  Previous
+                    <FaArrowAltCircleLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (

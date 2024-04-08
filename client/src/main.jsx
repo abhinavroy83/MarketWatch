@@ -40,6 +40,7 @@ import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
 import Profile from "./pages/User/UserProfile/Profile.jsx";
 import BussinessPages from "./pages/User/Bussinessprofile/BussinessPages.jsx";
 import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
+import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
 
 const router = createBrowserRouter([
   {
@@ -247,7 +248,7 @@ const router = createBrowserRouter([
         path: "/admin/allarea",
         element: (
           <Adminauthlayout authentication>
-            <City />
+            <AddArea />
           </Adminauthlayout>
         ),
       },
