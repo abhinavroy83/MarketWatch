@@ -41,8 +41,8 @@ export default function Header() {
       <Ads />
       <div className="w-full bg-gray-400 shadow-2xl font-roboto border-b-2 border-black">
         <div className="flex justify-between items-center py-1 px-2 max-w-[1600px] w-full m-auto">
-          <div className="">
-            <ul className="ml-3 inline-flex space-x-8">
+          <div className="flex overflow-auto">
+            <ul className="ml-3 space-x-8">
               <button
                 type="button"
                 onClick={() => {
@@ -53,7 +53,7 @@ export default function Header() {
                 HOME
               </button>
             </ul>
-            <ul className="ml-3 inline-flex space-x-8 ">
+            <ul className="ml-3 space-x-8 ">
               <button
                 type="button"
                 onClick={() => {
@@ -65,7 +65,7 @@ export default function Header() {
                 EVENTS
               </button>
             </ul>
-            <ul className="ml-3 inline-flex space-x-8 ">
+            <ul className="ml-3 space-x-8 ">
               <button
                 type="button"
                 onClick={() => {
@@ -76,7 +76,7 @@ export default function Header() {
                 ROOMS
               </button>
             </ul>
-            <ul className="ml-3 inline-flex space-x-8 ">
+            <ul className="ml-3 space-x-8 ">
               <button
                 type="button"
                 onClick={() => {
@@ -88,7 +88,7 @@ export default function Header() {
                 BUSSINESS
               </button>
             </ul>
-            <ul className="ml-3 inline-flex space-x-8 ">
+            <ul className="ml-3 space-x-8 ">
               <button
                 type="button"
                 onClick={() => {

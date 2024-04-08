@@ -9,7 +9,7 @@ const Input = forwardRef(function Input(
     <div className={`w-full ${parentClassName}`}>
       {label && (
         <label
-          className="text-[18px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="text-[16px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           htmlFor={id}
         >
           {label}
