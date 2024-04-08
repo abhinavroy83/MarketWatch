@@ -43,7 +43,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         <img className="flex" height={55} width={55} src={femaleLogo} alt="" />
       </div>
       <div className="block grow">
-        <h1 className="text-xl font-roboto text-black font-medium">
+        <h1 className="text-xl font-roboto text-black font-bold">
           {" "}
           {truncateWords(item.Adname, 5)}
         </h1>
@@ -54,7 +54,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </div>
       </div>
       <div className="flex gap-4 justify-center items-center">
-        <p className="text-xl text-black font-roboto font-font-medium">$550</p>
+        <p className="text-xl text-black font-roboto font-bold">{item.rent}</p>
       </div>
     </Link>
   );

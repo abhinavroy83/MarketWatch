@@ -14,9 +14,9 @@ function Ads() {
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">
       <Link to={"/"} className="bg-cover bg-center">
         <img
-          height={300}
+          // height={300}
           width={350}
-          className="w-50 h-50"
+          className="lg:w-[350px] w-[200px]"
           src={WebsiteLogo}
           alt=""
         />
@@ -24,9 +24,10 @@ function Ads() {
 
       <div className="mt-2 items-center bg-cover z-50">
         <img
-          height={100}
+          // height={100}
           width={150}
           src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
+          className="lg:w-[150px] w-[100px]"
           alt=""
         />
       </div>

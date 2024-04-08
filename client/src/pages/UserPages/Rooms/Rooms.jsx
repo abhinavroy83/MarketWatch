@@ -204,27 +204,27 @@ function Rooms() {
           </div>
         </div>
 
-        <div className="flex text-[20px]">
+        <div className="flex text-[23px]">
           <div>
             <img
               src={rooms.PrdImage}
               alt="roomimg"
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="font-roboto mt-4 text-[20px]">
+            <p className="font-roboto mt-4 text-[23px]">
               Posted By : {rooms.postedby} || Posted On : {posteddate}{" "}
             </p>
           </div>
           <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
-            <p className=" text-[25px] font-font-medium text-gray-800 font-roboto">
+            <p className=" text-[23px] font-bold text-gray-800 font-roboto">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p>
-            <p className="text-red-700 text-[20px] flex gap-3">
+            <p className="text-red-700 text-[23px] flex gap-3">
               {rooms.rent} monthly{" "}
-              <p className="text-[20px] text-blue-800">[Extra Utilites Here]</p>
+              <p className="text-[23px] text-blue-800">[Extra Utilites Here]</p>
             </p>
-            <p className="text-[20px]">{rooms.address}</p>
-            <p className="text-[20px]">
+            <p className="text-[23px]">{rooms.address}</p>
+            <p className="text-[23px]">
               {rooms.bed} Bed / {rooms.bath} Bath
             </p>
             <div>
@@ -232,7 +232,7 @@ function Rooms() {
                 <div className="mt-2">
                   <LeafletMap
                     onLocationReceived={locationsndString}
-                    style={{ height: "300px", width: "500px" }}
+                    style={{ height: "350px", width: "500px" }}
                   />
                 </div>
               ) : (
@@ -241,7 +241,7 @@ function Rooms() {
                 </div>
               )}
             </div>
-            <div className="gap-4 flex items-center">
+            <div className="">
               <button
                 type="button"
                 onClick={handleloginmodelopen}
@@ -264,23 +264,23 @@ function Rooms() {
                 </span>
               </button>
               {authstatus ? (
-                <div className="">
-                  <p className="text-[20px] mt-4 text-black font-roboto">
+                <div>
+                  <p className="text-[20px] mt-4 font-bold font-roboto text-blue-800">
                     Your Details Are -
                   </p>
-                  <p className="text-[17px]">Email : {rooms.email}</p>
-                  <p className="text-[17px]">Number : {rooms.number}</p>
+                  <p className="text-[20px]">Email : {rooms.email}</p>
+                  <p className="text-[20px]">Number : {rooms.number}</p>
                 </div>
               ) : null}
             </div>
           </div>
         </div>
-        <div className="font-roboto py-2 mt-9 text-[20px] text-red-700">
-          Description:{rooms.description}
+        <div className="font-roboto py-2 mt-2 text-[23px] text-black">
+          Description : {rooms.description}
         </div>
         <div className="mb-2">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[20px] font-roboto">
+            <div className=" flex justify-between w-full text-[23px] font-roboto">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"

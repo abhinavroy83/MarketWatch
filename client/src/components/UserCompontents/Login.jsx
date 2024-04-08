@@ -99,7 +99,23 @@ function Login({ isOpen, onClose }) {
           </div>
         </div>
         <div className="w-50 px-20 items-center grow">
-          <svg
+        <svg
+              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
+              onClick={onClose}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              {" "}
+              <circle cx="12" cy="12" r="10" />{" "}
+              <line x1="15" y1="9" x2="9" y2="15" />{" "}
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+            
+          {/* <svg
             className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
             onClick={() => {
               Navigate("/");
@@ -116,7 +132,7 @@ function Login({ isOpen, onClose }) {
             <circle cx="12" cy="12" r="10" />{" "}
             <line x1="15" y1="9" x2="9" y2="15" />{" "}
             <line x1="9" y1="9" x2="15" y2="15" />
-          </svg>
+          </svg> */}
           <h1 className="text-3xl font-bold text-red-700 text-center">
             GET STARTED
           </h1>
