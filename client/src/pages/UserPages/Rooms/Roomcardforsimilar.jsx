@@ -29,7 +29,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       <img
         src={item.PrdImage}
         alt=""
-        width={250}
+        width={200}
         className="rounded-tl-md rounded-bl-md h-[100%]"
       />
       <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">
@@ -51,7 +51,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[20px] mt-3 font-medium font-roboto">
+        <h1 className="inline-flex items-center text-[20px] mt-3 font-bold font-roboto">
           {item.Adname && truncateWords(item.Adname, 3)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
@@ -61,7 +61,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
             Nonstop . 3 hr 24 min{" "}
           </h1>
         </article> */}
-        <p className="text-[20px] text-black font-roboto mt-10 font-medium text-right">
+        <p className="text-[20px] text-black font-roboto mt-10 font-bold text-right">
           {item.rent}
         </p>
       </div>

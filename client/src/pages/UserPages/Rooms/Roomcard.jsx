@@ -51,17 +51,17 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[20px] mt-3 font-medium font-roboto">
+        <h1 className="inline-flex items-center text-[20px] mt-3 font-roboto font-bold">
           {item.Adname && truncateWords(item.Adname, 3)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className="text-[18px] text-gray-500  font-roboto">{item.address}</p>
+        <p className="text-[18px] text-gray-500 mt-2 font-roboto">{item.address}</p>
         {/* <article className="flex gap-2 mt-1">
           <h1 className="text-[18px] text-gray-500 font-roboto flex items-center">
             Nonstop . 3 hr 24 min{" "}
           </h1>
         </article> */}
-        <p className="text-[20px] text-black font-roboto mt-10 font-medium text-right">
+        <p className="absolute bottom-5 right-5 text-[20px] text-black font-roboto font-bold text-right">
           {item.rent}
         </p>
       </div>

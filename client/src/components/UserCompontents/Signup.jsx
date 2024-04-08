@@ -133,9 +133,9 @@ function Signup({ isOpen, onClose }) {
               </button>
             </div>
           </div>
-          <div className="w-1/2 flex flex-col justify-center items-center">
+          <div className="w-1/2 flex flex-col justify-center items-center py-1">
             <svg
-              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
+              className="h-10 w-10 text-black absolute top-11 right-3 cursor-pointer"
               onClick={onClose}
               viewBox="0 0 24 24"
               fill="none"

@@ -209,6 +209,7 @@ function Profile() {
           <div className="flex font-roboto p-2 items-center">
             <label className="min-w-[190px] text-[19px]">Email:</label>
             <p className="text-[19px]">{data.email}</p>
+
             {/* {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
@@ -217,6 +218,7 @@ function Profile() {
                 defaultValue={data.email}
               />
             ) : (
+              <p className="text-[19px]">{data.email}</p>
             )} */}
           </div>
 
