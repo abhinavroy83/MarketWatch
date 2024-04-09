@@ -33,13 +33,12 @@ import Getapproval from "./pages/AdminPage/PendingApproval/Getapproval.jsx";
 import Adminusers from "./pages/AdminPage/User/Adminusers.jsx";
 import Pendingrequest from "./pages/AdminPage/PendingRequest/Pendingrequest.jsx";
 import Events from "./pages/UserPages/Events/Events.jsx";
-import City from "./pages/AdminPage/Area/Area.jsx";
-import Addarea from "./pages/AdminPage/Area/Addarea.jsx";
 import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
 import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
 import Profile from "./pages/User/UserProfile/Profile.jsx";
 import BussinessPages from "./pages/User/Bussinessprofile/BussinessPages.jsx";
 import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
+import AllArea from "./pages/AdminPage/Area/AllArea.jsx";
 import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
 
 const router = createBrowserRouter([
@@ -248,7 +247,7 @@ const router = createBrowserRouter([
         path: "/admin/allarea",
         element: (
           <Adminauthlayout authentication>
-            <AddArea />
+            <AllArea />
           </Adminauthlayout>
         ),
       },
@@ -256,7 +255,7 @@ const router = createBrowserRouter([
         path: "/admin/addarea",
         element: (
           <Adminauthlayout authentication>
-            <Addarea />
+            <AddArea />
           </Adminauthlayout>
         ),
       },

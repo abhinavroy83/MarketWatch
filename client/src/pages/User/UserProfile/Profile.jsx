@@ -44,7 +44,9 @@ function Profile() {
       // console.log(res.data.results);
 
       setStates(res.data.results);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const toggleEdit = () => {
