@@ -129,7 +129,7 @@ function Addrooms() {
   };
 
   return (
-    <DashConatiner>
+    <div className="max-w-[2000px] items-center justify-center mt-20">
       <div className="font-roboto ml-5">
         <p className="text-3xl text-red-700 font-semibold mt-4">
           You Can Add New Room
@@ -141,7 +141,7 @@ function Addrooms() {
           className="flex flex-col justify-center mt-7 gap-5"
         >
           <div className="shadow-inner shadow-black/30 max-w-[900px] items-center justify-center p-4">
-            <p className="text-2xl text-black font-semibold">Ad Details-</p>
+            <p className="text-2xl text-black font-semibold bg-gray-200">Ad Details-</p>
             <article className="flex flex-col gap-2">
               <FormInput
                 className="w-[500px] mt-3"
@@ -491,7 +491,7 @@ function Addrooms() {
           </button>
         </form>
       </div>
-    </DashConatiner>
+    </div>
   );
 }
 
