@@ -123,7 +123,7 @@ export default function Header() {
           ) : (
             <div className="flex">
               <svg
-                class="h-7 w-7 text-black mt-1"
+                class="h-7 w-7 text-black mt-2 cursor-pointer"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

@@ -179,7 +179,7 @@ function Profile() {
         <form onSubmit={handleSubmit(handleclick)}>
           <div className="flex font-roboto p-2 items-center">
             {/* <img src={data.userimg} alt="" /> */}
-            <label className="min-w-[190px] text-[19px]">FirstName: </label>
+            <label className="min-w-[150px] text-[19px]">FirstName: </label>
             {isedit ? (
               <FormInput
                 // label="FirstName:"
@@ -193,7 +193,7 @@ function Profile() {
             )}
           </div>
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px] text-[19px] ">LastName:</label>
+            <label className="min-w-[150px] text-[19px] ">LastName:</label>
             {isedit ? (
               <FormInput
                 // label="Lastname"
@@ -207,7 +207,7 @@ function Profile() {
             )}
           </div>
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px] text-[19px]">Email:</label>
+            <label className="min-w-[150px] text-[19px]">Email:</label>
             <p className="text-[19px]">{data.email}</p>
 
             {/* {isedit ? (
@@ -223,7 +223,7 @@ function Profile() {
           </div>
 
           <div className="flex font-roboto p-2 items-center">
-            <label className="min-w-[190px] text-[19px]">Number:</label>
+            <label className="min-w-[150px] text-[19px]">Number:</label>
             {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
@@ -240,7 +240,7 @@ function Profile() {
             <div>
               {isedit && (
                 <div className="flex font-roboto p-2 items-center">
-                  <label className="min-w-[190px] text-[19px]">Image:</label>
+                  <label className="min-w-[150px] text-[19px]">Image:</label>
                   <input
                     className=""
                     type="file"
@@ -250,7 +250,7 @@ function Profile() {
                 </div>
               )}
               <div className="flex font-roboto  p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">
+                <label className="min-w-[150px] text-[19px]">
                   Date of Birth:
                 </label>
                 {isedit ? (
@@ -266,7 +266,7 @@ function Profile() {
               </div>
 
               <div className=" flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">Gender:</label>
+                <label className="min-w-[150px] text-[19px]">Gender:</label>
                 {isedit ? (
                   <select
                     className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -282,7 +282,7 @@ function Profile() {
                 )}
               </div>
               <div className=" flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">Country:</label>
+                <label className="min-w-[150px] text-[19px]">Country:</label>
                 {isedit ? (
                   <select
                     className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -296,7 +296,7 @@ function Profile() {
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">State:</label>
+                <label className="min-w-[150px] text-[19px]">State:</label>
                 {isedit ? (
                   <select
                     className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -315,7 +315,7 @@ function Profile() {
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">City: </label>
+                <label className="min-w-[150px] text-[19px]">City: </label>
                 {isedit ? (
                   <select
                     className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -335,7 +335,7 @@ function Profile() {
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">Address: </label>
+                <label className="min-w-[150px] text-[19px]">Address: </label>
                 {isedit ? (
                   <FormInput
                     type="text"
@@ -351,7 +351,7 @@ function Profile() {
                 )}
               </div>
               <div className="flex font-roboto p-2 items-center">
-                <label className="min-w-[190px] text-[19px]">Pin: </label>
+                <label className="min-w-[150px] text-[19px]">Pin: </label>
                 {isedit ? (
                   <FormInput
                     type="text"
