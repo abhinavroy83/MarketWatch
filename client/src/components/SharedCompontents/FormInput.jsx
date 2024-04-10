@@ -17,7 +17,7 @@ const FormInput = forwardRef(function Input(
       <div className="flex items-center">
         {label && (
           <label
-            className="text-[18px] w-[190px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-[18px] w-[100px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             htmlFor={id}
           >
             {label}
