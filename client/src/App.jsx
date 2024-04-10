@@ -37,9 +37,10 @@ function App() {
   });
 
   const isAdminPanel = location.pathname.startsWith("/admin");
+  const isAddRoomPage = location.pathname.includes("addroom")
 
   return (
-    <div className="flex flex-col ">
+    <div className={`flex flex-col ${isAddRoomPage && 'bg-slate-100'}`}>
       <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}
