@@ -3,25 +3,26 @@ import { useForm } from "react-hook-form";
 import { Container, Input } from "../index";
 import axios from "axios";
 import Modal from "react-modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login as authlogin, cities } from "../../store/authslice";
+import { modalopen } from '../../store/modalslice'
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 import Signup from "./Signup";
 
-function Login({ isOpen, onClose }) {
+function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const isLoginModalOpen = useSelector((state) => state.modal.isloginmodalopen);
   const location = useLocation();
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const onsubmit = async (data) => {
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
@@ -56,10 +57,17 @@ function Login({ isOpen, onClose }) {
     }
   };
 
-  console.log("RENDERING", isSignUpModalOpen)
+  const handleModal = (loginModalState, signUpModalState) => {
+    dispatch(
+      modalopen({
+        isloginmodalopen: loginModalState,
+        isSignupmodelopen: signUpModalState
+      })
+    )
+  }
+
   return (
     <>
-      <Signup isOpen={isSignUpModalOpen} />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -73,8 +81,8 @@ function Login({ isOpen, onClose }) {
         theme="dark"
       />
       <Modal
-        isOpen={isOpen}
-        onRequestClose={onClose}
+        isOpen={isLoginModalOpen}
+        onRequestClose={() => handleModal(false, false)}
         style={{
           content: {
             position: "absolute",
@@ -115,8 +123,7 @@ function Login({ isOpen, onClose }) {
                 className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
-                  setIsSignUpModalOpen(true)
-                  onClose()
+                  handleModal(false, true)
                 }}
               >
                 Sign up now
@@ -126,7 +133,7 @@ function Login({ isOpen, onClose }) {
           <div className="w-50 px-20 items-center grow">
             <svg
               className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
-              onClick={onClose}
+              onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
