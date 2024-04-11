@@ -129,7 +129,7 @@ function Addrooms() {
   };
 
   return (
-    <div className="max-w-[2000px] items-center justify-center mt-20">
+    <div className="max-w-[2000px] items-center justify-center mt-20 bg-slate-50">
       <div className="font-roboto ml-5">
         <p className="text-3xl text-red-700 font-semibold mt-4">
           You Can Add New Room

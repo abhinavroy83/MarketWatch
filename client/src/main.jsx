@@ -40,6 +40,7 @@ import BussinessPages from "./pages/User/Bussinessprofile/BussinessPages.jsx";
 import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
 import AllArea from "./pages/AdminPage/Area/AllArea.jsx";
 import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
+import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
         element: (
           <Authlayout authentication>
             <User />
+          </Authlayout>
+        ),
+      },
+      {
+        path: "/dashboard/wishlist/:userID",
+        element: (
+          <Authlayout authentication>
+            <ListAllwish />
           </Authlayout>
         ),
       },

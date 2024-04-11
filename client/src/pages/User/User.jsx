@@ -56,12 +56,7 @@ function User() {
             </div>
           </div>
         </Link>
-        <div
-          className=""
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[4.9rem] h-15"
@@ -73,12 +68,7 @@ function User() {
             </h1>
           </div>
         </div>
-        <div
-          className=""
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[6.4rem] h-13"
@@ -90,12 +80,7 @@ function User() {
             </h1>
           </div>
         </div>
-        <div
-          className=""
-          onClick={() => {
-            alert("Coming soon");
-          }}
-        >
+        <div className="" onClick={notify}>
           <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[4.9rem] h-15"

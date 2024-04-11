@@ -127,6 +127,9 @@ export default function Header() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                onClick={() => {
+                  navigate(`/dashboard/wishlist/${userID}`);
+                }}
               >
                 <path
                   stroke-linecap="round"

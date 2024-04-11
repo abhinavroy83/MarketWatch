@@ -34,6 +34,7 @@ const movie = require("./src/Routes/Movie");
 const admin = require("./src/Routes/Admin");
 const approval = require("./src/Routes/Approval");
 const city = require("./src/Routes/City");
+const wish = require("./src/Routes/wishlist");
 
 app.use("/user", user);
 app.use(room);
@@ -44,6 +45,7 @@ app.use(movie);
 app.use(admin);
 app.use(approval);
 app.use(city);
+app.use(wish);
 
 //healt check
 

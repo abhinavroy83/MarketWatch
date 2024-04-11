@@ -14,6 +14,8 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
 import Roomcardforsimilar from "./Roomcardforsimilar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Rooms() {
   const { _id } = useParams();
@@ -24,6 +26,8 @@ function Rooms() {
   const [posteddate, setposteddate] = useState("");
   const authstatus = useSelector((state) => state.auth.status);
   const currentloc = useSelector((state) => state.auth.location);
+  const [wishliststatys, setWishliststatys] = useState(false);
+  const token = useSelector((state) => state.auth.token);
 
   const url = `http://localhost:8000/rooms/${_id}`;
   const fetchroomdetails = async () => {
@@ -123,10 +127,69 @@ function Rooms() {
     setloginmodeopen(false);
   };
 
+  // console.log(rooms._id);
+  const notify = () => toast("Added to Wishlist.");
+
+  const makewishlist = async () => {
+    try {
+      const dat = {
+        roomId: _id,
+        status: true,
+      };
+      console.log(dat);
+      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+        headers: {
+          jwttoken: `${token}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+      if (res) {
+        setWishliststatys(true);
+        notify();
+        // alert("successfully added to wishlist");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchwishstatus = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8000/api/getlistbyroom/${_id}`
+        );
+        if (res.data.status == "not") {
+          setWishliststatys(false);
+        } else if (res.data.list[0].status) {
+          setWishliststatys(true);
+        } else {
+          setWishliststatys(false);
+        }
+      } catch (error) {
+        console.log("error during fetcignlist", error);
+      }
+    };
+    fetchwishstatus();
+  }, [_id]);
+  console.log(wishliststatys);
+
   return (
     <ChildContainer onLocationReceived={locationsndString}>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-
       <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-5 font-roboto">
         <div className="flex justify-between py-2 items-start">
           <div>
@@ -183,9 +246,14 @@ function Rooms() {
             </div>
 
             <div className="gap-2 flex">
-              <div className="cursor-pointer p-2 bg-red-600 rounded-full">
-                <FaHeart color="#fff" size={30} />
-              </div>
+              {!wishliststatys ? (
+                <div
+                  className="cursor-pointer p-2 bg-red-600 rounded-full"
+                  onClick={makewishlist}
+                >
+                  <FaHeart color="#fff" size={30} />
+                </div>
+              ) : null}
               <div className="cursor-pointer p-2 bg-green-500 rounded-full">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>
@@ -241,7 +309,11 @@ function Rooms() {
                 </div>
               )}
             </div>
-            <div className={`flex ${authstatus && 'flex-row-reverse'} justify-between mt-4`}>
+            <div
+              className={`flex ${
+                authstatus && "flex-row-reverse"
+              } justify-between mt-4`}
+            >
               <button
                 type="button"
                 onClick={handleloginmodelopen}
@@ -276,7 +348,8 @@ function Rooms() {
           </div>
         </div>
         <div className="font-roboto py-2 mt-2 text-[23px] text-black">
-          <p className="text-blue-800 font-bold ">Description : </p>{rooms.description}
+          <p className="text-blue-800 font-bold ">Description : </p>
+          {rooms.description}
         </div>
         <div className="mb-2">
           <div className="mt-2 flex items-center ">

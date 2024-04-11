@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../store/adminauthslice";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 
@@ -10,7 +10,7 @@ function AdminHeader() {
   return (
     <div className=" w-full bg-gray-400 shadow-2xl font-[Roboto] fixed">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center space-x-2">
+        <Link to={"/"} className="inline-flex items-center space-x-2">
           <img
             height={100}
             width={180}
@@ -18,7 +18,7 @@ function AdminHeader() {
             src={WebsiteLogo}
             alt=""
           />
-        </div>
+        </Link>
         <div className="hidden grow items-start lg:flex">
           <ul className="ml-12 inline-flex space-x-8">
             <button

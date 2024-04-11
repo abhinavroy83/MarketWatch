@@ -11,8 +11,8 @@ function DashConatiner({ children }) {
   const { userID } = useParams();
   // console.log(userID);
   return (
-    <div className="mt-48 mb-10 h-screen mx-auto px-4 flex max-w-[1600px] w-full m-auto overflow-hidden">
-      <div className=" w-1/4 bg-gray-300 border-2 h-screen p-2 flex flex-col font-roboto items-center">
+    <div className="mt-48 mb-10  mx-auto px-4 h-screen flex max-w-[1600px] w-full m-auto overflow-hidden">
+      <div className=" w-1/4 bg-gray-300 border-2  p-2 flex flex-col font-roboto items-center">
         {/* <svg
           class="h-[9rem] w-[242em] text-black hover:text-black mt-2 items-center"
           fill="none"
@@ -47,6 +47,14 @@ function DashConatiner({ children }) {
             className="rounded-md bg-transparent px-9 py-1 capitalize text-[22px] text-black hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
           >
             My Profile
+          </button>
+          <button
+            onClick={() => {
+              navigate(`/dashboard/wishlist/${userID}`);
+            }}
+            className="rounded-md bg-transparent px-9 py-1 capitalize text-[22px] text-black hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+          >
+            My Wishlist
           </button>
           <button
             onClick={() => {
@@ -94,7 +102,7 @@ function DashConatiner({ children }) {
           )}
         </div>
       </div>
-      <main className=" w-4/5 bg-gray-200 border-2 h-screen p-2 overflow-scroll">
+      <main className=" w-4/5 bg-gray-200 border-2 p-2 overflow-scroll">
         {children}
       </main>
     </div>
