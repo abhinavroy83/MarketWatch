@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
+import { IoInformationCircleSharp } from "react-icons/io5";
+
 
 function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
@@ -129,22 +131,23 @@ function Addrooms() {
   };
 
   return (
-    <div className="max-w-[2000px] items-center justify-center mt-20 bg-slate-50">
+    <div className="w-[1300px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
       <div className="font-roboto ml-5">
-        <p className="text-3xl text-red-700 font-semibold mt-4">
-          You Can Add New Room
+        <p className="text-3xl text-black font-semibold mt-4 flex items-center justify-center">
+        Post Room In St.Louis
         </p>
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
         <form
           onSubmit={handleSubmit(onsubmit)}
-          className="flex flex-col justify-center mt-7 gap-5"
+          className="flex flex-col justify-center mt-5 gap-5 items-center"
         >
-          <div className="shadow-inner shadow-black/30 max-w-[900px] items-center justify-center p-4">
-            <p className="text-2xl text-black font-semibold bg-gray-200">Ad Details-</p>
-            <article className="flex flex-col gap-2">
+          <div className="shadow-inner shadow-black/10 border w-[1200px] items-center justify-center p-4">
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp /> Ad Details- </p>
+            <article className="flex flex-col gap-4 items-center justify-center px-7">
               <FormInput
-                className="w-[500px] mt-3"
+                className="w-[500px] mt-3 flex items-center justify-center"
                 label="Ad Name"
                 placeholder="Ad Name"
                 type="text"
@@ -161,16 +164,17 @@ function Addrooms() {
             </article>
           </div>
 
-          <div className=" font-roboto shadow-inner shadow-black/30 max-w-[900px] p-4 mt-4">
-            <p className="text-2xl text-black font-semibold">Personal Details-</p>
-            <label className="w-[290px] text-[19px]">Image:</label>
+          <div className=" font-roboto shadow-inner shadow-gray-300 w-[1200px] p-4 mt-4">
+          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
+          Personal Details-</p>
+            <label className="w-[290px] text-[19px] ml-7">Image:</label>
             <input
-              className="ml-10 mt-3 mb-3"
+              className="ml-10 py-4"
               type="file"
               accept="image/*"
               onChange={handleimgchange}
             />
-            <article className="flex flex-col gap-2" >
+            <article className="flex flex-col gap-4 px-7" >
              <FormInput
             label="Email"
             type="text"
@@ -215,9 +219,10 @@ function Addrooms() {
          </article>
           </div>
 
-          <div className="shadow-inner shadow-black/30  max-w-[900px] items-center justify-center p-4 mt-4">
-            <p className="text-2xl text-black font-semibold">Property Details-</p>
-            <article className="flex justify-between mb-3">
+          <div className="shadow-inner shadow-gray-300 w-[1200px] items-center justify-center p-4 mt-4">
+          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
+            Property Details-</p>
+            <article className="flex justify-between mb-3 mt-5 px-7">
               <FormInput
                 label="Rent"
                 type="text"
@@ -254,7 +259,7 @@ function Addrooms() {
                 {errors.utilities && <p>{errors.utilities.message}</p>}
               </div>
             </article>
-            <article className="flex justify-between">
+            <article className="flex justify-between px-7">
               <div>
                 <div className="flex items-center">
 
@@ -320,7 +325,7 @@ function Addrooms() {
               </div>
             </article>
             <div>
-              <div className="flex items-center mt-4">
+              <div className="flex items-center mt-4 px-7">
                 <label className="min-w-[100px] text-[19px]" htmlFor="">
                   Laundary
                 </label>
@@ -348,9 +353,10 @@ function Addrooms() {
               {errors.laundary && <p>{errors.bath?.message}</p>}
             </div>
             </div>
-            <div className="shadow-inner shadow-black/30  max-w-[900px] items-center justify-center p-4 mt-4">
-            <p className="text-2xl text-black font-semibold">Location Details-</p>
-            <article className="flex flex-col gap-4">
+            <div className="shadow-inner shadow-gray-300  w-[1200px] items-center justify-center p-4 mt-4">
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
+             Location Details-</p>
+            <article className="flex flex-col gap-4 px-7">
               <div>              
                 <div className="flex items-center mt-3">
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
@@ -462,9 +468,10 @@ function Addrooms() {
             })}
             errorMessage={errors.description?.message}
           /> */}
-          <div className="shadow-inner shadow-black/30 max-w-[900px] items-center justify-center p-4">
-            <p className="text-2xl text-black font-semibold">Add Description-</p>
-            <article className="flex flex-col gap-2">
+          <div className="shadow-inner shadow-gray-300 w-[1200px] items-center justify-center p-4">
+          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
+            Add Description-</p>
+            <article className="flex flex-col gap-4 px-7">
               <FormInput
                 className="w-[500px] mt-3"
                 label="Title"
@@ -485,7 +492,7 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md bg-black my-2 px-3 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-black my-7 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>
