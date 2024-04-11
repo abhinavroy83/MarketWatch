@@ -5,21 +5,28 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import axios from "axios";
+import Loader from "../../../components/UserCompontents/Loader";
 
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
-  const handledeleterooms = async (deleteid) => {
-    // console.log(deleteid);
+  const handleDeleteRoom = async (deleteId) => {
+    console.log(deleteId);
     try {
       const res = await axios.delete(
-        `http://localhost:8000/api/deletelist/${deleteid}`
+        `http://localhost:8000/api/deletelist/${deleteId}`
       );
       if (res) {
-        alert("Unwish  Sucessfully");
+        // If deletion is successful, remove the deleted item from roomdata
+        setdata((prevRoomData) =>
+          prevRoomData.filter((room) => room._id !== deleteId)
+        );
+        alert("Unwish Successful");
       }
     } catch (error) {
       console.error(error);
@@ -27,20 +34,28 @@ function ListAllwish() {
   };
 
   useEffect(() => {
-    const fetchalllist = async () => {
+    const fetchAllList = async () => {
       try {
-        const res = await axios.get(
+        const listResponse = await axios.get(
           `http://localhost:8000/api/getlist/${userID}`
         );
-        // console.log(res.data.list);
-        setdata(res.data.list);
+        const list = listResponse.data.list.map((item) => item.roomId);
+        console.log(list);
+        const roomResponse = await axios.get(
+          `http://localhost:8000/api/getrooms/${userID}`
+        );
+        const rooms = roomResponse.data.rooms;
+
+        const matchedRooms = rooms.filter((room) => list.includes(room._id));
+        console.log(matchedRooms);
+        setdata(matchedRooms);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-
-    fetchalllist();
-  }, [handledeleterooms]);
+    fetchAllList();
+  }, [userID, handleDeleteRoom]);
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -49,14 +64,36 @@ function ListAllwish() {
   const prevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
+  if (loading) {
+    return <Loader className={"h-screen flex justify-center items-center"} />;
+  }
 
   const renderRows = () => {
     const startIndex = (currentPage - 1) * 10;
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
+        <td className="whitespace-nowrap px-4 py-4 font-roboto">
+          <div className="flex items-center font-roboto">
+            <div className="h-10 w-10 flex-shrink-0 font-roboto">
+              <img
+                className="h-10 w-10 rounded-full object-cover"
+                src={items.PrdImage}
+                alt=""
+              />
+            </div>
+            <div className="ml-4 font-roboto">
+              <div className="text-lg font-medium text-gray-900">
+                {items.Hotelname}
+              </div>
+            </div>
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-12 py-4">
+          <div className="text-lg text-gray-700 font-roboto">{items.city}</div>
+        </td>
         <td className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto">
-          Your list
+          {items.rent}
         </td>
         <td
           className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto  cursor-pointer"
@@ -81,9 +118,9 @@ function ListAllwish() {
             />
           </svg>
           <a
-            onClick={() => {
-              handledeleterooms(items._id);
-            }}
+            // onClick={() => {
+            //   handleDeleteRoom(items._id);
+            // }}
             className="text-red-500 font-semibold cursor-pointer"
           >
             Delete
@@ -98,11 +135,12 @@ function ListAllwish() {
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-3xl font-semibold text-red-700 flex items-center gap-3">
-            <FaHeart className="text-red-700" size={30} />Wishlist
+              <FaHeart className="text-red-700" size={30} />
+              Wishlist
             </h2>
             <p className="mt-2 text-lg text-gray-700 ml-1">
-                Your Wishlist is here.
-              </p>
+              Your Wishlist is here.
+            </p>
           </div>
         </div>
         <div className="mt-6 flex flex-col">
@@ -116,7 +154,19 @@ function ListAllwish() {
                         scope="col"
                         className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
-                        List
+                        <span>Room</span>
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-12 py-3.5 text-left text-lg font-normal text-gray-700"
+                      >
+                        City
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                      >
+                        Price
                       </th>
                       <th
                         scope="col"

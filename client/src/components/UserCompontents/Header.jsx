@@ -7,7 +7,6 @@ import Login from "./Login";
 import Ads from "../../pages/UserPages/Ads/Ads";
 import { FaHeart } from "react-icons/fa";
 
-
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
@@ -124,9 +123,13 @@ export default function Header() {
             </div>
           ) : (
             <div className="flex items-center">
-             <FaHeart onClick={() => {
-              navigate('/dashboard/wishlist/${userID}');
-             }} className="text-black hover:text-red-800" size={25}/>
+              <FaHeart
+                className="text-black hover:text-red-800 cursor-pointer"
+                size={25}
+                onClick={() => {
+                  navigate(`/dashboard/wishlist/${userID}`);
+                }}
+              />
               <button
                 type="button"
                 onClick={() => {

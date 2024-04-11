@@ -16,7 +16,7 @@ const ShareComponent = ({ url, title, onClose }) => {
       <TwitterShareButton url={url} title={title}>
         Twitter
       </TwitterShareButton>
-      <button onClick={onClose}>Cut</button>
+      <button onClick={onClose}>X</button>
     </div>
   );
 };
