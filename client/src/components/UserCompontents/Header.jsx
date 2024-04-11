@@ -6,6 +6,8 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Ads from "../../pages/UserPages/Ads/Ads";
 import { FaHeart } from "react-icons/fa";
+import { PiHandHeartFill } from "react-icons/pi";
+import { modalopen } from '../../store/modalslice'
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -36,6 +38,15 @@ export default function Header() {
   const issignupmodelclose = () => {
     setissignupmodalopen(false);
   };
+
+  const handleModal = (loginModalState, signUpModalState) => {
+    dispatch(
+      modalopen({
+        isloginmodalopen: loginModalState,
+        isSignupmodelopen: signUpModalState
+      })
+    )
+  }
 
   return (
     <div className=" w-full fixed z-50 flex bg-white flex-col">
@@ -104,18 +115,18 @@ export default function Header() {
           </div>
           {!authstatus ? (
             <div className="hidden space-x-2 lg:block">
-              <Signup isOpen={issignupmodel} onClose={issignupmodelclose} />
-              <Login isOpen={isloginmodalopen} onClose={isloginmodelclose} />
+              <Signup />
+              <Login />
               <button
                 type="button"
-                onClick={handlesignmodelopen}
+                onClick={() => handleModal(false, true)}
                 className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
-                onClick={handleloginmodelopen}
+                onClick={() => handleModal(true, false)}
                 className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 LOG IN

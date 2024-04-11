@@ -6,13 +6,15 @@ import axios from "axios";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
+import { modalopen } from '../../store/modalslice'
 import WebsiteLogo from "../../assets/logo-transparent.png";
 
-function Signup({ isOpen, onClose }) {
+function Signup() {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
+  const isSignUpModalOpen = useSelector((state) => state.modal.isSignupmodelopen);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const [businessstatus, setbusinessstatus] = useState(false);
@@ -60,7 +62,7 @@ function Signup({ isOpen, onClose }) {
           })
         );
         navigate(`/dashboard/profile/${res.data.data._id}`);
-        onClose(true);
+        handleModal(false, false);
       }
     } catch (error) {
       console.log(error);
@@ -80,11 +82,20 @@ function Signup({ isOpen, onClose }) {
     fetchdata();
   }, []);
 
+  const handleModal = (loginModalState, signUpModalState) => {
+    dispatch(
+      modalopen({
+        isloginmodalopen: loginModalState,
+        isSignupmodelopen: signUpModalState
+      })
+    )
+  }
+
   return (
     <div>
       <Modal
-        isOpen={isOpen}
-        onRequestClose={onClose}
+        isOpen={isSignUpModalOpen}
+        onRequestClose={() => handleModal(false, false)}
         style={{
           content: {
             position: "absolute",
@@ -128,6 +139,9 @@ function Signup({ isOpen, onClose }) {
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
+                onClick={() => {
+                  handleModal(true, false)
+                }}
               >
                 Already Have Account
               </button>
@@ -136,7 +150,7 @@ function Signup({ isOpen, onClose }) {
           <div className="w-1/2 flex flex-col justify-center items-center py-1">
             <svg
               className="h-10 w-10 text-black absolute top-11 right-3 cursor-pointer"
-              onClick={onClose}
+              onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

@@ -78,9 +78,9 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-gray-600 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-gray-600 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Post Room
+                Post New Room
               </button>
             )}
           </div>
@@ -102,19 +102,18 @@ function AllRooms() {
             </>
           )}
           {rooms.length > roomsPerPage && (
-            <div className="mt-4 flex justify-between">
-              {currentPage > 1 && (
-                <button
-                  onClick={handlePreviousPage}
-                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black/80"
-                >
-                  <FaArrowAltCircleLeft /> Previous
-                </button>
-              )}
+            <div className="mt-4 flex  justify-between">
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600  text-white hover:bg-black"
+              >
+                <FaArrowAltCircleLeft /> Previous
+              </button>
               <button
                 onClick={handleNextPage}
                 disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black/80"
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black"
               >
                 Next
                 <FaArrowAltCircleRight />

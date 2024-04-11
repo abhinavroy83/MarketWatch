@@ -151,9 +151,9 @@ function Profile() {
 
   return (
     <DashConatiner>
-      <div className="px-10">
+      <div className="px-10 overflow-y-scroll">
         <div className="flex justify-center mb-4">
-          <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-7 font-roboto">
+          <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-5 font-roboto">
             Your Profile
           </h1>
           <svg
@@ -175,7 +175,7 @@ function Profile() {
             <path d="M8 13a4 4 0 1 0 8 0m0 0H8" />
           </svg>
         </div>
-        <h1 className="text-[22px] text-[#000] font-bold font-roboto mb-3">
+        <h1 className="text-[22px] text-[#000] font-bold font-roboto">
           Your Personal Details Are -
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
@@ -406,7 +406,7 @@ function Profile() {
             </>
           ) : (
             <button
-              className="rounded-md font-roboto bg-[#17b19f] text-white mt-4 px-3 py-3 text-[19px]"
+              className="rounded-md font-roboto bg-[#17b19f] text-white mt-2 px-3 py-3 text-[19px]"
               type="button"
               onClick={toggleEdit}
             >
