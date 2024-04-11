@@ -5,8 +5,7 @@ import axios from "axios";
 import Roomcard from "./Roomcard";
 import Roomcard2nd from "./Roomcard2nd";
 import { ChildContainer } from "../../../components";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import Loader from "../../../components/UserCompontents/Loader";
 
 function AllRooms() {
@@ -19,8 +18,7 @@ function AllRooms() {
   const [currentPage, setCurrentPage] = useState(1);
   const roomsPerPage = 6;
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true)
-  console.log(currentloc);
+  const [loading, setLoading] = useState(true);
 
   const getRooms = async () => {
     try {
@@ -30,8 +28,7 @@ function AllRooms() {
           : `http://localhost:8000/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setRooms(res.data.Allrooms.reverse());
-      setLoading(false)
-      // console.log(res.data.Allrooms);
+      setLoading(false);
     } catch (error) {
       console.log("error during fetching api", error);
     }
@@ -60,7 +57,8 @@ function AllRooms() {
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
   const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom);
 
-  if(loading) return <Loader className={'h-screen flex justify-center items-center'} />;
+  if (loading)
+    return <Loader className={"h-screen flex justify-center items-center"} />;
 
   return (
     <ChildContainer
@@ -68,8 +66,7 @@ function AllRooms() {
         locationsndString?.lat ? locationsndString : undefined
       }
     >
-    {
-      rooms.length > 0 ? (
+      {rooms.length > 0 ? (
         <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
           <div className="flex justify-between">
             <h1 className="text-3xl capitalize text-black lg:text-4xl">
@@ -118,7 +115,8 @@ function AllRooms() {
                 disabled={indexOfLastRoom >= rooms.length}
                 className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black"
               >
-                Next<FaArrowAltCircleRight />
+                Next
+                <FaArrowAltCircleRight />
               </button>
             </div>
           )}
@@ -127,8 +125,7 @@ function AllRooms() {
         <div className="font-roboto text-lg flex items-center text-black h-screen justify-center">
           <p>Currently! There is no Room at your location</p>
         </div>
-      )
-    }
+      )}
     </ChildContainer>
   );
 }

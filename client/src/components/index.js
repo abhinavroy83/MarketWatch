@@ -7,8 +7,10 @@ import ChildContainer from "./Container/Childpagecontainer";
 import LeafletMap from "./UserCompontents/LeafletMap";
 import Footer from "./UserCompontents/Footer";
 import FormInput from "./SharedCompontents/FormInput";
+import ShareComponent from "./UserCompontents/ShareComponent";
 
 export {
+  ShareComponent,
   FormInput,
   Input,
   Footer,
