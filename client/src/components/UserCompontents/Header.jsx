@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
 import Ads from "../../pages/UserPages/Ads/Ads";
+import { FaHeart } from "react-icons/fa";
+
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -121,23 +123,10 @@ export default function Header() {
               </button>
             </div>
           ) : (
-            <div className="flex">
-              <svg
-                class="h-7 w-7 text-black mt-2 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                onClick={() => {
-                  navigate(`/dashboard/wishlist/${userID}`);
-                }}
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
+            <div className="flex items-center">
+             <FaHeart onClick={() => {
+              navigate('/dashboard/wishlist/${userID}');
+             }} className="text-black hover:text-red-800" size={25}/>
               <button
                 type="button"
                 onClick={() => {

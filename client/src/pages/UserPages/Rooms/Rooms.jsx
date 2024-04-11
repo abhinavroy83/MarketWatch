@@ -263,7 +263,11 @@ function Rooms() {
                 >
                   <FaHeart color="#fff" size={30} />
                 </div>
-              ) : null}
+              ) : <div
+              className="cursor-pointer p-2 border border-gray-300 rounded-full"
+            >
+              <FaHeart color="red" size={30} />
+            </div>}
               <div className="cursor-pointer p-2 bg-green-500 rounded-full">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>

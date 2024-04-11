@@ -142,7 +142,7 @@ function Addrooms() {
           onSubmit={handleSubmit(onsubmit)}
           className="flex flex-col justify-center mt-5 gap-5 items-center"
         >
-          <div className="shadow-inner shadow-black/10 border w-[1200px] items-center justify-center p-4">
+          <div className="shadow-inner shadow-black/10 w-[1200px] items-center justify-center p-4">
             <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp /> Ad Details- </p>
             <article className="flex flex-col gap-4 items-center justify-center px-7">
@@ -164,7 +164,7 @@ function Addrooms() {
             </article>
           </div>
 
-          <div className=" font-roboto shadow-inner shadow-gray-300 w-[1200px] p-4 mt-4">
+          <div className="font-roboto shadow-inner shadow-gray-300 w-[1200px] p-4 mt-4">
           <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
           Personal Details-</p>
             <label className="w-[290px] text-[19px] ml-7">Image:</label>
@@ -482,7 +482,7 @@ function Addrooms() {
               />
               <FormInput
                 label="Description"
-                type="text"
+                type="area"
                 placeholder="Description"
                 {...register("area", { required: "Description is required" })}
                 // errorMessage={errors.area?.message}
