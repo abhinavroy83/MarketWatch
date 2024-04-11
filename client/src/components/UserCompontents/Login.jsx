@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Container, Input } from "../index";
 import axios from "axios";
@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import WebsiteLogo from "../../assets/logo-transparent.png";
+import Signup from "./Signup";
 
 function Login({ isOpen, onClose }) {
   const {
@@ -20,6 +21,7 @@ function Login({ isOpen, onClose }) {
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const onsubmit = async (data) => {
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
@@ -53,8 +55,11 @@ function Login({ isOpen, onClose }) {
       console.log(error);
     }
   };
+
+  console.log("RENDERING", isSignUpModalOpen)
   return (
     <>
+      <Signup isOpen={isSignUpModalOpen} />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -106,6 +111,16 @@ function Login({ isOpen, onClose }) {
               <p className=" text-black text-center mt-5 px-10 text-[20px] font-roboto">
                 Log In Here With Your Personal Details
               </p>
+              <button
+                className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                type="submit"
+                onClick={() => {
+                  setIsSignUpModalOpen(true)
+                  onClose()
+                }}
+              >
+                Sign up now
+              </button>
             </div>
           </div>
           <div className="w-50 px-20 items-center grow">

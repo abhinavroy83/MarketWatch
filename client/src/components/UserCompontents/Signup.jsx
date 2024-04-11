@@ -9,10 +9,12 @@ import { fetchcity } from "../../Services/CityApi/Cityapi";
 import { useDispatch } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
 import WebsiteLogo from "../../assets/logo-transparent.png";
+import Login from "./Login";
 
 function Signup({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const [businessstatus, setbusinessstatus] = useState(false);
@@ -82,6 +84,7 @@ function Signup({ isOpen, onClose }) {
 
   return (
     <div>
+      <Login isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
       <Modal
         isOpen={isOpen}
         onRequestClose={onClose}
@@ -128,6 +131,10 @@ function Signup({ isOpen, onClose }) {
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
+                onClick={() => {
+                  setIsLoginModalOpen(true)
+                  onClose()
+                }}
               >
                 Already Have Account
               </button>

@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Ads from "../../pages/UserPages/Ads/Ads";
 import { FaHeart } from "react-icons/fa";
+import { PiHandHeartFill } from "react-icons/pi";
 
 
 export default function Header() {
