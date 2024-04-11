@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ChildContainer, LeafletMap } from "../../../components";
+import {
+  ChildContainer,
+  LeafletMap,
+  ShareComponent,
+} from "../../../components";
 import { useSelector } from "react-redux";
 import CopyToClipboard from "react-copy-to-clipboard";
 import Roomcard from "./Roomcard";
@@ -173,7 +177,13 @@ function Rooms() {
     };
     fetchwishstatus();
   }, [_id]);
-  console.log(wishliststatys);
+
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+
+  const toggleSharePopup = () => {
+    setIsSharePopupOpen(!isSharePopupOpen);
+  };
+  // console.log(wishliststatys);
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
@@ -264,10 +274,28 @@ function Rooms() {
               </div>
               <button
                 type="submit"
+                onClick={toggleSharePopup}
                 className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="text-black" /> Share Now
               </button>
+              {isSharePopupOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                  <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <ShareComponent
+                      url={url}
+                      title="Room title"
+                      onClose={toggleSharePopup}
+                    />
+                    <button
+                      onClick={toggleSharePopup}
+                      className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
