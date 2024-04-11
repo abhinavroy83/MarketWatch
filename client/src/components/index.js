@@ -8,8 +8,10 @@ import LeafletMap from "./UserCompontents/LeafletMap";
 import Footer from "./UserCompontents/Footer";
 import FormInput from "./SharedCompontents/FormInput";
 import ShareComponent from "./UserCompontents/ShareComponent";
+import LeafletMap2 from "./UserCompontents/LeafletMap2";
 
 export {
+  LeafletMap2,
   ShareComponent,
   FormInput,
   Input,

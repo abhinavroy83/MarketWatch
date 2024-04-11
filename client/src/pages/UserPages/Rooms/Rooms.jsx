@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   ChildContainer,
   LeafletMap,
+  LeafletMap2,
   ShareComponent,
 } from "../../../components";
 import { useSelector } from "react-redux";
@@ -133,6 +134,7 @@ function Rooms() {
 
   // console.log(rooms._id);
   const notify = () => toast("Added to Wishlist.");
+  const unnotify = () => toast("Remove from Wishlist.");
 
   const makewishlist = async () => {
     try {
@@ -140,7 +142,7 @@ function Rooms() {
         roomId: _id,
         status: true,
       };
-      console.log(dat);
+      // console.log(dat);
       const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
@@ -155,6 +157,19 @@ function Rooms() {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+  const unwish = async () => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:8000/api/deletelist/${_id}`
+      );
+      if (res) {
+        setWishliststatys(false);
+        unnotify();
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -183,7 +198,7 @@ function Rooms() {
   const toggleSharePopup = () => {
     setIsSharePopupOpen(!isSharePopupOpen);
   };
-  console.log(wishliststatys);
+  // console.log(wishliststatys);
 
   return (
     <ChildContainer onLocationReceived={locationsndString}>
@@ -264,7 +279,10 @@ function Rooms() {
                   <FaHeart color="#fff" size={30} />
                 </div>
               ) : (
-                <div className="cursor-pointer p-2 border border-gray-300 rounded-full">
+                <div
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
+                  onClick={unwish}
+                >
                   <FaHeart color="red" size={30} />
                 </div>
               )}
@@ -321,7 +339,7 @@ function Rooms() {
             </p>
             <p className="text-red-700 text-[23px] flex gap-3">
               {rooms.rent} monthly{" "}
-              <p className="text-[23px] text-blue-800">[Extra Utilites Here]</p>
+              {/* <p className="text-[23px] text-blue-800">[Extra Utilites Here]</p> */}
             </p>
             <p className="text-[23px]">{rooms.address}</p>
             <p className="text-[23px]">
@@ -330,7 +348,7 @@ function Rooms() {
             <div>
               {locationsndString ? (
                 <div className="mt-2">
-                  <LeafletMap
+                  <LeafletMap2
                     onLocationReceived={locationsndString}
                     style={{ height: "350px", width: "500px" }}
                   />

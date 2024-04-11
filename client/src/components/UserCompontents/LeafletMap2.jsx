@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 
-const LeafletMap = ({ onLocationReceived, style }) => {
+const LeafletMap2 = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
   const circleRef = useRef(null);
@@ -36,8 +36,11 @@ const LeafletMap = ({ onLocationReceived, style }) => {
         attribution: "© ",
       }).addTo(map);
 
-      markerRef.current = L.marker([lat, lng], {
-        draggable: true,
+      markerRef.current = L.circle([lat, lng], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.3,
+        radius: 500,
       }).addTo(map);
 
       markerRef.current.on("dragend", (e) => {
@@ -70,4 +73,4 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   );
 };
 
-export default LeafletMap;
+export default LeafletMap2;

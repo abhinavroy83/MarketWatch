@@ -47,9 +47,9 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           {" "}
           {truncateWords(item.Adname, 5)}
         </h1>
-        <h1 className="text-lg font-roboto text-gray-500 ">{item.address}</h1>
+        <h1 className="text-lg font-roboto text-gray-500 ">{item.city}</h1>
         <div className="flex gap-2 text-gray-500">
-          <p>BY : {item.postedby}</p> -
+          <p>BY : {item.postedby}</p>
           <p> {calculateTimeDifference(item.postedon)}</p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import {
 } from "react-share";
 const ShareComponent = ({ url, title, onClose }) => {
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-4">
       <WhatsappShareButton url={url} title={title}>
         WhatsApp
       </WhatsappShareButton>
