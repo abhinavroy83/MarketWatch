@@ -3,7 +3,7 @@ import { DashConatiner } from "../../../components";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
-
+import { FaHeart } from "react-icons/fa";
 import axios from "axios";
 
 function ListAllwish() {
@@ -97,9 +97,12 @@ function ListAllwish() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-roboto">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-3xl font-semibold text-red-700">
-              Your Wishlist
+            <h2 className="text-3xl font-semibold text-red-700 flex items-center gap-3">
+            <FaHeart className="text-red-700" size={30} />Wishlist
             </h2>
+            <p className="mt-2 text-lg text-gray-700 ml-1">
+                Your Wishlist is here.
+              </p>
           </div>
         </div>
         <div className="mt-6 flex flex-col">
@@ -121,11 +124,17 @@ function ListAllwish() {
                       >
                         Visit Page
                       </th>
-                      <th
+                      {/* <th
                         scope="col"
                         className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
                       >
-                        Delete
+                        Price
+                      </th> */}
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-lg font-normal text-gray-700"
+                      >
+                        Remove
                       </th>
                     </tr>
                   </thead>
