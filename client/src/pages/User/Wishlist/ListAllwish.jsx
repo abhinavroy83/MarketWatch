@@ -123,7 +123,7 @@ function ListAllwish() {
             // }}
             className="text-red-500 font-semibold cursor-pointer"
           >
-            Delete
+            Remove
           </a>
         </td>
       </tr>

@@ -223,7 +223,7 @@ function Addrooms() {
           <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
             Property Details-</p>
             <article className="flex justify-between mb-3 mt-5 px-7">
-              <FormInput
+              <FormInput 
                 label="Rent"
                 type="text"
                 placeholder="Enter the Rent"
@@ -267,7 +267,7 @@ function Addrooms() {
                    Bed  
                   </label>
                   <select
-                    className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("bed", {
                       required: "bed is required",
                     })}
@@ -330,7 +330,7 @@ function Addrooms() {
                   Laundary
                 </label>
                 <select
-                  className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   {...register("laundary", {
                     required: "laundary is required",
                   })}
