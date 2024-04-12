@@ -134,6 +134,7 @@ export default function Header() {
             </div>
           ) : (
             <div className="flex items-center">
+<<<<<<< Updated upstream
               <FaHeart
                 className="text-black hover:text-red-800 cursor-pointer"
                 size={25}
@@ -141,6 +142,22 @@ export default function Header() {
                   navigate(`/dashboard/wishlist/${userID}`);
                 }}
               />
+=======
+              <div className="relative">
+                <FaHeart
+                  className="text-black hover:text-red-800 cursor-pointer mt-2"
+                  size={25}
+                  onClick={() => {
+                    navigate(`/dashboard/wishlist/${userID}`);
+                  }}
+                />
+                {cartno > 0 && (
+                  <div className="absolute top-1 right-0 transform translate-x-1/2 -translate-y-1/2 text-white font-bold bg-red-700 w-6 h-6 flex justify-center items-center rounded-full">
+                    {cartno}
+                  </div>
+                )}
+              </div>
+>>>>>>> Stashed changes
               <button
                 type="button"
                 onClick={() => {

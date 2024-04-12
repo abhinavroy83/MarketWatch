@@ -174,6 +174,7 @@ function Addrooms() {
               accept="image/*"
               onChange={handleimgchange}
             />
+<<<<<<< Updated upstream
             <article className="flex flex-col gap-4 px-7" >
              <FormInput
             label="Email"
@@ -192,12 +193,34 @@ function Addrooms() {
             errorMessage={errors.number?.message}
           />
           <div>
+=======
+            <article className="flex flex-col gap-4 px-7">
+              <FormInput
+                label="Email"
+                type="text"
+                placeholder="Enter Email"
+                {...register("email", {
+                  required: "Email required",
+                })}
+                errorMessage={errors.email?.message}
+              />
+              <FormInput
+                label="Number"
+                type="text"
+                placeholder="Enter Number"
+                {...register("number", {
+                  required: "Number required",
+                })}
+                errorMessage={errors.number?.message}
+              />
+              <div>
+>>>>>>> Stashed changes
                 <div className="flex items-center">
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
                  Gender 
                   </label>
                   <select
-                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("gender", {
                       required: "gender is required",
                     })}
@@ -223,6 +246,7 @@ function Addrooms() {
           <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
             Property Details-</p>
             <article className="flex justify-between mb-3 mt-5 px-7">
+<<<<<<< Updated upstream
               <FormInput 
                 label="Rent"
                 type="text"
@@ -257,9 +281,49 @@ function Addrooms() {
                   </select>
                 </div>
                 {errors.utilities && <p>{errors.utilities.message}</p>}
+=======
+              <div className=" flex items-center">
+                <label className="text-[18px] w-[100px] mb-0 font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  Rent
+                </label>
+                <div className="relative w-[299px] ">
+                  <span className="absolute inset-y-0 left-0  flex items-center pl-1 text-gray-500">
+                    $
+                  </span>
+                  <input
+                    id="rent"
+                    name="rent"
+                    type="number"
+                    placeholder=""
+                    {...register("rent", {
+                      required: "Rent required",
+                    })}
+                    className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  />
+                </div>
+              </div>
+
+              <div className="flex">
+                {!uti && (
+                  <div className="flex items-center ml-10">
+                    <label className="min-w-[90px] text-[19px]">
+                      Utilities
+                    </label>
+                    <input type="text" className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 " />
+                  </div>
+                )}
+                <div className="flex gap-3 items-center ml-7">
+                <input className=""
+                  type="checkbox"
+                  checked={uti}
+                  onChange={(e) => setuti(e.target.checked)}
+                />{" "}
+                <p className="flex flex-col">Includes utility</p>
+                {errors.utilities && <p>{errors.utilities.message}</p>}</div>
+>>>>>>> Stashed changes
               </div>
             </article>
-            <article className="flex justify-between px-7">
+            <article className="flex px-7">
               <div>
                 <div className="flex items-center">
 
@@ -267,7 +331,7 @@ function Addrooms() {
                    Bed  
                   </label>
                   <select
-                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("bed", {
                       required: "bed is required",
                     })}
@@ -299,7 +363,7 @@ function Addrooms() {
                 {errors.bed && <p>{errors.bed.message}</p>}
               </div>
               <div>
-                <div className="flex items-center">
+                <div className="flex items-center pl-[4rem]">
                   <label className="min-w-[90px] text-[19px]" htmlFor="">
                   Bath
                   </label>
@@ -330,7 +394,7 @@ function Addrooms() {
                   Laundary
                 </label>
                 <select
-                  className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   {...register("laundary", {
                     required: "laundary is required",
                   })}
@@ -436,6 +500,7 @@ function Addrooms() {
               <FormInput
                 label="Address"
                 type="text"
+                placeholder="Enter Address"
                 {...register("address", {
                   required: "Address required",
                 })}
@@ -445,6 +510,7 @@ function Addrooms() {
               <FormInput
                 label="Postedby"
                 type="text"
+                placeholder="Posted By"
                 {...register("postedby", {
                   required: "Postedby required",
                 })}
