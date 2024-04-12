@@ -7,6 +7,7 @@ import { location as redlocation } from "../../store/authslice";
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
+  const circleRef = useRef(null);
   const dispatch = useDispatch();
   const currentloc = useSelector((state) => state.auth.location);
 

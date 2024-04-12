@@ -7,7 +7,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { IoInformationCircleSharp } from "react-icons/io5";
 
-
 function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
   const token = useSelector((state) => state.auth.token);
@@ -17,6 +16,7 @@ function Addrooms() {
   const [filtercity, setfiltercity] = useState([]);
   const [filtersubarea, setfiltersubarea] = useState([]);
   const [userimgs, setuserimg] = useState("");
+  const [uti, setuti] = useState(false);
 
   const {
     register,
@@ -134,7 +134,7 @@ function Addrooms() {
     <div className="w-[1300px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
       <div className="font-roboto ml-5">
         <p className="text-3xl text-black font-semibold mt-4 flex items-center justify-center">
-        Post Room In St.Louis
+          Post Room In St.Louis
         </p>
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -144,7 +144,8 @@ function Addrooms() {
         >
           <div className="shadow-inner shadow-black/10 w-[1200px] items-center justify-center p-4">
             <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
-              <IoInformationCircleSharp /> Ad Details- </p>
+              <IoInformationCircleSharp /> Ad Details-{" "}
+            </p>
             <article className="flex flex-col gap-4 items-center justify-center px-7">
               <FormInput
                 className="w-[500px] mt-3 flex items-center justify-center"
@@ -165,8 +166,10 @@ function Addrooms() {
           </div>
 
           <div className="font-roboto shadow-inner shadow-gray-300 w-[1200px] p-4 mt-4">
-          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
-          Personal Details-</p>
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp />
+              Personal Details-
+            </p>
             <label className="w-[290px] text-[19px] ml-7">Image:</label>
             <input
               className="ml-10 py-4"
@@ -178,7 +181,6 @@ function Addrooms() {
               <FormInput
                 label="Email"
                 type="text"
-                placeholder="Enter Email"
                 {...register("email", {
                   required: "Email required",
                 })}
@@ -187,7 +189,6 @@ function Addrooms() {
               <FormInput
                 label="Number"
                 type="text"
-                placeholder="Enter Number"
                 {...register("number", {
                   required: "Number required",
                 })}
@@ -196,7 +197,7 @@ function Addrooms() {
               <div>
                 <div className="flex items-center">
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
-                 Gender 
+                    Gender
                   </label>
                   <select
                     className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -206,7 +207,7 @@ function Addrooms() {
                     defaultValue=""
                   >
                     <option value="" disabled hidden>
-                    Select Gender 
+                      Select Gender
                     </option>
                     <option className="text-[16px]" value="yes">
                       Male
@@ -218,55 +219,59 @@ function Addrooms() {
                 </div>
                 {errors.gender && <p>{errors.gender.message}</p>}
               </div>
-         </article>
+            </article>
           </div>
 
           <div className="shadow-inner shadow-gray-300 w-[1200px] items-center justify-center p-4 mt-4">
-          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
-            Property Details-</p>
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp />
+              Property Details-
+            </p>
             <article className="flex justify-between mb-3 mt-5 px-7">
-              <FormInput 
-                label="Rent"
-                type="text"
-                placeholder="Enter the Rent"
-                {...register("rent", {
-                  required: "Rent required",
-                })}
-                errorMessage={errors.rent?.message}
-                className="w-[299px] mt-3"
-              />
-              <div>
-                <div className="flex items-center">
-                  <label className="min-w-[90px] text-[19px]" htmlFor="">
-                    Utilities
-                  </label>
-                  <select
-                    className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("utilities", {
-                      required: "utilities is required",
+              <div className=" flex items-center">
+                <label className="text-[18px] w-[100px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  Rent
+                </label>
+                <div className="relative w-[299px] ">
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                    $
+                  </span>
+                  <input
+                    id="rent"
+                    name="rent"
+                    type="number"
+                    placeholder="Enter the Rent"
+                    {...register("rent", {
+                      required: "Rent required",
                     })}
-                    defaultValue=""
-                  >
-                    <option value="" disabled hidden>
-                      Select utilities
-                    </option>
-                    <option className="text-[16px]" value="yes">
-                      Yes
-                    </option>
-                    <option className="text-[16px]" value="no">
-                      No
-                    </option>
-                  </select>
+                    className="block w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  />
                 </div>
+              </div>
+
+              <div>
+                {!uti && (
+                  <div className="flex items-center">
+                    <label className="min-w-[90px] text-[19px]">
+                      Utilities
+                    </label>
+                    <input type="text" className=" border-2 border-black" />
+                  </div>
+                )}
+                <input
+                  type="checkbox"
+                  checked={uti}
+                  onChange={(e) => setuti(e.target.checked)}
+                />{" "}
+                <p>includes utility</p>
                 {errors.utilities && <p>{errors.utilities.message}</p>}
               </div>
             </article>
             <article className="flex px-7">
               <div>
                 <div className="flex items-center">
-
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
-                   Bed  
+                    Bed
                   </label>
                   <select
                     className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -303,7 +308,7 @@ function Addrooms() {
               <div>
                 <div className="flex items-center pl-[4rem]">
                   <label className="min-w-[90px] text-[19px]" htmlFor="">
-                  Bath
+                    Bath
                   </label>
                   <select
                     className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
@@ -354,12 +359,14 @@ function Addrooms() {
               </div>
               {errors.laundary && <p>{errors.bath?.message}</p>}
             </div>
-            </div>
-            <div className="shadow-inner shadow-gray-300  w-[1200px] items-center justify-center p-4 mt-4">
-            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
-             Location Details-</p>
+          </div>
+          <div className="shadow-inner shadow-gray-300  w-[1200px] items-center justify-center p-4 mt-4">
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp />
+              Location Details-
+            </p>
             <article className="flex flex-col gap-4 px-7">
-              <div>              
+              <div>
                 <div className="flex items-center mt-3">
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
                     State
@@ -384,7 +391,7 @@ function Addrooms() {
                 </div>
                 {errors.state && <p>{errors.state?.message}</p>}
               </div>
-              
+
               <div>
                 <div className="flex items-center">
                   <label className="min-w-[100px] text-[19px] " htmlFor="">
@@ -421,7 +428,7 @@ function Addrooms() {
                       required: "subarea is required",
                     })}
                     defaultValue=""
-                  // onChange={handlecities}
+                    // onChange={handlecities}
                   >
                     <option value="" disabled hidden>
                       Select Subarea
@@ -455,7 +462,7 @@ function Addrooms() {
                 errorMessage={errors.postedby?.message}
               />
             </article>
-          </div> 
+          </div>
           {/* <FormInput
             label="Title"
             type="text"
@@ -473,8 +480,10 @@ function Addrooms() {
             errorMessage={errors.description?.message}
           /> */}
           <div className="shadow-inner shadow-gray-300 w-[1200px] items-center justify-center p-4">
-          <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1"><IoInformationCircleSharp />
-            Add Description-</p>
+            <p className="text-2xl text-black font-semibold bg-gray-100 flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp />
+              Add Description-
+            </p>
             <article className="flex flex-col gap-4 px-7">
               <FormInput
                 className="w-[500px] mt-3"

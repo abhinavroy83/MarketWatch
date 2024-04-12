@@ -22,7 +22,6 @@ function ListAllwish() {
         `http://localhost:8000/api/deletelist/${deleteId}`
       );
       if (res) {
-        // If deletion is successful, remove the deleted item from roomdata
         setdata((prevRoomData) =>
           prevRoomData.filter((room) => room._id !== deleteId)
         );
@@ -39,15 +38,16 @@ function ListAllwish() {
         const listResponse = await axios.get(
           `http://localhost:8000/api/getlist/${userID}`
         );
+        // console.log(listResponse.data.list);
         const list = listResponse.data.list.map((item) => item.roomId);
-        console.log(list);
+        // console.log(list);
         const roomResponse = await axios.get(
           `http://localhost:8000/api/getrooms/${userID}`
         );
         const rooms = roomResponse.data.rooms;
-
+        // console.log(rooms);
         const matchedRooms = rooms.filter((room) => list.includes(room._id));
-        console.log(matchedRooms);
+        // console.log(matchedRooms);
         setdata(matchedRooms);
         setLoading(false);
       } catch (error) {
@@ -98,7 +98,7 @@ function ListAllwish() {
         <td
           className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto  cursor-pointer"
           onClick={() => {
-            navigate(`/rooms/${items.roomId}`);
+            navigate(`/rooms/${items._id}`);
           }}
         >
           Click here
@@ -118,9 +118,9 @@ function ListAllwish() {
             />
           </svg>
           <a
-            // onClick={() => {
-            //   handleDeleteRoom(items._id);
-            // }}
+            onClick={() => {
+              handleDeleteRoom(items._id);
+            }}
             className="text-red-500 font-semibold cursor-pointer"
           >
             Remove

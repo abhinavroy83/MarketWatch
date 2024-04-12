@@ -8,13 +8,16 @@ import { useNavigate } from "react-router-dom";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
 import { useDispatch, useSelector } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
-import { modalopen } from '../../store/modalslice'
+import { modalopen } from "../../store/modalslice";
+import ReCAPTCHA from "react-google-recaptcha";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 
 function Signup() {
   const navigate = useNavigate();
   const [currentcity, setcurrentcity] = useState([]);
-  const isSignUpModalOpen = useSelector((state) => state.modal.isSignupmodelopen);
+  const isSignUpModalOpen = useSelector(
+    (state) => state.modal.isSignupmodelopen
+  );
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const [businessstatus, setbusinessstatus] = useState(false);
@@ -44,10 +47,7 @@ function Signup() {
     };
     try {
       // console.log(datsa);
-      const res = await axios.post(
-        "http://localhost:8000/user/signup",
-        datsa
-      );
+      const res = await axios.post("http://localhost:8000/user/signup", datsa);
       if (res) {
         // console.log(res);
         alert("signup successfully added");
@@ -86,10 +86,10 @@ function Signup() {
     dispatch(
       modalopen({
         isloginmodalopen: loginModalState,
-        isSignupmodelopen: signUpModalState
+        isSignupmodelopen: signUpModalState,
       })
-    )
-  }
+    );
+  };
 
   return (
     <div>
@@ -140,7 +140,7 @@ function Signup() {
                 className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
-                  handleModal(true, false)
+                  handleModal(true, false);
                 }}
               >
                 Already Have Account
@@ -223,7 +223,6 @@ function Signup() {
                     })}
                     errorMessage={errors.password?.message}
                   />
-
                   <Input
                     label="Repeat Password"
                     Placeholder="Repeat Password"
@@ -277,7 +276,6 @@ function Signup() {
                       </p>
                     )}
                   </div> */}
-
                   {/* <div className="font-roboto">
                     <p className="font-bold text-sm">
                       Want to have business account:
@@ -319,7 +317,18 @@ function Signup() {
                       </p>
                     )}
                   </div>
-                  <p>we add captcha later</p>
+                  <ReCAPTCHA
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    onChange={(value) => {
+                      console.log("Captcha Value", value);
+                    }}
+                    {...register("captcha", { required: "Verify your self" })}
+                  />
+                  {errors && (
+                    <p className=" text-red-600 text-sm">
+                      {errors.captcha?.message}
+                    </p>
+                  )}
                   <div className="text-center">
                     <button
                       className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[18px] font-semibold text-white hover:bg-black/70"

@@ -45,7 +45,7 @@ function Profile() {
 
       setStates(res.data.results);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -175,6 +175,12 @@ function Profile() {
             <path d="M8 13a4 4 0 1 0 8 0m0 0H8" />
           </svg>
         </div>
+        {!data.isVerified && (
+          <p className=" text-red-500 text-sm">
+            **Please complete verification of your email, phone number and
+            profile page to start using the services.
+          </p>
+        )}
         <h1 className="text-[22px] text-[#000] font-bold font-roboto">
           Your Personal Details Are -
         </h1>

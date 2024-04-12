@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import femaleLogo from '../../../assets/female.png'
+import femaleLogo from "../../../assets/female.png";
 function Roomcard({ isRoomOnlyPage, ...item }) {
   function truncateWords(str, numWords) {
     const words = str.split(" ");
@@ -34,19 +34,19 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       />
       <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">
         <span className="block text-[27px]">
-          { new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date) }
+          {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
         </span>
         <span className="block text-gray-500">
-          { new Intl.DateTimeFormat("en-US", { month: "short" }).format(date) }
+          {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
         </span>
       </p>
       <img
-          className="flex absolute top-0 right-0"
-          height={50}
-          width={50}
-          src={femaleLogo}
-          alt=""
-        />
+        className="flex absolute top-0 right-0"
+        height={50}
+        width={50}
+        src={femaleLogo}
+        alt=""
+      />
       <div
         className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
       >
@@ -55,7 +55,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {item.Adname && truncateWords(item.Adname, 3)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className="text-[18px] text-gray-500 mt-2 font-roboto">{item.address}</p>
+        <p className="text-[18px] text-gray-500 mt-2 font-roboto">
+          {item.city}
+        </p>
         {/* <article className="flex gap-2 mt-1">
           <h1 className="text-[18px] text-gray-500 font-roboto flex items-center">
             Nonstop . 3 hr 24 min{" "}

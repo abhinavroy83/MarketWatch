@@ -27,6 +27,7 @@ const findwishlist = async (req, res) => {
     if (list.length === 0) {
       return res.status(404).json({
         msg: "Rooms not found for the user",
+        status: "error",
       });
     }
     res.json({
@@ -40,6 +41,7 @@ const findwishlist = async (req, res) => {
     });
   }
 };
+
 const findwishlistwithroomid = async (req, res) => {
   try {
     const { roomId } = req.params;
@@ -65,7 +67,7 @@ const findwishlistwithroomid = async (req, res) => {
 const deletelist = async (req, res) => {
   try {
     const { userid } = req.params;
-    const dellist = await Wishlistmodal.findByIdAndDelete({ _id: userid });
+    const dellist = await Wishlistmodal.findOneAndDelete({ roomId: userid });
     if (dellist.deletedCount === 0) {
       return res.status(404).json({
         msg: "wishlist not found",
