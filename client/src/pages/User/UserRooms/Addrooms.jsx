@@ -200,7 +200,7 @@ function Addrooms() {
                     Gender
                   </label>
                   <select
-                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("gender", {
                       required: "gender is required",
                     })}
@@ -267,14 +267,14 @@ function Addrooms() {
                 {errors.utilities && <p>{errors.utilities.message}</p>}
               </div>
             </article>
-            <article className="flex justify-between px-7">
+            <article className="flex px-7">
               <div>
                 <div className="flex items-center">
                   <label className="min-w-[100px] text-[19px]" htmlFor="">
                     Bed
                   </label>
                   <select
-                    className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("bed", {
                       required: "bed is required",
                     })}
@@ -306,7 +306,7 @@ function Addrooms() {
                 {errors.bed && <p>{errors.bed.message}</p>}
               </div>
               <div>
-                <div className="flex items-center">
+                <div className="flex items-center pl-[4rem]">
                   <label className="min-w-[90px] text-[19px]" htmlFor="">
                     Bath
                   </label>
@@ -337,7 +337,7 @@ function Addrooms() {
                   Laundary
                 </label>
                 <select
-                  className="flex h-10 font-roboto w-[500px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   {...register("laundary", {
                     required: "laundary is required",
                   })}
@@ -445,6 +445,7 @@ function Addrooms() {
               <FormInput
                 label="Address"
                 type="text"
+                placeholder="Enter Address"
                 {...register("address", {
                   required: "Address required",
                 })}
@@ -454,6 +455,7 @@ function Addrooms() {
               <FormInput
                 label="Postedby"
                 type="text"
+                placeholder="Posted By"
                 {...register("postedby", {
                   required: "Postedby required",
                 })}
