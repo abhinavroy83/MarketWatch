@@ -38,13 +38,14 @@ function ListAllwish() {
         const listResponse = await axios.get(
           `http://localhost:8000/api/getlist/${userID}`
         );
+        // console.log(listResponse.data.list);
         const list = listResponse.data.list.map((item) => item.roomId);
         // console.log(list);
         const roomResponse = await axios.get(
           `http://localhost:8000/api/getrooms/${userID}`
         );
         const rooms = roomResponse.data.rooms;
-
+        // console.log(rooms);
         const matchedRooms = rooms.filter((room) => list.includes(room._id));
         // console.log(matchedRooms);
         setdata(matchedRooms);

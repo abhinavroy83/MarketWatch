@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/authslice";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,8 @@ import Login from "./Login";
 import Ads from "../../pages/UserPages/Ads/Ads";
 import { FaHeart } from "react-icons/fa";
 import { PiHandHeartFill } from "react-icons/pi";
-import { modalopen } from '../../store/modalslice'
+import { modalopen } from "../../store/modalslice";
+import axios from "axios";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -16,37 +17,44 @@ export default function Header() {
   const [isloginmodalopen, setloginmodeopen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [cartno, setCartno] = useState("");
+
+  const fetchcount = async () => {
+    if (userID) {
+      try {
+        const res = await axios.get(
+          `http://localhost:8000/api/getlist/${userID}`
+        );
+        if (res.data.list.status === "error") {
+          setCartno("");
+        } else {
+          setCartno(res.data.list.length);
+        }
+      } catch (error) {
+        console.log("error during fetcing count api in header", error);
+      }
+    }
+  };
+  useEffect(() => {
+    fetchcount();
+  }, [userID]);
+
+  // console.log(cartno);
 
   const handlelogout = () => {
     dispatch(logout());
     localStorage.removeItem("userdetails");
     // navigate("/login");
   };
-  const handlesignmodelopen = () => {
-    setissignupmodalopen(true);
-  };
-
-  const handleloginmodelopen = () => {
-    setloginmodeopen(true);
-  };
-
-  //close
-
-  const isloginmodelclose = () => {
-    setloginmodeopen(false);
-  };
-  const issignupmodelclose = () => {
-    setissignupmodalopen(false);
-  };
 
   const handleModal = (loginModalState, signUpModalState) => {
     dispatch(
       modalopen({
         isloginmodalopen: loginModalState,
-        isSignupmodelopen: signUpModalState
+        isSignupmodelopen: signUpModalState,
       })
-    )
-  }
+    );
+  };
 
   return (
     <div className=" w-full fixed z-50 flex bg-white flex-col">
@@ -134,13 +142,20 @@ export default function Header() {
             </div>
           ) : (
             <div className="flex items-center">
-              <FaHeart
-                className="text-black hover:text-red-800 cursor-pointer"
-                size={25}
-                onClick={() => {
-                  navigate(`/dashboard/wishlist/${userID}`);
-                }}
-              />
+              <div className="relative">
+                <FaHeart
+                  className="text-black hover:text-red-800 cursor-pointer"
+                  size={25}
+                  onClick={() => {
+                    navigate(`/dashboard/wishlist/${userID}`);
+                  }}
+                />
+                {cartno > 0 && (
+                  <div className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white w-6 h-6 flex justify-center items-center rounded-full">
+                    {cartno}
+                  </div>
+                )}
+              </div>
               <button
                 type="button"
                 onClick={() => {
@@ -164,4 +179,3 @@ export default function Header() {
     </div>
   );
 }
-

@@ -79,10 +79,10 @@ function Rooms() {
   const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/rooms/${_id}/next`
+        `http://localhost:8000/api/rooms/${_id}/previous`
       );
       // console.log(res);
-      navigate(`/rooms/${res.data.nextRoom._id}`);
+      navigate(`/rooms/${res.data.previousRoom._id}`);
     } catch (error) {
       console.error("Error fetching next room:", error);
     }
@@ -91,10 +91,10 @@ function Rooms() {
   const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/rooms/${_id}/previous`
+        `http://localhost:8000/api/rooms/${_id}/next`
       );
       // console.log(res);
-      navigate(`/rooms/${res.data.previousRoom._id}`);
+      navigate(`/rooms/${res.data.nextRoom._id}`);
     } catch (error) {
       console.error("Error fetching previous room:", error);
     }

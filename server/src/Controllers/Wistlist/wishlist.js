@@ -27,6 +27,7 @@ const findwishlist = async (req, res) => {
     if (list.length === 0) {
       return res.status(404).json({
         msg: "Rooms not found for the user",
+        status: "error",
       });
     }
     res.json({
