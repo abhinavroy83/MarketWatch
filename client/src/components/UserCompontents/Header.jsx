@@ -134,15 +134,6 @@ export default function Header() {
             </div>
           ) : (
             <div className="flex items-center">
-<<<<<<< Updated upstream
-              <FaHeart
-                className="text-black hover:text-red-800 cursor-pointer"
-                size={25}
-                onClick={() => {
-                  navigate(`/dashboard/wishlist/${userID}`);
-                }}
-              />
-=======
               <div className="relative">
                 <FaHeart
                   className="text-black hover:text-red-800 cursor-pointer mt-2"
@@ -157,7 +148,6 @@ export default function Header() {
                   </div>
                 )}
               </div>
->>>>>>> Stashed changes
               <button
                 type="button"
                 onClick={() => {
