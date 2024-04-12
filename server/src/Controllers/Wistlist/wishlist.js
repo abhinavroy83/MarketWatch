@@ -41,6 +41,7 @@ const findwishlist = async (req, res) => {
     });
   }
 };
+
 const findwishlistwithroomid = async (req, res) => {
   try {
     const { roomId } = req.params;
