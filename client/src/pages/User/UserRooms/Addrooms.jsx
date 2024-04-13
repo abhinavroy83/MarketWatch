@@ -131,7 +131,7 @@ function Addrooms() {
   };
 
   return (
-    <div className="w-[1300px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
+    <div className="w-[1300px] m-auto items-center mt-52 justify-center bg-white shadow-lg shadow-black/30">
       <div className="font-roboto ml-5">
         <p className="text-3xl text-black font-semibold mt-4 flex items-center justify-center">
           Post Room In St.Louis
@@ -181,6 +181,7 @@ function Addrooms() {
               <FormInput
                 label="Email"
                 type="text"
+                placeholder="Enter Email"
                 {...register("email", {
                   required: "Email required",
                 })}
@@ -189,6 +190,7 @@ function Addrooms() {
               <FormInput
                 label="Number"
                 type="text"
+                placeholder="Enter Number"
                 {...register("number", {
                   required: "Number required",
                 })}
@@ -228,44 +230,46 @@ function Addrooms() {
               Property Details-
             </p>
             <article className="flex justify-between mb-3 mt-5 px-7">
-              <div className=" flex items-center">
-                <label className="text-[18px] w-[100px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <div className=" flex items-center">
+                <label className="text-[18px] w-[100px] mb-0 font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                   Rent
                 </label>
                 <div className="relative w-[299px] ">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                  <span className="absolute inset-y-0 left-0  flex items-center pl-1 text-gray-500">
                     $
                   </span>
                   <input
                     id="rent"
                     name="rent"
                     type="number"
-                    placeholder="Enter the Rent"
+                    placeholder=""
                     {...register("rent", {
                       required: "Rent required",
                     })}
-                    className="block w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                    className="flex h-10 font-roboto w-[400px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   />
                 </div>
               </div>
 
-              <div>
+              <div className="flex">
                 {!uti && (
-                  <div className="flex items-center">
+                  <div className="flex items-center ml-10">
                     <label className="min-w-[90px] text-[19px]">
                       Utilities
                     </label>
-                    <input type="text" className=" border-2 border-black" />
+                    <input type="text" className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 " />
                   </div>
                 )}
-                <input
+                <div className="flex gap-3 items-center ml-7">
+                <input className=""
                   type="checkbox"
                   checked={uti}
                   onChange={(e) => setuti(e.target.checked)}
                 />{" "}
-                <p>includes utility</p>
+                <p className="flex flex-col">Includes utility</p>
                 {errors.utilities && <p>{errors.utilities.message}</p>}
-              </div>
+                </div>
+                </div>
             </article>
             <article className="flex px-7">
               <div>
@@ -505,7 +509,7 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md bg-black my-7 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-black my-7 mt-0 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>

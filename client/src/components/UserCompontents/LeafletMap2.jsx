@@ -37,7 +37,7 @@ const LeafletMap2 = ({ onLocationReceived, style }) => {
       }).addTo(map);
 
       markerRef.current = L.circle([lat, lng], {
-        color: "red",
+        color: "",
         fillColor: "#f03",
         fillOpacity: 0.3,
         radius: 500,
