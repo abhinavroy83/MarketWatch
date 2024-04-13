@@ -32,7 +32,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         width={250}
         className="rounded-tl-md rounded-bl-md h-[100%]"
       />
-      <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">
+      <p className="absolute font-roboto bg-white/65 top-0 left-0 px-2 rounded-br-lg text-center">
         <span className="block text-[27px]">
           {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
         </span>
@@ -40,32 +40,46 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
         </span>
       </p>
-      <img
+      {/* <img
+        className="flex absolute top-0 right-0"
+        height={50}
+        width={50}
+        src={femaleLogo}
+        alt=""
+      /> */}
+      <p className="absolute bottom-5 right-5 text-[22px] text-green-600 font-roboto font-bold text-right">
+          {item.rent}</p>
+      <div
+        className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
+      >
+        {/* <p>{item.postedon}</p> */}
+        <h1 className="inline-flex items-center text-[23px] mt-3 font-roboto">
+          {item.Adname && truncateWords(item.Adname, 4)}
+        </h1>
+        {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
+        <p className="text-[23px] text-gray-700 mt-1 font-roboto">
+          {item.city}, {item.State}
+        </p>
+        <div className="flex gap-2 text-blue-500 text-[23px] mt-1">
+        <p> 208 hours ago</p>
+          <p>By : {item.postedby}</p>
+
+        </div>
+        {/* <article className="flex gap-2 mt-1">
+          <h1 className="text-[18px] text-gray-500 font-roboto flex items-center">
+            Nonstop . 3 hr 24 min{" "}
+          </h1>
+        </article> */}
+        {/* <p className="absolute bottom-5 right-5 text-[20px] text-black font-roboto font-bold text-right">
+          {item.rent}
+        </p> */}
+        <img
         className="flex absolute top-0 right-0"
         height={50}
         width={50}
         src={femaleLogo}
         alt=""
       />
-      <div
-        className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
-      >
-        {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[20px] mt-3 font-roboto font-bold">
-          {item.Adname && truncateWords(item.Adname, 3)}
-        </h1>
-        {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className="text-[18px] text-gray-500 mt-2 font-roboto">
-          {item.city}
-        </p>
-        {/* <article className="flex gap-2 mt-1">
-          <h1 className="text-[18px] text-gray-500 font-roboto flex items-center">
-            Nonstop . 3 hr 24 min{" "}
-          </h1>
-        </article> */}
-        <p className="absolute bottom-5 right-5 text-[20px] text-black font-roboto font-bold text-right">
-          {item.rent}
-        </p>
       </div>
     </Link>
   );
