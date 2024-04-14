@@ -144,7 +144,7 @@ export default function Header() {
             <div className="flex items-center">
               <div className="relative mr-3">
                 <FaHeart
-                  className="text-white hover:text-black cursor-pointer mt-2"
+                  className="text-white hover:text-red-400 cursor-pointer mt-2"
                   size={25}
                   onClick={() => {
                     navigate(`/dashboard/wishlist/${userID}`);

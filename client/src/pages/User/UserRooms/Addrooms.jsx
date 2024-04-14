@@ -507,7 +507,7 @@ function Addrooms() {
 
           <button
             type="submit"
-            className="rounded-md bg-green-800 my-7 mt-4 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-[#0b5e86]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-green-800 my-7 mt-4 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>

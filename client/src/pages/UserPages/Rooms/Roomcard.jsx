@@ -68,6 +68,22 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {/* <p>By : {item.postedby}</p> */}
         </div>
         <div className="block">
+        {/* <div className="gap-2 flex">
+              {!wishliststatys ? (
+                <div
+                  className="cursor-pointer p-2 bg-red-600 rounded-full"
+                  onClick={makewishlist}
+                >
+                  <FaHeart color="#fff" size={30} />
+                </div>
+              ) : (
+                <div
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
+                  onClick={unwish}
+                >
+                  <FaHeart color="red" size={30} />
+                </div>
+              )} */}
          <IoHeartCircle size={40} className="text-red-500 flex absolute bottom-3 right-3 hover:text-black" />  
         <img
         className="flex absolute bottom-14 right-3"

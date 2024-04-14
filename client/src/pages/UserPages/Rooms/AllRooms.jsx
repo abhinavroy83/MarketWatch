@@ -78,7 +78,7 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-[#860b0b] px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-[#0b5e86]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
@@ -106,7 +106,7 @@ function AllRooms() {
               {currentPage > 1 && (
                 <button
                   onClick={handlePreviousPage}
-                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-[#860b0b] text-[22px] text-white hover:bg-[#0b5e86]/80"
+                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
                 >
                   <FaArrowAltCircleLeft /> Previous
                 </button>
@@ -114,7 +114,7 @@ function AllRooms() {
               <button
                 onClick={handleNextPage}
                 disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-[#860b0b] text-[22px] text-white hover:bg-[#0b5e86]/80"
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
               >
                 More
                 <FaArrowAltCircleRight />
