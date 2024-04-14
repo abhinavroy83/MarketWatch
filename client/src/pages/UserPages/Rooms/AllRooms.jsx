@@ -69,7 +69,7 @@ function AllRooms() {
       {rooms.length > 0 ? (
         <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
           <div className="flex justify-between">
-            <h1 className="text-3xl capitalize text-black lg:text-[31px]">
+            <h1 className="text-3xl capitalize text-black lg:text-[33px]">
               {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
             </h1>
             {isverified && (
@@ -78,7 +78,7 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-green-700 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#0b5e86] px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-[#0b5e86]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
@@ -106,7 +106,7 @@ function AllRooms() {
               {currentPage > 1 && (
                 <button
                   onClick={handlePreviousPage}
-                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black/80"
+                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-[#0b5e86] text-[22px] text-white hover:bg-[#0b5e86]/80"
                 >
                   <FaArrowAltCircleLeft /> Previous
                 </button>
@@ -114,9 +114,9 @@ function AllRooms() {
               <button
                 onClick={handleNextPage}
                 disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-gray-600 text-white hover:bg-black/80"
+                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-[#0b5e86] text-[22px] text-white hover:bg-[#0b5e86]/80"
               >
-                More...
+                More
                 <FaArrowAltCircleRight />
               </button>
             </div>
