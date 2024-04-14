@@ -20,13 +20,22 @@ function Roomcard2nd({ isSingleRow, ...item }) {
     const date = new Date(dateStr);
     const currentDate = new Date();
     const diffInMs = currentDate - date;
-    const diffInMin = Math.floor(diffInMs / (1000 * 60));
+    const diffInSeconds = Math.floor(diffInMs / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    const diffInDays = Math.floor(diffInHours / 24);
+    const diffInMonths = Math.floor(diffInDays / 30);
 
-    if (diffInMin < 60) {
-      return `${diffInMin} min ago`;
-    } else {
-      const diffInHours = Math.floor(diffInMin / 60);
+    if (diffInSeconds < 60) {
+      return "Just now";
+    } else if (diffInMinutes < 60) {
+      return `${diffInMinutes} minute${diffInMinutes > 1 ? "s" : ""} ago`;
+    } else if (diffInHours < 24) {
       return `${diffInHours} hour${diffInHours > 1 ? "s" : ""} ago`;
+    } else if (diffInDays < 30) {
+      return `${diffInDays} day${diffInDays > 1 ? "s" : ""} ago`;
+    } else {
+      return `${diffInMonths} month${diffInMonths > 1 ? "s" : ""} ago`;
     }
   };
 
@@ -47,14 +56,18 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           {" "}
           {truncateWords(item.Adname, 5)}
         </h1>
-        <h1 className="text-[23px] font-roboto text-gray-700 mt-1">{item.city}</h1>
+        <h1 className="text-[23px] font-roboto text-gray-700 mt-1">
+          {item.city}
+        </h1>
         <div className="flex gap-2 text-blue-800 text-[23px] mt-1">
           <p>By : {item.postedby}</p>
           <p> {calculateTimeDifference(item.postedon)}</p>
         </div>
       </div>
       <div className="flex gap-4 justify-center items-center">
-        <p className="text-[23px] text-green-600 font-roboto font-bold mr-3">{item.rent}</p>
+        <p className="text-[23px] text-green-600 font-roboto font-bold mr-3">
+          {item.rent}
+        </p>
       </div>
     </Link>
   );

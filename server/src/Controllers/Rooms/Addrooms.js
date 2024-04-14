@@ -1,7 +1,7 @@
 const Room = require("../../model/room");
 
 const addroom = async (req, res) => {
-  try { 
+  try {
     const {
       Adname,
       area,
@@ -10,6 +10,7 @@ const addroom = async (req, res) => {
       bed,
       bath,
       laundary,
+      gender,
       subarea,
       city,
       State,
@@ -33,6 +34,7 @@ const addroom = async (req, res) => {
       bed,
       bath,
       laundary,
+      gender,
       city,
       State,
       PrdImage,
@@ -44,8 +46,8 @@ const addroom = async (req, res) => {
       number,
       location,
     });
-    await rooms.save();     
-    res.json({  
+    await rooms.save();
+    res.json({
       rooms,
     });
   } catch (error) {

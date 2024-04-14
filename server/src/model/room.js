@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("../model/user");
 const { Schema } = mongoose;
-  
+
 const roomSchema = mongoose.Schema({
   UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   Adname: { type: String, required: true },
@@ -16,6 +16,7 @@ const roomSchema = mongoose.Schema({
     enum: ["Available", "Availableinapt", "notAvailable"],
   },
   subarea: { type: String, required: true },
+  gender: { type: String, required: true, enum: ["male", "female", "both"] },
   city: { type: String, required: true },
   State: { type: String, required: true },
   PrdImage: { type: String, required: true },

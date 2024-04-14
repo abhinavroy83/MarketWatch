@@ -23,7 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LuPhoneCall } from "react-icons/lu";
 import femaleLogo from "../../../assets/female.png";
-
+import maleLogo from "../../../assets/male.jpeg";
 
 function Rooms() {
   const { _id } = useParams();
@@ -275,7 +275,7 @@ function Rooms() {
                 />
               </button>
             </div>
-            
+
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
@@ -336,8 +336,10 @@ function Rooms() {
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
             <p className="flex font-roboto mt-4 text-[25px] text-blue-800 gap-2 font-bold">
-              Posted By : <p className="text-gray-600 font-medium">{rooms.postedby}</p>
-             || Posted On : <p className="text-gray-600 font-medium">{posteddate}{" "}</p>
+              Posted By :{" "}
+              <p className="text-gray-600 font-medium">{rooms.postedby}</p>
+              || Posted On :{" "}
+              <p className="text-gray-600 font-medium">{posteddate} </p>
             </p>
           </div>
           <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
@@ -352,18 +354,25 @@ function Rooms() {
             <p className="text-[25px]">
               {rooms.bed} Bed / {rooms.bath} Bath
             </p>
-            <div className="flex ml-[-11px]"><img
-             className="flex"
-              height={50}
-             width={50}
-             src={femaleLogo}
-             alt=""
-            />
+            <div className="flex ml-[-11px]">
+              <img
+                className="flex"
+                height={50}
+                width={50}
+                src={
+                  rooms.gender === "female"
+                    ? femaleLogo
+                    : rooms.gender === "male"
+                    ? maleLogo
+                    : femaleLogo
+                }
+                alt=""
+              />
               <div className="flex">
-                  <GiWashingMachine size={45} />
+                <GiWashingMachine size={45} />
               </div>
-            
-            {/* <img
+
+              {/* <img
              className="flex"
               height={50}
              width={50}
@@ -398,7 +407,7 @@ function Rooms() {
                 onClick={handleloginmodelopen}
                 className="flex self-center rounded-md bg-green-800 px-5 py-4 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
-                <LuPhoneCall size={30}/>
+                <LuPhoneCall size={30} />
                 <span class="ml-2 items-center justify-center">
                   Get In touch{" "}
                 </span>
@@ -408,8 +417,12 @@ function Rooms() {
                   {/* <p className="text-[20px] font-bold font-roboto text-blue-800">
                     Your Details Are -
                   </p> */}
-                  <p className="text-gray-600 text-[22px]">Email : {rooms.email}</p>
-                  <p className="text-gray-600 text-[22px]">Number : {rooms.number}</p>
+                  <p className="text-gray-600 text-[22px]">
+                    Email : {rooms.email}
+                  </p>
+                  <p className="text-gray-600 text-[22px]">
+                    Number : {rooms.number}
+                  </p>
                 </div>
               )}
             </div>
