@@ -59,7 +59,7 @@ export default function Header() {
   return (
     <div className=" w-full fixed z-50 flex bg-white flex-col">
       <Ads />
-      <div className="w-full bg-gray-400 shadow-2xl font-roboto border-b-2 border-black">
+      <div className="w-full bg-[#0b5e86] shadow-2xl font-roboto border-b-2 border-black">
         <div className="flex justify-between items-center py-1 px-2 max-w-[1600px] w-full m-auto">
           <div className="flex overflow-auto">
             <ul className="ml-3 space-x-8">
@@ -68,7 +68,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-gray-900 hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-gray-900 hover:shadow-md"
               >
                 HOME
               </button>
@@ -80,7 +80,7 @@ export default function Header() {
                   // navigate("/Events");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 EVENTS
               </button>
@@ -91,7 +91,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/rooms");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 ROOMS
               </button>
@@ -103,7 +103,7 @@ export default function Header() {
                   // navigate("/bussiness");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 BUSSINESS
               </button>
@@ -115,7 +115,7 @@ export default function Header() {
                   // navigate("/Movie");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 MOVIES
               </button>
@@ -128,14 +128,14 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => handleModal(false, true)}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
                 onClick={() => handleModal(true, false)}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 LOG IN
               </button>
@@ -144,7 +144,7 @@ export default function Header() {
             <div className="flex items-center">
               <div className="relative mr-3">
                 <FaHeart
-                  className="text-black hover:text-red-900 cursor-pointer mt-2"
+                  className="text-white hover:text-red-400 cursor-pointer mt-2"
                   size={25}
                   onClick={() => {
                     navigate(`/dashboard/wishlist/${userID}`);
@@ -161,14 +161,14 @@ export default function Header() {
                 onClick={() => {
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 MY ACCOUNT
               </button>
               <button
                 type="button"
                 onClick={handlelogout}
-                className="rounded-md text-xl px-3 py-2 text-black font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
               >
                 LOGOUT
               </button>

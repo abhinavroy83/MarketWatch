@@ -79,7 +79,7 @@ function Conractform({ isOpen, onClose }) {
                     type="text" 
                   />    
             </div>  
-            <button className="flex rounded-md bg-[#0b5e86] mt-4 p-2 px-3 text-[22px] text-white shadow-sm hover:bg-black hover:text-white" type="submit">Send response</button>
+            <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Send response</button>
           </form>
         </div>
       </Modal>
