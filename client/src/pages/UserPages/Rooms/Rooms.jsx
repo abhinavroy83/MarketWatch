@@ -21,6 +21,9 @@ import Conractform from "../Contactform/Conractform";
 import Roomcardforsimilar from "./Roomcardforsimilar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LuPhoneCall } from "react-icons/lu";
+import femaleLogo from "../../../assets/female.png";
+
 
 function Rooms() {
   const { _id } = useParams();
@@ -231,7 +234,10 @@ function Rooms() {
                 Previous
               </button>
             </button>
-            <div className="flex">
+            <p className=" text-[30px] font-bold text-gray-800 font-roboto">
+              {rooms.Adname && truncateWords(rooms.Adname, 6)}
+            </p>
+            {/* <div className="flex">
               <svg
                 class="h-12 w-12 ml-1 text-black-500"
                 fill="none"
@@ -250,7 +256,7 @@ function Rooms() {
                   <GiWashingMachine size={45} />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="block">
@@ -269,7 +275,7 @@ function Rooms() {
                 />
               </button>
             </div>
-
+            
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
@@ -322,29 +328,52 @@ function Rooms() {
           </div>
         </div>
 
-        <div className="flex text-[23px]">
+        <div className="flex text-[25px]">
           <div>
             <img
               src={rooms.PrdImage}
               alt="roomimg"
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="font-roboto mt-4 text-[23px] text-black">
-              Posted By : {rooms.postedby} || Posted On : {posteddate}{" "}
+            <p className="flex font-roboto mt-4 text-[25px] text-blue-800 gap-2 font-bold">
+              Posted By : <p className="text-gray-600 font-medium">{rooms.postedby}</p>
+             || Posted On : <p className="text-gray-600 font-medium">{posteddate}{" "}</p>
             </p>
           </div>
           <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
-            <p className=" text-[23px] font-bold text-gray-800 font-roboto">
+            {/* <p className=" text-[25px] font-bold text-gray-800 font-roboto">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
-            </p>
-            <p className="text-red-700 text-[23px] flex gap-3">
+            </p> */}
+            <p className="text-green-600 text-[25px] font-bold flex gap-3">
               {rooms.rent} monthly{" "}
-              {/* <p className="text-[23px] text-blue-800">[Extra Utilites Here]</p> */}
+              {/* <p className="text-[25px] text-blue-800">[Extra Utilites Here]</p> */}
             </p>
-            <p className="text-[23px]">{rooms.address}</p>
-            <p className="text-[23px]">
+            <p className="text-[25px]">{rooms.address}</p>
+            <p className="text-[25px]">
               {rooms.bed} Bed / {rooms.bath} Bath
             </p>
+            <div className="flex ml-[-11px]"><img
+             className="flex"
+              height={50}
+             width={50}
+             src={femaleLogo}
+             alt=""
+            />
+              <div className="flex">
+                  <GiWashingMachine size={45} />
+              </div>
+            
+            {/* <img
+             className="flex"
+              height={50}
+             width={50}
+             src={femaleLogo}
+             alt=""
+            />
+              <div className="flex">
+                  <GiWashingMachine size={45} />
+              </div> */}
+            </div>
             <div>
               {locationsndString ? (
                 <div className="mt-2">
@@ -355,7 +384,7 @@ function Rooms() {
                 </div>
               ) : (
                 <div>
-                  <p className="font-roboto">loading</p>
+                  <p className="font-roboto">Loading</p>
                 </div>
               )}
             </div>
@@ -367,43 +396,32 @@ function Rooms() {
               <button
                 type="button"
                 onClick={handleloginmodelopen}
-                className="flex self-center rounded-md bg-gray-400 px-5 py-4 text-[22px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                className="flex self-center rounded-md bg-[#0b5e86] px-5 py-4 text-[22px] text-white shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
               >
-                <svg
-                  class="h-8 w-8 text-white-500"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  {" "}
-                  <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
+                <LuPhoneCall size={30}/>
                 <span class="ml-2 items-center justify-center">
                   Get In touch{" "}
                 </span>
               </button>
               {authstatus && (
                 <div className="">
-                  <p className="text-[20px] font-bold font-roboto text-blue-800">
+                  {/* <p className="text-[20px] font-bold font-roboto text-blue-800">
                     Your Details Are -
-                  </p>
-                  <p className="text-[20px]">Email : {rooms.email}</p>
-                  <p className="text-[20px]">Number : {rooms.number}</p>
+                  </p> */}
+                  <p className="text-gray-600 text-[22px]">Email : {rooms.email}</p>
+                  <p className="text-gray-600 text-[22px]">Number : {rooms.number}</p>
                 </div>
               )}
             </div>
           </div>
         </div>
-        <div className="font-roboto py-2 mt-2 text-[23px] text-black">
-          <p className="text-blue-800 font-bold ">Description : </p>
+        <div className="font-roboto py-2 mt-2 text-[25px] text-gray-600">
+          <p className="text-blue-800 font-bold ">Overview : </p>
           {rooms.description}
         </div>
-        <div className="mb-2">
+        <div className="mt-4 mb-2 border-t-2 border-black">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[23px] font-roboto text-blue-800 font-bold">
+            <div className=" flex justify-between w-full text-[25px] font-roboto text-blue-800 font-bold">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"

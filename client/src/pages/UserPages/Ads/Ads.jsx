@@ -51,7 +51,7 @@ function Ads() {
           }
           alt={"not found"}
         />
-        <p className="items-center justify-center text-[20px] mt-2">
+        <p className="items-center justify-center text-[23px] mt-2">
           Hi, {name}
         </p>
       </div>
