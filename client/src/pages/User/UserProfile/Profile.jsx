@@ -156,24 +156,7 @@ function Profile() {
           <h1 className="text-4xl p-2 ml-2 font-bold text-red-700 mt-5 font-roboto">
             Your Profile
           </h1>
-          <svg
-            class="h-[3rem] w-[3rem] text-red-700 mt-7"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            stroke-width="1"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            {" "}
-            <path stroke="none" d="M0 0h24v24H0z" />{" "}
-            <circle cx="12" cy="12" r="9" />{" "}
-            <line x1="9" y1="9" x2="9.01" y2="9" />{" "}
-            <line x1="15" y1="9" x2="15.01" y2="9" />{" "}
-            <path d="M8 13a4 4 0 1 0 8 0m0 0H8" />
-          </svg>
+          
         </div>
         {!data.isVerified && (
           <p className=" text-red-500 text-sm">

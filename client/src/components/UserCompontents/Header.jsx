@@ -68,7 +68,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-gray-900 hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 HOME
               </button>
@@ -80,7 +80,7 @@ export default function Header() {
                   // navigate("/Events");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 EVENTS
               </button>
@@ -91,7 +91,7 @@ export default function Header() {
                 onClick={() => {
                   navigate("/rooms");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 ROOMS
               </button>
@@ -103,7 +103,7 @@ export default function Header() {
                   // navigate("/bussiness");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 BUSSINESS
               </button>
@@ -115,7 +115,7 @@ export default function Header() {
                   // navigate("/Movie");
                   alert("Coming soon");
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 MOVIES
               </button>
@@ -128,14 +128,14 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => handleModal(false, true)}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 SIGN UP
               </button>
               <button
                 type="button"
                 onClick={() => handleModal(true, false)}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 LOG IN
               </button>
@@ -161,14 +161,14 @@ export default function Header() {
                 onClick={() => {
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 MY ACCOUNT
               </button>
               <button
                 type="button"
                 onClick={handlelogout}
-                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-white hover:bg-black hover:shadow-md"
+                className="rounded-md text-xl px-3 py-2 text-white font-medium font-sans transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
               >
                 LOGOUT
               </button>

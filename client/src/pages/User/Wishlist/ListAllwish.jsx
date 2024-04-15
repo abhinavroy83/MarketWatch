@@ -6,6 +6,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import axios from "axios";
 import Loader from "../../../components/UserCompontents/Loader";
+import { BiMinusCircle } from "react-icons/bi";
 
 function ListAllwish() {
   const { userID } = useParams();
@@ -73,7 +74,7 @@ function ListAllwish() {
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
-        <td className="whitespace-nowrap px-4 py-4 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 font-roboto text-[22px]">
           <div className="flex items-center font-roboto">
             <div className="h-10 w-10 flex-shrink-0 font-roboto">
               <img
@@ -83,47 +84,34 @@ function ListAllwish() {
               />
             </div>
             <div className="ml-4 font-roboto">
-              <div className="text-lg font-medium text-gray-900">
+              <div className="text-[20px] font-medium text-gray-900">
                 {items.Hotelname}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-lg text-gray-700 font-roboto">{items.city}</div>
+          <div className="text-[20px] text-gray-700 font-roboto">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-roboto">
           {items.rent}
         </td>
         <td
-          className="whitespace-nowrap px-4 py-4 text-lg text-gray-700 font-roboto  cursor-pointer"
+          className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-roboto  cursor-pointer"
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
         >
           Click here
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-lg font-medium font-roboto">
-          <svg
-            class="h-6 w-6 text-red-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[20px] font-medium font-roboto">
           <a
             onClick={() => {
               handleDeleteRoom(items._id);
             }}
-            className="text-red-500 font-semibold cursor-pointer"
+            className="text-red-500 font-semibold cursor-pointer flex items-center gap-3"
           >
-            Remove
+           <BiMinusCircle size={25}/> Remove
           </a>
         </td>
       </tr>
@@ -138,7 +126,7 @@ function ListAllwish() {
               <FaHeart className="text-red-700" size={30} />
               Wishlist
             </h2>
-            <p className="mt-2 text-lg text-gray-700 ml-1">
+            <p className="mt-2 text-[20px] text-gray-700 ml-1">
               Your Wishlist is here.
             </p>
           </div>
@@ -152,37 +140,37 @@ function ListAllwish() {
                     <tr>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         <span>Room</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left text-lg font-normal text-gray-700"
+                        className="px-12 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         City
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         Price
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         Visit Page
                       </th>
                       {/* <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-lg font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         Price
                       </th> */}
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-lg font-normal text-gray-700"
+                        className="px-4 py-3.5 text-[20px] font-normal text-gray-700"
                       >
                         Remove
                       </th>
@@ -201,7 +189,7 @@ function ListAllwish() {
             <div className="space-x-2 flex">
               {currentPage > 1 && (
                 <button
-                  className="rounded-md bg-black px-3 py-2 text-lg flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-black px-3 py-2 text-[20px] flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={prevPage}
                 >
                   <FaArrowAltCircleLeft /> Previous
@@ -209,7 +197,7 @@ function ListAllwish() {
               )}
               {data.length > currentPage * 4 && (
                 <button
-                  className="rounded-md bg-black px-3 py-2 text-lg flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-black px-3 py-2 text-[20px] flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   onClick={nextPage}
                 >
                   Next <FaArrowAltCircleRight />

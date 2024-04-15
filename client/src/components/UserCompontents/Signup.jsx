@@ -137,7 +137,7 @@ function Signup() {
                 Details.
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
                   handleModal(true, false);
@@ -149,7 +149,7 @@ function Signup() {
           </div>
           <div className="w-1/2 flex flex-col justify-center items-center py-1">
             <svg
-              className="h-10 w-10 text-black absolute top-11 right-3 cursor-pointer"
+              className="h-10 w-10 text-black absolute top-11 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"
@@ -163,11 +163,11 @@ function Signup() {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-red-700 mt-3 font-roboto">
+            <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-roboto">
               CREATE YOUR ACCOUNT
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mx-10">
+              <div className="mx-10 font-roboto">
                 <div className="flex gap-5 mt-5">
                   <Input
                     label="First Name"
@@ -303,16 +303,16 @@ function Signup() {
                       </label>
                     </div>
                   </div> */}
-                  <div className="flex gap-3 font-roboto">
+                  <div className="gap-3 font-roboto">
                     <input
                       type="checkbox"
                       {...register("chck", { required: "this is required" })}
                     />
-                    <label className="w-full">
+                    <label className="w-full ml-2">
                       I agree to terms and conditions
                     </label>
                     {errors && (
-                      <p className=" text-red-600 text-sm">
+                      <p className="text-red-600 text-sm">
                         {errors.chck?.message}
                       </p>
                     )}
@@ -331,7 +331,7 @@ function Signup() {
                   )}
                   <div className="text-center">
                     <button
-                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[18px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Sign To Create Account

@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaHeart } from "react-icons/fa";
+
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -163,7 +165,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {calculateTimeDifference(item.postedon)}
         </p>
         <div className="flex gap-2 text-blue-800 text-[23px] mt-1"></div>
-        <div className="block">
+        {/* <div className="block">
           {!wishliststatys ? (
             <IoHeartCircle
               size={40}
@@ -173,9 +175,32 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               }}
               className="text-red-500 flex absolute bottom-3 right-3 hover:text-black"
             />
-          ) : null}
+          ) : null} */}
+          <div className="absolute bottom-3 right-6">
+              {!wishliststatys ? (
+                <div
+                  className="cursor-pointer p-2 bg-red-600 rounded-full"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    makewishlist(item._id);
+                  }}
+                >
+                  <FaHeart color="#fff" size={25} />
+                </div>
+              ) : (
+                <div
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    unwish(item._id);
+                  }}
+                >
+                  <FaHeart color="red" size={25} />
+                </div>
+              )}
+          </div>    
           <img
-            className="flex absolute bottom-14 right-3"
+            className="flex absolute bottom-14 right-6"
             height={45}
             width={45}
             src={
@@ -188,7 +213,6 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
             alt=""
           />
         </div>
-      </div>
     </Link>
   );
 }

@@ -11,6 +11,10 @@ import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 import Signup from "./Signup";
+import { FaGoogle } from "react-icons/fa";
+import { AiOutlineApple } from "react-icons/ai";
+import { FaApple } from "react-icons/fa";
+
 
 function Login() {
   const {
@@ -116,11 +120,11 @@ function Login() {
               <p className=" text-black text-center mt-5 text-[33px]">
                 Welcome Back
               </p>
-              <p className=" text-black text-center mt-5 px-10 text-[20px] font-roboto">
+              <p className=" text-black text-center mt-2 px-10 text-[20px] font-roboto">
                 Log In Here With Your Personal Details
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] text-[17px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true)
@@ -132,7 +136,7 @@ function Login() {
           </div>
           <div className="w-50 px-20 items-center grow">
             <svg
-              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer"
+              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"
@@ -146,7 +150,7 @@ function Login() {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-red-700 text-center">
+            <h1 className="text-3xl font-bold text-[#0b5e86] text-center">
               GET STARTED
             </h1>
             <p className=" text-black text-center mt-2 px-10 text-[20px]">
@@ -181,11 +185,11 @@ function Login() {
               />
               <button
                 type="submit"
-                className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-[18px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
-              <h1 className="text-[17px] mt-2 underline font-bold text-[#000] text-center">
+              <h1 className="text-[19px] mt-2 underline font-bold text-[#000] text-center">
                 Or Continue With
               </h1>
               <div>
@@ -193,45 +197,13 @@ function Login() {
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-2 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <svg
-                    class="h-5 w-5 text-gray-900"
-                    align-iteams="left"
-                    width="20"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {" "}
-                    <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                    <path d="M17.788 5.108A9 9 0 1021 12h-8" />
-                  </svg>
-                  <p className="text-[16px]">Continue With Google</p>
+                  <p className="text-[19px] flex gap-4"><FaGoogle />Continue With Google</p>
                 </button>
                 <button
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-5 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <svg
-                    class="h-6 w-6 text-gray-900"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {" "}
-                    <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                    <path d="M9 7c-3 0-4 3-4 5.5 0 3 2 7.5 4 7.5 1.088-.046 1.679-.5 3-.5 1.312 0 1.5.5 3 .5s4-3 4-5c-.028-.01-2.472-.403-2.5-3-.019-2.17 2.416-2.954 2.5-3-1.023-1.492-2.951-1.963-3.5-2-1.433-.111-2.83 1-3.5 1-.68 0-1.9-1-3-1z" />{" "}
-                    <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" />
-                  </svg>
-                  <p className="mt-1 text-[16px]">Continue With Apple</p>
+                  <p className="flex gap-4 text-[19px] items-center"><FaApple size={25}/>Continue With Apple</p>
                 </button>
               </div>
             </form>
