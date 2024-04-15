@@ -16,7 +16,7 @@ function Bussiness() {
   const fetchdetails = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/getspecificbuss/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/getspecificbuss/${_id}`
       );
       // console.log(res.data.Allbusineses);
       setdet(res.data.Allbusineses);
