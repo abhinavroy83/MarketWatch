@@ -31,11 +31,12 @@ function AllArea() {
     fetchdata();
   }, []);
   //   console.log(data);
+
   useEffect(() => {
     const filtercity = data.filter((item) => item.state === selectedstate);
     // console.log(filtercity);
     const uniquecity = [...new Set(filtercity.map((item) => item.city))];
-    console.log(uniquecity);
+    // console.log(uniquecity);
     setFiltercity(uniquecity);
   }, [selectedstate]);
 
@@ -70,7 +71,7 @@ function AllArea() {
               <li>Usa</li>
             </ul>
           </div>
-          <div className=" flex flex-col border-red-500 border-2  max-w-36">
+          <div className=" flex flex-col border-red-500 border-2 max-w-36">
             <p>List of avl State</p>
             {/* <select onChange={(e) => setSelectedstate(e.target.value)}>
               <option>select State</option>
@@ -84,6 +85,9 @@ function AllArea() {
               {filterstate.map((state, index) => (
                 <li
                   key={index}
+                  className={`cursor-pointer ${
+                    selectedstate === state ? "bg-red-500" : ""
+                  }`}
                   onClick={() => {
                     setSelectedstate(state);
                   }}
@@ -95,7 +99,7 @@ function AllArea() {
           </div>
           <div className=" flex flex-col border-red-500 border-2  max-w-36">
             <p>
-              List of city in{" "}
+              List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
             {/* <select onChange={(e) => setSelectedCity(e.target.value)}>
@@ -107,20 +111,29 @@ function AllArea() {
             </select> */}
             <ul>
               {Filtercity.map((city, index) => (
-                <li key={index} value={city}>
+                <li
+                  key={index}
+                  value={city}
+                  className={`cursor-pointer ${
+                    selectedCity === city ? "bg-red-500" : ""
+                  }`}
+                  onClick={() => {
+                    setSelectedCity(city);
+                  }}
+                >
                   {city}
                 </li>
               ))}
             </ul>
           </div>
-          <div className=" flex flex-col border-red-500 border-2  max-w-36">
-            <p>
-              List of Suburbs{" "}
-              {selectedCity ? <span>in {selectedCity}</span> : null}
-            </p>
+          <div className=" flex flex-col border-red-500 border-2 ">
+            <button className="">AddSubrs</button>
+            <p>List of Suburbs</p>
             <ul>
               {Filteresub.length > 0 &&
-                Filteresub.map((item) => <li>{item.subarea}</li>)}
+                Filteresub.map((item, index) => (
+                  <li key={index}>{item.subarea}</li>
+                ))}
             </ul>
           </div>
         </form>

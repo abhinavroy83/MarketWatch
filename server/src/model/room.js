@@ -7,7 +7,7 @@ const roomSchema = mongoose.Schema({
   Adname: { type: String, required: true },
   area: { type: String, required: true },
   rent: { type: String, required: true },
-  utilities: { type: String, enum: ["yes", "no"], required: true },
+  utilities: { type: String, required: true },
   bed: { type: String, required: true },
   bath: { type: String, required: true, enum: ["separate", "shared"] },
   laundary: {

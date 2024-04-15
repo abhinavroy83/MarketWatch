@@ -65,6 +65,7 @@ function Addrooms() {
       bath: data.bath,
       laundary: data.laundary,
       subarea: data.subarea,
+      gender: data.gender,
       city: data.city,
       State: data.State,
       PrdImage: userimgs,
@@ -77,7 +78,7 @@ function Addrooms() {
         coordinates: [currentLocation.lng, currentLocation.lat],
       },
     };
-
+    console.log(roomdata);
     try {
       const res = await axios.post(
         "http://localhost:8000/api/addrooms",
@@ -156,7 +157,7 @@ function Addrooms() {
                 errorMessage={errors.Adname?.message}
               />
               <FormInput
-               className="flex items-center justify-center"
+                className="flex items-center justify-center"
                 label="Add Area"
                 type="text"
                 placeholder="for eg ... st louis greater area"
@@ -173,24 +174,25 @@ function Addrooms() {
             </p>
             <article className="flex flex-col gap-4 px-4 mt-5">
               <div className="flex w-auto">
-              <FormInput
-                label="Email"
-                type="text"
-                placeholder="Enter Email"
-                {...register("email", {
-                  required: "Email required",
-                })}
-                errorMessage={errors.email?.message}
-              />
-              <FormInput
-                label="Number"
-                type="text"
-                placeholder="Enter Number"
-                {...register("number", {
-                  required: "Number required",
-                })}
-                errorMessage={errors.number?.message}
-              /></div>
+                <FormInput
+                  label="Email"
+                  type="text"
+                  placeholder="Enter Email"
+                  {...register("email", {
+                    required: "Email required",
+                  })}
+                  errorMessage={errors.email?.message}
+                />
+                <FormInput
+                  label="Number"
+                  type="text"
+                  placeholder="Enter Number"
+                  {...register("number", {
+                    required: "Number required",
+                  })}
+                  errorMessage={errors.number?.message}
+                />
+              </div>
               <div>
                 <div className="flex items-center">
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
@@ -207,16 +209,23 @@ function Addrooms() {
                       <option value="" disabled hidden>
                         Select Gender
                       </option>
-                      <option className="text-[16px]" value="yes">
+                      <option className="text-[16px]" value="male">
                         Male
                       </option>
-                      <option className="text-[16px]" value="no">
+                      <option className="text-[16px]" value="female">
                         Female
                       </option>
-                  </select>
-                  <p className="text-[16px] mt-1 text-red-500"> {errors.gender && <p>{errors.gender.message}</p>}</p>
+                      <option className="text-[16px]" value="both">
+                        Both
+                      </option>
+                    </select>
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {" "}
+                      {errors.gender && <p>{errors.gender.message}</p>}
+                    </p>
+                  </div>
                 </div>
-              </div></div>
+              </div>
             </article>
             <label className="w-[290px] text-[21px] px-4">Image:</label>
             <input
@@ -233,9 +242,12 @@ function Addrooms() {
               Property Details-
             </p>
             <article className="flex justify-between mb-3 mt-5 px-4">
-            <div className=" flex items-center">
+              <div className=" flex items-center">
                 <div className="flex items-center">
-                <label className="min-w-[120px] text-[21px] items-center " htmlFor="">
+                  <label
+                    className="min-w-[120px] text-[21px] items-center "
+                    htmlFor=""
+                  >
                     Rent
                   </label>
                   <article className="relative">
@@ -260,22 +272,27 @@ function Addrooms() {
                       <label className="min-w-[120px] text-[21px]">
                         Utilities
                       </label>
-                      <input type="text" className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 " />
+                      <input
+                        type="text"
+                        {...register("utilities", {
+                          required: "utilities required",
+                        })}
+                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      />
                     </div>
                   )}
                   <div className="flex gap-3 items-center ml-7">
-                  <input className=""
-                    type="checkbox"
-                    checked={uti}
-                    onChange={(e) => setuti(e.target.checked)}
-                  />{" "}
-                  <p className="flex flex-col">Includes utility</p>
-                  {errors.utilities && <p>{errors.utilities.message}</p>}
+                    <input
+                      className=""
+                      type="checkbox"
+                      checked={uti}
+                      onChange={(e) => setuti(e.target.checked)}
+                    />
+                    <p className="flex flex-col">Includes utility</p>
+                    {errors.utilities && <p>{errors.utilities.message}</p>}
                   </div>
                 </div>
               </div>
-
-              
             </article>
             <article className="flex px-4">
               <div>
@@ -284,93 +301,103 @@ function Addrooms() {
                     Bed
                   </label>
                   <div>
-                  <select
-                    className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("bed", {
-                      required: "Bed is required",
-                    })}
-                    defaultValue=""
-                  >
-                    <option value="" disabled hidden>
-                      Select Bed
-                    </option>
-                    <option className="text-[16px]" value="1">
-                      1
-                    </option>
-                    <option className="text-[16px]" value="2">
-                      2
-                    </option>
-                    <option className="text-[16px]" value="3">
-                      3
-                    </option>
-                    <option className="text-[16px]" value="4">
-                      4
-                    </option>
-                    <option className="text-[16px]" value="5">
-                      5
-                    </option>
-                    <option className="text-[16px]" value="6">
-                      6
-                    </option>
-                  </select>
-                  <p className="text-[16px] mt-1 text-red-500"> {errors.bed && <p>{errors.bed.message}</p>}</p>
-                </div>
-              </div> 
-              </div>
-              <div className="flex justify-between ml-[6.5rem]">
-                  <label className="min-w-[120px] text-[21px]" htmlFor="">
-                    Bath
-                  </label>
-                  <div>
                     <select
-                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      {...register("bath", {
-                        required: "Bath is required",
+                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("bed", {
+                        required: "Bed is required",
                       })}
                       defaultValue=""
                     >
                       <option value="" disabled hidden>
-                        Select Bath
+                        Select Bed
                       </option>
-                      <option className="text-[16px]" value="separate">
-                        Separate
+                      <option className="text-[16px]" value="1">
+                        1
                       </option>
-                      <option className="text-[16px]" value="shared">
-                        Shared
+                      <option className="text-[16px]" value="2">
+                        2
+                      </option>
+                      <option className="text-[16px]" value="3">
+                        3
+                      </option>
+                      <option className="text-[16px]" value="4">
+                        4
+                      </option>
+                      <option className="text-[16px]" value="5">
+                        5
+                      </option>
+                      <option className="text-[16px]" value="6">
+                        6
                       </option>
                     </select>
-                    <p className="text-[16px] mt-1 text-red-500"> {errors.bath && <p>{errors.bath.message}</p>}</p>
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {" "}
+                      {errors.bed && <p>{errors.bed.message}</p>}
+                    </p>
                   </div>
+                </div>
+              </div>
+              <div className="flex justify-between ml-[6.5rem]">
+                <label className="min-w-[120px] text-[21px]" htmlFor="">
+                  Bath
+                </label>
+                <div>
+                  <select
+                    className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    {...register("bath", {
+                      required: "Bath is required",
+                    })}
+                    defaultValue=""
+                  >
+                    <option value="" disabled hidden>
+                      Select Bath
+                    </option>
+                    <option className="text-[16px]" value="separate">
+                      Separate
+                    </option>
+                    <option className="text-[16px]" value="shared">
+                      Shared
+                    </option>
+                  </select>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.bath && <p>{errors.bath.message}</p>}
+                  </p>
+                </div>
               </div>
             </article>
-              <div>
+            <div>
               <div className="flex items-center mt-2 px-4">
                 <label className="min-w-[120px] text-[21px]" htmlFor="">
                   Laundary
                 </label>
                 <div>
-                <select
-                  className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                  {...register("laundary", {
-                    required: "laundary is required",
-                  })}
-                  defaultValue=""
-                >
-                  <option value="" disabled hidden>
-                    Select laundary
-                  </option>
-                  <option className="text-[16px]" value="Available">
-                    Available
-                  </option>
-                  <option className="text-[16px]" value="Availableinapt">
-                    Available in apartment
-                  </option>
-                  <option className="text-[16px]" value="notAvailable">
-                    notAvailable
-                  </option>
-                </select>
-                <p className="text-[16px] text-red-500 mt-1"> {errors.laundary && <p>{errors.laundary?.message}</p>}</p>
-              </div></div>
+                  <select
+                    className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    {...register("laundary", {
+                      required: "laundary is required",
+                    })}
+                    defaultValue=""
+                  >
+                    <option value="" disabled hidden>
+                      Select laundary
+                    </option>
+                    <option className="text-[16px]" value="Available">
+                      Available
+                    </option>
+                    <option className="text-[16px]" value="Availableinapt">
+                      Available in apartment
+                    </option>
+                    <option className="text-[16px]" value="notAvailable">
+                      notAvailable
+                    </option>
+                  </select>
+                  <p className="text-[16px] text-red-500 mt-1">
+                    {" "}
+                    {errors.laundary && <p>{errors.laundary?.message}</p>}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -380,68 +407,82 @@ function Addrooms() {
               Location Details-
             </p>
             <article className="flex flex-col gap-4 px-4 mt-4">
-             <div className="flex"> 
-              <div>
-                <div className="flex items-center">
-                  <label className="min-w-[120px] text-[21px]" htmlFor="">
-                    State
-                  </label>
-                  <select
-                    className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("State", {
-                      required: "State is required",
-                    })}
-                    defaultValue=""
-                    onChange={handlestate}
-                  >
-                    <option value="" disabled hidden>
-                      Select State
-                    </option>
-                    {filterstate.map((state, index) => (
-                      <option className="text-[16px]" value={state} key={index}>
-                        {state}
+              <div className="flex">
+                <div>
+                  <div className="flex items-center">
+                    <label className="min-w-[120px] text-[21px]" htmlFor="">
+                      State
+                    </label>
+                    <select
+                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("State", {
+                        required: "State is required",
+                      })}
+                      defaultValue=""
+                      onChange={handlestate}
+                    >
+                      <option value="" disabled hidden>
+                        Select State
                       </option>
-                    ))}
-                  </select>
+                      {filterstate.map((state, index) => (
+                        <option
+                          className="text-[16px]"
+                          value={state}
+                          key={index}
+                        >
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {errors.state && <p>{errors.state?.message}</p>}
                 </div>
-                {errors.state && <p>{errors.state?.message}</p>}
+
+                <div>
+                  <div className="flex items-center ml-[6.5rem]">
+                    <label className="min-w-[120px] text-[21px] " htmlFor="">
+                      City
+                    </label>
+                    <div>
+                      <select
+                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        {...register("city", {
+                          required: "City is required",
+                        })}
+                        defaultValue=""
+                        onChange={handlecities}
+                      >
+                        <option
+                          className="text-gray-600"
+                          value=""
+                          disabled
+                          hidden
+                        >
+                          Select city
+                        </option>
+                        {filtercity.map((city, index) => (
+                          <option value={city} key={index}>
+                            {city}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-[16px] text-red-500 mt-1">
+                        {" "}
+                        {errors.city && <p>{errors.city?.message}</p>}
+                      </p>
+                    </div>{" "}
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <div className="flex items-center ml-[6.5rem]">
-                  <label className="min-w-[120px] text-[21px] " htmlFor="">
-                    City
-                  </label>
-                  <div>
-                  <select
-                    className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("city", {
-                      required: "City is required",
-                    })}
-                    defaultValue=""
-                    onChange={handlecities}
-                  >
-                    <option className="text-gray-600" value="" disabled hidden>
-                      Select city
-                    </option>
-                    {filtercity.map((city, index) => (
-                      <option value={city} key={index}>
-                        {city}
-                      </option>
-                    ))}
-                  </select>
-                <p className="text-[16px] text-red-500 mt-1"> {errors.city && <p>{errors.city?.message}</p>}</p></div> </div>
-              </div>
-              </div>
-             
-                <div className="">
+              <div className="">
                 <div className="flex items-center">
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
                     Subarea
                   </label>
                   <select
                     className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("Subarea", {
+                    {...register("subarea", {
                       required: "subarea is required",
                     })}
                     defaultValue=""
@@ -459,7 +500,8 @@ function Addrooms() {
                 </div>
                 {errors.subarea && <p>{errors.subarea?.message}</p>}
               </div>
-              <FormInput className=""
+              <FormInput
+                className=""
                 label="Address"
                 type="text"
                 placeholder="Enter Address"
@@ -468,7 +510,7 @@ function Addrooms() {
                 })}
                 errorMessage={errors.address?.message}
               />
-              
+
               <FormInput
                 label="Posted By"
                 type="text"
@@ -478,7 +520,6 @@ function Addrooms() {
                 })}
                 errorMessage={errors.postedby?.message}
               />
-             
             </article>
           </div>
           <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4">
@@ -499,7 +540,9 @@ function Addrooms() {
                 label="Description"
                 type="area"
                 placeholder="Description"
-                {...register("area", { required: "Description is required" })}
+                {...register("description", {
+                  required: "Description is required",
+                })}
                 // errorMessage={errors.area?.message}
               />
             </article>

@@ -4,8 +4,6 @@ import { FaFacebook } from "react-icons/fa";
 import { TbBrandTwitter } from "react-icons/tb";
 import { IoCloseCircleSharp } from "react-icons/io5";
 
-
-
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,29 +11,46 @@ import {
 } from "react-share";
 const ShareComponent = ({ url, title, onClose }) => {
   return (
-    <div className="flex justify-between gap-20">
+    <div className="grid grid-cols-3 gap-4 max-w-2xl relative px-2">
       <div className="text-green-600 text-[25px] font-bold items-center justify-center w-full hover:text-black">
-      <WhatsappShareButton className="flex flex-col gap-2 items-center justify-center" url={url} title={title}>
-         <FaWhatsapp size={32} className="items-center"/>
-         <p>WhatsApp</p>
-      </WhatsappShareButton>
+        <WhatsappShareButton
+          className="flex flex-col gap-2 items-center justify-center"
+          url={url}
+          title={title}
+        >
+          <FaWhatsapp size={32} className="items-center" />
+          <p className=" text-xl">WhatsApp</p>
+        </WhatsappShareButton>
       </div>
-      
+
       <div className="text-blue-600 text-[25px] font-bold items-center hover:text-black">
-      <FacebookShareButton className="flex flex-col gap-2 items-center justify-center" url={url} quote={title}>
-        <FaFacebook size={32}/>
-        <p>Facebook</p>
-      </FacebookShareButton>
+        <FacebookShareButton
+          className="flex flex-col gap-2 items-center justify-center"
+          url={url}
+          quote={title}
+        >
+          <FaFacebook size={32} />
+          <p className=" text-xl">Facebook</p>
+        </FacebookShareButton>
       </div>
 
       <div className="text-red-600 text-[25px] font-bold items-center hover:text-black">
-      <TwitterShareButton className="flex flex-col gap-2 items-center justify-center" url={url} title={title}>
-        <TbBrandTwitter size={32}/>
-        <p>Twitter</p>
-      </TwitterShareButton>
+        <TwitterShareButton
+          className="flex flex-col gap-2 items-center justify-center"
+          url={url}
+          title={title}
+        >
+          <TbBrandTwitter size={32} />
+          <p className=" text-xl">Twitter</p>
+        </TwitterShareButton>
       </div>
-      <div className="items-end top-0">
-      <button onClick={onClose}><IoCloseCircleSharp size={35} className="font-bold hover:text-red-800"/></button>
+      <div className=" absolute right-0 top-0">
+        <button onClick={onClose}>
+          <IoCloseCircleSharp
+            size={35}
+            className="font-bold hover:text-red-800"
+          />
+        </button>
       </div>
     </div>
   );

@@ -10,6 +10,14 @@ function Ads() {
   const name = useSelector((state) => state.auth.user);
   const [cty, setcty] = useState([]);
 
+  useEffect(() => {
+    const fetchdata = async () => {
+      const res = await fetchcity();
+      setcty(res.data.city);
+      console.log()
+    };
+  }, []);
+
   return (
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">
       <Link to={"/"} className="bg-cover bg-center">
