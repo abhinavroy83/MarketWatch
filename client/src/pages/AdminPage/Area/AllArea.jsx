@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function AllArea() {
   const { handleSubmit, register } = useForm();
   const [data, setData] = useState([]);
+  const [filterstate, setfilterstate] = useState([]);
   const [Filtercity, setFiltercity] = useState([]);
   const [selectedstate, setSelectedstate] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -22,13 +23,20 @@ function AllArea() {
       const dta = await fetchcity();
       //   console.log(dta.data.city);
       setData(dta.data.city);
+      const uniquestate = Array.from(
+        new Set(dta.data.city.map((item) => item.state))
+      );
+      setfilterstate(uniquestate);
     };
     fetchdata();
   }, []);
   //   console.log(data);
   useEffect(() => {
     const filtercity = data.filter((item) => item.state === selectedstate);
-    setFiltercity(filtercity);
+    // console.log(filtercity);
+    const uniquecity = [...new Set(filtercity.map((item) => item.city))];
+    console.log(uniquecity);
+    setFiltercity(uniquecity);
   }, [selectedstate]);
 
   useEffect(() => {
@@ -42,36 +50,46 @@ function AllArea() {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <p>Here you can Add Area</p>
-        <button
-          onClick={() => {
-            navigate("/admin/addarea");
-          }}
-        >
-          Add Area
-        </button>
+        <div className=" flex justify-between ">
+          <p>Here you can Add Area</p>
+          <button
+            onClick={() => {
+              navigate("/admin/addarea");
+            }}
+            className=" bg-red-600 text-white"
+          >
+            Add Area
+          </button>
+        </div>
 
         <p>List of Avaible Area</p>
         <form className=" grid grid-cols-4 gap-1">
           <div className=" flex flex-col border-red-500 border-2 max-w-28">
             <p>Country</p>
-            <select name="" id="">
-              <option value="Usa">USA</option>
-            </select>
+            <ul>
+              <li>Usa</li>
+            </ul>
           </div>
           <div className=" flex flex-col border-red-500 border-2  max-w-36">
             <p>List of avl State</p>
-            <select onChange={(e) => setSelectedstate(e.target.value)}>
+            {/* <select onChange={(e) => setSelectedstate(e.target.value)}>
               <option>select State</option>
               {data.map((item) => (
                 <option value={item.state} key={item._id}>
                   {item.state}
                 </option>
               ))}
-            </select>
+            </select> */}
             <ul>
-              {data.map((item, index) => (
-                <li key={index}>{item.state}</li>
+              {filterstate.map((state, index) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setSelectedstate(state);
+                  }}
+                >
+                  {state}
+                </li>
               ))}
             </ul>
           </div>
@@ -80,17 +98,17 @@ function AllArea() {
               List of city in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
-            <select onChange={(e) => setSelectedCity(e.target.value)}>
-              {Filtercity.map((item, index) => (
-                <option value={item.city} key={item._id}>
-                  {item.city}
+            {/* <select onChange={(e) => setSelectedCity(e.target.value)}>
+              {Filtercity.map((city, index) => (
+                <option value={city} key={index}>
+                  {city}
                 </option>
               ))}
-            </select>
+            </select> */}
             <ul>
-              {Filtercity.map((item, index) => (
-                <li key={item._id} value={item.city}>
-                  {item.city}
+              {Filtercity.map((city, index) => (
+                <li key={index} value={city}>
+                  {city}
                 </li>
               ))}
             </ul>
