@@ -29,7 +29,7 @@ function Login() {
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
     try {
-      const res = await axios.post("https://marketwatch-e3hc.onrender.com/user/login", data);
+      const res = await axios.post("http://localhost:8000/user/login", data);
       if (res.data.status == "success") {
         // console.log(res.data.data._id);
         toast.success("Successfully logged");

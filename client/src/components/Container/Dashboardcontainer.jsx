@@ -12,6 +12,7 @@ function DashConatiner({ children }) {
   const navigate = useNavigate();
   const { userID } = useParams();
   // console.log(userID);
+  http://localhost:8000
   return (
     <div className="mt-52 mx-auto px-4 flex max-w-[1600px] h-[700px] w-full m-auto overflow-hidden">
       <div className=" w-1/4 h-[900px] bg-[#0b5e86] border-2  p-2 flex flex-col font-roboto items-center">

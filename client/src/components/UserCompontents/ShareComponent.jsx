@@ -44,7 +44,7 @@ const ShareComponent = ({ url, title, onClose }) => {
           <p className=" text-xl">Twitter</p>
         </TwitterShareButton>
       </div>
-      <div className=" absolute right-0 top-0">
+      <div className=" absolute right-0 top-0 ">
         <button onClick={onClose}>
           <IoCloseCircleSharp
             size={35}
