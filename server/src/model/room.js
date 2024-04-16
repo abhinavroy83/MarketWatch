@@ -25,7 +25,7 @@ const roomSchema = mongoose.Schema({
   description: { type: String, required: true },
   postedon: { type: Date, default: Date.now },
   email: { type: String, required: true },
-  number: { type: String, required: true },
+  number: { type: String, required: true },    
   location: {
     type: {
       type: String,

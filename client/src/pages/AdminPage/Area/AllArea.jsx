@@ -17,8 +17,12 @@ function AllArea() {
   const [selectedCity, setSelectedCity] = useState("");
   const [Filteresub, setFiltersub] = useState("");
   const [ismodelopen, setismodalopen] = useState(false);
-
   const navigate = useNavigate();
+
+  const selcedata = {
+    state: selectedstate,
+    area: selectedCity,
+  };
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -55,7 +59,7 @@ function AllArea() {
 
   return (
     <div>
-      <Addsuburbs isOpen={ismodelopen} onClose={onclose} />
+      <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
       <AdminHeader />
       <AdminDashboard>
         <div className=" flex justify-between ">

@@ -9,7 +9,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
 
-
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const userID = useSelector((state) => state.auth.userId);
@@ -19,7 +18,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const unnotify = () => toast("Remove from Wishlist.");
 
   const makewishlist = async (_id) => {
-    console.log(_id);
+    // console.log(_id);
     try {
       const dat = {
         roomId: _id,
@@ -42,7 +41,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       console.log(error);
     }
   };
-  const unwish = async () => {
+  const unwish = async (_id) => {
     try {
       const res = await axios.delete(
         `http://localhost:8000/api/deletelist/${_id}`
@@ -176,43 +175,43 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               className="text-red-500 flex absolute bottom-3 right-3 hover:text-black"
             />
           ) : null} */}
-          <div className="absolute bottom-3 right-6">
-              {!wishliststatys ? (
-                <div
-                  className="cursor-pointer p-2 bg-red-600 rounded-full"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    makewishlist(item._id);
-                  }}
-                >
-                  <FaHeart color="#fff" size={25} />
-                </div>
-              ) : (
-                <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    unwish(item._id);
-                  }}
-                >
-                  <FaHeart color="red" size={25} />
-                </div>
-              )}
-          </div>    
-          <img
-            className="flex absolute bottom-14 right-6"
-            height={45}
-            width={45}
-            src={
-              item.gender === "female"
-                ? femaleLogo
-                : item.gender === "male"
-                ? maleLogo
-                : femaleLogo
-            }
-            alt=""
-          />
+        <div className="absolute bottom-3 right-6">
+          {!wishliststatys ? (
+            <div
+              className="cursor-pointer p-2 bg-red-600 rounded-full"
+              onClick={(e) => {
+                e.preventDefault();
+                makewishlist(item._id);
+              }}
+            >
+              <FaHeart color="#fff" size={25} />
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer p-2 border border-gray-300 rounded-full"
+              onClick={(e) => {
+                e.preventDefault();
+                unwish(item._id);
+              }}
+            >
+              <FaHeart color="red" size={25} />
+            </div>
+          )}
         </div>
+        <img
+          className="flex absolute bottom-14 right-6"
+          height={45}
+          width={45}
+          src={
+            item.gender === "female"
+              ? femaleLogo
+              : item.gender === "male"
+              ? maleLogo
+              : femaleLogo
+          }
+          alt=""
+        />
+      </div>
     </Link>
   );
 }

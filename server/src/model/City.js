@@ -23,7 +23,7 @@ const cityschema = new mongoose.Schema({
   },
   subarea: {
     type: String,
-    require: true,
+    // require: true,
   },
 });
 

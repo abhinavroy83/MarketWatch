@@ -6,15 +6,19 @@ import {
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import jsoncity from "../../User/UserProfile/city.json";
+import { useSelector } from "react-redux";
 
 function AddArea() {
   const [state, setstate] = useState([]);
   const [selectedstate, setSelectedstate] = useState("");
   const [citydata, setCitydata] = useState("");
+  const token = useSelector((state) => state.adminauth.token);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm();
 
   const fetchstate = async () => {
@@ -38,16 +42,36 @@ function AddArea() {
     }
   };
 
-  useEffect(() => {
-    const fetchcity = async () => {
-      const res = await jsoncity[selectedstate];
-      setCitydata(res.sort());
-    };
-    fetchcity();
-  }, [selectedstate]);
+  // useEffect(() => {
+  //   const fetchcity = async () => {
+  //     const res = await jsoncity[selectedstate];
+  //     setCitydata(res.sort());
+  //   };
+  //   fetchcity();
+  // }, [selectedstate]);
 
   const onsubmit = async (data) => {
     console.log(data);
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/api/admin/postcity`,
+        data,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (res) {
+        alert("added area succesfully");
+        reset();
+      }
+    } catch (error) {
+      console.log("error during addign area", error);
+    }
   };
 
   useEffect(() => {
@@ -97,7 +121,7 @@ function AddArea() {
               ))}
             </select>
           </div>
-          <div>
+          {/* <div>
             <p>Select city</p>
             <select
               defaultValue={""}
@@ -110,6 +134,14 @@ function AddArea() {
                 citydata.length > 0 &&
                 citydata.map((item) => <option value="item">{item}</option>)}
             </select>
+          </div> */}
+          <div>
+            <label htmlFor="">Area</label>
+            <input
+              type=" text"
+              {...register("city")}
+              placeholder="Type Area here"
+            />
           </div>
           <button type="submit">Create Area</button>
         </form>
