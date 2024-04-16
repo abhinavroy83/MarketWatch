@@ -272,6 +272,10 @@ function Addrooms() {
                       <label className="min-w-[120px] text-[21px]">
                         Utilities
                       </label>
+                      <article className="relative">
+                    <span className="absolute top-2 left-0 flex items-center pl-1 text-gray-500">
+                      $
+                    </span>
                       <input
                         type="text"
                         {...register("utilities", {
@@ -279,6 +283,7 @@ function Addrooms() {
                         })}
                         className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       />
+                       </article>
                     </div>
                   )}
                   <div className="flex gap-3 items-center ml-7">
@@ -435,7 +440,11 @@ function Addrooms() {
                       ))}
                     </select>
                   </div>
-                  {errors.state && <p>{errors.state?.message}</p>}
+                  <p className="text-[16px] text-red-500 mt-1">
+                        {" "}
+                        {errors.state && <p>{errors.state?.message}</p>}
+                      </p>
+                  {/* {errors.state && <p>{errors.state?.message}</p>} */}
                 </div>
 
                 <div>
@@ -480,25 +489,31 @@ function Addrooms() {
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
                     Subarea
                   </label>
-                  <select
-                    className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("subarea", {
-                      required: "subarea is required",
-                    })}
-                    defaultValue=""
-                    // onChange={handlecities}
-                  >
-                    <option value="" disabled hidden>
-                      Select Subarea
-                    </option>
-                    {filtersubarea.map((subarea, index) => (
-                      <option value={subarea} key={index}>
-                        {subarea}
+                  <div>
+                    <select
+                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("subarea", {
+                        required: "subarea is required",
+                      })}
+                      defaultValue=""
+                      // onChange={handlecities}
+                    >
+                      <option value="" disabled hidden>
+                        Select Subarea
                       </option>
-                    ))}
-                  </select>
+                      {filtersubarea.map((subarea, index) => (
+                        <option value={subarea} key={index}>
+                          {subarea}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="text-[16px] text-red-500 mt-1">
+                      {" "}
+                      {errors.subarea && <p>{errors.subarea?.message}</p>}
+                    </p>
+                  </div>
                 </div>
-                {errors.subarea && <p>{errors.subarea?.message}</p>}
+                
               </div>
               <FormInput
                 className=""
@@ -522,35 +537,53 @@ function Addrooms() {
               />
             </article>
           </div>
-          <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4">
-            <p className="text-2xl  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
+          <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4 pb-0">
+            <p className="text-2xl bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
               Add Description-
             </p>
-            <article className="flex justify-between gap-4 items-center mt-5 px-4">
-              <FormInput
+            <article className="gap-4 items-center mt-5 px-4">
+              {/* <FormInput
                 className=""
                 label="Your Title"
                 placeholder="Title"
                 type="text"
                 {...register("Title", { required: "Title is required" })}
                 // errorMessage={errors.AdName?.message}
+              /> */}
+             <div className="">
+              <label className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block" htmlFor="">
+              Title
+              </label>
+              <input className="font-roboto h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                label="Title"
+                type="text"
+                placeholder="Title"
+                {...register("description", {
+                  required: "Title is required",
+                })}
+                // errorMessage={errors.area?.message}
               />
-              <FormInput
+             </div> 
+             <div className="mt-5"> 
+              <label className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block" htmlFor="">
+              Description
+              </label>
+              <input className=" h-[100px] font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                 label="Description"
-                type="area"
+                type="textarea"
                 placeholder="Description"
                 {...register("description", {
                   required: "Description is required",
                 })}
                 // errorMessage={errors.area?.message}
               />
+              </div>
             </article>
           </div>
-
           <button
             type="submit"
-            className="rounded-md bg-green-800 my-7 mt-4 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-green-800 my-7 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>
