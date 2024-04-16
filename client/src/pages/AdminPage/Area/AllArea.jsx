@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { useNavigate } from "react-router-dom";
+import Addsuburbs from "./Addsuburbs";
 
 function AllArea() {
   const { handleSubmit, register } = useForm();
@@ -15,6 +16,7 @@ function AllArea() {
   const [selectedstate, setSelectedstate] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [Filteresub, setFiltersub] = useState("");
+  const [ismodelopen, setismodalopen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,8 +49,13 @@ function AllArea() {
   }, [selectedCity, selectedstate]);
   //   console.log(selectedCity);
 
+  const onclose = () => {
+    setismodalopen(false);
+  };
+
   return (
     <div>
+      <Addsuburbs isOpen={ismodelopen} onClose={onclose} />
       <AdminHeader />
       <AdminDashboard>
         <div className=" flex justify-between ">
@@ -73,14 +80,6 @@ function AllArea() {
           </div>
           <div className=" flex flex-col border-red-500 border-2 max-w-36">
             <p>List of avl State</p>
-            {/* <select onChange={(e) => setSelectedstate(e.target.value)}>
-              <option>select State</option>
-              {data.map((item) => (
-                <option value={item.state} key={item._id}>
-                  {item.state}
-                </option>
-              ))}
-            </select> */}
             <ul>
               {filterstate.map((state, index) => (
                 <li
@@ -102,13 +101,6 @@ function AllArea() {
               List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
-            {/* <select onChange={(e) => setSelectedCity(e.target.value)}>
-              {Filtercity.map((city, index) => (
-                <option value={city} key={index}>
-                  {city}
-                </option>
-              ))}
-            </select> */}
             <ul>
               {Filtercity.map((city, index) => (
                 <li
@@ -127,7 +119,15 @@ function AllArea() {
             </ul>
           </div>
           <div className=" flex flex-col border-red-500 border-2 ">
-            <button className="">AddSubrs</button>
+            <button
+              className=" bg-green-500 border-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setismodalopen(true);
+              }}
+            >
+              AddSubrs
+            </button>
             <p>List of Suburbs</p>
             <ul>
               {Filteresub.length > 0 &&
