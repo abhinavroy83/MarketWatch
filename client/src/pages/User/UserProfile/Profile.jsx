@@ -153,7 +153,7 @@ function Profile() {
     <DashConatiner>
       <div className="px-10 overflow-y-scroll">
         <div className="flex justify-center">
-          <h1 className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-5 font-roboto">
+          <h1 className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-roboto">
             Your Profile
           </h1>
           
