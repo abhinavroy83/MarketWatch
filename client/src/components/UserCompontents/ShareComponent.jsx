@@ -11,7 +11,7 @@ import {
 } from "react-share";
 const ShareComponent = ({ url, title, onClose }) => {
   return (
-    <div className="grid grid-cols-3 gap-4 max-w-2xl relative px-2">
+    <div className="grid grid-cols-3 gap-4 max-w-2xl relative px-0">
       <div className="text-green-600 text-[25px] font-bold items-center justify-center w-full hover:text-black">
         <WhatsappShareButton
           className="flex flex-col gap-2 items-center justify-center"
