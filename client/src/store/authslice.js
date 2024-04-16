@@ -34,6 +34,9 @@ const authSlice = createSlice({
       state.isverified = null;
       state.userimg = null;
     },
+    UserImage: (state, action) => {
+      state.userimg = action.payload.userimg;
+    },
     location: (state, action) => {
       state.location = action.payload.location;
     },
@@ -43,6 +46,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout, location, cities } = authSlice.actions;
+export const { login, logout, location, UserImage, cities } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -20,9 +20,11 @@ function AllArea() {
   const navigate = useNavigate();
 
   const selcedata = {
+    country: "Usa",
     state: selectedstate,
     area: selectedCity,
   };
+  // console.log(selcedata);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -36,6 +38,14 @@ function AllArea() {
     };
     fetchdata();
   }, []);
+
+  const onAddSuburbClick = () => {
+    if (!selcedata.state || !selcedata.area) {
+      alert("Please select both state and city");
+    } else {
+      setismodalopen(true);
+    }
+  };
   //   console.log(data);
 
   useEffect(() => {
@@ -124,10 +134,10 @@ function AllArea() {
           </div>
           <div className=" flex flex-col border-red-500 border-2 ">
             <button
-              className=" bg-green-500 border-2"
+              className="bg-green-500 border-2"
               onClick={(e) => {
                 e.preventDefault();
-                setismodalopen(true);
+                onAddSuburbClick();
               }}
             >
               AddSubrs

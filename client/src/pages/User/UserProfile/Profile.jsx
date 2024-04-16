@@ -5,7 +5,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import jsoncity from "./city.json";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../../store/authslice";
+import { UserImage, login } from "../../../store/authslice";
 
 function Profile() {
   const { userID } = useParams();
@@ -28,7 +28,7 @@ function Profile() {
   const fetchuser = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/user/dashboard/profile/${userID}`
+        `https://marketwatch-e3hc.onrender.com/user/dashboard/profile/${userID}`
       );
       setdata(res.data.user);
     } catch (error) {
@@ -48,7 +48,7 @@ function Profile() {
       console.log(error);
     }
   };
-
+  
   const toggleEdit = () => {
     setisedit(!isedit);
   };
@@ -102,7 +102,7 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        `http://localhost:8000/user/updateuser/${userID}`,
+        `https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
         formdt,
         {
           headers: {
@@ -112,7 +112,9 @@ function Profile() {
         }
       );
       if (res) {
+        console.log(res);
         alert("updated successfuly");
+        dispatch(UserImage({ userimg: res.data.userimg }));
         navigate(`/myaccount/${userID}`);
       }
     } catch (error) {
@@ -156,7 +158,6 @@ function Profile() {
           <h1 className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-roboto">
             Your Profile
           </h1>
-          
         </div>
         {!data.isVerified && (
           <p className="font-roboto text-red-600 text-lg py-3">
@@ -293,8 +294,11 @@ function Profile() {
                     className="flex h-10 font-roboto w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("state")}
                     onChange={handlestatechange}
-                    defaultValue={data.state}
+                    defaultValue={""}
                   >
+                    <option value="" disabled hidden>
+                      Select State
+                    </option>{" "}
                     {states.map((state) => (
                       <option key={state.ste_name} value={state.ste_name}>
                         {state.ste_name}
@@ -311,8 +315,11 @@ function Profile() {
                   <select
                     className="flex h-10 font-roboto w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("city")}
-                    defaultValue={data.city}
+                    defaultValue={""}
                   >
+                    <option value="" disabled hidden>
+                      Select City
+                    </option>
                     {citys &&
                       citys.length > 0 &&
                       citys.map((cty) => (
@@ -358,7 +365,9 @@ function Profile() {
             </div>
           ) : (
             <div className="font-roboto">
-              <p className="text-[20px] p-2 text-red-600">Please verify your email </p>
+              <p className="text-[20px] p-2 text-red-600">
+                Please verify your email{" "}
+              </p>
             </div>
           )}
 

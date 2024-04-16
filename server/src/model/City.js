@@ -25,6 +25,12 @@ const cityschema = new mongoose.Schema({
     type: String,
     // require: true,
   },
+  zipcode: {
+    type: String,
+  },
+  area: {
+    type: String,
+  },
 });
 
 const City = mongoose.model("city", cityschema);

@@ -2,13 +2,16 @@ const City = require("../../model/City");
 
 const postcity = async (req, res) => {
   try {
-    const { country, state, city } = req.body;
+    const { country, state, city, subarea, zipcode, area } = req.body;
     const AdminID = req.user.user._id;
     const newcity = await City.create({
       AdminID,
       country,
       state,
       city,
+      subarea,
+      zipcode,
+      area,
     });
     res.json({
       city: newcity,

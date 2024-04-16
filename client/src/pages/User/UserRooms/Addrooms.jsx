@@ -81,7 +81,7 @@ function Addrooms() {
     console.log(roomdata);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/addrooms",
+        "https://marketwatch-e3hc.onrender.com/api/addrooms",
         roomdata,
         {
           headers: {
@@ -273,17 +273,17 @@ function Addrooms() {
                         Utilities
                       </label>
                       <article className="relative">
-                    <span className="absolute top-2 left-0 flex items-center pl-1 text-gray-500">
-                      $
-                    </span>
-                      <input
-                        type="text"
-                        {...register("utilities", {
-                          required: "utilities required",
-                        })}
-                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      />
-                       </article>
+                        <span className="absolute top-2 left-0 flex items-center pl-1 text-gray-500">
+                          $
+                        </span>
+                        <input
+                          type="text"
+                          {...register("utilities", {
+                            required: "utilities required",
+                          })}
+                          className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        />
+                      </article>
                     </div>
                   )}
                   <div className="flex gap-3 items-center ml-7">
@@ -441,9 +441,9 @@ function Addrooms() {
                     </select>
                   </div>
                   <p className="text-[16px] text-red-500 mt-1">
-                        {" "}
-                        {errors.state && <p>{errors.state?.message}</p>}
-                      </p>
+                    {" "}
+                    {errors.state && <p>{errors.state?.message}</p>}
+                  </p>
                   {/* {errors.state && <p>{errors.state?.message}</p>} */}
                 </div>
 
@@ -513,7 +513,6 @@ function Addrooms() {
                     </p>
                   </div>
                 </div>
-                
               </div>
               <FormInput
                 className=""
@@ -551,33 +550,39 @@ function Addrooms() {
                 {...register("Title", { required: "Title is required" })}
                 // errorMessage={errors.AdName?.message}
               /> */}
-             <div className="">
-              <label className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block" htmlFor="">
-              Title
-              </label>
-              <input className="font-roboto h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                label="Title"
-                type="text"
-                placeholder="Title"
-                {...register("description", {
-                  required: "Title is required",
-                })}
-                // errorMessage={errors.area?.message}
-              />
-             </div> 
-             <div className="mt-5"> 
-              <label className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block" htmlFor="">
-              Description
-              </label>
-              <input className=" h-[100px] font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                label="Description"
-                type="textarea"
-                placeholder="Description"
-                {...register("description", {
-                  required: "Description is required",
-                })}
-                // errorMessage={errors.area?.message}
-              />
+              <div className="">
+                <label
+                  className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Title
+                </label>
+                <input
+                  className="font-roboto h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  label="Title"
+                  type="text"
+                  placeholder="Title"
+                  {...register("description", {
+                    required: "Title is required",
+                  })}
+                  // errorMessage={errors.area?.message}
+                />
+              </div>
+              <div className="mt-5">
+                <label
+                  className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Description
+                </label>
+                <textarea
+                  className="h-100px font-roboto w-400px text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  name="description"
+                  placeholder="Description"
+                  {...register("description", {
+                    required: "Description is required",
+                  })}
+                />
               </div>
             </article>
           </div>
