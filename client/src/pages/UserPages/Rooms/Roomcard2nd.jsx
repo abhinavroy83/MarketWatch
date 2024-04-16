@@ -59,10 +59,11 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         <h1 className="text-[23px] font-roboto text-gray-700 mt-1">
           {item.city}
         </h1>
-        <div className="flex gap-2 text-blue-800 text-[23px] mt-1">
-          <p>By : {item.postedby}</p>
-          <p> {calculateTimeDifference(item.postedon)}</p>
+        <div className="flex gap-2 text-blue-800 text-[23px] items-center">
+          <p className="text-blue-800 text-xl items-center">By : {item.postedby}</p>
+          {/* <p className="text-blue-800 text-base items-center"> {calculateTimeDifference(item.postedon)}</p> */}
         </div>
+        <p className="text-blue-800 text-base items-center mt-1"> {calculateTimeDifference(item.postedon)}</p>
       </div>
       <div className="flex gap-4 justify-center items-center">
         <p className="text-[23px] text-green-600 font-roboto font-bold mr-3">
