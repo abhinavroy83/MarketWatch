@@ -16,6 +16,7 @@ function AllArea() {
   const [selectedstate, setSelectedstate] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [Filteresub, setFiltersub] = useState("");
+  const [filterarea, setfilterarea] = useState("");
   const [ismodelopen, setismodalopen] = useState(false);
   const navigate = useNavigate();
 
@@ -63,6 +64,12 @@ function AllArea() {
   }, [selectedCity, selectedstate]);
   //   console.log(selectedCity);
 
+  useEffect(() => {
+    const filterarea = data.filter((item) => item.city === selectedCity);
+    // console.log(filterarea);
+    setfilterarea(filterarea);
+  }, [selectedCity, selectedstate]);
+
   const onclose = () => {
     setismodalopen(false);
   };
@@ -87,13 +94,13 @@ function AllArea() {
         <p>List of Avaible Area</p>
         <form className=" grid grid-cols-4 gap-1">
           <div className=" flex flex-col border-red-500 border-2 max-w-28">
-            <p>Country</p>
+            <p className=" bg-fuchsia-500">Country</p>
             <ul>
-              <li>Usa</li>
+              <li className=" bg-red-500">Usa</li>
             </ul>
           </div>
           <div className=" flex flex-col border-red-500 border-2 max-w-36">
-            <p>List of avl State</p>
+            <p className=" bg-fuchsia-500">List of avl State</p>
             <ul>
               {filterstate.map((state, index) => (
                 <li
@@ -111,7 +118,7 @@ function AllArea() {
             </ul>
           </div>
           <div className=" flex flex-col border-red-500 border-2  max-w-36">
-            <p>
+            <p className=" bg-fuchsia-500">
               List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
@@ -142,11 +149,20 @@ function AllArea() {
             >
               AddSubrs
             </button>
-            <p>List of Suburbs</p>
+            <p className=" bg-fuchsia-500">List of Suburbs</p>
             <ul>
               {Filteresub.length > 0 &&
                 Filteresub.map((item, index) => (
                   <li key={index}>{item.subarea}</li>
+                ))}
+            </ul>
+          </div>
+          <div className=" flex flex-col border-red-500 border-2 ">
+            <p className=" bg-fuchsia-500">List of Area</p>
+            <ul>
+              {filterarea.length > 0 &&
+                filterarea.map((item, index) => (
+                  <li key={index}>{item.area}</li>
                 ))}
             </ul>
           </div>
