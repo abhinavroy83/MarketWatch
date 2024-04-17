@@ -17,6 +17,7 @@ function AllArea() {
   const [selectedCity, setSelectedCity] = useState("");
   const [Filteresub, setFiltersub] = useState("");
   const [filterarea, setfilterarea] = useState("");
+  const [filterpin, setfilterpin] = useState("");
   const [ismodelopen, setismodalopen] = useState(false);
   const navigate = useNavigate();
 
@@ -47,27 +48,25 @@ function AllArea() {
       setismodalopen(true);
     }
   };
-  //   console.log(data);
 
   useEffect(() => {
     const filtercity = data.filter((item) => item.state === selectedstate);
     // console.log(filtercity);
     const uniquecity = [...new Set(filtercity.map((item) => item.city))];
-    // console.log(uniquecity);
     setFiltercity(uniquecity);
   }, [selectedstate]);
 
   useEffect(() => {
     const filtersubarea = data.filter((item) => item.city === selectedCity);
     setFiltersub(filtersubarea);
-    // console.log(filtersubarea);
-  }, [selectedCity, selectedstate]);
-  //   console.log(selectedCity);
-
-  useEffect(() => {
     const filterarea = data.filter((item) => item.city === selectedCity);
     // console.log(filterarea);
-    setfilterarea(filterarea);
+    const uniquearea = [...new Set(filterarea.map((item) => item.area))];
+    setfilterarea(uniquearea);
+  }, [selectedCity, selectedstate]);
+
+  useEffect(() => {
+    // console.log(filterarea);
   }, [selectedCity, selectedstate]);
 
   const onclose = () => {
@@ -161,8 +160,15 @@ function AllArea() {
             <p className=" bg-fuchsia-500">List of Area</p>
             <ul>
               {filterarea.length > 0 &&
-                filterarea.map((item, index) => (
-                  <li key={index}>{item.area}</li>
+                filterarea.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+          </div>
+          <div className=" flex flex-col border-red-500 border-2 ">
+            <p className=" bg-fuchsia-500">List of Availble Zipcode</p>
+            <ul>
+              {Filteresub.length > 0 &&
+                Filteresub.map((item, index) => (
+                  <li key={index}>{item.zipcode}</li>
                 ))}
             </ul>
           </div>
