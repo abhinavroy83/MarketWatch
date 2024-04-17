@@ -8,7 +8,7 @@ function AdminHeader() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div className=" w-full bg-gray-400 shadow-2xl font-[Roboto] fixed">
+    <div className="w-full bg-[#0b5e86] shadow-2xl font-[Roboto] fixed">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <Link to={"/"} className="inline-flex items-center space-x-2">
           <img
@@ -26,13 +26,14 @@ function AdminHeader() {
               onClick={() => {
                 navigate("/admin/dashboard");
               }}
-              className="rounded-md bg-transparent text-base/7 px-3 py-2 font-semibold text-black hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-transparent text-[20px] px-3 py-2 text-white hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Admin Home
             </button>
           </ul>
         </div>
         <div>
+
           <button
             type="button"
             onClick={() => {
@@ -40,7 +41,7 @@ function AdminHeader() {
               localStorage.removeItem("admindetails");
               navigate("/admin/login");
             }}
-            className="rounded-md text-xl px-3 py-2 text-black font-medium transition duration-300 ease-in-out hover:text-white hover:bg-gray-900 hover:shadow-md"
+            className="rounded-md text-xl px-3 py-2 text-white hover:bg-white hover:text-[#0b5e86] font-medium transition duration-300 ease-in-out hover:shadow-md"
           >
             Log Out
           </button>

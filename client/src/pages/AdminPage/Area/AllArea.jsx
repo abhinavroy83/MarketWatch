@@ -78,21 +78,21 @@ function AllArea() {
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
       <AdminHeader />
       <AdminDashboard>
-        <div className=" flex justify-between ">
-          <p>Here you can Add Area</p>
+        <div className="mx-7 mt-6 flex justify-between">
+          <p className="text-3xl font-bold text-[#0b5e86] font-roboto">Add Area Details Here -</p>
           <button
             onClick={() => {
               navigate("/admin/addarea");
             }}
-            className=" bg-red-600 text-white"
+            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add Area
           </button>
         </div>
 
-        <p>List of Avaible Area</p>
-        <form className=" grid grid-cols-4 gap-1">
-          <div className=" flex flex-col border-red-500 border-2 max-w-28">
+        <p className="mx-7 text-2xl font-bold text-[#0b5e86] font-roboto">List of Avaible Area</p>
+        <form className="grid grid-cols-4 gap-1">
+          <div className="mx-7 flex flex-col border-red-500 border-2 max-w-28">
             <p className=" bg-fuchsia-500">Country</p>
             <ul>
               <li className=" bg-red-500">Usa</li>
@@ -104,9 +104,8 @@ function AllArea() {
               {filterstate.map((state, index) => (
                 <li
                   key={index}
-                  className={`cursor-pointer ${
-                    selectedstate === state ? "bg-red-500" : ""
-                  }`}
+                  className={`cursor-pointer ${selectedstate === state ? "bg-red-500" : ""
+                    }`}
                   onClick={() => {
                     setSelectedstate(state);
                   }}
@@ -126,9 +125,8 @@ function AllArea() {
                 <li
                   key={index}
                   value={city}
-                  className={`cursor-pointer ${
-                    selectedCity === city ? "bg-red-500" : ""
-                  }`}
+                  className={`cursor-pointer ${selectedCity === city ? "bg-red-500" : ""
+                    }`}
                   onClick={() => {
                     setSelectedCity(city);
                   }}

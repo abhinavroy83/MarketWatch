@@ -14,7 +14,7 @@ function AdminHome() {
     <div className="font-roboto text-[20px]">
       <AdminHeader />
       <AdminDashboard>
-        <div className="text-red-700 font-bold text-[27px] pl-4 mt-4 items-center justify-center text-center">
+        <div className="text-[#0b5e86] font-bold text-[30px] mt-4 items-center justify-center text-center">
           <p className="border-b-2 border-gray-500 pb-4">Home Page</p> <hr className="text-black"></hr>
           <p className="mt-4">Welcome , {role}</p>
         </div>

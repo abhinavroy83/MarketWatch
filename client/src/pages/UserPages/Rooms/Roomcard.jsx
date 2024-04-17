@@ -117,9 +117,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg items-start ${
-        isRoomOnlyPage ? "items-start" : "items-center"
-      }`}
+      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg items-start ${isRoomOnlyPage ? "items-start" : "items-center"
+        }`}
     >
       <img
         src={item.PrdImage}
@@ -142,13 +141,12 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         src={femaleLogo}
         alt=""
       /> */}
-      <p className="absolute  p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
+      <p className="absolute p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
         {item.rent}
       </p>
       <div
-        className={`px-4 py-2 flex flex-col ${
-          isRoomOnlyPage ? "mt-4" : ""
-        } w-full`}
+        className={`px-4 py-2 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""
+          } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
         <h1 className="inline-flex items-center text-[23px] mt-4 font-roboto">
@@ -158,8 +156,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <p className="text-[23px] text-gray-700 mt-2 font-roboto">
           {item.city}, {item.State}
         </p>
-        <p className="text-blue-800 text-xl mt-2">By : {item.postedby}</p>
-        <p className="text-blue-800 text-base mt-1">
+        <p className="text-blue-800 text-2xl mt-2">By : {item.postedby}</p>
+        <p className="text-blue-800 text-2xl">
           {" "}
           {calculateTimeDifference(item.postedon)}
         </p>
@@ -206,8 +204,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
             item.gender === "female"
               ? femaleLogo
               : item.gender === "male"
-              ? maleLogo
-              : femaleLogo
+                ? maleLogo
+                : femaleLogo
           }
           alt=""
         />

@@ -496,7 +496,7 @@ function Addrooms() {
                         required: "subarea is required",
                       })}
                       defaultValue=""
-                      // onChange={handlecities}
+                    // onChange={handlecities}
                     >
                       <option value="" disabled hidden>
                         Select Subarea
@@ -565,18 +565,18 @@ function Addrooms() {
                   {...register("description", {
                     required: "Title is required",
                   })}
-                  // errorMessage={errors.area?.message}
+                // errorMessage={errors.area?.message}
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-5 flex items-center">
                 <label
-                  className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[120px] items-center justify-center font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description
                 </label>
                 <textarea
-                  className="h-100px font-roboto w-400px text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="h-100px w-[400px] text-[21px] font-roboto items-center justify-center text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   name="description"
                   placeholder="Description"
                   {...register("description", {
