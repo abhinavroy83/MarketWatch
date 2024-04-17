@@ -8,12 +8,12 @@ function AdminDashboard({ children }) {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 flex justify-center items-center h-screen overflow-hidden font-roboto text-[20px]">
-      <div className=" w-2/6 bg-gray-300  h-4/5 p-2 flex flex-col">
+      <div className=" w-2/6 bg-[#0b5e86] h-4/5 p-2 flex flex-col">
         <button
           onClick={() => {
             // navigate(`/myaccount/${userID}`);
           }}
-          className="mt-5 rounded-md bg-transparent px-3 py-2 capitalize font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="mt-5 text-[22px] text-white rounded-md bg-transparent px-3 py-2 capitalize font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Hello {role}
         </button>
@@ -21,7 +21,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             navigate(`/admin/alluser`);
           }}
-          className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Basic Users
         </button>
@@ -30,7 +30,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getalladminsuser`);
             }}
-            className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Admin Users
           </button>
@@ -40,7 +40,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getapproval`);
             }}
-            className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Pending Requests
           </button>
@@ -50,7 +50,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allarea`);
             }}
-            className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Area
           </button>
@@ -60,7 +60,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/requests`);
             }}
-            className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Track Status
           </button>
@@ -70,7 +70,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allroom`);
             }}
-            className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Rooms
           </button>
@@ -79,7 +79,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             // navigate(`/user/job/${userID}`);
           }}
-          className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Jobs
         </button> */}
@@ -87,7 +87,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             navigate(`/admin/allbussiness`);
           }}
-          className="rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="text-[22px] text-white rounded-md bg-transparent px-3 py-2 font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Bussiness
         </button> */}

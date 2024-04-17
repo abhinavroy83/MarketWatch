@@ -58,11 +58,11 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
             top: "40%",
             left: "40%",
             transform: "translate(-40%, -40%)",
-            width: 800,
-            height: 540,
+            width: 700,
+            height: 400,
             border: "none",
             padding: "0",
-            backgroundColor: "#FFF",
+            backgroundColor: "#0b5e86",
             boxShadow: "0px 0px 25px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: 10,
             zIndex: 1000,
@@ -73,12 +73,29 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
           },
         }}
       >
-        <div className=" flex flex-col justify-center items-center h-full ">
-          <p>Add a new suburb to "Greater Portland Area"</p>
+        <div className="w-50 px-20 items-center grow">
+          <svg
+            className="h-10 w-10 text-white absolute top-3 right-3 cursor-pointer hover:text-black"
+            onClick={() => handleModal(false, false)}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <circle cx="12" cy="12" r="10" />{" "}
+            <line x1="15" y1="9" x2="9" y2="15" />{" "}
+            <line x1="9" y1="9" x2="15" y2="15" />
+          </svg>
+        </div>
+        <div className="flex flex-col justify-center items-center h-full font-roboto">
+          <p className="text-white text-[30px] mt-3">Add a new suburb to "Greater Portland Area"</p>
           <form onSubmit={handleSubmit(onclick)}>
-            <div className=" flex ">
+            <div className="flex items-center justify-center">
               <div>
-                <label>By Suburbs</label>
+                <label className="text-[25px] text-white mr-2">By Suburbs</label>
                 <input
                   type="radio"
                   id="suburbs"
@@ -88,7 +105,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                 />
               </div>
               <div>
-                <label>By Area</label>
+                <label className="text-[25px] text-white mr-2 ml-3">By Area</label>
                 <input
                   type="radio"
                   id="area"
@@ -101,11 +118,11 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
             <div>
               {status === "suburbs" && (
                 <div>
-                  <p>You can Add Suburbs</p>
+                  <p className="text-[22px] text-white mt-3">You can Add Suburbs</p>
                   <input
                     type="text"
                     {...register("subarea")}
-                    className=" border-2 border-red-500"
+                    className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   />
                 </div>
               )}
@@ -114,29 +131,33 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
             <div>
               {status === "area" && (
                 <div className="flex flex-col justify-center w-full ">
-                  <p className=" text-center">You can Add Area</p>
-                  <div className=" flex">
+                  <p className="text-[25px] text-white mt-3 text-center">You can Add Area</p>
+                  <div className=" flex gap-8">
                     <div className=" ">
-                      <label>Zip Code</label>
+                      <label className="text-[20px] text-white">Zip Code</label>
                       <input
                         type="text"
                         {...register("zipcode")}
-                        className=" border-2 border-red-500"
+                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       />
                     </div>
                     <div>
-                      <label htmlFor="">Area</label>
+                      <label className="text-[20px] text-white" htmlFor="">Area</label>
                       <input
                         type="text"
                         {...register("area")}
-                        className=" border-2 border-red-500"
+                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       />
                     </div>
                   </div>
                 </div>
               )}
             </div>
-            <button type="Submit">Add </button>
+            <div className="items-center flex justify-center">
+              <button
+                className="rounded-md bg-green-white my-7 px-4 py-2 text-[20px] self-center font-semibold bg-white text-[#0b5e86] shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                type="Submit">Add Suburbs</button>
+            </div>
           </form>
         </div>
       </Modal>

@@ -146,8 +146,8 @@ function Allroom() {
         <section className="mx-auto font-roboto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-3xl font-semibold text-red-700">All Rooms</h2>
-              <p className="mt-1 text-lg text-gray-700 font-roboto">
+              <p className="text-3xl font-semibold text-[#0b5e86]">All Rooms</p>
+              <p className="mt-1 text-xl text-gray-700 font-roboto">
                 This is a list of all All Rooms. You can add new User, edit or
                 delete existing ones.
               </p>
@@ -169,7 +169,7 @@ function Allroom() {
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
                 }}
-                className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add new Room
               </button>
@@ -246,7 +246,7 @@ function Allroom() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
                     <FaArrowAltCircleLeft /> Previous
@@ -254,7 +254,7 @@ function Allroom() {
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md bg-black px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={nextPage}
                   >
                     Next <FaArrowAltCircleRight />

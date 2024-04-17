@@ -48,7 +48,7 @@ function Profile() {
       console.log(error);
     }
   };
-  
+
   const toggleEdit = () => {
     setisedit(!isedit);
   };
@@ -155,9 +155,9 @@ function Profile() {
     <DashConatiner>
       <div className="px-10 overflow-y-scroll">
         <div className="flex justify-center">
-          <h1 className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-roboto">
+          <p className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-roboto">
             Your Profile
-          </h1>
+          </p>
         </div>
         {!data.isVerified && (
           <p className="font-roboto text-red-600 text-lg py-3">
