@@ -6,7 +6,12 @@ import { useSelector } from "react-redux";
 
 function Addsuburbs({ isOpen, onClose, ...selcedata }) {
   const [status, setstatus] = useState("");
-  const { handleSubmit, register, reset } = useForm();
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
   const token = useSelector((state) => state.adminauth.token);
 
   const onclick = async (data) => {
@@ -76,7 +81,8 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
         <div className="w-50 px-20 items-center grow">
           <svg
             className="h-10 w-10 text-white absolute top-3 right-3 cursor-pointer hover:text-black"
-            onClick={() => handleModal(false, false)}
+            // onClick={() => handleModal(false, false)}
+            onClick={() => onClose(false)}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -91,9 +97,11 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
           </svg>
         </div>
         <div className="flex flex-col justify-center items-center h-full font-roboto">
-          <p className="text-white text-[30px] mt-3">Add a new suburb to "Greater Portland Area"</p>
+          <p className="text-white text-[30px] mt-3">
+            Add a new suburb to "Greater Portland Area"
+          </p>
           <form onSubmit={handleSubmit(onclick)}>
-            <div className="flex items-center justify-center">
+            {/* <div className="flex items-center justify-center">
               <div>
                 <label className="text-[25px] text-white mr-2">By Suburbs</label>
                 <input
@@ -114,8 +122,8 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                   onChange={(e) => setstatus(e.target.value)}
                 />
               </div>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               {status === "suburbs" && (
                 <div>
                   <p className="text-[22px] text-white mt-3">You can Add Suburbs</p>
@@ -126,37 +134,46 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                   />
                 </div>
               )}
-            </div>
+            </div> */}
 
             <div>
-              {status === "area" && (
-                <div className="flex flex-col justify-center w-full ">
-                  <p className="text-[25px] text-white mt-3 text-center">You can Add Area</p>
-                  <div className=" flex gap-8">
-                    <div className=" ">
-                      <label className="text-[20px] text-white">Zip Code</label>
-                      <input
-                        type="text"
-                        {...register("zipcode")}
-                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[20px] text-white" htmlFor="">Area</label>
-                      <input
-                        type="text"
-                        {...register("area")}
-                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      />
-                    </div>
+              <div className="flex flex-col justify-center w-full ">
+                <p className="text-[25px] text-white mt-3 text-center">
+                  You can Add Area
+                </p>
+                <div className=" flex gap-8">
+                  <div className=" ">
+                    <label className="text-[20px] text-white">Zip Code</label>
+                    <input
+                      type="number"
+                      {...register("zipcode", {
+                        required: "Zipcode is required",
+                      })}
+                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    />
+                    {errors.zipcode && <p>{errors.zipcode.message}</p>}
+                  </div>
+                  <div>
+                    <label className="text-[20px] text-white" htmlFor="">
+                      Area
+                    </label>
+                    <input
+                      type="text"
+                      {...register("area", { required: "Area is required" })}
+                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    />
+                    {errors.area && <p>{errors.area.message}</p>}
                   </div>
                 </div>
-              )}
+              </div>
             </div>
             <div className="items-center flex justify-center">
               <button
                 className="rounded-md bg-green-white my-7 px-4 py-2 text-[20px] self-center font-semibold bg-white text-[#0b5e86] shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                type="Submit">Add Suburbs</button>
+                type="Submit"
+              >
+                Add Suburbs
+              </button>
             </div>
           </form>
         </div>

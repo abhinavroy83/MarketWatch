@@ -106,9 +106,9 @@ function Allroom() {
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.rent}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.address}
-        </td>
+        </td> */}
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.city}
         </td>
@@ -201,12 +201,12 @@ function Allroom() {
                           Rent
                         </th>
 
-                        <th
+                        {/* <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                         >
                           Address
-                        </th>
+                        </th> */}
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
