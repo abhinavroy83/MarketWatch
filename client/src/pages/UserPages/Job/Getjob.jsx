@@ -11,8 +11,7 @@ function Getjob() {
   const getjobforhomepage = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com
-  /api/job/getalljobs?lat=${currentloc.lat}&lng=${currentloc.lng}`
+        `https://marketwatch-e3hc.onrender.com/api/job/getalljobs?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       // console.log(res.data.Alljob);
       // console.log(currentloc);

@@ -17,10 +17,8 @@ function Allbussiness() {
     try {
       const res = await axios.get(
         city
-          ? `https://marketwatch-e3hc.onrender.com
-  /api/admin/getallbussiness/${city}`
-          : `https://marketwatch-e3hc.onrender.com
-  /api/admin/getallbussiness`
+          ? `https://marketwatch-e3hc.onrender.com/api/admin/getallbussiness/${city}`
+          : `https://marketwatch-e3hc.onrender.com/api/admin/getallbussiness`
       );
       //   console.log(res.data.Allbussiness);
       setdata(res.data.Allbussiness);
@@ -32,8 +30,7 @@ function Allbussiness() {
   const deleteuser = async (_id) => {
     try {
       const dlt = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com
-  /api/admin/deletebusiness/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/admin/deletebusiness/${_id}`
       );
       if (dlt) {
         alert("successfully deleted");
@@ -46,8 +43,7 @@ function Allbussiness() {
   const fetchcity = async () => {
     try {
       const res = await axios.get(
-        "https://marketwatch-e3hc.onrender.com
-  /api/admin/getallbussiness"
+        "https://marketwatch-e3hc.onrender.com/api/admin/getallbussiness"
       );
       const uniqueCities = Array.from(
         new Set(res.data.Allbussiness.map((item) => item.city))

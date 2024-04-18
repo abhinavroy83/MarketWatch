@@ -17,10 +17,8 @@ function Allroom() {
     try {
       const res = await axios.get(
         city
-          ? `https://marketwatch-e3hc.onrender.com
-  /api/admin/getroombycity/${city}`
-          : `https://marketwatch-e3hc.onrender.com
-  /api/admin/getallrooms`
+          ? `https://marketwatch-e3hc.onrender.com/api/admin/getroombycity/${city}`
+          : `https://marketwatch-e3hc.onrender.com/api/admin/getallrooms`
       );
 
       // console.log(res.data.Allroom);
@@ -34,8 +32,7 @@ function Allroom() {
   const deleteuser = async (_id) => {
     try {
       const dlt = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com
-  /api/admin/deleteroom/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/admin/deleteroom/${_id}`
       );
       if (dlt) {
         alert("successfully deleted");
@@ -48,8 +45,7 @@ function Allroom() {
   const fetchcity = async () => {
     try {
       const res = await axios.get(
-        "https://marketwatch-e3hc.onrender.com
-  /api/admin/getallrooms"
+        "https://marketwatch-e3hc.onrender.com/api/admin/getallrooms"
       );
       const uniqueCities = Array.from(
         new Set(res.data.Allroom.map((item) => item.city))

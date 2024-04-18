@@ -11,8 +11,7 @@ function Getuserjobs() {
 
   const fetchusejobsdeatails = async () => {
     try {
-      const res = await axios.get(`https://marketwatch-e3hc.onrender.com
-  /api/getjob/${userID}`);
+      const res = await axios.get(`https://marketwatch-e3hc.onrender.com/api/getjob/${userID}`);
       if (!res) {
         console.log("unable to the fetch job deatils ");
       }

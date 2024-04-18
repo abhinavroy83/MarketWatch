@@ -44,8 +44,7 @@ function Rooms() {
   const fetchroomdetails = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com
-  /api/getspecificroom/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/getspecificroom/${_id}`
       );
       setrooms(res.data.rooms);
       const loc = {
@@ -71,8 +70,7 @@ function Rooms() {
   const getRooms = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com
-  /api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+        `https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setsimilarrooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);
@@ -87,8 +85,7 @@ function Rooms() {
   const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com
-  /api/rooms/${_id}/previous`
+        `https://marketwatch-e3hc.onrender.com/api/rooms/${_id}/previous`
       );
       // console.log(res);
       navigate(`/rooms/${res.data.previousRoom._id}`);
@@ -100,8 +97,7 @@ function Rooms() {
   const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com
-  /api/rooms/${_id}/next`
+        `https://marketwatch-e3hc.onrender.com/api/rooms/${_id}/next`
       );
       // console.log(res);
       navigate(`/rooms/${res.data.nextRoom._id}`);
@@ -172,8 +168,7 @@ function Rooms() {
         status: true,
       };
       // console.log(dat);
-      const res = await axios.post(`https://marketwatch-e3hc.onrender.com
-  /api/addtowish`, dat, {
+      const res = await axios.post(`https://marketwatch-e3hc.onrender.com/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -192,8 +187,7 @@ function Rooms() {
   const unwish = async () => {
     try {
       const res = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com
-  /api/deletelist/${_id}`
+        `https://marketwatch-e3hc.onrender.com/api/deletelist/${_id}`
       );
       if (res) {
         setWishliststatys(false);
@@ -208,8 +202,7 @@ function Rooms() {
     const fetchwishstatus = async () => {
       try {
         const res = await axios.get(
-          `https://marketwatch-e3hc.onrender.com
-  /api/getlistbyroom/${_id}`
+          `https://marketwatch-e3hc.onrender.com/api/getlistbyroom/${_id}`
         );
         if (res.data.status == "not") {
           setWishliststatys(false);

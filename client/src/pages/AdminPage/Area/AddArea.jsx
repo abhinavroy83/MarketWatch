@@ -54,8 +54,7 @@ function AddArea() {
     // console.log(data);
     try {
       const res = await axios.post(
-        `https://marketwatch-e3hc.onrender.com
-  /api/admin/postcity`,
+        `https://marketwatch-e3hc.onrender.com/api/admin/postcity`,
         data,
         {
           headers: {
