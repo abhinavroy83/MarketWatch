@@ -14,7 +14,7 @@ function Getuserbussiness() {
   const fetchuserbussinessdeatils = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com/api/getbussinesslist/${userID}`
+        `http://localhost:8000/api/getbussinesslist/${userID}`
       );
       if (!res) {
         console.log("unable to fetch the data");

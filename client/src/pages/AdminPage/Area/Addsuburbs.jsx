@@ -22,7 +22,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
     // console.log("ardata", ardata);
     try {
       const res = await axios.post(
-        `https://marketwatch-e3hc.onrender.com/api/admin/postcity`,
+        `http://localhost:8000/api/admin/postcity`,
         ardata,
         {
           headers: {

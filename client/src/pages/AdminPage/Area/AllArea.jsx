@@ -59,15 +59,30 @@ function AllArea() {
   useEffect(() => {
     const filtersubarea = data.filter((item) => item.city === selectedCity);
     setFiltersub(filtersubarea);
-    const filterarea = data.filter((item) => item.city === selectedCity);
-    // console.log(filterarea);
-    const uniquearea = [...new Set(filterarea.map((item) => item.area))];
-    setfilterarea(uniquearea);
-  }, [selectedCity, selectedstate]);
 
-  useEffect(() => {
-    // console.log(filterarea);
-  }, [selectedCity, selectedstate]);
+    // Filter areas based on selected city
+    const filterarea = data.filter((item) => item.city === selectedCity);
+
+    // Create an object to group zip codes by area name
+    const areaZipCodes = {};
+    filterarea.forEach((item) => {
+      if (!areaZipCodes[item.area]) {
+        areaZipCodes[item.area] = [];
+      }
+      if (item.zipcode) {
+        areaZipCodes[item.area].push(item.zipcode);
+      }
+    });
+
+    // Convert the object into an array of objects for rendering
+    const areasWithZipCodes = Object.keys(areaZipCodes).map((area) => ({
+      area,
+      zipcodes: areaZipCodes[area],
+    }));
+
+    // Set the filtered areas with zip codes
+    setfilterarea(areasWithZipCodes);
+  }, [selectedCity, data]);
 
   const onclose = () => {
     setismodalopen(false);
@@ -79,9 +94,20 @@ function AllArea() {
       <AdminHeader />
       <AdminDashboard>
         <div className="mx-7 mt-6 flex justify-between">
-          <p className="text-3xl font-bold text-[#0b5e86] font-roboto">Add Area Details Here -</p>
+          <p className="text-3xl font-bold text-[#0b5e86] font-roboto">
+            Add Area Details Here -
+          </p>
           <button
             onClick={() => {
+              <div className=" flex flex-col border-red-500 border-2 ">
+                <p className=" bg-fuchsia-500">List of Suburbs</p>
+                <ul>
+                  {Filteresub.length > 0 &&
+                    Filteresub.map((item, index) => (
+                      <li key={index}>{item.subarea}</li>
+                    ))}
+                </ul>
+              </div>;
               navigate("/admin/addarea");
             }}
             className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -90,8 +116,10 @@ function AllArea() {
           </button>
         </div>
 
-        <p className="mx-7 text-2xl font-bold text-[#0b5e86] font-roboto">List of Avaible Area</p>
-        <form className="grid grid-cols-4 gap-1">
+        <p className="mx-7 text-2xl font-bold text-[#0b5e86] font-roboto">
+          List of Avaible Area
+        </p>
+        <form className="grid grid-cols-3 gap-2">
           <div className="mx-7 flex flex-col border-red-500 border-2 max-w-28">
             <p className=" bg-fuchsia-500">Country</p>
             <ul>
@@ -104,8 +132,9 @@ function AllArea() {
               {filterstate.map((state, index) => (
                 <li
                   key={index}
-                  className={`cursor-pointer ${selectedstate === state ? "bg-red-500" : ""
-                    }`}
+                  className={`cursor-pointer ${
+                    selectedstate === state ? "bg-red-500" : ""
+                  }`}
                   onClick={() => {
                     setSelectedstate(state);
                   }}
@@ -125,8 +154,9 @@ function AllArea() {
                 <li
                   key={index}
                   value={city}
-                  className={`cursor-pointer ${selectedCity === city ? "bg-red-500" : ""
-                    }`}
+                  className={`cursor-pointer ${
+                    selectedCity === city ? "bg-red-500" : ""
+                  }`}
                   onClick={() => {
                     setSelectedCity(city);
                   }}
@@ -136,6 +166,15 @@ function AllArea() {
               ))}
             </ul>
           </div>
+          {/* <div className=" flex flex-col border-red-500 border-2 ">
+            <p className=" bg-fuchsia-500">List of Suburbs</p>
+            <ul>
+              {Filteresub.length > 0 &&
+                Filteresub.map((item, index) => (
+                  <li key={index}>{item.subarea}</li>
+                ))}
+            </ul>
+          </div> */}
           <div className=" flex flex-col border-red-500 border-2 ">
             <button
               className="bg-green-500 border-2"
@@ -146,22 +185,18 @@ function AllArea() {
             >
               AddSubrs
             </button>
-            <p className=" bg-fuchsia-500">List of Suburbs</p>
-            <ul>
-              {Filteresub.length > 0 &&
-                Filteresub.map((item, index) => (
-                  <li key={index}>{item.subarea}</li>
-                ))}
-            </ul>
-          </div>
-          <div className=" flex flex-col border-red-500 border-2 ">
             <p className=" bg-fuchsia-500">List of Area</p>
             <ul>
               {filterarea.length > 0 &&
-                filterarea.map((item, index) => <li key={index}>{item}</li>)}
+                filterarea.map((item, index) => (
+                  <li key={index}>
+                    {item.area && `${item.area}, `}
+                    {item.zipcodes.length > 0 && item.zipcodes.join(", ")}
+                  </li>
+                ))}
             </ul>
           </div>
-          <div className=" flex flex-col border-red-500 border-2 ">
+          {/* <div className=" flex flex-col border-red-500 border-2 ">
             <p className=" bg-fuchsia-500">List of Availble Zipcode</p>
             <ul>
               {Filteresub.length > 0 &&
@@ -169,7 +204,7 @@ function AllArea() {
                   <li key={index}>{item.zipcode}</li>
                 ))}
             </ul>
-          </div>
+          </div> */}
         </form>
       </AdminDashboard>
     </div>
