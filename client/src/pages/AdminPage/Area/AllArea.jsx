@@ -133,20 +133,20 @@ function AllArea() {
           List of Avaible Area
         </p>
         <form className="grid grid-cols-3 gap-2 font-roboto mt-5">
-          <div className="mx-5 flex flex-col border-2 w-40">
+          <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
             <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">Country -</p>
             <ul>
-              <li className="text-2xl bg-white p-1 hover:bg-gray-600 hover:text-white mt-1 rounded-sm">Usa</li>
+              <li className="text-2xl bg-white text-black p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">Usa</li>
             </ul>
           </div>
-          <div className="flex flex-col border-2 w-40">
-            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">List of States</p>
-            <ul className="rounded-sm text-2xl bg-white p-1 mt-1">
+          <div className="flex flex-col border-2 border-gray-400 w-40">
+            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white shadow-lg shadow-gray-400">List of States</p>
+            <ul className="rounded-sm text-2xl bg-white p-1">
               {filterstate.map((state, index) => (
                 <li
                   key={index}
                   className={`cursor-pointer ${
-                    selectedstate === state ? "text-2xl bg-gray-600 text-white p-1 rounded-sm <HiMinusCircle /> " : ""
+                    selectedstate === state ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> " : ""
                   }`}
                   onClick={() => {
                     setSelectedstate(state);
@@ -157,18 +157,18 @@ function AllArea() {
               ))}
             </ul>
           </div>
-          <div className=" flex flex-col border-2 w-45 mr-5">
+          <div className="flex flex-col border-2 border-gray-400 w-45 mr-5">
             <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
               List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
-            <ul className="rounded-sm text-2xl bg-white p-1 mt-1">
+            <ul className="rounded-sm text-2xl bg-white p-1">
               {Filtercity.map((city, index) => (
                 <li
                   key={index}
                   value={city}
                   className={`cursor-pointer ${
-                    selectedCity === city ? "hover:bg-gray-600 hover:text-white rounded-sm p-1" : ""
+                    selectedCity === city ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400" : ""
                   }`}
                   onClick={() => {
                     setSelectedCity(city);
@@ -198,16 +198,18 @@ function AllArea() {
             >
               Add New Subrs
             </button> */}
-            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 mt-4 w-50">List of Area</p>
-            <ul className="rounded-sm text-2xl bg-[#eee] p-1 mt-2">
+            <div className="border-2 border-gray-400 w-[500px]">
+            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 w-50">List of Area</p>
+            <ul className="rounded-sm text-2xl w-[496px]">
               {filterarea.length > 0 &&
                 filterarea.map((item, index) => (
-                  <li key={index} className=" border-2 border-red-400 my-2 bg-slate-500">
+                  <li key={index} className="text-2xl bg-white text-black border-b-2 border-gray-400 p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">
                     {item.area && `${item.area}, `}
                     {item.zipcodes.length > 0 && item.zipcodes.join(", ")}
                   </li>
                 ))}
             </ul>
+            </div>
           </div>
           {/* <div className=" flex flex-col border-2 ">
             <p className=" bg-fuchsia-500">List of Availble Zipcode</p>
