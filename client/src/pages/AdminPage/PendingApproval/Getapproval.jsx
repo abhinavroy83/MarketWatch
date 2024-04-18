@@ -12,7 +12,8 @@ function Getapproval() {
   const getpendingapproval = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/admin/getapprovalrequest"
+        "https://marketwatch-e3hc.onrender.com
+  /api/admin/getapprovalrequest"
       );
       // console.log(res.data.pendingrequest);
       setdata(res.data.pendingrequest);
@@ -25,7 +26,8 @@ function Getapproval() {
     try {
       const status = "approved";
       const res = await axios.put(
-        `http://localhost:8000/api/admin/approvrequest/${_id}`,
+        `https://marketwatch-e3hc.onrender.com
+  /api/admin/approvrequest/${_id}`,
         { status: status }
       );
       if (res) {

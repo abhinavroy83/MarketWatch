@@ -5,7 +5,7 @@ import axios from "axios";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { login as authlogin, cities } from "../../store/authslice";
-import { modalopen } from '../../store/modalslice'
+import { modalopen } from "../../store/modalslice";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,7 +14,6 @@ import Signup from "./Signup";
 import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
-
 
 function Login() {
   const {
@@ -29,7 +28,10 @@ function Login() {
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
     try {
-      const res = await axios.post("http://localhost:8000/user/login", data);
+      const res = await axios.post(
+        "https://marketwatch-e3hc.onrender.com/user/login",
+        data
+      );
       if (res.data.status == "success") {
         // console.log(res.data.data._id);
         toast.success("Successfully logged");
@@ -65,10 +67,10 @@ function Login() {
     dispatch(
       modalopen({
         isloginmodalopen: loginModalState,
-        isSignupmodelopen: signUpModalState
+        isSignupmodelopen: signUpModalState,
       })
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -127,7 +129,7 @@ function Login() {
                 className="place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
-                  handleModal(false, true)
+                  handleModal(false, true);
                 }}
               >
                 Sign up now
@@ -197,13 +199,19 @@ function Login() {
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-2 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <p className="text-[19px] flex gap-4"><FaGoogle />Continue With Google</p>
+                  <p className="text-[19px] flex gap-4">
+                    <FaGoogle />
+                    Continue With Google
+                  </p>
                 </button>
                 <button
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-5 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <p className="flex gap-4 text-[19px] items-center"><FaApple size={25}/>Continue With Apple</p>
+                  <p className="flex gap-4 text-[19px] items-center">
+                    <FaApple size={25} />
+                    Continue With Apple
+                  </p>
                 </button>
               </div>
             </form>

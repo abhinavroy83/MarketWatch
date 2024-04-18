@@ -25,7 +25,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         status: true,
       };
       // console.log(dat);
-      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+      const res = await axios.post(`https://marketwatch-e3hc.onrender.com
+  /api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -44,7 +45,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const unwish = async (_id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:8000/api/deletelist/${_id}`
+        `https://marketwatch-e3hc.onrender.com
+  /api/deletelist/${_id}`
       );
       if (res) {
         setWishliststatys(false);
@@ -59,7 +61,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     const fetchwishstatus = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/getlistbyroom/${item._id}`
+          `https://marketwatch-e3hc.onrender.com
+  /api/getlistbyroom/${item._id}`
         );
         // console.log(res.data.list.status);
         if (res.data.status == "not") {
