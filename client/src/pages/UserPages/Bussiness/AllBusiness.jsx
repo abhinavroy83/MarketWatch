@@ -12,8 +12,8 @@ function AllBusiness() {
     try {
       const res = await axios.get(
         usercity
-          ? `http://localhost:8000/api/getbusinessbyloc?city=${usercity}`
-          : `http://localhost:8000/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? `https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?city=${usercity}`
+          : `https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setdetails(res.data.allBusiness);
     } catch (error) {

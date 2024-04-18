@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
 import { HiMinusCircle } from "react-icons/hi";
 
-
 function AllArea() {
   const { handleSubmit, register } = useForm();
   const [data, setData] = useState([]);
@@ -22,7 +21,6 @@ function AllArea() {
   const [filterpin, setfilterpin] = useState("");
   const [ismodelopen, setismodalopen] = useState(false);
   const navigate = useNavigate();
-  
 
   const selcedata = {
     country: "Usa",
@@ -63,10 +61,8 @@ function AllArea() {
     const filtersubarea = data.filter((item) => item.city === selectedCity);
     setFiltersub(filtersubarea);
 
-    // Filter areas based on selected city
     const filterarea = data.filter((item) => item.city === selectedCity);
 
-    // Create an object to group zip codes by area name
     const areaZipCodes = {};
     filterarea.forEach((item) => {
       if (!areaZipCodes[item.area]) {
@@ -77,13 +73,11 @@ function AllArea() {
       }
     });
 
-    // Convert the object into an array of objects for rendering
     const areasWithZipCodes = Object.keys(areaZipCodes).map((area) => ({
       area,
       zipcodes: areaZipCodes[area],
     }));
 
-    // Set the filtered areas with zip codes
     setfilterarea(areasWithZipCodes);
   }, [selectedCity, data]);
 
@@ -101,52 +95,60 @@ function AllArea() {
             Add Area Details Here -
           </p>
           <div className="flex gap-3">
-          <button
-            onClick={() => {
-              <div className="flex flex-col border-2 ">
-                <p className=" bg-fuchsia-500">List of Suburbs</p>
-                <ul>
-                  {Filteresub.length > 0 &&
-                    Filteresub.map((item, index) => (
-                      <li key={index}>{item.subarea}</li>
-                    ))}
-                </ul>
-              </div>;
-              navigate("/admin/addarea");
-            }}
-            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Add Area
-          </button>
-          <button
-            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            onClick={(e) => {
+            <button
+              onClick={() => {
+                <div className="flex flex-col border-2 ">
+                  <p className=" bg-fuchsia-500">List of Suburbs</p>
+                  <ul>
+                    {Filteresub.length > 0 &&
+                      Filteresub.map((item, index) => (
+                        <li key={index}>{item.subarea}</li>
+                      ))}
+                  </ul>
+                </div>;
+                navigate("/admin/addarea");
+              }}
+              className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Add Area
+            </button>
+            <button
+              className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              onClick={(e) => {
                 e.preventDefault();
                 onAddSuburbClick();
               }}
             >
               Add New Subrs
             </button>
-        </div>
+          </div>
         </div>
         <p className="mx-5 text-2xl font-bold text-[#0b5e86] font-roboto">
           List of Avaible Area
         </p>
         <form className="grid grid-cols-3 gap-2 font-roboto mt-5">
           <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
-            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">Country -</p>
+            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
+              Country -
+            </p>
             <ul>
-              <li className="text-2xl bg-white text-black p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">Usa</li>
+              <li className="text-2xl bg-white text-black p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">
+                Usa
+              </li>
             </ul>
           </div>
           <div className="flex flex-col border-2 border-gray-400 w-40">
-            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white shadow-lg shadow-gray-400">List of States</p>
+            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white shadow-lg shadow-gray-400">
+              List of States
+            </p>
             <ul className="rounded-sm text-2xl bg-white p-1">
               {filterstate.map((state, index) => (
                 <li
                   key={index}
                   className={`cursor-pointer ${
-                    selectedstate === state ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> " : ""
+                    selectedstate === state
+                      ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
+                      : ""
                   }`}
                   onClick={() => {
                     setSelectedstate(state);
@@ -168,7 +170,9 @@ function AllArea() {
                   key={index}
                   value={city}
                   className={`cursor-pointer ${
-                    selectedCity === city ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400" : ""
+                    selectedCity === city
+                      ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      : ""
                   }`}
                   onClick={() => {
                     setSelectedCity(city);
@@ -199,16 +203,21 @@ function AllArea() {
               Add New Subrs
             </button> */}
             <div className="border-2 border-gray-400 w-[500px]">
-            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 w-50">List of Area</p>
-            <ul className="rounded-sm text-2xl w-[496px]">
-              {filterarea.length > 0 &&
-                filterarea.map((item, index) => (
-                  <li key={index} className="text-2xl bg-white text-black border-b-2 border-gray-400 p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">
-                    {item.area && `${item.area}, `}
-                    {item.zipcodes.length > 0 && item.zipcodes.join(", ")}
-                  </li>
-                ))}
-            </ul>
+              <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 w-50">
+                List of Area
+              </p>
+              <ul className="rounded-sm text-2xl w-[496px]">
+                {filterarea.length > 0 &&
+                  filterarea.map((item, index) => (
+                    <li
+                      key={index}
+                      className="text-2xl bg-white text-black border-b-2 border-gray-400 p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                    >
+                      {item.area && `${item.area}, `}
+                      {item.zipcodes.length > 0 && item.zipcodes.join(", ")}
+                    </li>
+                  ))}
+              </ul>
             </div>
           </div>
           {/* <div className=" flex flex-col border-2 ">
