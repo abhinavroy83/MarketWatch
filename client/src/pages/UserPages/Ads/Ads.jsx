@@ -23,8 +23,8 @@ function Ads() {
       <Link to={"/"} className="bg-cover bg-center">
         <img
           // height={300}
-          width={350}
-          className="lg:w-[350px] w-[200px]"
+          width={330}
+          className="lg:w-[300px] w-[200px]"
           src={WebsiteLogo}
           alt=""
         />
@@ -35,7 +35,7 @@ function Ads() {
           // height={100}
           width={150}
           src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
-          className="lg:w-[150px] w-[100px]"
+          className="lg:w-[130px] w-[100px]"
           alt=""
         />
       </div>

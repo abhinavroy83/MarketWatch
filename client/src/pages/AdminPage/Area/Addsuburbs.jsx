@@ -177,7 +177,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
             </div>
             <div className="items-center flex justify-center">
               <button
-                className="rounded-md bg-green-white my-7 px-4 py-2 text-[20px] self-center font-semibold bg-white text-[#0b5e86] shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-white my-7 px-4 py-2 text-[20px] self-center font-semibold text-white bg-green-800 border-2 border-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 type="Submit"
               >
                 Add Suburbs

@@ -127,10 +127,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         className="rounded-tl-md rounded-bl-md h-[100%]"
       />
       <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-        <span className="block text-[27px]">
+        <span className="block text-[29px]">
           {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
         </span>
-        <span className="block text-gray-700">
+        <span className="block text-gray-700 text-[24px]">
           {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
         </span>
       </p>

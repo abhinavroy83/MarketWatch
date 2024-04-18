@@ -36,9 +36,9 @@ function Conractform({ isOpen, onClose }) {
         }}
       >
         
-        <div className="font-roboto items-center flex flex-col justify-center h-full bg-gray-200">
+        <div className="font-roboto items-center flex flex-col justify-center h-full bg-[#0b5e86]">
         <svg
-              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
+              className="h-10 w-10 text-white absolute top-3 right-3 cursor-pointer hover:text-red-800"
               onClick={onClose}
               viewBox="0 0 24 24"
               fill="none"
@@ -52,9 +52,9 @@ function Conractform({ isOpen, onClose }) {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-        <p className="text-[30px] p-3">Send Us A Message</p>
+        <p className="text-[30px] p-3 text-white">Send Us A Message</p>
           <hr/>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col font-roboto text-black font-medium justify-center items-center gap-3 mt-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col font-roboto text-white font-medium justify-center items-center gap-3 mt-4">
             {/* <div className="flex font-roboto  p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Your Name:</label>
                   <input className="flex h-10 font-roboto w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
@@ -79,7 +79,7 @@ function Conractform({ isOpen, onClose }) {
                     type="text" 
                   />    
             </div>  
-            <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Send response</button>
+            <button className="flex rounded-md bg-green-800 mt-2 p-2 px-3 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Send response</button>
           </form>
         </div>
       </Modal>

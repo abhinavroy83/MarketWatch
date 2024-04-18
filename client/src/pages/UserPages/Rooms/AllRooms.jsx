@@ -67,7 +67,7 @@ function AllRooms() {
       }
     >
       {rooms.length > 0 ? (
-        <div className="px-5 py-2 font-roboto mt-3 md:px-6 md:py-10 text-lg">
+        <div className="px-5 font-roboto mt-10 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between">
             <h1 className="text-3xl capitalize text-black lg:text-[33px]">
               {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
