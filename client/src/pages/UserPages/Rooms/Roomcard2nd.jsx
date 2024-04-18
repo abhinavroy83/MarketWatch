@@ -3,17 +3,11 @@ import femaleLogo from "../../../assets/female.png";
 import { Link } from "react-router-dom";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
-  function truncateWords(str, numWords) {
-    if (!str) return "";
-    const words = str.split(" ");
-
-    const truncated = words.slice(0, numWords).join(" ");
-
-    if (words.length > numWords) {
-      return truncated + "...";
+  function truncateCharacters(str, numCharacters) {
+    if (str.length > numCharacters) {
+      return str.slice(0, numCharacters) + "...";
     }
-
-    return truncated;
+    return str;
   }
 
   const calculateTimeDifference = (dateStr) => {
@@ -42,7 +36,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
   return (
     <Link
       to={`/rooms/${item._id}`}
-      className={`flex gap-4 items-center mt-2 ${
+      className={`flex gap-4 items-center mt-2 px-8 ${
         isSingleRow
           ? "justify-between pr-4"
           : "justify-start px-4 border shadow-md p-3 rounded-xl hover:shadow-lg"
@@ -54,16 +48,19 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       <div className="block grow">
         <h1 className="text-[23px] font-roboto text-black">
           {" "}
-          {truncateWords(item.Adname, 5)}
+          {truncateCharacters(item.Adname, 32)}
         </h1>
         <h1 className="text-[23px] font-roboto text-gray-700 mt-1">
-          {item.city}
+          {item.city}, By : {item.postedby},
+          {calculateTimeDifference(item.postedon)}
         </h1>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">
-          <p className="text-blue-800 text-2xl items-center">By : {item.postedby}</p>
+          <p className="text-blue-800 text-2xl items-center">
+            {/* By : {item.postedby} */}
+          </p>
           {/* <p className="text-blue-800 text-base items-center"> {calculateTimeDifference(item.postedon)}</p> */}
         </div>
-        <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p>
+        {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
       <div className="flex gap-4 justify-center items-center">
         <p className="text-[23px] text-green-600 font-roboto font-bold mr-3">
