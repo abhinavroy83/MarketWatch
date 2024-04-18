@@ -202,7 +202,7 @@ function AllArea() {
             <ul className="rounded-sm text-2xl bg-[#eee] p-1 mt-2">
               {filterarea.length > 0 &&
                 filterarea.map((item, index) => (
-                  <li key={index}>
+                  <li key={index} className=" border-2 border-red-400 my-2 bg-slate-500">
                     {item.area && `${item.area}, `}
                     {item.zipcodes.length > 0 && item.zipcodes.join(", ")}
                   </li>

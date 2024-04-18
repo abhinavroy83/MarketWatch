@@ -151,7 +151,11 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                       })}
                       className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     />
-                    {errors.zipcode && <p>{errors.zipcode.message}</p>}
+                    {errors.zipcode && (
+                      <p className=" text-white text-sm">
+                        {errors.zipcode.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="text-[20px] text-white" htmlFor="">
@@ -162,7 +166,11 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                       {...register("area", { required: "Area is required" })}
                       className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     />
-                    {errors.area && <p>{errors.area.message}</p>}
+                    {errors.area && (
+                      <p className=" text-white text-sm">
+                        {errors.area.message}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
