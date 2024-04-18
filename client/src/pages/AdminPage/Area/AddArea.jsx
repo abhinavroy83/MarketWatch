@@ -159,7 +159,6 @@ function AddArea() {
           <div className="flex justify-center items-center mt-7">
           <button className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             type="submit">Create Area</button></div>
-
         </form>
       </AdminDashboard>
     </div>

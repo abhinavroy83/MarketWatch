@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
+import { HiMinusCircle } from "react-icons/hi";
+
 
 function AllArea() {
   const { handleSubmit, register } = useForm();
@@ -20,6 +22,7 @@ function AllArea() {
   const [filterpin, setfilterpin] = useState("");
   const [ismodelopen, setismodalopen] = useState(false);
   const navigate = useNavigate();
+  
 
   const selcedata = {
     country: "Usa",
@@ -93,13 +96,14 @@ function AllArea() {
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
       <AdminHeader />
       <AdminDashboard>
-        <div className="mx-7 mt-6 flex justify-between">
+        <div className="mx-5 mt-6 flex justify-between">
           <p className="text-3xl font-bold text-[#0b5e86] font-roboto">
             Add Area Details Here -
           </p>
+          <div className="flex gap-3">
           <button
             onClick={() => {
-              <div className=" flex flex-col border-red-500 border-2 ">
+              <div className="flex flex-col border-2 ">
                 <p className=" bg-fuchsia-500">List of Suburbs</p>
                 <ul>
                   {Filteresub.length > 0 &&
@@ -114,26 +118,35 @@ function AllArea() {
           >
             Add Area
           </button>
+          <button
+            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            onClick={(e) => {
+                e.preventDefault();
+                onAddSuburbClick();
+              }}
+            >
+              Add New Subrs
+            </button>
         </div>
-
-        <p className="mx-7 text-2xl font-bold text-[#0b5e86] font-roboto">
+        </div>
+        <p className="mx-5 text-2xl font-bold text-[#0b5e86] font-roboto">
           List of Avaible Area
         </p>
-        <form className="grid grid-cols-3 gap-2">
-          <div className="mx-7 flex flex-col border-red-500 border-2 max-w-28">
-            <p className=" bg-fuchsia-500">Country</p>
+        <form className="grid grid-cols-3 gap-2 font-roboto mt-5">
+          <div className="mx-5 flex flex-col border-2 w-40">
+            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">Country -</p>
             <ul>
-              <li className=" bg-red-500">Usa</li>
+              <li className="text-2xl bg-white p-1 hover:bg-gray-600 hover:text-white mt-1 rounded-sm">Usa</li>
             </ul>
           </div>
-          <div className=" flex flex-col border-red-500 border-2 max-w-36">
-            <p className=" bg-fuchsia-500">List of avl State</p>
-            <ul>
+          <div className="flex flex-col border-2 w-40">
+            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">List of States</p>
+            <ul className="rounded-sm text-2xl bg-white p-1 mt-1">
               {filterstate.map((state, index) => (
                 <li
                   key={index}
                   className={`cursor-pointer ${
-                    selectedstate === state ? "bg-red-500" : ""
+                    selectedstate === state ? "text-2xl bg-gray-600 text-white p-1 rounded-sm <HiMinusCircle /> " : ""
                   }`}
                   onClick={() => {
                     setSelectedstate(state);
@@ -144,18 +157,18 @@ function AllArea() {
               ))}
             </ul>
           </div>
-          <div className=" flex flex-col border-red-500 border-2  max-w-36">
-            <p className=" bg-fuchsia-500">
+          <div className=" flex flex-col border-2 w-45 mr-5">
+            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
               List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
-            <ul>
+            <ul className="rounded-sm text-2xl bg-white p-1 mt-1">
               {Filtercity.map((city, index) => (
                 <li
                   key={index}
                   value={city}
                   className={`cursor-pointer ${
-                    selectedCity === city ? "bg-red-500" : ""
+                    selectedCity === city ? "hover:bg-gray-600 hover:text-white rounded-sm p-1" : ""
                   }`}
                   onClick={() => {
                     setSelectedCity(city);
@@ -166,7 +179,7 @@ function AllArea() {
               ))}
             </ul>
           </div>
-          {/* <div className=" flex flex-col border-red-500 border-2 ">
+          {/* <div className=" flex flex-col border-2 ">
             <p className=" bg-fuchsia-500">List of Suburbs</p>
             <ul>
               {Filteresub.length > 0 &&
@@ -175,18 +188,18 @@ function AllArea() {
                 ))}
             </ul>
           </div> */}
-          <div className=" flex flex-col border-red-500 border-2 ">
-            <button
-              className="bg-green-500 border-2"
-              onClick={(e) => {
+          <div className="mx-5 flex flex-col border-2 ">
+            {/* <button
+            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            onClick={(e) => {
                 e.preventDefault();
                 onAddSuburbClick();
               }}
             >
-              AddSubrs
-            </button>
-            <p className=" bg-fuchsia-500">List of Area</p>
-            <ul>
+              Add New Subrs
+            </button> */}
+            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 mt-4 w-50">List of Area</p>
+            <ul className="rounded-sm text-2xl bg-[#eee] p-1 mt-2">
               {filterarea.length > 0 &&
                 filterarea.map((item, index) => (
                   <li key={index}>
@@ -196,7 +209,7 @@ function AllArea() {
                 ))}
             </ul>
           </div>
-          {/* <div className=" flex flex-col border-red-500 border-2 ">
+          {/* <div className=" flex flex-col border-2 ">
             <p className=" bg-fuchsia-500">List of Availble Zipcode</p>
             <ul>
               {Filteresub.length > 0 &&

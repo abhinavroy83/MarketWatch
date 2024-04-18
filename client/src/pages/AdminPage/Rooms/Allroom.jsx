@@ -148,11 +148,11 @@ function Allroom() {
             <div>
               <p className="text-3xl font-semibold text-[#0b5e86]">All Rooms</p>
               <p className="mt-1 text-xl text-gray-700 font-roboto">
-                This is a list of all All Rooms. You can add new User, edit or
-                delete existing ones.
+                This is list of All Rooms. You can add,
+                edit or delete existing ones.
               </p>
             </div>
-            <div>
+            <div className="flex">
               <select
                 className="mr-4 bg-white p-2 rounded-md"
                 name="city"
@@ -169,9 +169,9 @@ function Allroom() {
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
                 }}
-                className="rounded-md bg-green-800 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="flex rounded-md bg-green-800 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Add new Room
+                Add Room
               </button>
             </div>
           </div>
