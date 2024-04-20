@@ -23,7 +23,7 @@ function Ads() {
       <Link to={"/"} className="bg-cover bg-center">
         <img
           // height={300}
-          width={330}
+          width={300}
           className="lg:w-[300px] w-[200px]"
           src={WebsiteLogo}
           alt=""

@@ -8,6 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
+import { IoHeartCircleOutline } from "react-icons/io5";
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -120,6 +121,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg items-start ${isRoomOnlyPage ? "items-start" : "items-center"
         }`}
     >
+
       <img
         src={item.PrdImage}
         alt=""
@@ -134,14 +136,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
         </span>
       </p>
-      {/* <img
-        className="flex absolute top-0 right-0"
-        height={50}
-        width={50}
-        src={femaleLogo}
-        alt=""
-      /> */}
-      <p className="absolute p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
+      
+      {/* <p className="absolute p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
+        {item.rent}
+      </p> */}
+      <p className="absolute right-5 top-2 text-[23px] text-green-600 font-roboto font-bold text-right">
         {item.rent}
       </p>
       <div
@@ -149,40 +148,30 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[23px] mt-4 font-roboto">
+        <h1 className="inline-flex items-center mt-4 text-[23px] font-roboto">
           {item.Adname && truncateCharacters(item.Adname, 32)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
         <p className="text-[23px] text-gray-700 mt-2 font-roboto">
           {item.city}, {item.State}
         </p>
-        <p className="text-blue-800 text-2xl mt-2">By : {item.postedby}</p>
+        <p className="text-blue-800 text-2xl mt-1">By : {item.postedby}</p>
         <p className="text-blue-800 text-2xl">
           {" "}
           {calculateTimeDifference(item.postedon)}
         </p>
         <div className="flex gap-2 text-blue-800 text-[23px] mt-1"></div>
-        {/* <div className="block">
-          {!wishliststatys ? (
-            <IoHeartCircle
-              size={40}
-              onClick={(e) => {
-                e.preventDefault();
-                makewishlist(item._id);
-              }}
-              className="text-red-500 flex absolute bottom-3 right-3 hover:text-black"
-            />
-          ) : null} */}
-        <div className="absolute bottom-3 right-6">
+        
+        {/* <div className="absolute bottom-3 right-6">
           {!wishliststatys ? (
             <div
-              className="cursor-pointer p-2 bg-red-600 rounded-full"
+              className="cursor-pointer p-2 bg-gray-500 rounded-full hover:bg-red-600"
               onClick={(e) => {
                 e.preventDefault();
                 makewishlist(item._id);
               }}
             >
-              <FaHeart color="#fff" size={25} />
+              <FaHeart color="#fff" size={20} />
             </div>
           ) : (
             <div
@@ -192,11 +181,47 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 unwish(item._id);
               }}
             >
-              <FaHeart color="red" size={25} />
+              <FaHeart color="red" size={20} />
+            </div>
+          )}
+        </div> */}
+        <div className="absolute bottom-3 right-4">
+          {!wishliststatys ? (
+            <div
+              className="cursor-pointer p-2 rounded-full hover:bg-red-600 border border-gray-300 hover:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                makewishlist(item._id);
+              }}
+            >
+              <FaHeart className="text-gray-500 hover:text-white" size={20} />
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer p-2 border border-gray-300 rounded-full"
+              onClick={(e) => {
+                e.preventDefault();
+                unwish(item._id);
+              }}
+            >
+              <FaHeart color="red" size={20} />
             </div>
           )}
         </div>
         <img
+          className="flex absolute bottom-3 right-14"
+          height={40}
+          width={45}
+          src={
+            item.gender === "female"
+              ? femaleLogo
+              : item.gender === "male"
+                ? maleLogo
+                : femaleLogo
+          }
+          alt=""
+        />
+        {/* <img
           className="flex absolute bottom-14 right-6"
           height={45}
           width={45}
@@ -208,9 +233,12 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 : femaleLogo
           }
           alt=""
-        />
+        /> */}
       </div>
+
     </Link>
+
+    
   );
 }
 

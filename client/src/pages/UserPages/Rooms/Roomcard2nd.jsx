@@ -36,21 +36,21 @@ function Roomcard2nd({ isSingleRow, ...item }) {
   return (
     <Link
       to={`/rooms/${item._id}`}
-      className={`flex gap-4 items-center mt-2 px-8 ${
+      className={`flex gap-4 items-center mt-2  ${
         isSingleRow
-          ? "justify-between pr-4"
-          : "justify-start px-4 border shadow-md p-3 rounded-xl hover:shadow-lg"
+          ? "justify-between"
+          : "justify-start border shadow-md p-3 rounded-xl hover:shadow-lg"
       }`}
     >
       <div className="flex">
-        <img className="flex" height={55} width={50} src={femaleLogo} alt="" />
+        <img className="flex" height={50} width={50} src={femaleLogo} alt="" />
       </div>
       <div className="block grow">
         <h1 className="text-[23px] font-roboto text-black">
           {" "}
           {truncateCharacters(item.Adname, 32)}
         </h1>
-        <h1 className="text-[23px] font-roboto text-gray-700 mt-1">
+        <h1 className="text-[23px] font-roboto text-blue-800 mt-1">
           {item.city}, By : {item.postedby},
           {calculateTimeDifference(item.postedon)}
         </h1>
@@ -62,8 +62,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </div>
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
-      <div className="flex gap-4 justify-center items-center">
-        <p className="text-[23px] text-green-600 font-roboto font-bold mr-3">
+      <div className="flex gap-4 justify-center items-center mr-3">
+        <p className="text-[23px] text-green-600 font-roboto font-bold">
           {item.rent}
         </p>
       </div>

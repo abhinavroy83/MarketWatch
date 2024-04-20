@@ -68,8 +68,8 @@ function AllRooms() {
     >
       {rooms.length > 0 ? (
         <div className="px-5 font-roboto mt-10 md:px-6 md:py-0 text-lg">
-          <div className="flex justify-between">
-            <h1 className="text-3xl capitalize text-black lg:text-[33px]">
+          <div className="flex justify-between items-center">
+            <h1 className="capitalize text-black lg:text-[33px]">
               {usercity ? <p>Rooms In {usercity}</p> : <p>Rooms near you</p>}
             </h1>
             {isverified && (
@@ -114,7 +114,7 @@ function AllRooms() {
               <button
                 onClick={handleNextPage}
                 disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
+                className="mx-2 mt-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
               >
                 More
                 <FaArrowAltCircleRight />

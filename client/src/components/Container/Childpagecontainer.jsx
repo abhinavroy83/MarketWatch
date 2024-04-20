@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LeafletMap from "../UserCompontents/LeafletMap";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
+import { FaDroplet } from "react-icons/fa6";
+import { WiRaindrops } from "react-icons/wi";
+
+
 
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
@@ -65,7 +69,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
     setsubarea(subares);
   };
   return (
-    <div className={` w-full mt-36 h-full ${className}`}>
+    <div className={` w-full mt-32 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
         <div className=" w-4/5">
           {/* <div>
@@ -117,11 +121,12 @@ function ChildContainer({ className, children, onLocationReceived }) {
                       <p>{weatherData.weather[0].main}</p>
                     )}
                     <article className="flex gap-2 mt-2">
-                      <img
+                      {/* <img
                         className="h-15 w-10 pr-2 flex"
                         src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
                         alt="logo"
-                      />
+                      /> */}
+                      <FaDroplet />
                       {weatherData.main && <p>{weatherData.main.humidity}%</p>}
                     </article>
                   </div>
