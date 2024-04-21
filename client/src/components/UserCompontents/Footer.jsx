@@ -3,7 +3,6 @@ import WebsiteLogo from "../../assets/logo-transparent.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  
   return (
     <div className="mt-5 w-full">
       <div className=" bg-[#0b5e86] font-roboto">
@@ -32,10 +31,15 @@ export default function Footer() {
                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae.
               </p>
-              <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button>
+              <button
+                className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white"
+                type="submit"
+              >
+                Get Started
+              </button>
             </div>
           </div>
-          <div className="grid text-[20px] grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
+          <div className="flex text-[20px]  mt-5 lg:col-span-4 md:grid-cols-4">
             <div>
               <Link
                 to={`/admin/dashboard`}
@@ -80,7 +84,7 @@ export default function Footer() {
             </div>
             <div className="ml-7">
               <p className="font-semibold tracking-wide text-white">
-              Quick Links
+                Quick Links
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -117,7 +121,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            
           </div>
         </div>
         <div className="flex flex-col justify-between pt-5 pb-5 border-t sm:flex-row max-w-[1600px] w-full m-auto">

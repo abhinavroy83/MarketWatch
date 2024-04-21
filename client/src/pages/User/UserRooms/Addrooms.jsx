@@ -120,15 +120,17 @@ function Addrooms() {
     const uniquecity = [...new Set(upfcity.map((item) => item.city))];
     setfiltercity(uniquecity);
     const subar = areadata.filter((item) => item.state === selectedstate);
-    const subarea = subar.map((item) => item.subarea);
-    setfiltersubarea(subarea);
+    // const subarea = subar.map((item) => item.area);
+    // setfiltersubarea(subarea);
   };
 
   const handlecities = (e) => {
     const selectedCity = e.target.value;
     const subar = areadata.filter((item) => item.city === selectedCity);
-    const subarea = subar.map((item) => item.subarea);
-    setfiltersubarea(subarea);
+    // const subarea = subar.map((item) => item.area);
+    const uniquearea = [...new Set(subar.map((item) => item.area))];
+    console.log(uniquearea);
+    setfiltersubarea(uniquearea);
   };
 
   return (
@@ -496,7 +498,7 @@ function Addrooms() {
                         required: "subarea is required",
                       })}
                       defaultValue=""
-                    // onChange={handlecities}
+                      // onChange={handlecities}
                     >
                       <option value="" disabled hidden>
                         Select Subarea
@@ -565,7 +567,7 @@ function Addrooms() {
                   {...register("description", {
                     required: "Title is required",
                   })}
-                // errorMessage={errors.area?.message}
+                  // errorMessage={errors.area?.message}
                 />
               </div>
               <div className="mt-5 flex items-center">
