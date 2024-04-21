@@ -9,6 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
 import { IoHeartCircleOutline } from "react-icons/io5";
+import { GrLocation } from "react-icons/gr";
+
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -128,39 +130,45 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         width={250}
         className="rounded-tl-md rounded-bl-md h-[100%]"
       />
-      <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-        <span className="block text-[29px]">
+      {/* <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center"> */}
+        {/* <span className="block text-[29px]">
           {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
         </span>
         <span className="block text-gray-700 text-[24px]">
           {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
-        </span>
-      </p>
+        </span> */}
+      {/* </p> */}
       
       {/* <p className="absolute p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
         {item.rent}
       </p> */}
-      <p className="absolute right-5 top-2 text-[23px] text-green-600 font-roboto font-bold text-right">
+      {/* <p className="absolute right-5 top-2 text-[23px] text-green-600 font-roboto font-bold text-right">
+        {item.rent}
+      </p> */}
+      <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
+       <p className=" left-5 top-2 text-[25px] text-black font-roboto font-bold text-right">
         {item.rent}
       </p>
+      </p>
+
       <div
-        className={`px-4 py-2 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""
+        className={`px-4 py-2 flex flex-col ${isRoomOnlyPage ? "mt-2" : ""
           } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center mt-4 text-[23px] font-roboto">
+        <h1 className="inline-flex items-center text-[23px] font-roboto">
           {item.Adname && truncateCharacters(item.Adname, 32)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className="text-[23px] text-gray-700 mt-2 font-roboto">
-          {item.city}, {item.State}
+        <p className=" flex gap-1 text-[23px] text-gray-600 mt-2 font-roboto">
+        <GrLocation size={22}/> {item.city}, {item.State}
         </p>
-        <p className="text-blue-800 text-2xl mt-1">By : {item.postedby}</p>
-        <p className="text-blue-800 text-2xl">
+        <p className="text-blue-800 text-[23px] mt-1">By : {item.postedby}</p>
+        <p className="text-blue-800 text-[23px]">
           {" "}
           {calculateTimeDifference(item.postedon)}
         </p>
-        <div className="flex gap-2 text-blue-800 text-[23px] mt-1"></div>
+        <div className="flex gap-2 text-blue-800 text-[23px] mt-2"></div>
         
         {/* <div className="absolute bottom-3 right-6">
           {!wishliststatys ? (

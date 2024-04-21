@@ -59,8 +59,8 @@ export default function Header() {
   return (
     <div className="w-full fixed z-50 flex bg-white flex-col">
       <Ads />
-      <div className="w-full bg-[#0b5e86] shadow-2xl h-[44px] font-roboto items-center mb-0">
-        <div className="flex justify-between items-center py-1 px-2 max-w-[1600px] w-full m-auto">
+      <div className="w-full bg-[#0b5e86] shadow-2xl h-[50px] font-roboto items-center mb-0">
+        <div className="flex justify-between items-center py-2 px-4 max-w-[1600px] w-full m-auto">
           <div className="flex overflow-auto mx-1">
             <ul className="ml-3 space-x-8">
               <button

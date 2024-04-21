@@ -23,7 +23,7 @@ export default function Footer() {
                 alt=""
               />
             </a>
-            <div className=" lg:max-w-sm">
+            <div className="lg:max-w-sm">
               <p className="text-[20px] text-white">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam.
@@ -32,10 +32,10 @@ export default function Footer() {
                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae.
               </p>
-              <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button>
+              {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
             </div>
           </div>
-          <div className="grid text-[20px] grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
+          <div className="flex text-[20px] grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
             <div>
               <Link
                 to={`/admin/dashboard`}

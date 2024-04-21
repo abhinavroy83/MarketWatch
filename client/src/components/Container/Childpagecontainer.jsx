@@ -116,11 +116,11 @@ function ChildContainer({ className, children, onLocationReceived }) {
                       )}
                     </div>
                   </div>
-                  <div className="mt-0 text-[26px] flex-grow">
+                  <div className="items-center gap-3 flex mt-0 text-[29px] flex-grow">
                     {weatherData.weather && (
                       <p>{weatherData.weather[0].main}</p>
                     )}
-                    <article className="flex gap-2 mt-2">
+                    <article className="items-center flex gap-2">
                       {/* <img
                         className="h-15 w-10 pr-2 flex"
                         src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
