@@ -165,7 +165,7 @@ function Profile() {
             profile page to start using the services.*
           </p>
         )}
-        <h1 className="text-[24px] text-[#000] font-bold font-roboto">
+        <h1 className="text-[24px] text-[#000] font-bold font-roboto ">
           Your Personal Details Are -
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>

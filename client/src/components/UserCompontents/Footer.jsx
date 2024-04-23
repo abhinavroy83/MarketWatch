@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="mt-5 w-full">
+    <div className="mt-9 w-full">
       <div className=" bg-[#0b5e86] font-roboto">
         <div className="max-w-[1600px] w-full m-auto flex items-center justify-between pb-3 p-4">
           <div className="">

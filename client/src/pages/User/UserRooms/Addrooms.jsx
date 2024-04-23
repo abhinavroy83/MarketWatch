@@ -134,16 +134,16 @@ function Addrooms() {
   };
 
   return (
-    <div className="w-[1400px] m-auto items-center mt-52 justify-center bg-white shadow-lg shadow-black/30">
+    <div className="w-[1400px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
       <div className="font-roboto ml-5">
-        <p className="text-[30px] font-semibold text-[#0b5e86] mt-4 flex items-center justify-center">
+        <p className="text-[30px] font-semibold text-[#000] mt-4 flex items-center justify-center">
           Post Room In St.Louis
         </p>
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
         <form
           onSubmit={handleSubmit(onsubmit)}
-          className="flex flex-col justify-center mt-5 gap-5 items-center"
+          className="flex flex-col justify-center mt-2 gap-5 items-center"
         >
           <div className="shadow-inner shadow-black/10 w-[1300px] items-center justify-center p-4">
             <p className="text-[23px]  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
@@ -590,7 +590,7 @@ function Addrooms() {
           </div>
           <button
             type="submit"
-            className="rounded-md bg-green-800 my-7 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-green-800 my-5 mt-0 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>

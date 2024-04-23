@@ -25,7 +25,7 @@ function User() {
         pauseOnHover
         theme="dark"
       />
-      <h1 className="text-4xl text-center font-bold text-red-700 mt-7 font-roboto">
+      <h1 className="text-4xl text-center font-bold text-[#0b5e86] mt-7 font-roboto">
         Welcome Back {username}
       </h1>
       <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">

@@ -2,7 +2,8 @@ import React from "react";
 import femaleLogo from "../../../assets/female.png";
 import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
-
+import { MdDateRange } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   function truncateCharacters(str, numCharacters) {
@@ -54,8 +55,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </h1>
         <div className="">
         <h1 className="flex text-[23px] font-roboto text-gray-600 mt-1">
-        <GrLocation className="mr-1" size={22}/>{item.city}, By:{item.postedby},
-         <p className="ml-1">  {calculateTimeDifference(item.postedon)}</p>
+        <GrLocation className="mr-1 flex gap-1" size={22}/>{item.city} <CgProfile className="mr-1 ml-1"/>By:{item.postedby}
+         <p className="ml-1 flex gap-1">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
         </h1>
         </div>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">
@@ -67,7 +68,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
       <div className="flex gap-4 justify-center items-center mr-3">
-        <p className="text-[23px] text-green-600 font-roboto font-bold">
+        <p className="text-[23px] text-green-700 font-roboto font-bold">
           {item.rent}
         </p>
       </div>

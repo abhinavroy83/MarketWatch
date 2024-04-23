@@ -120,7 +120,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     {weatherData.weather && (
                       <p>{weatherData.weather[0].main}</p>
                     )}
-                    <article className="items-center flex gap-2">
+                    <article className="items-center flex gap-2 mt-2">
                       {/* <img
                         className="h-15 w-10 pr-2 flex"
                         src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
@@ -138,16 +138,16 @@ function ChildContainer({ className, children, onLocationReceived }) {
             ) : (
               <p>Loading...</p>
             )}
-            <div className="text-2xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>$ 1 = Rs.72</h1>
             </div>
-            <div className="text-2xl p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 mt-1 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>1 BTC = $ 70 K</h1>
             </div>
-            <div className="mt-4">
+            <div className="mt-3">
               <LeafletMap
                 onLocationReceived={currentloc}
-                style={{ height: "300px", width: "270px" }}
+                style={{ height: "300px", width: "280px" }}
               />
             </div>
 

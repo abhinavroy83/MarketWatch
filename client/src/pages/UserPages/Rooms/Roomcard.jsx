@@ -10,6 +10,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
 import { IoHeartCircleOutline } from "react-icons/io5";
 import { GrLocation } from "react-icons/gr";
+import { MdDateRange } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
+
+
 
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
@@ -146,7 +150,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         {item.rent}
       </p> */}
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-       <p className=" left-5 top-2 text-[25px] text-black font-roboto font-bold text-right">
+       <p className=" left-5 top-2 text-[25px] text-green-700 font-roboto font-bold text-right">
         {item.rent}
       </p>
       </p>
@@ -163,12 +167,12 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <p className=" flex gap-1 text-[23px] text-gray-600 mt-2 font-roboto">
         <GrLocation size={22}/> {item.city}, {item.State}
         </p>
-        <p className="text-blue-800 text-[23px] mt-1">By : {item.postedby}</p>
-        <p className="text-blue-800 text-[23px]">
+        <p className="text-blue-800 text-[23px] mt-1 flex gap-1"><CgProfile />By : {item.postedby}</p>
+        <p className="text-blue-800 text-[23px] flex gap-1 mt-1">
           {" "}
-          {calculateTimeDifference(item.postedon)}
+          <MdDateRange />{calculateTimeDifference(item.postedon)}
         </p>
-        <div className="flex gap-2 text-blue-800 text-[23px] mt-2"></div>
+        {/* <div className="flex gap-2 text-blue-800 text-[23px] mt-2"></div> */}
         
         {/* <div className="absolute bottom-3 right-6">
           {!wishliststatys ? (
