@@ -4,7 +4,7 @@ import { Container, Input } from "../index";
 import axios from "axios";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import { login as authlogin, cities } from "../../store/authslice";
+import { UserImage, login as authlogin, cities } from "../../store/authslice";
 import { modalopen } from "../../store/modalslice";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
@@ -28,10 +28,7 @@ function Login() {
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
     try {
-      const res = await axios.post(
-        "https://marketwatch-e3hc.onrender.com/user/login",
-        data
-      );
+      const res = await axios.post("http://localhost:8000/user/login", data);
       if (res.data.status == "success") {
         // console.log(res.data.data._id);
         toast.success("Successfully logged");
@@ -44,12 +41,12 @@ function Login() {
             user: res.data.data.firstName,
             userID: res.data.data._id,
             bussinessac: res.data.data.bussinessac,
-            userimg: res.data.data.userimg,
+
             isverified: res.data.data.isVerified,
           })
         );
         dispatch(cities({ city: res.data.data.city }));
-
+        dispatch(UserImage({ userimg: res.data.data.userimg }));
         Navigate("/");
       } else if (res.data.Status === "Incorrect password") {
         alert("incorrect password");

@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import stateappravation from "../../../Services/StateAprevation/stateAbbreviations.json";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
+  
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
       return str.slice(0, numCharacters) + "...";

@@ -28,7 +28,7 @@ function Profile() {
   const fetchuser = async () => {
     try {
       const res = await axios.get(
-        `https://marketwatch-e3hc.onrender.com/user/dashboard/profile/${userID}`
+        `http://localhost:8000/user/dashboard/profile/${userID}`
       );
       setdata(res.data.user);
     } catch (error) {
@@ -102,7 +102,7 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        `https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
+        `http://localhost:8000/user/updateuser/${userID}`,
         formdt,
         {
           headers: {
@@ -112,9 +112,10 @@ function Profile() {
         }
       );
       if (res) {
-        console.log(res);
+        // console.log(res);
         alert("updated successfuly");
-        dispatch(UserImage({ userimg: res.data.userimg }));
+        // console.log(res.data.user.userimg);
+        dispatch(UserImage({ userimg: res.data.user.userimg }));
         navigate(`/myaccount/${userID}`);
       }
     } catch (error) {
@@ -294,7 +295,7 @@ function Profile() {
                     className="flex h-10 font-roboto w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("state")}
                     onChange={handlestatechange}
-                    defaultValue={""}
+                    defaultValue={data.state}
                   >
                     <option value="" disabled hidden>
                       Select State
@@ -315,7 +316,7 @@ function Profile() {
                   <select
                     className="flex h-10 font-roboto w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("city")}
-                    defaultValue={""}
+                    defaultValue={data.city}
                   >
                     <option value="" disabled hidden>
                       Select City

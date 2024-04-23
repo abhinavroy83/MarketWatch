@@ -24,8 +24,8 @@ function AllRooms() {
     try {
       const res = await axios.get(
         usercity
-          ? `https://marketwatch-e3hc.onrender.com/api/getallrooms?city=${usercity}`
-          : `https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+          ? `http://localhost:8000/api/getallrooms?city=${usercity}`
+          : `http://localhost:8000/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setRooms(res.data.Allrooms.reverse());
       setLoading(false);
@@ -95,7 +95,7 @@ function AllRooms() {
                 More Rooms
               </p>
               <div className="mt-4">
-                {rooms.slice(6).map((item) => (
+                {rooms.slice(3).map((item) => (
                   <Roomcard2nd key={item._id} {...item} />
                 ))}
               </div>
