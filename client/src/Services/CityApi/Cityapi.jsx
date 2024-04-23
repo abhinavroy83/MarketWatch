@@ -5,7 +5,7 @@ const fetchcity = async () => {
   http://localhost:8000
   try {
     const res = await axios.get(
-      "http://localhost:8000/api/admin/getallcity"
+      "https://marketwatch-e3hc.onrender.comapi/admin/getallcity"
     );
     if (!res) {
       console.log("there is some issue while fetching api");

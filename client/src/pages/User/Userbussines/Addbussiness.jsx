@@ -40,7 +40,7 @@ function Addbussiness() {
     };
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/addbussiness",
+        "https://marketwatch-e3hc.onrender.comapi/addbussiness",
         bussdata,
         {
           headers: {

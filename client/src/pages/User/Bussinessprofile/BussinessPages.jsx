@@ -35,7 +35,7 @@ function BussinessPages() {
   const onsubmit = async (data) => {
     if (data) {
       try {
-        const res = await axios.post("http://localhost:8000/user/signup", data);
+        const res = await axios.post("https://marketwatch-e3hc.onrender.comuser/signup", data);
         if (res) {
           alert("signup successfully");
           navigate("/");

@@ -16,8 +16,8 @@ function Getrooms() {
     try {
       const res = await axios.get(
         usercity
-          ? `http://localhost:8000/api/getallrooms?city=${usercity}`
-          : `http://localhost:8000/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? `https://marketwatch-e3hc.onrender.comapi/getallrooms?city=${usercity}`
+          : `https://marketwatch-e3hc.onrender.comapi/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setRooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);

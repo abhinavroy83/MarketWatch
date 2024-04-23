@@ -16,8 +16,8 @@ function Getmovieforhome() {
     try {
       const res = await axios.get(
         usercity
-          ? `http://localhost:8000/api/getmovie?city=${usercity}`
-          : `http://localhost:8000/api/getmovie?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? `https://marketwatch-e3hc.onrender.comapi/getmovie?city=${usercity}`
+          : `https://marketwatch-e3hc.onrender.comapi/getmovie?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       console.log(res.data.allmovie);
       setmovie(res.data.allmovie);

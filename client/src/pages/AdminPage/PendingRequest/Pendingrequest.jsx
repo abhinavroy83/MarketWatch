@@ -15,7 +15,7 @@ function Pendingrequest() {
   const fetchrequest = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/admin/getallapproval",
+        "https://marketwatch-e3hc.onrender.comapi/admin/getallapproval",
         {
           headers: {
             jwttoken: `${token}`,
@@ -31,7 +31,7 @@ function Pendingrequest() {
   const deleteuser = async (_id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:8000/api/admin/dltaprvauser/${_id}`
+        `https://marketwatch-e3hc.onrender.comapi/admin/dltaprvauser/${_id}`
       );
       if (res) {
         alert("user Deleted");
