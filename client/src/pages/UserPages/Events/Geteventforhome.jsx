@@ -16,8 +16,8 @@ function Geteventforhome() {
     try {
       const res = await axios.get(
         usercity
-          ? `https://marketwatch-e3hc.onrender.comapi/getevents?city=${usercity}`
-          : `https://marketwatch-e3hc.onrender.comapi/getevents?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? `https://marketwatch-e3hc.onrender.com/api/getevents?city=${usercity}`
+          : `https://marketwatch-e3hc.onrender.com/api/getevents?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       console.log(res.data.allevent);
       setevents(res.data.allevent);

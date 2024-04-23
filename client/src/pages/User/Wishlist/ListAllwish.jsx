@@ -20,7 +20,7 @@ function ListAllwish() {
     console.log(deleteId);
     try {
       const res = await axios.delete(
-        `https://marketwatch-e3hc.onrender.comapi/deletelist/${deleteId}`
+        `https://marketwatch-e3hc.onrender.com/api/deletelist/${deleteId}`
       );
       if (res) {
         setdata((prevRoomData) =>
@@ -37,13 +37,13 @@ function ListAllwish() {
     const fetchAllList = async () => {
       try {
         const listResponse = await axios.get(
-          `https://marketwatch-e3hc.onrender.comapi/getlist/${userID}`
+          `https://marketwatch-e3hc.onrender.com/api/getlist/${userID}`
         );
         // console.log(listResponse.data.list);
         const list = listResponse.data.list.map((item) => item.roomId);
         // console.log(list);
         const roomResponse = await axios.get(
-          `https://marketwatch-e3hc.onrender.comapi/getrooms/${userID}`
+          `https://marketwatch-e3hc.onrender.com/api/getrooms/${userID}`
         );
         const rooms = roomResponse.data.rooms;
         // console.log(rooms);

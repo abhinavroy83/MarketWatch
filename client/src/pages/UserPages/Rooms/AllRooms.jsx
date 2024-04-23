@@ -24,8 +24,8 @@ function AllRooms() {
     try {
       const res = await axios.get(
         usercity
-          ? `https://marketwatch-e3hc.onrender.comapi/getallrooms?city=${usercity}`
-          : `https://marketwatch-e3hc.onrender.comapi/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+          ? `https://marketwatch-e3hc.onrender.com/api/getallrooms?city=${usercity}`
+          : `https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setRooms(res.data.Allrooms.reverse());
       setLoading(false);

@@ -10,7 +10,7 @@ function Userdashboardconatiner({ children }) {
   const handledeleteuser = async () => {
     try {
       const dlt = await axios.delete(
-        `https://marketwatch-e3hc.onrender.comapi/admin/deleteuser/${id}`
+        `https://marketwatch-e3hc.onrender.com/api/admin/deleteuser/${id}`
       );
       if (dlt) {
         alert("successfully deleted");
@@ -23,7 +23,7 @@ function Userdashboardconatiner({ children }) {
   const handledeleteuserwithdata = async () => {
     try {
       const dlt = await axios.delete(
-        `https://marketwatch-e3hc.onrender.comapi/admin/deleteuserwithdata/${id}`
+        `https://marketwatch-e3hc.onrender.com/api/admin/deleteuserwithdata/${id}`
       );
       if (dlt) {
         alert("successfully deleted");

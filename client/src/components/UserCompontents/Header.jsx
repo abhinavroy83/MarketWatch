@@ -23,7 +23,7 @@ export default function Header() {
     if (userID) {
       try {
         const res = await axios.get(
-          `https://marketwatch-e3hc.onrender.comapi/getlist/${userID}`
+          `https://marketwatch-e3hc.onrender.com/api/getlist/${userID}`
         );
         if (res.data.list.status === "error") {
           setCartno("");
