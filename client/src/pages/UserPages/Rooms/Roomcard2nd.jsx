@@ -2,9 +2,10 @@ import React from "react";
 import femaleLogo from "../../../assets/female.png";
 import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
-
+import stateappravation from "../../../Services/StateAprevation/stateAbbreviations.json";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
+  
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
       return str.slice(0, numCharacters) + "...";
@@ -53,10 +54,11 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           {truncateCharacters(item.Adname, 32)}
         </h1>
         <div className="">
-        <h1 className="flex text-[23px] font-roboto text-gray-600 mt-1">
-        <GrLocation className="mr-1" size={22}/>{item.city}, By:{item.postedby},
-         <p className="ml-1">  {calculateTimeDifference(item.postedon)}</p>
-        </h1>
+          <h1 className="flex text-[23px] font-roboto text-gray-600 mt-1">
+            <GrLocation className="mr-1" size={22} />
+            {item.city}, By:{item.postedby},
+            <p className="ml-1"> {calculateTimeDifference(item.postedon)}</p>
+          </h1>
         </div>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">
           <p className="text-blue-800 text-2xl items-center">

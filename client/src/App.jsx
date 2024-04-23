@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
-import { login as authlogin, cities } from "./store/authslice";
+import { UserImage, login as authlogin, cities } from "./store/authslice";
 import { Footer, Header } from "./components";
 import { login as adminauth } from "./store/adminauthslice";
 import Ads from "./pages/UserPages/Ads/Ads";
@@ -20,10 +20,11 @@ function App() {
           userID: storeused.data.data._id,
           bussinessac: storeused.data.data.bussinessac,
           isverified: storeused.data.data.isVerified,
-          userimg: storeused.data.data.userimg,
+          // userimg: storeused.data.data.userimg,
         })
       );
       dispatch(cities({ city: storeused.data.data.city }));
+      dispatch(UserImage({ userimg: storeused.data.data.userimg }));
     }
     const adminstoredata = JSON.parse(localStorage.getItem("admindetails"));
     if (adminstoredata) {
@@ -37,10 +38,10 @@ function App() {
   });
 
   const isAdminPanel = location.pathname.startsWith("/admin");
-  const isAddRoomPage = location.pathname.includes("addroom")
+  const isAddRoomPage = location.pathname.includes("addroom");
 
   return (
-    <div className={`flex flex-col ${isAddRoomPage && 'bg-slate-100'}`}>
+    <div className={`flex flex-col ${isAddRoomPage && "bg-slate-100"}`}>
       <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}

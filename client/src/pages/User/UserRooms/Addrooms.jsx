@@ -15,6 +15,7 @@ function Addrooms() {
   const [filterstate, setfilterstate] = useState([]);
   const [filtercity, setfiltercity] = useState([]);
   const [filtersubarea, setfiltersubarea] = useState([]);
+  const [zip, setzip] = useState([]);
   const [userimgs, setuserimg] = useState("");
   const [uti, setuti] = useState(false);
 
@@ -81,7 +82,7 @@ function Addrooms() {
     console.log(roomdata);
     try {
       const res = await axios.post(
-        "https://marketwatch-e3hc.onrender.com/api/addrooms",
+        "http://localhost:8000/api/addrooms",
         roomdata,
         {
           headers: {
@@ -129,8 +130,20 @@ function Addrooms() {
     const subar = areadata.filter((item) => item.city === selectedCity);
     // const subarea = subar.map((item) => item.area);
     const uniquearea = [...new Set(subar.map((item) => item.area))];
-    console.log(uniquearea);
+    // console.log(uniquearea);
     setfiltersubarea(uniquearea);
+  };
+
+  const handlearea = (e) => {
+    const selectedarea = e.target.value;
+    // console.log(selectedarea);
+
+    const zipCodes = areadata
+      .filter((item) => item.area === selectedarea)
+      .map((item) => item.zipcode);
+
+    // console.log(zipCodes);
+    setzip(zipCodes);
   };
 
   return (
@@ -408,6 +421,7 @@ function Addrooms() {
             </div>
           </div>
 
+          {/* Location Details- */}
           <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
             <p className="text-2xl bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
@@ -486,7 +500,7 @@ function Addrooms() {
                 </div>
               </div>
 
-              <div className="">
+              <div className=" flex">
                 <div className="flex items-center">
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
                     Subarea
@@ -498,12 +512,39 @@ function Addrooms() {
                         required: "subarea is required",
                       })}
                       defaultValue=""
-                      // onChange={handlecities}
+                      onChange={handlearea}
                     >
                       <option value="" disabled hidden>
                         Select Subarea
                       </option>
                       {filtersubarea.map((subarea, index) => (
+                        <option value={subarea} key={index}>
+                          {subarea}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="text-[16px] text-red-500 mt-1">
+                      {" "}
+                      {errors.subarea && <p>{errors.subarea?.message}</p>}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <label className="min-w-[120px] text-[21px]" htmlFor="">
+                    Zip code
+                  </label>
+                  <div>
+                    <select
+                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("Zipcode", {
+                        required: "Zipcode is required",
+                      })}
+                      defaultValue=""
+                    >
+                      <option value="" disabled hidden>
+                        Select Zipcode
+                      </option>
+                      {zip.map((subarea, index) => (
                         <option value={subarea} key={index}>
                           {subarea}
                         </option>

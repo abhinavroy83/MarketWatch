@@ -3,6 +3,8 @@ import WebsiteLogo from "../../assets/logo-transparent.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  
+  // https://marketwatch-e3hc.onrender.com
   return (
     <div className="mt-5 w-full">
       <div className=" bg-[#0b5e86] font-roboto">

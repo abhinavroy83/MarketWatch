@@ -22,7 +22,7 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.userID = action.payload.userID;
       state.bussinessac = action.payload.bussinessac;
-      state.userimg = action.payload.userimg;
+      // state.userimg = action.payload.userimg;
       state.isverified = action.payload.isverified;
     },
     logout: (state) => {
