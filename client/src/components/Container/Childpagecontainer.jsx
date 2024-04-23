@@ -87,13 +87,13 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[320px] m-2 h-5/6 font-roboto mt-20 bg-gray-200 py-5 px-5">
+        <aside className="max-w-[320px] m-2 h-5/6 font-['udemy-regular'] mt-20 bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
-              <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-roboto mb-3 shadow-sm shadow-[#000]">
-                <div className="text-[33px] bg-white/30 text-white rounded-tl-lg p-1">{weatherData.name}</div>
+              <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">
+                <div className="text-[33px] bg-white/30 text-black rounded-tl-lg p-1">{weatherData.name}</div>
                 <div className="flex w-full flex-wrap ">
-                  <div className="flex text-white text-[40px] font-roboto gap-2 px-1 justify-between">
+                  <div className="flex text-white text-[40px] font-['udemy-regular'] gap-2 px-1 justify-between">
                     <div>
                       {weatherData.weather &&
                         weatherData.weather.length > 0 && (
@@ -148,10 +148,10 @@ function ChildContainer({ className, children, onLocationReceived }) {
             ) : (
               <p>Loading...</p>
             )}
-            <div className="text-[23px] p-2 rounded-sm text-white max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>$ 1 = Rs.72</h1>
             </div>
-            <div className="text-[23px] p-2 mt-1 rounded-sm text-white max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 mt-1 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>1 BTC = $ 70 K</h1>
             </div>
             <div className="mt-3">

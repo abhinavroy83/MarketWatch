@@ -52,15 +52,15 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         <img className="flex" height={50} width={50} src={femaleLogo} alt="" />
       </div>
       <div className="block grow">
-        <h1 className="text-[23px] font-roboto text-black">
+        <h1 className="text-[23px] font-['udemy-bold'] text-black">
           {" "}
           {truncateCharacters(item.Adname, 32)}
         </h1>
         <div className="">
-        <h1 className="flex text-[23px] font-roboto text-gray-600 mt-1">
-        <GrLocation size={22} /> {item.city}, {stateAbbreviations[item.State]}
-        <CgProfile className="mr-1 ml-3"/>By:{item.postedby}
-         <p className="ml-3 flex gap-1">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
+        <h1 className="flex text-[20px] font-['udemy-regular'] text-gray-600 mt-1 items-center">
+        <GrLocation size={20} /> {item.city}, {stateAbbreviations[item.State]}
+        <CgProfile className="mr-1 ml-3"/>By: {item.postedby}
+         <p className="ml-3 flex gap-1 items-center">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
         </h1>
         </div>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">
@@ -72,7 +72,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
       <div className="flex gap-4 justify-center items-center mr-3">
-        <p className="text-[23px] text-green-700 font-roboto font-bold">
+        <p className="text-[23px] text-green-700 font-['udemy-regular'] font-bold">
           {item.rent}
         </p>
       </div>

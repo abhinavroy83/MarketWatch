@@ -2,9 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Open Sans');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "udemy-regular";
+    src: url('https://www.udemy.com/staticx/udemy/fonts/Udemy-Sans-Regular-v1.woff2') format('woff');
+}
+
+@font-face {
+    font-family: "udemy-bold";
+    src: url('https://www.udemy.com/staticx/udemy/fonts/Udemy-Sans-Bold-v1.woff2') format('woff');
+}
 
 .slick-prev:before, .slick-next:before{
     color: white !important;

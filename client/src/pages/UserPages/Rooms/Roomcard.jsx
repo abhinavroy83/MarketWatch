@@ -129,7 +129,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <img
         src={item.PrdImage}
         alt=""
-        width={250}
+        width={220}
         className="rounded-tl-md rounded-bl-md h-[100%] max-w-xs transition duration-300 ease-in-out hover:opacity-80"
       />
       {/* <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center"> */}
@@ -148,26 +148,26 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         {item.rent}
       </p> */}
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-       <p className=" left-5 top-2 text-[25px] text-green-700 font-roboto font-bold text-right">
+       <p className=" left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
         {item.rent}
       </p>
       </p>
 
       <div
         className={`px-4 py-2 flex flex-col ${
-          isRoomOnlyPage ? "mt-2" : ""
+          isRoomOnlyPage ? "" : ""
         } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[23px] font-roboto">
+        <h1 className="inline-flex items-center text-[23px] font-['udemy-bold']">
           {item.Adname && truncateCharacters(item.Adname, 32)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className=" flex gap-1 text-[23px] text-gray-600 mt-2 font-roboto">
-          <GrLocation size={22} /> {item.city}, {stateAbbreviations[item.State]}
+        <p className=" flex gap-1 text-[20px] text-gray-600 mt-2 font-['udemy-regular'] items-center">
+          <GrLocation size={20} /> {item.city}, {stateAbbreviations[item.State]}
         </p>
-        <p className="text-blue-800 text-[23px] mt-1 flex gap-1"><CgProfile />By : {item.postedby}</p>
-        <p className="text-blue-800 text-[23px] flex gap-1 mt-1">
+        <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']"><CgProfile />By: {item.postedby}</p>
+        <p className="text-blue-800 text-[20px] flex gap-1 mt-1 items-center font-['udemy-regular']">
           {" "}
           <MdDateRange />{calculateTimeDifference(item.postedon)}
         </p>

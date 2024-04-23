@@ -19,7 +19,7 @@ function Ads() {
   }, []);
 
   return (
-    <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-roboto">
+    <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-['udemy-regular']">
       <Link to={"/"} className="bg-cover bg-center">
         <img
           // height={300}

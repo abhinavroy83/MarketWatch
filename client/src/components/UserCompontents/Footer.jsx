@@ -7,7 +7,7 @@ export default function Footer() {
   // https://marketwatch-e3hc.onrender.com
   return (
     <div className="mt-9 w-full">
-      <div className=" bg-[#0b5e86] font-roboto">
+      <div className=" bg-[#0b5e86] font-['udemy-regular']">
         <div className="max-w-[1600px] w-full m-auto flex items-center justify-between pb-3 p-4">
           <div className="">
             <a
