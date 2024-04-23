@@ -17,6 +17,7 @@ function AdminHome() {
         <div className="text-[#0b5e86] font-bold text-[30px] mt-4 items-center justify-center text-center">
           <p className="border-b-2 border-gray-500 pb-4">Home Page</p> <hr className="text-black"></hr>
           <p className="mt-4">Welcome , {role}</p>
+          
         </div>
       </AdminDashboard>
     </div>

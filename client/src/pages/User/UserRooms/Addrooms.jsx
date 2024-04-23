@@ -309,7 +309,7 @@ function Addrooms() {
                       onChange={(e) => setuti(e.target.checked)}
                     />
                     <p className="flex flex-col">Includes utility</p>
-                    {errors.utilities && <p>{errors.utilities.message}</p>}
+                    {errors.utilities && <p className="text-[16px] mt-1 text-red-500">{errors.utilities.message}</p>}
                   </div>
                 </div>
               </div>
@@ -500,7 +500,7 @@ function Addrooms() {
                 </div>
               </div>
 
-              <div className=" flex">
+              <div className="flex ">
                 <div className="flex items-center">
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
                     Subarea
@@ -529,13 +529,13 @@ function Addrooms() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center ml-[6.5rem]">
                   <label className="min-w-[120px] text-[21px]" htmlFor="">
                     Zip code
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("Zipcode", {
                         required: "Zipcode is required",
                       })}

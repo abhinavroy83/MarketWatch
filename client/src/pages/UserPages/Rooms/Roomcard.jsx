@@ -130,7 +130,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         src={item.PrdImage}
         alt=""
         width={250}
-        className="rounded-tl-md rounded-bl-md h-[100%]"
+        className="rounded-tl-md rounded-bl-md h-[100%] max-w-xs transition duration-300 ease-in-out hover:opacity-80"
       />
       {/* <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center"> */}
       {/* <span className="block text-[29px]">

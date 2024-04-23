@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import stateappravation from "../../../Services/StateAprevation/stateAbbreviations.json";
+import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   
@@ -57,8 +58,9 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </h1>
         <div className="">
         <h1 className="flex text-[23px] font-roboto text-gray-600 mt-1">
-        <GrLocation className="mr-1 flex gap-1" size={22}/>{item.city} <CgProfile className="mr-1 ml-1"/>By:{item.postedby}
-         <p className="ml-1 flex gap-1">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
+        <GrLocation size={22} /> {item.city}, {stateAbbreviations[item.State]}
+        <CgProfile className="mr-1 ml-3"/>By:{item.postedby}
+         <p className="ml-3 flex gap-1">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
         </h1>
         </div>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">

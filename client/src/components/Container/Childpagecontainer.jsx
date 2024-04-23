@@ -5,6 +5,7 @@ import LeafletMap from "../UserCompontents/LeafletMap";
 import { fetchcity } from "../../Services/CityApi/Cityapi";
 import { FaDroplet } from "react-icons/fa6";
 import { WiRaindrops } from "react-icons/wi";
+import { MdDateRange } from "react-icons/md";
 
 
 
@@ -32,8 +33,8 @@ function ChildContainer({ className, children, onLocationReceived }) {
       .get(
         city
           ? `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-              city
-            )}&appid=5e414d6a2d51b65b62d9b463859ae456`
+            city
+          )}&appid=5e414d6a2d51b65b62d9b463859ae456`
           : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
       )
       .then((res) => {
@@ -86,62 +87,71 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[320px] m-2 h-5/6 font-roboto mt-20 bg-gray-300 py-5 px-5">
+        <aside className="max-w-[320px] m-2 h-5/6 font-roboto mt-20 bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
-              <div className="rounded-sm bg-gradient-to-t from-cyan-600 to-blue-800 text-white text-[30px] font-roboto mb-3 shadow-sm shadow-[#000] p-2">
-                <div>{weatherData.name}</div>
-                <div className="flex w-full flex-wrap justify-space-between">
-                  <div className="flex text-white text-[40px] font-roboto gap-2">
+              <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-roboto mb-3 shadow-sm shadow-[#000]">
+                <div className="text-[33px] bg-white/30 text-white rounded-tl-lg p-1">{weatherData.name}</div>
+                <div className="flex w-full flex-wrap ">
+                  <div className="flex text-white text-[40px] font-roboto gap-2 px-1 justify-between">
                     <div>
                       {weatherData.weather &&
                         weatherData.weather.length > 0 && (
                           <img
-                            className="w-[3.9rem] h-15 items-center"
+                            className="w-[6.9rem] h-13 items-center justify-center border-full border-white"
                             src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
                             alt="logo"
                           />
                         )}
                     </div>
-                    <div>
-                      {weatherData.main && (
-                        <div>
-                          <p>
-                            {convertKelvinToCelsius(
-                              weatherData.main.temp
-                            ).toFixed(1)}
-                            °C
-                          </p>
-                        </div>
-                      )}
+                    <div className="block items-center ml-1 ">
+                      <div>
+                        {weatherData.main && (
+                          <div>
+                            <p>
+                              {convertKelvinToCelsius(
+                                weatherData.main.temp
+                              ).toFixed(1)}
+                              °C
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                      <div className="items-center gap-3 text-[29px] flex-grow">
+                        {weatherData.weather && (
+                          <p>{weatherData.weather[0].main}</p>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="items-center gap-3 flex mt-0 text-[29px] flex-grow">
+                  <div className="flex text-[26px] items-center gap-3 p-1 text-gray-800">
+                    <article className="items-center flex gap-2 justify-center">
+                      <FaDroplet size={25} />
+                      {weatherData.main && <p>{weatherData.main.humidity}%</p>}
+                    </article>
+                    <p className="flex items-center gap-2"><MdDateRange />24-3-2024</p>
+                  </div>
+                  {/* <div className="items-center gap-3 flex text-[29px] flex-grow p-1">
                     {weatherData.weather && (
                       <p>{weatherData.weather[0].main}</p>
                     )}
-                    <article className="items-center flex gap-2 mt-2">
-                      {/* <img
-                        className="h-15 w-10 pr-2 flex"
-                        src={`https://www.nicepng.com/png/full/245-2459912_wz-1600x1600-a-drop-of-dew-temperature-and.png`}
-                        alt="logo"
-                      /> */}
-                      <FaDroplet />
+                    <article className="items-center flex gap-2">
+                      <FaDroplet size={25}/>
                       {weatherData.main && <p>{weatherData.main.humidity}%</p>}
                     </article>
-                  </div>
+                  </div> */}
                 </div>
-                <p className="mt-2 text-cyan-200 text-[20px]">
+                {/* <p className="mt-2 text-cyan-200 text-[20px]">
                   from OpenWeatherMap
-                </p>
+                </p> */}
               </div>
             ) : (
               <p>Loading...</p>
             )}
-            <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 rounded-sm text-white max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>$ 1 = Rs.72</h1>
             </div>
-            <div className="text-[23px] p-2 mt-1 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+            <div className="text-[23px] p-2 mt-1 rounded-sm text-white max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>1 BTC = $ 70 K</h1>
             </div>
             <div className="mt-3">
@@ -152,7 +162,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
             </div>
 
             {/* <div className="bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
-              <h1 className="text-2xl font-semibold text-black mt-5 ml-5">
+              <h1 className="text-2xl font-semibold text-white mt-5 ml-5">
                 Services
               </h1>
               <ul className="mx-5 mb-0 flex space-x-8 flex-wrap justify-between">
@@ -162,7 +172,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px]	font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px]	font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -173,7 +183,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -184,7 +194,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -195,7 +205,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -206,7 +216,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] leading-[1rem] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] leading-[1rem] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -217,7 +227,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] leading-[1rem] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] leading-[1rem] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -228,7 +238,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -239,7 +249,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -250,7 +260,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -261,7 +271,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -272,7 +282,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -283,7 +293,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -294,7 +304,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     HomeServices
                   </button>
@@ -303,7 +313,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
             </div> */}
           </div>
           {/* <div className="border-2 bg-white mt-4 rounded-md shadow-sm shadow-[#000]">
-            <h1 className="text-lg text-black mt-5 ml-5 font-black mx-5 mb-0 flex space-x-8 flex-wrap justify-between">
+            <h1 className="text-lg text-white mt-5 ml-5 font-white mx-5 mb-0 flex space-x-8 flex-wrap justify-between">
               SEARCHES
             </h1>
             <div>
@@ -315,7 +325,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md mt-0 bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md mt-0 bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Demo Search
                   </button>
@@ -326,7 +336,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Find Search
                   </button>
@@ -339,7 +349,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Demo Search
                   </button>
@@ -350,7 +360,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Find Search
                   </button>
@@ -363,7 +373,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Demo Search
                   </button>
@@ -374,7 +384,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Find Search
                   </button>
@@ -387,7 +397,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Demo Search
                   </button>
@@ -398,7 +408,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Find Search
                   </button>
@@ -411,7 +421,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent mt-1 text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Demo Search
                   </button>
@@ -422,7 +432,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                     onClick={() => {
                       navigate("/");
                     }}
-                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-transparent text-[14px] font-semibold text-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Find Search
                   </button>
