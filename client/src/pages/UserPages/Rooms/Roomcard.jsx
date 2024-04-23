@@ -122,7 +122,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg items-start ${
+      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg ${
         isRoomOnlyPage ? "items-start" : "items-center"
       }`}
     >
@@ -154,7 +154,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       </p>
 
       <div
-        className={`px-4 py-2 flex flex-col ${
+        className={`px-4 py-1 flex flex-col ${
           isRoomOnlyPage ? "" : ""
         } w-full`}
       >
@@ -163,7 +163,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {item.Adname && truncateCharacters(item.Adname, 32)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
-        <p className=" flex gap-1 text-[20px] text-gray-600 mt-2 font-['udemy-regular'] items-center">
+        <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} /> {item.city}, {stateAbbreviations[item.State]}
         </p>
         <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']"><CgProfile />By: {item.postedby}</p>

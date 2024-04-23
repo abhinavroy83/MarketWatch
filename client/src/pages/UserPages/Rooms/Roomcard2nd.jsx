@@ -58,7 +58,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </h1>
         <div className="">
         <h1 className="flex text-[20px] font-['udemy-regular'] text-gray-600 mt-1 items-center">
-        <GrLocation size={20} /> {item.city}, {stateAbbreviations[item.State]}
+        <GrLocation size={20} className="mr-1"/> {item.city}, {stateAbbreviations[item.State]}
         <CgProfile className="mr-1 ml-3"/>By: {item.postedby}
          <p className="ml-3 flex gap-1 items-center">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
         </h1>

@@ -36,7 +36,7 @@ function Conractform({ isOpen, onClose }) {
         }}
       >
         
-        <div className="font-roboto items-center flex flex-col justify-center h-full bg-[#0b5e86]">
+        <div className="font-['udemy-regular'] items-center flex flex-col justify-center h-full bg-[#0b5e86]">
         <svg
               className="h-10 w-10 text-white absolute top-3 right-3 cursor-pointer hover:text-red-800"
               onClick={onClose}
@@ -54,28 +54,28 @@ function Conractform({ isOpen, onClose }) {
             </svg>
         <p className="text-[30px] p-3 text-white">Send Us A Message</p>
           <hr/>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col font-roboto text-white font-medium justify-center items-center gap-3 mt-4">
-            {/* <div className="flex font-roboto  p-2 items-center">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col font-['udemy-regular'] text-white font-medium justify-center items-center gap-3 mt-4">
+            {/* <div className="flex font-['udemy-regular']  p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Your Name:</label>
-                  <input className="flex h-10 font-roboto w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+                  <input className="flex h-10 font-['udemy-regular'] w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
                     type="text" 
                   />    
             </div>  
-            <div className="flex font-roboto  p-2 items-center">
+            <div className="flex font-['udemy-regular']  p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Your Email Address:</label>
-                  <input className="flex h-10 font-roboto w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+                  <input className="flex h-10 font-['udemy-regular'] w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
                     type="text" 
                   />    
             </div> 
-            <div className="flex font-roboto  p-2 items-center">
+            <div className="flex font-['udemy-regular']  p-2 items-center">
                 <label className="min-w-[190px] text-[19px]">Contact Number:</label>
-                  <input className="flex h-10 font-roboto w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+                  <input className="flex h-10 font-['udemy-regular'] w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
                     type="text" 
                   />    
             </div>  */}
-            <div className="flex font-roboto p-2">
+            <div className="flex font-['udemy-regular'] p-2">
                 <label className="min-w-[130px] text-[22px]">Description:</label>
-                  <input className="flex h-[100px] font-roboto w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+                  <input className="flex h-[100px] font-['udemy-regular'] w-[300px] bg-white text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
                     type="text" 
                   />    
             </div>  

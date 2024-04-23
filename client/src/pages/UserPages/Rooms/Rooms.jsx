@@ -240,7 +240,7 @@ function Rooms() {
         theme="dark"
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-5 font-roboto">
+      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
         <div className="flex justify-between py-2 items-start">
           <div>
             <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
@@ -256,7 +256,7 @@ function Rooms() {
                 Previous
               </button>
             </button>
-            <p className=" text-[30px] font-bold text-gray-800 font-roboto">
+            <p className=" text-[30px] font-bold text-black font-['udemy-regular']">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p>
           </div>
@@ -337,15 +337,15 @@ function Rooms() {
               alt="roomimg"
               className="h-[560px] w-[880px] rounded-md object-cover"
             />
-            <p className="flex font-roboto mt-4 text-[25px] text-blue-800 gap-2 font-bold">
+            <p className="flex font-['udemy-regular'] mt-4 text-[25px] text-blue-800 gap-2 font-bold">
               Posted By :{" "}
               <p className="text-gray-600 font-medium">{rooms.postedby}</p>
               || Posted On :{" "}
               <p className="text-gray-600 font-medium">{posteddate} </p>
             </p>
           </div>
-          <div className="px-3 font-roboto ml-7 flex flex-col gap-1">
-            {/* <p className=" text-[25px] font-bold text-gray-800 font-roboto">
+          <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-1">
+            {/* <p className=" text-[25px] font-bold text-gray-800 font-['udemy-regular']">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p> */}
             <p className="text-green-600 text-[25px] font-bold flex gap-3">
@@ -396,7 +396,7 @@ function Rooms() {
                 </div>
               ) : (
                 <div>
-                  <p className="font-roboto">Loading</p>
+                  <p className="font-['udemy-regular']">Loading</p>
                 </div>
               )}
             </div>
@@ -417,7 +417,7 @@ function Rooms() {
               </button>
               {authstatus && (
                 <div className="">
-                  {/* <p className="text-[20px] font-bold font-roboto text-blue-800">
+                  {/* <p className="text-[20px] font-bold font-['udemy-regular'] text-blue-800">
                     Your Details Are -
                   </p> */}
                   <p className="text-gray-600 text-[22px]">
@@ -431,13 +431,13 @@ function Rooms() {
             </div>
           </div>
         </div>
-        <div className="font-roboto py-2 mt-2 text-[25px] text-gray-600">
+        <div className="font-['udemy-regular'] py-2 mt-2 text-[25px] text-gray-600">
           <p className="text-blue-800 font-bold ">Overview : </p>
           {rooms.description}
         </div>
         <div className="mt-4 mb-2 border-t-2 border-black">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[25px] font-roboto text-blue-800 font-bold">
+            <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-blue-800 font-bold">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"

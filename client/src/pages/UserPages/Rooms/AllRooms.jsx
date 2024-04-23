@@ -86,7 +86,7 @@ function AllRooms() {
           </div>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
             {currentRooms.map((item) => (
-              <Roomcard key={item._id} isRoomOnlyPage={true} {...item} />
+              <Roomcard key={item._id} {...item} />
             ))}
           </div>
           {rooms.length > roomsPerPage && (
