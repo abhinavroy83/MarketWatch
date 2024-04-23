@@ -122,8 +122,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg ${
-        isRoomOnlyPage ? "items-start" : "items-center"
+      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[165px] ${
+        isRoomOnlyPage ? "items-start" : ""
       }`}
     >
       <img
