@@ -4,31 +4,54 @@ import WebsiteLogo from "../../../assets/website_logo.png";
 import { useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link } from "react-router-dom";
+import Avalableloc from "./Avalableloc";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
   const name = useSelector((state) => state.auth.user);
+  const currntcty = useSelector((state) => state.auth.city);
+  console.log(currntcty);
   const [cty, setcty] = useState([]);
 
   useEffect(() => {
     const fetchdata = async () => {
       const res = await fetchcity();
       setcty(res.data.city);
-      console.log()
+      console.log();
     };
   }, []);
+  const [isloginmodalopen, setloginmodeopen] = useState(false);
+
+  const handleloginmodelopen = () => {
+    setloginmodeopen(true);
+  };
+  const isloginmodelclose = () => {
+    setloginmodeopen(false);
+  };
 
   return (
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-['udemy-regular']">
-      <Link to={"/"} className="bg-cover bg-center">
-        <img
-          // height={300}
-          width={300}
-          className="lg:w-[300px] w-[200px]"
-          src={WebsiteLogo}
-          alt=""
-        />
-      </Link>
+      <Avalableloc isOpen={isloginmodalopen} onClose={isloginmodelclose} />
+
+      <div>
+        <Link to={"/"} className="bg-cover bg-center">
+          <img
+            // height={300}
+            width={300}
+            className="lg:w-[300px] w-[200px]"
+            src={WebsiteLogo}
+            alt=""
+          />
+        </Link>
+        <p
+          onClick={() => {
+            handleloginmodelopen();
+          }}
+          className=" cursor-pointer"
+        >
+          {currntcty}
+        </p>
+      </div>
 
       <div className="mt-2 items-center bg-cover z-50">
         <img
