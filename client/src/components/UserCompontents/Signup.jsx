@@ -118,7 +118,7 @@ function Signup() {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-roboto">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-['udemy-regular']">
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
                 <img
@@ -163,11 +163,11 @@ function Signup() {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-roboto">
+            <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
               CREATE YOUR ACCOUNT
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mx-10 font-roboto">
+              <div className="mx-10 font-['udemy-regular']">
                 <div className="flex gap-5 mt-5">
                   <Input
                     label="First Name"
@@ -239,11 +239,11 @@ function Signup() {
                     errorMessage={errors.cnf_password?.message}
                   />
                   {/* <div>
-                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-roboto">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-['udemy-regular']">
                       Select a country
                     </label>
                     <select
-                      className="w-full flex h-10 rounded-md border font-roboto border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full flex h-10 rounded-md border font-['udemy-regular'] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("country", { required: true })}
                     >
                       <option value="">Country</option>
@@ -257,11 +257,11 @@ function Signup() {
                     )}
                   </div> */}
                   {/* <div>
-                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-roboto">
+                    <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-['udemy-regular']">
                       Select a City
                     </label>
                     <select
-                      className="w-full flex h-10 rounded-md border font-roboto border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full flex h-10 rounded-md border font-['udemy-regular'] border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("city", { required: true })}
                     >
                       {currentcity.map((city, index) => (
@@ -276,7 +276,7 @@ function Signup() {
                       </p>
                     )}
                   </div> */}
-                  {/* <div className="font-roboto">
+                  {/* <div className="font-['udemy-regular']">
                     <p className="font-bold text-sm">
                       Want to have business account:
                     </p>
@@ -303,7 +303,7 @@ function Signup() {
                       </label>
                     </div>
                   </div> */}
-                  <div className="gap-3 font-roboto">
+                  <div className="gap-3 font-['udemy-regular']">
                     <input
                       type="checkbox"
                       {...register("chck", { required: "this is required" })}
@@ -331,14 +331,14 @@ function Signup() {
                   )}
                   <div className="text-center">
                     <button
-                      className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Sign To Create Account
                     </button>
                     {/* {businessstatus ? (
                       <button
-                        className="place-items-center font-roboto items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
+                        className="place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 mt-3 text-[16px] font-semibold text-white hover:bg-black/70"
                         type="submit"
                       >
                         Next

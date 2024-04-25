@@ -348,7 +348,7 @@ function Rooms() {
             {/* <p className=" text-[25px] font-bold text-gray-800 font-['udemy-regular']">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p> */}
-            <p className="text-green-600 text-[25px] font-bold flex gap-3">
+            <p className="text-green-700 text-[25px] font-bold flex gap-3">
               {rooms.rent} monthly{" "}
               {/* <p className="text-[25px] text-blue-800">[Extra Utilites Here]</p> */}
             </p>

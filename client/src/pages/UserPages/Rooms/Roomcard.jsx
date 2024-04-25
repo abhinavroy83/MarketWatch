@@ -164,7 +164,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
-          <GrLocation size={20} /> {item.city}, {stateAbbreviations[item.State]}
+          <GrLocation size={20} /> {item.city},{stateAbbreviations[item.State]}
         </p>
         <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']"><CgProfile />By: {item.postedby}</p>
         <p className="text-blue-800 text-[20px] flex gap-1 mt-1 items-center font-['udemy-regular']">

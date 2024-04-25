@@ -15,8 +15,8 @@ function DashConatiner({ children }) {
   //localhost:8000
 
   http: return (
-    <div className="mt-52 mx-auto px-4 flex max-w-[1600px] h-[700px] w-full m-auto overflow-hidden">
-      <div className=" w-1/4 h-[900px] bg-[#0b5e86] border-2  p-2 flex flex-col font-roboto items-center">
+    <div className="mt-48 mx-auto px-4 flex max-w-[1600px] h-[700px] w-full m-auto overflow-hidden">
+      <div className=" w-1/4 h-[900px] bg-[#0b5e86] border-2  p-2 flex flex-col font-['udemy-regular'] items-center">
         {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
           fill="none"

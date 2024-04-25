@@ -61,16 +61,16 @@ function Getuserroom() {
     const endIndex = Math.min(startIndex + 5, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
-        <td className="whitespace-nowrap px-4 py-4 font-roboto">
-          <div className="flex items-center font-roboto">
-            <div className="h-10 w-10 flex-shrink-0 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular']">
+          <div className="flex items-center font-['udemy-regular']">
+            <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
                 src={items.PrdImage}
                 alt=""
               />
             </div>
-            <div className="ml-4 font-roboto">
+            <div className="ml-4 font-['udemy-regular']">
               <div className="text-[22px] font-medium text-gray-900">
                 {items.Hotelname}
               </div>
@@ -78,15 +78,15 @@ function Getuserroom() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[22px] text-gray-700 font-roboto">{items.city}</div>
+          <div className="text-[22px] text-gray-700 font-['udemy-regular']">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
           {items.rent}
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-roboto">
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-['udemy-regular']">
           <a
             onClick={() => {
               handledeleterooms(items._id);
@@ -102,7 +102,7 @@ function Getuserroom() {
 
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-roboto">
+      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-3xl font-semibold text-[#0b5e86]">Rooms</h2>
@@ -118,7 +118,7 @@ function Getuserroom() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+                className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
               >
                 Add New Room
               </button>

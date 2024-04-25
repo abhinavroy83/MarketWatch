@@ -74,16 +74,16 @@ function ListAllwish() {
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
-        <td className="whitespace-nowrap px-4 py-4 font-roboto text-[22px]">
-          <div className="flex items-center font-roboto">
-            <div className="h-10 w-10 flex-shrink-0 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[22px]">
+          <div className="flex items-center font-['udemy-regular']">
+            <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
                 src={items.PrdImage}
                 alt=""
               />
             </div>
-            <div className="ml-4 font-roboto">
+            <div className="ml-4 font-['udemy-regular']">
               <div className="text-[22px] font-medium text-gray-900">
                 {items.Hotelname}
               </div>
@@ -91,20 +91,20 @@ function ListAllwish() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[22px] text-gray-700 font-roboto">{items.city}</div>
+          <div className="text-[22px] text-gray-700 font-['udemy-regular']">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-roboto">
+        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
           {items.rent}
         </td>
         <td
-          className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-roboto  cursor-pointer"
+          className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']  cursor-pointer"
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
         >
           Click here
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-roboto">
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-['udemy-regular']">
           <a
             onClick={() => {
               handleDeleteRoom(items._id);
@@ -119,7 +119,7 @@ function ListAllwish() {
   };
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-roboto">
+      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-3xl font-semibold text-[#0b5e86] flex items-center gap-3">
