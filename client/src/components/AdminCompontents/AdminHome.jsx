@@ -32,7 +32,7 @@ function AdminHome() {
                     alt="logo"
                   />
                   <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                    Your Profile
+                    Home Page
                   </h1>
                 </div>
               </div>
@@ -42,11 +42,11 @@ function AdminHome() {
                 <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                   <img
                     className="w-[4.9rem] h-15"
-                    src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
+                    src={`https://static.vecteezy.com/system/resources/thumbnails/000/439/520/small_2x/Basic_Ui__28185_29.jpg`}
                     alt="logo"
                   />
                   <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                    Rooms
+                    Basic Users
                   </h1>
                 </div>
               </div>
@@ -55,23 +55,23 @@ function AdminHome() {
               <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                 <img
                   className="w-[4.9rem] h-15"
-                  src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
+                  src={`https://cdn-icons-png.flaticon.com/512/4668/4668808.png`}
                   alt="logo"
                 />
                 <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                  Jobs
+                  Admin Users
                 </h1>
               </div>
             </div>
             <div className="" onClick={notify}>
               <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                 <img
-                  className="w-[6.4rem] h-13"
-                  src={`https://img.freepik.com/premium-vector/upcoming-events-announcement-megaphone-label-loudspeaker-speech-bubble_123447-5297.jpg`}
+                  className="w-[4.4rem] h-13"
+                  src={`https://cdn-icons-png.freepik.com/512/12179/12179310.png`}
                   alt="logo"
                 />
                 <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                  Events
+                  Pending Requestes
                 </h1>
               </div>
             </div>
@@ -79,27 +79,27 @@ function AdminHome() {
               <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                 <img
                   className="w-[4.9rem] h-15"
-                  src={`https://www.freeiconspng.com/thumbs/movie-icon/movie-icon-6.png`}
+                  src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSshtTS_vGs6BYaAZgseMNvqzmW4UAqXhT4WVNtAgHI-w&s`}
                   alt="logo"
                 />
                 <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                  Movies
+                  Area
                 </h1>
               </div>
             </div>
             <Link
               onClick={notify}
-              // to={`/user/bussiness/${userID}`}
+            // to={`/user/bussiness/${userID}`}
             >
               <div className="">
                 <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                   <img
                     className="w-[4.9rem] h-15"
-                    src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
+                    src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
                     alt="logo"
                   />
                   <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
-                    Business
+                    Rooms
                   </h1>
                 </div>
               </div>

@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link } from "react-router-dom";
 import Avalableloc from "./Avalableloc";
+import { IoMdArrowDropdown } from "react-icons/io";
+
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -33,12 +35,12 @@ function Ads() {
     <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-['udemy-regular']">
       <Avalableloc isOpen={isloginmodalopen} onClose={isloginmodelclose} />
 
-      <div>
-        <Link to={"/"} className="bg-cover bg-center">
+      <div className="flex items-center gap-2">
+        <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
             width={300}
-            className="lg:w-[300px] w-[200px]"
+            className="lg:w-[230px] w-[200px]"
             src={WebsiteLogo}
             alt=""
           />
@@ -47,9 +49,10 @@ function Ads() {
           onClick={() => {
             handleloginmodelopen();
           }}
-          className=" cursor-pointer"
+          className="text-[25px] flex cursor-pointer items-center hover:text-[#0b5e86] hover:font-bold"
         >
-          {currntcty}
+          {currntcty}<IoMdArrowDropdown />
+
         </p>
       </div>
 
