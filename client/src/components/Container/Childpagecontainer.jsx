@@ -6,8 +6,7 @@ import { fetchcity } from "../../Services/CityApi/Cityapi";
 import { FaDroplet } from "react-icons/fa6";
 import { WiRaindrops } from "react-icons/wi";
 import { MdDateRange } from "react-icons/md";
-
-
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
@@ -91,7 +90,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
               <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">
-                <div className="text-[33px] border-b-2 border-white bg-white/40  text-black rounded-tl-lg p-1">{weatherData.name}</div>
+                <div className="text-[33px] border-b-2 border-white bg-white/40  text-black rounded-tl-lg p-1 flex items-center gap-2"><FaMapMarkedAlt className="ml-2"/>{weatherData.name}</div>
                 <div className="flex w-full flex-wrap ">
                   <div className="flex text-white text-[40px] font-['udemy-regular'] gap-2 px-1 justify-between">
                     <div>
