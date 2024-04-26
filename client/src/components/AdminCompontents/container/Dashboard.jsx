@@ -11,7 +11,7 @@ function AdminDashboard({ children }) {
       <div className=" w-2/6 bg-[#0b5e86] h-4/5 p-2 flex flex-col">
         <button
           onClick={() => {
-            // navigate(`/myaccount/${userID}`);
+            navigate(`/admin/dashboard`);
           }}
           className="mt-5 text-[22px] text-white rounded-md bg-transparent px-3 py-2 capitalize font-semibold transition duration-300 ease-in-out hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >

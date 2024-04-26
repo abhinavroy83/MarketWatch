@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
+import axios from "axios";
+import { UserImage } from "../../store/authslice";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -11,12 +13,71 @@ function DashConatiner({ children }) {
   // console.log(username);
   const navigate = useNavigate();
   const { userID } = useParams();
-  // console.log(userID);
-  //localhost:8000
+  const fileInputRef = useRef(null);
+  const dispatch = useDispatch();
 
-  http: return (
+  const handleFileUpload = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleimgchange = async (e) => {
+    const file = e.target.files[0];
+    // console.log(file);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default");
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dp3hpp62z/image/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const uploadedImageUrl = response.data.secure_url;
+      // console.log(uploadedImageUrl);
+      // setuserimg(uploadedImageUrl);
+      if (uploadedImageUrl) {
+        const formdata = {
+          userimg: uploadedImageUrl,
+        };
+        try {
+          const res = await axios.put(
+            `https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
+            formdata,
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+            alert("updated successfuly");
+            // console.log(res.data.user.userimg);
+            dispatch(UserImage({ userimg: res.data.user.userimg }));
+          }
+        } catch (error) {
+          console.log("Error during upload img at database", error);
+        }
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        // Extract and log the error message
+        const errorMessage = error.response.data.error.message;
+        console.error("Error message:", errorMessage);
+      }
+    }
+  };
+
+  return (
     <div className="mt-48 mx-auto px-4 flex max-w-[1600px] h-[700px] w-full m-auto overflow-hidden">
-      <div className=" w-1/4 h-[900px] bg-[#0b5e86] border-2  p-2 flex flex-col font-['udemy-regular'] items-center">
+      <div className=" w-1/4 h-[900px] bg-[#0b5e86] border-2  p-2 flex flex-col font-roboto items-center">
         {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
           fill="none"
@@ -40,12 +101,17 @@ function DashConatiner({ children }) {
             alt=""
           />
           <div className="absolute bottom-1 right-0">
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handleimgchange}
+            />
             <FiEdit
               size={30}
               className=" text-white hover:text-black cursor-pointer"
-              onClick={() => {
-                alert("comign soon");
-              }}
+              onClick={handleFileUpload}
             />
           </div>
         </div>

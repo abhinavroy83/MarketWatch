@@ -10,9 +10,14 @@ app.use(bodyParser.json());
 dotenv.config();
 
 //cors
+
 app.use(
   cors({
-    origin: ["https://market-watch-woad.vercel.app", "http://localhost:5173"],
+    origin: [
+      "https://market-watch-woad.vercel.app",
+      "http://localhost:5173",
+      "https://main.d1iwqvmzn1plk4.amplifyapp.com",
+    ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     exposedHeaders: "*",
