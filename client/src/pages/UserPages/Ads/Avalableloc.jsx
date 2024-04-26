@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { fetchcity } from "../../../Services/CityApi/Cityapi";
 
 function Avalableloc({ isOpen, onClose }) {
+  const [cty, setcty] = useState([]);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const res = await fetchcity();
+      const uniquecity = Array.from(
+        new Set(res.data.city.map((item) => item.city))
+      );
+      setcty(uniquecity);
+    };
+    fetchdata();
+  }, []);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -27,8 +41,13 @@ function Avalableloc({ isOpen, onClose }) {
         },
       }}
     >
-      <div className=" flex justify-center mx-auto">
+      <div className=" flex flex-col justify-center mx-auto">
         <p>here we show Avalable location</p>
+        <ul>
+          {cty.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </div>
     </Modal>
   );

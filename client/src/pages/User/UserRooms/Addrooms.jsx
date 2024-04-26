@@ -112,9 +112,9 @@ function Addrooms() {
       );
       setfilterstate(uniquestate);
     };
-
     fetchdata();
   }, []);
+
   const handlestate = (e) => {
     const selectedstate = e.target.value;
     const upfcity = areadata.filter((item) => item.state === selectedstate);

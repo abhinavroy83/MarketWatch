@@ -10,7 +10,7 @@ function Ads() {
   const img = useSelector((state) => state.auth.userimg);
   const name = useSelector((state) => state.auth.user);
   const currntcty = useSelector((state) => state.auth.city);
-  console.log(currntcty);
+  // console.log(currntcty);
   const [cty, setcty] = useState([]);
 
   useEffect(() => {
