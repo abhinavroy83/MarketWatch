@@ -25,7 +25,7 @@ function User() {
         pauseOnHover
         theme="dark"
       />
-      <h1 className="text-4xl text-center font-bold text-[#0b5e86] mt-7 font-roboto">
+      <h1 className="text-4xl text-center font-bold text-[#0b5e86] mt-7 font-['udemy-regular']">
         Welcome Back {username}
       </h1>
       <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">
@@ -37,7 +37,7 @@ function User() {
                 src={`https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg`}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
                 Your Profile
               </h1>
             </div>
@@ -51,7 +51,7 @@ function User() {
                 src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
                 Rooms
               </h1>
             </div>
@@ -64,7 +64,7 @@ function User() {
               src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
               Jobs
             </h1>
           </div>
@@ -76,7 +76,7 @@ function User() {
               src={`https://img.freepik.com/premium-vector/upcoming-events-announcement-megaphone-label-loudspeaker-speech-bubble_123447-5297.jpg`}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
               Events
             </h1>
           </div>
@@ -88,7 +88,7 @@ function User() {
               src={`https://www.freeiconspng.com/thumbs/movie-icon/movie-icon-6.png`}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
               Movies
             </h1>
           </div>
@@ -104,7 +104,7 @@ function User() {
                 src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-roboto">
+              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
                 Business
               </h1>
             </div>

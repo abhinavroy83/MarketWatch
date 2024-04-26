@@ -148,7 +148,7 @@ function Addrooms() {
 
   return (
     <div className="w-[1400px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
-      <div className="font-roboto ml-5">
+      <div className="font-['udemy-regular'] ml-5">
         <p className="text-[30px] font-semibold text-[#000] mt-4 flex items-center justify-center">
           Post Room In St.Louis
         </p>
@@ -182,7 +182,7 @@ function Addrooms() {
             </article>
           </div>
 
-          <div className="font-roboto shadow-inner shadow-gray-300 w-[1300px] p-4 mt-4">
+          <div className="font-['udemy-regular'] shadow-inner shadow-gray-300 w-[1300px] p-4 mt-4">
             <p className="text-2xl  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
               Personal Details-
@@ -215,7 +215,7 @@ function Addrooms() {
                   </label>
                   <div className="">
                     <select
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("gender", {
                         required: "Gender is required",
                       })}
@@ -277,7 +277,7 @@ function Addrooms() {
                       {...register("rent", {
                         required: "Rent required",
                       })}
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     />
                   </article>
                 </div>
@@ -296,7 +296,7 @@ function Addrooms() {
                           {...register("utilities", {
                             required: "utilities required",
                           })}
-                          className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                          className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         />
                       </article>
                     </div>
@@ -322,7 +322,7 @@ function Addrooms() {
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("bed", {
                         required: "Bed is required",
                       })}
@@ -363,7 +363,7 @@ function Addrooms() {
                 </label>
                 <div>
                   <select
-                    className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("bath", {
                       required: "Bath is required",
                     })}
@@ -393,7 +393,7 @@ function Addrooms() {
                 </label>
                 <div>
                   <select
-                    className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("laundary", {
                       required: "laundary is required",
                     })}
@@ -435,7 +435,7 @@ function Addrooms() {
                       State
                     </label>
                     <select
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("State", {
                         required: "State is required",
                       })}
@@ -470,7 +470,7 @@ function Addrooms() {
                     </label>
                     <div>
                       <select
-                        className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         {...register("city", {
                           required: "City is required",
                         })}
@@ -507,7 +507,7 @@ function Addrooms() {
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-roboto w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("subarea", {
                         required: "subarea is required",
                       })}
@@ -535,7 +535,7 @@ function Addrooms() {
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("Zipcode", {
                         required: "Zipcode is required",
                       })}
@@ -595,13 +595,13 @@ function Addrooms() {
               /> */}
               <div className="">
                 <label
-                  className="text-[21px] w-[120px] font-roboto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[120px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Title
                 </label>
                 <input
-                  className="font-roboto h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   label="Title"
                   type="text"
                   placeholder="Title"
@@ -613,13 +613,13 @@ function Addrooms() {
               </div>
               <div className="mt-5 flex items-center">
                 <label
-                  className="text-[21px] w-[120px] items-center justify-center font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[120px] items-center justify-center font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description
                 </label>
                 <textarea
-                  className="h-100px w-[400px] text-[21px] font-roboto items-center justify-center text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="h-100px w-[400px] text-[21px] font-['udemy-regular'] items-center justify-center text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   name="description"
                   placeholder="Description"
                   {...register("description", {

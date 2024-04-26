@@ -96,7 +96,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
             <line x1="9" y1="9" x2="15" y2="15" />
           </svg>
         </div>
-        <div className="flex flex-col justify-center items-center h-full font-roboto">
+        <div className="flex flex-col justify-center items-center h-full font-['udemy-regular']">
           <p className="text-white text-[30px] mt-3">
             Add a new suburb to "Greater Portland Area"
           </p>
@@ -130,7 +130,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                   <input
                     type="text"
                     {...register("subarea")}
-                    className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   />
                 </div>
               )}
@@ -149,7 +149,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                       {...register("zipcode", {
                         required: "Zipcode is required",
                       })}
-                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     />
                     {errors.zipcode && (
                       <p className=" text-white text-sm">
@@ -164,7 +164,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
                     <input
                       type="text"
                       {...register("area", { required: "Area is required" })}
-                      className="flex h-10 font-roboto w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     />
                     {errors.area && (
                       <p className=" text-white text-sm">

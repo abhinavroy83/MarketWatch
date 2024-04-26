@@ -91,7 +91,7 @@ function AllArea() {
       <AdminHeader />
       <AdminDashboard>
         <div className="mx-5 mt-6 flex justify-between">
-          <p className="text-3xl font-bold text-[#0b5e86] font-roboto">
+          <p className="text-3xl font-bold text-[#0b5e86] font-['udemy-regular']">
             Add Area Details Here -
           </p>
           <div className="flex gap-3">
@@ -123,10 +123,10 @@ function AllArea() {
             </button>
           </div>
         </div>
-        <p className="mx-5 text-2xl font-bold text-[#0b5e86] font-roboto">
+        <p className="mx-5 text-2xl font-bold text-[#0b5e86] font-['udemy-regular']">
           List of Avaible Area
         </p>
-        <form className="grid grid-cols-3 gap-2 font-roboto mt-5">
+        <form className="grid grid-cols-3 gap-2 font-['udemy-regular'] mt-5">
           <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
             <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
               Country -

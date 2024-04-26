@@ -91,7 +91,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
               <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">
-                <div className="text-[33px] bg-white/30 text-black rounded-tl-lg p-1">{weatherData.name}</div>
+                <div className="text-[33px] border-b-2 border-white bg-white/40  text-black rounded-tl-lg p-1">{weatherData.name}</div>
                 <div className="flex w-full flex-wrap ">
                   <div className="flex text-white text-[40px] font-['udemy-regular'] gap-2 px-1 justify-between">
                     <div>
@@ -124,7 +124,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
                       </div>
                     </div>
                   </div>
-                  <div className="flex text-[26px] items-center gap-3 p-1 text-gray-800">
+                  <div className="flex text-[26px] items-center gap-3 p-1 text-white mb-4">
                     <article className="items-center flex gap-2 justify-center">
                       <FaDroplet size={25} />
                       {weatherData.main && <p>{weatherData.main.humidity}%</p>}

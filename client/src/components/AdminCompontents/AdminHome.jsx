@@ -15,7 +15,7 @@ function AdminHome() {
   const notify = () => toast("Coming Soon...");
 
   return (
-    <div className="font-roboto text-[20px]">
+    <div className="font-['udemy-regular'] text-[20px]">
       <AdminHeader />
       <AdminDashboard>
         <div className="text-[#0b5e86] font-bold text-[30px] mt-4 items-center justify-center text-center">
