@@ -57,7 +57,7 @@ function Ads() {
         <img
           // height={100}
           width={150}
-          src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
+          // src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
           className="lg:w-[130px] w-[100px]"
           alt=""
         />
