@@ -169,7 +169,7 @@ function Allroom() {
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
                 }}
-                className="flex rounded-md bg-green-800 px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="flex rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add Room
               </button>
@@ -246,7 +246,7 @@ function Allroom() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
                     <FaArrowAltCircleLeft /> Previous
@@ -254,7 +254,7 @@ function Allroom() {
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-base font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={nextPage}
                   >
                     Next <FaArrowAltCircleRight />

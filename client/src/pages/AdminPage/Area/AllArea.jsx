@@ -108,12 +108,12 @@ function AllArea() {
                 </div>;
                 navigate("/admin/addarea");
               }}
-              className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Add Area
             </button>
             <button
-              className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               onClick={(e) => {
                 e.preventDefault();
                 onAddSuburbClick();
@@ -123,31 +123,31 @@ function AllArea() {
             </button>
           </div>
         </div>
-        <p className="mx-5 text-2xl font-bold text-[#0b5e86] font-['udemy-regular']">
+        <p className="mx-5 text-[24px] text-gray-700 font-['udemy-regular']">
           List of Avaible Area
         </p>
         <form className="grid grid-cols-3 gap-2 font-['udemy-regular'] mt-5">
           <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
-            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
+            <p className="rounded-sm text-[20px] bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
               Country -
             </p>
             <ul>
-              <li className="text-2xl bg-white text-black p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">
+              <li className="text-[20px] bg-white text-black p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400">
                 Usa
               </li>
             </ul>
           </div>
           <div className="flex flex-col border-2 border-gray-400 w-40">
-            <p className="rounded-sm text-2xl bg-[#0b5e86] text-white shadow-lg shadow-gray-400">
+            <p className="rounded-sm text-[20px] bg-[#0b5e86] text-white shadow-lg shadow-gray-400">
               List of States
             </p>
-            <ul className="rounded-sm text-2xl bg-white p-1">
+            <ul className="rounded-sm text-[20px] bg-white p-1">
               {filterstate.map((state, index) => (
                 <li
                   key={index}
                   className={`cursor-pointer ${
                     selectedstate === state
-                      ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
+                      ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
                       : ""
                   }`}
                   onClick={() => {
@@ -160,18 +160,18 @@ function AllArea() {
             </ul>
           </div>
           <div className="flex flex-col border-2 border-gray-400 w-45 mr-5">
-            <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
+            <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
               List of Area in{" "}
               {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
             </p>
-            <ul className="rounded-sm text-2xl bg-white p-1">
+            <ul className="rounded-sm text-[20px] bg-white p-1">
               {Filtercity.map((city, index) => (
                 <li
                   key={index}
                   value={city}
                   className={`cursor-pointer ${
                     selectedCity === city
-                      ? "text-2xl bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                       : ""
                   }`}
                   onClick={() => {
@@ -194,7 +194,7 @@ function AllArea() {
           </div> */}
           <div className="mx-5 flex flex-col border-2 ">
             {/* <button
-            className="rounded-md bg-green-800 px-4 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             onClick={(e) => {
                 e.preventDefault();
                 onAddSuburbClick();
@@ -203,15 +203,15 @@ function AllArea() {
               Add New Subrs
             </button> */}
             <div className="border-2 border-gray-400 w-[500px]">
-              <p className="text-2xl rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 w-50">
+              <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400 w-50">
                 List of Area
               </p>
-              <ul className="rounded-sm text-2xl w-[496px]">
+              <ul className="rounded-sm text-[20px] w-[496px]">
                 {filterarea.length > 0 &&
                   filterarea.map((item, index) => (
                     <li
                       key={index}
-                      className="text-2xl bg-white text-black border-b-2 border-gray-400 p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      className="text-[20px] bg-white text-black border-b-2 border-gray-400 p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                     >
                       {item.area && `${item.area}, `}
                       {item.zipcodes.length > 0 && item.zipcodes.join(", ")}

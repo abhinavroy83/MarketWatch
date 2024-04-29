@@ -116,7 +116,7 @@ function Login() {
                 src={WebsiteLogo}
                 alt=""
               />
-              <p className=" text-black text-center mt-5 text-[33px]">
+              <p className=" text-black text-center mt-5 text-[30px]">
                 Welcome Back
               </p>
               <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular']">
@@ -135,7 +135,7 @@ function Login() {
           </div>
           <div className="w-50 px-20 items-center grow">
             <svg
-              className="h-10 w-10 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
+              className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"
@@ -149,7 +149,7 @@ function Login() {
               <line x1="15" y1="9" x2="9" y2="15" />{" "}
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
-            <h1 className="text-3xl font-bold text-[#0b5e86] text-center">
+            <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
               GET STARTED
             </h1>
             <p className=" text-black text-center mt-2 px-10 text-[20px]">

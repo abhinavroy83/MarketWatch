@@ -156,7 +156,7 @@ function Profile() {
     <DashConatiner>
       <div className="px-10 overflow-y-scroll">
         <div className="flex justify-center">
-          <p className="text-4xl p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-['udemy-regular']">
+          <p className="text-[30px] p-2 ml-2 font-bold text-[#0b5e86] mt-1 font-['udemy-regular']">
             Your Profile
           </p>
         </div>
@@ -390,13 +390,13 @@ function Profile() {
           {isedit ? (
             <>
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[20px]"
+                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[22px]"
                 type="submit"
               >
                 Update Profile
               </button>
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[20px] ml-3"
+                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[22px] ml-3"
                 type="button"
                 onClick={toggleCancel}
               >
@@ -405,7 +405,7 @@ function Profile() {
             </>
           ) : (
             <button
-              className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[20px]"
+              className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[22px]"
               type="button"
               onClick={toggleEdit}
             >

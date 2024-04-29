@@ -129,7 +129,7 @@ function Signup() {
                   alt=""
                 />
               </div>
-              <p className="text-black text-center mt-5 text-[33px]">
+              <p className="text-black text-center mt-5 text-[30px]">
                 Sign Up Here
               </p>
               <p className=" text-black text-center mt-5 px-10 text-[20px]">
@@ -149,7 +149,7 @@ function Signup() {
           </div>
           <div className="w-1/2 flex flex-col justify-center items-center py-1">
             <svg
-              className="h-10 w-10 text-black absolute top-11 right-3 cursor-pointer hover:text-red-700"
+              className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
               viewBox="0 0 24 24"
               fill="none"

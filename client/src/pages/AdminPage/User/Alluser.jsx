@@ -224,7 +224,7 @@ function Alluser() {
               <div className="space-x-2">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md flex items-center justify-center gap-2 bg-green-800 px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md flex items-center text-[20px] justify-center gap-2 bg-green-800 px-4 py-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={prevPage}
                   >
                     <FaArrowAltCircleLeft /> Previous
@@ -232,7 +232,7 @@ function Alluser() {
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md flex items-center justify-center gap-2 bg-green-800 px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md flex text-[20px] items-center justify-center gap-2 bg-green-800 px-4 py-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     onClick={nextPage}
                   >
                     Next <FaArrowAltCircleRight />
