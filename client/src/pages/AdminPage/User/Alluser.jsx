@@ -21,7 +21,7 @@ function Alluser() {
   const fetchuser = async () => {
     try {
       const res = await axios.get(
-        "https://marketwatch-e3hc.onrender.com/api/admin/alluser"
+        "http://localhost:8000/api/admin/alluser"
       );
       // console.log(res.data);
       setdata(res.data.user);
@@ -40,7 +40,7 @@ function Alluser() {
       if (role === "CustomerSupport") {
         // console.log("userId", userId);
         const res = await axios.post(
-          `https://marketwatch-e3hc.onrender.com/api/admin/createapproval`,
+          `http://localhost:8000/api/admin/createapproval`,
           { userId: _id },
           {
             headers: {
@@ -55,7 +55,7 @@ function Alluser() {
         }
       } else {
         const dlt = await axios.delete(
-          `https://marketwatch-e3hc.onrender.com/api/admin/deleteuser/${_id}`
+          `http://localhost:8000/api/admin/deleteuser/${_id}`
         );
         if (dlt) {
           alert("successfully deleted");

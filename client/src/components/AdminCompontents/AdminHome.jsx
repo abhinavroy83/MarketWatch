@@ -37,7 +37,7 @@ function AdminHome() {
                 </div>
               </div>
             </Link>
-            <Link>
+            <Link to={`/admin/alluser`}>
               <div className="">
                 <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                   <img
@@ -63,7 +63,7 @@ function AdminHome() {
                 </h1>
               </div>
             </div>
-            <div className="" onClick={notify}>
+            <Link className="" onClick={notify} to={`/admin/getapproval`}>
               <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                 <img
                   className="w-[4.4rem] h-13"
@@ -74,8 +74,8 @@ function AdminHome() {
                   Pending Requestes
                 </h1>
               </div>
-            </div>
-            <div className="" onClick={notify}>
+            </Link>
+            <Link className="" onClick={notify} to={`/admin/allarea`}>
               <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
                 <img
                   className="w-[4.9rem] h-15"
@@ -86,10 +86,11 @@ function AdminHome() {
                   Area
                 </h1>
               </div>
-            </div>
+            </Link>
             <Link
               onClick={notify}
-            // to={`/user/bussiness/${userID}`}
+              // to={`/user/bussiness/${userID}`}
+              to={`/admin/allroom`}
             >
               <div className="">
                 <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">

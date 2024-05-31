@@ -45,7 +45,7 @@ function DashConatiner({ children }) {
         };
         try {
           const res = await axios.put(
-            `https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
+            `http://localhost:8000/user/updateuser/${userID}`,
             formdata,
             {
               headers: {
