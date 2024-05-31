@@ -49,7 +49,7 @@ function Ads() {
           onClick={() => {
             handleloginmodelopen();
           }}
-          className="text-[25px] flex cursor-pointer items-center hover:text-[#0b5e86] hover:font-bold"
+          className="text-[22px] flex cursor-pointer items-center hover:font-bold"
         >
           {currntcty}<IoMdArrowDropdown />
 
