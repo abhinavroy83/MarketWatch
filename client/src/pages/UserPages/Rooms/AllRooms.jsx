@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Roomcard from "./Roomcard";
 import Roomcard2nd from "./Roomcard2nd";
+import RoomcardNew from "./RoomCardNew";
 import { ChildContainer } from "../../../components";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import Loader from "../../../components/UserCompontents/Loader";
@@ -67,9 +68,9 @@ function AllRooms() {
       }
     >
       {rooms.length > 0 ? (
-        <div className="px-5 font-['udemy-regular'] mt-3 md:px-6 md:py-0 text-lg">
+        <div className="px-5 font-['udemy-bold'] mt-3 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between items-center">
-            <h1 className="capitalize text-black lg:text-[28px]">
+            <h1 className="capitalize text-black lg:text-[26px]">
               {usercity ? <p>Featured Rooms In {usercity}</p> : <p>Rooms near you</p>}
             </h1>
             {isverified && (
@@ -84,14 +85,19 @@ function AllRooms() {
               </button>
             )}
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-4">
+          {/* <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
             {currentRooms.map((item) => (
               <Roomcard key={item._id} {...item} />
+            ))}
+          </div> */}
+          <div className="mt-7 pb-[44px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
+            {currentRooms.map((item) => (
+              <RoomcardNew key={item._id} {...item} />
             ))}
           </div>
           {rooms.length > roomsPerPage && (
             <>
-              <p className="text-[28px] text-black font-['udemy-regular'] mt-7">
+              <p className="text-[26px] text-black font-['udemy-regular'] mt-7">
                 More Rooms
               </p>
               <div className="mt-4">

@@ -86,7 +86,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[320px] m-2 h-5/6 font-['udemy-regular'] mt-20 bg-gray-200 py-5 px-5">
+        <aside className="max-w-[320px] m-2 h-5/6 font-['udemy-regular'] mt-4 bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
               <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">
