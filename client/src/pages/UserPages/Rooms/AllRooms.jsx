@@ -68,7 +68,7 @@ function AllRooms() {
       }
     >
       {rooms.length > 0 ? (
-        <div className="px-5 font-['udemy-bold'] mt-3 md:px-6 md:py-0 text-lg">
+        <div className="px-5 font-['udemy-bold'] mt-7 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between items-center">
             <h1 className="capitalize text-black lg:text-[26px]">
               {usercity ? <p>Featured Rooms In {usercity}</p> : <p>Rooms near you</p>}
@@ -90,14 +90,14 @@ function AllRooms() {
               <Roomcard key={item._id} {...item} />
             ))}
           </div> */}
-          <div className="mt-7 pb-[44px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
+          <div className="mt-5 pb-[18px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
             {currentRooms.map((item) => (
               <RoomcardNew key={item._id} {...item} />
             ))}
           </div>
           {rooms.length > roomsPerPage && (
             <>
-              <p className="text-[26px] text-black font-['udemy-regular'] mt-7">
+              <p className="text-[26px] text-black font-bold font-['udemy-regular'] mt-7">
                 More Rooms
               </p>
               <div className="mt-4">
@@ -108,7 +108,7 @@ function AllRooms() {
             </>
           )}
           {rooms.length > roomsPerPage && (
-            <div className="mt-4 flex justify-between p-[px]">
+            <div className="mt-4 flex justify-between">
               {currentPage > 1 && (
                 <button
                   onClick={handlePreviousPage}

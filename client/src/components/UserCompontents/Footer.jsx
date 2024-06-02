@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="flex text-[20px] grid-cols-2 gap-5 row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
             <div>
               <Link
-                to={`/admin/dashboard`}
+                to={`/about-us`}
                 className="font-semibold tracking-wide text-white"
               >
                 About Us

@@ -44,7 +44,7 @@ function Avalableloc({ isOpen, onClose }) {
       <div className="flex flex-col justify-center mx-auto font-['udemy-regular']">
       <svg
               className="h-9 w-9 text-white absolute top-1 right-3 cursor-pointer hover:text-red-600"
-              onClick={() => handleModal(false, false)}
+              onClick={onClose}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

@@ -52,12 +52,12 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         <img className="flex" height={50} width={50} src={femaleLogo} alt="" />
       </div>
       <div className="block grow">
-        <h1 className="text-[23px] font-['udemy-bold'] text-black">
+        <h1 className="text-[23px] font-['udemy-regular'] text-[#3a3247]">
           {" "}
           {truncateCharacters(item.Adname, 80)}
         </h1>
         <div className="">
-        <h1 className="flex text-[20px] font-['udemy-regular'] text-gray-600 mt-1 items-center">
+        <h1 className="flex text-[18px] font-['udemy-regular'] text-[#585163] mt-1 items-center">
         <GrLocation size={20} className="mr-1 items-center"/> {item.city},{stateAbbreviations[item.State]}
         <CgProfile className="mr-1 ml-3"/>By: {item.postedby}
          <p className="ml-3 flex gap-1 items-center">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>

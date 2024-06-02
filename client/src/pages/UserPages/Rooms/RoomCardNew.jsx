@@ -129,7 +129,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
       <img
         src={item.PrdImage}
         alt=""
-        className="rounded-md transition duration-300 ease-in-out hover:opacity-80 w-full"
+        className="rounded-md transition duration-300 ease-in-out hover:opacity-80 w-full h-[170px]"
       />
       {/* <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center"> */}
       {/* <span className="block text-[29px]">
@@ -166,7 +166,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
           <GrLocation size={20} /> {item.city},{stateAbbreviations[item.State]}
         </p>
         <p className="text-blue-800 text-[18px] mt-1 flex gap-1 items-center font-['udemy-regular']"><CgProfile />By: {item.postedby}</p>
-        <p className="text-blue-800 text-[18px] flex gap-1 mt-1 items-center font-['udemy-regular']">
+        <p className="text-blue-800 text-[18px] flex gap-1 mt-1 mb-2 items-center font-['udemy-regular']">
           {" "}
           <MdDateRange />{calculateTimeDifference(item.postedon)}
         </p>
@@ -195,10 +195,10 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
             </div>
           )}
         </div> */}
-        <div className="absolute top-[11rem] right-2 hidden group-hover:block">
+        <div className="absolute top-[8rem] right-3 hidden group-hover:block">
           {!wishliststatys ? (
             <div
-              className="cursor-pointer p-2 rounded-full hover:bg-red-600 border hover:text-white bg-white"
+              className="cursor-pointer p-2 rounded-full hover:bg-slate-400 hover:text-white bg-white"
               onClick={(e) => {
                 e.preventDefault();
                 makewishlist(item._id);
@@ -208,7 +208,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
             </div>
           ) : (
             <div
-              className="cursor-pointer p-2 rounded-full bg-white text-red-600"
+              className="cursor-pointer p-2 rounded-full bg-red-700 text-white"
               onClick={(e) => {
                 e.preventDefault();
                 unwish(item._id);
