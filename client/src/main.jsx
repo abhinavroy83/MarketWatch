@@ -41,6 +41,7 @@ import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
 import AllArea from "./pages/AdminPage/Area/AllArea.jsx";
 import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
 import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -284,6 +285,12 @@ const router = createBrowserRouter([
           </Adminauthlayout>
         ),
       },
+      {
+        path: "/about-us",
+        element: (
+          <AboutUs />
+        )
+      }
     ],
   },
 ]);
