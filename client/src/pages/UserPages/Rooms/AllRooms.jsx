@@ -71,7 +71,11 @@ function AllRooms() {
         <div className="px-5 font-['udemy-bold'] mt-7 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between items-center">
             <h1 className="capitalize text-black lg:text-[26px]">
-              {usercity ? <p>Featured Rooms In {usercity}</p> : <p>Rooms near you</p>}
+              {usercity ? (
+                <p>Featured Rooms In {usercity}</p>
+              ) : (
+                <p>Rooms near you</p>
+              )}
             </h1>
             {isverified && (
               <button
@@ -85,16 +89,16 @@ function AllRooms() {
               </button>
             )}
           </div>
-          {/* <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
+            {currentRooms.map((item) => (
+              <Roomcard key={item._id} {...item} />
+            ))}
+          </div>
+          {/* <div className="mt-5 pb-[18px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
             {currentRooms.map((item) => (
               <Roomcard key={item._id} {...item} />
             ))}
           </div> */}
-          <div className="mt-5 pb-[18px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
-            {currentRooms.map((item) => (
-              <RoomcardNew key={item._id} {...item} />
-            ))}
-          </div>
           {rooms.length > roomsPerPage && (
             <>
               <p className="text-[26px] text-black font-bold font-['udemy-regular'] mt-7">
