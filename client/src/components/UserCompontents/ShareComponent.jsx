@@ -11,7 +11,7 @@ import {
 } from "react-share";
 const ShareComponent = ({ url, title, onClose }) => {
   return (
-    <div className="grid grid-cols-3 gap-12 max-w-2xl relative p-10">
+    <div className="grid grid-cols-3 gap-12 max-w-2xl relative p-20">
       <div className="text-green-600 text-[25px] font-bold items-center justify-center w-full hover:text-black">
         <WhatsappShareButton
           className="flex flex-col gap-2 items-center justify-center"
@@ -19,7 +19,7 @@ const ShareComponent = ({ url, title, onClose }) => {
           title={title}
         >
           <FaWhatsapp size={32} className="items-center" />
-          <p className=" text-xl">WhatsApp</p>
+          <p className=" text-2xl">WhatsApp</p>
         </WhatsappShareButton>
       </div>
 
@@ -30,7 +30,7 @@ const ShareComponent = ({ url, title, onClose }) => {
           quote={title}
         >
           <FaFacebook size={32} />
-          <p className=" text-xl">Facebook</p>
+          <p className=" text-2xl">Facebook</p>
         </FacebookShareButton>
       </div>
 
@@ -41,7 +41,7 @@ const ShareComponent = ({ url, title, onClose }) => {
           title={title}
         >
           <TbBrandTwitter size={32} />
-          <p className=" text-xl">Twitter</p>
+          <p className=" text-2xl">Twitter</p>
         </TwitterShareButton>
       </div>
       <div className=" absolute right-1 top-1">

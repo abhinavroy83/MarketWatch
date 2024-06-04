@@ -25,6 +25,8 @@ import { LuPhoneCall } from "react-icons/lu";
 import femaleLogo from "../../../assets/female.png";
 import maleLogo from "../../../assets/male.jpeg";
 import { CgSmartHomeWashMachine } from "react-icons/cg";
+import { FaShareAlt } from "react-icons/fa";
+
 
 
 function Rooms() {
@@ -281,25 +283,25 @@ function Rooms() {
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
-                  className="cursor-pointer p-2 bg-red-600 rounded-full"
+                  className="cursor-pointer p-2 bg-red-600 rounded-full shadow-md hover:shadow-[#000]"
                   onClick={makewishlist}
                 >
                   <FaHeart color="#fff" size={30} />
                 </div>
               ) : (
                 <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full shadow-md hover:shadow-[#000]"
                   onClick={unwish}
                 >
                   <FaHeart color="red" size={30} />
                 </div>
               )}
-              <div className="cursor-pointer p-2 bg-green-500 rounded-full">
+              <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-md hover:shadow-[#000]">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>
-              <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
+              <div className="cursor-pointer p-2 bg-blue-600 rounded-full shadow-md hover:shadow-[#000]">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
-                  <IoIosShareAlt color="#fff" size={30} />
+                <FaShareAlt color="#fff" size={30} />
                 </CopyToClipboard>
               </div>
               <button
@@ -335,7 +337,7 @@ function Rooms() {
             <img
               src={rooms.PrdImage}
               alt="roomimg"
-              className="h-[560px] w-[880px] rounded-md object-cover"
+              className="h-[500px] w-[800px] rounded-md object-cover"
             />
             <p className="flex font-['udemy-regular'] mt-4 text-[25px] text-blue-800 gap-2 font-bold">
               Posted By :{" "}
@@ -391,7 +393,7 @@ function Rooms() {
                 <div className="mt-2">
                   <LeafletMap2
                     onLocationReceived={locationsndString}
-                    style={{ height: "350px", width: "500px" }}
+                    style={{ height: "300px", width: "500px" }}
                   />
                 </div>
               ) : (

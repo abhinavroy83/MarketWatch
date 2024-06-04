@@ -71,7 +71,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
     setsubarea(subares);
   };
   return (
-    <div className={` w-full mt-48 h-full ${className}`}>
+    <div className={` w-full mt-40 h-full ${className}`}>
       <div className="flex justify-center w-full max-w-[1600px] m-auto">
         <div className=" w-4/5">
           {/* <div>
