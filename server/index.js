@@ -20,7 +20,7 @@ app.use(
       "https://main.d1iwqvmzn1plk4.amplifyapp.com",
       "http://127.0.0.1:5173",
       "http://127.0.0.1:5174",
-      "https://copy-market-watch.vercel.app/",
+      "https://copy-market-watch.vercel.app",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
