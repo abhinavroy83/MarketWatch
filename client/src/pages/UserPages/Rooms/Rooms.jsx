@@ -27,8 +27,6 @@ import maleLogo from "../../../assets/male.jpeg";
 import { CgSmartHomeWashMachine } from "react-icons/cg";
 import { FaShareAlt } from "react-icons/fa";
 
-
-
 function Rooms() {
   const { _id } = useParams();
   const [rooms, setrooms] = useState([]);
@@ -41,8 +39,11 @@ function Rooms() {
   const [wishliststatys, setWishliststatys] = useState(false);
   const token = useSelector((state) => state.auth.token);
 
-  const url = ` https://marketwatch-e3hc.onrender.com
-  /rooms/${_id}`;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const url = ` https://marketwatch-e3hc.onrender.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
     try {
       const res = await axios.get(
@@ -135,7 +136,8 @@ function Rooms() {
   };
 
   //close
-{/* <div className="flex">
+  {
+    /* <div className="flex">
               <svg
                 class="h-12 w-12 ml-1 text-black-500"
                 fill="none"
@@ -154,7 +156,8 @@ function Rooms() {
                   <GiWashingMachine size={45} />
                 </div>
               </div>
-            </div> */}
+            </div> */
+  }
   const isloginmodelclose = () => {
     setloginmodeopen(false);
   };
@@ -170,13 +173,17 @@ function Rooms() {
         status: true,
       };
       // console.log(dat);
-      const res = await axios.post(` https://marketwatch-e3hc.onrender.com/api/addtowish`, dat, {
-        headers: {
-          jwttoken: `${token}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        ` https://marketwatch-e3hc.onrender.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       if (res) {
         setWishliststatys(true);
         notify();
@@ -301,7 +308,7 @@ function Rooms() {
               </div>
               <div className="cursor-pointer p-2 bg-blue-600 rounded-full shadow-md hover:shadow-[#000]">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
-                <FaShareAlt color="#fff" size={30} />
+                  <FaShareAlt color="#fff" size={30} />
                 </CopyToClipboard>
               </div>
               <button
@@ -355,28 +362,28 @@ function Rooms() {
               {/* <p className="text-[25px] text-blue-800">[Extra Utilites Here]</p> */}
             </p>
             <p className="text-[25px]">{rooms.address}</p>
-           <div className="flex items-center justify-between"> 
-            <p className="text-[25px]">
-              {rooms.bed} Bed / {rooms.bath} Bath
-            </p>
-            <div className="flex">
-              <img
-                className="flex"
-                height={40}
-                width={40}
-                src={
-                  rooms.gender === "female"
-                    ? femaleLogo
-                    : rooms.gender === "male"
-                    ? maleLogo
-                    : femaleLogo
-                }
-                alt=""
-              />
+            <div className="flex items-center justify-between">
+              <p className="text-[25px]">
+                {rooms.bed} Bed / {rooms.bath} Bath
+              </p>
               <div className="flex">
-                <CgSmartHomeWashMachine size={40} />
+                <img
+                  className="flex"
+                  height={40}
+                  width={40}
+                  src={
+                    rooms.gender === "female"
+                      ? femaleLogo
+                      : rooms.gender === "male"
+                      ? maleLogo
+                      : femaleLogo
+                  }
+                  alt=""
+                />
+                <div className="flex">
+                  <CgSmartHomeWashMachine size={40} />
+                </div>
               </div>
-          </div>
               {/* <img
              className="flex"
               height={50}

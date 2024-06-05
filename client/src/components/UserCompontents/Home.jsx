@@ -16,7 +16,9 @@ import { fetchcity } from "../../Services/CityApi/Cityapi";
 
 function Home() {
   const [cty, setcty] = useState([]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Getlocations />

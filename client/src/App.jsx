@@ -11,6 +11,9 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     const storeused = JSON.parse(localStorage.getItem("userdetails"));
     if (storeused) {
       dispatch(
