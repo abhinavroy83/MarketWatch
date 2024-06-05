@@ -306,15 +306,15 @@ function Rooms() {
               <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-md hover:shadow-[#000]">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>
-              <div className="cursor-pointer p-2 bg-blue-600 rounded-full shadow-md hover:shadow-[#000]">
+              {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full shadow-md hover:shadow-[#000]">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
                   <FaShareAlt color="#fff" size={30} />
                 </CopyToClipboard>
-              </div>
+              </div> */}
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[20px] flex items-center text-black shadow-md shadow-[#ccc] hover:shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="text-black" /> Share Now
               </button>
