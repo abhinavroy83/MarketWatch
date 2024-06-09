@@ -384,7 +384,7 @@ function AboutUs() {
                 alt=""
                 className="w-[550px] h-[450px]"
               />
-              <div className="justify-center ">
+              <div className="justify-center">
                 <p className="text-[48px] leading-[3.75rem] text-gray-700 font-['udemy-bold'] m-auto flex flex-col">
                   Lorem Ipsum is simply dummy text lorem Ipsum is simply is
                   simply dummy

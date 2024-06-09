@@ -148,7 +148,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         {item.rent}
       </p> */}
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-       <p className=" left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
+       <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
         {item.rent}
       
       </p>
@@ -160,7 +160,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[23px] font-['udemy-bold']">
+        <h1 className="inline-flex items-center text-[23px] font-['udemy-regular']">
           {item.Adname && truncateCharacters(item.Adname, 42)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
