@@ -160,7 +160,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[23px] font-['udemy-regular']">
+        <h1 className="flex flex-col items-center text-[23px] font-['udemy-regular']">
           {item.Adname && truncateCharacters(item.Adname, 42)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
@@ -172,31 +172,6 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {" "}
           <MdDateRange />{calculateTimeDifference(item.postedon)}
         </p>
-        {/* <div className="flex gap-2 text-blue-800 text-[23px] mt-2"></div> */}
-        
-        {/* <div className="absolute bottom-3 right-6">
-          {!wishliststatys ? (
-            <div
-              className="cursor-pointer p-2 bg-gray-500 rounded-full hover:bg-red-600"
-              onClick={(e) => {
-                e.preventDefault();
-                makewishlist(item._id);
-              }}
-            >
-              <FaHeart color="#fff" size={20} />
-            </div>
-          ) : (
-            <div
-              className="cursor-pointer p-2 border border-gray-300 rounded-full"
-              onClick={(e) => {
-                e.preventDefault();
-                unwish(item._id);
-              }}
-            >
-              <FaHeart color="red" size={20} />
-            </div>
-          )}
-        </div> */}
         <div className="absolute bottom-3 right-4">
           {!wishliststatys ? (
             <div

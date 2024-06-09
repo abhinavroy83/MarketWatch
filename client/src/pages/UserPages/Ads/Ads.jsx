@@ -32,7 +32,7 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-['udemy-regular']">
+    <div className="flex px-1 justify-between bg-white max-w-[1600px] w-full m-auto font-['udemy-regular'] h-[110px]">
       <Avalableloc isOpen={isloginmodalopen} onClose={isloginmodelclose} />
 
       <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ function Ads() {
           <img
             // height={300}
             width={300}
-            className="lg:w-[230px] w-[200px]"
+            className="w-[150px] lg:w-[230px]"
             src={WebsiteLogo}
             alt=""
           />
@@ -56,15 +56,15 @@ function Ads() {
         </p>
       </div>
 
-      <div className="mt-2 items-center bg-cover z-50">
+      {/* <div className="mt-2 items-center bg-cover z-50">
         <img
-          // height={100}
+          height={100}
           width={150}
-          // src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
+          src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
           className="lg:w-[130px] w-[100px]"
           alt=""
         />
-      </div>
+      </div> */}
       {/* <button
                 type="button"
                 className="rounded-md text-[17px] px-3 py-2 text-black font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -85,7 +85,7 @@ function Ads() {
           }
           alt={"not found"}
         />
-        <p className="items-center justify-center text-[22px] m-2">
+        <p className="items-center justify-center text-[20px] m-2 whitespace-nowrap text-ellipsis max-w-[100px] overflow-auto text-center">
           Hi, {name}
         </p>
       </div>

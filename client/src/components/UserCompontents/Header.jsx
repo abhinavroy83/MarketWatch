@@ -70,7 +70,7 @@ export default function Header() {
         <div className="w-full bg-[#0b5e86] shadow-2xl h-[50px] font-['udemy-regular'] items-center mb-0">
 
           <div className="flex justify-between items-center mt-[7px] max-w-[1600px] w-full m-auto">
-            <div className="relative">
+            <div className="relative block lg:hidden">
               <button className="items-center mt-1 ml-2" onClick={handlehamburger}> <GiHamburgerMenu className="cursor-pointer text-white" size={27}/> </button>
               {openhamburger && 
                 <div className="inline-flex flex-col bg-[#0b5e86] max-w-[200px] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[200px] left-0">
@@ -81,7 +81,7 @@ export default function Header() {
                       navigate("/");
                       {handlehamburger}
                     }}
-                    className="rounded-md text-xl p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    className="rounded-md text-lg p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                   >
                     HOME
                   </button>
@@ -93,7 +93,7 @@ export default function Header() {
                       // navigate("/Events");
                       alert("Coming soon");
                     }}
-                    className="rounded-md text-xl p-2 text-white font-medium  transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    className="rounded-md text-lg p-2 text-white font-medium  transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                   >
                     EVENTS
                   </button>
@@ -104,7 +104,7 @@ export default function Header() {
                     onClick={() => {
                       navigate("/rooms");
                     }}
-                    className="rounded-md text-xl p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                   >
                     ROOMS
                   </button>
@@ -116,7 +116,7 @@ export default function Header() {
                       // navigate("/bussiness");
                       alert("Coming soon");
                     }}
-                    className="rounded-md text-xl p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                   >
                     BUSSINESS
                   </button>
@@ -128,7 +128,7 @@ export default function Header() {
                       // navigate("/Movie");
                       alert("Coming soon");
                     }}
-                    className="rounded-md text-xl p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                   >
                     MOVIES
                   </button>
@@ -136,7 +136,7 @@ export default function Header() {
               </div>
               }
             </div>
-            <div className="flex overflow-auto mx-1 hidden">
+            <div className="flex overflow-auto mx-1 hidden lg:flex">
               <ul className="ml-3 space-x-8">
                 <button
                   type="button"
@@ -210,7 +210,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => handleModal(true, false)}
-                  className="rounded-md text-xl  px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                  className="rounded-md text-xl px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                 >
                   LOG IN
                 </button>
@@ -219,14 +219,14 @@ export default function Header() {
               <div className="flex items-center">
                 <div className="relative mr-3">
                   <FaHeart
-                    className="text-white hover:text-red-400 cursor-pointer mt-2"
+                    className="text-white hover:text-red-400 cursor-pointer mt-3"
                     size={25}
                     onClick={() => {
                       navigate(`/dashboard/wishlist/${userID}`);
                     }}
                   />
                   {cartno > 0 && (
-                    <div className="absolute top-1 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-6 h-6 flex justify-center items-center rounded-full">
+                    <div className="absolute top-2 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-6 h-6 flex justify-center items-center rounded-full">
                       {cartno}
                     </div>
                   )}
@@ -236,14 +236,14 @@ export default function Header() {
                   onClick={() => {
                     navigate(`/myaccount/${userID}`);
                   }}
-                  className="rounded-md text-xl  px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                  className="rounded-md text-lg lg:text-xl px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                 >
                   MY ACCOUNT
                 </button>
                 <button
                   type="button"
                   onClick={handlelogout}
-                  className="rounded-md text-xl px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                  className="rounded-md text-lg lg:text-xl px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                 >
                   LOGOUT
                 </button>

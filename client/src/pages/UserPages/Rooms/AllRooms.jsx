@@ -61,6 +61,7 @@ function AllRooms() {
   if (loading)
     return <Loader className={"h-screen flex justify-center items-center"} />;
 
+  console.log(rooms);
   return (
     <ChildContainer
       onLocationReceived={
