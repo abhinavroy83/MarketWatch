@@ -71,7 +71,7 @@ function AllRooms() {
       {rooms.length > 0 ? (
         <div className="px-5 font-['udemy-bold'] mt-7 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between items-center">
-            <h1 className="capitalize text-black lg:text-[26px]">
+            <h1 className="capitalize text-[26px]">
               {usercity ? (
                 <p>Featured Rooms In {usercity}</p>
               ) : (
@@ -102,7 +102,7 @@ function AllRooms() {
           </div> */}
           {rooms.length > roomsPerPage && (
             <>
-              <p className="text-[26px] text-black font-bold font-['udemy-regular'] mt-7">
+              <p className="text-[26px] text-black font-bold font-['udemy-bold'] mt-7">
                 More Rooms
               </p>
               <div className="mt-4">
