@@ -82,7 +82,7 @@ function Addrooms() {
     console.log(roomdata);
     try {
       const res = await axios.post(
-        " https://marketwatch-e3hc.onrender.com/api/addrooms",
+        " http://api.verydesi.com/api/addrooms",
         roomdata,
         {
           headers: {

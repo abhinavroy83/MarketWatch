@@ -2,10 +2,10 @@ import axios from "axios";
 
 const fetchcity = async () => {
 
-   https://marketwatch-e3hc.onrender.com
+   http://api.verydesi.com
   try {
     const res = await axios.get(
-      " https://marketwatch-e3hc.onrender.com/api/admin/getallcity"
+      " http://api.verydesi.com/api/admin/getallcity"
     );
     if (!res) {
       console.log("there is some issue while fetching api");

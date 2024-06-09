@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   
-  //  https://marketwatch-e3hc.onrender.com/
+  //  http://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
       <div className=" bg-[#0b5e86] font-['udemy-regular']">

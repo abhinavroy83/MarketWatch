@@ -47,7 +47,7 @@ function Signup() {
     };
     try {
       // console.log(datsa);
-      const res = await axios.post(" https://marketwatch-e3hc.onrender.com/user/signup", datsa);
+      const res = await axios.post(" http://api.verydesi.com/user/signup", datsa);
       if (res) {
         // console.log(res);
         alert("signup successfully added");

@@ -68,7 +68,7 @@ async function sendemailverification(email, jwttoken) {
     from: "your@example.com",
     to: email,
     subject: "Email Verification",
-    text: `Click this link to verify your email:  https://marketwatch-e3hc.onrender.com/user/verifyemail/${jwttoken}`,
+    text: `Click this link to verify your email:  http://api.verydesi.com/user/verifyemail/${jwttoken}`,
   });
 }
 

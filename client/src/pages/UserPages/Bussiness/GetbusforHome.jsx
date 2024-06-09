@@ -16,8 +16,8 @@ function GetbusforHome() {
     try {
       const res = await axios.get(
         usercity
-          ? ` https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?city=${usercity}`
-          : ` https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? ` http://api.verydesi.com/api/getbusinessbyloc?city=${usercity}`
+          : ` http://api.verydesi.com/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setallbusi(res.data.allBusiness);
     } catch (error) {
