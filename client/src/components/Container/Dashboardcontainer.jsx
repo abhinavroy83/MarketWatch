@@ -45,7 +45,7 @@ function DashConatiner({ children }) {
         };
         try {
           const res = await axios.put(
-            ` http://api.verydesi.com/user/updateuser/${userID}`,
+            ` https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
             formdata,
             {
               headers: {

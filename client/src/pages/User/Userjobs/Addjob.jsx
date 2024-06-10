@@ -32,7 +32,7 @@ function Addjob() {
     // console.log(jobdata)
     try {
       const res = await axios.post(
-        " http://api.verydesi.com/api/addjob",
+        " https://marketwatch-e3hc.onrender.com/api/addjob",
         jobdata,
         {
           headers: {

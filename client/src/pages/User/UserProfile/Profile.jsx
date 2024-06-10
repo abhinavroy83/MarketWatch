@@ -28,7 +28,7 @@ function Profile() {
   const fetchuser = async () => {
     try {
       const res = await axios.get(
-        ` http://api.verydesi.com/user/dashboard/profile/${userID}`
+        ` https://marketwatch-e3hc.onrender.com/user/dashboard/profile/${userID}`
       );
       setdata(res.data.user);
     } catch (error) {
@@ -102,7 +102,7 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        ` http://api.verydesi.com/user/updateuser/${userID}`,
+        ` https://marketwatch-e3hc.onrender.com/user/updateuser/${userID}`,
         formdt,
         {
           headers: {

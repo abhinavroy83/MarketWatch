@@ -16,8 +16,8 @@ function Getrooms() {
     try {
       const res = await axios.get(
         usercity
-          ? ` http://api.verydesi.com/api/getallrooms?city=${usercity}`
-          : ` http://api.verydesi.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? ` https://marketwatch-e3hc.onrender.com/api/getallrooms?city=${usercity}`
+          : ` https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setRooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);

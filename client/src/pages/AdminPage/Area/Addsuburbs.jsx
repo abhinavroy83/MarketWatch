@@ -27,7 +27,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
     // console.log("ardata", ardata);
     try {
       const res = await axios.post(
-        ` http://api.verydesi.com/api/admin/postcity`,
+        ` https://marketwatch-e3hc.onrender.com/api/admin/postcity`,
         ardata,
         {
           headers: {

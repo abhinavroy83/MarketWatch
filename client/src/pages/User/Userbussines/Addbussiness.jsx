@@ -40,7 +40,7 @@ function Addbussiness() {
     };
     try {
       const res = await axios.post(
-        " http://api.verydesi.com/api/addbussiness",
+        " https://marketwatch-e3hc.onrender.com/api/addbussiness",
         bussdata,
         {
           headers: {

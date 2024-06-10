@@ -13,7 +13,7 @@ function Userrooms() {
   const fetchUserRoomDetails = async () => {
     try {
       const res = await axios.get(
-        ` http://api.verydesi.com/api/getrooms/${id}`
+        ` https://marketwatch-e3hc.onrender.com/api/getrooms/${id}`
       );
       if (!res) {
         console.log("unable to fetch the data or it may be empty");
