@@ -10,6 +10,7 @@ import { IoInformationCircleSharp } from "react-icons/io5";
 function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
   const token = useSelector((state) => state.auth.token);
+  const cunrtcity = useSelector((state) => state.auth.city);
   const navigate = useNavigate();
   const [areadata, setarea] = useState([]);
   const [filterstate, setfilterstate] = useState([]);
@@ -82,7 +83,7 @@ function Addrooms() {
     console.log(roomdata);
     try {
       const res = await axios.post(
-        " https://marketwatch-e3hc.onrender.com/api/addrooms",
+        " https://api.verydesi.com/api/addrooms",
         roomdata,
         {
           headers: {
@@ -150,7 +151,7 @@ function Addrooms() {
     <div className="w-[1400px] m-auto items-center mt-48 justify-center bg-white shadow-lg shadow-black/30">
       <div className="font-['udemy-regular'] ml-5">
         <p className="text-[30px] font-semibold text-[#000] mt-4 flex items-center justify-center">
-          Post Room In St.Louis
+          Post Room In {cunrtcity}
         </p>
         {/* <p>{currentLocation.lat}</p>
         <p>{currentLocation.lng}</p> */}
@@ -158,104 +159,306 @@ function Addrooms() {
           onSubmit={handleSubmit(onsubmit)}
           className="flex flex-col justify-center mt-2 gap-5 items-center"
         >
-          <div className="shadow-inner shadow-black/10 w-[1300px] items-center justify-center p-4">
-            <p className="text-[23px]  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
-              <IoInformationCircleSharp /> Ad Details-{" "}
-            </p>
-            <article className="flex justify-between gap-4 items-center mt-5 px-4">
-              <FormInput
-                className="flex items-center justify-center"
-                label="Ad Name"
-                placeholder="Ad Name"
+          <div className="w-full">
+            <div className="">
+              <label
+                className="text-[21px] w-[120px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Title
+              </label>
+              <input
+                className="font-['udemy-regular'] h-10  w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                label="Title"
                 type="text"
-                {...register("Adname", { required: "Adname is required" })}
-                errorMessage={errors.Adname?.message}
+                placeholder="Title"
+                {...register("description", {
+                  required: "Title is required",
+                })}
+                // errorMessage={errors.area?.message}
               />
-              <FormInput
-                className="flex items-center justify-center"
-                label="Add Area"
-                type="text"
-                placeholder="for eg ... st louis greater area"
-                {...register("area", { required: "Area is required" })}
-                errorMessage={errors.area?.message}
-              />
-            </article>
-          </div>
+            </div>
 
-          <div className="font-['udemy-regular'] shadow-inner shadow-gray-300 w-[1300px] p-4 mt-4">
-            <p className="text-2xl  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
-              <IoInformationCircleSharp />
-              Personal Details-
-            </p>
-            <article className="flex flex-col gap-4 px-4 mt-5">
-              <div className="flex w-auto">
-                <FormInput
-                  label="Email"
-                  type="text"
-                  placeholder="Enter Email"
-                  {...register("email", {
-                    required: "Email required",
-                  })}
-                  errorMessage={errors.email?.message}
-                />
-                <FormInput
-                  label="Number"
-                  type="text"
-                  placeholder="Enter Number"
-                  {...register("number", {
-                    required: "Number required",
-                  })}
-                  errorMessage={errors.number?.message}
-                />
+            <div className="mt-5 flex items-center">
+              <label
+                className="text-[21px] w-[120px] items-center justify-center font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Description
+              </label>
+              <textarea
+                className="h-100px w-[400px] text-[21px] font-['udemy-regular'] items-center justify-center text-21px rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                name="description"
+                placeholder="Description"
+                {...register("description", {
+                  required: "Description is required",
+                })}
+              />
+            </div>
+            <label htmlFor="">Property Type</label>
+            <select name="" id="">
+              <option value="">Single Famaily Home</option>
+              <option value="">Apartment</option>
+              <option value="">Condo</option>
+              <option value="">Town House</option>
+              <option value="">Homes</option>
+              <option value="">House</option>
+              <option value="">Basement Apartment</option>
+            </select>
+
+            <div>
+              <label htmlFor=" ">Posting In</label>
+
+              <select
+                {...register("city", {
+                  required: "City is required",
+                })}
+                defaultValue=""
+                onChange={handlecities}
+              >
+                <option className="text-gray-600" value="" disabled hidden>
+                  Select city
+                </option>
+                {filtercity.map((city, index) => (
+                  <option value={city} key={index}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className=" flex">
+              <label
+                htmlFor=""
+                className="text-[21px] w-[120px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+              >
+                Stay/Laese
+              </label>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Long term(6+ months) </p>
               </div>
-              <div>
-                <div className="flex items-center">
-                  <label className="min-w-[120px] text-[21px]" htmlFor="">
-                    Gender
-                  </label>
-                  <div className="">
-                    <select
-                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      {...register("gender", {
-                        required: "Gender is required",
-                      })}
-                      defaultValue=""
-                    >
-                      <option value="" disabled hidden>
-                        Select Gender
-                      </option>
-                      <option className="text-[16px]" value="male">
-                        Male
-                      </option>
-                      <option className="text-[16px]" value="female">
-                        Female
-                      </option>
-                      <option className="text-[16px]" value="both">
-                        Both
-                      </option>
-                    </select>
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {" "}
-                      {errors.gender && <p>{errors.gender.message}</p>}
-                    </p>
-                  </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Short term </p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Both </p>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="">Avaliblity</label>
+              <input
+                type="text"
+                placeholder="Available from"
+                className=" border-red-300 border-2"
+              />
+              <input
+                type="text"
+                placeholder="Available to"
+                className=" border-red-300 border-2"
+              />
+            </div>
+            <div className="flex">
+              <label htmlFor="">Day Available</label>
+              <div className=" flex">
+                <input type="radio" />
+                <p>7 days a week </p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Weekends only </p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Monday to friday only </p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Attached Bath</label>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Yes </p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>No </p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Preferred Gender</label>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Any </p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Male only</p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Female only</p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Expected Rooms</label>
+              <span>$</span>
+              <input
+                type="text"
+                placeholder="Rent"
+                className=" border-red-300 border-2"
+              />
+              <input type="checkbox" />
+              <p className=" text-black">Negotiable</p>
+              <input type="checkbox" />
+              <p className=" text-black">Hide Rent</p>
+            </div>
+
+            <div>
+              <label htmlFor="">Price Model</label>
+              <input type="text" placeholder=" price model" />
+            </div>
+            <div>
+              <label htmlFor="">Desposite</label>
+              <span>$</span>
+              <input
+                type="text"
+                placeholder="Rent"
+                className=" border-red-300 border-2"
+              />
+            </div>
+            <div>
+              <label htmlFor="">Is the room/furnished ?</label>
+              <select name="" id="">
+                <option value="">Select</option>
+                <option value="">Unfurnished</option>
+                <option value="">Furnished with Bed</option>
+                <option value="">Semi Furnished</option>
+                <option value="">Fully Furnished</option>
+              </select>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Amenities include</label>
+
+              <div className=" flex flex-wrap max-w-4xl border-red-600 border-2 ">
+                <input value="" type="checkbox" />
+                <p>Gym/Fitness Center</p>
+                <input value="" type="checkbox" />
+                <p>Swimming Pool</p>
+                <input value="" type="checkbox" />
+                <p>Car Park</p>
+                <input value="" type="checkbox" />
+                <p>Visitors Parking</p>
+                <input value="" type="checkbox" />
+                <p>Power Backup</p>
+                <input value="" type="checkbox" />
+                <p>Garbage Disposal</p>
+                <input value="" type="checkbox" />
+                <p>Private Lawn</p>
+                <input value="" type="checkbox" />
+                <p>Water Heater Plant</p>
+                <input value="" type="checkbox" />
+                <p>Security System</p>
+                <input value="" type="checkbox" />
+                <p>Laundry Service</p>
+                <input value="" type="checkbox" />
+                <p>Elevator</p>
+                <input value="" type="checkbox" />
+                <p>Club House</p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Vegeterian Preference</label>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Yes,Vegeterian mandatory</p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Male only</p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Female only</p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Smoking Policy</label>
+
+              <div className=" flex">
+                <input type="radio" />
+                <p>No Smoking</p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Smoking is Ok</p>
+              </div>
+              <div className=" flex">
+                <input type="radio" />
+                <p>Smoke outside only</p>
+              </div>
+            </div>
+            <div className=" flex">
+              <label htmlFor="">Pet Friendly</label>
+              <div className=" flex">
+                <div className=" flex">
+                  <input type="radio" />
+                  <p>No Pets</p>
+                </div>
+                <div className=" flex">
+                  <input type="radio" />
+                  <p>Only Dogs</p>
+                </div>
+                <div className=" flex">
+                  <input type="radio" />
+                  <p>Only Cats</p>
+                </div>
+                <div className=" flex">
+                  <input type="radio" />
+                  <p>Any Pet is Ok</p>
                 </div>
               </div>
-            </article>
-            <label className="w-[290px] text-[21px] px-4">Image:</label>
-            <input
-              className="ml-9 py-4 "
-              type="file"
-              accept="image/*"
-              onChange={handleimgchange}
-            />
+            </div>
+
+            <div>
+              <label htmlFor="">Open House Schedule</label>
+              <input type="text" className=" border-red-300 border-2" />
+            </div>
+            <div>
+              <p>Uplaod Photos</p>
+              <div>
+                <p>Add photos</p>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className=" border-red-300 border-2"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p>your details</p>
+              <div>
+                <label htmlFor="">Name*</label>
+                <input type="text" className=" border-red-300 border-2" />
+              </div>
+              <div>
+                <label htmlFor="">Email*</label>
+                <input type="text" className=" border-red-300 border-2" />
+              </div>
+              <div>
+                <label htmlFor="">Phone Number*</label>
+                <input type="text" className=" border-red-300 border-2" />
+              </div>
+            </div>
           </div>
 
-          <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
-            <p className="text-2xl  bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
+          <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
+            {/* <p className="text-2xl   font-semibold text-black flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
               Property Details-
-            </p>
+            </p> */}
             <article className="flex justify-between mb-3 mt-5 px-4">
               <div className=" flex items-center">
                 <div className="flex items-center">
@@ -309,7 +512,11 @@ function Addrooms() {
                       onChange={(e) => setuti(e.target.checked)}
                     />
                     <p className="flex flex-col">Includes utility</p>
-                    {errors.utilities && <p className="text-[16px] mt-1 text-red-500">{errors.utilities.message}</p>}
+                    {errors.utilities && (
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {errors.utilities.message}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -420,13 +627,12 @@ function Addrooms() {
               </div>
             </div>
           </div>
-
-          {/* Location Details- */}
-          <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
-            <p className="text-2xl bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
+          {/* Area Name- */}
+          <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
+            {/* <p className="text-2xl text-black font-semibold flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
-              Location Details-
-            </p>
+              Area Name
+            </p> */}
             <article className="flex flex-col gap-4 px-4 mt-4">
               <div className="flex">
                 <div>
@@ -579,11 +785,79 @@ function Addrooms() {
               />
             </article>
           </div>
-          <div className="shadow-inner shadow-gray-300 w-[1300px] items-center justify-center p-4 pb-0">
-            <p className="text-2xl bg-[#0b5e86] font-semibold text-white flex items-center justify-center gap-2 p-1">
+          <div className="font-['udemy-regular']  shadow-gray-300 w-[1300px] p-4 mt-4">
+            {/* <p className="text-2xl   font-semibold text-black flex items-center justify-center gap-2 p-1">
+              <IoInformationCircleSharp />
+              Personal Details-
+            </p> */}
+            <article className="flex flex-col gap-4 px-4 mt-5">
+              <div className="flex w-auto">
+                <FormInput
+                  label="Email"
+                  type="text"
+                  placeholder="Enter Email"
+                  {...register("email", {
+                    required: "Email required",
+                  })}
+                  errorMessage={errors.email?.message}
+                />
+                <FormInput
+                  label="Number"
+                  type="text"
+                  placeholder="Enter Number"
+                  {...register("number", {
+                    required: "Number required",
+                  })}
+                  errorMessage={errors.number?.message}
+                />
+              </div>
+              <div>
+                <div className="flex items-center">
+                  <label className="min-w-[120px] text-[21px]" htmlFor="">
+                    Gender
+                  </label>
+                  <div className="">
+                    <select
+                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("gender", {
+                        required: "Gender is required",
+                      })}
+                      defaultValue=""
+                    >
+                      <option value="" disabled hidden>
+                        Select Gender
+                      </option>
+                      <option className="text-[16px]" value="male">
+                        Male
+                      </option>
+                      <option className="text-[16px]" value="female">
+                        Female
+                      </option>
+                      <option className="text-[16px]" value="both">
+                        Both
+                      </option>
+                    </select>
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {" "}
+                      {errors.gender && <p>{errors.gender.message}</p>}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <label className="w-[290px] text-[21px] px-4">Image:</label>
+            <input
+              className="ml-9 py-4 "
+              type="file"
+              accept="image/*"
+              onChange={handleimgchange}
+            />
+          </div>
+          <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 pb-0">
+            {/* <p className="text-2xl  font-semibold text-black flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
               Add Description-
-            </p>
+            </p> */}
             <article className="gap-4 items-center mt-5 px-4">
               {/* <FormInput
                 className=""
@@ -593,7 +867,7 @@ function Addrooms() {
                 {...register("Title", { required: "Title is required" })}
                 // errorMessage={errors.AdName?.message}
               /> */}
-              <div className="">
+              {/* <div className="">
                 <label
                   className="text-[21px] w-[120px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -610,8 +884,8 @@ function Addrooms() {
                   })}
                   // errorMessage={errors.area?.message}
                 />
-              </div>
-              <div className="mt-5 flex items-center">
+              </div> */}
+              {/* <div className="mt-5 flex items-center">
                 <label
                   className="text-[21px] w-[120px] items-center justify-center font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -626,7 +900,7 @@ function Addrooms() {
                     required: "Description is required",
                   })}
                 />
-              </div>
+              </div> */}
             </article>
           </div>
           <button

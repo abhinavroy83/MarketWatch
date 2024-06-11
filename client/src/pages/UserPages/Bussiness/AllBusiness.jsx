@@ -12,8 +12,8 @@ function AllBusiness() {
     try {
       const res = await axios.get(
         usercity
-          ? ` https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?city=${usercity}`
-          : ` https://marketwatch-e3hc.onrender.com/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          ? ` https://api.verydesi.com/api/getbusinessbyloc?city=${usercity}`
+          : ` https://api.verydesi.com/api/getbusinessbyloc?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
       setdetails(res.data.allBusiness);
     } catch (error) {

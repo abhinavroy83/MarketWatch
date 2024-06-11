@@ -43,11 +43,11 @@ function Rooms() {
     window.scrollTo(0, 0);
   }, []);
 
-  const url = ` https://marketwatch-e3hc.onrender.com/rooms/${_id}`;
+  const url = ` https://api.verydesi.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
     try {
       const res = await axios.get(
-        ` https://marketwatch-e3hc.onrender.com/api/getspecificroom/${_id}`
+        ` https://api.verydesi.com/api/getspecificroom/${_id}`
       );
       setrooms(res.data.rooms);
       const loc = {
@@ -73,7 +73,7 @@ function Rooms() {
   const getRooms = async () => {
     try {
       const res = await axios.get(
-        ` https://marketwatch-e3hc.onrender.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+        ` https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setsimilarrooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);
@@ -88,7 +88,7 @@ function Rooms() {
   const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        ` https://marketwatch-e3hc.onrender.com/api/rooms/${_id}/previous`
+        ` https://api.verydesi.com/api/rooms/${_id}/previous`
       );
       // console.log(res);
       navigate(`/rooms/${res.data.previousRoom._id}`);
@@ -100,7 +100,7 @@ function Rooms() {
   const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        ` https://marketwatch-e3hc.onrender.com/api/rooms/${_id}/next`
+        ` https://api.verydesi.com/api/rooms/${_id}/next`
       );
       // console.log(res);
       navigate(`/rooms/${res.data.nextRoom._id}`);
@@ -174,7 +174,7 @@ function Rooms() {
       };
       // console.log(dat);
       const res = await axios.post(
-        ` https://marketwatch-e3hc.onrender.com/api/addtowish`,
+        ` https://api.verydesi.com/api/addtowish`,
         dat,
         {
           headers: {
@@ -196,7 +196,7 @@ function Rooms() {
   const unwish = async () => {
     try {
       const res = await axios.delete(
-        ` https://marketwatch-e3hc.onrender.com/api/deletelist/${_id}`
+        ` https://api.verydesi.com/api/deletelist/${_id}`
       );
       if (res) {
         setWishliststatys(false);
@@ -211,7 +211,7 @@ function Rooms() {
     const fetchwishstatus = async () => {
       try {
         const res = await axios.get(
-          ` https://marketwatch-e3hc.onrender.com/api/getlistbyroom/${_id}`
+          ` https://api.verydesi.com/api/getlistbyroom/${_id}`
         );
         if (res.data.status == "not") {
           setWishliststatys(false);

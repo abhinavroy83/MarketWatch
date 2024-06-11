@@ -32,7 +32,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
         status: true,
       };
       // console.log(dat);
-      const res = await axios.post(`https://marketwatch-e3hc.onrender.com/api/addtowish`, dat, {
+      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
   const unwish = async (_id) => {
     try {
       const res = await axios.delete(
-        `https://marketwatch-e3hc.onrender.com/api/deletelist/${_id}`
+        `https://api.verydesi.com/api/deletelist/${_id}`
       );
       if (res) {
         setWishliststatys(false);
@@ -66,7 +66,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
     const fetchwishstatus = async () => {
       try {
         const res = await axios.get(
-          `https://marketwatch-e3hc.onrender.com/api/getlistbyroom/${item._id}`
+          `https://api.verydesi.com/api/getlistbyroom/${item._id}`
         );
         // console.log(res.data.list.status);
         if (res.data.status == "not") {
