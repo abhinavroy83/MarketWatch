@@ -317,7 +317,13 @@ function Addrooms() {
 
             <div>
               <label htmlFor="">Price Model</label>
-              <input type="text" placeholder=" price model" />
+              <select name="" id="">
+                <option value="">select</option>
+                <option value="">Per Month</option>
+                <option value="">Per Night</option>
+                <option value="">Per Day</option>
+                <option value="">Per Week</option>
+              </select>
             </div>
             <div>
               <label htmlFor="">Desposite</label>
