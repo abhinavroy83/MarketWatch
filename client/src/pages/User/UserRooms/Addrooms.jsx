@@ -234,10 +234,10 @@ function Addrooms() {
                 ))}
               </select>
             </div>
-            <div className="flex text-[18px] mt-5 gap-5">
+            <div className="flex text-[18px] mt-5 gap-20">
               <label
                 htmlFor=""
-                className="text-[21px] w-[206px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                className="text-[21px] w-[151px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               >
                 Stay / Laese
               </label>
@@ -265,15 +265,16 @@ function Addrooms() {
                 placeholder="Available from"
               />
               <input
-                className="h-100px w-[210px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 placeholder="Available to"
               />
             </div>
-            <div className="flex text-[18px] mt-5 gap-5">
+            <div className="flex text-[18px] mt-5">
               <label
-              className="text-[21px] w-[244px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+              className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               htmlFor="">Day Available</label>
+              <div className="grid grid-cols-3">
               <div className=" flex items-center gap-1">
                 <input type="radio" />
                 <p>7 days a week </p>
@@ -287,10 +288,12 @@ function Addrooms() {
                 <p>Monday to friday only </p>
               </div>
             </div>
-            <div className=" flex mt-5 text-[18px] gap-5">
+            </div>
+            <div className=" flex mt-5 text-[18px] gap-20">
               <label 
-                 className="text-[21px] w-[244px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                 className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                  htmlFor="">Attached Bath</label>
+               <div className="grid grid-cols-3">
               <div className=" flex gap-1">
                 <input type="radio" />
                 <p>Yes </p>
@@ -300,11 +303,13 @@ function Addrooms() {
                 <p>No </p>
               </div>
             </div>
+            </div>
 
-            <div className="flex mt-5 text-[18px] gap-5">
+            <div className="flex mt-5 text-[18px] gap-20">
               <label
-               className="text-[21px] w-[244px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+               className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                htmlFor="">Preferred Gender</label>
+               <div className="grid grid-cols-3">
               <div className=" flex gap-1">
                 <input type="radio" />
                 <p>Any </p>
@@ -317,6 +322,7 @@ function Addrooms() {
                 <input type="radio" />
                 <p>Female only</p>
               </div>
+            </div>
             </div>
 
             <div className="flex mt-5 text-[18px]">
@@ -376,10 +382,10 @@ function Addrooms() {
 
             <div className=" flex mt-5">
               <label
-                className="text-[21px] w-[482px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor="">Amenities include</label>
 
-              <div className=" flex flex-wrap text-[18px] gap-2">
+              <div className=" flex flex-wrap text-[18px] gap-3 w-[774px]">
                 <input className="px-3 py-2 text-black" value="" type="checkbox" />
                 <p>Gym/Fitness Center</p>
                 <input value="" type="checkbox" />
@@ -406,9 +412,9 @@ function Addrooms() {
                 <p>Club House</p>
               </div>
             </div>
-            <div className=" flex mt-5 gap-5 text-[18px]">
+            <div className=" flex mt-5 gap-20 text-[18px]">
               <label 
-             className="text-[21px] w-[246px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+             className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               htmlFor="">Vegeterian Preference</label>
               <div className=" flex gap-1 items-center">
                 <input type="radio" />
@@ -423,9 +429,9 @@ function Addrooms() {
                 <p>Female only</p>
               </div>
             </div>
-            <div className=" flex gap-5 mt-5 text-[18px]">
+            <div className=" flex gap-20 mt-5 text-[18px]">
               <label 
-              className="text-[21px] w-[246px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+              className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               htmlFor="">Smoking Policy</label>
               <div className=" flex gap-1 items-center">
                 <input type="radio" />
@@ -441,9 +447,9 @@ function Addrooms() {
               </div>
             </div>
             
-            <div className=" flex mt-5 text-[18px] gap-5">
+            <div className=" flex mt-5 text-[18px] gap-20">
               <label
-              className="text-[21px] w-[246px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+              className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               htmlFor="">Pet Friendly</label>
               <div className=" flex gap-5 items-center">
                 <div className=" flex gap-1 items-center">
@@ -465,7 +471,7 @@ function Addrooms() {
               </div>
             </div>
 
-            <div className="mt-5 flex">
+            <div className="mt-5">
               <label 
             className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
             htmlFor="">Open House Schedule</label>
@@ -474,16 +480,14 @@ function Addrooms() {
             </div>
             <div>
               <p className="text-[23px] font-bold mt-2">Upload Photo:-</p>
-              <div className="flex">
                 <p              
-                 className="mt-2 text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                 className="mt-2 text-[21px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >Add Photo</p>
                 <input
                   type="file"
                   accept="image/*"
-                  className=""
+                  className="mt-1"
                 />
-              </div>
             </div>
 
             <div>
