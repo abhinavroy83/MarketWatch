@@ -196,25 +196,33 @@ function Addrooms() {
               />
             </div>
             <div className="flex mt-5">
-            <label
-             className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-            htmlFor="">Property Type</label>
-            <select 
-             className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-             name="" id="">
-              <option value="">Single Family Home</option>
-              <option value="">Apartment</option>
-              <option value="">Condo</option>
-              <option value="">Town House</option>
-              <option value="">Homes</option>
-              <option value="">House</option>
-              <option value="">Basement Apartment</option>
-            </select>
+              <label
+                className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Property Type
+              </label>
+              <select
+                className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                name=""
+                id=""
+              >
+                <option value="">Single Family Home</option>
+                <option value="">Apartment</option>
+                <option value="">Condo</option>
+                <option value="">Town House</option>
+                <option value="">Homes</option>
+                <option value="">House</option>
+                <option value="">Basement Apartment</option>
+              </select>
             </div>
             <div className="flex mt-5">
               <label
-               className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-               htmlFor=" ">Posting In</label>
+                className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=" "
+              >
+                Posting In
+              </label>
 
               <select
                 className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -239,7 +247,7 @@ function Addrooms() {
                 htmlFor=""
                 className="text-[21px] w-[151px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
               >
-                Stay / Laese
+                Stay/Laese
               </label>
               <div className="flex ml-10 gap-1">
                 <input type="radio" />
@@ -257,10 +265,13 @@ function Addrooms() {
 
             <div className="flex mt-5 gap-5">
               <label
-              className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Avaliblity</label>
+                className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Avaliblity
+              </label>
               <input
-               className="h-100px w-[210px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[210px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 placeholder="Available from"
               />
@@ -272,66 +283,78 @@ function Addrooms() {
             </div>
             <div className="flex text-[18px] mt-5">
               <label
-              className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Day Available</label>
+                className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Day Available
+              </label>
               <div className="grid grid-cols-3">
-              <div className=" flex items-center gap-1">
-                <input type="radio" />
-                <p>7 days a week </p>
+                <div className=" flex items-center gap-1">
+                  <input type="radio" />
+                  <p>7 days a week </p>
+                </div>
+                <div className=" flex items-center gap-1">
+                  <input type="radio" />
+                  <p>Weekends only </p>
+                </div>
+                <div className=" flex items-center gap-1">
+                  <input type="radio" />
+                  <p>Monday to friday only </p>
+                </div>
               </div>
-              <div className=" flex items-center gap-1">
-                <input type="radio" />
-                <p>Weekends only </p>
-              </div>
-              <div className=" flex items-center gap-1">
-                <input type="radio" />
-                <p>Monday to friday only </p>
-              </div>
-            </div>
             </div>
             <div className=" flex mt-5 text-[18px] gap-20">
-              <label 
-                 className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                 htmlFor="">Attached Bath</label>
-               <div className="grid grid-cols-3">
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Yes </p>
+              <label
+                className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Attached Bath
+              </label>
+              <div className="grid grid-cols-3">
+                <div className=" flex gap-1">
+                  <input type="radio" />
+                  <p>Yes </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" />
+                  <p>No </p>
+                </div>
               </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>No </p>
-              </div>
-            </div>
             </div>
 
             <div className="flex mt-5 text-[18px] gap-20">
               <label
-               className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-               htmlFor="">Preferred Gender</label>
-               <div className="grid grid-cols-3">
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Any </p>
+                className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Preferred Gender
+              </label>
+              <div className="grid grid-cols-3">
+                <div className=" flex gap-1">
+                  <input type="radio" />
+                  <p>Any </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" />
+                  <p>Male only</p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" />
+                  <p>Female only</p>
+                </div>
               </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Male only</p>
-              </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Female only</p>
-              </div>
-            </div>
             </div>
 
             <div className="flex mt-5 text-[18px]">
               <label
-               className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-               htmlFor="">Expected Rooms</label>
-              <span                
-               className="pr-7 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              >$</span>
+                className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Expected Rooms
+              </label>
+              <span className="pr-7 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                $
+              </span>
               <input
                 type="text"
                 placeholder="Rent"
@@ -344,21 +367,40 @@ function Addrooms() {
             </div>
 
             <div className="mt-5 flex">
-              <label 
-               className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-               htmlFor="">Price Model</label>
-              <input 
+              <label
+                className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Price Model
+              </label>
+              {/* <input
                 className="h-100px w-[360px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-               type="text" placeholder=" price model" />
+                type="text"
+                placeholder=" price model"
+              /> */}
+              <select
+                name=""
+                id=""
+                className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="">select</option>
+                <option value="">Per Month</option>
+                <option value="">Per Night</option>
+                <option value="">Per Day</option>
+                <option value="">Per Week</option>
+              </select>
             </div>
 
             <div className="mt-5">
-              <label 
-               className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-               htmlFor="">Desposite</label>
-              <span            
-                className="pr-5 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                $</span>
+              <label
+                className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Desposite
+              </label>
+              <span className="pr-5 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                $
+              </span>
               <input
                 type="text"
                 placeholder="Rent"
@@ -366,12 +408,17 @@ function Addrooms() {
               />
             </div>
             <div className="mt-5">
-              <label 
-               className="text-[21px] w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Is the room/furnished ?</label>
-              <select 
-                 className="h-100px w-[360px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                 name="" id="">
+              <label
+                className="text-[21px] w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Is the room/furnished ?
+              </label>
+              <select
+                className="h-100px w-[360px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                name=""
+                id=""
+              >
                 <option value="">Select</option>
                 <option value="">Unfurnished</option>
                 <option value="">Furnished with Bed</option>
@@ -383,39 +430,73 @@ function Addrooms() {
             <div className=" flex mt-5">
               <label
                 className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                htmlFor="">Amenities include</label>
+                htmlFor=""
+              >
+                Amenities include
+              </label>
 
-              <div className=" flex flex-wrap text-[18px] gap-3 w-[774px]">
-                <input className="px-3 py-2 text-black" value="" type="checkbox" />
-                <p>Gym/Fitness Center</p>
-                <input value="" type="checkbox" />
-                <p>Swimming Pool</p>
-                <input value="" type="checkbox" />
-                <p>Car Park</p>
-                <input value="" type="checkbox" />
-                <p>Visitors Parking</p>
-                <input value="" type="checkbox" />
-                <p>Power Backup</p>
-                <input value="" type="checkbox" />
-                <p>Garbage Disposal</p>
-                <input value="" type="checkbox" />
-                <p>Private Lawn</p>
-                <input value="" type="checkbox" />
-                <p>Water Heater Plant</p>
-                <input value="" type="checkbox" />
-                <p>Security System</p>
-                <input value="" type="checkbox" />
-                <p>Laundry Service</p>
-                <input value="" type="checkbox" />
-                <p>Elevator</p>
-                <input value="" type="checkbox" />
-                <p>Club House</p>
+              <div className=" grid grid-cols-4 gap-4 text-[18px]  w-[774px]">
+                <div className=" flex">
+                  <input
+                    className="px-3 py-2 text-black"
+                    value=""
+                    type="checkbox"
+                  />
+                  <p>Gym/Fitness Center</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Swimming Pool</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Car Park</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Visitors Parking</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Power Backup</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Garbage Disposal</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Private Lawn</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Water Heater Plant</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Security System</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Laundry Service</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Elevator</p>
+                </div>
+                <div className=" flex">
+                  <input value="" type="checkbox" />
+                  <p>Club House</p>
+                </div>
               </div>
             </div>
             <div className=" flex mt-5 gap-20 text-[18px]">
-              <label 
-             className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Vegeterian Preference</label>
+              <label
+                className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Vegeterian Preference
+              </label>
               <div className=" flex gap-1 items-center">
                 <input type="radio" />
                 <p>Yes,Vegeterian mandatory</p>
@@ -430,9 +511,12 @@ function Addrooms() {
               </div>
             </div>
             <div className=" flex gap-20 mt-5 text-[18px]">
-              <label 
-              className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Smoking Policy</label>
+              <label
+                className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Smoking Policy
+              </label>
               <div className=" flex gap-1 items-center">
                 <input type="radio" />
                 <p>No Smoking</p>
@@ -446,11 +530,14 @@ function Addrooms() {
                 <p>Smoke outside only</p>
               </div>
             </div>
-            
+
             <div className=" flex mt-5 text-[18px] gap-20">
               <label
-              className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-              htmlFor="">Pet Friendly</label>
+                className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Pet Friendly
+              </label>
               <div className=" flex gap-5 items-center">
                 <div className=" flex gap-1 items-center">
                   <input type="radio" />
@@ -472,47 +559,67 @@ function Addrooms() {
             </div>
 
             <div className="mt-5">
-              <label 
-            className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-            htmlFor="">Open House Schedule</label>
-              <input type="text" placeholder="Open House Date"         
-              className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+              <label
+                className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                htmlFor=""
+              >
+                Open House Schedule
+              </label>
+              <input
+                type="text"
+                placeholder="Open House Date"
+                className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              />
             </div>
             <div>
               <p className="text-[23px] font-bold mt-2">Upload Photo:-</p>
-                <p              
-                 className="mt-2 text-[21px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >Add Photo</p>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="mt-1"
-                />
+              <p className="mt-2 text-[21px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Add Photo
+              </p>
+              <input type="file" accept="image/*" className="mt-1" />
             </div>
 
             <div>
               <p className="text-[23px] mt-5 font-bold">Your Details:-</p>
               <div>
-                <label 
+                <label
                   className="mt-2 text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor="">Name*</label>
-                <input type="text" placeholder="Enter Name" 
-                 className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />                             
-              </div>
-              <div className="mt-5">
-                <label 
-                 className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                 htmlFor="">Email*</label>
-                <input type="text"  placeholder="Enter Email" 
-                   className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />                             
+                  htmlFor=""
+                >
+                  Name*
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Name"
+                  className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
               </div>
               <div className="mt-5">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor="">Phone Number*</label>
-                <input type="text"  placeholder="Enter Number" 
-                 className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />                             
-                 </div>
+                  htmlFor=""
+                >
+                  Email*
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Email"
+                  className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+              <div className="mt-5">
+                <label
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Phone Number*
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Number"
+                  className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
             </div>
           </div>
 
