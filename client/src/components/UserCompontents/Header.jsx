@@ -197,7 +197,7 @@ export default function Header() {
               </ul>
             </div>
             {!authstatus ? (
-              <div className="hidden space-x-2 lg:block">
+              <div className="space-x-2 lg:block">
                 <Signup />
                 <Login />
                 <button

@@ -14,6 +14,8 @@ import Signup from "./Signup";
 import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
+import {isMobile} from 'react-device-detect';
+
 
 function Login() {
   const {
@@ -69,6 +71,8 @@ function Login() {
     );
   };
 
+
+  console.log(isMobile);
   return (
     <>
       <ToastContainer
@@ -92,7 +96,7 @@ function Login() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 880,
+            width: isMobile ? 400 : 880,
             height: 600,
             border: "none",
             padding: "0px",
@@ -106,7 +110,7 @@ function Login() {
           },
         }}
       >
-        <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular']">
+        <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] hidden">
           <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
             <div className="text-center justify-center flex flex-col items-center">
               <img
@@ -134,6 +138,90 @@ function Login() {
             </div>
           </div>
           <div className="w-50 px-20 items-center grow">
+            <svg
+              className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
+              onClick={() => handleModal(false, false)}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              {" "}
+              <circle cx="12" cy="12" r="10" />{" "}
+              <line x1="15" y1="9" x2="9" y2="15" />{" "}
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+            <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
+              GET STARTED
+            </h1>
+            <p className=" text-black text-center mt-2 px-10 text-[20px]">
+              Start Your Journey
+            </p>
+            <form
+              onSubmit={handleSubmit(onsubmit)}
+              className="flex flex-col mt-3 gap-3 font-['udemy-regular']"
+            >
+              <Input
+                label="Email"
+                Placeholder="Email"
+                type="Email"
+                {...register("email", {
+                  required: "Email is required",
+                  validate: {
+                    matchPatern: (value) =>
+                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
+                        value
+                      ) || "Email address must be a valid address",
+                  },
+                })}
+                errorMessage={errors.email?.message}
+                className="!w-full"
+              />
+              <Input
+                label="Password"
+                Placeholder="Password"
+                type="password"
+                {...register("password", { required: "Password is required" })}
+                errorMessage={errors.password?.message}
+              />
+              <button
+                type="submit"
+                className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Login Here
+              </button>
+              <h1 className="text-[19px] mt-2 underline font-bold text-[#000] text-center">
+                Or Continue With
+              </h1>
+              <div>
+                <button
+                  type="button"
+                  className="rounded-md bg-[#fff] flex mt-2 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  <p className="text-[19px] flex gap-4">
+                    <FaGoogle />
+                    Continue With Google
+                  </p>
+                </button>
+                <button
+                  type="button"
+                  className="rounded-md bg-[#fff] flex mt-5 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  <p className="flex gap-4 text-[19px] items-center">
+                    <FaApple size={25} />
+                    Continue With Apple
+                  </p>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+       
+        <div className="flex flex-row items-center bg-white rounded-md h-full w-[450px] font-['udemy-regular']">
+        <div className="justify-center px-20 items-center grow">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}

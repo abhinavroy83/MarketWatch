@@ -160,7 +160,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="flex flex-col items-center text-[23px] font-['udemy-regular']">
+        <h1 className="flex flex-col text-[23px] font-['udemy-regular']">
           {item.Adname && truncateCharacters(item.Adname, 42)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
