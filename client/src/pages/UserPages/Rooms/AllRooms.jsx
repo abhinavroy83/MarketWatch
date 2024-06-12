@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Roomcard from "./Roomcard";
 import Roomcard2nd from "./Roomcard2nd";
-import RoomcardNew from "./RoomCardNew";
 import { ChildContainer } from "../../../components";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import Loader from "../../../components/UserCompontents/Loader";
+import Pagination from "../../../components/SharedCompontents/Pagination";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -17,7 +16,7 @@ function AllRooms() {
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const roomsPerPage = 6;
+  const roomsPerPage = 5; 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
@@ -46,22 +45,18 @@ function AllRooms() {
     }
   }, [usercity, currentloc]);
 
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
+  const recentRooms = rooms.slice(0, 6);
+  const otherRooms = rooms.slice(6);
 
   const indexOfLastRoom = currentPage * roomsPerPage;
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
-  const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom);
+  const currentRooms = otherRooms.slice(indexOfFirstRoom, indexOfLastRoom);
 
   if (loading)
     return <Loader className={"h-screen flex justify-center items-center"} />;
 
-  console.log(rooms);
   return (
     <ChildContainer
       onLocationReceived={
@@ -91,46 +86,27 @@ function AllRooms() {
             )}
           </div>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
-            {currentRooms.map((item) => (
+            {recentRooms.map((item) => (
               <Roomcard key={item._id} {...item} />
             ))}
           </div>
-          {/* <div className="mt-5 pb-[18px] overflow-x-scroll whitespace-nowrap grid grid-flow-col gap-4">
-            {currentRooms.map((item) => (
-              <Roomcard key={item._id} {...item} />
-            ))}
-          </div> */}
-          {rooms.length > roomsPerPage && (
+          {otherRooms.length > 0 && (
             <>
               <p className="text-[26px] text-black font-bold font-['udemy-bold'] mt-7">
                 More Rooms
               </p>
-              <div className="mt-4">
-                {rooms.slice(3).map((item) => (
+              <div className="mt-4 ">
+                {currentRooms.map((item) => (
                   <Roomcard2nd key={item._id} {...item} />
                 ))}
               </div>
+              <Pagination
+                currentPage={currentPage}
+                totalRooms={otherRooms.length}
+                roomsPerPage={roomsPerPage}
+                paginate={paginate}
+              />
             </>
-          )}
-          {rooms.length > roomsPerPage && (
-            <div className="mt-4 flex justify-between">
-              {currentPage > 1 && (
-                <button
-                  onClick={handlePreviousPage}
-                  className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
-                >
-                  <FaArrowAltCircleLeft /> Previous
-                </button>
-              )}
-              <button
-                onClick={handleNextPage}
-                disabled={indexOfLastRoom >= rooms.length}
-                className="mx-2 mt-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
-              >
-                More
-                <FaArrowAltCircleRight />
-              </button>
-            </div>
           )}
         </div>
       ) : (
