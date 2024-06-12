@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
 import { useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
@@ -25,6 +25,7 @@ function Addrooms() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
   const { userID } = useParams();
   const handleimgchange = async (e) => {
@@ -80,7 +81,7 @@ function Addrooms() {
         coordinates: [currentLocation.lng, currentLocation.lat],
       },
     };
-    console.log(roomdata);
+    // console.log(roomdata);
     try {
       const res = await axios.post(
         " https://api.verydesi.com/api/addrooms",
@@ -202,19 +203,28 @@ function Addrooms() {
               >
                 Property Type
               </label>
-              <select
-                className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                name=""
-                id=""
-              >
-                <option value="">Single Family Home</option>
-                <option value="">Apartment</option>
-                <option value="">Condo</option>
-                <option value="">Town House</option>
-                <option value="">Homes</option>
-                <option value="">House</option>
-                <option value="">Basement Apartment</option>
-              </select>
+              <Controller
+                name="propertytype"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <select
+                    {...field}
+                    className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    name=""
+                    id=""
+                  >
+                    <option value="">Select</option>
+                    <option value="singlefamilyhome">Single Family Home</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="condo">Condo</option>
+                    <option value="town">Town House</option>
+                    <option value="home">Homes</option>
+                    <option value="house">House</option>
+                    <option value="basement">Basement Apartment</option>
+                  </select>
+                )}
+              />
             </div>
             <div className="flex mt-5">
               <label
@@ -249,17 +259,19 @@ function Addrooms() {
               >
                 Stay/Laese
               </label>
-              <div className="flex ml-10 gap-1">
-                <input type="radio" />
-                <p>Long term(6+ months) </p>
-              </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Short term </p>
-              </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Both </p>
+              <div className=" grid grid-cols-3 gap-6">
+                <div className="flex ml-10 gap-1">
+                  <input type="radio" {...register("stay_lease")} />
+                  <p>Long term(6+ months) </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" {...register("stay_lease")} />
+                  <p>Short term </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" {...register("stay_lease")} />
+                  <p>Both </p>
+                </div>
               </div>
             </div>
 
@@ -288,17 +300,17 @@ function Addrooms() {
               >
                 Day Available
               </label>
-              <div className="grid grid-cols-3">
+              <div className="grid grid-cols-3 gap-5">
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>7 days a week </p>
                 </div>
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>Weekends only </p>
                 </div>
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>Monday to friday only </p>
                 </div>
               </div>
