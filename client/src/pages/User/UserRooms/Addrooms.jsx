@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
 import { useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
@@ -25,6 +25,7 @@ function Addrooms() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
   const { userID } = useParams();
   const handleimgchange = async (e) => {
@@ -80,7 +81,7 @@ function Addrooms() {
         coordinates: [currentLocation.lng, currentLocation.lat],
       },
     };
-    console.log(roomdata);
+    // console.log(roomdata);
     try {
       const res = await axios.post(
         " https://api.verydesi.com/api/addrooms",
@@ -111,6 +112,7 @@ function Addrooms() {
       const uniquestate = Array.from(
         new Set(ststs.data.city.map((item) => item.state))
       );
+      console.log(uniquestate)
       setfilterstate(uniquestate);
     };
     fetchdata();
@@ -202,19 +204,28 @@ function Addrooms() {
               >
                 Property Type
               </label>
-              <select
-                className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                name=""
-                id=""
-              >
-                <option value="">Single Family Home</option>
-                <option value="">Apartment</option>
-                <option value="">Condo</option>
-                <option value="">Town House</option>
-                <option value="">Homes</option>
-                <option value="">House</option>
-                <option value="">Basement Apartment</option>
-              </select>
+              <Controller
+                name="propertytype"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <select
+                    {...field}
+                    className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    name=""
+                    id=""
+                  >
+                    <option value="">Select</option>
+                    <option value="singlefamilyhome">Single Family Home</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="condo">Condo</option>
+                    <option value="town">Town House</option>
+                    <option value="home">Homes</option>
+                    <option value="house">House</option>
+                    <option value="basement">Basement Apartment</option>
+                  </select>
+                )}
+              />
             </div>
             <div className="flex mt-5">
               <label
@@ -250,19 +261,19 @@ function Addrooms() {
                 Stay/Laese
               </label>
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[957px]">
-              <div className="flex gap-1 whitespace-nowrap">
-                <input type="radio" />
-                <p>Long term(6+ months) </p>
+                <div className="flex gap-1 whitespace-nowrap">
+                  <input type="radio" {...register("stay/lease")} />
+                  <p>Long term(6+ months) </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" {...register("stay/lease")} />
+                  <p>Short term </p>
+                </div>
+                <div className=" flex gap-1">
+                  <input type="radio" {...register("stay/lease")} />
+                  <p>Both </p>
+                </div>
               </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Short term </p>
-              </div>
-              <div className=" flex gap-1">
-                <input type="radio" />
-                <p>Both </p>
-              </div>
-            </div>
             </div>
 
             <div className="flex mt-5 gap-5">
@@ -292,15 +303,15 @@ function Addrooms() {
               </label>
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>7 days a week </p>
                 </div>
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>Weekends only </p>
                 </div>
                 <div className=" flex items-center gap-1">
-                  <input type="radio" />
+                  <input type="radio" {...register("dayavailable")} />
                   <p>Monday to friday only </p>
                 </div>
               </div>
@@ -314,11 +325,11 @@ function Addrooms() {
               </label>
               <div className="grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("Bath")} />
                   <p>Yes </p>
                 </div>
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("Bath")} />
                   <p>No </p>
                 </div>
               </div>
@@ -333,15 +344,15 @@ function Addrooms() {
               </label>
               <div className="grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("gender")} />
                   <p>Any </p>
                 </div>
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("gender")} />
                   <p>Male only</p>
                 </div>
-                <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                <div className=" flex items-center">
+                  <input type="radio" {...register("gender")} />
                   <p>Female only</p>
                 </div>
               </div>
@@ -394,7 +405,7 @@ function Addrooms() {
             </div>
 
             <div className="mt-5">
-            <label
+              <label
                 className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
               >
@@ -408,20 +419,6 @@ function Addrooms() {
                 placeholder="Rent"
                 className="h-100px w-[322px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
-              {/* <label
-                className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                htmlFor=""
-              >
-                Desposite
-              </label>
-              <span className="pr-5 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                $
-              </span>
-              <input
-                type="text"
-                placeholder="Rent"
-                className="h-100px w-[314px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              /> */}
             </div>
             <div className="mt-5">
               <label
@@ -452,56 +449,57 @@ function Addrooms() {
               </label>
 
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-                <div className=" flex">
+                <div className=" flex gap-1">
                   <input
-                    className="px-3 py-2 text-black mr-1 "
+                    // className="px-3 py-2 text-black mr-1 "
                     value=""
                     type="checkbox"
+                    {...register("amenities")}
                   />
                   <p>Gym/Fitness Center</p>
                 </div>
                 <div className="flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Swimming Pool</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Car Park</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Visitors Parking</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Power Backup</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Garbage Disposal</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Private Lawn</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Water Heater Plant</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Security System</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Laundry Service</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Elevator</p>
                 </div>
                 <div className=" flex gap-1">
-                  <input value="" type="checkbox" />
+                  <input value="" type="checkbox" {...register("amenities")} />
                   <p>Club House</p>
                 </div>
               </div>
@@ -514,9 +512,18 @@ function Addrooms() {
                 Vegeterian Preference
               </label>
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-              <div className="flex gap-1 items-center whitespace-nowrap">
-                <input type="radio" />
-                <p>Yes,Vegeterian mandatory</p>
+                <div className="flex gap-1 items-center whitespace-nowrap">
+                  <input type="radio" {...register("vegeterianperference")} />
+                  <p>Yes,Vegeterian mandatory</p>
+                </div>
+                <div className=" flex gap-1 items-center">
+                  <input type="radio" {...register("vegeterianperference")} />
+                  <p>No,Non-veg is ok</p>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <input type="radio" {...register("vegeterianperference")} />
+                  <p>Both</p>
+                </div>
               </div>
               <div className=" flex gap-1 items-center">
                 <input type="radio" />
@@ -536,19 +543,19 @@ function Addrooms() {
                 Smoking Policy
               </label>
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-              <div className=" flex gap-1 items-center">
-                <input type="radio" />
-                <p>No Smoking</p>
+                <div className=" flex gap-1 items-center">
+                  <input type="radio" {...register("smokingpolicy")} />
+                  <p>No Smoking</p>
+                </div>
+                <div className=" flex gap-1 items-center">
+                  <input type="radio" {...register("smokingpolicy")} />
+                  <p>Smoking is ok</p>
+                </div>
+                <div className=" flex gap-1 items-center">
+                  <input type="radio" {...register("smokingpolicy")} />
+                  <p>Smoke outside only</p>
+                </div>
               </div>
-              <div className=" flex gap-1 items-center">
-                <input type="radio" />
-                <p>Smoking is Ok</p>
-              </div>
-              <div className=" flex gap-1 items-center">
-                <input type="radio" />
-                <p>Smoke outside only</p>
-              </div>
-            </div>
             </div>
 
             <div className=" flex mt-5 text-[18px] gap-20">
@@ -561,19 +568,19 @@ function Addrooms() {
 
               <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("petfriendly")} />
                   <p>No Pets</p>
                 </div>
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("petfriendly")} />
                   <p>Only Dogs</p>
                 </div>
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("petfriendly")} />
                   <p>Only Cats</p>
                 </div>
                 <div className=" flex gap-1 items-center">
-                  <input type="radio" />
+                  <input type="radio" {...register("petfriendly")} />
                   <p>Any Pet is Ok</p>
                 </div>
               </div>
