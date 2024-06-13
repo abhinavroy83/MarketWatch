@@ -112,7 +112,7 @@ function Addrooms() {
       const uniquestate = Array.from(
         new Set(ststs.data.city.map((item) => item.state))
       );
-      console.log(uniquestate)
+      console.log(uniquestate);
       setfilterstate(uniquestate);
     };
     fetchdata();
@@ -365,13 +365,13 @@ function Addrooms() {
               >
                 Expected Rooms
               </label>
-              <span className="inline-block bg-gray-200 items-center justify-center text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+              <span className="pr-7 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                 $
               </span>
               <input
                 type="text"
                 placeholder="Rent"
-                className="h-100px w-[322px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[317px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
               <input className="gap-1 ml-3" type="checkbox" />
               <p className="px-3 py-2 text-black gap-1">Negotiable</p>
@@ -411,13 +411,13 @@ function Addrooms() {
               >
                 Desposite
               </label>
-              <span className="inline-block bg-gray-200 items-center justify-center text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+              <span className=" bg-gray-200 items-center justify-center h-[120px] w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                 $
               </span>
               <input
                 type="text"
                 placeholder="Rent"
-                className="h-100px w-[322px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[317px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
             <div className="mt-5">
@@ -525,15 +525,6 @@ function Addrooms() {
                   <p>Both</p>
                 </div>
               </div>
-              <div className=" flex gap-1 items-center">
-                <input type="radio" />
-                <p>No, Non-veg is ok</p>
-              </div>
-              <div className="flex gap-1 items-center">
-                <input type="radio" />
-                <p>Both</p>
-              </div>
-            </div>
             </div>
             <div className=" flex gap-20 mt-5 text-[18px]">
               <label
@@ -599,7 +590,7 @@ function Addrooms() {
                 className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
-            <div className="">
+            <div>
               <p className="text-[23px] font-bold mt-2">Upload Photo:-</p>
               <p className="mt-2 text-[21px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                 Add Photo
