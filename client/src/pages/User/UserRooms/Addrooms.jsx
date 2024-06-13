@@ -181,7 +181,7 @@ function Addrooms() {
               />
             </div>
 
-            <div className="mt-5 flex">
+            <div className="mt-10 flex">
               <label
                 className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -197,7 +197,7 @@ function Addrooms() {
                 })}
               />
             </div>
-            <div className="flex mt-5">
+            <div className="flex mt-10">
               <label
                 className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -227,7 +227,7 @@ function Addrooms() {
                 )}
               />
             </div>
-            <div className="flex mt-5">
+            <div className="flex mt-10">
               <label
                 className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=" "
@@ -253,7 +253,7 @@ function Addrooms() {
                 ))}
               </select>
             </div>
-            <div className="flex text-[18px] mt-5">
+            <div className="flex text-[18px] mt-10">
               <label
                 htmlFor=""
                 className="text-[21px] w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -276,7 +276,7 @@ function Addrooms() {
               </div>
             </div>
 
-            <div className="flex mt-5 gap-5">
+            <div className="flex mt-10 gap-5">
               <label
                 className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -294,7 +294,7 @@ function Addrooms() {
                 placeholder="Available to"
               />
             </div>
-            <div className="flex text-[18px] mt-5">
+            <div className="flex text-[18px] mt-10">
               <label
                 className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -316,7 +316,7 @@ function Addrooms() {
                 </div>
               </div>
             </div>
-            <div className=" flex mt-5 text-[18px] gap-20">
+            <div className=" flex mt-10 text-[18px] gap-20">
               <label
                 className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -335,7 +335,7 @@ function Addrooms() {
               </div>
             </div>
 
-            <div className="flex mt-5 text-[18px] gap-20">
+            <div className="flex mt-10 text-[18px] gap-20">
               <label
                 className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -351,27 +351,27 @@ function Addrooms() {
                   <input type="radio" {...register("gender")} />
                   <p>Male only</p>
                 </div>
-                <div className=" flex items-center">
+                <div className=" flex items-center gap-1">
                   <input type="radio" {...register("gender")} />
                   <p>Female only</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex mt-5 text-[18px]">
+            <div className="flex mt-10 text-[18px]">
               <label
                 className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
               >
                 Expected Rooms
               </label>
-              <span className="pr-7 bg-gray-200 items-center justify-center h-100px w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+              <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                 $
               </span>
               <input
                 type="text"
                 placeholder="Rent"
-                className="h-100px w-[317px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[323px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
               <input className="gap-1 ml-3" type="checkbox" />
               <p className="px-3 py-2 text-black gap-1">Negotiable</p>
@@ -379,7 +379,7 @@ function Addrooms() {
               <p className="px-3 py-2 text-black">Hide Rent</p>
             </div>
 
-            <div className="mt-5 flex">
+            <div className="mt-10 flex">
               <label
                 className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -404,23 +404,23 @@ function Addrooms() {
               </select>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-10">
               <label
                 className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
               >
                 Desposite
               </label>
-              <span className=" bg-gray-200 items-center justify-center h-[120px] w-[20px] text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+              <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                 $
               </span>
               <input
                 type="text"
                 placeholder="Rent"
-                className="h-100px w-[317px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-100px w-[323px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
-            <div className="mt-5">
+            <div className="mt-10">
               <label
                 className="text-[21px] w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -440,7 +440,7 @@ function Addrooms() {
               </select>
             </div>
 
-            <div className=" flex mt-5">
+            <div className=" flex mt-10">
               <label
                 className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -504,7 +504,7 @@ function Addrooms() {
                 </div>
               </div>
             </div>
-            <div className=" flex mt-5 gap-20 text-[18px]">
+            <div className=" flex mt-10 gap-20 text-[18px]">
               <label
                 className="whitespace-nowrap text-[21px] w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -526,7 +526,7 @@ function Addrooms() {
                 </div>
               </div>
             </div>
-            <div className=" flex gap-20 mt-5 text-[18px]">
+            <div className=" flex gap-20 mt-10 text-[18px]">
               <label
                 className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -549,7 +549,7 @@ function Addrooms() {
               </div>
             </div>
 
-            <div className=" flex mt-5 text-[18px] gap-20">
+            <div className=" flex mt-10 text-[18px] gap-20">
               <label
                 className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -577,7 +577,7 @@ function Addrooms() {
               </div>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-10">
               <label
                 className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 htmlFor=""
@@ -613,7 +613,7 @@ function Addrooms() {
                   className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-10">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -626,7 +626,7 @@ function Addrooms() {
                   className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-10">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -643,30 +643,35 @@ function Addrooms() {
           </div>
 
           {/* Area Name- */}
-          <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 mt-4">
+          <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 pt-0 mt-7">
             {/* <p className="text-2xl text-black font-semibold flex items-center justify-center gap-2 p-1">
               <IoInformationCircleSharp />
               Area Name
             </p> */}
-            <article className="flex flex-col gap-4 px-4 mt-4">
-              <FormInput
-                className=""
-                label="Address"
-                type="text"
-                placeholder="Enter Address"
-                {...register("address", {
-                  required: "Address required",
-                })}
-                errorMessage={errors.address?.message}
-              />
-              <div className="flex">
+            <article className="flex flex-col gap-4 px-4">
+            <div className="">
+                <label
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Address"
+                  className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+              <div className="mt-7">
                 <div>
                   <div className="flex items-center">
-                    <label className="min-w-[120px] text-[21px]" htmlFor="">
+                    <label 
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor="">
                       State
                     </label>
                     <select
-                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[360px] text-[18px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("State", {
                         required: "State is required",
                       })}
@@ -695,14 +700,16 @@ function Addrooms() {
                 </div>
 
                 <div>
-                  <div className="flex items-center ml-[6.5rem]">
-                    <label className="min-w-[120px] text-[21px] " htmlFor="">
+                  <div className="flex items-center mt-10">
+                    <label 
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor="">
                       City
                     </label>
                     <div>
                       <select
-                        className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                        {...register("city", {
+                      className="flex h-10 font-['udemy-regular'] w-[360px] text-[18px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      {...register("city", {
                           required: "City is required",
                         })}
                         defaultValue=""
@@ -731,14 +738,16 @@ function Addrooms() {
                 </div>
               </div>
               {/* Subarea */}
-              <div className="flex ">
+              <div className="mt-5">
                 <div className="flex items-center">
-                  <label className="min-w-[120px] text-[21px]" htmlFor="">
+                  <label 
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor="">
                     Subarea
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-['udemy-regular'] w-[400px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[360px] text-[18px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("subarea", {
                         required: "subarea is required",
                       })}
@@ -760,13 +769,15 @@ function Addrooms() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center ml-[6.5rem]">
-                  <label className="min-w-[120px] text-[21px]" htmlFor="">
+                <div className="flex items-center mt-10">
+                  <label 
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor="">
                     Zip code
                   </label>
                   <div>
                     <select
-                      className="flex h-10 font-['udemy-regular'] w-[300px] text-[21px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                      className="flex h-10 font-['udemy-regular'] w-[360px] text-[18px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                       {...register("Zipcode", {
                         required: "Zipcode is required",
                       })}
@@ -789,7 +800,20 @@ function Addrooms() {
                 </div>
               </div>
 
-              <FormInput
+              <div className="mt-7">
+                <label
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Posted By
+                </label>
+                <input
+                  type="text"
+                  placeholder="Posted By"
+                  className="font-['udemy-regular'] h-10 w-[360px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+              {/* <FormInput
                 label="Posted By"
                 type="text"
                 placeholder="Posted By"
@@ -797,13 +821,13 @@ function Addrooms() {
                   required: "Postedby required",
                 })}
                 errorMessage={errors.postedby?.message}
-              />
+              /> */}
             </article>
           </div>
 
           <button
             type="submit"
-            className="rounded-md bg-green-800 my-5 mt-0 px-4 py-2 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Add New Room
           </button>
