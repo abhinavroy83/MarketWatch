@@ -23,7 +23,7 @@ const singup = async (req, res) => {
       phone_number,
       lastName,
       bussinessac,
-      firstName,
+      firstName, 
       country,
       city,
       password: encrytpass,

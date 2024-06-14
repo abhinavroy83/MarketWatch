@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
 const IsloggedIn = require("./src/middleware/isloggedin");
+const cloudinary = require("cloudinary");
+const Multer = require("multer");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -83,6 +85,42 @@ app.get("/dashboard", verifyadminpage, (req, res) => {
   } catch (error) {
     res.json({
       status: "Failed",
+    });
+  }
+});
+
+cloudinary.config({
+  cloud_name: "druohnmyv",
+  api_key: "362627323663318",
+  api_secret: "YFYPQAtq-5xXddsrIl1sTEQ3siI",
+});
+
+async function handleUpload(file) {
+  const res = await cloudinary.uploader.upload(file, {
+    resource_type: "auto",
+  });
+  return res;
+}
+
+const storage = new Multer.memoryStorage();
+const upload = Multer({
+  storage, 
+});
+
+app.post("/img/upload", upload.array("my_files", 5), async (req, res) => {
+  try {
+    const uploadPromises = req.files.map(async (file) => {
+      const b64 = Buffer.from(file.buffer).toString("base64");
+      let dataURI = "data:" + file.mimetype + ";base64," + b64;
+      return await handleUpload(dataURI);
+    });
+
+    const uploadResults = await Promise.all(uploadPromises);
+    res.json(uploadResults);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: error.message,
     });
   }
 });
