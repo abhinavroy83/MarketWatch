@@ -717,7 +717,7 @@ function Addrooms() {
                 {files.length > 0 && (
                   <button
                     onClick={handleUpload}
-                    className=" border-2 border-red-500 bg-green-500"
+                    className=" bg-green-700 py-2 px-3 text-white text-[18px] font-bold rounded-md"
                   >
                     {loading ? "Uploading..." : "Upload"}
                   </button>
@@ -788,7 +788,7 @@ function Addrooms() {
                   className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
-              <div className="flex items-center mt-10">
+              <div className="flex items-center mt-7">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -798,7 +798,7 @@ function Addrooms() {
                 <div>
                   <input
                     type="text"
-                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     placeholder="Enter zipcode"
                     {...register("zip_code")}
                   />

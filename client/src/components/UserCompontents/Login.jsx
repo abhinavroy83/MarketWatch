@@ -14,7 +14,7 @@ import Signup from "./Signup";
 import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
-import {isMobile} from 'react-device-detect';
+import { getScreenSizeHook } from '../../../Hooks/GetScreenSizeHook'
 
 
 function Login() {
@@ -25,7 +25,8 @@ function Login() {
   } = useForm();
   const isLoginModalOpen = useSelector((state) => state.modal.isloginmodalopen);
   const location = useLocation();
-
+  const { windowSize } = getScreenSizeHook()
+  const isMobile = windowSize.width < 800
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
@@ -110,7 +111,8 @@ function Login() {
           },
         }}
       >
-        <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] hidden">
+        
+        <div className={`flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] ${isMobile && 'hidden'}`}>
           <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
             <div className="text-center justify-center flex flex-col items-center">
               <img
@@ -218,10 +220,9 @@ function Login() {
             </form>
           </div>
         </div>
-
        
-        <div className="flex flex-row items-center bg-white rounded-md h-full w-[450px] font-['udemy-regular']">
-        <div className="justify-center px-20 items-center grow">
+        <div className="flex flex-row items-center bg-white rounded-md h-full w-[400px] font-['udemy-regular']">
+        <div className="justify-center p-10 items-center grow">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}

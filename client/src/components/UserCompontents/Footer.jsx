@@ -121,7 +121,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col justify-between pt-5 pb-5 border-t sm:flex-row sm:items-center max-w-[1600px] w-full m-auto">
-          <p className="text-[20px] text-white ml-7 lg:ml-2 sm:items-center md:justify-center">
+          <p className="text-[20px] text-white ml-10 lg:ml-2 sm:items-center md:justify-center">
             © Copyright 2024 Lorem Inc. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-2 ml-7 lg:ml-2">
