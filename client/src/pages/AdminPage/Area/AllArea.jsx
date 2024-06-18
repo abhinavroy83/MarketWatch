@@ -127,6 +127,30 @@ function AllArea() {
           List of Avaible Area
         </p>
         <form className="grid grid-cols-3 gap-2 font-['udemy-regular'] mt-5">
+          <div className="flex flex-col border-2 border-gray-400 w-45 mr-5">
+            <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
+              List of Area in{" "}
+              {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
+            </p>
+            <ul className="rounded-sm text-[20px] bg-white p-1">
+              {Filtercity.map((city, index) => (
+                <li
+                  key={index}
+                  value={city}
+                  className={`cursor-pointer  hover:bg-gray-600 p-1 hover:text-white hover:shadow-lg  ${
+                    selectedCity === city
+                      ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    setSelectedCity(city);
+                  }}
+                >
+                  {city}
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
             <p className="rounded-sm text-[20px] bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
               Country -
@@ -159,30 +183,7 @@ function AllArea() {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col border-2 border-gray-400 w-45 mr-5">
-            <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
-              List of Area in{" "}
-              {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
-            </p>
-            <ul className="rounded-sm text-[20px] bg-white p-1">
-              {Filtercity.map((city, index) => (
-                <li
-                  key={index}
-                  value={city}
-                  className={`cursor-pointer ${
-                    selectedCity === city
-                      ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedCity(city);
-                  }}
-                >
-                  {city}
-                </li>
-              ))}
-            </ul>
-          </div>
+
           {/* <div className=" flex flex-col border-2 ">
             <p className=" bg-fuchsia-500">List of Suburbs</p>
             <ul>
@@ -192,7 +193,7 @@ function AllArea() {
                 ))}
             </ul>
           </div> */}
-          <div className="mx-5 flex flex-col border-2 ">
+          <div className="flex flex-col border-2 ">
             {/* <button
             className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             onClick={(e) => {

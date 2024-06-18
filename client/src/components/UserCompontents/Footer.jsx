@@ -3,7 +3,6 @@ import WebsiteLogo from "../../assets/logo-transparent.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
@@ -46,20 +45,20 @@ export default function Footer() {
               </Link>
               <ul className="mt-2 space-y-2 text-[20px]">
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to={`/about-us`}
                     className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
                   >
                     About VeryDesi.com
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to={`/admin/login`}
                     className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a

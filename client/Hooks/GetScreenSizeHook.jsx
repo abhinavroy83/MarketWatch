@@ -17,4 +17,3 @@ export const getScreenSizeHook = () => {
 
   return { windowSize }
 }
-

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Addsuburbs({ isOpen, onClose, ...selcedata }) {
   const [status, setstatus] = useState("");
@@ -13,6 +14,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
     formState: { errors },
   } = useForm();
   const token = useSelector((state) => state.adminauth.token);
+  const navigate = useNavigate();
 
   const onclick = async (data) => {
     // console.log(data);
@@ -41,6 +43,7 @@ function Addsuburbs({ isOpen, onClose, ...selcedata }) {
       if (res) {
         alert("added area succesfully");
         reset();
+        navigate(`/admin/allarea`);
         onClose(false);
       }
     } catch (error) {

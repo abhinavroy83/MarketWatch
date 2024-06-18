@@ -118,7 +118,7 @@ function Signup() {
         }}
       >
         <div className=" w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-1/2 flex justify-center items-center font-['udemy-regular']">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
                 <img
@@ -147,7 +147,7 @@ function Signup() {
               </button>
             </div>
           </div>
-          <div className="w-1/2 flex flex-col justify-center items-center py-1">
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center py-1">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
