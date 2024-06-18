@@ -102,7 +102,7 @@ function Ads() {
         </div>
 
         {openMenu &&
-          <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[63px] right-[2px] border w-[370px] shadow-lg shadow-gray-400 h-fit z-50">
+          <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[63px] right-[2px] w-[370px] shadow-lg shadow-gray-500 h-fit z-50">
             <div className="bg-[#0b5e86] p-2 flex text-white gap-4 items-center">
               <img
                 className="rounded-full w-[50px] h-[50px]"

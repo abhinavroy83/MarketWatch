@@ -15,6 +15,7 @@ import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
 import { getScreenSizeHook } from '../../../Hooks/GetScreenSizeHook'
+import { HiQuestionMarkCircle } from "react-icons/hi";
 
 
 function Login() {
@@ -97,8 +98,8 @@ function Login() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: isMobile ? 400 : 880,
-            height: 600,
+            width: isMobile ? 350 : 740,
+            height: 560,
             border: "none",
             padding: "0px",
             backgroundColor: "#FFF",
@@ -111,22 +112,22 @@ function Login() {
           },
         }}
       >
-        
+
         <div className={`flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] ${isMobile && 'hidden'}`}>
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-[350px] flex justify-center bg-cover h-full items-center">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
-                width={350}
+                width={300}
                 className="w-50 h-50"
                 src={WebsiteLogo}
                 alt=""
               />
               <p className=" text-black text-center mt-5 text-[30px]">
-                Welcome Back
+                Welcome
               </p>
               <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular']">
-                Log In Here With Your Personal Details
+               Register here to start using Very Desi
               </p>
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
@@ -139,7 +140,7 @@ function Login() {
               </button>
             </div>
           </div>
-          <div className="w-50 px-20 items-center grow">
+          <div className="w-50 px-10 items-center grow">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}
@@ -156,14 +157,14 @@ function Login() {
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
             <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
-              GET STARTED
+              Login
             </h1>
-            <p className=" text-black text-center mt-2 px-10 text-[20px]">
+            {/* <p className=" text-black text-center mt-2 px-10 text-[20px]">
               Start Your Journey
-            </p>
+            </p> */}
             <form
               onSubmit={handleSubmit(onsubmit)}
-              className="flex flex-col mt-3 gap-3 font-['udemy-regular']"
+              className="flex flex-col mt-2 gap-3 font-['udemy-regular']"
             >
               <Input
                 label="Email"
@@ -188,9 +189,10 @@ function Login() {
                 {...register("password", { required: "Password is required" })}
                 errorMessage={errors.password?.message}
               />
+              <div className="flex gap-1 text-[13px] items-center font-bold justify-end"><HiQuestionMarkCircle size={17}/>Forgot Password</div>
               <button
                 type="submit"
-                className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
@@ -221,7 +223,7 @@ function Login() {
           </div>
         </div>
        
-        <div className="flex flex-row items-center bg-white rounded-md h-full w-[400px] font-['udemy-regular']">
+        <div className="flex flex-row items-center bg-white rounded-md h-full w-[350px] font-['udemy-regular']">
         <div className="justify-center p-10 items-center grow">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
@@ -239,14 +241,14 @@ function Login() {
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
             <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
-              GET STARTED
+            Login
             </h1>
-            <p className=" text-black text-center mt-2 px-10 text-[20px]">
+            {/* <p className=" text-black text-center mt-2 px-10 text-[20px]">
               Start Your Journey
-            </p>
+            </p> */}
             <form
               onSubmit={handleSubmit(onsubmit)}
-              className="flex flex-col mt-3 gap-3 font-['udemy-regular']"
+              className="flex flex-col mt-2 gap-3 font-['udemy-regular']"
             >
               <Input
                 label="Email"
@@ -271,9 +273,10 @@ function Login() {
                 {...register("password", { required: "Password is required" })}
                 errorMessage={errors.password?.message}
               />
+              <div className="flex gap-1 text-[13px] items-center font-bold justify-end"><HiQuestionMarkCircle size={17}/>Forgot Password</div>
               <button
                 type="submit"
-                className="rounded-md bg-[#17b19f] mt-3 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
