@@ -26,13 +26,16 @@ function Login() {
   } = useForm();
   const isLoginModalOpen = useSelector((state) => state.modal.isloginmodalopen);
   const location = useLocation();
-  const { windowSize } = getScreenSizeHook()
-  const isMobile = windowSize.width < 800
+  const { windowSize } = getScreenSizeHook();
+  const isMobile = windowSize.width < 800;
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const onsubmit = async (data) => {
     try {
-      const res = await axios.post(" https://api.verydesi.com/user/login", data);
+      const res = await axios.post(
+        " https://api.verydesi.com/user/login",
+        data
+      );
       if (res.data.status == "success") {
         // console.log(res.data.data._id);
         toast.success("Successfully logged");
@@ -73,8 +76,7 @@ function Login() {
     );
   };
 
-
-  console.log(isMobile);
+  // console.log(isMobile);
   return (
     <>
       <ToastContainer
@@ -112,9 +114,12 @@ function Login() {
           },
         }}
       >
-
-        <div className={`flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] ${isMobile && 'hidden'}`}>
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-[350px] flex justify-center bg-cover h-full items-center">
+        <div
+          className={`flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] ${
+            isMobile && "hidden"
+          }`}
+        >
+          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
@@ -222,9 +227,9 @@ function Login() {
             </form>
           </div>
         </div>
-       
+
         <div className="flex flex-row items-center bg-white rounded-md h-full w-[350px] font-['udemy-regular']">
-        <div className="justify-center p-10 items-center grow">
+          <div className="justify-center p-10 items-center grow">
             <svg
               className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
               onClick={() => handleModal(false, false)}

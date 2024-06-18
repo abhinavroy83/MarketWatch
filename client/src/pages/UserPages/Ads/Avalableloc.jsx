@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
+import { useDispatch } from "react-redux";
+import { cities, login } from "../../../store/authslice";
 
+Modal.setAppElement("#root");
 function Avalableloc({ isOpen, onClose }) {
   const [cty, setcty] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -15,6 +19,11 @@ function Avalableloc({ isOpen, onClose }) {
     };
     fetchdata();
   }, []);
+  const handleLocation = (city) => {
+    dispatch(cities({ city: city }));
+    onClose(false);
+    console.log("Selected location:", city);
+  };
 
   return (
     <Modal
@@ -42,25 +51,33 @@ function Avalableloc({ isOpen, onClose }) {
       }}
     >
       <div className="flex flex-col justify-center mx-auto font-['udemy-regular']">
-      <svg
-              className="h-9 w-9 text-white absolute top-1 right-3 cursor-pointer hover:text-red-600"
-              onClick={onClose}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              {" "}
-              <circle cx="12" cy="12" r="10" />{" "}
-              <line x1="15" y1="9" x2="9" y2="15" />{" "}
-              <line x1="9" y1="9" x2="15" y2="15" />
-            </svg>
-        <p className="font-['udemy-regular'] text-[28px] p-2 bg-[#0b5e86] shadow-2xl text-white">Here we show Available location</p>
+        <svg
+          className="h-9 w-9 text-white absolute top-1 right-3 cursor-pointer hover:text-red-600"
+          onClick={onClose}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          {" "}
+          <circle cx="12" cy="12" r="10" />{" "}
+          <line x1="15" y1="9" x2="9" y2="15" />{" "}
+          <line x1="9" y1="9" x2="15" y2="15" />
+        </svg>
+        <p className="font-['udemy-regular'] text-[28px] p-2 bg-[#0b5e86] shadow-2xl text-white">
+          Here we show Available location
+        </p>
         <ul className="text-[20px] ml-3 mt-2">
           {cty.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li
+              className="border-2 border-transparent cursor-pointer p-2   ease-in-out duration-150  hover:bg-gray-400 hover:rounded-full"
+              key={index}
+              onClick={() => handleLocation(item)}
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </div>

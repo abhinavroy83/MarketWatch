@@ -8,7 +8,7 @@ const roomSchema = mongoose.Schema({
   Title: { type: String },
   Description: { type: String },
   Propertytype: { type: String },
-  PostingIn: { type: String },
+  city: { type: String },
   Stay_lease: { type: String },
   Avaliblity_from: { type: String },
   Available_to: { type: String },

@@ -16,7 +16,7 @@ function AllRooms() {
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const roomsPerPage = 5; 
+  const roomsPerPage = 5;
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
