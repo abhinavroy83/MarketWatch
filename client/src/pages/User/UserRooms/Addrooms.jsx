@@ -69,7 +69,7 @@ function Addrooms() {
       Title: data.Title,
       Description: data.Description,
       Propertytype: data.Propertytype,
-      PostingIn: data.PostingIn,
+      city: data.PostingIn,
       Stay_lease: data.Stay_lease,
       Avaliblity_from: data.Avaliblity_from,
       Available_to: data.Available_to,
@@ -716,6 +716,7 @@ function Addrooms() {
                 </div>
                 {files.length > 0 && (
                   <button
+                    type="button"
                     onClick={handleUpload}
                     className=" bg-green-700 py-2 px-3 text-white text-[18px] font-bold rounded-md"
                   >

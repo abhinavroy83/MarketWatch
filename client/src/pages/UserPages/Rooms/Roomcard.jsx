@@ -30,13 +30,17 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         status: true,
       };
       // console.log(dat);
-      const res = await axios.post(` https://api.verydesi.com/api/addtowish`, dat, {
-        headers: {
-          jwttoken: `${token}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        ` https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       if (res) {
         setWishliststatys(true);
         notify();
@@ -79,9 +83,6 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       }
     };
     fetchwishstatus();
-    // const intervalId = setInterval(fetchwishstatus, 2000);
-
-    // return () => clearInterval(intervalId);
   }, [item._id]);
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
@@ -127,50 +128,35 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       }`}
     >
       <img
-        src={item.PrdImage}
+        src={item.Imgurl[0]}
         alt=""
         width={220}
         className="rounded-tl-md rounded-bl-md h-[100%] max-w-xs transition duration-300 ease-in-out hover:opacity-80"
       />
-      {/* <p className="absolute font-roboto bg-white/65 top-0 left-0 p-1 px-3 rounded-br-lg text-center"> */}
-      {/* <span className="block text-[29px]">
-          {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
-        </span>
-        <span className="block text-gray-700 text-[24px]">
-          {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
-        </span> */}
-      {/* </p> */}
 
-      {/* <p className="absolute p-2  right-5 text-[23px] text-green-600 font-roboto font-bold text-right">
-        {item.rent}
-      </p> */}
-      {/* <p className="absolute right-5 top-2 text-[23px] text-green-600 font-roboto font-bold text-right">
-        {item.rent}
-      </p> */}
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-       <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
-        {item.rent}
-      
-      </p>
+        <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
+          {item.Expected_Rooms}
+        </p>
       </p>
 
       <div
-        className={`px-4 py-1 flex flex-col ${
-          isRoomOnlyPage ? "" : ""
-        } w-full`}
+        className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        {/* <p>{item.postedon}</p> */}
         <h1 className="flex flex-col text-[23px] font-['udemy-regular']">
-          {item.Adname && truncateCharacters(item.Adname, 42)}
+          {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
-        {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} /> {item.city},{stateAbbreviations[item.State]}
         </p>
-        <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']"><CgProfile />By: {item.postedby}</p>
+        <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']">
+          <CgProfile />
+          By: {item.user_name}
+        </p>
         <p className="text-blue-800 text-[20px] flex gap-1 mt-1 items-center font-['udemy-regular']">
           {" "}
-          <MdDateRange />{calculateTimeDifference(item.postedon)}
+          <MdDateRange />
+          {calculateTimeDifference(item.postedon)}
         </p>
         <div className="absolute bottom-3 right-4">
           {!wishliststatys ? (
@@ -200,27 +186,14 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           height={40}
           width={45}
           src={
-            item.gender === "female"
+            item.Preferred_gender === "female"
               ? femaleLogo
-              : item.gender === "male"
+              : item.Preferred_gender === "male"
               ? maleLogo
               : femaleLogo
           }
           alt=""
         />
-        {/* <img
-          className="flex absolute bottom-14 right-6"
-          height={45}
-          width={45}
-          src={
-            item.gender === "female"
-              ? femaleLogo
-              : item.gender === "male"
-                ? maleLogo
-                : femaleLogo
-          }
-          alt=""
-        /> */}
       </div>
     </Link>
   );

@@ -6,9 +6,7 @@ import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 
-
 function Roomcard2nd({ isSingleRow, ...item }) {
-
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
       return str.slice(0, numCharacters) + "...";
@@ -53,17 +51,29 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       </div>
       <div className="block grow">
         <h1 className="text-[21px] lg:text-[23px] font-['udemy-regular'] text-[#3a3247]">
-          {" "}
-          {truncateCharacters(item.Adname, 80)}
+          {item.Title?.length > 0 ? truncateCharacters(item.Title, 80) : ""}
         </h1>
-        <div className="">
-        <h1 className="lg:flex block text-[18px] font-['udemy-regular'] text-[#585163] mt-1 items-center">
-        {/* <GrLocation size={20} className="mr-1 items-center flex"/> {item.city},{stateAbbreviations[item.State]} */}
-        <p className="flex gap-1 items-center"> <GrLocation size={20}/>{item.city},{stateAbbreviations[item.State]}</p>
 
-        <p className="lg:ml-3 ml-0 flex gap-1 items-center"> <CgProfile />By: {item.postedby}</p>
-         <p className="lg:ml-3 ml-0 flex gap-1 items-center">  <MdDateRange />{calculateTimeDifference(item.postedon)}</p>
-        </h1>
+        <div className="">
+          <h1 className="lg:flex block text-[18px] font-['udemy-regular'] text-[#585163] mt-1 items-center">
+            {/* <GrLocation size={20} className="mr-1 items-center flex"/> {item.city},{stateAbbreviations[item.State]} */}
+            <p className="flex gap-1 items-center">
+              {" "}
+              <GrLocation size={20} />
+              {item.city},{stateAbbreviations[item.State]}
+            </p>
+
+            <p className="lg:ml-3 ml-0 flex gap-1 items-center">
+              {" "}
+              <CgProfile />
+              By: {item.user_name}
+            </p>
+            <p className="lg:ml-3 ml-0 flex gap-1 items-center">
+              {" "}
+              <MdDateRange />
+              {calculateTimeDifference(item.postedon)}
+            </p>
+          </h1>
         </div>
         <div className="flex gap-2 text-blue-800 text-2xl items-center">
           <p className="text-blue-800 text-2xl items-center">
@@ -75,7 +85,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       </div>
       <div className="flex gap-4 justify-center items-center mr-3">
         <p className="text-[23px] text-green-700 font-['udemy-regular'] font-bold">
-          {item.rent}
+          {item.Expected_Rooms}
         </p>
       </div>
     </Link>

@@ -25,7 +25,41 @@ import { LuPhoneCall } from "react-icons/lu";
 import femaleLogo from "../../../assets/female.png";
 import maleLogo from "../../../assets/male.jpeg";
 import { CgSmartHomeWashMachine } from "react-icons/cg";
-import { FaShareAlt } from "react-icons/fa";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import { MdSubtitles } from "react-icons/md";
+import { MdInsertComment } from "react-icons/md";
+import { BsBuildingsFill } from "react-icons/bs";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { MdOutlineTimer } from "react-icons/md";
+import { LuClock10 } from "react-icons/lu";
+import { LuClock3 } from "react-icons/lu";
+import { IoToday } from "react-icons/io5";
+import { FaBath } from "react-icons/fa6";
+import { BsGenderTrans } from "react-icons/bs";
+import { MdOutlineMeetingRoom } from "react-icons/md";
+import { MdOutlinePriceChange } from "react-icons/md";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { MdBedroomParent } from "react-icons/md";
+import { MdRoomPreferences } from "react-icons/md";
+import { BiFoodTag } from "react-icons/bi";
+import { FaSmoking } from "react-icons/fa6";
+import { MdPets } from "react-icons/md";
+import { GrDocumentTime } from "react-icons/gr";
+import { FaUserAlt } from "react-icons/fa";
+import { FaPhoneVolume } from "react-icons/fa6";
+import { FaAddressCard } from "react-icons/fa";
+import { BiSolidMessageRoundedDots } from "react-icons/bi";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaUserFriends } from "react-icons/fa";
+import { GiEntryDoor } from "react-icons/gi";
+import { PiClipboardTextFill } from "react-icons/pi";
+import { MdAddBusiness } from "react-icons/md";
+import { FaWifi } from "react-icons/fa6";
+import { TbAirConditioning } from "react-icons/tb";
+import { MdOutlineHeatPump } from "react-icons/md";
+import { CgGym } from "react-icons/cg";
+import { MdPool } from "react-icons/md";
 
 function Rooms() {
   const { _id } = useParams();
@@ -39,17 +73,14 @@ function Rooms() {
   const [wishliststatys, setWishliststatys] = useState(false);
   const token = useSelector((state) => state.auth.token);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const url = ` https://api.verydesi.com/rooms/${_id}`;
+  const url = `https://api.verydesi.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
     try {
       const res = await axios.get(
-        ` https://api.verydesi.com/api/getspecificroom/${_id}`
+        `https://api.verydesi.com/api/getspecificroom/${_id}`
       );
       setrooms(res.data.rooms);
+      // console.log(res.data.rooms);
       const loc = {
         lat: res.data.rooms.location.coordinates[1],
         lng: res.data.rooms.location.coordinates[0],
@@ -73,7 +104,7 @@ function Rooms() {
   const getRooms = async () => {
     try {
       const res = await axios.get(
-        ` https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+        `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
       setsimilarrooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);
@@ -88,7 +119,7 @@ function Rooms() {
   const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        ` https://api.verydesi.com/api/rooms/${_id}/previous`
+        `https://api.verydesi.com/api/rooms/${_id}/previous`
       );
       // console.log(res);
       navigate(`/rooms/${res.data.previousRoom._id}`);
@@ -100,9 +131,10 @@ function Rooms() {
   const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        ` https://api.verydesi.com/api/rooms/${_id}/next`
+        `https://api.verydesi.com/api/rooms/${_id}/next`
       );
       // console.log(res);
+
       navigate(`/rooms/${res.data.nextRoom._id}`);
     } catch (error) {
       console.error("Error fetching previous room:", error);
@@ -174,7 +206,7 @@ function Rooms() {
       };
       // console.log(dat);
       const res = await axios.post(
-        ` https://api.verydesi.com/api/addtowish`,
+        `https://api.verydesi.com/api/addtowish`,
         dat,
         {
           headers: {
@@ -196,7 +228,7 @@ function Rooms() {
   const unwish = async () => {
     try {
       const res = await axios.delete(
-        ` https://api.verydesi.com/api/deletelist/${_id}`
+        `https://api.verydesi.com/api/deletelist/${_id}`
       );
       if (res) {
         setWishliststatys(false);
@@ -211,7 +243,7 @@ function Rooms() {
     const fetchwishstatus = async () => {
       try {
         const res = await axios.get(
-          ` https://api.verydesi.com/api/getlistbyroom/${_id}`
+          `https://api.verydesi.com/api/getlistbyroom/${_id}`
         );
         if (res.data.status == "not") {
           setWishliststatys(false);
@@ -232,10 +264,26 @@ function Rooms() {
   const toggleSharePopup = () => {
     setIsSharePopupOpen(!isSharePopupOpen);
   };
-  // console.log(wishliststatys);
+  if (!rooms || !rooms.Imgurl) {
+    return <div>Loading</div>;
+  }
+
+  const images = rooms.Imgurl.map((url) => ({
+    original: url,
+    thumbnail: url,
+    renderItem: (item) => (
+      <div className="image-gallery-image">
+        <img
+          src={item.original}
+          alt=""
+          className="h-[560px] w-[880px] rounded-md object-cover"
+        />
+      </div>
+    ),
+  }));
 
   return (
-    <ChildContainer onLocationReceived={locationsndString}>
+    <div className=" mt-40 h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -249,7 +297,7 @@ function Rooms() {
         theme="dark"
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-      <div className=" w-full max-w-7xl mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
+      <div className=" w-full mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
         <div className="flex justify-between py-2 items-start">
           <div>
             <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
@@ -265,12 +313,13 @@ function Rooms() {
                 Previous
               </button>
             </button>
+
             <p className=" text-[30px] font-bold text-black font-['udemy-regular']">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p>
           </div>
 
-          <div className="block">
+          <div className="block ">
             <div className="flex justify-end">
               <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                 <button
@@ -290,31 +339,31 @@ function Rooms() {
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
-                  className="cursor-pointer p-2 bg-red-600 rounded-full shadow-md hover:shadow-[#000]"
+                  className="cursor-pointer p-2 bg-red-600 rounded-full"
                   onClick={makewishlist}
                 >
                   <FaHeart color="#fff" size={30} />
                 </div>
               ) : (
                 <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full shadow-md hover:shadow-[#000]"
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
                   onClick={unwish}
                 >
                   <FaHeart color="red" size={30} />
                 </div>
               )}
-              <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-md hover:shadow-[#000]">
+              <div className="cursor-pointer p-2 bg-green-500 rounded-full">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>
-              {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full shadow-md hover:shadow-[#000]">
+              <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
-                  <FaShareAlt color="#fff" size={30} />
+                  <IoIosShareAlt color="#fff" size={30} />
                 </CopyToClipboard>
-              </div> */}
+              </div>
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[20px] flex items-center text-black shadow-md shadow-[#ccc] hover:shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="text-black" /> Share Now
               </button>
@@ -338,69 +387,66 @@ function Rooms() {
             </div>
           </div>
         </div>
-
+        {/* <div className="text-[25px] mb-4">
+           <div className="flex gap-1"><MdSubtitles size={30}/><p className="">Title: Cozy Apartment in Downtown</p></div>
+            <div className="flex gap-1"><MdInsertComment size={30}/><p>Description: A spacious and cozy apartment in the heart of the city with all modern amenities.</p></div>
+        </div> */}
         <div className="flex text-[25px]">
           <div>
-            <img
-              src={rooms.PrdImage}
-              alt="roomimg"
-              className="h-[500px] w-[800px] rounded-md object-cover"
+            <ImageGallery
+              items={images}
+              showPlayButton={false}
+              showFullscreenButton={false}
             />
-            <p className="flex font-['udemy-regular'] mt-4 text-[25px] text-blue-800 gap-2 font-bold">
-              Posted By :{" "}
-              <p className="text-gray-600 font-medium">{rooms.postedby}</p>
-              || Posted On :{" "}
-              <p className="text-gray-600 font-medium">{posteddate} </p>
-            </p>
           </div>
-          <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-1">
-            {/* <p className=" text-[25px] font-bold text-gray-800 font-['udemy-regular']">
-              {rooms.Adname && truncateWords(rooms.Adname, 6)}
-            </p> */}
-            <p className="text-green-700 text-[25px] font-bold flex gap-3">
-              {rooms.rent} monthly{" "}
-              {/* <p className="text-[25px] text-blue-800">[Extra Utilites Here]</p> */}
-            </p>
-            <p className="text-[25px]">{rooms.address}</p>
-            <div className="flex items-center justify-between">
-              <p className="text-[25px]">
-                {rooms.bed} Bed / {rooms.bath} Bath
+          <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-3 w-[660px]">
+            <div>
+              <p className="font-bold flex gap-3">
+                <div className="text-[27px]">
+                  <div className="flex gap-1 font-bold">
+                    <p className="">{rooms.Title}</p>
+                  </div>
+                </div>
               </p>
-              <div className="flex">
-                <img
-                  className="flex"
-                  height={40}
-                  width={40}
-                  src={
-                    rooms.gender === "female"
-                      ? femaleLogo
-                      : rooms.gender === "male"
-                      ? maleLogo
-                      : femaleLogo
-                  }
-                  alt=""
-                />
-                <div className="flex">
-                  <CgSmartHomeWashMachine size={40} />
+              <div className="flex justify-between my-2">
+                <p className="text-[25px]">{rooms.address}</p>
+                <p>$300 monthly</p>
+              </div>
+              <div>
+                <p className=" text-xl">By {rooms.user_name}</p>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between">
+                {
+                  <div className="flex ">
+                    <BsBuildingsFill className="" size={35} />
+                    <p className=" px-2">{rooms.Propertytype}</p>
+                  </div>
+                }
+                <div
+                  className={`flex ${
+                    authstatus && "flex-row-reverse"
+                  } justify-between `}
+                >
+                  <button
+                    type="button"
+                    onClick={handleloginmodelopen}
+                    className="flex self-center rounded-md bg-green-800 px-5 py-4 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                  >
+                    <LuPhoneCall size={30} />
+                    <span class="ml-2 items-center justify-center">
+                      Get In touch{" "}
+                    </span>
+                  </button>
                 </div>
               </div>
-              {/* <img
-             className="flex"
-              height={50}
-             width={50}
-             src={femaleLogo}
-             alt=""
-            />
-              <div className="flex">
-                  <GiWashingMachine size={45} />
-              </div> */}
-            </div>
-            <div>
               {locationsndString ? (
                 <div className="mt-2">
                   <LeafletMap2
                     onLocationReceived={locationsndString}
-                    style={{ height: "300px", width: "500px" }}
+                    style={{ height: "350px", width: "638px" }}
                   />
                 </div>
               ) : (
@@ -413,40 +459,294 @@ function Rooms() {
               className={`flex ${
                 authstatus && "flex-row-reverse"
               } justify-between mt-4`}
-            >
-              <button
-                type="button"
-                onClick={handleloginmodelopen}
-                className="flex self-center rounded-md bg-green-800 px-5 py-4 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
-              >
-                <LuPhoneCall size={30} />
-                <span class="ml-2 items-center justify-center">
-                  Get In touch{" "}
-                </span>
-              </button>
-              {authstatus && (
-                <div className="">
-                  {/* <p className="text-[20px] font-bold font-['udemy-regular'] text-blue-800">
-                    Your Details Are -
-                  </p> */}
-                  <p className="text-gray-600 text-[22px]">
-                    Email : {rooms.email}
-                  </p>
-                  <p className="text-gray-600 text-[22px]">
-                    Number : {rooms.number}
-                  </p>
-                </div>
-              )}
-            </div>
+            ></div>
           </div>
         </div>
-        <div className="font-['udemy-regular'] py-2 mt-2 text-[25px] text-gray-600">
-          <p className="text-blue-800 font-bold ">Overview : </p>
-          {rooms.description}
+        {/* <div className="flex gap-1 text-[25px] font-bold mt-2">
+          <MdInsertComment size={35} />
+        </div> */}
+        <div className=" flex  gap-1">
+          <p className=" text-2xl  font-bold">Description :</p>
+          <p className=" text-2xl font-light">{rooms.Description}</p>
         </div>
+
+        {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
+        <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
+          {/* <div className=" gap-3 border p-5">
+           <div className="flex gap-1 mt-2"><MdSubtitles size={30}/><p className="">Title: Cozy Apartment in Downtown</p></div>
+            <div className="flex gap-1 mt-3"><MdInsertComment size={30}/><p>Description: A spacious and cozy apartment in the heart of the city with all modern amenities.</p></div>
+           </div> */}
+          <h1 className="text-[#000] text-[29px] font-bold mt-5 flex gap-2">
+            <GiEntryDoor size={40} />
+            More Info About Room-{" "}
+          </h1>
+          <div className="grid grid-cols-3 gap-4 border p-5">
+            <div className="flex gap-2 items-center">
+              <BsBuildingsFill className="" size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Property type
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Propertytype}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <FaMapMarkerAlt className="" size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  City
+                  <p className="text-black flex text-[18px]">{rooms.city}</p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MdOutlineTimer className="" size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Stay/lease
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Stay_lease}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <LuClock10 size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Avaliblity from
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Avaliblity_from}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <LuClock3 size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Available to
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Available_to}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <IoToday size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Day Available
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Day_Available}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <FaBath size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Attachted Bath
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Attchd_Bath}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <BsGenderTrans size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Preferred Gender
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Preferred_gender}
+                  </p>
+                </p>
+              </div>
+            </div>
+            {/* <div className="flex gap-2 items-center"><MdOutlineMeetingRoom size={35}/><div className="flex">
+            <p className="text-gray-500 text-[20px]">Expected Rooms
+            <p className="text-black flex">1</p>
+            </p></div></div> */}
+            <div className="flex gap-2 items-center">
+              <MdOutlinePriceChange size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Pricemodel
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Pricemodel}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <RiMoneyDollarCircleFill size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Desposite
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Desposite}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MdBedroomParent size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Is room furnished
+                  <p className="text-black flex text-[18px]">
+                    {rooms.is_room_furnished}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <GrDocumentTime size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Open house schedule
+                  <p className="text-black flex text-[18px]">
+                    Every Saturday 10AM-12PM
+                  </p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <h1 className="flex text-[#000] text-[29px] font-bold mt-5 gap-2">
+            <MdRoomPreferences size={40} />
+            Amenities included-{" "}
+          </h1>
+          <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black">
+            <div className="flex gap-2">
+              <FaWifi size={25} />
+              <p>WiFi</p>
+            </div>
+            <div className="flex gap-2">
+              <TbAirConditioning size={30} />
+              <p>Air Conditioning</p>
+            </div>
+            <div className="flex gap-2">
+              <MdOutlineHeatPump size={30} />
+              <p>Heating</p>
+            </div>
+            <div className="flex gap-2">
+              <CgGym size={30} />
+              <p>Gym</p>
+            </div>
+            <div className="flex gap-2">
+              <MdPool size={30} />
+              <p>Pool</p>
+            </div>
+          </div>
+          <h1 className="text-[#000] text-[29px] font-bold mt-5 flex gap-2">
+            <MdAddBusiness size={40} />
+            Additional Information-{" "}
+          </h1>
+          <div className="grid grid-cols-3 gap-3 border p-5">
+            <div className="flex gap-2 items-center">
+              <BiFoodTag size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Vegeterian prefernce
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Vegeterian_prefernce}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <FaSmoking size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Smoking policy
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Smoking_policy}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MdPets size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Pet friendly
+                  <p className="text-black flex text-[18px]">
+                    {rooms.Pet_friendly}
+                  </p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <h1 className="flex text-[#000] text-[29px] font-bold mt-5 gap-2">
+            <FaUserFriends size={37} />
+            User Details-{" "}
+          </h1>
+          <div className="grid grid-cols-3 gap-3 border p-5">
+            <div className="flex gap-2 items-center">
+              <FaUserAlt size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  User name
+                  <p className="text-black flex text-[18px]">
+                    {rooms.user_name}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <FaPhoneVolume size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Phone number
+                  <p className="text-black flex text-[18px]">
+                    {rooms.phone_number}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <FaAddressCard size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Address
+                  <p className="text-black flex text-[18px]">{rooms.address}</p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <BiSolidMessageRoundedDots size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Zip code
+                  <p className="text-black flex text-[18px]">
+                    {rooms.zip_code}
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MdOutlineEmail size={35} />
+              <div className="flex">
+                <p className="text-gray-500 text-[20px]">
+                  Email
+                  <p className="text-black flex text-[18px]">{rooms.email}</p>
+                </p>
+              </div>
+            </div>
+
+            {/* <p>"Imgurl": [
+            "https://photos.zillowstatic.com/fp/53c24e11ceb3ce05a9daf37eee7ed4ec-cc_ft_768.webp",
+            "https://photos.zillowstatic.com/fp/c0423658b577c72e2686334307c6af5f-cc_ft_384.webp"]</p> */}
+          </div>
+        </div>
+
         <div className="mt-4 mb-2 border-t-2 border-black">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-blue-800 font-bold">
+            <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-[#0b5e86] font-bold">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"
@@ -463,7 +763,7 @@ function Rooms() {
           </div>
         </div>
       </div>
-    </ChildContainer>
+    </div>
   );
 }
 

@@ -146,7 +146,7 @@ function AllArea() {
                     setSelectedCity(city);
                   }}
                 >
-                  {city}
+                  {city} <button>de</button>
                 </li>
               ))}
             </ul>

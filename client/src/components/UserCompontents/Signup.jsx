@@ -45,9 +45,13 @@ function Signup() {
       phone_number: data.phone_number,
       password: data.password,
     };
+    console.log(datsa);
     try {
       // console.log(datsa);
-      const res = await axios.post(" https://api.verydesi.com/user/signup", datsa);
+      const res = await axios.post(
+        " https://api.verydesi.com/user/signup",
+        datsa
+      );
       if (res) {
         // console.log(res);
         alert("signup successfully added");
@@ -138,7 +142,7 @@ function Signup() {
               </p>
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
-                type="submit"
+                type="button"
                 onClick={() => {
                   handleModal(true, false);
                 }}
@@ -322,13 +326,13 @@ function Signup() {
                     onChange={(value) => {
                       console.log("Captcha Value", value);
                     }}
-                    {...register("captcha", { required: "Verify your self" })}
+                    // {...register("captcha", { required: "Verify your self" })}
                   />
-                  {errors && (
+                  {/* {errors && (
                     <p className=" text-red-600 text-sm">
                       {errors.captcha?.message}
                     </p>
-                  )}
+                  )} */}
                   <div className="text-center">
                     <button
                       className="place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"

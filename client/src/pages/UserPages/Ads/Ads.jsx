@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "../../../components";
 import WebsiteLogo from "../../../assets/website_logo.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link } from "react-router-dom";
 import Avalableloc from "./Avalableloc";
@@ -11,6 +11,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosHelpCircle } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
+import { logout } from "../../../store/authslice";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -18,6 +19,8 @@ function Ads() {
   const currntcty = useSelector((state) => state.auth.city);
   // console.log(currntcty);
   const [cty, setcty] = useState([]);
+  const dispatch = useDispatch();
+  const isloged = useSelector((state) => state.auth.status);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -27,7 +30,7 @@ function Ads() {
     };
   }, []);
   const [isloginmodalopen, setloginmodeopen] = useState(false);
-  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false);
 
   const handleloginmodelopen = () => {
     setloginmodeopen(true);
@@ -38,6 +41,11 @@ function Ads() {
 
   const toggleAdminMenu = () => {
     setOpenMenu(!openMenu);
+  };
+  const handlelogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("userdetails");
+    // navigate("/login");
   };
 
   return (
@@ -81,7 +89,10 @@ function Ads() {
                 Log In
       </button> */}
       <div className="relative">
-        <div className="items-center justify-center flex cursor-pointer" onClick={toggleAdminMenu}>
+        <div
+          className="items-center justify-center flex cursor-pointer"
+          onClick={toggleAdminMenu}
+        >
           {/* <svg class="h-12 w-12 text-black items-center justify-center"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
        </svg> */}
@@ -95,15 +106,15 @@ function Ads() {
             }
             alt={"not found"}
           />
-          <p className="items-center justify-center text-[20px] ml-2 whitespace-nowrap text-ellipsis max-w-[100px] overflow-auto text-center">
+          {/* <p className="items-center justify-center text-[20px] ml-2 whitespace-nowrap text-ellipsis max-w-[100px] overflow-auto text-center">
             Hi, {name}
-          </p>
-          <IoMdArrowDropdown size={30} />
+          </p> */}
+          {isloged && <IoMdArrowDropdown size={30} />}
         </div>
 
-        {openMenu &&
-          <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[63px] right-[2px] w-[370px] shadow-lg shadow-gray-500 h-fit z-50">
-            <div className="bg-[#0b5e86] p-2 flex text-white gap-4 items-center">
+        {isloged && openMenu && (
+          <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[77px] right-[2px]  w-[350px] shadow-lg shadow-gray-400 h-fit z-50">
+            <div className="bg-[#0b5e86] border-[#0b5e86] p-2 flex text-white gap-4 items-center">
               <img
                 className="rounded-full w-[50px] h-[50px]"
                 height={50}
@@ -117,9 +128,6 @@ function Ads() {
               <div className="flex flex-col">
                 <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center ">
                   {name}
-                </p>
-                <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center ">
-                  Profile Id: 45818592
                 </p>
               </div>
             </div>
@@ -136,12 +144,15 @@ function Ads() {
               <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
                 <IoIosHelpCircle /> Help
               </p>
-              <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
+              <p
+                onClick={handlelogout}
+                className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2"
+              >
                 <BiLogOut /> Logout{" "}
               </p>
             </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );
