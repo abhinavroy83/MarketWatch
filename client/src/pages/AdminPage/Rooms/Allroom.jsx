@@ -169,7 +169,7 @@ function Allroom() {
                 onClick={() => {
                   // navigate(`/addjobs/${userID}`);
                 }}
-                className="flex rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="whitespace-nowrap flex rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add Room
               </button>
