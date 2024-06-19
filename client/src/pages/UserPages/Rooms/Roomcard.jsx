@@ -161,28 +161,28 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <div className="absolute bottom-3 right-4">
           {!wishliststatys ? (
             <div
-              className="cursor-pointer p-2 rounded-full hover:bg-red-600 border border-gray-300 hover:text-white"
+              className="cursor-pointer p-2 hover:text-white"
               onClick={(e) => {
                 e.preventDefault();
                 makewishlist(item._id);
               }}
             >
-              <FaHeart className="text-gray-500 hover:text-white" size={20} />
+              <FaHeart className="text-gray-500 hover:text-gray-700 " size={25} />
             </div>
           ) : (
             <div
-              className="cursor-pointer p-2 border border-gray-300 rounded-full"
+              className="cursor-pointer p-2"
               onClick={(e) => {
                 e.preventDefault();
                 unwish(item._id);
               }}
             >
-              <FaHeart color="red" size={20} />
+              <FaHeart color="red" size={25} />
             </div>
           )}
         </div>
         <img
-          className="flex absolute bottom-3 right-14"
+          className="flex absolute bottom-3 right-12"
           height={40}
           width={45}
           src={

@@ -217,16 +217,16 @@ export default function Header() {
               </div>
             ) : (
               <div className="flex items-center">
-                <div className="relative mr-3">
+                <div className="relative mr-4">
                   <FaHeart
-                    className="text-white hover:text-red-400 cursor-pointer mt-3"
+                    className="text-white hover:text-red-500 cursor-pointer mt-1"
                     size={25}
                     onClick={() => {
                       navigate(`/dashboard/wishlist/${userID}`);
                     }}
                   />
                   {cartno > 0 && (
-                    <div className="absolute top-2 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-6 h-6 flex justify-center items-center rounded-full">
+                    <div className="absolute top-1 right-[-0.5rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-6 h-6 flex justify-center items-center rounded-full">
                       {cartno}
                     </div>
                   )}

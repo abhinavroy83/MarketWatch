@@ -204,7 +204,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
                 makewishlist(item._id);
               }}
             >
-              <FaRegHeart className=" hover:text-white" size={17} />
+              <FaHeart className=" hover:text-white" size={17} />
             </div>
           ) : (
             <div
@@ -214,7 +214,7 @@ function RoomcardNew({ isRoomOnlyPage, ...item }) {
                 unwish(item._id);
               }}
             >
-              <FaRegHeart />
+              <FaHeart />
             </div>
           )}
         </div>

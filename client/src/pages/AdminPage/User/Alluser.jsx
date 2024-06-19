@@ -74,7 +74,7 @@ function Alluser() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
   const renderRows = () => {
-    const itemsPerPage = 10;
+    const itemsPerPage = 8;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
@@ -221,7 +221,7 @@ function Alluser() {
           </div>
           <div className="mt-4 w-full border-gray-300">
             <div className="mt-2 flex items-center justify-end">
-              <div className="space-x-2">
+              <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
                     className="rounded-md flex items-center text-[20px] justify-center gap-2 bg-green-800 px-4 py-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"

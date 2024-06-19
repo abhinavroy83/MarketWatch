@@ -339,7 +339,7 @@ function Rooms() {
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
-                  className="cursor-pointer p-2 bg-red-600 rounded-full"
+                  className="cursor-pointer p-2 bg-red-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600"
                   onClick={makewishlist}
                 >
                   <FaHeart color="#fff" size={30} />
@@ -352,18 +352,18 @@ function Rooms() {
                   <FaHeart color="red" size={30} />
                 </div>
               )}
-              <div className="cursor-pointer p-2 bg-green-500 rounded-full">
+              <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
                 <BiSolidMessageRounded color="#fff" size={30} />
               </div>
-              <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
+              {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
                   <IoIosShareAlt color="#fff" size={30} />
                 </CopyToClipboard>
-              </div>
+              </div> */}
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="text-black" /> Share Now
               </button>
@@ -465,9 +465,9 @@ function Rooms() {
         {/* <div className="flex gap-1 text-[25px] font-bold mt-2">
           <MdInsertComment size={35} />
         </div> */}
-        <div className=" flex  gap-1">
-          <p className=" text-2xl  font-bold">Description :</p>
-          <p className=" text-2xl font-light">{rooms.Description}</p>
+         <div className="border p-3 mt-2">
+          <p className=" text-[22px] font-bold px-1">Description -</p>
+          <p className=" text-[18px] text-gray-600 text-justify px-1">{rooms.Description} Each room has its own character, shaped by the colors on the walls, the arrangement of furniture, and the personal touches that make it unique. Whether it's a cozy bedroom, a lively living room, a functional kitchen, or a tranquil study, rooms are spaces that reflect our personalities and lifestyles.Each room has its own character, shaped by the colors on the walls, the arrangement of furniture, and the personal touches that make it unique. Whether it's a cozy bedroom, a lively living room, a functional kitchen, or a tranquil study</p>
         </div>
 
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
