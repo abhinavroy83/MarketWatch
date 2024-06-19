@@ -72,30 +72,11 @@ function Ads() {
           <IoMdArrowDropdown />
         </p>
       </div>
-
-      {/* <div className="mt-2 items-center bg-cover z-50">
-        <img
-          height={100}
-          width={150}
-          src={"https://m.media-amazon.com/images/I/61MsvBsj-ZL._AC_SY395_.jpg"}
-          className="lg:w-[130px] w-[100px]"
-          alt=""
-        />
-      </div> */}
-      {/* <button
-                type="button"
-                className="rounded-md text-[17px] px-3 py-2 text-black font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Log In
-      </button> */}
       <div className="relative">
         <div
           className="items-center justify-center flex cursor-pointer"
           onClick={toggleAdminMenu}
         >
-          {/* <svg class="h-12 w-12 text-black items-center justify-center"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-       </svg> */}
           <img
             className="rounded-full w-[50px] h-[50px]"
             height={50}

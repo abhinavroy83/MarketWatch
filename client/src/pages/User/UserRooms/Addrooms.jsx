@@ -61,7 +61,6 @@ function Addrooms() {
       setLoading(false);
     }
   };
-  // console.log("resimgurl", resimgurl);
 
   const onsubmit = async (data) => {
     // console.log(data);

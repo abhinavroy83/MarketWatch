@@ -42,6 +42,7 @@ import AllArea from "./pages/AdminPage/Area/AllArea.jsx";
 import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
 import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
 
 const router = createBrowserRouter([
   {
@@ -188,6 +189,10 @@ const router = createBrowserRouter([
         path: "/createbussinessprofile",
         element: <BussinessPages />,
       },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
       // adminpanel components
       {
         path: "/admin/login",
@@ -270,6 +275,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/admin/area/update/:area_name",
+        element: (
+          <Adminauthlayout authentication>
+            <Update_del_Area />
+          </Adminauthlayout>
+        ),
+      },
+      {
         path: "/admin/confirmtodelete/:id",
         element: (
           <Adminauthlayout authentication>
@@ -285,12 +298,6 @@ const router = createBrowserRouter([
           </Adminauthlayout>
         ),
       },
-      {
-        path: "/about-us",
-        element: (
-          <AboutUs />
-        )
-      }
     ],
   },
 ]);

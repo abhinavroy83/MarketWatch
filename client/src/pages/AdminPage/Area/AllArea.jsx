@@ -8,6 +8,8 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
 import { HiMinusCircle } from "react-icons/hi";
+import { MdEdit } from "react-icons/md";
+import Update_del_Area from "./Modify/Update_del_Area";
 
 function AllArea() {
   const { handleSubmit, register } = useForm();
@@ -134,20 +136,28 @@ function AllArea() {
             </p>
             <ul className="rounded-sm text-[20px] bg-white p-1">
               {Filtercity.map((city, index) => (
-                <li
-                  key={index}
-                  value={city}
-                  className={`cursor-pointer  hover:bg-gray-600 p-1 hover:text-white hover:shadow-lg  ${
-                    selectedCity === city
-                      ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedCity(city);
-                  }}
-                >
-                  {city} <button>de</button>
-                </li>
+                <div className=" flex justify-between">
+                  <li
+                    key={index}
+                    value={city}
+                    className={`cursor-pointer    ${
+                      selectedCity === city
+                        ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                        : ""
+                    }`}
+                    onClick={() => {
+                      setSelectedCity(city);
+                    }}
+                  >
+                    {city}
+                  </li>
+                  <MdEdit
+                    className=" cursor-pointer justify-center"
+                    onClick={() => {
+                      navigate(`/admin/area/update/${city}`);
+                    }}
+                  />
+                </div>
               ))}
             </ul>
           </div>

@@ -130,9 +130,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <img
         src={item.Imgurl[0]}
         alt=""
-        width={220}
-        className="rounded-tl-md rounded-bl-md h-[100%] max-w-xs transition duration-300 ease-in-out hover:opacity-80"
-      />
+        // width={220}
+        className=" w-52 rounded-tl-md rounded-bl-md h-[100%] max-w-4xl transition duration-300 ease-in-out hover:opacity-80"
+        />
 
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
         <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
