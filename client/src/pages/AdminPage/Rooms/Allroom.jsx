@@ -6,6 +6,13 @@ import {
 import axios from "axios";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+import { FaMapPin } from "react-icons/fa";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { TfiMoney } from "react-icons/tfi";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlineMeetingRoom } from "react-icons/md";
 
 function Allroom() {
   const [data, setdata] = useState([]);
@@ -93,14 +100,14 @@ function Allroom() {
               />
             </div>
             <div className="ml-4">
-              <div className="text-base font-medium text-gray-900">
+              <div className="text-base font-medium text-gray-500">
                 {items.Hotelname}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-base text-gray-900">{items.email}</div>
+          <div className="text-base text-gray-500">{items.email}</div>
         </td>
 
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
@@ -115,13 +122,13 @@ function Allroom() {
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-left text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
-          <button
+        <td className="px-4 py-3.5 text-left text-base text-gray-500 hover:text-red-700">
+          <button className="hover:text-red-600"
             onClick={() => {
               const _id = items._id;
               // console.log(_id);
@@ -132,7 +139,7 @@ function Allroom() {
               }
             }}
           >
-            delete
+            Delete
           </button>
         </td>
       </tr>
@@ -146,8 +153,8 @@ function Allroom() {
         <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <p className="text-3xl font-semibold text-[#0b5e86]">All Rooms</p>
-              <p className="mt-1 text-xl text-gray-700 font-['udemy-regular']">
+              <p className="text-[20px] font-semibold">All Rooms</p>
+              <p className="mt-1 text-[17px] text-gray-700 font-['udemy-regular']">
                 This is list of All Rooms. You can add,
                 edit or delete existing ones.
               </p>
@@ -186,19 +193,19 @@ function Allroom() {
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <span>Room</span>
+                          <div className="flex gap-1"> <MdOutlineMeetingRoom size={23}/> Room</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <span>Email</span>
+                          <div className="flex gap-1"> <MdOutlineEmail size={23}/> Email</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-6 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Rent
+                          <div className="flex gap-1"> <TfiMoney size={20}/> Rent</div>
                         </th>
 
                         {/* <th
@@ -209,27 +216,27 @@ function Allroom() {
                         </th> */}
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          City
+                          <div className="flex gap-1"> <FaMapPin size={20}/> City</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Country
+                          <div className="flex gap-1"> <FaMapLocationDot size={20}/> Country</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Edit
+                         <div className="flex gap-1"> <MdEdit size={23}/> Edit</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Delete
+                        <div className="flex gap-1"> <MdDeleteForever size={25}/> Delete</div> 
                         </th>
                       </tr>
                     </thead>

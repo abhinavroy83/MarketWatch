@@ -13,7 +13,7 @@ const Pagination = ({ currentPage, totalRooms, roomsPerPage, paginate }) => {
       {currentPage > 1 && (
         <button
           onClick={() => paginate(currentPage - 1)}
-          className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
+          className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-green-800 text-[22px] text-white hover:bg-green-900"
         >
           <FaArrowAltCircleLeft /> Previous
         </button>
@@ -25,8 +25,8 @@ const Pagination = ({ currentPage, totalRooms, roomsPerPage, paginate }) => {
             onClick={() => paginate(number)}
             className={`mx-1 px-3 py-2 border rounded-md ${
               currentPage === number
-                ? "bg-green-900 text-white"
-                : "bg-green-800 text-white hover:bg-green-900"
+                ? "bg-white text-gray-900 border-gray-600"
+                : "bg-white text-gray-500"
             }`}
           >
             {number}
