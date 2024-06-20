@@ -16,7 +16,7 @@ function Update_del_Area() {
   const fetchSuburbs = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/admin/area/${area_name}`
+        `https://api.verydesi.com/api/admin/area/${area_name}`
       );
       setSuburbs(res.data.suburbs);
     } catch (error) {
@@ -33,7 +33,7 @@ function Update_del_Area() {
   const handledelete = (id) => {
     try {
       const del = axios.delete(
-        `http://localhost:8000/api/admin/deletesub/${id}`
+        `https://api.verydesi.com/api/admin/deletesub/${id}`
       );
       if (del) {
         alert("suburbs delete sucessfully");
@@ -69,27 +69,33 @@ function Update_del_Area() {
                       <tr>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                          className="px-12 py-3.5 text-left text-sm font-normal text-gray-700"
                         >
-                          <span>Area</span>
+                          Area
                         </th>
                         <th
                           scope="col"
                           className="px-12 py-3.5 text-left text-sm font-normal text-gray-700"
                         >
-                          Title
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
-                        >
-                          Zip code
+                          ZipCode
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
                         >
                           State
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                        >
+                          Country
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
+                        >
+                          Edit
                         </th>
                         <th
                           scope="col"
@@ -113,6 +119,9 @@ function Update_del_Area() {
                           </td>
                           <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
                             {item.country}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+                            Edit
                           </td>
                           <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
                             <button onClick={() => handledelete(item._id)}>
