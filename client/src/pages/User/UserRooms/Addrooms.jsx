@@ -135,10 +135,10 @@ function Addrooms() {
   }, []);
 
   return (
-    <div className=" w-full mx-auto mt-48">
+    <div className=" w-full mx-auto mt-44">
       <div className="w-full max-w-[1400px] mx-auto items-center  justify-center bg-white shadow-lg shadow-black/30">
-        <div className="font-['udemy-regular']  mx-20 ">
-          <p className="text-[30px] font-semibold text-[#000] mt-4 flex items-center justify-center">
+        <div className="font-['udemy-regular'] mx-20">
+          <p className="text-[30px] font-semibold text-[#000] flex items-center justify-center">
             Post Room In {cunrtcity}
           </p>
           <form
@@ -786,11 +786,7 @@ function Addrooms() {
                   />
                 </div>
               </div>
-            </div>
-            {/* Area Name- */}
-            <div className=" shadow-gray-300 w-[1300px] items-center justify-center p-4 pt-0 mt-7">
-              <article className="flex flex-col gap-4 px-4">
-                <div className="">
+              <div className="flex mt-10">
                   <label
                     className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -804,7 +800,7 @@ function Addrooms() {
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
-                <div className="flex items-center mt-7">
+                <div className="flex items-center mt-10">
                   <label
                     className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -824,7 +820,6 @@ function Addrooms() {
                     </p>
                   </div>
                 </div>
-              </article>
             </div>
 
             <button
