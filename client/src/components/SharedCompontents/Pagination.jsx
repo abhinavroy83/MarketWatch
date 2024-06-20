@@ -1,5 +1,7 @@
 import React from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 
 const Pagination = ({ currentPage, totalRooms, roomsPerPage, paginate }) => {
   const pageNumbers = [];
@@ -13,9 +15,9 @@ const Pagination = ({ currentPage, totalRooms, roomsPerPage, paginate }) => {
       {currentPage > 1 && (
         <button
           onClick={() => paginate(currentPage - 1)}
-          className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-green-800 text-[22px] text-white hover:bg-green-900"
+          className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
         >
-          <FaArrowAltCircleLeft /> Previous
+          <FaArrowLeft /> Previous
         </button>
       )}
       <div className="flex items-center">
@@ -36,9 +38,9 @@ const Pagination = ({ currentPage, totalRooms, roomsPerPage, paginate }) => {
       {currentPage < pageNumbers.length && (
         <button
           onClick={() => paginate(currentPage + 1)}
-          className="mx-2 px-4 py-2 border flex items-center justify-center gap-2 rounded-md bg-green-800 text-[22px] text-white hover:bg-green-900"
+          className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
         >
-          More <FaArrowAltCircleRight />
+          More <FaArrowRight />
         </button>
       )}
     </div>
