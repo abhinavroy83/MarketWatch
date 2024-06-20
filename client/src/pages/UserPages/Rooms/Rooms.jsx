@@ -404,12 +404,12 @@ function Rooms() {
               <p className="font-bold flex gap-3">
                 <div className="text-[27px]">
                   <div className="flex gap-1 font-bold">
-                    <p className="">{rooms.Title}</p>
+                    <p className=" capitalize">{rooms.Title}</p>
                   </div>
                 </div>
               </p>
               <div className="flex justify-between my-2">
-                <p className="text-[25px]">{rooms.address}</p>
+                <p className="text-[25px] capitalize">{rooms.address}</p>
                 <p>$300 monthly</p>
               </div>
               <div>
@@ -465,9 +465,19 @@ function Rooms() {
         {/* <div className="flex gap-1 text-[25px] font-bold mt-2">
           <MdInsertComment size={35} />
         </div> */}
-         <div className="border p-3 mt-2">
+        <div className="border p-3 mt-2">
           <p className=" text-[22px] font-bold px-1">Description -</p>
-          <p className=" text-[18px] text-gray-600 text-justify px-1">{rooms.Description} Each room has its own character, shaped by the colors on the walls, the arrangement of furniture, and the personal touches that make it unique. Whether it's a cozy bedroom, a lively living room, a functional kitchen, or a tranquil study, rooms are spaces that reflect our personalities and lifestyles.Each room has its own character, shaped by the colors on the walls, the arrangement of furniture, and the personal touches that make it unique. Whether it's a cozy bedroom, a lively living room, a functional kitchen, or a tranquil study</p>
+          <p className=" text-[18px] text-gray-600 text-justify px-1">
+            {rooms.Description} Each room has its own character, shaped by the
+            colors on the walls, the arrangement of furniture, and the personal
+            touches that make it unique. Whether it's a cozy bedroom, a lively
+            living room, a functional kitchen, or a tranquil study, rooms are
+            spaces that reflect our personalities and lifestyles.Each room has
+            its own character, shaped by the colors on the walls, the
+            arrangement of furniture, and the personal touches that make it
+            unique. Whether it's a cozy bedroom, a lively living room, a
+            functional kitchen, or a tranquil study
+          </p>
         </div>
 
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}

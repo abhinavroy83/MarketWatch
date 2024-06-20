@@ -45,7 +45,7 @@ function Signup() {
       phone_number: data.phone_number,
       password: data.password,
     };
-    console.log(datsa);
+    // console.log(datsa);
     try {
       // console.log(datsa);
       const res = await axios.post(
