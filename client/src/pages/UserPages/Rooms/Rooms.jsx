@@ -314,9 +314,9 @@ function Rooms() {
               </button>
             </button>
 
-            <p className=" text-[30px] font-bold text-black font-['udemy-regular']">
+            {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
-            </p>
+            </p> */}
           </div>
 
           <div className="block ">
@@ -410,10 +410,10 @@ function Rooms() {
               </p>
               <div className="flex justify-between my-2">
                 <p className="text-[25px] capitalize">{rooms.address}</p>
-                <p>$300 monthly</p>
+                <p className=" capitalize">{rooms.Expected_Rooms}</p>
               </div>
               <div>
-                <p className=" text-xl">By {rooms.user_name}</p>
+                <p className=" text-xl capitalize">By {rooms.user_name}</p>
               </div>
             </div>
 
@@ -467,7 +467,7 @@ function Rooms() {
         </div> */}
         <div className="border p-3 mt-2">
           <p className=" text-[22px] font-bold px-1">Description -</p>
-          <p className=" text-[18px] text-gray-600 text-justify px-1">
+          <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize ">
             {rooms.Description} Each room has its own character, shaped by the
             colors on the walls, the arrangement of furniture, and the personal
             touches that make it unique. Whether it's a cozy bedroom, a lively

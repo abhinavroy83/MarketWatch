@@ -143,13 +143,13 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[23px] font-['udemy-regular']">
+        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} /> {item.city},{stateAbbreviations[item.State]}
         </p>
-        <p className="text-blue-800 text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']">
+        <p className="text-blue-800 capitalize text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']">
           <CgProfile />
           By: {item.user_name}
         </p>

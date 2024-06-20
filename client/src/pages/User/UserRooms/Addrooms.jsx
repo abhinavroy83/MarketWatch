@@ -20,6 +20,8 @@ function Addrooms() {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [resimgurl, setResimgurl] = useState([]);
+  const [error, seterror] = useState(false);
+  const [uploadstats, setUploadstats] = useState(false);
 
   const {
     register,
@@ -54,7 +56,10 @@ function Addrooms() {
 
       const res = await axios.post("https://api.verydesi.com/img/upload", data);
       const urls = res.data.map((img) => img.url);
-      setResimgurl(urls);
+      if (res) {
+        setResimgurl(urls);
+        setUploadstats(true);
+      }
     } catch (error) {
       alert(error.message);
     } finally {
@@ -719,15 +724,20 @@ function Addrooms() {
                     ))}
                   </div>
                   {files.length > 0 && (
-                    
-                    <button
-                      type="button"
-                      onClick={handleUpload}
-                      className=" bg-green-700 py-2 px-3 text-white text-[18px] font-bold rounded-md"
-                    >
-                      {loading ? "Uploading..." : "Upload"}
-                    </button>
-                  )}{" "}
+                    <>
+                      {!uploadstats ? (
+                        <button
+                          type="button"
+                          onClick={handleUpload}
+                          className=" bg-green-700 py-2 px-3 text-white text-[18px] font-bold rounded-md"
+                        >
+                          {loading ? "Uploading..." : "Upload"}
+                        </button>
+                      ) : (
+                        <p>uploaded</p>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
 
