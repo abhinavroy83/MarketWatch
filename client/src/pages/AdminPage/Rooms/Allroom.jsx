@@ -13,7 +13,8 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { TfiMoney } from "react-icons/tfi";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlineMeetingRoom } from "react-icons/md";
-
+import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -253,18 +254,18 @@ function Allroom() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    onClick={prevPage}
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                  onClick={prevPage}
                   >
-                    <FaArrowAltCircleLeft /> Previous
+                    < FaArrowLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md bg-green-800 px-3 py-2 flex items-center justify-center gap-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    onClick={nextPage}
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                  onClick={nextPage}
                   >
-                    Next <FaArrowAltCircleRight />
+                    Next < FaArrowRight />
                   </button>
                 )}
               </div>
