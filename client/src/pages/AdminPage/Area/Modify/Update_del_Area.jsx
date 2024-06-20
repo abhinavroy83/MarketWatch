@@ -18,6 +18,7 @@ function Update_del_Area() {
   const [suburbs, setSuburbs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const suburbsPerPage = 8;
+  const [isedit, setIsedit] = useState(false);
 
   const fetchSuburbs = async () => {
     try {
@@ -77,46 +78,72 @@ function Update_del_Area() {
                           scope="col"
                           className="px-4 py-3.5 text-left  font-normal text-gray-700"
                         >
-                         <div className="flex gap-1"> <FaMapMarkerAlt size={20}/> Area</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapMarkerAlt size={20} /> Area
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left font-normal text-gray-700"
                         >
-                         <div className="flex gap-1"> <TbMapPinPlus size={20}/> ZipCode</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <TbMapPinPlus size={20} /> ZipCode
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapPin size={20}/> State</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapPin size={20} /> State
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapLocationDot size={20}/> Country</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapLocationDot size={20} /> Country
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left font-normal text-gray-700"
                         >
-                         <div className="flex gap-1"> <MdEdit size={23}/> Edit</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdEdit size={23} /> Edit
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left font-normal text-gray-700"
                         >
-                        <div className="flex gap-1"> <MdDeleteForever size={25}/> Delete</div> 
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdDeleteForever size={25} /> Delete
+                          </div>
                         </th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white text-base items-center">
                       {currentSuburbs.map((item) => (
                         <tr key={item._id}>
-                          <td className="whitespace-nowrap px-4 py-4  text-gray-500">
-                            {item.area}
-                          </td>
+                          {isedit ? (
+                            <input
+                              type="text"
+                              defaultValue={item.area}
+                              className=" border-2 border-red-500"
+                            />
+                          ) : (
+                            <td className="whitespace-nowrap px-4 py-4  text-gray-500">
+                              {item.area}
+                            </td>
+                          )}
                           <td className="whitespace-nowrap px-4 py-4  text-gray-500">
                             {item.zipcode}
                           </td>
@@ -126,12 +153,28 @@ function Update_del_Area() {
                           <td className="whitespace-nowrap px-4 py-4 text-gray-500">
                             {item.country}
                           </td>
-                          <td className="whitespace-nowrap px-4 py-4 text-gray-500">
-                            Edit
-                          </td>
+                          {!isedit ? (
+                            <td
+                              className="whitespace-nowrap px-4 py-4 text-gray-500"
+                              onClick={() => {
+                                setIsedit(true);
+                              }}
+                            >
+                              Edit
+                            </td>
+                          ) : (
+                            <td
+                              className="whitespace-nowrap px-4 py-4 text-gray-500"
+                              onClick={() => {
+                                setIsedit(false);
+                              }}
+                            >
+                              cancle
+                            </td>
+                          )}
                           <td className="whitespace-nowrap px-4 py-4 text-gray-500 flex gap-2">
                             <button onClick={() => handledelete(item._id)}>
-                             Delete
+                              Delete
                             </button>
                           </td>
                         </tr>

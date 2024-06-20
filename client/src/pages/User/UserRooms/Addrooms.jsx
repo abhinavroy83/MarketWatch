@@ -20,7 +20,7 @@ function Addrooms() {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [resimgurl, setResimgurl] = useState([]);
-  const [error, seterror] = useState(false);
+  const [imgerror, setimgerror] = useState(false);
   const [uploadstats, setUploadstats] = useState(false);
 
   const {
@@ -44,6 +44,7 @@ function Addrooms() {
       };
     });
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    setimgerror(false);
   };
 
   const handleUpload = async () => {
@@ -68,6 +69,10 @@ function Addrooms() {
   };
 
   const onsubmit = async (data) => {
+    if (files.length === 0) {
+      setimgerror(true);
+      return;
+    }
     // console.log(data);
     const roomdata = {
       Title: data.Title,
@@ -739,6 +744,9 @@ function Addrooms() {
                     </>
                   )}
                 </div>
+                {imgerror && (
+                  <p className="text-red-500 text-sm">Please upload an image</p>
+                )}
               </div>
 
               <div>
