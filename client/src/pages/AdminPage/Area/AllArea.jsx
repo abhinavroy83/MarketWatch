@@ -93,14 +93,14 @@ function AllArea() {
       <AdminHeader />
       <AdminDashboard>
         <div className="mx-5 mt-6 flex justify-between">
-          <p className="text-3xl font-bold text-[#0b5e86] font-['udemy-regular']">
+          <p className="text-[22px] font-semibold font-['udemy-regular']">
             Add Area Details Here -
           </p>
           <div className="flex gap-3">
             <button
               onClick={() => {
-                <div className="flex flex-col border-2 ">
-                  <p className=" bg-fuchsia-500">List of Suburbs</p>
+                <div className="flex flex-col">
+                  <p className=" text-[17px]">List of Suburbs</p>
                   <ul>
                     {Filteresub.length > 0 &&
                       Filteresub.map((item, index) => (
@@ -128,7 +128,7 @@ function AllArea() {
         <p className="mx-5 text-[24px] text-gray-700 font-['udemy-regular']">
           List of Avaible Area
         </p>
-        <form className="grid grid-cols-3 gap-2 font-['udemy-regular'] mt-5">
+        <form className="grid grid-cols-3 gap-2 font-['udemy-regular'] mt-5 ml-5">
           <div className="flex flex-col border-2 border-gray-400 w-45 mr-5">
             <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
               List of Area in{" "}

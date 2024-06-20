@@ -8,6 +8,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+import { FaMapPin } from "react-icons/fa";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { MdOutlineEmail } from "react-icons/md";
+import { BsFillPersonBadgeFill } from "react-icons/bs";
 
 function Alluser() {
   const [data, setdata] = useState([]);
@@ -80,9 +86,8 @@ function Alluser() {
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
         <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-base text-gray-900">{items.email}</div>
+          <div className="text-base text-gray-500">{items.email}</div>
         </td>
-
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.firstName}
         </td>
@@ -100,7 +105,7 @@ function Alluser() {
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium hover:text-red-600 text-gray-500">
           <button
             onClick={() => {
               const _id = items._id;
@@ -141,8 +146,8 @@ function Alluser() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-              <h2 className="text-3xl font-semibold text-[#0b5e86]">All User</h2>
-              <p className="mt-1 text-xl text-gray-700">
+              <h2 className="text-[20px] font-semibold">All User</h2>
+              <p className="mt-1 text-[17px] text-gray-700">
                 This is a list of all All User. You can add new User, edit or
                 delete existing ones.
               </p>
@@ -168,46 +173,47 @@ function Alluser() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <span>Email</span>
+                          <div className="flex gap-1"> <MdOutlineEmail size={23}/> Email</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-6 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                          First Name
+                         <div className="flex gap-1"> <BsFillPersonBadgeFill size={20}/> First Name</div>
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                          Last Name
+                         <div className="flex gap-1"> <BsFillPersonBadgeFill size={20}/> Last Name</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          City
+                          <div className="flex gap-1"> <FaMapPin size={20}/> City</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Country
+                          <div className="flex gap-1"> <FaMapLocationDot size={20}/> Country</div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Edit
+                         <div className="flex gap-1"> <MdEdit size={23}/> Edit</div>
+
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          Delete
+                         <div className="flex gap-1"> <MdDeleteForever size={25}/> Delete</div> 
                         </th>
                       </tr>
                     </thead>
