@@ -152,7 +152,7 @@ function Bussiness() {
                 // navigate("/deatails");
               }}
             >
-              See full list of Roommates
+              See full list of Room
             </p> */}
           </div>
         </div>

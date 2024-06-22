@@ -323,9 +323,9 @@ function Rooms() {
             </p> */}
           </div>
 
-          <div className="block ">
+          <div className="flex gap-4 items-center self-center">
             <div className="flex justify-end">
-              <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+              <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
                 <button
                   type="submit"
                   onClick={fetchNextRoom}
@@ -764,7 +764,7 @@ function Rooms() {
                   navigate("/rooms");
                 }}
               >
-                See full list of Roommates
+                See full list of Rooms
               </p>
             </div>
           </div>
