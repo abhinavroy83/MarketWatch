@@ -43,6 +43,8 @@ import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
 import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
+import Error from "./components/SharedCompontents/Error.jsx";
+import Forgetpass from "./components/UserCompontents/Forgetpass.jsx";
 
 const router = createBrowserRouter([
   {
@@ -193,6 +195,10 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <AboutUs />,
       },
+      {
+        path: "/forget-password",
+        element: <Forgetpass />,
+      },
       // adminpanel components
       {
         path: "/admin/login",
@@ -297,6 +303,10 @@ const router = createBrowserRouter([
             <Userrooms />
           </Adminauthlayout>
         ),
+      },
+      {
+        path: "/*",
+        element: <Error />,
       },
     ],
   },

@@ -27,7 +27,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       }`}
     >
       <img
-        src={item.PrdImage}
+        src={item.Imgurl[0]}
         alt=""
         width={200}
         className="rounded-tl-md rounded-bl-md h-[100%]"
@@ -51,8 +51,8 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         className={`px-4 flex flex-col ${isRoomOnlyPage ? "mt-4" : ""} w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <h1 className="inline-flex items-center text-[20px] mt-3 font-bold font-roboto">
-          {item.Adname && truncateWords(item.Adname, 3)}
+        <h1 className="inline-flex items-center text-[20px] mt-3 capitalize font-bold font-roboto">
+          {item.Title && truncateWords(item.Title, 3)}
         </h1>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
         {/* <p className="text-[18px] text-gray-500  font-roboto">{item.address}</p> */}
@@ -62,7 +62,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
           </h1>
         </article> */}
         <p className="text-[20px] text-black font-roboto mt-10 font-bold text-right">
-          {item.rent}
+          {item.Expected_Rooms}
         </p>
       </div>
     </Link>

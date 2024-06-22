@@ -60,6 +60,7 @@ import { TbAirConditioning } from "react-icons/tb";
 import { MdOutlineHeatPump } from "react-icons/md";
 import { CgGym } from "react-icons/cg";
 import { MdPool } from "react-icons/md";
+import Loader from "../../../components/UserCompontents/Loader";
 
 function Rooms() {
   const { _id } = useParams();
@@ -97,7 +98,9 @@ function Rooms() {
   };
   useEffect(() => {
     fetchroomdetails();
+    window.scrollTo(0, 0);
   }, [_id]);
+
   const handlecopy = () => {
     alert("Link Copied");
   };
@@ -264,8 +267,9 @@ function Rooms() {
   const toggleSharePopup = () => {
     setIsSharePopupOpen(!isSharePopupOpen);
   };
+
   if (!rooms || !rooms.Imgurl) {
-    return <div>Loading</div>;
+    return <Loader className={"h-screen flex justify-center items-center"} />;
   }
 
   const images = rooms.Imgurl.map((url) => ({

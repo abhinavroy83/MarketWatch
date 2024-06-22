@@ -14,9 +14,8 @@ import Signup from "./Signup";
 import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
-import { getScreenSizeHook } from '../../../Hooks/GetScreenSizeHook'
+import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 import { HiQuestionMarkCircle } from "react-icons/hi";
-
 
 function Login() {
   const {
@@ -76,6 +75,10 @@ function Login() {
     );
   };
 
+  const handleforget = () => {
+    window.open("/forget-password", "_blank");
+  };
+
   // console.log(isMobile);
   return (
     <>
@@ -132,7 +135,7 @@ function Login() {
                 Welcome
               </p>
               <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular']">
-               Register here to start using Very Desi
+                Register here to start using Very Desi
               </p>
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
@@ -194,7 +197,13 @@ function Login() {
                 {...register("password", { required: "Password is required" })}
                 errorMessage={errors.password?.message}
               />
-              <div className="flex gap-1 text-[13px] items-center font-bold justify-end"><HiQuestionMarkCircle size={17}/>Forgot Password</div>
+              <div
+                className="flex gap-1 text-[13px] cursor-pointer items-center font-bold justify-end"
+                onClick={handleforget}
+              >
+                <HiQuestionMarkCircle size={17} />
+                Forgot Password
+              </div>
               <button
                 type="submit"
                 className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -227,8 +236,6 @@ function Login() {
             </form>
           </div>
         </div>
-
-       
       </Modal>
     </>
   );

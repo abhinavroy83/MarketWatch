@@ -17,7 +17,7 @@ function ListAllwish() {
   const [loading, setLoading] = useState(true);
 
   const handleDeleteRoom = async (deleteId) => {
-    console.log(deleteId);
+    // console.log(deleteId);
     try {
       const res = await axios.delete(
         ` https://api.verydesi.com/api/deletelist/${deleteId}`
@@ -37,13 +37,13 @@ function ListAllwish() {
     const fetchAllList = async () => {
       try {
         const listResponse = await axios.get(
-          ` https://api.verydesi.com/api/getlist/${userID}`
+          `https://api.verydesi.com/api/getlist/${userID}`
         );
         // console.log(listResponse.data.list);
         const list = listResponse.data.list.map((item) => item.roomId);
         // console.log(list);
         const roomResponse = await axios.get(
-          ` https://api.verydesi.com/api/getrooms/${userID}`
+          `https://api.verydesi.com/api/getrooms/${userID}`
         );
         const rooms = roomResponse.data.rooms;
         // console.log(rooms);
@@ -73,28 +73,30 @@ function ListAllwish() {
     const startIndex = (currentPage - 1) * 10;
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
-      <tr key={items.name}>
+      <tr key={items._id}>
         <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[22px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.PrdImage}
+                src={items.Imgurl}
                 alt=""
               />
             </div>
             <div className="ml-4 font-['udemy-regular']">
               <div className="text-[22px] font-medium text-gray-900">
-                {items.Hotelname}
+                {items.Title}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[22px] text-gray-700 font-['udemy-regular']">{items.city}</div>
+          <div className="text-[22px] text-gray-700 font-['udemy-regular']">
+            {items.city}
+          </div>
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
-          {items.rent}
+          {items.Expected_Rooms}
         </td>
         <td
           className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']  cursor-pointer"
@@ -111,7 +113,7 @@ function ListAllwish() {
             }}
             className="text-red-500 font-semibold cursor-pointer flex items-center gap-3"
           >
-           <BiMinusCircle size={25}/> Remove
+            <BiMinusCircle size={25} /> Remove
           </a>
         </td>
       </tr>
