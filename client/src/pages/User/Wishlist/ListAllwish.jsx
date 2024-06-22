@@ -50,6 +50,7 @@ function ListAllwish() {
         const matchedRooms = rooms.filter((room) => list.includes(room._id));
         // console.log(matchedRooms);
         setdata(matchedRooms);
+        // console.log(matchedRooms);
         setLoading(false);
       } catch (error) {
         console.log(error);

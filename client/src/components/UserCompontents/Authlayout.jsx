@@ -22,5 +22,9 @@ export default function Protected({ children, authentication = true }) {
     }
     setloader(false);
   }, [authentication, authstatus, Navigate]);
-  return loader ? <h1>Loading...</h1> : <>{children}</>;
+  return loader ? (
+    <h1 className="h-screen flex items-center justify-center">Loading...</h1>
+  ) : (
+    <>{children}</>
+  );
 }

@@ -751,10 +751,6 @@ function Rooms() {
                 </p>
               </div>
             </div>
-
-            {/* <p>"Imgurl": [
-            "https://photos.zillowstatic.com/fp/53c24e11ceb3ce05a9daf37eee7ed4ec-cc_ft_768.webp",
-            "https://photos.zillowstatic.com/fp/c0423658b577c72e2686334307c6af5f-cc_ft_384.webp"]</p> */}
           </div>
         </div>
 

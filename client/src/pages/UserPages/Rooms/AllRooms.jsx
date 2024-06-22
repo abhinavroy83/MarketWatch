@@ -73,11 +73,22 @@ function AllRooms() {
                 <p>Rooms near you</p>
               )}
             </h1>
-            {isverified && (
+            {isverified ? (
               <button
                 type="submit"
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
+                }}
+                className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Post Room
+              </button>
+            ) : (
+              <button
+                type="submit"
+                onClick={() => {
+                  alert("login to post room");
+                  navigate("/login");
                 }}
                 className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
