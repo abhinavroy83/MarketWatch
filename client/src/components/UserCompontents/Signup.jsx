@@ -11,6 +11,7 @@ import { login as authlogin } from "../../store/authslice";
 import { modalopen } from "../../store/modalslice";
 import ReCAPTCHA from "react-google-recaptcha";
 import WebsiteLogo from "../../assets/logo-transparent.png";
+import { RxCross1 } from "react-icons/rx";
 
 function Signup() {
   const navigate = useNavigate();
@@ -106,8 +107,8 @@ function Signup() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 1000,
-            height: 750,
+            width: 820,
+            height: 650,
             border: "none",
             padding: "0",
             backgroundColor: "#FFF",
@@ -121,24 +122,23 @@ function Signup() {
           },
         }}
       >
-        <div className=" w-full flex h-full">
+        <div className="capitalize w-full flex h-full">
           <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
                 <img
                   height={300}
-                  width={350}
+                  width={300}
                   className="w-50 h-50"
                   src={WebsiteLogo}
                   alt=""
                 />
               </div>
               <p className="text-black text-center mt-5 text-[30px]">
-                Sign Up Here
+                Welcome
               </p>
-              <p className=" text-black text-center mt-5 px-10 text-[20px]">
-                Stay Connected With US Add Your Personal Details. For More
-                Details.
+              <p className=" text-black text-center mt- px-10 text-[20px]">
+                Already have account login here
               </p>
               <button
                 className="place-items-center items-center rounded-md bg-[#000] text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
@@ -147,28 +147,17 @@ function Signup() {
                   handleModal(true, false);
                 }}
               >
-                Already Have Account
+                Login Here
               </button>
             </div>
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center items-center py-1">
-            <svg
-              className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
+          <RxCross1 
+              className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              {" "}
-              <circle cx="12" cy="12" r="10" />{" "}
-              <line x1="15" y1="9" x2="9" y2="15" />{" "}
-              <line x1="9" y1="9" x2="15" y2="15" />
-            </svg>
+          />
             <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
-              CREATE YOUR ACCOUNT
+            Create your Account
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular']">
@@ -193,6 +182,7 @@ function Signup() {
                   />
                 </div>
                 <div className="flex flex-col gap-3 mt-3">
+                <div className="flex gap-5">
                   <Input
                     label="Email"
                     Placeholder="Email"
@@ -218,6 +208,7 @@ function Signup() {
                     })}
                     errorMessage={errors.phonenumber?.message}
                   />
+                  </div>
                   <Input
                     label="Password"
                     Placeholder="Password"
@@ -227,7 +218,7 @@ function Signup() {
                     })}
                     errorMessage={errors.password?.message}
                   />
-                  <Input
+                  {/* <Input
                     label="Repeat Password"
                     Placeholder="Repeat Password"
                     type="text"
@@ -241,7 +232,7 @@ function Signup() {
                       },
                     })}
                     errorMessage={errors.cnf_password?.message}
-                  />
+                  /> */}
                   {/* <div>
                     <label className="text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-['udemy-regular']">
                       Select a country
@@ -335,10 +326,10 @@ function Signup() {
                   )} */}
                   <div className="text-center">
                     <button
-                      className="place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="mt-3 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
-                      Sign To Create Account
+                     Create Account
                     </button>
                     {/* {businessstatus ? (
                       <button

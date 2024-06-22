@@ -16,6 +16,7 @@ import { AiOutlineApple } from "react-icons/ai";
 import { FaApple } from "react-icons/fa";
 import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 import { HiQuestionMarkCircle } from "react-icons/hi";
+import { RxCross1 } from "react-icons/rx";
 
 function Login() {
   const {
@@ -122,7 +123,7 @@ function Login() {
             isMobile && "hidden"
           }`}
         >
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
+          <div className="capitalize bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
@@ -134,11 +135,11 @@ function Login() {
               <p className=" text-black text-center mt-5 text-[30px]">
                 Welcome
               </p>
-              <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular']">
-                Register here to start using Very Desi
+              <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular'] capitalize">
+                Register here to start using VeryDesi
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="capitalize place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true);
@@ -149,21 +150,10 @@ function Login() {
             </div>
           </div>
           <div className="w-50 px-10 items-center grow">
-            <svg
-              className="h-7 w-7 text-black absolute top-3 right-3 cursor-pointer hover:text-red-700"
+          <RxCross1 
+              className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              {" "}
-              <circle cx="12" cy="12" r="10" />{" "}
-              <line x1="15" y1="9" x2="9" y2="15" />{" "}
-              <line x1="9" y1="9" x2="15" y2="15" />
-            </svg>
+          />
             <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
               Login
             </h1>
