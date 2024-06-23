@@ -397,11 +397,23 @@ function Rooms() {
         </div> */}
         <div className="flex text-[25px]">
           <div>
-            <ImageGallery
-              items={images}
-              showPlayButton={false}
-              showFullscreenButton={false}
-            />
+            {rooms.Imgurl.length > 0 ? (
+              <ImageGallery
+                items={images}
+                showPlayButton={false}
+                showFullscreenButton={false}
+                showBullets={true}
+                showThumbnails={false}
+              />
+            ) : (
+              <img
+                src={
+                  "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
+                }
+                alt="not"
+                className="h-[560px] w-[880px] rounded-md object-cover"
+              />
+            )}
           </div>
           <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-3 w-[660px]">
             <div>
@@ -723,7 +735,12 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Phone number
                     <p className="text-black flex text-[18px]">
-                      {rooms.phone_number}
+                      <a
+                        href={`tel:${rooms.phone_number}`}
+                        className="text-black"
+                      >
+                        {rooms.phone_number}
+                      </a>
                     </p>
                   </p>
                 </div>
@@ -752,10 +769,14 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 <MdOutlineEmail size={35} />
-                <div className="flex">
+                <div className="flex flex-col">
                   <p className="text-gray-500 text-[20px]">
                     Email
-                    <p className="text-black flex text-[18px]">{rooms.email}</p>
+                    <p className="text-black flex text-[18px]">
+                      <a href={`mailto:${rooms.email}`} className="text-black">
+                        {rooms.email}
+                      </a>
+                    </p>
                   </p>
                 </div>
               </div>

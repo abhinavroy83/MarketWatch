@@ -13,9 +13,7 @@ function Addrooms() {
   const token = useSelector((state) => state.auth.token);
   const cunrtcity = useSelector((state) => state.auth.city);
   const navigate = useNavigate();
-
   const [filtercity, setfiltercity] = useState([]);
-
   const [zip, setzip] = useState([]);
   const [userimgs, setuserimg] = useState("");
   const [files, setFiles] = useState([]);
@@ -23,7 +21,7 @@ function Addrooms() {
   const [resimgurl, setResimgurl] = useState([]);
   const [imgerror, setimgerror] = useState(false);
   const [uploadstats, setUploadstats] = useState(false);
-
+  const [profiledata, setprofile] = useState([]);
   const {
     register,
     handleSubmit,
@@ -32,6 +30,21 @@ function Addrooms() {
     control,
   } = useForm();
   const { userID } = useParams();
+
+  useEffect(() => {
+    const fetchusedetails = async () => {
+      const res = await axios.get(
+        `https://api.verydesi.com/user/dashboard/profile/${userID}`
+      );
+      setprofile(res.data.user);
+    };
+    fetchusedetails();
+  }, [userID]);
+
+  const fullname = profiledata
+    ? `${profiledata.firstName} ${profiledata.lastName}`
+    : "";
+
   const handleSelectFile = (e) => {
     const selectedFiles = Array.from(e.target.files);
     if (selectedFiles.length + files.length > 5) {
@@ -83,7 +96,6 @@ function Addrooms() {
       Stay_lease: data.Stay_lease,
       Avaliblity_from: data.Avaliblity_from,
       Available_to: data.Available_to,
-      Day_Available: data.Day_Available,
       Attchd_Bath: data.Attchd_Bath,
       Preferred_gender: data.Preferred_gender,
       Expected_Rooms: data.Expected_Rooms,
@@ -253,7 +265,7 @@ function Addrooms() {
                   Stay/Lease
                 </label>
                 <div className=" grid grid-cols-4 gap-4 text-[18px] w-[1200px]">
-                  <div className=" flex gap-1 whitespace-nowrap">
+                  <div className=" flex gap-2 whitespace-nowrap ">
                     <input
                       type="radio"
                       value="Short term"
@@ -261,7 +273,7 @@ function Addrooms() {
                     />
                     <p>Short term(1Day to 6Months) </p>
                   </div>
-                  <div className="flex gap-1 whitespace-nowrap">
+                  <div className="flex gap-2 whitespace-nowrap px-2">
                     <input
                       type="radio"
                       value="Long term(6+ months)"
@@ -269,7 +281,7 @@ function Addrooms() {
                     />
                     <p>Long term(6+ Months) </p>
                   </div>
-                  <div className=" flex gap-1">
+                  <div className=" flex gap-2">
                     <input
                       type="radio"
                       value="Both"
@@ -327,51 +339,18 @@ function Addrooms() {
                 </label>
                 <input
                   className="h-100px w-[225px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="text"
+                  type="date"
                   placeholder="Available from"
                   {...register("Avaliblity_from")}
                 />
                 <input
                   className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="text"
+                  type="date"
                   placeholder="Available to"
                   {...register("Available_to")}
                 />
               </div>
-              {/* <div className="flex text-[18px] mt-10">
-                <label
-                  className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
-                >
-                  Day Available
-                </label>
-                <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-                  <div className=" flex items-center gap-1">
-                    <input
-                      type="radio"
-                      value="7 days a week"
-                      {...register("Day_Available")}
-                    />
-                    <p>7 days a week </p>
-                  </div>
-                  <div className=" flex items-center gap-1">
-                    <input
-                      type="radio"
-                      value="Weekends only"
-                      {...register("Day_Available")}
-                    />
-                    <p>Weekends only </p>
-                  </div>
-                  <div className=" flex items-center gap-1">
-                    <input
-                      type="radio"
-                      value="Monday to friday only"
-                      {...register("Day_Available")}
-                    />
-                    <p>Monday to friday only</p>
-                  </div>
-                </div>
-              </div> */}
+
               <div className=" flex mt-10 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -583,7 +562,7 @@ function Addrooms() {
                   className="whitespace-nowrap text-[21px] w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
-                   Dietary Preference
+                  Dietary Preference
                 </label>
                 <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                   <div className="flex gap-1 items-center whitespace-nowrap">
@@ -695,7 +674,7 @@ function Addrooms() {
                   Open House Schedule
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   placeholder="Open House Date"
                   {...register("Open_house_schedule")}
                   className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -749,33 +728,35 @@ function Addrooms() {
 
               <div>
                 <p className="text-[23px] mt-5 font-bold">Your Details:-</p>
-                <div>
+                <div className=" flex">
                   <label
                     className="mt-2 text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
-                    Name*
+                    Name
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     placeholder="Enter Name"
                     {...register("user_name")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
+                  /> */}
+                  {<p>{fullname}</p>}
                 </div>
-                <div className="mt-10">
+                <div className="mt-10 flex">
                   <label
                     className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
-                    Email*
+                    Email
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     placeholder="Enter Email"
                     {...register("email")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
+                  /> */}
+                  <p>{profiledata.email}</p>
                 </div>
                 <div className="mt-10">
                   <label
@@ -793,39 +774,39 @@ function Addrooms() {
                 </div>
               </div>
               <div className="flex mt-10">
-                  <label
-                    className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Address
-                  </label>
+                <label
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  {...register("address")}
+                  placeholder="Enter Address"
+                  className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+              <div className="flex items-center mt-10">
+                <label
+                  className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Zip code
+                </label>
+                <div>
                   <input
                     type="text"
-                    {...register("address")}
-                    placeholder="Enter Address"
-                    className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="Enter zipcode"
+                    {...register("zip_code")}
                   />
+                  <p className="text-[16px] text-red-500 mt-1">
+                    {" "}
+                    {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
+                  </p>
                 </div>
-                <div className="flex items-center mt-10">
-                  <label
-                    className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Zip code
-                  </label>
-                  <div>
-                    <input
-                      type="text"
-                      className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      placeholder="Enter zipcode"
-                      {...register("zip_code")}
-                    />
-                    <p className="text-[16px] text-red-500 mt-1">
-                      {" "}
-                      {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
-                    </p>
-                  </div>
-                </div>
+              </div>
             </div>
 
             <button
