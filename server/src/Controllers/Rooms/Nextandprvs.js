@@ -11,7 +11,7 @@ const nextroom = async (req, res) => {
       { _id: 1 }
     );
     if (!nextRoom) {
-      return res.status(404).json({ message: "Next room not found" });
+      return res.json({ nextRoom: null });
     }
 
     res.json({ nextRoom });
@@ -32,7 +32,7 @@ const prvsroom = async (req, res) => {
       _id: { $lt: currentRoom._id },
     }).sort({ _id: -1 });
     if (!previousRoom) {
-      return res.status(404).json({ message: "Previous room not found" });
+      return res.json({ previousRoom: null });
     }
 
     res.json({ previousRoom });

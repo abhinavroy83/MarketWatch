@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   ChildContainer,
   LeafletMap,
@@ -73,6 +73,8 @@ function Rooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const [wishliststatys, setWishliststatys] = useState(false);
   const token = useSelector((state) => state.auth.token);
+  const [hasNextRoom, setHasNextRoom] = useState(true);
+  const [hasPreviousRoom, setHasPreviousRoom] = useState(true);
 
   const url = `https://api.verydesi.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
@@ -98,6 +100,8 @@ function Rooms() {
   };
   useEffect(() => {
     fetchroomdetails();
+    setHasNextRoom(true);
+    setHasPreviousRoom(true);
     window.scrollTo(0, 0);
   }, [_id]);
 
@@ -119,26 +123,31 @@ function Rooms() {
     getRooms();
   }, [rooms]);
 
-  const fetchNextRoom = async () => {
+  const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        `https://api.verydesi.com/api/rooms/${_id}/previous`
+        `http://localhost:8000/api/rooms/${_id}/next`
       );
-      // console.log(res);
-      navigate(`/rooms/${res.data.previousRoom._id}`);
+      if (res.data.nextRoom) {
+        navigate(`/rooms/${res.data.nextRoom._id}`);
+      } else {
+        setHasNextRoom(false);
+      }
     } catch (error) {
       console.error("Error fetching next room:", error);
     }
   };
 
-  const fetchPreviousRoom = async () => {
+  const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        `https://api.verydesi.com/api/rooms/${_id}/next`
+        `http://localhost:8000/api/rooms/${_id}/previous`
       );
-      // console.log(res);
-
-      navigate(`/rooms/${res.data.nextRoom._id}`);
+      if (res.data.previousRoom) {
+        navigate(`/rooms/${res.data.previousRoom._id}`);
+      } else {
+        setHasPreviousRoom(false);
+      }
     } catch (error) {
       console.error("Error fetching previous room:", error);
     }
@@ -170,29 +179,6 @@ function Rooms() {
     setloginmodeopen(true);
   };
 
-  //close
-  {
-    /* <div className="flex">
-              <svg
-                class="h-12 w-12 ml-1 text-black-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <div className="flex pb-3">
-                <div className="ml-1">
-                  <GiWashingMachine size={45} />
-                </div>
-              </div>
-            </div> */
-  }
   const isloginmodelclose = () => {
     setloginmodeopen(false);
   };
@@ -302,26 +288,39 @@ function Rooms() {
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className=" w-full mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
+        <div className=" flex">
+          <Link to={"/"}>
+            {" "}
+            <span>Home</span>{" "}
+          </Link>
+          <span>{`>Room`}</span>
+        </div>
         <div className="flex justify-between py-2 items-start">
-          <div>
-            <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-              <MdKeyboardDoubleArrowLeft
-                size={30}
-                className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
-              />
-              <button
-                onClick={fetchPreviousRoom}
-                type="submit"
-                className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Previous
+          {hasNextRoom ? (
+            <div>
+              <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                <MdKeyboardDoubleArrowLeft
+                  size={30}
+                  className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
+                />
+                <button
+                  onClick={fetchPreviousRoom}
+                  type="submit"
+                  disabled={!hasNextRoom}
+                  // disabled={!hasPreviousRoom}
+                  className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Previous
+                </button>
               </button>
-            </button>
 
-            {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
+              {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p> */}
-          </div>
+            </div>
+          ) : (
+            <p></p>
+          )}
 
           <div className="flex gap-4 items-center self-center">
             <div className="flex justify-end">
@@ -329,6 +328,7 @@ function Rooms() {
                 <button
                   type="submit"
                   onClick={fetchNextRoom}
+                  disabled={!hasPreviousRoom}
                   className="rounded-full flex bg-white px-7 text-[22px] items-center text-blue-700 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   Next
@@ -413,7 +413,7 @@ function Rooms() {
                 </div>
               </p>
               <div className="flex justify-between my-2">
-                <p className="text-[25px] capitalize">{rooms.address}</p>
+                <p className="text-[25px] capitalize">{rooms.city}</p>
                 <p className=" capitalize">{rooms.Expected_Rooms}</p>
               </div>
               <div>
@@ -698,60 +698,69 @@ function Rooms() {
           <h1 className="flex text-[#000] text-[29px] font-bold mt-5 gap-2">
             <FaUserFriends size={37} />
             User Details-{" "}
+            {!authstatus && (
+              <span className=" text-red-600 text-sm items-center text-center">
+                login to see Details
+              </span>
+            )}
           </h1>
-          <div className="grid grid-cols-3 gap-3 border p-5">
-            <div className="flex gap-2 items-center">
-              <FaUserAlt size={35} />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  User name
-                  <p className="text-black flex text-[18px]">
-                    {rooms.user_name}
+          {authstatus && (
+            <div className="grid grid-cols-3 gap-3 border p-5">
+              <div className="flex gap-2 items-center">
+                <FaUserAlt size={35} />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    User name
+                    <p className="text-black flex text-[18px]">
+                      {rooms.user_name}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <FaPhoneVolume size={35} />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Phone number
-                  <p className="text-black flex text-[18px]">
-                    {rooms.phone_number}
+              <div className="flex gap-2 items-center">
+                <FaPhoneVolume size={35} />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Phone number
+                    <p className="text-black flex text-[18px]">
+                      {rooms.phone_number}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <FaAddressCard size={35} />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Address
-                  <p className="text-black flex text-[18px]">{rooms.address}</p>
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <BiSolidMessageRoundedDots size={35} />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Zip code
-                  <p className="text-black flex text-[18px]">
-                    {rooms.zip_code}
+              <div className="flex gap-2 items-center">
+                <FaAddressCard size={35} />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Address
+                    <p className="text-black flex text-[18px]">
+                      {rooms.address}
+                    </p>
                   </p>
-                </p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <BiSolidMessageRoundedDots size={35} />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Zip code
+                    <p className="text-black flex text-[18px]">
+                      {rooms.zip_code}
+                    </p>
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <MdOutlineEmail size={35} />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Email
+                    <p className="text-black flex text-[18px]">{rooms.email}</p>
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="flex gap-2 items-center">
-              <MdOutlineEmail size={35} />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Email
-                  <p className="text-black flex text-[18px]">{rooms.email}</p>
-                </p>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         <div className="mt-4 mb-2 border-t-2 border-black">
