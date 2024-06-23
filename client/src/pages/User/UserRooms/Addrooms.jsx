@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { IoInformationCircleSharp } from "react-icons/io5";
+import { FaCalendarAlt } from "react-icons/fa";
 
 function Addrooms() {
   const currentLocation = useSelector((state) => state.auth.location);
@@ -247,26 +248,26 @@ function Addrooms() {
               <div className="flex text-[18px] mt-10">
                 <label
                   htmlFor=""
-                  className="text-[21px] w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[322px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
-                  Stay/Laese
+                  Stay/Lease
                 </label>
-                <div className=" grid grid-cols-4 gap-4 text-[18px] w-[957px]">
+                <div className=" grid grid-cols-4 gap-4 text-[18px] w-[1200px]">
+                  <div className=" flex gap-1 whitespace-nowrap">
+                    <input
+                      type="radio"
+                      value="Short term"
+                      {...register("Stay_lease")}
+                    />
+                    <p>Short term(1Day to 6Months) </p>
+                  </div>
                   <div className="flex gap-1 whitespace-nowrap">
                     <input
                       type="radio"
                       value="Long term(6+ months)"
                       {...register("Stay_lease")}
                     />
-                    <p>Long term(6+ months) </p>
-                  </div>
-                  <div className=" flex gap-1">
-                    <input
-                      type="radio"
-                      value="Short term"
-                      {...register("Stay_lease")}
-                    />
-                    <p>Short term </p>
+                    <p>Long term(6+ Months) </p>
                   </div>
                   <div className=" flex gap-1">
                     <input
@@ -278,13 +279,51 @@ function Addrooms() {
                   </div>
                 </div>
               </div>
-
+              <div className="mt-10 flex">
+                <label
+                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Price Model
+                </label>
+                <select
+                  {...register("Pricemodel")}
+                  className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <option value="">Select</option>
+                  <option value="Per Month">Per Month</option>
+                  <option value="Per Night">Per Night</option>
+                  <option value="Per Day">Per Day</option>
+                  <option value="Per Week">Per Week</option>
+                </select>
+              </div>
+              <div className="flex mt-10 text-[18px]">
+                <label
+                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Rent
+                </label>
+                <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                  $
+                </span>
+                <input
+                  type="text"
+                  placeholder="Rent"
+                  className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  {...register("Expected_Rooms")}
+                />
+                <input className="gap-1 ml-3" type="checkbox" />
+                <p className="px-3 py-2 text-black gap-1">Negotiable</p>
+                <input type="checkbox" />
+                <p className="px-3 py-2 text-black">Hide Rent</p>
+              </div>
               <div className="flex mt-10 gap-5">
                 <label
                   className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
-                  Avaliblity
+                  Availability
                 </label>
                 <input
                   className="h-100px w-[225px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -299,7 +338,7 @@ function Addrooms() {
                   {...register("Available_to")}
                 />
               </div>
-              <div className="flex text-[18px] mt-10">
+              {/* <div className="flex text-[18px] mt-10">
                 <label
                   className="text-[21px] w-[268px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -332,7 +371,7 @@ function Addrooms() {
                     <p>Monday to friday only</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className=" flex mt-10 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -371,18 +410,10 @@ function Addrooms() {
                   <div className=" flex gap-1 items-center">
                     <input
                       type="radio"
-                      value="Any"
-                      {...register("Preferred_gender")}
-                    />
-                    <p>Any </p>
-                  </div>
-                  <div className=" flex gap-1 items-center">
-                    <input
-                      type="radio"
                       value="Male only"
                       {...register("Preferred_gender")}
                     />
-                    <p>Male only</p>
+                    <p>Male</p>
                   </div>
                   <div className=" flex items-center gap-1">
                     <input
@@ -390,50 +421,17 @@ function Addrooms() {
                       value="Female only"
                       {...register("Preferred_gender")}
                     />
-                    <p>Female only</p>
+                    <p>Female</p>
+                  </div>
+                  <div className=" flex gap-1 items-center">
+                    <input
+                      type="radio"
+                      value="Any"
+                      {...register("Preferred_gender")}
+                    />
+                    <p>Any </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex mt-10 text-[18px]">
-                <label
-                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
-                >
-                  Expected Rooms
-                </label>
-                <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                  $
-                </span>
-                <input
-                  type="text"
-                  placeholder="Rent"
-                  className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  {...register("Expected_Rooms")}
-                />
-                <input className="gap-1 ml-3" type="checkbox" />
-                <p className="px-3 py-2 text-black gap-1">Negotiable</p>
-                <input type="checkbox" />
-                <p className="px-3 py-2 text-black">Hide Rent</p>
-              </div>
-
-              <div className="mt-10 flex">
-                <label
-                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
-                >
-                  Price Model
-                </label>
-                <select
-                  {...register("Pricemodel")}
-                  className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <option value="">Select</option>
-                  <option value="Per Month">Per Month</option>
-                  <option value="Per Night">Per Night</option>
-                  <option value="Per Day">Per Day</option>
-                  <option value="Per Week">Per Week</option>
-                </select>
               </div>
 
               <div className="mt-10">
@@ -585,7 +583,7 @@ function Addrooms() {
                   className="whitespace-nowrap text-[21px] w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
-                  Vegeterian Preference
+                   Dietary Preference
                 </label>
                 <div className=" grid grid-cols-4 gap-4 text-[18px] w-[980px]">
                   <div className="flex gap-1 items-center whitespace-nowrap">
@@ -594,7 +592,7 @@ function Addrooms() {
                       value="Yes,Vegeterian mandatory"
                       {...register("Vegeterian_prefernce")}
                     />
-                    <p>Yes,Vegeterian mandatory</p>
+                    <p>Vegeterian</p>
                   </div>
                   <div className=" flex gap-1 items-center">
                     <input
@@ -602,7 +600,7 @@ function Addrooms() {
                       value="No,Non-veg is ok"
                       {...register("Vegeterian_prefernce")}
                     />
-                    <p>No,Non-veg is ok</p>
+                    <p>Non-Veg</p>
                   </div>
                   <div className="flex gap-1 items-center">
                     <input
@@ -610,7 +608,7 @@ function Addrooms() {
                       value="Both"
                       {...register("Vegeterian_prefernce")}
                     />
-                    <p>Both</p>
+                    <p>Both Ok</p>
                   </div>
                 </div>
               </div>
