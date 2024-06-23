@@ -61,6 +61,7 @@ import { MdOutlineHeatPump } from "react-icons/md";
 import { CgGym } from "react-icons/cg";
 import { MdPool } from "react-icons/md";
 import Loader from "../../../components/UserCompontents/Loader";
+import { MdErrorOutline } from "react-icons/md";
 
 function Rooms() {
   const { _id } = useParams();
@@ -288,7 +289,7 @@ function Rooms() {
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className=" w-full mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
-        <div className=" flex">
+        <div className="flex text-[20px] gap-1">
           <Link to={"/"}>
             {" "}
             <span>Home</span>{" "}
@@ -508,11 +509,11 @@ function Rooms() {
            <div className="flex gap-1 mt-2"><MdSubtitles size={30}/><p className="">Title: Cozy Apartment in Downtown</p></div>
             <div className="flex gap-1 mt-3"><MdInsertComment size={30}/><p>Description: A spacious and cozy apartment in the heart of the city with all modern amenities.</p></div>
            </div> */}
-          <h1 className="text-[#000] text-[29px] font-bold mt-5 flex gap-2">
-            <GiEntryDoor size={40} />
+          <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
+            <GiEntryDoor size={30} />
             More Info About Room-{" "}
           </h1>
-          <div className="grid grid-cols-3 gap-4 border p-5">
+          <div className="grid grid-cols-3 gap-4 border p-5 mt-2">
             <div className="flex gap-2 items-center">
               <BsBuildingsFill className="" size={35} />
               <div className="flex">
@@ -648,11 +649,11 @@ function Rooms() {
               </div>
             </div>
           </div>
-          <h1 className="flex text-[#000] text-[29px] font-bold mt-5 gap-2">
-            <MdRoomPreferences size={40} />
+          <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
+            <MdRoomPreferences size={30} />
             Amenities included-{" "}
           </h1>
-          <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black">
+          <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
             <div className="flex gap-2">
               <FaWifi size={25} />
               <p>WiFi</p>
@@ -674,11 +675,11 @@ function Rooms() {
               <p>Pool</p>
             </div>
           </div>
-          <h1 className="text-[#000] text-[29px] font-bold mt-5 flex gap-2">
-            <MdAddBusiness size={40} />
+          <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
+            <MdAddBusiness size={30} />
             Additional Information-{" "}
           </h1>
-          <div className="grid grid-cols-3 gap-3 border p-5">
+          <div className="grid grid-cols-3 gap-3 border p-5 mt-2">
             <div className="flex gap-2 items-center">
               <BiFoodTag size={35} />
               <div className="flex">
@@ -713,17 +714,17 @@ function Rooms() {
               </div>
             </div>
           </div>
-          <h1 className="flex text-[#000] text-[29px] font-bold mt-5 gap-2">
+          <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2 items-center">
             <FaUserFriends size={37} />
             User Details-{" "}
             {!authstatus && (
-              <span className=" text-red-600 text-sm items-center text-center">
-                login to see Details
+              <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
+               <MdErrorOutline /> login to see Details
               </span>
             )}
           </h1>
           {authstatus && (
-            <div className="grid grid-cols-3 gap-3 border p-5">
+            <div className="grid grid-cols-3 gap-3 border p-5 mt-2">
               <div className="flex gap-2 items-center">
                 <FaUserAlt size={35} />
                 <div className="flex">
@@ -781,7 +782,7 @@ function Rooms() {
           )}
         </div>
 
-        <div className="mt-4 mb-2 border-t-2 border-black">
+        <div className="mt-4 mb-2">
           <div className="mt-2 flex items-center ">
             <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-[#0b5e86] font-bold">
               <p>Similar room In The Area</p>
