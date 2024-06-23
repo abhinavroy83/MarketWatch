@@ -295,25 +295,26 @@ function Rooms() {
           </Link>
           <span>{`>Room`}</span>
         </div>
-        <div className="flex justify-between py-2 items-start">
+        <div className="flex justify-between items-start">
           {hasNextRoom ? (
             <div>
-              <button className="rounded-full flex py-2 bg-pink-800 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+              <div className="text-center">
+              <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                 <MdKeyboardDoubleArrowLeft
-                  size={30}
-                  className="text-pink-800 bg-white rounded-full flex shadow-sm shadow-[#000]"
+                  size={45}
+                  className="text-white flex"
                 />
                 <button
                   onClick={fetchPreviousRoom}
                   type="submit"
                   disabled={!hasNextRoom}
                   // disabled={!hasPreviousRoom}
-                  className="rounded-full flex bg-white px-7 text-[22px] items-center text-pink-800 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
                 >
-                  Previous
+                  PREV
                 </button>
               </button>
-
+             </div>
               {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p> */}
@@ -324,6 +325,23 @@ function Rooms() {
 
           <div className="flex gap-4 items-center self-center">
             <div className="flex justify-end">
+              <button className="rounded-xl flex p-1 px-3 bg-blue-700 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
+                <button
+                  type="submit"
+                  onClick={fetchNextRoom}
+                  disabled={!hasPreviousRoom}
+                  className="flex text-[22px] items-center text-white font-bold"
+                >
+                  NEXT
+                </button>
+                <MdKeyboardDoubleArrowRight
+                  size={45}
+                  className="flex text-[22px] items-center text-white font-bold"
+                />
+              </button>
+            </div>
+           
+            {/* <div className="flex justify-end">
               <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
                 <button
                   type="submit"
@@ -338,7 +356,7 @@ function Rooms() {
                   className="text-blue-700 bg-white rounded-full flex shadow-sm shadow-[#000]"
                 />
               </button>
-            </div>
+            </div> */}
 
             <div className="gap-2 flex">
               {!wishliststatys ? (
