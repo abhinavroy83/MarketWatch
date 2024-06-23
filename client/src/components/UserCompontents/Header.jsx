@@ -10,14 +10,15 @@ import { PiHandHeartFill } from "react-icons/pi";
 import { modalopen } from "../../store/modalslice";
 import axios from "axios";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
   const [issignupmodel, setissignupmodalopen] = useState(false);
   const [isloginmodalopen, setloginmodeopen] = useState(false);
-  const[openhamburger, setopenhamburger] = useState(false);
+  const [openhamburger, setopenhamburger] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [cartno, setCartno] = useState("");
@@ -45,10 +46,47 @@ export default function Header() {
   // console.log(cartno);
 
   const handlelogout = () => {
-    dispatch(logout());
-    localStorage.removeItem("userdetails");
-    // navigate("/login");
+    confirmAlert({
+      title: "Confirm to Logout",
+      message: "Are you sure you want to logout?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            dispatch(logout());
+            localStorage.removeItem("userdetails");
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {},
+        },
+      ],
+    });
   };
+
+  // const handleLogout = () => {
+  //   confirmAlert({
+  //     customUI: ({ onClose }) => {
+  //       return (
+  //         <div className='custom-ui'>
+  //           <h1>Confirm Logout</h1>
+  //           <p>Are you sure you want to logout?</p>
+  //           <button onClick={onClose}>No</button>
+  //           <button
+  //             onClick={() => {
+  //               dispatch(logout());
+  //               localStorage.removeItem('userdetails');
+  //               onClose();
+  //             }}
+  //           >
+  //             Yes, Logout
+  //           </button>
+  //         </div>
+  //       );
+  //     }
+  //   });
+  // };
 
   const handleModal = (loginModalState, signUpModalState) => {
     dispatch(
@@ -61,82 +99,92 @@ export default function Header() {
 
   const handlehamburger = () => {
     setopenhamburger(!openhamburger);
-  }
+  };
 
   return (
     <div className="relative">
       <div className="w-full fixed z-50 flex bg-white flex-col">
         <Ads />
         <div className="w-full bg-[#0b5e86] shadow-2xl h-[50px] font-['udemy-regular'] items-center mb-0">
-
           <div className="flex justify-between items-center mt-[7px] max-w-[1600px] w-full m-auto">
             <div className="relative block lg:hidden">
-              <button className="items-center mt-1 ml-2" onClick={handlehamburger}> <GiHamburgerMenu className="cursor-pointer text-white" size={27}/> </button>
-              {openhamburger && 
+              <button
+                className="items-center mt-1 ml-2"
+                onClick={handlehamburger}
+              >
+                {" "}
+                <GiHamburgerMenu
+                  className="cursor-pointer text-white"
+                  size={27}
+                />{" "}
+              </button>
+              {openhamburger && (
                 <div className="inline-flex flex-col bg-[#0b5e86] max-w-[200px] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[200px] left-0">
-                <ul className="ml-3 space-x-8">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      navigate("/");
-                      {handlehamburger}
-                    }}
-                    className="rounded-md text-lg p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                  >
-                    HOME
-                  </button>
-                </ul>
-                <ul className="ml-3 space-x-8 ">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      // navigate("/Events");
-                      alert("Coming soon");
-                    }}
-                    className="rounded-md text-lg p-2 text-white font-medium  transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                  >
-                    EVENTS
-                  </button>
-                </ul>
-                <ul className="ml-3 space-x-8 ">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      navigate("/rooms");
-                    }}
-                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                  >
-                    ROOMS
-                  </button>
-                </ul>
-                <ul className="ml-3 space-x-8 ">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      // navigate("/bussiness");
-                      alert("Coming soon");
-                    }}
-                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                  >
-                    BUSSINESS
-                  </button>
-                </ul>
-                <ul className="ml-3 space-x-8 ">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      // navigate("/Movie");
-                      alert("Coming soon");
-                    }}
-                    className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                  >
-                    MOVIES
-                  </button>
-                </ul>
-              </div>
-              }
+                  <ul className="ml-3 space-x-8">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigate("/");
+                        {
+                          handlehamburger;
+                        }
+                      }}
+                      className="rounded-md text-lg p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    >
+                      HOME
+                    </button>
+                  </ul>
+                  <ul className="ml-3 space-x-8 ">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // navigate("/Events");
+                        alert("Coming soon");
+                      }}
+                      className="rounded-md text-lg p-2 text-white font-medium  transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    >
+                      EVENTS
+                    </button>
+                  </ul>
+                  <ul className="ml-3 space-x-8 ">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigate("/rooms");
+                      }}
+                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    >
+                      ROOMS
+                    </button>
+                  </ul>
+                  <ul className="ml-3 space-x-8 ">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // navigate("/bussiness");
+                        alert("Coming soon");
+                      }}
+                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    >
+                      BUSSINESS
+                    </button>
+                  </ul>
+                  <ul className="ml-3 space-x-8 ">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // navigate("/Movie");
+                        alert("Coming soon");
+                      }}
+                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                    >
+                      MOVIES
+                    </button>
+                  </ul>
+                </div>
+              )}
             </div>
-            <div className="flex overflow-auto mx-1 hidden lg:flex">
+            <div className="flex overflow-auto mx-1  lg:flex">
               <ul className="ml-3 space-x-8">
                 <button
                   type="button"
