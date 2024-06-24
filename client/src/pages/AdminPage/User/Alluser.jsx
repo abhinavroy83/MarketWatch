@@ -14,7 +14,8 @@ import { FaMapPin } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
-
+import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -230,18 +231,18 @@ function Alluser() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                    className="rounded-md flex items-center text-[20px] justify-center gap-2 bg-green-800 px-4 py-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
                     onClick={prevPage}
                   >
-                    <FaArrowAltCircleLeft /> Previous
+                    < FaArrowLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                    className="rounded-md flex text-[20px] items-center justify-center gap-2 bg-green-800 px-4 py-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
                     onClick={nextPage}
                   >
-                    Next <FaArrowAltCircleRight />
+                    Next < FaArrowRight />
                   </button>
                 )}
               </div>
