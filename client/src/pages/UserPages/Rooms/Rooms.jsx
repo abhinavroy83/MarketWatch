@@ -62,6 +62,7 @@ import { CgGym } from "react-icons/cg";
 import { MdPool } from "react-icons/md";
 import Loader from "../../../components/UserCompontents/Loader";
 import { MdErrorOutline } from "react-icons/md";
+import { amenityIcons } from "../../../constants/Index";
 
 function Rooms() {
   const { _id } = useParams();
@@ -72,10 +73,13 @@ function Rooms() {
   const [posteddate, setposteddate] = useState("");
   const authstatus = useSelector((state) => state.auth.status);
   const currentloc = useSelector((state) => state.auth.location);
+  const usrid = useSelector((state) => state.auth.userID);
   const [wishliststatys, setWishliststatys] = useState(false);
   const token = useSelector((state) => state.auth.token);
   const [hasNextRoom, setHasNextRoom] = useState(true);
   const [hasPreviousRoom, setHasPreviousRoom] = useState(true);
+  const [userstatus, setuserstatus] = useState(false);
+  // console.log(usrid);
 
   const url = `https://api.verydesi.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
@@ -95,6 +99,11 @@ function Rooms() {
       setposteddate(date);
       // console.log("locationsnd", locationString);
       setLocationsndString(loc);
+      if (res.data.rooms.UserId === usrid) {
+        setuserstatus(true);
+      } else {
+        setuserstatus(false);
+      }
     } catch (error) {
       console.log("error during fetching api", error);
     }
@@ -299,23 +308,25 @@ function Rooms() {
         <div className="flex justify-between items-start">
           {hasNextRoom ? (
             <div>
-              <div className="text-center">
-              <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-                <MdKeyboardDoubleArrowLeft
-                  size={45}
-                  className="text-white flex"
-                />
-                <button
-                  onClick={fetchPreviousRoom}
-                  type="submit"
-                  disabled={!hasNextRoom}
-                  // disabled={!hasPreviousRoom}
-                  className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
-                >
-                  PREV
+              <div
+                className="text-center"
+                onClick={fetchPreviousRoom}
+                disabled={!hasNextRoom}
+              >
+                <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                  <MdKeyboardDoubleArrowLeft
+                    size={45}
+                    className="text-white flex"
+                  />
+                  <button
+                    // type="submit"
+                    // disabled={!hasPreviousRoom}
+                    className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
+                  >
+                    PREV
+                  </button>
                 </button>
-              </button>
-             </div>
+              </div>
               {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
             </p> */}
@@ -325,12 +336,14 @@ function Rooms() {
           )}
 
           <div className="flex gap-4 items-center self-center">
-            <div className="flex justify-end">
+            <div
+              className="flex justify-end"
+              onClick={fetchNextRoom}
+              disabled={!hasPreviousRoom}
+            >
               <button className="rounded-xl flex p-1 px-3 bg-blue-700 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
                 <button
-                  type="submit"
-                  onClick={fetchNextRoom}
-                  disabled={!hasPreviousRoom}
+                  // type="submit"
                   className="flex text-[22px] items-center text-white font-bold"
                 >
                   NEXT
@@ -341,24 +354,6 @@ function Rooms() {
                 />
               </button>
             </div>
-           
-            {/* <div className="flex justify-end">
-              <button className="rounded-full flex py-2 bg-blue-700 px-2 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
-                <button
-                  type="submit"
-                  onClick={fetchNextRoom}
-                  disabled={!hasPreviousRoom}
-                  className="rounded-full flex bg-white px-7 text-[22px] items-center text-blue-700 shadow-sm shadow-[#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Next
-                </button>
-                <MdKeyboardDoubleArrowRight
-                  size={30}
-                  className="text-blue-700 bg-white rounded-full flex shadow-sm shadow-[#000]"
-                />
-              </button>
-            </div> */}
-
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
@@ -450,6 +445,15 @@ function Rooms() {
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
               </div>
+              {userstatus && (
+                <button
+                  onClick={() => {
+                    navigate(`/room/editroom/${usrid}`);
+                  }}
+                >
+                  Edit
+                </button>
+              )}
             </div>
 
             <div>
@@ -666,7 +670,7 @@ function Rooms() {
             Amenities included-{" "}
           </h1>
           <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
-            <div className="flex gap-2">
+            {/* <div className="flex gap-2">
               <FaWifi size={25} />
               <p>WiFi</p>
             </div>
@@ -685,7 +689,18 @@ function Rooms() {
             <div className="flex gap-2">
               <MdPool size={30} />
               <p>Pool</p>
-            </div>
+            </div> */}
+            {rooms?.Amenities_include?.map((amenity) => {
+              const IconComponent = amenityIcons[amenity];
+              return (
+                <div key={amenity} className="flex gap-2">
+                  {IconComponent && (
+                    <IconComponent className="amenity-icon" size={30} />
+                  )}
+                  <p>{amenity}</p>
+                </div>
+              );
+            })}
           </div>
           <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
             <MdAddBusiness size={30} />
@@ -731,7 +746,7 @@ function Rooms() {
             User Details-{" "}
             {!authstatus && (
               <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
-               <MdErrorOutline /> login to see Details
+                <MdErrorOutline /> login to see Details
               </span>
             )}
           </h1>
