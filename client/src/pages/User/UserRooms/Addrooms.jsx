@@ -173,11 +173,11 @@ function Addrooms({ editdata }) {
             className="flex flex-col justify-center mt-7 gap-5 items-center"
           >
             <div className="flex gap-2 items-center">
-              <p className="text-[30px] font-semibold text-[#000] flex items-center justify-center mt-6">
+              <p className="text-[25px] font-semibold text-[#000] flex items-center justify-center mt-6">
                 Post Room In
               </p>
               <select
-                className="h-55px mt-6 w-222px text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
                 {...register("PostingIn", {
                   required: "PostingIn is required",
                 })}
@@ -188,7 +188,7 @@ function Addrooms({ editdata }) {
                   Select city
                 </option>
                 {filtercity.map((city, index) => (
-                  <option value={city} key={index}>
+                  <option value={city} key={index} className="text-[17px]">
                     {city}
                   </option>
                 ))}
@@ -293,12 +293,12 @@ function Addrooms({ editdata }) {
               <div className="flex text-[18px] mt-10">
                 <label
                   htmlFor=""
-                  className="text-[21px] w-[322px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[300px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
                   Stay/Lease <span className=" text-red-500">*</span>
                 </label>
                 <div>
-                  <div className="grid grid-cols-4 gap-4 text-[18px] w-[1200px]">
+                  <div className="grid grid-cols-4 gap-4 text-[18px] w-auto">
                     <div className=" flex gap-2 whitespace-nowrap ">
                       <input
                         type="radio"
@@ -388,10 +388,11 @@ function Addrooms({ editdata }) {
                 >
                   Rent <span className=" text-red-500">*</span>
                 </label>
+                <div className="items-center">
+
                 <span className="bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                   $
                 </span>
-                <div className="items-center">
                   <input
                     type="text"
                     placeholder="Rent"
@@ -471,32 +472,34 @@ function Addrooms({ editdata }) {
                 >
                   Attached Bath <span className=" text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-                  <div className=" flex gap-1 items-center">
-                    <input
-                      type="radio"
-                      value="Yes"
-                      {...register("Attchd_Bath", {
-                        required: "Please select Bath",
-                      })}
-                    />
-                    <p>Yes </p>
+                <div>
+                  <div className="grid grid-cols-4 gap-4 text-[18px] w-[976px]">
+                    <div className=" flex gap-1 items-center">
+                      <input
+                        type="radio"
+                        value="Yes"
+                        {...register("Attchd_Bath", {
+                          required: "Please select Bath",
+                        })}
+                      />
+                      <p>Yes </p>
+                    </div>
+                    <div className=" flex gap-1 items-center">
+                      <input
+                        type="radio"
+                        value="No"
+                        {...register("Attchd_Bath", {
+                          required: "Please select Bath",
+                        })}
+                      />
+                      <p>No </p>
+                    </div>
                   </div>
-                  <div className=" flex gap-1 items-center">
-                    <input
-                      type="radio"
-                      value="No"
-                      {...register("Attchd_Bath", {
-                        required: "Please select Bath",
-                      })}
-                    />
-                    <p>No </p>
-                  </div>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
+                  </p>
                 </div>
-                <p className="text-[16px] mt-1 text-red-500">
-                  {" "}
-                  {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
-                </p>
               </div>
 
               <div className="flex mt-10 text-[18px] gap-20">
@@ -506,44 +509,46 @@ function Addrooms({ editdata }) {
                 >
                   Preferred Gender <span className=" text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-4 gap-4 text-[18px] w-[980px]">
-                  <div className=" flex gap-1 items-center">
-                    <input
-                      type="radio"
-                      value="Male only"
-                      {...register("Preferred_gender", {
-                        required: "Please select gender",
-                      })}
-                    />
-                    <p>Male</p>
+                <div>
+                  <div className="grid grid-cols-4 gap-4 text-[18px] w-[976px]">
+                    <div className=" flex gap-1 items-center">
+                      <input
+                        type="radio"
+                        value="Male only"
+                        {...register("Preferred_gender", {
+                          required: "Please select gender",
+                        })}
+                      />
+                      <p>Male</p>
+                    </div>
+                    <div className=" flex items-center gap-1">
+                      <input
+                        type="radio"
+                        value="Female only"
+                        {...register("Preferred_gender", {
+                          required: "Please select gender",
+                        })}
+                      />
+                      <p>Female</p>
+                    </div>
+                    <div className=" flex gap-1 items-center">
+                      <input
+                        type="radio"
+                        value="Any"
+                        {...register("Preferred_gender", {
+                          required: "Please select gender",
+                        })}
+                      />
+                      <p>Any </p>
+                    </div>
                   </div>
-                  <div className=" flex items-center gap-1">
-                    <input
-                      type="radio"
-                      value="Female only"
-                      {...register("Preferred_gender", {
-                        required: "Please select gender",
-                      })}
-                    />
-                    <p>Female</p>
-                  </div>
-                  <div className=" flex gap-1 items-center">
-                    <input
-                      type="radio"
-                      value="Any"
-                      {...register("Preferred_gender", {
-                        required: "Please select gender",
-                      })}
-                    />
-                    <p>Any </p>
-                  </div>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Preferred_gender && (
+                      <p>{errors.Preferred_gender.message}</p>
+                    )}
+                  </p>
                 </div>
-                <p className="text-[16px] mt-1 text-red-500">
-                  {" "}
-                  {errors.Preferred_gender && (
-                    <p>{errors.Preferred_gender.message}</p>
-                  )}
-                </p>
               </div>
 
               <div className="mt-10">
