@@ -15,7 +15,6 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { GiExitDoor } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
 
-
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
@@ -73,28 +72,36 @@ export default function Header() {
       customUI: ({ onClose }) => {
         return (
           <div className="bg-gray-200 rounded-lg text-black flex flex-col p-10 items-center justify-center font-['udemy-regular'] relative">
-            <RxCross1 
+            <RxCross1
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300"
               onClick={onClose}
             />
-            <GiExitDoor className="items-center" size={70}/>
+            <GiExitDoor className="items-center" size={70} />
             <h1 className="text-[25px] mt-3 font-semibold">Confirm Logout</h1>
-            <p className="text-[22px] text-gray-600">Are you sure you want to logout?</p>
+            <p className="text-[22px] text-gray-600">
+              Are you sure you want to logout?
+            </p>
             <div className="flex gap-4 items-center mt-4">
-            <button className="bg-red-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white" onClick={onClose}>Cancel</button>
-            <button className="bg-green-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
-              onClick={() => {
-                dispatch(logout());
-                localStorage.removeItem('userdetails');
-                onClose();
-              }}
-            >
-              Yes, Logout
-            </button>
+              <button
+                className="bg-red-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
+                onClick={onClose}
+              >
+                Cancel
+              </button>
+              <button
+                className="bg-green-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
+                onClick={() => {
+                  dispatch(logout());
+                  localStorage.removeItem("userdetails");
+                  onClose();
+                }}
+              >
+                Yes, Logout
+              </button>
             </div>
           </div>
         );
-      }
+      },
     });
   };
 

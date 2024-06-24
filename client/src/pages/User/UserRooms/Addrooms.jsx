@@ -97,7 +97,6 @@ function Addrooms() {
       setimgerror(true);
       return;
     }
-    // console.log(data);
     const roomdata = {
       Title: data.Title,
       Description: data.Description,
@@ -118,8 +117,8 @@ function Addrooms() {
       Pet_friendly: data.Pet_friendly,
       Open_house_schedule: data.Open_house_schedule,
       Imgurl: resimgurl,
-      user_name: data.user_name,
-      email: data.email,
+      user_name: fullname,
+      email: profiledata.email,
       phone_number: data.phone_number,
       address: data.address,
       zip_code: data.zip_code,

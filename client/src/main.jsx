@@ -45,6 +45,7 @@ import AboutUs from "./pages/AboutUs.jsx";
 import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
 import Error from "./components/SharedCompontents/Error.jsx";
 import Forgetpass from "./components/UserCompontents/Forgetpass.jsx";
+import Editroom from "./pages/User/UserRooms/Editroom.jsx";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/room/editroom/:userID",
+        element: (
+          <Authlayout authentication>
+            <Editroom />
+          </Authlayout>
+        ),
+      },
+      {
         path: "/user/job/:userID",
         element: (
           <Authlayout authentication>
@@ -119,6 +128,7 @@ const router = createBrowserRouter([
           </Authlayout>
         ),
       },
+
       {
         path: "/rooms",
         element: (
@@ -131,6 +141,7 @@ const router = createBrowserRouter([
         path: "/rooms/:_id",
         element: <Rooms />,
       },
+
       {
         path: "/user/bussiness/:userID",
         element: (
