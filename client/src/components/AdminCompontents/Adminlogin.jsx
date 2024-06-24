@@ -70,7 +70,7 @@ function Adminlogin() {
           />             */}
               <div className="justify-center">
                 <div className="flex font-['udemy-regular']  items-center">
-                  <label className="min-w-[130px] text-[21px] text-black font-bold">
+                  <label className="min-w-[130px] text-[22px] text-black">
                     User Name:
                   </label>
                   <input
@@ -83,8 +83,8 @@ function Adminlogin() {
                     errorMessage={errors.username?.message}
                   />
                 </div>
-                <div className="flex font-['udemy-regular'] items-center">
-                  <label className="min-w-[130px] text-[21px] text-black font-bold">Password:</label>
+                <div className="flex font-['udemy-regular'] items-center mt-5">
+                  <label className="min-w-[130px] text-[22px] text-black">Password:</label>
                   <input
                     className="flex h-15 font-['udemy-regular'] w-[300px] bg-white text-[19px]  border-b-2 border-black/10 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
                     type="text"

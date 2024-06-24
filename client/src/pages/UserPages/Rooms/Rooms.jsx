@@ -63,6 +63,7 @@ import { MdPool } from "react-icons/md";
 import Loader from "../../../components/UserCompontents/Loader";
 import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
+import { FaEdit } from "react-icons/fa";
 
 function Rooms() {
   const { _id } = useParams();
@@ -430,14 +431,26 @@ function Rooms() {
             )}
           </div>
           <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-3 w-[660px]">
-            <div>
-              <p className="font-bold flex gap-3">
-                <div className="text-[27px]">
-                  <div className="flex gap-1 font-bold">
-                    <p className=" capitalize">{rooms.Title}</p>
+            <div className="">
+              <div className="flex justify-between">
+                <p className="font-bold flex gap-3">
+                  <div className="text-[27px]">
+                    <div className="flex gap-1 font-bold">
+                      <p className=" capitalize">{rooms.Title}</p>
+                    </div>
                   </div>
-                </div>
-              </p>
+                </p>
+                {userstatus && (
+                  <button
+                    className="flex items-center text-black gap-2 text-[24px]"
+                    onClick={() => {
+                      navigate(`/room/editroom/${usrid}`);
+                    }}
+                  >
+                    <FaEdit /> Edit
+                  </button>
+                )}
+              </div>
               <div className="flex justify-between my-2">
                 <p className="text-[25px] capitalize">{rooms.city}</p>
                 <p className=" capitalize">{rooms.Expected_Rooms}</p>
@@ -445,15 +458,15 @@ function Rooms() {
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
               </div>
-              {userstatus && (
-                <button
+              {/* {userstatus && (
+                <button className="flex items-center text-red-700 gap-2 text-[24px]"
                   onClick={() => {
                     navigate(`/room/editroom/${usrid}`);
                   }}
                 >
-                  Edit
+                 <FaEdit/> Edit
                 </button>
-              )}
+              )} */}
             </div>
 
             <div>
