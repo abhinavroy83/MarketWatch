@@ -448,7 +448,7 @@ function Rooms() {
               {userstatus && (
                 <button
                   onClick={() => {
-                    navigate(`/room/editroom/${usrid}`);
+                    navigate(`/room/editroom/${_id}`);
                   }}
                 >
                   Edit

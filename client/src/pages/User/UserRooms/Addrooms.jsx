@@ -8,7 +8,7 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 
-function Addrooms() {
+function Addrooms({ editdata }) {
   const currentLocation = useSelector((state) => state.auth.location);
   const token = useSelector((state) => state.auth.token);
   const cunrtcity = useSelector((state) => state.auth.city);
@@ -207,6 +207,7 @@ function Addrooms() {
                     className="font-['udemy-regular'] h-10 w-[740px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
+                    defaultValue={editdata.Title}
                     placeholder="Title"
                     {...register("Title", {
                       required: "Title is required",
@@ -491,11 +492,11 @@ function Addrooms() {
                     />
                     <p>No </p>
                   </div>
-                  </div>
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
-                  </p>
+                </div>
+                <p className="text-[16px] mt-1 text-red-500">
+                  {" "}
+                  {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
+                </p>
               </div>
 
               <div className="flex mt-10 text-[18px] gap-20">
