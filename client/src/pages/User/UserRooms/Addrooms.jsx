@@ -207,7 +207,7 @@ function Addrooms({ editdata }) {
                     className="font-['udemy-regular'] h-10 w-[740px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
-                    defaultValue={editdata.Title}
+                    defaultValue={editdata?.Title}
                     placeholder="Title"
                     {...register("Title", {
                       required: "Title is required",

@@ -14,16 +14,14 @@ import { MdLocalLaundryService } from "react-icons/md";
 import { GiElevator } from "react-icons/gi";
 import { GiGlassCelebration } from "react-icons/gi";
 
-
 const amenityIcons = {
-  
   "Gym/Fitness Center": CgGym,
   "Swimming Pool": MdPool,
-  "Car Park": PiPark,
+  "Car Park": FaCar,
   "Visitors Parking": LuParkingCircle,
   "Power Backup": FaPowerOff,
   "Garbage Disposal": FaBoxOpen,
-  "Private Lawn": FaCar,
+  "Private Lawn": PiPark,
   "Water Heater Plant": FaWater,
   "Security System": MdOutlineSecurity,
   "Laundry Service": MdLocalLaundryService,

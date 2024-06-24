@@ -137,7 +137,7 @@ function Rooms() {
   const fetchPreviousRoom = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/rooms/${_id}/next`
+        `https://api.verydesi.com/api/rooms/${_id}/next`
       );
       if (res.data.nextRoom) {
         navigate(`/rooms/${res.data.nextRoom._id}`);
@@ -152,7 +152,7 @@ function Rooms() {
   const fetchNextRoom = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/rooms/${_id}/previous`
+        `https://api.verydesi.com/api/rooms/${_id}/previous`
       );
       if (res.data.previousRoom) {
         navigate(`/rooms/${res.data.previousRoom._id}`);

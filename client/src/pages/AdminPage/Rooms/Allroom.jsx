@@ -33,7 +33,8 @@ function Allroom() {
 
       setdata(res.data.Allroom.reverse());
     } catch (error) {
-      console.log("Error during fetching rooms", error);r
+      console.log("Error during fetching rooms", error);
+      r;
     }
   };
 
@@ -96,13 +97,13 @@ function Allroom() {
             <div className="h-10 w-10 flex-shrink-0">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.PrdImage}
+                src={items.Imgurl[0]}
                 alt=""
               />
             </div>
             <div className="ml-4">
               <div className="text-base font-medium text-gray-500">
-                {items.Hotelname}
+                {items.Title}
               </div>
             </div>
           </div>
@@ -112,7 +113,7 @@ function Allroom() {
         </td>
 
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
-          {items.rent}
+          {items.Expected_Rooms}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.address}
@@ -129,7 +130,8 @@ function Allroom() {
           </a>
         </td>
         <td className="px-4 py-3.5 text-left text-base text-gray-500 hover:text-red-700">
-          <button className="hover:text-red-600"
+          <button
+            className="hover:text-red-600"
             onClick={() => {
               const _id = items._id;
               // console.log(_id);
@@ -156,8 +158,8 @@ function Allroom() {
             <div>
               <p className="text-[20px] font-semibold">All Rooms</p>
               <p className="mt-1 text-[17px] text-gray-700 font-['udemy-regular']">
-                This is list of All Rooms. You can add,
-                edit or delete existing ones.
+                This is list of All Rooms. You can add, edit or delete existing
+                ones.
               </p>
             </div>
             <div className="flex">
@@ -194,19 +196,28 @@ function Allroom() {
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <MdOutlineMeetingRoom size={23}/> Room</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdOutlineMeetingRoom size={23} /> Room
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <MdOutlineEmail size={23}/> Email</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdOutlineEmail size={23} /> Email
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-6 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <TfiMoney size={20}/> Rent</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <TfiMoney size={20} /> Rent
+                          </div>
                         </th>
 
                         {/* <th
@@ -219,25 +230,37 @@ function Allroom() {
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapPin size={20}/> City</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapPin size={20} /> City
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapLocationDot size={20}/> Country</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapLocationDot size={20} /> Country
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                         <div className="flex gap-1"> <MdEdit size={23}/> Edit</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdEdit size={23} /> Edit
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                        <div className="flex gap-1"> <MdDeleteForever size={25}/> Delete</div> 
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdDeleteForever size={25} /> Delete
+                          </div>
                         </th>
                       </tr>
                     </thead>
@@ -254,18 +277,18 @@ function Allroom() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                  onClick={prevPage}
+                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                    onClick={prevPage}
                   >
-                    < FaArrowLeft /> Previous
+                    <FaArrowLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                  onClick={nextPage}
+                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                    onClick={nextPage}
                   >
-                    Next < FaArrowRight />
+                    Next <FaArrowRight />
                   </button>
                 )}
               </div>
