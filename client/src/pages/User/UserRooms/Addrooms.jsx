@@ -173,12 +173,12 @@ function Addrooms() {
             onSubmit={handleSubmit(onsubmit)}
             className="flex flex-col justify-center mt-7 gap-5 items-center"
           >
-            <div className=" flex">
-              <p className="text-[30px] font-semibold text-[#000] flex items-center justify-center">
+            <div className="flex gap-2 items-center">
+              <p className="text-[30px] font-semibold text-[#000] flex items-center justify-center mt-6">
                 Post Room In
               </p>
               <select
-                className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-55px mt-6 w-222px text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 {...register("PostingIn", {
                   required: "PostingIn is required",
                 })}
@@ -196,83 +196,99 @@ function Addrooms() {
               </select>
             </div>
             <div className="w-full">
-              <div className="flex">
+              <div className="flex mt-3">
                 <label
-                  className="text-[21px] w-[343px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[276px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Title*
                 </label>
-                <input
-                  className="font-['udemy-regular'] h-10 w-full text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  label="Title"
-                  type="text"
-                  placeholder="Title"
-                  {...register("Title", {
-                    required: "Title is required",
-                  })}
-                />
+                <div className="">
+                  <input
+                    className="font-['udemy-regular'] h-10 w-[740px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    label="Title"
+                    type="text"
+                    placeholder="Title"
+                    {...register("Title", {
+                      required: "Title is required",
+                    })}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Title && <p>{errors.Title.message}</p>}
+                  </p>
+                </div>
               </div>
-              <div>{errors.Title && <p>{errors.Title.message}</p>}</div>
 
               <div className="mt-10 flex">
                 <label
-                  className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[276px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description*
                 </label>
-                <textarea
-                  className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  name="description"
-                  placeholder="Description"
-                  {...register("Description", {
-                    required: "Description is required",
-                    validate: {
-                      minWords: (value) =>
-                        value.trim().split(/\s+/).length >= 50 ||
-                        "Description must be at least 50 words",
-                    },
-                  })}
-                />
+                <div>
+                  <textarea
+                    className="h-100px text-[18px] w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    name="description"
+                    placeholder="Description"
+                    {...register("Description", {
+                      required: "Description is required",
+                      validate: {
+                        minWords: (value) =>
+                          value.trim().split(/\s+/).length >= 50 ||
+                          "Description must be at least 50 words",
+                      },
+                    })}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Description && <p>{errors.Description.message}</p>}
+                  </p>
+                </div>
               </div>
-              <div>
-                {errors.Description && <p>{errors.Description.message}</p>}
-              </div>
+
               <div className="flex mt-10">
                 <label
-                  className="text-[21px] w-[343px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[276px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Property Type <span className=" text-red-500">*</span>
                 </label>
-                <Controller
-                  name="Propertytype"
-                  control={control}
-                  rules={{ required: "Property Type is required" }}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <select
-                      {...field}
-                      className="h-100px w-full text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      name=""
-                      id=""
-                    >
-                      <option value="">Select</option>
-                      <option value="Single Family Home">
-                        Single Family Home
-                      </option>
-                      <option value="Apartment">Apartment</option>
-                      <option value="Condo">Condo</option>
-                      <option value="Town">Town House</option>
-                      <option value="Home">Homes</option>
-                      <option value="House">House</option>
-                      <option value="Basement">Basement Apartment</option>
-                    </select>
-                  )}
-                />
+                <div>
+                  <Controller
+                    name="Propertytype"
+                    control={control}
+                    rules={{ required: "Property Type is required" }}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <select
+                        {...field}
+                        className="h-100px w-[740px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        name=""
+                        id=""
+                      >
+                        <option value="">Select</option>
+                        <option value="Single Family Home">
+                          Single Family Home
+                        </option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Town">Town House</option>
+                        <option value="Home">Homes</option>
+                        <option value="House">House</option>
+                        <option value="Basement">Basement Apartment</option>
+                      </select>
+                    )}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Propertytype && (
+                      <p>{errors.Propertytype.message}</p>
+                    )}
+                  </p>
+                </div>
               </div>
-              {errors.Propertytype && <p>{errors.Propertytype.message}</p>}
 
               <div className="flex text-[18px] mt-10">
                 <label
@@ -281,43 +297,49 @@ function Addrooms() {
                 >
                   Stay/Lease <span className=" text-red-500">*</span>
                 </label>
-                <div className=" grid grid-cols-4 gap-4 text-[18px] w-[1200px]">
-                  <div className=" flex gap-2 whitespace-nowrap ">
-                    <input
-                      type="radio"
-                      value="Short term"
-                      {...register("Stay_lease", {
-                        required: "Stay/Lease required",
-                      })}
-                      onChange={handleStayLeaseChange}
-                    />
-                    <p>Short term(1Day to 6Months) </p>
+                <div>
+                  <div className="grid grid-cols-4 gap-4 text-[18px] w-[1200px]">
+                    <div className=" flex gap-2 whitespace-nowrap ">
+                      <input
+                        type="radio"
+                        value="Short term"
+                        {...register("Stay_lease", {
+                          required: "Stay/Lease required",
+                        })}
+                        onChange={handleStayLeaseChange}
+                      />
+                      <p>Short term(1Day to 6Months) </p>
+                    </div>
+                    <div className="flex gap-2 whitespace-nowrap px-2">
+                      <input
+                        type="radio"
+                        value="Long term(6+ months)"
+                        {...register("Stay_lease", {
+                          required: "Stay/Lease required",
+                        })}
+                        onChange={handleStayLeaseChange}
+                      />
+                      <p>Long term(6+ Months) </p>
+                    </div>
+                    <div className=" flex gap-2">
+                      <input
+                        type="radio"
+                        value="Both"
+                        {...register("Stay_lease", {
+                          required: "Stay/Lease required",
+                        })}
+                        onChange={handleStayLeaseChange}
+                      />
+                      <p>Both* </p>
+                    </div>
                   </div>
-                  <div className="flex gap-2 whitespace-nowrap px-2">
-                    <input
-                      type="radio"
-                      value="Long term(6+ months)"
-                      {...register("Stay_lease", {
-                        required: "Stay/Lease required",
-                      })}
-                      onChange={handleStayLeaseChange}
-                    />
-                    <p>Long term(6+ Months) </p>
-                  </div>
-                  <div className=" flex gap-2">
-                    <input
-                      type="radio"
-                      value="Both"
-                      {...register("Stay_lease", {
-                        required: "Stay/Lease required",
-                      })}
-                      onChange={handleStayLeaseChange}
-                    />
-                    <p>Both* </p>
-                  </div>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Stay_lease && <p>{errors.Stay_lease.message}</p>}
+                  </p>
                 </div>
               </div>
-              {errors.Stay_lease && <p>{errors.Stay_lease.message}</p>}
+
               <div className="mt-10 flex">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -325,34 +347,40 @@ function Addrooms() {
                 >
                   Price Model <span className=" text-red-500">*</span>
                 </label>
-                <select
-                  {...register("Pricemodel", {
-                    required: "Pricemodel is required",
-                  })}
-                  className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <option value="">Select</option>
-                  {stayLeaseOption === "Short term" && (
-                    <>
-                      <option value="Per Night">Per Night</option>
-                      <option value="Per Day">Per Day</option>
-                      <option value="Per Week">Per Week</option>
-                    </>
-                  )}
-                  {stayLeaseOption === "Long term(6+ months)" && (
-                    <option value="Per Month">Per Month</option>
-                  )}
-                  {stayLeaseOption === "Both" && (
-                    <>
+                <div>
+                  <select
+                    {...register("Pricemodel", {
+                      required: "Pricemodel is required",
+                    })}
+                    className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <option value="">Select</option>
+                    {stayLeaseOption === "Short term" && (
+                      <>
+                        <option value="Per Night">Per Night</option>
+                        <option value="Per Day">Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                      </>
+                    )}
+                    {stayLeaseOption === "Long term(6+ months)" && (
                       <option value="Per Month">Per Month</option>
-                      <option value="Per Night">Per Night</option>
-                      <option value="Per Day">Per Day</option>
-                      <option value="Per Week">Per Week</option>
-                    </>
-                  )}
-                </select>
+                    )}
+                    {stayLeaseOption === "Both" && (
+                      <>
+                        <option value="Per Month">Per Month</option>
+                        <option value="Per Night">Per Night</option>
+                        <option value="Per Day">Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                      </>
+                    )}
+                  </select>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Pricemodel && <p>{errors.Pricemodel.message}</p>}
+                  </p>
+                </div>
               </div>
-              {errors.Pricemodel && <p>{errors.Pricemodel.message}</p>}
+
               <div className="flex mt-10 text-[18px]">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -360,28 +388,36 @@ function Addrooms() {
                 >
                   Rent <span className=" text-red-500">*</span>
                 </label>
-                <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                <span className="bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                   $
                 </span>
-                <input
-                  type="text"
-                  placeholder="Rent"
-                  className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  {...register("Expected_Rooms", {
-                    required: "Rent is require",
-                  })}
-                />
-                {errors.Expected_Rooms && (
-                  <p>{errors.Expected_Rooms.message}</p>
-                )}
-                <input
-                  className="gap-1 ml-3"
-                  type="checkbox"
-                  // {...register("Negotiable")}
-                />
-                <p className="px-3 py-2 text-black gap-1">Negotiable</p>
-                <input type="checkbox" />
-                <p className="px-3 py-2 text-black">Hide Rent</p>
+                <div className="items-center">
+                  <input
+                    type="text"
+                    placeholder="Rent"
+                    className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    {...register("Expected_Rooms", {
+                      required: "Rent is require",
+                    })}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Expected_Rooms && (
+                      <p>{errors.Expected_Rooms.message}</p>
+                    )}
+                  </p>
+                </div>
+                <div className="flex items-center gap-1 ml-5">
+                  <input
+                    type="checkbox"
+                    // {...register("Negotiable")}
+                  />
+                  <p className="px-3 py-2 text-black">Negotiable</p>
+                </div>
+                <div className="flex items-center gap-1">
+                  <input type="checkbox" />
+                  <p className="px-3 py-2 text-black">Hide Rent</p>
+                </div>
               </div>
               <div className="flex mt-10 gap-5">
                 <label
@@ -390,28 +426,42 @@ function Addrooms() {
                 >
                   Availability <span className=" text-red-500">*</span>
                 </label>
-                <input
-                  className="h-100px w-[225px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="date"
-                  placeholder="Available from"
-                  {...register("Avaliblity_from", {
-                    required: "Available from is required",
-                  })}
-                />
-                {errors.Avaliblity_from && (
-                  <p>{errors.Avaliblity_from.message}</p>
-                )}
-                <input
-                  className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="date"
-                  placeholder="Available to"
-                  {...register("Available_to", {
-                    required: "Available to is required",
-                  })}
-                />
-                {errors.Available_to && <p>{errors.Available_to.message}</p>}
-                <input type="checkbox" {...register("Immedite")} />
-                <p>Immediate</p>
+                <div>
+                  <input
+                    className="h-100px w-[225px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="date"
+                    placeholder="Available from"
+                    {...register("Avaliblity_from", {
+                      required: "Available from is required",
+                    })}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Avaliblity_from && (
+                      <p>{errors.Avaliblity_from.message}</p>
+                    )}
+                  </p>
+                </div>
+                <div>
+                  <input
+                    className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="date"
+                    placeholder="Available to"
+                    {...register("Available_to", {
+                      required: "Available to is required",
+                    })}
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Available_to && (
+                      <p>{errors.Available_to.message}</p>
+                    )}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input type="checkbox" {...register("Immedite")} />
+                  <p className="py-2 text-black text-[18px]">Immediate</p>
+                </div>
               </div>
 
               <div className=" flex mt-10 text-[18px] gap-20">
@@ -442,8 +492,11 @@ function Addrooms() {
                     />
                     <p>No </p>
                   </div>
-                </div>
-                {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
+                  </div>
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
+                  </p>
               </div>
 
               <div className="flex mt-10 text-[18px] gap-20">
@@ -485,9 +538,12 @@ function Addrooms() {
                     <p>Any </p>
                   </div>
                 </div>
-                {errors.Preferred_gender && (
-                  <p>{errors.Preferred_gender.message}</p>
-                )}
+                <p className="text-[16px] mt-1 text-red-500">
+                  {" "}
+                  {errors.Preferred_gender && (
+                    <p>{errors.Preferred_gender.message}</p>
+                  )}
+                </p>
               </div>
 
               <div className="mt-10">
@@ -805,7 +861,7 @@ function Addrooms() {
 
               <div>
                 <p className="text-[23px] mt-5 font-bold">Your Details:-</p>
-                <div className=" flex">
+                <div className="flex items-center">
                   <label
                     className="mt-2 text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -818,7 +874,7 @@ function Addrooms() {
                     {...register("user_name")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                  {<p>{fullname}</p>}
+                  {<p className="text-[20px]">{fullname}</p>}
                 </div>
                 <div className="mt-10 flex">
                   <label
@@ -833,7 +889,7 @@ function Addrooms() {
                     {...register("email")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                  <p>{profiledata.email}</p>
+                  <p className="text-[20px]">{profiledata.email}</p>
                 </div>
                 <div className="mt-10">
                   <label
@@ -858,14 +914,22 @@ function Addrooms() {
                 >
                   Address <span className=" text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  {...register("address", { required: "Address is required" })}
-                  placeholder="Enter Address"
-                  className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                />
+                <div>
+                  <input
+                    type="text"
+                    {...register("address", {
+                      required: "Address is required",
+                    })}
+                    placeholder="Enter Address"
+                    className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                  <p className="text-[16px] mt-1 text-red-500">
+                    {" "}
+                    {errors.address && <p>{errors.address.message}</p>}
+                  </p>
+                </div>
               </div>
-              {errors.address && <p>{errors.address.message}</p>}
+
               <div className="flex items-center mt-10">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
