@@ -831,7 +831,7 @@ function Addrooms({ editdata }) {
                     accept="image/*"
                     id="file"
                     onChange={handleSelectFile}
-                    multiple
+                    required
                   />
                   <div className="image-preview flex ">
                     {files.map((file, index) => (
@@ -860,7 +860,7 @@ function Addrooms({ editdata }) {
                   )}
                 </div>
                 {imgerror && (
-                  <p className="text-red-500 text-sm">Please upload an image</p>
+                  <p className="text-red-500 text-[16px] mt-1">Please upload an image</p>
                 )}
               </div>
 
