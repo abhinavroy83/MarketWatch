@@ -128,15 +128,18 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       }`}
     >
       <img
-        src={item.Imgurl[0]}
+        src={
+          item.Imgurl[0] ||
+          "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
+        }
         alt=""
         // width={220}
         className=" w-52 rounded-tl-md rounded-bl-md h-[100%] max-w-4xl transition duration-300 ease-in-out hover:opacity-80"
-        />
+      />
 
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
         <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
-          {item.Expected_Rooms}
+          ${item.Expected_Rooms}
         </p>
       </p>
 
@@ -167,7 +170,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 makewishlist(item._id);
               }}
             >
-              <FaHeart className="text-gray-500 hover:text-gray-700 " size={25} />
+              <FaHeart
+                className="text-gray-500 hover:text-gray-700 "
+                size={25}
+              />
             </div>
           ) : (
             <div

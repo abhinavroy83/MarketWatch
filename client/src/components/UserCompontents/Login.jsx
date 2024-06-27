@@ -48,7 +48,6 @@ function Login() {
             user: res.data.data.firstName,
             userID: res.data.data._id,
             bussinessac: res.data.data.bussinessac,
-
             isverified: res.data.data.isVerified,
           })
         );
@@ -65,6 +64,8 @@ function Login() {
     } catch (error) {
       console.log(error);
     }
+
+    
   };
 
   const handleModal = (loginModalState, signUpModalState) => {

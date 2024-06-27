@@ -4,14 +4,15 @@ import Addrooms from "./Addrooms";
 import axios from "axios";
 
 function Editroom() {
-  const { userID } = useParams();
+  const { _id } = useParams();
   const [data, setdata] = useState([]);
+  console.log(_id);
 
   useEffect(() => {
     const fetchroom = async () => {
       try {
         const res = await axios.get(
-          `https://api.verydesi.com/api/getspecificroom/${userID}`
+          `https://api.verydesi.com/api/getspecificroom/${_id}`
         );
         console.log(res.data.rooms);
         setdata(res.data.rooms);
@@ -20,7 +21,7 @@ function Editroom() {
       }
     };
     fetchroom();
-  }, [userID]);
+  }, [_id]);
   // console.log(data);
   return (
     <div>

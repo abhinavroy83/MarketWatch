@@ -7,6 +7,7 @@ const getspecficroom = require("../Controllers/Rooms/GetSpecificroom");
 const deleterooms = require("../Controllers/Rooms/Delete");
 const IsloggedIn = require("../middleware/isloggedin");
 const { nextroom, prvsroom } = require("../Controllers/Rooms/Nextandprvs");
+const updateroom = require("../Controllers/Rooms/Editroom");
 
 router.post("/api/addrooms", IsloggedIn, addroom);
 router.get("/api/getrooms/:userID", getroomforspeficuser);
@@ -15,4 +16,5 @@ router.get("/api/getspecificroom/:roomID", getspecficroom);
 router.delete("/rooms/:roomsID", deleterooms);
 router.get("/api/rooms/:roomId/next", nextroom);
 router.get("/api/rooms/:roomId/previous", prvsroom);
+router.put("/api/rooms/:_id", IsloggedIn, updateroom);
 module.exports = router;

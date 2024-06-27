@@ -105,7 +105,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/room/editroom/:userID",
+        path: "/room/editroom/:_id",
         element: (
           <Authlayout authentication>
             <Editroom />

@@ -7,11 +7,14 @@ import Roomcard2nd from "./Roomcard2nd";
 import { ChildContainer } from "../../../components";
 import Loader from "../../../components/UserCompontents/Loader";
 import Pagination from "../../../components/SharedCompontents/Pagination";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const usercity = useSelector((state) => state.auth.city);
   const isverified = useSelector((state) => state.auth.isverified);
+  const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
@@ -63,6 +66,18 @@ function AllRooms() {
         locationsndString?.lat ? locationsndString : undefined
       }
     >
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {rooms.length > 0 ? (
         <div className="px-5 font-['udemy-bold'] mt-7 md:px-6 md:py-0 text-lg">
           <div className="flex justify-between items-center">
@@ -87,8 +102,12 @@ function AllRooms() {
               <button
                 type="submit"
                 onClick={() => {
-                  alert("login to post room");
-                  navigate("/login");
+                  if (!authstatus) {
+                    toast("Login to PostRoom");
+                  } else {
+                    toast("Please verify your self to PostRoom");
+                  }
+                  // navigate("/login");
                 }}
                 className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >

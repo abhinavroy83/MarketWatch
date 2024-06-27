@@ -151,7 +151,7 @@ function DashConatiner({ children }) {
             onClick={() => {
               navigate(`/user/room/${userID}`);
             }}
-            className="rounded-md bg-transparent px-9 py-1 whitespace-nowrap items-center flex gap-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+            className="rounded-md bg-transparent px-9 py-1  items-center flex gap-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
           >
             <MdMeetingRoom size={30} /> My Rooms
           </button>

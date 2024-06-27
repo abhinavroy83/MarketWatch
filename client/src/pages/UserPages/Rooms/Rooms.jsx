@@ -53,13 +53,7 @@ import { BiSolidMessageRoundedDots } from "react-icons/bi";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
 import { GiEntryDoor } from "react-icons/gi";
-import { PiClipboardTextFill } from "react-icons/pi";
 import { MdAddBusiness } from "react-icons/md";
-import { FaWifi } from "react-icons/fa6";
-import { TbAirConditioning } from "react-icons/tb";
-import { MdOutlineHeatPump } from "react-icons/md";
-import { CgGym } from "react-icons/cg";
-import { MdPool } from "react-icons/md";
 import Loader from "../../../components/UserCompontents/Loader";
 import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
@@ -82,7 +76,7 @@ function Rooms() {
   const [userstatus, setuserstatus] = useState(false);
   // console.log(usrid);
 
-  const url = `https://api.verydesi.com/rooms/${_id}`;
+  const url = `https://verydesi.com/rooms/${_id}`;
   const fetchroomdetails = async () => {
     try {
       const res = await axios.get(
@@ -443,8 +437,10 @@ function Rooms() {
                 {userstatus && (
                   <button
                     className="flex items-center text-black gap-2 text-[24px]"
-                    onClick={() => {
-                      navigate(`/room/editroom/${usrid}`);
+                    onClick={(e) => {
+                      // e.preventDefault();
+                      // window.open(`/room/editroom/${_id}`, "_blank");
+                      navigate(`/room/editroom/${_id}`);
                     }}
                   >
                     <FaEdit /> Edit

@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
+import authslice from "../../../store/authslice";
 
 function Addrooms({ editdata }) {
   const currentLocation = useSelector((state) => state.auth.location);
@@ -30,8 +31,11 @@ function Addrooms({ editdata }) {
     formState: { errors },
     reset,
     control,
+    setValue,
     watch,
   } = useForm();
+
+  const usrId = useSelector((state) => state.auth.userID);
 
   const watchStayLease = watch("Stay_lease");
 
@@ -44,12 +48,12 @@ function Addrooms({ editdata }) {
   useEffect(() => {
     const fetchusedetails = async () => {
       const res = await axios.get(
-        `https://api.verydesi.com/user/dashboard/profile/${userID}`
+        `https://api.verydesi.com/user/dashboard/profile/${usrId}`
       );
       setprofile(res.data.user);
     };
     fetchusedetails();
-  }, [userID]);
+  }, [usrId]);
 
   const fullname = profiledata
     ? `${profiledata.firstName} ${profiledata.lastName}`
@@ -69,6 +73,10 @@ function Addrooms({ editdata }) {
     });
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     setimgerror(false);
+  };
+
+  const handleRemoveFile = (index) => {
+    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
   const handleUpload = async () => {
@@ -126,28 +134,53 @@ function Addrooms({ editdata }) {
         coordinates: [currentLocation.lng, currentLocation.lat],
       },
     };
-    // console.log(roomdata);
-    try {
-      const res = await axios.post(
-        " https://api.verydesi.com/api/addrooms",
-        roomdata,
-        {
-          headers: {
-            jwttoken: `${token}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
+    // console.log("resimgurl", resimgurl);
+    if (editdata) {
+      try {
+        const res = await axios.put(
+          `http://localhost:8000/api/rooms/${editdata._id}`,
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (res) {
+          // console.log(res);
+
+          alert("update room successfully");
+          navigate(`https://verydesi.com/rooms/${editdata._id}`);
         }
-      );
-      if (res) {
-        // console.log(res);
-        alert("rooms added successfully");
-        reset();
-        navigate(`/user/room/${userID}`);
+      } catch (error) {
+        console.log("error while update room ", error);
       }
-    } catch (error) {
-      console.log("error during sending data to roomapi", error);
+    } else {
+      try {
+        const res = await axios.post(
+          " https://api.verydesi.com/api/addrooms",
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (res) {
+          // console.log(res);
+          alert("rooms added successfully");
+          reset();
+          navigate(`/user/room/${userID}`);
+        }
+      } catch (error) {
+        console.log("error during sending data to roomapi", error);
+      }
     }
+    // console.log(roomdata);
   };
 
   useEffect(() => {
@@ -161,38 +194,68 @@ function Addrooms({ editdata }) {
     fetchdata();
   }, []);
 
+  useEffect(() => {
+    if (editdata) {
+      setStayLeaseOption(editdata?.Stay_lease);
+      setValue("PostingIn", editdata?.PostingIn || "Portland");
+      setValue("Title", editdata?.Title || "");
+      setValue("Description", editdata?.Description || "");
+      setValue("Propertytype", editdata?.Propertytype || "");
+      setValue("Stay_lease", editdata?.Stay_lease || "");
+      setValue("Pricemodel", editdata?.Pricemodel || "");
+      setValue("Expected_Rooms", editdata?.Expected_Rooms || "");
+      setValue("Avaliblity_from", editdata?.Avaliblity_from || "");
+      setValue("Available_to", editdata?.Available_to || "");
+      setValue("Attchd_Bath", editdata?.Attchd_Bath || "");
+      setValue("Preferred_gender", editdata?.Preferred_gender || "");
+      setValue("Desposite", editdata?.Desposite || "");
+      setValue("is_room_furnished", editdata?.is_room_furnished || "");
+      setValue("Amenities_include", editdata?.Amenities_include || "");
+      setValue("Vegeterian_prefernce", editdata?.Vegeterian_prefernce || "");
+      setValue("Smoking_policy", editdata?.Smoking_policy || "");
+      setValue("Pet_friendly", editdata?.Pet_friendly || "");
+      setValue("Open_house_schedule", editdata?.Open_house_schedule || "");
+      setValue("address", editdata?.address || "");
+      if (editdata.Imgurl) {
+        setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
+        setResimgurl(editdata.Imgurl);
+      }
+    }
+  }, [editdata, setValue]);
+
   return (
     <div className=" w-full mx-auto mt-44">
       <div className="w-full max-w-[1400px] mx-auto items-center  justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-20">
-          {/* <p className="text-[30px] font-semibold text-[#000] flex items-center justify-center">
-            Post Room In {cunrtcity}
-          </p> */}
           <form
             onSubmit={handleSubmit(onsubmit)}
             className="flex flex-col justify-center mt-7 gap-5 items-center"
           >
             <div className="flex gap-2 items-center">
               <p className="text-[25px] font-semibold text-[#000] flex items-center justify-center mt-6">
-                Post Room In
+                {editdata ? <p>Edit Room In</p> : <p>Post Room In</p>}
               </p>
-              <select
-                className="h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
-                {...register("PostingIn", {
-                  required: "PostingIn is required",
-                })}
-                defaultValue={cunrtcity}
-                // onChange={handlecities}
-              >
-                <option className="text-gray-600" value="" disabled hidden>
-                  Select city
-                </option>
-                {filtercity.map((city, index) => (
-                  <option value={city} key={index} className="text-[17px]">
-                    {city}
-                  </option>
-                ))}
-              </select>
+              <Controller
+                name="PostingIn"
+                control={control}
+                rules={{ required: "PostingIn is required" }}
+                render={({ field }) => (
+                  <select
+                    {...field}
+                    className="h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
+                    onChange={(e) => field.onChange(e.target.value)} // Ensure field.onChange is called on change
+                  >
+                    <option className="text-gray-600" value="" disabled hidden>
+                      Select city
+                    </option>
+                    {filtercity.map((city, index) => (
+                      <option value={city} key={index} className="text-[17px]">
+                        {city}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              />
             </div>
             <div className="w-full">
               <div className="flex mt-3">
@@ -207,7 +270,7 @@ function Addrooms({ editdata }) {
                     className="font-['udemy-regular'] h-10 w-[740px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
-                    defaultValue={editdata?.Title}
+                    // defaultValue={editdata?.Title}
                     placeholder="Title"
                     {...register("Title", {
                       required: "Title is required",
@@ -348,36 +411,45 @@ function Addrooms({ editdata }) {
                   Price Model <span className=" text-red-500">*</span>
                 </label>
                 <div>
-                  <select
-                    {...register("Pricemodel", {
-                      required: "Pricemodel is required",
-                    })}
-                    className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <option value="">Select</option>
-                    {stayLeaseOption === "Short term" && (
+                  <Controller
+                    name="Pricemodel"
+                    control={control}
+                    rules={{ required: "Pricemodel is required" }}
+                    render={({ field, fieldState: { error } }) => (
                       <>
-                        <option value="Per Night">Per Night</option>
-                        <option value="Per Day">Per Day</option>
-                        <option value="Per Week">Per Week</option>
+                        <select
+                          {...field}
+                          value={field.value || ""}
+                          className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          <option value="">Select</option>
+                          {stayLeaseOption === "Short term" && (
+                            <>
+                              <option value="Per Night">Per Night</option>
+                              <option value="Per Day">Per Day</option>
+                              <option value="Per Week">Per Week</option>
+                            </>
+                          )}
+                          {stayLeaseOption === "Long term(6+ months)" && (
+                            <option value="Per Month">Per Month</option>
+                          )}
+                          {stayLeaseOption === "Both" && (
+                            <>
+                              <option value="Per Month">Per Month</option>
+                              <option value="Per Night">Per Night</option>
+                              <option value="Per Day">Per Day</option>
+                              <option value="Per Week">Per Week</option>
+                            </>
+                          )}
+                        </select>
+                        {error && (
+                          <p className="text-[16px] mt-1 text-red-500">
+                            {error.message}
+                          </p>
+                        )}
                       </>
                     )}
-                    {stayLeaseOption === "Long term(6+ months)" && (
-                      <option value="Per Month">Per Month</option>
-                    )}
-                    {stayLeaseOption === "Both" && (
-                      <>
-                        <option value="Per Month">Per Month</option>
-                        <option value="Per Night">Per Night</option>
-                        <option value="Per Day">Per Day</option>
-                        <option value="Per Week">Per Week</option>
-                      </>
-                    )}
-                  </select>
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Pricemodel && <p>{errors.Pricemodel.message}</p>}
-                  </p>
+                  />
                 </div>
               </div>
 
@@ -389,12 +461,11 @@ function Addrooms({ editdata }) {
                   Rent <span className=" text-red-500">*</span>
                 </label>
                 <div className="items-center">
-
-                <span className="bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                  $
-                </span>
+                  <span className="bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                    $
+                  </span>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Rent"
                     className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("Expected_Rooms", {
@@ -563,7 +634,7 @@ function Addrooms({ editdata }) {
                 </span>
                 <input
                   {...register("Desposite")}
-                  type="text"
+                  type="number"
                   placeholder="Rent"
                   className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 />
@@ -831,18 +902,27 @@ function Addrooms({ editdata }) {
                     accept="image/*"
                     id="file"
                     onChange={handleSelectFile}
-                    required
+                    multiple
                   />
                   <div className="image-preview flex ">
                     {files.map((file, index) => (
-                      <img
-                        className=" h-10 w-10 mx-2"
-                        key={index}
-                        src={file.preview}
-                        alt={`preview-${index}`}
-                      />
+                      <div className="relative" key={index}>
+                        <img
+                          className="h-10 w-10 mx-2"
+                          src={file.preview}
+                          alt={`preview-${index}`}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveFile(index)}
+                          className="absolute top-0 left-0 bg-red-500 text-white rounded-full h-6 w-6 flex items-center justify-center"
+                        >
+                          &times;
+                        </button>
+                      </div>
                     ))}
                   </div>
+
                   {files.length > 0 && (
                     <>
                       {!uploadstats ? (
@@ -860,7 +940,9 @@ function Addrooms({ editdata }) {
                   )}
                 </div>
                 {imgerror && (
-                  <p className="text-red-500 text-[16px] mt-1">Please upload an image</p>
+                  <p className="text-red-500 text-[16px] mt-1">
+                    Please upload an image
+                  </p>
                 )}
               </div>
 
@@ -894,7 +976,7 @@ function Addrooms({ editdata }) {
                     {...register("email")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                  <p className="text-[20px]">{profiledata.email}</p>
+                  <p className="text-[20px]">{profiledata?.email}</p>
                 </div>
                 <div className="mt-10">
                   <label
@@ -907,7 +989,7 @@ function Addrooms({ editdata }) {
                     type="text"
                     placeholder="Enter Number"
                     {...register("phone_number")}
-                    defaultValue={profiledata.phone_number}
+                    defaultValue={profiledata?.phone_number}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
@@ -945,7 +1027,7 @@ function Addrooms({ editdata }) {
                 <div>
                   <input
                     type="text"
-                    defaultValue={profiledata.pin}
+                    defaultValue={profiledata?.pin}
                     className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     placeholder="Enter zipcode"
                     {...register("zip_code")}
@@ -958,12 +1040,21 @@ function Addrooms({ editdata }) {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Add New Room
-            </button>
+            {editdata ? (
+              <button
+                type="submit"
+                className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Update Room
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[18px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Add New Room
+              </button>
+            )}
           </form>
         </div>
       </div>
