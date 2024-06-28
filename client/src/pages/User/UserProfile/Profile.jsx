@@ -170,40 +170,44 @@ function Profile() {
           Your Personal Details Are -
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
-          <div className="flex font-['udemy-regular'] p-2 items-center">
-            {/* <img src={data.userimg} alt="" /> */}
-            <label className="min-w-[120px] text-[20px]">FirstName: </label>
-            {isedit ? (
-              <FormInput
-                // label="FirstName:"
-                // className= p-1 rounded-base"
-                type="text"
-                {...register("firstName")}
-                defaultValue={data.firstName}
-              />
-            ) : (
-              <p className="text-[20px]">{data.firstName}</p>
-            )}
-          </div>
-          <div className="flex font-['udemy-regular'] p-2 items-center">
-            <label className="min-w-[120px] text-[20px] ">LastName:</label>
-            {isedit ? (
-              <FormInput
-                // label="Lastname"
-                className="p-1 rounded-base"
-                type="text"
-                {...register("lastName")}
-                defaultValue={data.lastName}
-              />
-            ) : (
-              <p className="text-[20px]">{data.lastName}</p>
-            )}
-          </div>
-          <div className="flex font-['udemy-regular'] p-2 items-center">
-            <label className="min-w-[120px] text-[20px]">Email:</label>
-            <p className="text-[20px]">{data.email}</p>
+          <div className="flex">
+            <div className="flex font-['udemy-regular'] p-2 items-center">
+              {/* <img src={data.userimg} alt="" /> */}
+              <label className="min-w-[120px] text-[20px]">FirstName: </label>
+              {isedit ? (
+                <FormInput
+                  // label="FirstName:"
+                  // className= p-1 rounded-base"
+                  type="text"
+                  {...register("firstName")}
+                  defaultValue={data.firstName}
+                />
+              ) : (
+                <p className="text-[20px]">{data.firstName}</p>
+              )}
+            </div>
 
-            {/* {isedit ? (
+            <div className="flex font-['udemy-regular'] p-2 items-center">
+              <label className="min-w-[120px] text-[20px] ">LastName:</label>
+              {isedit ? (
+                <FormInput
+                  // label="Lastname"
+                  className="p-1 rounded-base"
+                  type="text"
+                  {...register("lastName")}
+                  defaultValue={data.lastName}
+                />
+              ) : (
+                <p className="text-[20px]">{data.lastName}</p>
+              )}
+            </div>
+          </div>
+          <div className="">
+            <div className="flex font-['udemy-regular'] p-2 items-center">
+              <label className="min-w-[120px] text-[20px]">Email:</label>
+              <p className="text-[20px]">{data.email}</p>
+
+              {/* {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
                 type="text"
@@ -213,22 +217,22 @@ function Profile() {
             ) : (
               <p className="text-[20px]">{data.email}</p>
             )} */}
-          </div>
+            </div>
 
-          <div className="flex font-['udemy-regular'] p-2 items-center">
-            <label className="min-w-[120px] text-[20px]">Number:</label>
-            {isedit ? (
-              <FormInput
-                className="p-1 rounded-base"
-                type="text"
-                {...register("number")}
-                defaultValue={data.phone_number}
-              />
-            ) : (
-              <p className="text-[20px]">{data.phone_number}</p>
-            )}
+            <div className="flex font-['udemy-regular'] p-2 items-center">
+              <label className="min-w-[120px] text-[20px]">Number:</label>
+              {isedit ? (
+                <FormInput
+                  className="p-1 rounded-base"
+                  type="text"
+                  {...register("number")}
+                  defaultValue={data.phone_number}
+                />
+              ) : (
+                <p className="text-[20px]">{data.phone_number}</p>
+              )}
+            </div>
           </div>
-
           {data.isVerified ? (
             <div>
               {isedit && (
@@ -248,7 +252,7 @@ function Profile() {
                 </label>
                 {isedit ? (
                   <input
-                    className="flex h-10 font-['udemy-regular'] w-[400px] bg-white text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] bg-white text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     type="date"
                     {...register("dob")}
                     defaultValue={data.dob}
@@ -262,7 +266,7 @@ function Profile() {
                 <label className="min-w-[120px] text-[20px]">Gender:</label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("gender")}
                     defaultValue={data.gender}
                   >
@@ -278,7 +282,7 @@ function Profile() {
                 <label className="min-w-[120px] text-[20px]">Country:</label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("country")}
                     defaultValue={data.country}
                   >
@@ -292,7 +296,7 @@ function Profile() {
                 <label className="min-w-[120px] text-[20px]">State:</label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("state")}
                     onChange={handlestatechange}
                     defaultValue={data.state}
@@ -314,7 +318,7 @@ function Profile() {
                 <label className="min-w-[120px] text-[20px]">City: </label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[20px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     {...register("city")}
                     defaultValue={data.city}
                   >
@@ -346,7 +350,7 @@ function Profile() {
                     errorMessage={errors.address?.message}
                   />
                 ) : (
-                  <p className="text-[20px]">{data.address}</p>
+                  <p className="text-[18px]">{data.address}</p>
                 )}
               </div>
               <div className="flex font-['udemy-regular'] p-2 items-center">
@@ -360,7 +364,7 @@ function Profile() {
                     errorMessage={errors.pin?.message}
                   />
                 ) : (
-                  <p className="text-[20px]">{data.pin}</p>
+                  <p className="text-[18px]">{data.pin}</p>
                 )}
               </div>
             </div>

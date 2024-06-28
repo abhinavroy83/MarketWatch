@@ -107,8 +107,8 @@ function Signup() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 800,
-            height: 630,
+            width: 740,
+            height: 620,
             border: "none",
             padding: "0",
             backgroundColor: "#FFF",
@@ -160,7 +160,7 @@ function Signup() {
             Create your Account
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mx-10 font-['udemy-regular']">
+              <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
                 <div className="flex gap-5 mt-5">
                   <Input
                     label="First Name"
