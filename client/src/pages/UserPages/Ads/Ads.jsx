@@ -12,6 +12,8 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosHelpCircle } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
 import { logout } from "../../../store/authslice";
+import { GrLocation } from "react-icons/gr";
+import { FaCaretDown } from "react-icons/fa";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -21,7 +23,9 @@ function Ads() {
   const [cty, setcty] = useState([]);
   const dispatch = useDispatch();
   const isloged = useSelector((state) => state.auth.status);
+  const authstatus = useSelector((state) => state.auth.status);
 
+  console.log(authstatus);
   useEffect(() => {
     const fetchdata = async () => {
       const res = await fetchcity();
@@ -57,7 +61,7 @@ function Ads() {
           <img
             // height={300}
             width={300}
-            className="w-[150px] lg:w-[230px]"
+            className="w-[150px] lg:w-[150px]"
             src={WebsiteLogo}
             alt=""
           />
@@ -66,10 +70,15 @@ function Ads() {
           onClick={() => {
             handleloginmodelopen();
           }}
-          className="text-[22px] flex cursor-pointer items-center hover:font-bold"
+          className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-1"
         >
-          {currntcty}
-          <IoMdArrowDropdown />
+          <GrLocation size={20} /> {currntcty}
+          <FaCaretDown
+            className="hover:rotate-[360deg] transition-transform duration-300 "
+            size={15}
+          />
+          {/* {currntcty}
+          <IoMdArrowDropdown /> */}
         </p>
       </div>
       <div className="relative">
@@ -91,6 +100,28 @@ function Ads() {
             Hi, {name}
           </p> */}
           {isloged && <IoMdArrowDropdown size={30} />}
+
+          {authstatus ? (
+            <div className="">
+              <p className="items-center justify-center text-[16px]">
+                Hi, {name}
+                <button
+                  type="button"
+                  onClick={handlelogout}
+                  className="rounded-md py-1 text-[16px] text-black ml-3 font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                >
+                  Logout
+                </button>
+              </p>
+            </div>
+          ) : (
+            <div className="leading-4">
+              <p className="text-[12px]" onClick={() => handlemModal(true)}>
+                Hello, Sign in
+                <p className="text-[15px]">Or Sign up</p>
+              </p>
+            </div>
+          )}
         </div>
 
         {isloged && openMenu && (

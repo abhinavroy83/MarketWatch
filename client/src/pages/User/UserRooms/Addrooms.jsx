@@ -242,7 +242,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
+                    className="w-[120px] h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
                     onChange={(e) => field.onChange(e.target.value)} // Ensure field.onChange is called on change
                   >
                     <option className="text-gray-600" value="" disabled hidden>
@@ -260,7 +260,7 @@ function Addrooms({ editdata }) {
             <div className="w-full">
               <div className="flex mt-3">
                 <label
-                  className="text-[21px] w-[276px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Title*
@@ -285,7 +285,7 @@ function Addrooms({ editdata }) {
 
               <div className="mt-10 flex">
                 <label
-                  className="text-[21px] w-[276px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description*
@@ -313,7 +313,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-10">
                 <label
-                  className="text-[21px] w-[276px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Property Type <span className=" text-red-500">*</span>
@@ -356,7 +356,7 @@ function Addrooms({ editdata }) {
               <div className="flex text-[18px] mt-10">
                 <label
                   htmlFor=""
-                  className="text-[21px] w-[300px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[21px] w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
                   Stay/Lease <span className=" text-red-500">*</span>
                 </label>
