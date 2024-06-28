@@ -674,43 +674,27 @@ function Rooms() {
               </div>
             </div>
           </div>
-          <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
-            <MdRoomPreferences size={30} />
-            Amenities included-{" "}
-          </h1>
-          <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
-            {/* <div className="flex gap-2">
-              <FaWifi size={25} />
-              <p>WiFi</p>
+          {rooms.Amenities_include.length>1 && (
+            <div>
+              <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
+                <MdRoomPreferences size={30} />
+                Amenities included-{" "}
+              </h1>
+              <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
+                {rooms?.Amenities_include?.map((amenity) => {
+                  const IconComponent = amenityIcons[amenity];
+                  return (
+                    <div key={amenity} className="flex gap-2">
+                      {IconComponent && (
+                        <IconComponent className="amenity-icon" size={30} />
+                      )}
+                      <p>{amenity}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex gap-2">
-              <TbAirConditioning size={30} />
-              <p>Air Conditioning</p>
-            </div>
-            <div className="flex gap-2">
-              <MdOutlineHeatPump size={30} />
-              <p>Heating</p>
-            </div>
-            <div className="flex gap-2">
-              <CgGym size={30} />
-              <p>Gym</p>
-            </div>
-            <div className="flex gap-2">
-              <MdPool size={30} />
-              <p>Pool</p>
-            </div> */}
-            {rooms?.Amenities_include?.map((amenity) => {
-              const IconComponent = amenityIcons[amenity];
-              return (
-                <div key={amenity} className="flex gap-2">
-                  {IconComponent && (
-                    <IconComponent className="amenity-icon" size={30} />
-                  )}
-                  <p>{amenity}</p>
-                </div>
-              );
-            })}
-          </div>
+          )}
           <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
             <MdAddBusiness size={30} />
             Additional Information-{" "}

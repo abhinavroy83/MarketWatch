@@ -152,7 +152,7 @@ function Addrooms({ editdata }) {
           // console.log(res);
 
           alert("update room successfully");
-          navigate(`https://verydesi.com/rooms/${editdata._id}`);
+          navigate(`/rooms/${editdata._id}`);
         }
       } catch (error) {
         console.log("error while update room ", error);

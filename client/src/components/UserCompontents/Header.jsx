@@ -18,8 +18,6 @@ import { RxCross1 } from "react-icons/rx";
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
   const userID = useSelector((state) => state.auth.userID);
-  const [issignupmodel, setissignupmodalopen] = useState(false);
-  const [isloginmodalopen, setloginmodeopen] = useState(false);
   const [openhamburger, setopenhamburger] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,28 +42,6 @@ export default function Header() {
   useEffect(() => {
     fetchcount();
   }, [userID]);
-
-  // console.log(cartno);
-
-  // const handlelogout = () => {
-  //   confirmAlert({
-  //     title: "Confirm to Logout",
-  //     message: "Are you sure you want to logout?",
-  //     buttons: [
-  //       {
-  //         label: "Yes",
-  //         onClick: () => {
-  //           dispatch(logout());
-  //           localStorage.removeItem("userdetails");
-  //         },
-  //       },
-  //       {
-  //         label: "No",
-  //         onClick: () => {},
-  //       },
-  //     ],
-  //   });
-  // };
 
   const handlelogout = () => {
     confirmAlert({
