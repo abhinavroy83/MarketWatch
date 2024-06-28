@@ -224,7 +224,7 @@ function Addrooms({ editdata }) {
   }, [editdata, setValue]);
 
   return (
-    <div className=" w-full mx-auto mt-44">
+    <div className=" w-full mx-auto mt-[7%]">
       <div className="w-full max-w-[1400px] mx-auto items-center  justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-20">
           <form
