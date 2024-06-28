@@ -103,7 +103,7 @@ export default function Header() {
           <div className="flex justify-between items-center w-full mx-auto max-w-[1370px] lg:max-w-[1600px]">
             <div className="relative block lg:hidden">
               <button
-                className="items-center mt-1 ml-2"
+                className="items-center mt-1 ml-2 flex"
                 onClick={handlehamburger}
               >
                 {" "}
@@ -113,8 +113,8 @@ export default function Header() {
                 />{" "}
               </button>
               {openhamburger && (
-                <div className="inline-flex flex-col bg-[#232f3e] max-w-[200px] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[200px] left-0">
-                  <ul className="ml-3 space-x-8">
+                <div className="inline-flex flex-col bg-[#232f3e] max-w-[220px] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[200px] left-0">
+                  <ul className=" space-x-8">
                     <button
                       type="button"
                       onClick={() => {
@@ -123,56 +123,87 @@ export default function Header() {
                           handlehamburger;
                         }
                       }}
-                      className="rounded-md text-lg p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <RxHamburgerMenu /> Home
                     </button>
                   </ul>
-                  <ul className="ml-3 space-x-8 ">
+                  <ul className="space-x-8 ">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigate("/rooms");
+                      }}
+                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                    >
+                      Rooms
+                      <FaCaretDown
+                        className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                        size={15}
+                      />
+                    </button>
+                  </ul>
+                  <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
                         // navigate("/Events");
                         alert("Coming soon");
                       }}
-                      className="rounded-md text-lg p-2 text-white font-medium  transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
                     >
-                      EVENTS
+                      Events
+                      <FaCaretDown
+                        className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                        size={15}
+                      />
                     </button>
                   </ul>
-                  <ul className="ml-3 space-x-8 ">
+                  <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
-                        navigate("/rooms");
+                        navigate();
                       }}
-                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      ROOMS
+                      Jobs
+                      <FaCaretDown
+                        className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                        size={15}
+                      />
                     </button>
                   </ul>
-                  <ul className="ml-3 space-x-8 ">
+                  <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
                         // navigate("/bussiness");
                         alert("Coming soon");
                       }}
-                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      BUSSINESS
+                      Bussiness Listing
+                      <FaCaretDown
+                        className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                        size={15}
+                      />
                     </button>
                   </ul>
-                  <ul className="ml-3 space-x-8 ">
+                  <ul className="space-x-8 whitespace-nowrap">
                     <button
                       type="button"
                       onClick={() => {
                         // navigate("/Movie");
                         alert("Coming soon");
                       }}
-                      className="rounded-md text-lg p-2 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      MOVIES
+                      Movies & Entertainment
+                      <FaCaretDown
+                        className="group-hover:rotate-[360deg] transition-transform duration-300"
+                        size={15}
+                      />
                     </button>
                   </ul>
                 </div>

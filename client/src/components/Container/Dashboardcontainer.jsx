@@ -80,7 +80,7 @@ function DashConatiner({ children }) {
   };
 
   return (
-    <div className="mt-48 mx-auto px-4 flex max-w-[1500px] h-[700px] w-full m-auto overflow-hidden">
+    <div className="mt-[8%] mx-auto px-4 flex max-w-[1500px] h-[700px] w-full m-auto overflow-hidden">
       <div className="w-[18%] h-[900px] bg-[#0b5e86] border-2 p-2 flex flex-col font-roboto items-center">
         {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
@@ -125,7 +125,7 @@ function DashConatiner({ children }) {
               setbgcolor(true);
               navigate(`/myaccount/${userID}`);
             }}
-            className="rounded-md bg-transparent px-9 py-1 items-center flex gap-2 leading-8 self-start mt-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start mt-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <ImProfile size={22} /> Hello {username}
           </button>
