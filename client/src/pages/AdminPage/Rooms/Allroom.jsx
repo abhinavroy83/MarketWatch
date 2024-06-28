@@ -87,7 +87,7 @@ function Allroom() {
   };
 
   const renderRows = () => {
-    const itemsPerPage = 6;
+    const itemsPerPage = 5;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (

@@ -81,7 +81,7 @@ function Alluser() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
   const renderRows = () => {
-    const itemsPerPage = 8;
+    const itemsPerPage = 7;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
