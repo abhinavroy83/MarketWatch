@@ -33,12 +33,12 @@ function Ads() {
   const isloged = useSelector((state) => state.auth.status);
   const authstatus = useSelector((state) => state.auth.status);
 
-  console.log(authstatus);
+  // console.log(authstatus);
   useEffect(() => {
     const fetchdata = async () => {
       const res = await fetchcity();
       setcty(res.data.city);
-      console.log();
+      // console.log();
     };
   }, []);
   const [isloginmodalopen, setloginmodeopen] = useState(false);
@@ -97,7 +97,7 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-1 py-2 justify-between bg-white max-w-[1370px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
+    <div className="flex px-1 py-1 justify-between bg-white max-w-[1370px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       <Avalableloc isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className="flex items-center gap-2">
         <Link to={"/"} className="bg-cover bg-center flex">

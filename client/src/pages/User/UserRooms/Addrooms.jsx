@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
 import { useSelector } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
@@ -8,6 +8,8 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import authslice from "../../../store/authslice";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function Addrooms({ editdata }) {
   const currentLocation = useSelector((state) => state.auth.location);
@@ -138,7 +140,7 @@ function Addrooms({ editdata }) {
     if (editdata) {
       try {
         const res = await axios.put(
-          `http://localhost:8000/api/rooms/${editdata._id}`,
+          `https://api.verydesi.com/api/rooms/${editdata._id}`,
           roomdata,
           {
             headers: {
@@ -215,13 +217,36 @@ function Addrooms({ editdata }) {
       setValue("Smoking_policy", editdata?.Smoking_policy || "");
       setValue("Pet_friendly", editdata?.Pet_friendly || "");
       setValue("Open_house_schedule", editdata?.Open_house_schedule || "");
+      setValue("phone_number", editdata?.phone_number || "");
       setValue("address", editdata?.address || "");
+      setValue("zip_code", editdata?.zip_code || "");
       if (editdata.Imgurl) {
         setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
         setResimgurl(editdata.Imgurl);
       }
     }
   }, [editdata, setValue]);
+
+  const datainputref = useRef(null);
+
+  useEffect(() => {
+    const handleFocus = () => {
+      if (datainputref.current) {
+        datainputref.current.showPicker();
+      }
+    };
+
+    const input = datainputref.current;
+    if (input) {
+      input.addEventListener("focus", handleFocus);
+    }
+
+    return () => {
+      if (input) {
+        input.removeEventListener("focus", handleFocus);
+      }
+    };
+  }, []);
 
   return (
     <div className=" w-full mx-auto mt-[7%]">
@@ -243,7 +268,7 @@ function Addrooms({ editdata }) {
                   <select
                     {...field}
                     className="mt-6 font-semibold text-[25px] font-['udemy-regular'] bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
-                    onChange={(e) => field.onChange(e.target.value)} // Ensure field.onChange is called on change
+                    onChange={(e) => field.onChange(e.target.value)}
                   >
                     <option className="text-gray-600" value="" disabled hidden>
                       Select city
@@ -499,13 +524,18 @@ function Addrooms({ editdata }) {
                   Availability <span className=" text-red-500">*</span>
                 </label>
                 <div>
-                  <input
-                    className="h-100px w-[225px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="date"
-                    placeholder="Available from"
-                    {...register("Avaliblity_from", {
-                      required: "Available from is required",
-                    })}
+                  <Controller
+                    name="Avaliblity_from"
+                    control={control}
+                    render={({ field }) => (
+                      <DatePicker
+                        {...field}
+                        selected={field.value}
+                        onChange={(date) => field.onChange(date)}
+                        className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholderText="Available to"
+                      />
+                    )}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
                     {" "}
@@ -515,20 +545,19 @@ function Addrooms({ editdata }) {
                   </p>
                 </div>
                 <div>
-                  <input
-                    className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="date"
-                    placeholder="Available to"
-                    {...register("Available_to", {
-                      required: "Available to is required",
-                    })}
-                  />
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Available_to && (
-                      <p>{errors.Available_to.message}</p>
+                  <Controller
+                    name="Available_to"
+                    control={control}
+                    render={({ field }) => (
+                      <DatePicker
+                        {...field}
+                        selected={field.value}
+                        onChange={(date) => field.onChange(date)}
+                        className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholderText="Available to"
+                      />
                     )}
-                  </p>
+                  />
                 </div>
                 <div className="flex items-center gap-2">
                   <input type="checkbox" {...register("Immedite")} />
@@ -632,11 +661,18 @@ function Addrooms({ editdata }) {
                 <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                   $
                 </span>
-                <input
-                  {...register("Desposite")}
-                  type="number"
-                  placeholder="Rent"
-                  className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                <Controller
+                  name="Desposite"
+                  control={control}
+                  render={({ field }) => (
+                    <DatePicker
+                      {...field}
+                      selected={field.value}
+                      onChange={(date) => field.onChange(date)}
+                      className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      placeholderText="Available to"
+                    />
+                  )}
                 />
               </div>
               <div className="mt-10">
