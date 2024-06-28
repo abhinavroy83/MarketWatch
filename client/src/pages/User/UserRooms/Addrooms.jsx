@@ -215,7 +215,9 @@ function Addrooms({ editdata }) {
       setValue("Smoking_policy", editdata?.Smoking_policy || "");
       setValue("Pet_friendly", editdata?.Pet_friendly || "");
       setValue("Open_house_schedule", editdata?.Open_house_schedule || "");
+      setValue("phone_number", editdata?.phone_number || "");
       setValue("address", editdata?.address || "");
+      setValue("zip_code", editdata?.zip_code || "");
       if (editdata.Imgurl) {
         setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
         setResimgurl(editdata.Imgurl);
@@ -519,16 +521,8 @@ function Addrooms({ editdata }) {
                     className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="date"
                     placeholder="Available to"
-                    {...register("Available_to", {
-                      required: "Available to is required",
-                    })}
+                    {...register("Available_to")}
                   />
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Available_to && (
-                      <p>{errors.Available_to.message}</p>
-                    )}
-                  </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <input type="checkbox" {...register("Immedite")} />

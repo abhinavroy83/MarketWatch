@@ -31,12 +31,12 @@ function Ads() {
   const isloged = useSelector((state) => state.auth.status);
   const authstatus = useSelector((state) => state.auth.status);
 
-  console.log(authstatus);
+  // console.log(authstatus);
   useEffect(() => {
     const fetchdata = async () => {
       const res = await fetchcity();
       setcty(res.data.city);
-      console.log();
+      // console.log();
     };
   }, []);
   const [isloginmodalopen, setloginmodeopen] = useState(false);
