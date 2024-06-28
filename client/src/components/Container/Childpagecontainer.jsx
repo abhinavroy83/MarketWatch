@@ -69,7 +69,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
     setsubarea(subares);
   };
   return (
-    <div className={` w-full mt-40 h-full ${className}`}>
+    <div className={` w-full mt-[8%] h-full ${className}`}>
       <div className="flex flex-col lg:flex-row justify-center w-full max-w-[1600px] m-auto ">
         <div className=" w-full lg:w-4/5">
           {/* <div>
@@ -86,7 +86,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[320px] ml-[24px] lg:ml-0 m-2 h-5/6 font-['udemy-regular'] mt-7 bg-gray-200 py-5 px-5">
+        <aside className="max-w-[320px] ml-[24px] lg:ml-0 m-2 h-5/6 font-['udemy-regular']  bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             {weatherData ? (
               <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">

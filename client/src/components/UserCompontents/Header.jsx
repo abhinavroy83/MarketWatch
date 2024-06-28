@@ -100,7 +100,7 @@ export default function Header() {
       <div className="w-full fixed z-50 flex bg-white flex-col">
         <Ads />
         <div className="w-full bg-[#232f3e] shadow-2xl h-[39px] font-['udemy-regular'] items-center flex">
-          <div className="flex justify-between items-center max-w-[1600px] w-full m-auto">
+          <div className="flex justify-between items-center w-full mx-auto max-w-[1370px] lg:max-w-[1600px]">
             <div className="relative block lg:hidden">
               <button
                 className="items-center mt-1 ml-2"
@@ -125,7 +125,7 @@ export default function Header() {
                       }}
                       className="rounded-md text-lg p-2 text-white font-medium font-['udemy-regular'] transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
                     >
-                      HOME
+                      <RxHamburgerMenu /> Home
                     </button>
                   </ul>
                   <ul className="ml-3 space-x-8 ">
@@ -185,7 +185,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="flex gap-1 items-center py-1 text-white text-[15px] font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center py-1 text-white text-[16px] font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   <RxHamburgerMenu /> Home
                 </button>
@@ -196,7 +196,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/rooms");
                   }}
-                  className="flex gap-1 items-center py-1 group text-[15px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Rooms
                   <FaCaretDown
@@ -212,7 +212,7 @@ export default function Header() {
                     // navigate("/Events");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 text-[15px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
+                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
                 >
                   Events
                   <FaCaretDown
@@ -227,7 +227,7 @@ export default function Header() {
                   onClick={() => {
                     navigate();
                   }}
-                  className="flex gap-1 items-center py-1 text-[15px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Jobs
                   <FaCaretDown
@@ -243,7 +243,7 @@ export default function Header() {
                     // navigate("/bussiness");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 text-[15px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Bussiness Listing
                   <FaCaretDown
@@ -259,7 +259,7 @@ export default function Header() {
                     // navigate("/Movie");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 group rounded-md text-[15px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Movies & Entertainment
                   <FaCaretDown
@@ -276,14 +276,14 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => handleModal(false, true)}
-                  className="rounded-md py-1 text-[15px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="rounded-md py-1 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Sign Up
                 </button>
                 <button
                   type="button"
                   onClick={() => handleModal(true, false)}
-                  className="rounded-md py-1 text-[15px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="rounded-md py-1 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                 >
                   Log in
                 </button>
@@ -309,7 +309,7 @@ export default function Header() {
                   onClick={() => {
                     navigate(`/myaccount/${userID}`);
                   }}
-                  className="rounded-md py-2 text-[15px] text-white font-medium font-sans transition duration-300 ease-in-out"
+                  className="rounded-md py-2 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out"
                 >
                   My Account
                 </button>

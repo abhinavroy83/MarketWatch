@@ -242,7 +242,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="w-[120px] h-[35px] mt-6 font-semibold text-[25px] font-['udemy-regular'] text-21px bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
+                    className="mt-6 font-semibold text-[25px] font-['udemy-regular'] bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
                     onChange={(e) => field.onChange(e.target.value)} // Ensure field.onChange is called on change
                   >
                     <option className="text-gray-600" value="" disabled hidden>
