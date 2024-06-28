@@ -278,7 +278,7 @@ function Rooms() {
   }));
 
   return (
-    <div className=" mt-40 h-full w-full max-w-[1600px] mx-auto">
+    <div className=" mt-[6%] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -674,7 +674,7 @@ function Rooms() {
               </div>
             </div>
           </div>
-          {rooms.Amenities_include.length>1 && (
+          {rooms.Amenities_include.length > 1 && (
             <div>
               <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
                 <MdRoomPreferences size={30} />
