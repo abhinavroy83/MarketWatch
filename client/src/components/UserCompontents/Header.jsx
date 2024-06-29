@@ -249,14 +249,14 @@ export default function Header() {
               )}
             </div>
 
-            <div className="flex gap-2 overflow-auto mx-1 items-center hidden lg:flex">
+            <div className="flex gap-2 overflow-auto mx-1 items-center hidden lg:flex uppercase">
               <ul className="ml-1 space-x-8">
                 <button
                   type="button"
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="flex gap-1 p-1 group text-white text-[18px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 p-1 group text-white text-[18px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <IoHomeSharp
                     size={16}
@@ -271,7 +271,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/rooms");
                   }}
-                  className="flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <MdMeetingRoom
                     size={20}
@@ -291,7 +291,7 @@ export default function Header() {
                     // navigate("/Events");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   {" "}
                   <MdEventNote
@@ -307,7 +307,7 @@ export default function Header() {
                   onClick={() => {
                     navigate();
                   }}
-                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <MdOutlineWork
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -323,7 +323,7 @@ export default function Header() {
                     // navigate("/bussiness");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <FaBusinessTime
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -339,7 +339,7 @@ export default function Header() {
                     // navigate("/Movie");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <BiSolidMoviePlay
                     className="group-hover:rotate-[360deg] transition-transform duration-300"
@@ -349,7 +349,7 @@ export default function Header() {
                 </button>
               </ul>
             </div>
-            <div className=" flex justify-center items-center">
+            <div className=" flex justify-center items-center uppercase">
               <div>
                 {weatherData.weather && weatherData.weather.length > 0 && (
                   <img
@@ -364,9 +364,10 @@ export default function Header() {
                   <div className="">
                     <p className="ml-1 text-xl text-white flex gap-2 items-center">
                       {weatherData.name} /
-                      {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
-                      °C
-                      <VscEdit size={18} className="cursor-pointer"/>
+                      {/* {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)} */}
+                      {weatherData.main.temp}
+                      °F
+                      <VscEdit size={18} className="cursor-pointer" />
                     </p>
                   </div>
                 )}
