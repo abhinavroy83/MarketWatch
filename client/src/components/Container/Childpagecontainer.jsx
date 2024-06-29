@@ -16,6 +16,27 @@ function ChildContainer({ className, children, onLocationReceived }) {
   const [data, setdata] = useState([]);
   const [selectcity, setselectcity] = useState("");
   const [subareas, setsubarea] = useState("");
+  const [exchangeRate, setExchangeRate] = useState(null);
+  const [amount, setAmount] = useState(1);
+  const [convertedAmount, setConvertedAmount] = useState(null);
+
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        const response = await axios.get(
+          `https://v6.exchangerate-api.com/v6/ca2ecba4b423e1e50d379941/latest/INR`
+        );
+        const rates = response.data.conversion_rates;
+        const rate = rates.USD;
+        setExchangeRate(rate);
+        setConvertedAmount(amount * rate);
+      } catch (error) {
+        console.error("Error fetching exchange rates:", error);
+      }
+    };
+
+    fetchExchangeRate();
+  }, [amount]);
 
   useEffect(() => {
     let lat, lng;
@@ -88,7 +109,21 @@ function ChildContainer({ className, children, onLocationReceived }) {
         <aside className="max-w-[320px] ml-[24px] lg:ml-0 m-2 h-5/6 font-['udemy-regular'] bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
             <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-              <h1>$ 1 = Rs.72</h1>
+              <div>
+                <input
+                  type="number"
+                  value={amount}
+                  className=" border-red-500 border-2"
+                  onChange={(e) => setAmount(e.target.value)}
+                  min="1"
+                />
+              </div>
+              {exchangeRate && (
+                <div>
+                  <p className=" text-sm">Exchange Rate (INR to USD): {exchangeRate}</p>
+                  <p className=" text-sm" >Converted Amount: {convertedAmount} USD</p>
+                </div>
+              )}
             </div>
 
             <div className="mt-3">

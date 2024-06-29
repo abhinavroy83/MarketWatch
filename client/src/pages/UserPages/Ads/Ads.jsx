@@ -3,7 +3,7 @@ import { Container } from "../../../components";
 import WebsiteLogo from "../../../assets/website_logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Avalableloc from "./Avalableloc";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
@@ -20,9 +20,11 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { GiExitDoor } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
+import { FaHeart } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import Login from "../../../components/UserCompontents/Login";
 import Signup from "../../../components/UserCompontents/Signup";
+import axios from "axios";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -32,25 +34,34 @@ function Ads() {
   const [cty, setcty] = useState([]);
   const dispatch = useDispatch();
   const isloged = useSelector((state) => state.auth.status);
+  const userID = useSelector((state) => state.auth.userID);
   const authstatus = useSelector((state) => state.auth.status);
   const [isHovered, setIsHovered] = useState(false);
+  const [cartno, setCartno] = useState("1");
+  const navigate = useNavigate();
   // console.log(authstatus);
+  const fetchcount = async () => {
+    if (userID) {
+      try {
+        const res = await axios.get(
+          ` https://api.verydesi.com/api/getlist/${userID}`
+        );
+        if (res.data.list.status === "error") {
+          setCartno("");
+        } else {
+          setCartno(res.data.list.length);
+        }
+      } catch (error) {
+        console.log("error during fetcing count api in header", error);
+      }
+    }
+  };
   useEffect(() => {
-    const fetchdata = async () => {
-      const res = await fetchcity();
-      setcty(res.data.city);
-      // console.log();
-    };
-  }, []);
+    fetchcount();
+  }, [userID]);
+
   const [isloginmodalopen, setloginmodeopen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
-  const handleloginmodelopen = () => {
-    setloginmodeopen(true);
-  };
-  const isloginmodelclose = () => {
-    setloginmodeopen(false);
-  };
 
   const toggleAdminMenu = () => {
     setOpenMenu(!openMenu);
@@ -135,7 +146,20 @@ function Ads() {
       {isloged ? (
         <div className="flex gap-4 items-center cursor-pointer">
           <MdOutlineBedroomParent size={25} />
-          <FaRegHeart size={22} />
+          <div className="relative mr-4">
+            <FaRegHeart
+              className="cursor-pointer"
+              size={22}
+              onClick={() => {
+                navigate(`/dashboard/wishlist/${userID}`);
+              }}
+            />
+            {cartno > 0 && (
+              <div className="absolute top-[0.2rem] right-[-0.2rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-4 h-4 flex justify-center items-center rounded-full">
+                {cartno}
+              </div>
+            )}
+          </div>
           <div
             className="relative"
             onMouseEnter={() => setOpenMenu(true)}
@@ -181,9 +205,18 @@ function Ads() {
                   </div>
                 </div>
                 <div className="px-6 flex flex-col gap-5">
-                  <p className="mt-2 flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]">
+                  <Link
+                    to={`/myaccount/${userID}`}
+                    className="mt-2 flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]"
+                  >
+                    <RiContactsFill /> My Account
+                  </Link>
+                  <Link
+                    to={`/dashboard/profile/${userID}`}
+                    className="mt-2 flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]"
+                  >
                     <RiContactsFill /> Edit Profile
-                  </p>
+                  </Link>
                   {/* <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
                 <ImProfile /> Personality Profile
               </p> */}
