@@ -278,7 +278,7 @@ function Rooms() {
   }));
 
   return (
-    <div className=" mt-[6%] h-full w-full max-w-[1600px] mx-auto">
+    <div className=" mt-[5%] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -293,12 +293,11 @@ function Rooms() {
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className=" w-full mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
-        <div className="flex text-[20px] gap-1">
+        <div className="flex text-[20px] items-center pb-2 text-center gap-1">
           <Link to={"/"}>
-            {" "}
-            <span>Home</span>{" "}
+            <span className="  text-xl  ">Home </span>{" "}
           </Link>
-          <span>{`>Room`}</span>
+          <span className=" text-xl ">{`>> Room`}</span>
         </div>
         <div className="flex justify-between items-start">
           {hasNextRoom ? (

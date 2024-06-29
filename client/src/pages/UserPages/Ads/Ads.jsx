@@ -163,7 +163,7 @@ function Ads() {
             )}
           </div>
           <div
-            className="relative"
+            className="relative inline-block"
             onMouseEnter={() => setOpenMenu(true)}
             onMouseLeave={() => setOpenMenu(false)}
           >
@@ -188,7 +188,7 @@ function Ads() {
             </div>
 
             {openMenu && (
-              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[56px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
+              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[45px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
                 <div className="bg-[#232f3e] p-2 flex text-white gap-4 items-center">
                   <img
                     className="rounded-full w-[50px] h-[50px]"
@@ -220,8 +220,8 @@ function Ads() {
                     <RiContactsFill /> Edit Profile
                   </Link>
                   {/* <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
-                <ImProfile /> Personality Profile
-              </p> */}
+                       <ImProfile /> Personality Profile
+                  </p> */}
                   <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
                     <IoSettingsSharp /> Data & Settings
                   </p>
