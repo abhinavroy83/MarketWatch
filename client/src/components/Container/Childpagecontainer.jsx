@@ -44,7 +44,6 @@ function ChildContainer({ className, children, onLocationReceived }) {
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };
-  // console.log(selectcity);
   useEffect(() => {
     const fetchdata = async () => {
       const citys = await fetchcity();

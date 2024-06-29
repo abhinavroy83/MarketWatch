@@ -318,63 +318,12 @@ export default function Header() {
                 </button>
               </ul>
             </div>
-            {!authstatus ? (
-              <div className="hidden space-x-2 lg:block">
-                <Signup />
-                <Login />
-                <button
-                  type="button"
-                  onClick={() => handleModal(false, true)}
-                  className="rounded-md py-1 text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white hover:text-[#232f3e]"
-                >
-                  Sign Up
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleModal(true, false)}
-                  className="rounded-md py-1 text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white hover:text-[#232f3e]"
-                >
-                  Log in
-                </button>
-              </div>
-            ) : (
-              <div className="flex items-center">
-                <div className="relative mr-4">
-                  <FaHeart
-                    className="text-white hover:text-red-400 cursor-pointer"
-                    size={17}
-                    onClick={() => {
-                      navigate(`/dashboard/wishlist/${userID}`);
-                    }}
-                  />
-                  {cartno > 0 && (
-                    <div className="absolute top-[0.2rem] right-[-0.2rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-4 h-4 flex justify-center items-center rounded-full">
-                      {cartno}
-                    </div>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate(`/myaccount/${userID}`);
-                  }}
-                  className="p-1 text-[18px] text-white group flex gap-1 items-center font-medium font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
-                >
-                  <RiAccountPinBoxFill
-                    className="group-hover:rotate-[360deg] transition-transform duration-300 "
-                    size={20}
-                  />
-                  My Account
-                </button>
-                {/* <button
-                  type="button"
-                  onClick={handlelogout}
-                  className="rounded-md text-lg lg:text-xl px-2 py-1 text-white font-medium transition duration-300 ease-in-out hover:text-[#0b5e86] hover:bg-white hover:shadow-md"
-                >
-                  LOGOUT
-                </button> */}
-              </div>
-            )}
+            <div>
+              {
+                
+              }
+            </div>
+
           </div>
         </div>
       </div>
