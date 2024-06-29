@@ -292,7 +292,7 @@ function Rooms() {
         theme="dark"
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-      <div className=" w-full mx-auto px-4 py-2 mt-5 font-['udemy-regular']">
+      <div className=" w-full mx-auto px-4 py-2 mt-10 font-['udemy-regular']">
         <div className="flex text-[20px] items-center pb-2 text-center gap-1">
           <Link to={"/"}>
             <span className="  text-xl  ">Home </span>{" "}
@@ -303,7 +303,7 @@ function Rooms() {
           {hasNextRoom ? (
             <div>
               <div
-                className="text-center"
+                className="text-center flex gap-2"
                 onClick={fetchPreviousRoom}
                 disabled={!hasNextRoom}
               >
@@ -320,6 +320,24 @@ function Rooms() {
                     PREV
                   </button>
                 </button>
+                <div
+              className="flex justify-end"
+              onClick={fetchNextRoom}
+              disabled={!hasPreviousRoom}
+            >
+                <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                <button
+                  // type="submit"
+                  className="flex text-[22px] items-center text-white font-bold"
+                >
+                  NEXT
+                </button>
+                <MdKeyboardDoubleArrowRight
+                  size={45}
+                  className="flex text-[22px] items-center text-white font-bold"
+                />
+              </button>
+            </div>
               </div>
               {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
               {rooms.Adname && truncateWords(rooms.Adname, 6)}
@@ -330,7 +348,7 @@ function Rooms() {
           )}
 
           <div className="flex gap-4 items-center self-center">
-            <div
+            {/* <div
               className="flex justify-end"
               onClick={fetchNextRoom}
               disabled={!hasPreviousRoom}
@@ -347,21 +365,21 @@ function Rooms() {
                   className="flex text-[22px] items-center text-white font-bold"
                 />
               </button>
-            </div>
+            </div> */}
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
-                  className="cursor-pointer p-2 bg-red-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600"
+                  className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600"
                   onClick={makewishlist}
                 >
                   <FaHeart color="#fff" size={30} />
                 </div>
               ) : (
                 <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full"
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
                   onClick={unwish}
                 >
-                  <FaHeart color="red" size={30} />
+                  <FaHeart color="#fff" size={30} />
                 </div>
               )}
               <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
@@ -379,6 +397,7 @@ function Rooms() {
               >
                 <FaShare className="text-black" /> Share Now
               </button>
+
               {isSharePopupOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
                   <div className="bg-white rounded-lg shadow-lg">
