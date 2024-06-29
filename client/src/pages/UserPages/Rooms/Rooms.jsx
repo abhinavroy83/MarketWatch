@@ -449,7 +449,7 @@ function Rooms() {
               </div>
               <div className="flex justify-between my-2">
                 <p className="text-[25px] capitalize">{rooms.city}</p>
-                <p className=" capitalize">{rooms.Expected_Rooms}</p>
+                <p className=" capitalize">$ {rooms.Expected_Rooms}</p>
               </div>
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
@@ -674,7 +674,7 @@ function Rooms() {
               </div>
             </div>
           </div>
-          {rooms.Amenities_include.length>1 && (
+          {rooms.Amenities_include.length > 1 && (
             <div>
               <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
                 <MdRoomPreferences size={30} />
