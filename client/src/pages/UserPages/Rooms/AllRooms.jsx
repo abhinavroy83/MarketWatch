@@ -9,12 +9,14 @@ import Loader from "../../../components/UserCompontents/Loader";
 import Pagination from "../../../components/SharedCompontents/Pagination";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Roomcardforsimilar from "./Roomcardforsimilar";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
   const usercity = useSelector((state) => state.auth.city);
   const isverified = useSelector((state) => state.auth.isverified);
   const authstatus = useSelector((state) => state.auth.status);
+  const [similarrooms, setsimilarrooms] = useState([]);
   const userID = useSelector((state) => state.auth.userID);
   const [locationsndString, setLocationsndString] = useState("");
   const [rooms, setRooms] = useState([]);
@@ -37,9 +39,28 @@ function AllRooms() {
     }
   };
 
+  const getRoomonlocation = async () => {
+    try {
+      const res = await axios.get(
+        `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+      );
+      setsimilarrooms(res.data.Allrooms);
+      // console.log(res.data.Allrooms);
+    } catch (error) {
+      console.log("error during fetching api", error);
+    }
+  };
+
+  const renderRooms = () => {
+    return similarrooms.map((item) => (
+      <Roomcardforsimilar {...item} key={item._id} />
+    ));
+  };
+
   useEffect(() => {
     if (currentloc && currentloc.lat && currentloc.lng) {
       getRooms();
+      getRoomonlocation();
       const loc = {
         lat: currentloc.lat,
         lng: currentloc.lng,
@@ -137,6 +158,26 @@ function AllRooms() {
                 paginate={paginate}
               />
             </>
+          )}
+          {rooms.length < 6 && (
+            <div>
+              <>
+                <p className="text-[26px] capitalize text-black font-bold font-['udemy-bold'] mt-7">
+                  More Room on Your Current location{" "}
+                </p>
+                <div className="mt-4 ">
+                  {similarrooms.map((item) => (
+                    <Roomcard2nd key={item._id} {...item} />
+                  ))}
+                </div>
+                <Pagination
+                  currentPage={currentPage}
+                  totalRooms={similarrooms.length}
+                  roomsPerPage={roomsPerPage}
+                  paginate={paginate}
+                />
+              </>
+            </div>
           )}
         </div>
       ) : (

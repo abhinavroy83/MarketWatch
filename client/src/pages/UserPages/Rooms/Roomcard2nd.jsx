@@ -1,5 +1,6 @@
 import React from "react";
 import femaleLogo from "../../../assets/female.png";
+import maleLogo from "../../../assets/male.jpeg";
 import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
@@ -46,9 +47,19 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           : "justify-start border shadow-md p-3 rounded-xl hover:shadow-lg"
       }`}
     >
-      <div className="h-[50px] w-[50px]">
-        <img className="" src={femaleLogo} alt="" />
-      </div>
+      <img
+        className="flex"
+        height={50}
+        width={50}
+        src={
+          item.Preferred_gender === "Female only"
+            ? femaleLogo
+            : item.Preferred_gender === "Male only"
+            ? maleLogo
+            : femaleLogo
+        }
+        alt=""
+      />{" "}
       <div className="block grow">
         <h1 className="text-[21px] lg:text-[23px] font-['udemy-regular'] text-[#3a3247]">
           {item.Title?.length > 0 ? truncateCharacters(item.Title, 80) : ""}

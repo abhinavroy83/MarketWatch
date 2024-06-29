@@ -192,9 +192,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           height={35}
           width={35}
           src={
-            item.Preferred_gender === "female"
+            item.Preferred_gender === "Female only"
               ? femaleLogo
-              : item.Preferred_gender === "male"
+              : item.Preferred_gender === "Male only"
               ? maleLogo
               : femaleLogo
           }
