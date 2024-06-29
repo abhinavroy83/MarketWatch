@@ -8,7 +8,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
-import { IoHeartCircleOutline } from "react-icons/io5";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
@@ -23,7 +22,6 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const unnotify = () => toast("Remove from Wishlist.");
 
   const makewishlist = async (_id) => {
-    // console.log(_id);
     try {
       const dat = {
         roomId: _id,
@@ -50,6 +48,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       console.log(error);
     }
   };
+
   const unwish = async (_id) => {
     try {
       const res = await axios.delete(
