@@ -21,6 +21,8 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { GiExitDoor } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import Login from "../../../components/UserCompontents/Login";
+import Signup from "../../../components/UserCompontents/Signup";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -92,13 +94,17 @@ function Ads() {
   };
 
   const handlemModal = (loginModalState) => {
+    // console.log(loginModalState);
     dispatch(modalopen({ isloginmodalopen: loginModalState }));
   };
 
   return (
     <div className="flex px-1 py-1 justify-between bg-white max-w-[1370px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
+
       <div className="flex items-center gap-2">
+        <Login />
+        <Signup />
         <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
@@ -109,7 +115,7 @@ function Ads() {
           />
         </Link>
         <div
-          className="relative inline-block text-left"
+          className="relative inline-block "
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -130,12 +136,14 @@ function Ads() {
         <div className="flex gap-4 items-center cursor-pointer">
           <MdOutlineBedroomParent size={25} />
           <FaRegHeart size={22} />
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenMenu(true)}
+            onMouseLeave={() => setOpenMenu(false)}
+          >
             <div
               className="items-center justify-center flex cursor-pointer group"
               // onClick={toggleAdminMenu}
-              onMouseEnter={() => setOpenMenu(true)}
-              onMouseLeave={() => setOpenMenu(false)}
             >
               <img
                 className="rounded-full w-[45px] h-[45px]"
@@ -154,7 +162,7 @@ function Ads() {
             </div>
 
             {openMenu && (
-              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[63px] right-[2px] w-[270px] shadow-lg shadow-black h-fit z-50">
+              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[30px] right-[2px] w-[270px] shadow-lg shadow-black h-80 ">
                 <div className="bg-[#232f3e] p-2 flex text-white gap-4 items-center">
                   <img
                     className="rounded-full w-[50px] h-[50px]"

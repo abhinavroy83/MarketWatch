@@ -5,7 +5,7 @@ import axios from "axios";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { UserImage, login as authlogin, cities } from "../../store/authslice";
-import { modalopen } from "../../store/modalslice";
+import { modalclose, modalopen } from "../../store/modalslice";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -38,7 +38,7 @@ function Login() {
       );
       if (res.data.status == "success") {
         // console.log(res.data.data._id);
-        toast.success("Successfully logged");
+        // toast.success("Successfully logged");
         // console.log("city", res.data.data.city);
         // notify();
         localStorage.setItem("userdetails", JSON.stringify(res));
@@ -53,6 +53,7 @@ function Login() {
         );
         dispatch(cities({ city: res.data.data.city }));
         dispatch(UserImage({ userimg: res.data.data.userimg }));
+        dispatch(modalclose(isLoginModalOpen));
         Navigate("/");
       } else if (res.data.Status === "Incorrect password") {
         alert("incorrect password");
@@ -64,8 +65,6 @@ function Login() {
     } catch (error) {
       console.log(error);
     }
-
-    
   };
 
   const handleModal = (loginModalState, signUpModalState) => {
@@ -151,10 +150,10 @@ function Login() {
             </div>
           </div>
           <div className="w-50 px-10 items-center grow">
-          <RxCross1 
+            <RxCross1
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
-          />
+            />
             <h1 className="text-[30px] font-bold text-[#0b5e86] text-center">
               Login
             </h1>

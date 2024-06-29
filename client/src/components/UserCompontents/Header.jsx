@@ -30,6 +30,10 @@ export default function Header() {
   const [openhamburger, setopenhamburger] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [weatherData, setwhetherdata] = useState([]);
+  const currentloc = useSelector((state) => state.auth.location);
+  const city = useSelector((state) => state.auth.city);
+
   const [cartno, setCartno] = useState("");
 
   const fetchcount = async () => {
@@ -51,6 +55,32 @@ export default function Header() {
   useEffect(() => {
     fetchcount();
   }, [userID]);
+
+  useEffect(() => {
+    let lat, lng;
+    if (currentloc) {
+      lat = currentloc.lat;
+      lng = currentloc.lng;
+    } else {
+      return;
+    }
+    axios
+      .get(
+        city
+          ? `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+              city
+            )}&appid=5e414d6a2d51b65b62d9b463859ae456`
+          : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5e414d6a2d51b65b62d9b463859ae456`
+      )
+      .then((res) => {
+        setwhetherdata(res.data);
+      })
+      .catch((error) => console.log("Error during fetcing whether", error));
+  }, [currentloc, city]);
+
+  const convertKelvinToCelsius = (kelvin) => {
+    return kelvin - 273.15;
+  };
 
   const handlelogout = () => {
     confirmAlert({
@@ -318,12 +348,28 @@ export default function Header() {
                 </button>
               </ul>
             </div>
-            <div>
-              {
-                
-              }
+            <div className=" flex justify-center items-center">
+              <div>
+                {weatherData.weather && weatherData.weather.length > 0 && (
+                  <img
+                    className=" w-16 h-14 items-center justify-center border-full border-white"
+                    src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+                    alt="logo"
+                  />
+                )}
+              </div>
+              <div>
+                {weatherData.main && (
+                  <div>
+                    <p className=" text-2xl text-white ">
+                      {weatherData.name} / 
+                       {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
+                      °C
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
-
           </div>
         </div>
       </div>

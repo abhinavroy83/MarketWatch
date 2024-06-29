@@ -87,84 +87,16 @@ function ChildContainer({ className, children, onLocationReceived }) {
         </div>
         <aside className="max-w-[320px] ml-[24px] lg:ml-0 m-2 h-5/6 font-['udemy-regular'] bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
-            {weatherData ? (
-              <div className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-['udemy-regular'] mb-3 shadow-sm shadow-[#000]">
-                <div className="text-[30px] border-b-2 border-white bg-white/40  text-black rounded-tl-lg p-1 flex items-center gap-2">
-                  <FaMapMarkedAlt className="ml-2" />
-                  {weatherData.name}
-                </div>
-                <div className="flex w-full flex-wrap ">
-                  <div className="flex text-white text-[40px] font-['udemy-regular'] gap-2 px-1 justify-between">
-                    <div>
-                      {weatherData.weather &&
-                        weatherData.weather.length > 0 && (
-                          <img
-                            className="w-[6.9rem] h-13 items-center justify-center border-full border-white"
-                            src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
-                            alt="logo"
-                          />
-                        )}
-                    </div>
-                    <div className="block items-center ml-1 ">
-                      <div>
-                        {weatherData.main && (
-                          <div>
-                            <p>
-                              {convertKelvinToCelsius(
-                                weatherData.main.temp
-                              ).toFixed(1)}
-                              °C
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                      <div className="items-center gap-3 text-[29px] flex-grow">
-                        {weatherData.weather && (
-                          <p>{weatherData.weather[0].main}</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex text-[25px] items-center gap-3 p-1 text-white mb-2">
-                    <article className="items-center flex gap-2 justify-center">
-                      <FaDroplet size={25} />
-                      {weatherData.main && <p>{weatherData.main.humidity}%</p>}
-                    </article>
-                    <p className="flex items-center gap-2">
-                      <MdDateRange />
-                      24-3-2024
-                    </p>
-                  </div>
-                  {/* <div className="items-center gap-3 flex text-[29px] flex-grow p-1">
-                    {weatherData.weather && (
-                      <p>{weatherData.weather[0].main}</p>
-                    )}
-                    <article className="items-center flex gap-2">
-                      <FaDroplet size={25}/>
-                      {weatherData.main && <p>{weatherData.main.humidity}%</p>}
-                    </article>
-                  </div> */}
-                </div>
-                {/* <p className="mt-2 text-cyan-200 text-[20px]">
-                  from OpenWeatherMap
-                </p> */}
-              </div>
-            ) : (
-              <p>Loading...</p>
-            )}
             <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <h1>$ 1 = Rs.72</h1>
             </div>
-            <div className="text-[23px] p-2 mt-1 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-              <h1>1 BTC = $ 70 K</h1>
-            </div>
+
             <div className="mt-3">
               <LeafletMap
                 onLocationReceived={currentloc}
                 style={{ height: "300px", width: "280px" }}
               />
             </div>
-
             {/* <div className="bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
               <h1 className="text-2xl font-semibold text-white mt-5 ml-5">
                 Services
