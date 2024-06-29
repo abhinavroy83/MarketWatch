@@ -108,7 +108,7 @@ function Signup() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: 740,
-            height: 620,
+            height: 560,
             border: "none",
             padding: "0",
             backgroundColor: "#FFF",
@@ -161,7 +161,7 @@ function Signup() {
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
-                <div className="flex gap-5 mt-5">
+                <div className="flex gap-3 mt-3">
                   <Input
                     label="First Name"
                     Placeholder="First name"
@@ -181,8 +181,8 @@ function Signup() {
                     errorMessage={errors.lastName?.message}
                   />
                 </div>
-                <div className="flex flex-col gap-3 mt-3">
-                <div className="flex gap-5">
+                <div className="flex flex-col gap-1 mt-1">
+                <div className="flex gap-3">
                   <Input
                     label="Email"
                     Placeholder="Email"
@@ -326,7 +326,7 @@ function Signup() {
                   )} */}
                   <div className="text-center">
                     <button
-                      className="mt-3 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="mt-2 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                      Create Account
