@@ -280,7 +280,7 @@ function Rooms() {
   return (
     <div className=" mt-[5%] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -477,6 +477,7 @@ function Rooms() {
                     authstatus && "flex-row-reverse"
                   } justify-between `}
                 >
+
                   <button
                     type="button"
                     onClick={handleloginmodelopen}
