@@ -4,6 +4,8 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { useDispatch } from "react-redux";
 import { cities, login } from "../../../store/authslice";
 import { RxCross1 } from "react-icons/rx";
+import { IoLocationOutline } from "react-icons/io5";
+import { IoLocationSharp } from "react-icons/io5";
 
 Modal.setAppElement("#root");
 function Avalableloc({ isOpen, onClose }) {
@@ -27,19 +29,21 @@ function Avalableloc({ isOpen, onClose }) {
   };
 
   return (
-    <div className="flex flex-col absolute left-0 top-11 shadow-lg shadow-gray-700 mt-2 w-72 h-[90] bg-white justify-center mx-auto font-['udemy-regular'] ">
+    <div className="flex flex-col absolute left-0 top-7 shadow-lg p-2 shadow-gray-700 mt-2 w-[400px] h-[90] bg-white justify-center mx-auto font-['udemy-regular'] border-2 rounded-md border-black">
       {" "}
       {/* <RxCross1
         className="h-5 w-5 text-white absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
         onClick={onClose}
       /> */}
-      <p className="font-['udemy-regular'] text-[18px] p-2 bg-[#232f3e] shadow-2xl text-white">
-        Here we show Available location
+      <p className="font-['udemy-regular'] text-[20px] text-black flex gap-1 items-center">
+        <IoLocationSharp />
+        USA
       </p>
+      <p className="text-[16px] font-bold px-2">Nearby Cities</p>
       <ul className="text-[18px] p-3">
         {cty.map((item, index) => (
           <li
-            className="w-[80%] cursor-pointer px-3 py-1.5 ease-in-out duration-150 whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
+            className="w-[80%] cursor-pointer px-3 py-1.5 ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
             key={index}
             onClick={() => handleLocation(item)}
           >

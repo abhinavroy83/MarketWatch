@@ -26,6 +26,7 @@ import Login from "../../../components/UserCompontents/Login";
 import Signup from "../../../components/UserCompontents/Signup";
 import axios from "axios";
 import { RiAccountPinCircleFill } from "react-icons/ri";
+import { IoLocationSharp } from "react-icons/io5";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -127,12 +128,12 @@ function Ads() {
           />
         </Link>
         <div
-          className="relative inline-block "
+          className="relative inline-block"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-1 group">
-            <GrLocation size={20} /> {currntcty}
+            <IoLocationSharp size={20} /> {currntcty}
             <MdOutlineKeyboardArrowDown
               className={`transition-transform duration-300 ${
                 isHovered ? "rotate-180" : ""
@@ -225,7 +226,7 @@ function Ads() {
                     <IoSettingsSharp /> Data & Settings
                   </p>
                   <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
-                    <IoIosHelpCircle size={25}/> Help
+                    <IoIosHelpCircle size={25} /> Help
                   </p>
                   <p
                     onClick={handlelogout}
