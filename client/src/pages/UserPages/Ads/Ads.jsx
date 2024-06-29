@@ -25,6 +25,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import Login from "../../../components/UserCompontents/Login";
 import Signup from "../../../components/UserCompontents/Signup";
 import axios from "axios";
+import { RiAccountPinCircleFill } from "react-icons/ri";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -186,7 +187,7 @@ function Ads() {
             </div>
 
             {openMenu && (
-              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[30px] right-[2px] w-[270px] shadow-lg shadow-black h-80 ">
+              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[56px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
                 <div className="bg-[#232f3e] p-2 flex text-white gap-4 items-center">
                   <img
                     className="rounded-full w-[50px] h-[50px]"
@@ -199,36 +200,36 @@ function Ads() {
                     alt={"not found"}
                   />
                   <div className="flex flex-col">
-                    <p className="flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center ">
+                    <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center ">
                       {name}
                     </p>
                   </div>
                 </div>
-                <div className="px-6 flex flex-col gap-5">
+                <div className="px-2 flex flex-col gap-1">
                   <Link
                     to={`/myaccount/${userID}`}
-                    className="mt-2 flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]"
+                    className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white"
                   >
-                    <RiContactsFill /> My Account
+                    <RiAccountPinCircleFill /> My Account
                   </Link>
                   <Link
                     to={`/dashboard/profile/${userID}`}
-                    className="mt-2 flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]"
+                    className="flex items-center text-[18px] gap-2 p-2 whitespace-nowrap text-ellipsis hover:bg-[#232f3e] hover:text-white overflow-auto text-center cursor-pointer "
                   >
                     <RiContactsFill /> Edit Profile
                   </Link>
                   {/* <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
                 <ImProfile /> Personality Profile
               </p> */}
-                  <p className="flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]">
+                  <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
                     <IoSettingsSharp /> Data & Settings
                   </p>
-                  <p className="flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86]">
-                    <IoIosHelpCircle /> Help
+                  <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
+                    <IoIosHelpCircle size={25}/> Help
                   </p>
                   <p
                     onClick={handlelogout}
-                    className="flex items-center text-[20px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] mb-4"
+                    className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white"
                   >
                     <BiLogOut /> Logout{" "}
                   </p>
