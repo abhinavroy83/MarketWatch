@@ -27,7 +27,7 @@ function Avalableloc({ isOpen, onClose }) {
   };
 
   return (
-    <div className="flex flex-col absolute left-0 top-11 shadow-lg shadow-gray-700 mt-2 w-72 h-[90] bg-white justify-center mx-auto font-['udemy-regular'] ">
+    <div className="flex flex-col absolute left-0 top-3 shadow-lg shadow-gray-700 mt-2 w-72 h-[90] bg-white justify-center mx-auto font-['udemy-regular'] ">
       {" "}
       {/* <RxCross1
         className="h-5 w-5 text-white absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
