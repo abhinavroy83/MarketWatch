@@ -15,6 +15,14 @@ import { RxCross1 } from "react-icons/rx";
 import { FaHeart } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaCaretDown } from "react-icons/fa";
+import { MdMeetingRoom } from "react-icons/md";
+import { IoHome } from "react-icons/io5";
+import { IoHomeSharp } from "react-icons/io5";
+import { MdEventNote } from "react-icons/md";
+import { MdOutlineWork } from "react-icons/md";
+import { FaBusinessTime } from "react-icons/fa6";
+import { BiSolidMoviePlay } from "react-icons/bi";
+import { RiAccountPinBoxFill } from "react-icons/ri";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -99,7 +107,7 @@ export default function Header() {
     <div className="relative">
       <div className="w-full fixed z-50 flex bg-white flex-col">
         <Ads />
-        <div className="w-full bg-[#232f3e] shadow-2xl h-[39px] font-['udemy-regular'] items-center flex">
+        <div className="w-full bg-[#232f3e] shadow-2xl h-[45px] font-['udemy-regular'] items-center flex">
           <div className="flex justify-between items-center w-full mx-auto max-w-[1370px] lg:max-w-[1600px]">
             <div className="relative block lg:hidden">
               <button
@@ -113,7 +121,7 @@ export default function Header() {
                 />{" "}
               </button>
               {openhamburger && (
-                <div className="inline-flex flex-col bg-[#232f3e] max-w-[220px] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[200px] left-0">
+                <div className="inline-flex flex-col bg-[#232f3e] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[230px] left-0">
                   <ul className=" space-x-8">
                     <button
                       type="button"
@@ -125,7 +133,7 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      <RxHamburgerMenu /> Home
+                      <IoHome /> Home
                     </button>
                   </ul>
                   <ul className="space-x-8 ">
@@ -136,11 +144,11 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      Rooms
-                      <FaCaretDown
+                      <MdMeetingRoom
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
+                      Rooms
                     </button>
                   </ul>
                   <ul className="space-x-8 ">
@@ -152,11 +160,11 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
                     >
-                      Events
-                      <FaCaretDown
+                      <MdEventNote
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
+                      Events
                     </button>
                   </ul>
                   <ul className="space-x-8 ">
@@ -167,11 +175,11 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      Jobs
-                      <FaCaretDown
+                      <MdOutlineWork
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
+                      Jobs
                     </button>
                   </ul>
                   <ul className="space-x-8 ">
@@ -183,11 +191,11 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      Bussiness Listing
-                      <FaCaretDown
+                      <FaBusinessTime
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
+                      Bussiness Listing
                     </button>
                   </ul>
                   <ul className="space-x-8 whitespace-nowrap">
@@ -199,26 +207,31 @@ export default function Header() {
                       }}
                       className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
                     >
-                      Movies & Entertainment
-                      <FaCaretDown
+                      <BiSolidMoviePlay
                         className="group-hover:rotate-[360deg] transition-transform duration-300"
                         size={15}
                       />
+                      Movies & Entertainment
                     </button>
                   </ul>
                 </div>
               )}
             </div>
-            <div className="flex gap-2 overflow-auto mx-1 items-center">
+
+            <div className="flex gap-2 overflow-auto mx-1 items-center hidden lg:flex">
               <ul className="ml-1 space-x-8">
                 <button
                   type="button"
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="flex gap-1 items-center py-1 text-white text-[16px] font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 p-1 group text-white text-[18px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
-                  <RxHamburgerMenu /> Home
+                  <IoHomeSharp
+                    size={16}
+                    className="group-hover:rotate-[360deg] transition-transform duration-300 mt-1"
+                  />{" "}
+                  Home
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
@@ -227,13 +240,17 @@ export default function Header() {
                   onClick={() => {
                     navigate("/rooms");
                   }}
-                  className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
+                  <MdMeetingRoom
+                    size={20}
+                    className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                  />
                   Rooms
-                  <FaCaretDown
+                  {/* <FaCaretDown
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
                     size={15}
-                  />
+                  /> */}
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
@@ -243,13 +260,14 @@ export default function Header() {
                     // navigate("/Events");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
+                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
-                  Events
-                  <FaCaretDown
+                  {" "}
+                  <MdEventNote
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
-                    size={15}
+                    size={17}
                   />
+                  Events
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
@@ -258,13 +276,13 @@ export default function Header() {
                   onClick={() => {
                     navigate();
                   }}
-                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
-                  Jobs
-                  <FaCaretDown
+                  <MdOutlineWork
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
-                    size={15}
+                    size={17}
                   />
+                  Jobs
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
@@ -274,13 +292,13 @@ export default function Header() {
                     // navigate("/bussiness");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
-                  Bussiness Listing
-                  <FaCaretDown
+                  <FaBusinessTime
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
-                    size={15}
+                    size={17}
                   />
+                  Bussiness Listing
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
@@ -290,13 +308,13 @@ export default function Header() {
                     // navigate("/Movie");
                     alert("Coming soon");
                   }}
-                  className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
-                  Movies & Entertainment
-                  <FaCaretDown
+                  <BiSolidMoviePlay
                     className="group-hover:rotate-[360deg] transition-transform duration-300"
-                    size={15}
+                    size={17}
                   />
+                  Movies & Entertainment
                 </button>
               </ul>
             </div>
@@ -307,14 +325,14 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => handleModal(false, true)}
-                  className="rounded-md py-1 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="rounded-md py-1 text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white hover:text-[#232f3e]"
                 >
                   Sign Up
                 </button>
                 <button
                   type="button"
                   onClick={() => handleModal(true, false)}
-                  className="rounded-md py-1 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                  className="rounded-md py-1 text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white hover:text-[#232f3e]"
                 >
                   Log in
                 </button>
@@ -340,8 +358,12 @@ export default function Header() {
                   onClick={() => {
                     navigate(`/myaccount/${userID}`);
                   }}
-                  className="rounded-md py-2 text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out"
+                  className="p-1 text-[18px] text-white group flex gap-1 items-center font-medium font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
+                  <RiAccountPinBoxFill
+                    className="group-hover:rotate-[360deg] transition-transform duration-300 "
+                    size={20}
+                  />
                   My Account
                 </button>
                 {/* <button

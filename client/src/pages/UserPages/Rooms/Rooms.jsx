@@ -278,7 +278,7 @@ function Rooms() {
   }));
 
   return (
-    <div className=" mt-40 h-full w-full max-w-[1600px] mx-auto">
+    <div className=" mt-[6%] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-center"
         autoClose={2000}
