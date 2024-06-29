@@ -27,19 +27,19 @@ function Avalableloc({ isOpen, onClose }) {
   };
 
   return (
-    <div className="flex flex-col absolute left-0 mt-2 w-72 h-72 bg-white justify-center mx-auto font-['udemy-regular']">
+    <div className="flex flex-col absolute left-0 top-11 shadow-lg shadow-gray-700 mt-2 w-72 h-[90] bg-white justify-center mx-auto font-['udemy-regular'] ">
       {" "}
-      <RxCross1
+      {/* <RxCross1
         className="h-5 w-5 text-white absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
         onClick={onClose}
-      />
-      <p className="font-['udemy-regular'] text-[22px] p-3 bg-[#0b5e86] shadow-2xl text-white">
+      /> */}
+      <p className="font-['udemy-regular'] text-[18px] p-2 bg-[#232f3e] shadow-2xl text-white">
         Here we show Available location
       </p>
-      <ul className="text-[18px] ml-3 mt-5">
+      <ul className="text-[18px] p-3">
         {cty.map((item, index) => (
           <li
-            className="border-2 border-transparent cursor-pointer px-2 py-1 ease-in-out duration-150  hover:bg-gray-300 w-[50%] rounded-full"
+            className="w-[80%] cursor-pointer px-3 py-1.5 ease-in-out duration-150 whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
             key={index}
             onClick={() => handleLocation(item)}
           >

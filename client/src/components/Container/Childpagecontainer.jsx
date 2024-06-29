@@ -7,6 +7,10 @@ import { FaDroplet } from "react-icons/fa6";
 import { WiRaindrops } from "react-icons/wi";
 import { MdDateRange } from "react-icons/md";
 import { FaMapMarkedAlt } from "react-icons/fa";
+import { FcCurrencyExchange } from "react-icons/fc";
+import { TbCoinRupeeFilled } from "react-icons/tb";
+import { TbArrowsExchange } from "react-icons/tb";
+import { AiFillDollarCircle } from "react-icons/ai";
 
 function ChildContainer({ className, children, onLocationReceived }) {
   const [weatherData, setwhetherdata] = useState([]);
@@ -108,20 +112,29 @@ function ChildContainer({ className, children, onLocationReceived }) {
         </div>
         <aside className="max-w-[320px] ml-[24px] lg:ml-0 m-2 h-5/6 font-['udemy-regular'] bg-gray-200 py-5 px-5">
           <div className="h-full flex flex-wrap flex-col gap-1">
-            <div className="text-[23px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-              <div>
+            <div className="text-[20px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
+              <div className="flex gap-2 items-center">
+                <div className="items-center flex">
+                  <TbCoinRupeeFilled size={22} />
+                  <TbArrowsExchange size={20} />
+                  <AiFillDollarCircle size={20} />
+                </div>
                 <input
                   type="number"
                   value={amount}
-                  className=" border-red-500 border-2"
+                  className=" border-black border-b-2 w-[170px]"
                   onChange={(e) => setAmount(e.target.value)}
                   min="1"
                 />
               </div>
               {exchangeRate && (
                 <div>
-                  <p className=" text-sm">Exchange Rate (INR to USD): {exchangeRate}</p>
-                  <p className=" text-sm" >Converted Amount: {convertedAmount} USD</p>
+                  <p className="text-sm mt-2">
+                    Exchange Rate (INR to USD): {exchangeRate}
+                  </p>
+                  <p className=" text-sm">
+                    Converted Amount: {convertedAmount} USD
+                  </p>
                 </div>
               )}
             </div>

@@ -23,6 +23,7 @@ import { MdOutlineWork } from "react-icons/md";
 import { FaBusinessTime } from "react-icons/fa6";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import { RiAccountPinBoxFill } from "react-icons/ri";
+import { VscEdit } from "react-icons/vsc";
 
 export default function Header() {
   const authstatus = useSelector((state) => state.auth.status);
@@ -352,7 +353,7 @@ export default function Header() {
               <div>
                 {weatherData.weather && weatherData.weather.length > 0 && (
                   <img
-                    className=" w-16 h-14 items-center justify-center border-full border-white"
+                    className="w-16 h-14 items-center justify-center border-full border-white"
                     src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
                     alt="logo"
                   />
@@ -360,11 +361,12 @@ export default function Header() {
               </div>
               <div>
                 {weatherData.main && (
-                  <div>
-                    <p className=" text-2xl text-white ">
-                      {weatherData.name} / 
-                       {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
+                  <div className="">
+                    <p className="ml-1 text-xl text-white flex gap-2 items-center">
+                      {weatherData.name} /
+                      {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
                       °C
+                      <VscEdit size={18} className="cursor-pointer"/>
                     </p>
                   </div>
                 )}
