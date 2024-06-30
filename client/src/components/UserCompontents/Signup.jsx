@@ -134,9 +134,7 @@ function Signup() {
                   alt=""
                 />
               </div>
-              <p className="text-black text-center mt-5 text-[30px]">
-                Welcome
-              </p>
+              <p className="text-black text-center mt-5 text-[30px]">Welcome</p>
               <p className=" text-black text-center mt- px-10 text-[20px]">
                 Already have account login here
               </p>
@@ -152,12 +150,12 @@ function Signup() {
             </div>
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center items-center py-1">
-          <RxCross1 
+            <RxCross1
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
-          />
+            />
             <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
-            Create your Account
+              Create your Account
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
@@ -182,32 +180,32 @@ function Signup() {
                   />
                 </div>
                 <div className="flex flex-col gap-1 mt-1">
-                <div className="flex gap-3">
-                  <Input
-                    label="Email"
-                    Placeholder="Email"
-                    type="Email"
-                    {...register("email", {
-                      required: "Email is required",
-                      validate: {
-                        matchPatern: (value) =>
-                          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
-                            value
-                          ) || "Email address must be a valid address",
-                      },
-                    })}
-                    errorMessage={errors.email?.message}
-                    className="!w-full"
-                  />
-                  <Input
-                    label="Phone Number"
-                    Placeholder="Phone Number"
-                    type="Number"
-                    {...register("phone_number", {
-                      required: "Phone Number is required",
-                    })}
-                    errorMessage={errors.phonenumber?.message}
-                  />
+                  <div className="flex gap-3">
+                    <Input
+                      label="Email"
+                      Placeholder="Email"
+                      type="Email"
+                      {...register("email", {
+                        required: "Email is required",
+                        validate: {
+                          matchPatern: (value) =>
+                            /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
+                              value
+                            ) || "Email address must be a valid address",
+                        },
+                      })}
+                      errorMessage={errors.email?.message}
+                      className="!w-full"
+                    />
+                    <Input
+                      label="Phone Number"
+                      Placeholder="Phone Number"
+                      type="Number"
+                      {...register("phone_number", {
+                        required: "Phone Number is required",
+                      })}
+                      errorMessage={errors.phonenumber?.message}
+                    />
                   </div>
                   <Input
                     label="Password"
@@ -329,7 +327,7 @@ function Signup() {
                       className="mt-2 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
-                     Create Account
+                      Create Account
                     </button>
                     {/* {businessstatus ? (
                       <button

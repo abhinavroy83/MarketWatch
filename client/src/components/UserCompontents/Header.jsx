@@ -256,7 +256,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="uppercase flex gap-1 p-1 group text-white text-[18px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 p-1 group text-white text-[16px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <IoHomeSharp
                     size={16}
@@ -271,7 +271,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/rooms");
                   }}
-                  className="uppercase flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <MdMeetingRoom
                     size={20}
@@ -291,7 +291,7 @@ export default function Header() {
                     // navigate("/Events");
                     alert("Coming soon");
                   }}
-                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   {" "}
                   <MdEventNote
@@ -307,7 +307,7 @@ export default function Header() {
                   onClick={() => {
                     navigate();
                   }}
-                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <MdOutlineWork
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -323,7 +323,7 @@ export default function Header() {
                     // navigate("/bussiness");
                     alert("Coming soon");
                   }}
-                  className="uppercase flex gap-1 items-center p-1 text-[18px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <FaBusinessTime
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -339,7 +339,7 @@ export default function Header() {
                     // navigate("/Movie");
                     alert("Coming soon");
                   }}
-                  className="uppercase flex gap-1 items-center p-1 group text-[18px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <BiSolidMoviePlay
                     className="group-hover:rotate-[360deg] transition-transform duration-300"
@@ -362,7 +362,7 @@ export default function Header() {
               <div>
                 {weatherData.main && (
                   <div className="">
-                    <p className="ml-1 text-xl text-white flex gap-2 items-center">
+                    <p className="ml-1 text-[16px] text-white flex gap-2 items-center">
                       {weatherData.name} /
                       {/* {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)} */}
                       {weatherData.main.temp}

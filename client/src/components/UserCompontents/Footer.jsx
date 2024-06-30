@@ -72,7 +72,7 @@ export default function Footer() {
               {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
             </div>
           </div>
-          <div className="flex grid-cols-4 gap-[7rem] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
+          <div className="flex grid-cols-4 gap-[8rem] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
             <div className="text-[16px]">
               <Link
                 to={`/about-us`}
@@ -116,7 +116,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="">
-              <p className="font-semibold tracking-wide text-white">
+              <p className="font-semibold tracking-wide text-[#ddd]">
                 Connect with Us
               </p>
               <ul className="mt-2 leading-4 space-y-2 text-[14px]">
@@ -235,13 +235,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-4">
+        <div className="text-[#DDD] text-[14px] flex gap-6 font-bold justify-center mt-4">
           <p> Conditions of Use</p>
           <p> Privacy Notice</p>
           <p> Consumer Health Data Privacy </p>
           <p> Your Ads</p>
         </div>
-        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center">
+        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-1">
           © 2024, VeryDesi.com, Inc.
         </p>
 
