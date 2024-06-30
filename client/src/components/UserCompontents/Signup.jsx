@@ -135,7 +135,7 @@ function Signup() {
                 />
               </div>
               <p className="text-black text-center mt-5 text-[30px]">Welcome</p>
-              <p className=" text-black text-center mt- px-10 text-[20px]">
+              <p className=" text-black text-center px-10 text-[20px]">
                 Already have account login here
               </p>
               <button
@@ -154,7 +154,7 @@ function Signup() {
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
             />
-            <h1 className="text-3xl font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
+            <h1 className="text-[25px] font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
               Create your Account
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -179,7 +179,7 @@ function Signup() {
                     errorMessage={errors.lastName?.message}
                   />
                 </div>
-                <div className="flex flex-col gap-1 mt-1">
+                <div className="flex flex-col gap-1 mt-2">
                   <div className="flex gap-3">
                     <Input
                       label="Email"
@@ -324,7 +324,7 @@ function Signup() {
                   )} */}
                   <div className="text-center">
                     <button
-                      className="mt-2 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="mt-3 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Create Account
