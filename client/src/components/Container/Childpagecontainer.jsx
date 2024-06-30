@@ -28,10 +28,10 @@ function ChildContainer({ className, children, onLocationReceived }) {
     const fetchExchangeRate = async () => {
       try {
         const response = await axios.get(
-          `https://v6.exchangerate-api.com/v6/ca2ecba4b423e1e50d379941/latest/INR`
+          `https://v6.exchangerate-api.com/v6/ca2ecba4b423e1e50d379941/latest/USD`
         );
         const rates = response.data.conversion_rates;
-        const rate = rates.USD;
+        const rate = rates.INR;
         setExchangeRate(rate);
         setConvertedAmount(amount * rate);
       } catch (error) {
@@ -115,9 +115,9 @@ function ChildContainer({ className, children, onLocationReceived }) {
             <div className="text-[20px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <div className="flex gap-2 items-center">
                 <div className="items-center flex">
-                  <TbCoinRupeeFilled size={22} />
-                  <TbArrowsExchange size={20} />
                   <AiFillDollarCircle size={20} />
+                  <TbArrowsExchange size={20} />
+                  <TbCoinRupeeFilled size={22} />
                 </div>
                 <input
                   type="number"
@@ -130,10 +130,10 @@ function ChildContainer({ className, children, onLocationReceived }) {
               {exchangeRate && (
                 <div>
                   <p className="text-sm mt-2">
-                    Exchange Rate (INR to USD): {exchangeRate}
+                    Exchange Rate (USD to INR ): {exchangeRate}
                   </p>
                   <p className=" text-sm">
-                    Converted Amount: {convertedAmount} USD
+                    Converted Amount: {convertedAmount} INR
                   </p>
                 </div>
               )}

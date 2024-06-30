@@ -1,12 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 import { Link } from "react-router-dom";
+import Avalableloc from "../../pages/UserPages/Ads/Avalableloc";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { IoLocationSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+  const [isHovered, setIsHovered] = useState(false);
+  const currntcty = useSelector((state) => state.auth.city);
+
+
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
-      <div className="bg-[#232f3e] text-white">logo and location like ad</div>
+      <div className="bg-[#232f3e] flex text-white">
+        <Link to={"/"} className="bg-cover bg-center flex">
+          <img
+            // height={300}
+            width={300}
+            className="w-[150px] lg:w-[190px]"
+            src={WebsiteLogo}
+            alt=""
+          />
+        </Link>
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-1 group">
+            <IoLocationSharp size={20} /> {currntcty}
+            <MdOutlineKeyboardArrowDown
+              className={`transition-transform duration-300 ${
+                isHovered ? "rotate-180" : ""
+              }`}
+              size={22}
+            />
+          </p>
+
+          {isHovered && <Avalableloc />}
+        </div>
+      </div>
       <div className=" bg-[#131A22] font-['udemy-regular']">
         <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 p-4 lg:flex-row py-6">
           <div className="">
@@ -205,7 +240,9 @@ export default function Footer() {
           <p> Consumer Health Data Privacy </p>
           <p> Your Ads</p>
         </div>
-        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center">© 2024, VeryDesi.com, Inc.</p>
+        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center">
+          © 2024, VeryDesi.com, Inc.
+        </p>
 
         <div className="flex flex-col justify-between pt-5 pb-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
           {/* <a
