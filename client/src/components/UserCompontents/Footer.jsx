@@ -5,32 +5,33 @@ import Avalableloc from "../../pages/UserPages/Ads/Avalableloc";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import { IoIosGlobe } from "react-icons/io";
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
   const currntcty = useSelector((state) => state.auth.city);
 
-
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
-      <div className="bg-[#232f3e] flex text-white">
+      <div className="bg-[#232f3e] flex text-white justify-center items-center py-5 gap-4">
         <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
             width={300}
-            className="w-[150px] lg:w-[190px]"
+            className="w-[150px] lg:w-[150px]"
             src={WebsiteLogo}
             alt=""
           />
         </Link>
         <div
-          className="relative inline-block"
+          className="relative inline-block text-black border p-1 border-[#999] rounded-md"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-1 group">
-            <IoLocationSharp size={20} /> {currntcty}
+          <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#999]">
+            <IoIosGlobe size={20} />
+            {currntcty}
             <MdOutlineKeyboardArrowDown
               className={`transition-transform duration-300 ${
                 isHovered ? "rotate-180" : ""
@@ -43,7 +44,7 @@ export default function Footer() {
         </div>
       </div>
       <div className=" bg-[#131A22] font-['udemy-regular']">
-        <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 p-4 lg:flex-row py-6">
+        <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 p-4 lg:flex-row py-6 justify-center">
           <div className="">
             {/* <a
               href="/"
