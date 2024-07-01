@@ -1,12 +1,9 @@
 import axios from "axios";
 
 const fetchcity = async () => {
-
-   http://api.verydesi.com
-  try {
-    const res = await axios.get(
-      " https://api.verydesi.com/api/admin/getallcity"
-    );
+  //api.verydesi.com
+  http: try {
+    const res = await axios.get(" http://localhost:8000/api/admin/getallcity");
     if (!res) {
       console.log("there is some issue while fetching api");
     }

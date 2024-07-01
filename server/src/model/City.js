@@ -11,24 +11,21 @@ const cityschema = new mongoose.Schema({
   country: {
     type: String,
     require: true,
-    enum: ["Usa"],
+    enum: ["Usa", "Canada"],
   },
   state: {
-    type: String,
+    type: [String],
     require: true,
   },
-  city: {
+  area: {
     type: String,
     require: true,
   },
   subarea: {
-    type: String,
+    type: [String],
     // require: true,
   },
   zipcode: {
-    type: String,
-  },
-  area: {
     type: String,
   },
 });

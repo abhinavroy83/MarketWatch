@@ -46,6 +46,7 @@ import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
 import Error from "./components/SharedCompontents/Error.jsx";
 import Forgetpass from "./components/UserCompontents/Forgetpass.jsx";
 import Editroom from "./pages/User/UserRooms/Editroom.jsx";
+import Editarea from "./pages/AdminPage/Area/Modify/Editarea.jsx";
 
 const router = createBrowserRouter([
   {
@@ -295,7 +296,7 @@ const router = createBrowserRouter([
         path: "/admin/area/update/:area_name",
         element: (
           <Adminauthlayout authentication>
-            <Update_del_Area />
+            <Editarea />
           </Adminauthlayout>
         ),
       },

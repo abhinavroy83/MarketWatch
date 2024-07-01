@@ -2,16 +2,15 @@ const City = require("../../model/City");
 
 const postcity = async (req, res) => {
   try {
-    const { country, state, city, subarea, zipcode, area } = req.body;
+    const { country, state, area, subarea, zipcode } = req.body;
     const AdminID = req.user.user._id;
     const newcity = await City.create({
       AdminID,
       country,
       state,
-      city,
+      area,
       subarea,
       zipcode,
-      area,
     });
     res.json({
       city: newcity,
@@ -21,6 +20,61 @@ const postcity = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+const updatecity = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const updateFields = req.body;
+
+    const existingcity = await City.findById(_id);
+    if (existingcity) {
+      updateFields.AdminID = existingcity.AdminID;
+      updateFields.area = updateFields.area || existingcity.area;
+      updateFields.country = updateFields.country || existingcity.country;
+      updateFields.state = updateFields.state || existingcity.state;
+      updateFields.subarea = updateFields.subarea || existingcity.subarea;
+      updateFields.zipcode = updateFields.zipcode || existingcity.zipcode;
+    }
+
+    const result = await City.findByIdAndUpdate(
+      _id,
+      {
+        $set: updateFields,
+      },
+      { new: true }
+    );
+
+    if (result) {
+      res.json({
+        status: "success",
+      });
+    } else {
+      res.json({
+        status: "failed",
+        msg: "area update failed",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const findcitybyid = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const result = await City.findById(_id);
+    if (result) {
+      res.json({
+        area: result,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 const getcity = async (req, res) => {
   try {
     const city = await City.find({});
@@ -42,10 +96,10 @@ const findsuburbs = async (req, res) => {
   try {
     const { area_name } = req.params;
 
-    const suburbs = await City.find({ city: area_name });
-    if (suburbs) {
+    const area = await City.find({ area: area_name });
+    if (area) {
       res.json({
-        suburbs,
+        area,
       });
     }
   } catch (error) {
@@ -67,4 +121,11 @@ const deletesub = async (req, res) => {
   }
 };
 
-module.exports = { postcity, getcity, deletesub, findsuburbs };
+module.exports = {
+  postcity,
+  findcitybyid,
+  getcity,
+  deletesub,
+  updatecity,
+  findsuburbs,
+};
