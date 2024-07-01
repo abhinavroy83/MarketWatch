@@ -14,7 +14,7 @@ export default function Footer() {
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
-      <div className="bg-[#232f3e] flex text-white justify-center items-center py-5 gap-10">
+      <div className="bg-[#232f3e] flex text-white justify-center items-center py-6 gap-10">
         <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
@@ -180,7 +180,7 @@ export default function Footer() {
             </div>
             <div className="">
               <p className="font-semibold tracking-wide text-[#DDD]">
-                Make Money 
+                Make Money
               </p>
               <ul className="mt-2 space-y-2 leading-4 text-[14px]">
                 <li>
@@ -277,22 +277,6 @@ export default function Footer() {
                     Instagram
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>{" "}
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -307,7 +291,7 @@ export default function Footer() {
           © 2024, VeryDesi.com, Inc.
         </p>
 
-        <div className="flex flex-col justify-between pt-5 pb-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
+        <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
           {/* <a
             href="/"
             aria-label="Go home"
