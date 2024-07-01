@@ -10,7 +10,7 @@ function Editarea() {
   const fetchdata = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/admin/area/${area_name}`
+        `https://api.verydesi.com/api/admin/area/${area_name}`
       );
       console.log(res.data.area);
       setdata(res.data.area);
