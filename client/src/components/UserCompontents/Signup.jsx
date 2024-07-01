@@ -139,7 +139,7 @@ function Signup() {
                 Already have account login here
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] border-2 border-white text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="button"
                 onClick={() => {
                   handleModal(true, false);
