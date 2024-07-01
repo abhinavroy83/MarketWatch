@@ -81,7 +81,7 @@ function Conractform({ isOpen, onClose }) {
               />
             </div> */}
             <button
-              className="flex rounded-md mb-4 bg-green-800 mt-4 p-2 px-3 text-[20px] font-normal border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white"
+              className="flex rounded-md mb-4 bg-green-800 mt-4 p-2 px-3 text-[20px] font-normal border-2 border-black text-white shadow-sm hover:bg-green-900 hover:text-white"
               type="submit"
             >
               Send response
