@@ -29,7 +29,7 @@ export default function Footer() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#999]">
+          <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
             <IoIosGlobe size={20} />
             {currntcty}
             <MdOutlineKeyboardArrowDown
