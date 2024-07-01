@@ -34,6 +34,7 @@ export default function Header() {
   const [weatherData, setwhetherdata] = useState([]);
   const currentloc = useSelector((state) => state.auth.location);
   const city = useSelector((state) => state.auth.city);
+  const [isHovered, setIsHovered] = useState(false);
 
   const [cartno, setCartno] = useState("");
 
@@ -82,6 +83,19 @@ export default function Header() {
   const convertKelvinToCelsius = (kelvin) => {
     return kelvin - 273.15;
   };
+
+  const convertKelvinToFahrenheit = (kelvin) => {
+    return ((kelvin - 273.15) * 9) / 5 + 32;
+  };
+  const tempInCelsius = convertKelvinToCelsius(weatherData?.main?.temp).toFixed(
+    1
+  );
+  const tempInFahrenheit = convertKelvinToFahrenheit(
+    weatherData?.main?.temp
+  ).toFixed(1);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
   const handlelogout = () => {
     confirmAlert({
@@ -362,12 +376,15 @@ export default function Header() {
               <div>
                 {weatherData.main && (
                   <div className="">
-                    <p className="ml-1 text-[16px] text-white flex gap-2 items-center">
+                    <p
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      className="ml-1 text-[16px] text-white flex gap-2 items-center cursor-pointer"
+                    >
                       {weatherData.name} /
-                      {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
-                      {/* {weatherData.main.temp} */}
-                      °F
-                      {/* <VscEdit size={18} className="cursor-pointer" /> */}
+                      {isHovered
+                        ? `${tempInFahrenheit}°F`
+                        : `${tempInCelsius}°C`}
                     </p>
                   </div>
                 )}

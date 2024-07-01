@@ -181,7 +181,11 @@ function Rooms() {
   const [isloginmodalopen, setloginmodeopen] = useState(false);
 
   const handleloginmodelopen = () => {
-    setloginmodeopen(true);
+    if (authstatus) {
+      setloginmodeopen(true);
+    } else {
+      toast("login to contact");
+    }
   };
 
   const isloginmodelclose = () => {
@@ -300,52 +304,59 @@ function Rooms() {
           <span className=" text-xl ">{`>> Room`}</span>
         </div>
         <div className="flex justify-between items-start">
-          {hasNextRoom ? (
+          <div className=" flex gap-2">
             <div>
-              <div
-                className="text-center flex gap-2"
-                onClick={fetchPreviousRoom}
-                disabled={!hasNextRoom}
-              >
-                <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-                  <MdKeyboardDoubleArrowLeft
-                    size={45}
-                    className="text-white flex"
-                  />
-                  <button
-                    // type="submit"
-                    // disabled={!hasPreviousRoom}
-                    className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
+              {hasNextRoom ? (
+                <div className="">
+                  <div
+                    className="text-center flex gap-2"
+                    onClick={fetchPreviousRoom}
+                    disabled={!hasNextRoom}
                   >
-                    PREV
-                  </button>
-                </button>
+                    <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                      <MdKeyboardDoubleArrowLeft
+                        size={45}
+                        className="text-white flex"
+                      />
+                      <button
+                        // type="submit"
+                        // disabled={!hasPreviousRoom}
+                        className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
+                      >
+                        PREV
+                      </button>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <p></p>
+              )}
+            </div>
+            <div>
+              {hasPreviousRoom ? (
                 <div
-              className="flex justify-end"
-              onClick={fetchNextRoom}
-              disabled={!hasPreviousRoom}
-            >
-                <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-                <button
-                  // type="submit"
-                  className="flex text-[22px] items-center text-white font-bold"
+                  className="flex justify-end"
+                  onClick={fetchNextRoom}
+                  disabled={!hasPreviousRoom}
                 >
-                  NEXT
-                </button>
-                <MdKeyboardDoubleArrowRight
-                  size={45}
-                  className="flex text-[22px] items-center text-white font-bold"
-                />
-              </button>
+                  <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                    <button
+                      // type="submit"
+                      className="flex text-[22px] items-center text-white font-bold"
+                    >
+                      NEXT
+                    </button>
+                    <MdKeyboardDoubleArrowRight
+                      size={45}
+                      className="flex text-[22px] items-center text-white font-bold"
+                    />
+                  </button>
+                </div>
+              ) : (
+                <p></p>
+              )}
             </div>
-              </div>
-              {/* <p className=" text-[30px] font-bold text-black font-['udemy-regular'] capitalize">
-              {rooms.Adname && truncateWords(rooms.Adname, 6)}
-            </p> */}
-            </div>
-          ) : (
-            <p></p>
-          )}
+          </div>
 
           <div className="flex gap-4 items-center self-center">
             {/* <div
@@ -496,7 +507,6 @@ function Rooms() {
                     authstatus && "flex-row-reverse"
                   } justify-between `}
                 >
-
                   <button
                     type="button"
                     onClick={handleloginmodelopen}

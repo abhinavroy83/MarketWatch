@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import femaleLogo from "../../../assets/female.png";
-import maleLogo from "../../../assets/maleicon2.png";
+import femaleLogo from "../../../assets/female3.png";
+import maleLogo from "../../../assets/maleicon.png";
 import { IoHeartCircle } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -189,7 +189,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <img
           className="flex absolute bottom-4 right-14 "
           height={35}
-          width={30}
+          width={35}
           src={
             item.Preferred_gender === "Female only"
               ? femaleLogo
