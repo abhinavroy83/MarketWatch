@@ -43,8 +43,8 @@ export default function Footer() {
           {isHovered && <Avalableloc />}
         </div>
       </div>
-      <div className=" bg-[#131A22] font-['udemy-regular']">
-        <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 p-4 lg:flex-row py-6 justify-center">
+      <div className="bg-[#131A22] font-['udemy-regular']">
+        <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 lg:flex-row py-2 justify-center">
           <div className="">
             {/* <a
               href="/"
@@ -150,6 +150,37 @@ export default function Footer() {
             <div className="">
               <p className="font-semibold tracking-wide text-[#DDD]">
                 Make Money with Us
+              </p>
+              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <p className="font-semibold tracking-wide text-[#DDD]">
+                Make Money 
               </p>
               <ul className="mt-2 space-y-2 leading-4 text-[14px]">
                 <li>

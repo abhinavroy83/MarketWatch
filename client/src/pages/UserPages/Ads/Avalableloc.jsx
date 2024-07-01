@@ -16,7 +16,7 @@ function Avalableloc({ isOpen, onClose }) {
     const fetchdata = async () => {
       const res = await fetchcity();
       const uniquecity = Array.from(
-        new Set(res.data.city.map((item) => item.city))
+        new Set(res.data.city.map((item) => item.area))
       );
       setcty(uniquecity);
     };
