@@ -364,10 +364,10 @@ export default function Header() {
                   <div className="">
                     <p className="ml-1 text-[16px] text-white flex gap-2 items-center">
                       {weatherData.name} /
-                      {/* {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)} */}
-                      {weatherData.main.temp}
+                      {convertKelvinToCelsius(weatherData.main.temp).toFixed(1)}
+                      {/* {weatherData.main.temp} */}
                       °F
-                      <VscEdit size={18} className="cursor-pointer" />
+                      {/* <VscEdit size={18} className="cursor-pointer" /> */}
                     </p>
                   </div>
                 )}
