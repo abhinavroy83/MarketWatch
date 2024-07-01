@@ -170,7 +170,7 @@ function Profile() {
           Your Personal Details Are -
         </h1>
         <form onSubmit={handleSubmit(handleclick)}>
-          <div className="flex">
+          <div className="">
             <div className="flex font-['udemy-regular'] p-2 items-center">
               {/* <img src={data.userimg} alt="" /> */}
               <label className="min-w-[120px] text-[20px]">FirstName: </label>
