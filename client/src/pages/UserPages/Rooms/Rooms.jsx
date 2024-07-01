@@ -510,9 +510,9 @@ function Rooms() {
                   <button
                     type="button"
                     onClick={handleloginmodelopen}
-                    className="flex self-center rounded-md bg-green-800 px-5 py-4 text-[22px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="flex self-center rounded-md bg-green-800 px-5 py-4 mb-2 text-[19px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
-                    <LuPhoneCall size={30} />
+                    <LuPhoneCall size={25} />
                     <span class="ml-2 items-center justify-center">
                       Get In touch{" "}
                     </span>
