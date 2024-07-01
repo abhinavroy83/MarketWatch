@@ -189,7 +189,8 @@ function Ads() {
 
             {openMenu && (
               <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[45px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
-                <div className="bg-[#232f3e] p-2 flex text-white gap-4 items-center">
+                {/* <div className="bg-[url('https://img.freepik.com/premium-vector/abstract-nature-geometric-triangular-low-poly-background_48799-402.jpg')] bg-cover p-2 flex text-white gap-4 items-center"> */}
+                <div className="bg-[#232f3e] bg-cover p-2 flex text-white gap-4 items-center">
                   <img
                     className="rounded-full w-[50px] h-[50px]"
                     height={50}
@@ -201,7 +202,7 @@ function Ads() {
                     alt={"not found"}
                   />
                   <div className="flex flex-col">
-                    <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center ">
+                    <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center">
                       {name}
                     </p>
                   </div>

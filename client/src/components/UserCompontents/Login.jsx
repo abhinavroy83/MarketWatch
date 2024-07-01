@@ -139,7 +139,7 @@ function Login() {
                 Register here to start using VeryDesi
               </p>
               <button
-                className="capitalize place-items-center items-center rounded-md bg-[#000] text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="capitalize place-items-center items-center rounded-md bg-[#000] border-2 border-white text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true);

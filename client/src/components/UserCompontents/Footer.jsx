@@ -14,12 +14,12 @@ export default function Footer() {
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
-      <div className="bg-[#232f3e] flex text-white justify-center items-center py-5 gap-4">
+      <div className="bg-[#232f3e] flex text-white justify-center items-center py-5 gap-10">
         <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
             width={300}
-            className="w-[150px] lg:w-[150px]"
+            className="w-[140px] lg:w-[140px]"
             src={WebsiteLogo}
             alt=""
           />
@@ -72,7 +72,7 @@ export default function Footer() {
               {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
             </div>
           </div>
-          <div className="flex grid-cols-4 gap-[8rem] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
+          <div className="flex grid-cols-4 gap-[7rem] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
             <div className="text-[16px]">
               <Link
                 to={`/about-us`}
@@ -180,6 +180,37 @@ export default function Footer() {
             </div>
             <div className="">
               <p className="font-semibold tracking-wide text-[#DDD]">
+                Make Money with Us
+              </p>
+              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <p className="font-semibold tracking-wide text-[#DDD]">
                 Let Us Help You
               </p>
               <ul className="mt-2 space-y-2 leading-4 text-[14px]">
@@ -235,13 +266,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-[#DDD] text-[14px] flex gap-6 font-bold justify-center mt-4">
+        <div className="text-[#DDD] text-[14px] flex gap-9 font-bold justify-center mt-4 cursor-pointer">
           <p> Conditions of Use</p>
           <p> Privacy Notice</p>
           <p> Consumer Health Data Privacy </p>
           <p> Your Ads</p>
         </div>
-        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-1">
+        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-1 cursor-pointer">
           © 2024, VeryDesi.com, Inc.
         </p>
 
