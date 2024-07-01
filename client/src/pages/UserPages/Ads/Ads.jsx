@@ -157,7 +157,7 @@ function Ads() {
               }}
             />
             {cartno > 0 && (
-              <div className="absolute top-[0.2rem] right-[-0.2rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white w-4 h-4 flex justify-center items-center rounded-full">
+              <div className="absolute top-[0.2rem] right-[-0.2rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-[14px] text-white w-5 h-5 flex justify-center items-center rounded-full">
                 {cartno}
               </div>
             )}
