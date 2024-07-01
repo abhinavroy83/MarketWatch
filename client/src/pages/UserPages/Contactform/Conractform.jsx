@@ -20,9 +20,9 @@ function Conractform({ isOpen, onClose }) {
         style={{
           content: {
             position: "absolute",
-            top: "40%",
-            left: "40%",
-            transform: "translate(-40%, -40%)",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 600,
             height: 340,
             border: "none",
