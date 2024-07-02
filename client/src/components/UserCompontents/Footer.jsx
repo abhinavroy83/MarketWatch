@@ -14,39 +14,41 @@ export default function Footer() {
   //  https://api.verydesi.com/
   return (
     <div className="mt-9 w-full">
-      <div className="bg-[#232f3e] flex text-white justify-center items-center py-6 gap-10">
-        <Link to={"/"} className="bg-cover bg-center flex">
-          <img
-            // height={300}
-            width={300}
-            className="w-[140px] lg:w-[140px]"
-            src={WebsiteLogo}
-            alt=""
-          />
-        </Link>
-        <div
-          className="relative inline-block text-black border p-1 border-[#999] rounded-md"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
-            <IoIosGlobe size={20} />
-            {currntcty}
-            <MdOutlineKeyboardArrowDown
-              className={`transition-transform duration-300 ${
-                isHovered ? "rotate-180" : ""
-              }`}
-              size={22}
+      <div className=" mx-auto">
+        <div className="bg-[#232f3e] flex text-white justify-center items-center py-6 gap-10 ">
+          <Link to={"/"} className="bg-cover bg-center flex">
+            <img
+              // height={300}
+              width={300}
+              className="w-[140px] lg:w-[140px]"
+              src={WebsiteLogo}
+              alt=""
             />
-          </p>
+          </Link>
+          <div
+            className="relative inline-block text-black border p-1 border-[#999] rounded-md"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
+              <IoIosGlobe size={20} />
+              {currntcty}
+              <MdOutlineKeyboardArrowDown
+                className={`transition-transform duration-300 ${
+                  isHovered ? "rotate-180" : ""
+                }`}
+                size={22}
+              />
+            </p>
 
-          {isHovered && <Avalableloc />}
+            {isHovered && <Avalableloc />}
+          </div>
         </div>
-      </div>
-      <div className="bg-[#131A22] font-['udemy-regular']">
-        <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 lg:flex-row py-2 justify-center">
-          <div className="">
-            {/* <a
+        <div className=" w-full bg-[#131A22]">
+          <div className="max-w-[1370px] lg:max-w-[1600px] mx-auto bg-[#131A22] font-['udemy-regular']">
+            <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 lg:flex-row py-2 justify-center">
+              <div className="">
+                {/* <a
               href="/"
               aria-label="Go home"
               title="Company"
@@ -60,8 +62,8 @@ export default function Footer() {
                 alt=""
               />
             </a> */}
-            <div className="lg:max-w-sm">
-              {/* <p className="text-[20px] text-white">
+
+                {/* <p className="text-[20px] text-white">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam.
               </p>
@@ -69,230 +71,229 @@ export default function Footer() {
                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae.
               </p> */}
-              {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
+                {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
+              </div>
             </div>
-          </div>
-          <div className="flex grid-cols-4 gap-[7rem] row-gap-8 mt-5 lg:col-span-4 md:grid-cols-4">
-            <div className="text-[16px]">
-              <Link
-                to={`/about-us`}
-                className="font-semibold tracking-wide text-white"
-              >
-                About Us
-              </Link>
-              <ul className="mt-2 leading-4 space-y-2 text-[14px]">
-                <li>
-                  <Link
-                    to={`/about-us`}
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    About VeryDesi.com
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={`/admin/login`}
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Advertise with Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Work with us
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="">
-              <p className="font-semibold tracking-wide text-[#ddd]">
-                Connect with Us
-              </p>
-              <ul className="mt-2 leading-4 space-y-2 text-[14px]">
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <div className="flex flex-wrap justify-center  gap-[7rem] row-gap-8 mt-5 ">
+              <div className="text-[16px]">
+                <Link
+                  to={`/about-us`}
+                  className="font-semibold tracking-wide text-white"
+                >
+                  About Us
+                </Link>
+                <ul className="mt-2 leading-4 space-y-2 text-[14px]">
+                  <li>
+                    <Link
+                      to={`/about-us`}
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      About VeryDesi.com
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/admin/login`}
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Advertise with Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Work with us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="">
+                <p className="font-semibold tracking-wide text-[#ddd]">
+                  Connect with Us
+                </p>
+                <ul className="mt-2 leading-4 space-y-2 text-[14px]">
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="">
-              <p className="font-semibold tracking-wide text-[#DDD]">
-                Make Money with Us
-              </p>
-              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
+              <div className="">
+                <p className="font-semibold tracking-wide text-[#DDD]">
+                  Make Money with Us
+                </p>
+                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="">
+                <p className="font-semibold tracking-wide text-[#DDD]">
+                  Make Money
+                </p>
+                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="">
+                <p className="font-semibold tracking-wide text-[#DDD]">
+                  Make Money with Us
+                </p>
+                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="">
+                <p className="font-semibold tracking-wide text-[#DDD]">
+                  Let Us Help You
+                </p>
+                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="">
-              <p className="font-semibold tracking-wide text-[#DDD]">
-                Make Money
-              </p>
-              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
+            <div className="text-[#DDD] text-[14px] flex gap-9 font-bold justify-center mt-4 cursor-pointer">
+              <p> Conditions of Use</p>
+              <p> Privacy Notice</p>
+              <p> Consumer Health Data Privacy </p>
+              <p> Your Ads</p>
             </div>
-            <div className="">
-              <p className="font-semibold tracking-wide text-[#DDD]">
-                Make Money with Us
-              </p>
-              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="">
-              <p className="font-semibold tracking-wide text-[#DDD]">
-                Let Us Help You
-              </p>
-              <ul className="mt-2 space-y-2 leading-4 text-[14px]">
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="text-[#DDD] text-[14px] flex gap-9 font-bold justify-center mt-4 cursor-pointer">
-          <p> Conditions of Use</p>
-          <p> Privacy Notice</p>
-          <p> Consumer Health Data Privacy </p>
-          <p> Your Ads</p>
-        </div>
-        <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-1 cursor-pointer">
-          © 2024, VeryDesi.com, Inc.
-        </p>
+            <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-1 cursor-pointer">
+              © 2024, VeryDesi.com, Inc.
+            </p>
 
-        <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
-          {/* <a
+            <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
+              {/* <a
             href="/"
             aria-label="Go home"
             title="Company"
@@ -307,10 +308,10 @@ export default function Footer() {
             />
           </a> */}
 
-          {/* <p className="text-[20px] text-white ml-10 lg:ml-2 sm:items-center md:justify-center">
+              {/* <p className="text-[20px] text-white ml-10 lg:ml-2 sm:items-center md:justify-center">
             © Copyright 2024 Lorem Inc. All rights reserved.
           </p> */}
-          {/* <div className="flex items-center space-x-4 mt-2 ml-7 lg:ml-2">
+              {/* <div className="flex items-center space-x-4 mt-2 ml-7 lg:ml-2">
             <a
               href="/"
               className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
@@ -337,6 +338,8 @@ export default function Footer() {
               </svg>
             </a>
           </div> */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
