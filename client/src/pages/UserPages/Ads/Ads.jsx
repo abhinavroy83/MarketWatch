@@ -112,17 +112,17 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-1 py-1 justify-between bg-white max-w-[1370px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
+    <div className="flex px-3 lg:px-1 py-1 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center">
         <Login />
         <Signup />
         <Link to={"/"} className="bg-cover bg-center flex">
           <img
             // height={300}
             width={300}
-            className="w-[150px] lg:w-[190px]"
+            className="w-[120px] lg:w-[190px]"
             src={WebsiteLogo}
             alt=""
           />
