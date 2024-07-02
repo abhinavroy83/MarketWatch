@@ -193,7 +193,7 @@ function AddArea({ editdata }) {
               {selectedstate.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center bg-gray-200 rounded-md px-1"
+                  className="flex items-center bg-white rounded-md mx-2 px-2 border-2 border-black"
                 >
                   <MdOutlineErrorOutline />
                   <span className="mr-2">{item}</span>
