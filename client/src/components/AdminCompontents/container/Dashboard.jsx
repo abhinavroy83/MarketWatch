@@ -16,23 +16,23 @@ function AdminDashboard({ children }) {
 
   return (
     <div className="max-w-[1600px] mx-auto px-4 flex items-center h-screen overflow-hidden font-['udemy-regular'] mt-7 text-[20px]">
-      <div className="w-[20%] bg-[#0b5e86] h-4/5 p-2 flex flex-col items-center gap-2">
+      <div className="w-[20%] bg-[#232f3e] h-4/5 p-2 flex flex-col items-center gap-2">
         <button
           onClick={() => {
             navigate(`/admin/dashboard`);
           }}
-          className="mt-5 text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="mt-5 text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
-          <FaHome size={30} />
+          <FaHome size={22} />
           Hello {role}
         </button>
         <button
           onClick={() => {
             navigate(`/admin/alluser`);
           }}
-          className="text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
-          <IoPeopleSharp size={30} />
+          <IoPeopleSharp size={25} />
           Basic Users
         </button>
         {role === "Admin" && (
@@ -40,9 +40,9 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getalladminsuser`);
             }}
-            className="text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-            <RiAdminFill size={30} /> Admin Users
+            <RiAdminFill size={25} /> Admin Users
           </button>
         )}
         {role === "Admin" || role === "Manager" ? (
@@ -50,9 +50,9 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getapproval`);
             }}
-            className="whitespace-nowrap text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="whitespace-nowrap text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-            <MdPendingActions size={30} />
+            <MdPendingActions size={25} />
             Pending Requests
           </button>
         ) : null}
@@ -61,9 +61,9 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allarea`);
             }}
-            className="text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-            <FaMapPin size={27} /> Area
+            <FaMapPin size={22} /> Area
           </button>
         ) : null}
         {role === "CustomerSupport" ? (
@@ -71,9 +71,9 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/requests`);
             }}
-            className="text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-            <MdOutlineSpatialTracking size={30} /> Track Status
+            <MdOutlineSpatialTracking size={25} /> Track Status
           </button>
         ) : null}
         {role === "Admin" || role === "CustomerSupport" ? (
@@ -81,9 +81,9 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allroom`);
             }}
-            className="text-[20px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-            <MdOutlineMeetingRoom size={30} /> Rooms
+            <MdOutlineMeetingRoom size={25} /> Rooms
           </button>
         ) : null}
         {/* <button

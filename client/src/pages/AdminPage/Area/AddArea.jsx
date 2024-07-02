@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { MdOutlineErrorOutline } from "react-icons/md";
 
 function AddArea({ editdata }) {
   const [state, setstate] = useState([]);
@@ -132,18 +133,18 @@ function AddArea({ editdata }) {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <p className="text-3xl font-bold text-[#0b5e86] my-5 font-roboto flex justify-center">
+        <p className="text-[25px] font-bold text-[#232f3e] my-7 font-roboto flex justify-center">
           Here You can Add Area
         </p>
         <form onSubmit={handleSubmit(onsubmit)}>
-          <div className="flex flex-col gap-4 justify-center items-center">
+          <div className="flex flex-col gap-3 justify-center items-center">
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[21px]" htmlFor="country">
+              <label className="min-w-[160px] text-[18px]" htmlFor="country">
                 Select Country
               </label>
               <div>
                 <select
-                  className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("country", {
                     required: "Please fill the country",
                   })}
@@ -151,7 +152,7 @@ function AddArea({ editdata }) {
                   <option value="" disabled hidden>
                     Select Country
                   </option>
-                  <option className="text-[17px]" value="Usa">
+                  <option className="text-[15px]" value="Usa">
                     USA
                   </option>
                 </select>
@@ -164,11 +165,11 @@ function AddArea({ editdata }) {
             </div>
 
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[21px]" htmlFor="state">
+              <label className="min-w-[160px] text-[18px]" htmlFor="state">
                 Select State
               </label>
               <select
-                className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 onChange={handleStateChange}
               >
                 <option value="" disabled hidden>
@@ -176,7 +177,11 @@ function AddArea({ editdata }) {
                 </option>
                 {Object.entries(stateAbbreviations).map(
                   ([state, abbreviation]) => (
-                    <option key={abbreviation} value={state}>
+                    <option
+                      className="text-[15px]"
+                      key={abbreviation}
+                      value={state}
+                    >
                       {state} ({abbreviation})
                     </option>
                   )
@@ -184,17 +189,18 @@ function AddArea({ editdata }) {
               </select>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap text-[17px] text-red-600 items-center">
               {selectedstate.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center bg-gray-200 rounded-md px-2 py-1"
+                  className="flex items-center bg-gray-200 rounded-md px-1"
                 >
+                  <MdOutlineErrorOutline />
                   <span className="mr-2">{item}</span>
                   <button
                     type="button"
                     onClick={() => removeState(item)}
-                    className="text-red-500"
+                    className="text-black"
                   >
                     x
                   </button>
@@ -203,22 +209,25 @@ function AddArea({ editdata }) {
             </div>
 
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[21px]" htmlFor="area">
+              <label className="min-w-[160px] text-[18px]" htmlFor="area">
                 Area
               </label>
               <input
-                className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 {...register("area")}
                 placeholder="Type Area here"
               />
             </div>
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[21px]" htmlFor="subarea">
+              <label
+                className="min-w-[160px] text-[18px] ml-[4.5rem]"
+                htmlFor="subarea"
+              >
                 Subarea
               </label>
               <input
-                className="flex h-10 font-roboto w-[300px] text-[19px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 value={subareaInput}
                 onChange={(e) => setSubareaInput(e.target.value)}
@@ -227,22 +236,24 @@ function AddArea({ editdata }) {
               <button
                 type="button"
                 onClick={handleAddSubarea}
-                className="ml-2 rounded-md bg-blue-500 px-4 py-2 text-white"
+                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[18px]"
               >
                 Add
               </button>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap text-[17px] text-red-600 items-center">
               {subarea.map((subarea) => (
                 <div
                   key={subarea}
-                  className="flex items-center bg-gray-200 rounded-md px-2 py-1"
+                  className="flex items-center bg-gray-200 rounded-md px-1"
                 >
+                  {" "}
+                  <MdOutlineErrorOutline />
                   <span className="mr-2">{subarea}</span>
                   <button
                     type="button"
                     onClick={() => removeSubarea(subarea)}
-                    className="text-red-500"
+                    className="text-black"
                   >
                     x
                   </button>
@@ -251,7 +262,7 @@ function AddArea({ editdata }) {
             </div>
           </div>
 
-          <div className="flex justify-center items-center mt-7">
+          <div className="flex justify-center items-center mt-5">
             {editdata ? (
               <button
                 className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -261,7 +272,7 @@ function AddArea({ editdata }) {
               </button>
             ) : (
               <button
-                className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-4 py-2 text-[18px] justify-center text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 type="submit"
               >
                 Create Area

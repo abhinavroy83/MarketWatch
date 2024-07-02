@@ -11,6 +11,7 @@ import { HiMinusCircle } from "react-icons/hi";
 import { MdEdit } from "react-icons/md";
 import Update_del_Area from "./Modify/Update_del_Area";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 function AllArea() {
   const { handleSubmit, register } = useForm();
@@ -124,12 +125,12 @@ function AllArea() {
             </button>
           </div>
         </div> */}
-        <p className="mx-5 text-[24px] text-gray-700 font-['udemy-regular']">
+        <p className="mx-5 text-[22px] text-[#232f3e] font-['udemy-regular']">
           List of Avaible Area
         </p>
-        <form className=" font-['udemy-regular'] mt-5 ml-5">
-          <div className="mx-5 flex flex-col border-2 border-gray-400 w-40">
-            <p className="rounded-sm text-[20px] bg-[#0b5e86] text-white p-1 shadow-lg shadow-gray-400">
+        <form className=" font-['udemy-regular'] mt-5">
+          <div className="mx-5 flex flex-col border-2 border-gray-400 w-[13rem]">
+            <p className="rounded-sm text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
               Country -
             </p>
             <ul>
@@ -140,7 +141,7 @@ function AllArea() {
                 }}
                 className={`cursor-pointer    ${
                   selectedcountry === "Usa"
-                    ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                     : ""
                 }`}
               >
@@ -153,7 +154,7 @@ function AllArea() {
                 }}
                 className={`cursor-pointer    ${
                   selectedcountry === "Canada"
-                    ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                     : ""
                 }`}
               >
@@ -162,9 +163,9 @@ function AllArea() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-3 gap-2">
-            <div className="flex flex-col border-2 border-gray-400 w-52 mr-5">
-              <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
+          <div className="grid grid-cols-3 gap-2 ml-5 mt-5">
+            <div className="flex flex-col border-2 border-gray-400 w-[13rem] mr-5">
+              <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                 List of Area in{" "}
                 {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
               </p>
@@ -181,11 +182,12 @@ function AllArea() {
                   </div>;
                   navigate("/admin/addarea");
                 }}
-                className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="flex gap-2 items-center bg-white py-2 text-[18px] font-semibold text-black border shadow-sm hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
+                <IoAddCircleOutline size={22} />
                 Add Area
               </button>
-              <ul className="rounded-sm text-[20px] bg-white p-1">
+              <ul className="rounded-sm text-[18px] bg-white p-1">
                 {Filtercity.map((city, index) => (
                   <div className=" flex justify-between">
                     <li
@@ -213,19 +215,19 @@ function AllArea() {
               </ul>
             </div>
 
-            <div className="flex flex-col border-2 border-gray-400 w-40">
-              <p className="rounded-sm text-[20px] bg-[#0b5e86] text-white shadow-lg shadow-gray-400">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem]">
+              <p className="rounded-sm text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2">
                 List of States
               </p>
-              <div className=" overflow-y-auto max-h-96 scroll-m-0">
-                <ul className=" list-none p-0 ">
+              <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white text-[18px]">
+                <ul className=" list-none p-0 ml-3 mt-2 ">
                   {Object.entries(stateAbbreviations).map(
                     ([state, abbreviation]) => (
                       <li
                         key={abbreviation}
                         className={`cursor-pointer ${
                           uniquestate.includes(state)
-                            ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
+                            ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
                             : ""
                         }`}
                       >
@@ -237,9 +239,9 @@ function AllArea() {
               </div>
             </div>
 
-            <div className="flex flex-col border-2 ">
+            <div className="flex flex-col border-2 w-[15rem] ">
               <div className="border-2 border-gray-400 ">
-                <p className="text-[20px] rounded-sm bg-[#0b5e86] text-white p-2 shadow-lg shadow-gray-400">
+                <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of Subarea
                 </p>
                 <ul className="rounded-sm text-[20px] flex flex-col ">
