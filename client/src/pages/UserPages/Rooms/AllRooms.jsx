@@ -100,9 +100,9 @@ function AllRooms() {
         theme="dark"
       />
       {rooms.length > 0 ? (
-        <div className="px-3 font-['udemy-bold'] md:px- md:py-0 text-lg">
+        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-20 lg:mt-0">
           <div className="flex justify-between items-center">
-            <h1 className="capitalize text-[26px]">
+            <h1 className="capitalize text-[18px] lg:text-[26px] font-['udemy-bold']">
               {usercity ? (
                 <p>Featured Rooms In {usercity}</p>
               ) : (
@@ -115,7 +115,7 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
@@ -130,7 +130,7 @@ function AllRooms() {
                   }
                   // navigate("/login");
                 }}
-                className="rounded-md bg-green-800 px-3 py-2 text-[22px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
@@ -143,7 +143,7 @@ function AllRooms() {
           </div>
           {otherRooms.length > 0 && (
             <>
-              <p className="text-[26px] text-black font-bold font-['udemy-bold'] mt-7">
+              <p className="text-[26px] text-black font-['udemy-bold'] mt-7">
                 More Rooms
               </p>
               <div className="mt-4 ">

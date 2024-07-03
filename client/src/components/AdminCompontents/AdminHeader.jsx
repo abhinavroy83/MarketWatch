@@ -2,7 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../store/adminauthslice";
-import WebsiteLogo from "../../assets/logo-transparent.png";
+import WebsiteLogo from "../../assets/whitelogo.png";
+import { IoHome } from "react-icons/io5";
+import { BiLogOut } from "react-icons/bi";
 
 function AdminHeader() {
   const dispatch = useDispatch();
@@ -19,21 +21,20 @@ function AdminHeader() {
             alt=""
           />
         </Link>
-        <div className="hidden grow items-start lg:flex">
-          <ul className="ml-12 inline-flex space-x-8">
+        <div className="hidden grow items-start lg:flex ">
+          <ul className="ml-12 inline-flex space-x-8 capitalize">
             <button
               type="button"
               onClick={() => {
                 navigate("/admin/dashboard");
               }}
-              className="rounded-md bg-transparent text-[16px] px-3 py-2 text-white hover:bg-white hover:text-[#0b5e86] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="flex gap-1 bg-transparent text-[16px] px-3 py-2 text-white hover:bg-white rounded-md hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Admin Home
+              <IoHome size={19} /> ADMIN HOME
             </button>
           </ul>
         </div>
         <div>
-
           <button
             type="button"
             onClick={() => {
@@ -41,9 +42,9 @@ function AdminHeader() {
               localStorage.removeItem("admindetails");
               navigate("/admin/login");
             }}
-            className="rounded-md text-[16px] px-3 py-2 text-white hover:bg-white hover:text-[#0b5e86] font-medium transition duration-300 ease-in-out hover:shadow-md"
+            className="rounded-md text-[16px] flex gap-1 px-3 py-2 text-white hover:bg-white hover:text-[#232f3e] font-medium transition duration-300 ease-in-out hover:shadow-md"
           >
-            Log Out
+            <BiLogOut size={22} /> LOGOUT
           </button>
         </div>
       </div>

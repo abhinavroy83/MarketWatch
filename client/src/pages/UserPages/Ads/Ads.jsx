@@ -112,7 +112,7 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-3 lg:px-1 py-1 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
+    <div className="flex px-2 lg:px-1 py-2 lg:py-0 gap-7 lg:gap-0 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
 
       <div className="flex items-center">
@@ -132,7 +132,7 @@ function Ads() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-1 group">
+          <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-0 lg:gap-1 group ">
             <IoLocationSharp size={20} /> {currntcty}
             <MdOutlineKeyboardArrowDown
               className={`transition-transform duration-300 ${
@@ -146,7 +146,7 @@ function Ads() {
         </div>
       </div>
       {isloged ? (
-        <div className="flex gap-4 items-center cursor-pointer">
+        <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
           <MdOutlineBedroomParent size={25} />
           <div className="relative mr-4">
             <FaRegHeart

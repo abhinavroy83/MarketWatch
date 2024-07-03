@@ -125,46 +125,48 @@ function AllArea() {
             </button>
           </div>
         </div> */}
-        <p className="mx-5 text-[22px] text-[#232f3e] font-['udemy-regular']">
+        <p className="text-center text-[22px] text-[#232f3e] font-['udemy-regular'] justify-center w-full">
           List of Avaible Area
         </p>
         <form className=" font-['udemy-regular'] mt-5">
-          <div className="mx-5 flex flex-col border-2 border-gray-400 w-[13rem]">
-            <p className="rounded-sm text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
-              Country -
-            </p>
-            <ul>
-              <li
-                value={"Usa"}
-                onClick={() => {
-                  setSelectedcountry("Usa");
-                }}
-                className={`cursor-pointer    ${
-                  selectedcountry === "Usa"
-                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                    : ""
-                }`}
-              >
-                Usa
-              </li>
-              <li
-                value={"Canada"}
-                onClick={() => {
-                  setSelectedcountry("Canada");
-                }}
-                className={`cursor-pointer    ${
-                  selectedcountry === "Canada"
-                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                    : ""
-                }`}
-              >
-                Canada
-              </li>
-            </ul>
+          <div className=" flex w-full mx-auto justify-center items-center">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem] bg-white text-[18px]">
+              <p className="rounded-sm text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
+                Country -
+              </p>
+              <ul>
+                <li
+                  value={"Usa"}
+                  onClick={() => {
+                    setSelectedcountry("Usa");
+                  }}
+                  className={`cursor-pointer    ${
+                    selectedcountry === "Usa"
+                      ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      : ""
+                  }`}
+                >
+                  Usa
+                </li>
+                <li
+                  value={"Canada"}
+                  onClick={() => {
+                    setSelectedcountry("Canada");
+                  }}
+                  className={`cursor-pointer    ${
+                    selectedcountry === "Canada"
+                      ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                      : ""
+                  }`}
+                >
+                  Canada
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 ml-5 mt-5">
-            <div className="flex flex-col border-2 border-gray-400 w-[13rem] mr-5">
+          <div className="flex gap-20 justify-center mt-5">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem]">
               <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                 List of Area in{" "}
                 {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
@@ -239,7 +241,7 @@ function AllArea() {
               </div>
             </div>
 
-            <div className="flex flex-col border-2 w-[15rem] ">
+            <div className="flex flex-col border-2 w-[15rem]">
               <div className="border-2 border-gray-400 ">
                 <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of Subarea

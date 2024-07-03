@@ -176,7 +176,7 @@ export default function Header() {
                           handlehamburger;
                         }
                       }}
-                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <IoHome /> Home
                     </button>
@@ -187,7 +187,7 @@ export default function Header() {
                       onClick={() => {
                         navigate("/rooms");
                       }}
-                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <MdMeetingRoom
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -203,7 +203,7 @@ export default function Header() {
                         // navigate("/Events");
                         alert("Coming soon");
                       }}
-                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out  hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium transition duration-300 ease-in-out  hover:shadow-md"
                     >
                       <MdEventNote
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -218,7 +218,7 @@ export default function Header() {
                       onClick={() => {
                         navigate();
                       }}
-                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <MdOutlineWork
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -234,7 +234,7 @@ export default function Header() {
                         // navigate("/bussiness");
                         alert("Coming soon");
                       }}
-                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 text-[16px] group text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <FaBusinessTime
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
@@ -250,7 +250,7 @@ export default function Header() {
                         // navigate("/Movie");
                         alert("Coming soon");
                       }}
-                      className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group rounded-md text-[16px] text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <BiSolidMoviePlay
                         className="group-hover:rotate-[360deg] transition-transform duration-300"
@@ -270,7 +270,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="uppercase flex gap-1 p-1 group text-white text-[16px] font-sans transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 p-1 group text-white text-[16px] transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <IoHomeSharp
                     size={16}
@@ -285,7 +285,7 @@ export default function Header() {
                   onClick={() => {
                     navigate("/rooms");
                   }}
-                  className="uppercase flex gap-1 items-center p-1 group text-[16px] text-white font-medium font-sans transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 items-center p-1 group text-[16px] text-white font-medium transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <MdMeetingRoom
                     size={20}
@@ -379,7 +379,7 @@ export default function Header() {
                     <p
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="ml-1 text-[16px] text-white flex gap-2 items-center cursor-pointer"
+                      className="ml-1 text-[16px] text-white flex gap-2 items-center cursor-pointer mr-2 lg:mr-0"
                     >
                       {weatherData.name} /
                       {isHovered

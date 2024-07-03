@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WebsiteLogo from "../../assets/logo-transparent.png";
+import WebsiteLogo from "../../assets/whitelogo.png";
 import { Link } from "react-router-dom";
 import Avalableloc from "../../pages/UserPages/Ads/Avalableloc";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -74,8 +74,8 @@ export default function Footer() {
                 {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
               </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-[2rem] lg:gap-[7rem] row-gap-8 ">
-              <div className="text-[16px]">
+            <div className="grid grid-cols-3 lg:grid-cols-6 justify-center gap-[1rem] lg:gap-[1rem] row-gap-8 px-4 lg:px-0">
+              <div className="text-[16px] ml-0 lg:ml-6 ">
                 <Link
                   to={`/about-us`}
                   className="font-semibold tracking-wide text-white"
@@ -282,7 +282,7 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="text-[#DDD] text-[14px] flex gap-3 font-bold justify-center mt-4 cursor-pointer px-9">
+            <div className="text-[#DDD] text-[14px] flex gap-3 font-bold justify-center mt-4 cursor-pointer px-5 lg:px-0">
               <p> Conditions of Use</p>
               <p> Privacy Notice</p>
               <p> Consumer Health Data Privacy </p>

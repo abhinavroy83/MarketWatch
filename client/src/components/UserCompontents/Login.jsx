@@ -105,7 +105,7 @@ function Login() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: isMobile ? 350 : 740,
-            height: 560,
+            height: 590,
             border: "none",
             padding: "0px",
             backgroundColor: "#FFF",
@@ -118,12 +118,8 @@ function Login() {
           },
         }}
       >
-        <div
-          className={`flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular'] ${
-            isMobile && "hidden"
-          }`}
-        >
-          <div className="capitalize bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 flex justify-center bg-cover h-full items-center">
+        <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular']">
+          <div className="capitalize bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
@@ -200,7 +196,16 @@ function Login() {
               >
                 Login Here
               </button>
-              <h1 className="text-[19px] mt-2 underline font-bold text-[#000] text-center">
+              <button
+                className="lg:hidden capitalize place-items-center items-center rounded-md bg-red-600 text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90"
+                type="submit"
+                onClick={() => {
+                  handleModal(false, true);
+                }}
+              >
+                Sign up now
+              </button>
+              <h1 className="text-[19px] mt-1 underline font-bold text-[#000] text-center">
                 Or Continue With
               </h1>
               <div>
@@ -208,14 +213,14 @@ function Login() {
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-2 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <p className="text-[19px] flex gap-4">
+                  <p className="text-[19px] flex gap-4 items-center">
                     <FaGoogle />
                     Continue With Google
                   </p>
                 </button>
                 <button
                   type="button"
-                  className="rounded-md bg-[#fff] flex mt-5 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-[#fff] flex mt-3 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   <p className="flex gap-4 text-[19px] items-center">
                     <FaApple size={25} />

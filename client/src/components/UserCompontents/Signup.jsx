@@ -12,6 +12,7 @@ import { modalopen } from "../../store/modalslice";
 import ReCAPTCHA from "react-google-recaptcha";
 import WebsiteLogo from "../../assets/logo-transparent.png";
 import { RxCross1 } from "react-icons/rx";
+import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 
 function Signup() {
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ function Signup() {
     (state) => state.modal.isSignupmodelopen
   );
   const dispatch = useDispatch();
+  const { windowSize } = getScreenSizeHook();
+
+  const isMobile = windowSize.width < 800;
+
   // const navigate = useNavigate();
   // const [businessstatus, setbusinessstatus] = useState(false);
   const {
@@ -107,8 +112,8 @@ function Signup() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 740,
-            height: 560,
+            width: isMobile ? 350 : 740,
+            height: 590,
             border: "none",
             padding: "0",
             backgroundColor: "#FFF",
@@ -159,7 +164,7 @@ function Signup() {
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
-                <div className="flex gap-3 mt-3">
+                <div className="flex gap-3 mt-1 lg:mt-3">
                   <Input
                     label="First Name"
                     Placeholder="First name"
@@ -179,7 +184,7 @@ function Signup() {
                     errorMessage={errors.lastName?.message}
                   />
                 </div>
-                <div className="flex flex-col gap-1 mt-2">
+                <div className="flex flex-col gap-1 mt-1">
                   <div className="flex gap-3">
                     <Input
                       label="Email"
@@ -322,12 +327,21 @@ function Signup() {
                       {errors.captcha?.message}
                     </p>
                   )} */}
-                  <div className="text-center">
+                  <div className="text-center flex flex-col">
                     <button
-                      className="mt-3 place-items-center font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] inline-flex rounded-md bg-[#17b19f] px-10 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-[#17b19f] px-0 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Create Account
+                    </button>
+                    <button
+                      className="lg:hidden items-center rounded-md bg-red-600 text-[19px] py-2 font-semibold text-white hover:bg-black/90 mt-2"
+                      type="button"
+                      onClick={() => {
+                        handleModal(true, false);
+                      }}
+                    >
+                      Login Here
                     </button>
                     {/* {businessstatus ? (
                       <button
