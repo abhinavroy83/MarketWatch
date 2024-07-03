@@ -192,12 +192,12 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[20px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
               <button
-                className="lg:hidden capitalize place-items-center items-center rounded-md bg-red-600 text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90"
+                className="lg:hidden capitalize items-center rounded-md bg-black text-[19px] px-7 py-2 font-semibold text-white hover:bg-black/90"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true);

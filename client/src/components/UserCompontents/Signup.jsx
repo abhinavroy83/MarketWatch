@@ -329,13 +329,13 @@ function Signup() {
                   )} */}
                   <div className="text-center flex flex-col">
                     <button
-                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-[#17b19f] px-0 py-2 text-[20px] font-semibold text-white hover:bg-black/70"
+                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-[#17b19f] px-0 py-2 text-[19px] font-semibold text-white hover:bg-black/70"
                       type="submit"
                     >
                       Create Account
                     </button>
                     <button
-                      className="lg:hidden items-center rounded-md bg-red-600 text-[19px] py-2 font-semibold text-white hover:bg-black/90 mt-2"
+                      className="lg:hidden items-center rounded-md bg-black text-[19px] py-2 font-semibold text-white hover:bg-black/90 mt-2"
                       type="button"
                       onClick={() => {
                         handleModal(true, false);
