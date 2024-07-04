@@ -122,7 +122,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[420px] lg:h-[165px] ${
+      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[450px] lg:h-[165px] ${
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
@@ -145,7 +145,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize mt-2 lg:mt-0">
+        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize mt-3 lg:mt-0">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">

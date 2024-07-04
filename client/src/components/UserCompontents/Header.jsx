@@ -240,7 +240,7 @@ export default function Header() {
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
-                      Bussiness Listing
+                      Business Listing
                     </button>
                   </ul>
                   <ul className="space-x-8 whitespace-nowrap">
@@ -343,7 +343,7 @@ export default function Header() {
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
                     size={17}
                   />
-                  Bussiness Listing
+                  Business Listing
                 </button>
               </ul>
               <ul className="ml-2 space-x-8 ">
