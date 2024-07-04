@@ -13,7 +13,7 @@ export default function Footer() {
 
   //  https://api.verydesi.com/
   return (
-    <div className="mt-9 w-full">
+    <div className="lg:mt-9 mt-6 w-full ">
       <div className=" mx-auto">
         <div className="bg-[#232f3e] flex text-white justify-center items-center py-6 gap-10 ">
           <Link to={"/"} className="bg-cover bg-center flex">
