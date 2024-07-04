@@ -13,6 +13,7 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 function AddArea({ editdata }) {
   const [state, setstate] = useState([]);
   const [selectedstate, setSelectedstate] = useState([]);
+  const [primaryState, setPrimaryState] = useState("");
   const [subarea, setSubareas] = useState([]);
   const [subareaInput, setSubareaInput] = useState("");
   const token = useSelector((state) => state.adminauth.token);
@@ -28,12 +29,13 @@ function AddArea({ editdata }) {
 
   const onsubmit = async (data) => {
     data.state = selectedstate;
+    data.primaryState = primaryState;
     data.subarea = subarea;
     console.log(data);
     if (editdata) {
       try {
         const res = await axios.put(
-          `https://api.verydesi.com/api/admin/updatearea/${editdata?._id}`,
+          `http://localhost:8000/api/admin/updatearea/${editdata?._id}`,
           data,
           {
             headers: {
@@ -56,7 +58,7 @@ function AddArea({ editdata }) {
     } else {
       try {
         const res = await axios.post(
-          `https://api.verydesi.com/api/admin/postcity`,
+          `http://localhost:8000/api/admin/postcity`,
           data,
           {
             headers: {
@@ -93,6 +95,9 @@ function AddArea({ editdata }) {
     setSelectedstate((prevSelectedstate) =>
       prevSelectedstate.filter((item) => item !== state)
     );
+    if (primaryState === state) {
+      setPrimaryState("");
+    }
   };
 
   const handleAddSubarea = () => {
@@ -108,8 +113,13 @@ function AddArea({ editdata }) {
     );
   };
 
+  const setAsPrimaryState = (state) => {
+    setPrimaryState(state);
+  };
+
   useEffect(() => {
     register("state");
+    register("primaryState");
     register("subarea");
   }, [register]);
 
@@ -117,17 +127,20 @@ function AddArea({ editdata }) {
     if (editdata) {
       setValue("country", editdata.country || "");
       setValue("state", editdata.state || "");
+      setValue("primaryState", editdata.primaryState || "");
       setValue("area", editdata.area || "");
       setValue("subarea", editdata.subarea || "");
       setSelectedstate(editdata.state || []);
+      setPrimaryState(editdata.primaryState || "");
       setSubareas(editdata.subarea || []);
     }
   }, [editdata, setValue]);
 
   useEffect(() => {
     setValue("state", selectedstate);
+    setValue("primaryState", primaryState);
     setValue("subarea", subarea);
-  }, [selectedstate, setValue]);
+  }, [selectedstate, primaryState, subarea, setValue]);
 
   return (
     <div>
@@ -193,16 +206,27 @@ function AddArea({ editdata }) {
               {selectedstate.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center bg-white rounded-md mx-2 px-2 border-2 border-black"
+                  className={`flex items-center ${
+                    primaryState === item
+                      ? "bg-green-200 border-green-500"
+                      : "bg-white"
+                  } rounded-md mx-2 px-2 border-2 border-black`}
                 >
                   <MdOutlineErrorOutline />
                   <span className="mr-2">{item}</span>
                   <button
                     type="button"
                     onClick={() => removeState(item)}
-                    className="text-black"
+                    className="text-black mr-2"
                   >
                     x
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAsPrimaryState(item)}
+                    className="text-black"
+                  >
+                    {primaryState === item ? "Primary" : "Set as Primary"}
                   </button>
                 </div>
               ))}

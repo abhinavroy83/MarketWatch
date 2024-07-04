@@ -2,13 +2,14 @@ const City = require("../../model/City");
 
 const postcity = async (req, res) => {
   try {
-    const { country, state, area, subarea, zipcode } = req.body;
+    const { country, state, area, subarea, primaryState, zipcode } = req.body;
     const AdminID = req.user.user._id;
     const newcity = await City.create({
       AdminID,
       country,
       state,
       area,
+      primaryState,
       subarea,
       zipcode,
     });
@@ -32,6 +33,8 @@ const updatecity = async (req, res) => {
       updateFields.area = updateFields.area || existingcity.area;
       updateFields.country = updateFields.country || existingcity.country;
       updateFields.state = updateFields.state || existingcity.state;
+      updateFields.primaryState =
+        updateFields.primaryState || existingcity.primaryState;
       updateFields.subarea = updateFields.subarea || existingcity.subarea;
       updateFields.zipcode = updateFields.zipcode || existingcity.zipcode;
     }

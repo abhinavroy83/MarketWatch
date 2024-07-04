@@ -17,6 +17,10 @@ const cityschema = new mongoose.Schema({
     type: [String],
     require: true,
   },
+  primaryState: {
+    type: String,
+    require: true,
+  },
   area: {
     type: String,
     require: true,

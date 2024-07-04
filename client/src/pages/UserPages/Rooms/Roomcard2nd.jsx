@@ -71,7 +71,10 @@ function Roomcard2nd({ isSingleRow, ...item }) {
             <p className="flex gap-1 items-center">
               {" "}
               <GrLocation size={20} />
-              {item.city},{stateAbbreviations[item.State]}
+              {item.city},{" "}
+              {item?.state?.length > 2
+                ? stateAbbreviations[item.state]
+                : item.state}
             </p>
 
             <p className="lg:ml-3 ml-0 flex gap-1 items-center">

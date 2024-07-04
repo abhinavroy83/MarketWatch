@@ -4,10 +4,9 @@ import "leaflet/dist/leaflet.css";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 
-const LeafletMap = ({ onLocationReceived, style }) => {
+const LeafletMap = ({ onLocationReceived }) => {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
-  const circleRef = useRef(null);
   const dispatch = useDispatch();
   const currentloc = useSelector((state) => state.auth.location);
 
@@ -15,6 +14,26 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     lat: 0,
     lng: 0,
   });
+
+  const [mapStyle, setMapStyle] = useState({
+    height: "300px",
+    width: "280px",
+  });
+
+  useEffect(() => {
+    const updateStyle = () => {
+      if (window.innerWidth >= 1024) {
+        setMapStyle({ height: "400px", width: "380px" });
+      } else {
+        setMapStyle({ height: "300px", width: "280px" });
+      }
+    };
+
+    window.addEventListener("resize", updateStyle);
+    updateStyle(); // Initial call
+
+    return () => window.removeEventListener("resize", updateStyle);
+  }, []);
 
   useEffect(() => {
     let lat, lng;
@@ -27,7 +46,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     } else {
       return;
     }
-    if (mapContainerRef) {
+    if (mapContainerRef.current) {
       const map = L.map(mapContainerRef.current).setView([lat, lng], 15);
       setCurrentLocation({ lat, lng });
 
@@ -53,7 +72,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
 
       return () => map.remove();
     }
-  }, [onLocationReceived]);
+  }, [onLocationReceived, currentloc]);
 
   useEffect(() => {
     // dispatch(redlocation({ location: currentLocation }));
@@ -65,7 +84,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       ref={(div) => {
         mapContainerRef.current = div;
       }}
-      style={{ ...style, position: "relative", zIndex: 0 }}
+      style={{ ...mapStyle, position: "relative", zIndex: 0 }}
     />
   );
 };
