@@ -101,14 +101,14 @@ export default function Header() {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className="bg-gray-200 rounded-lg text-black flex flex-col p-10 items-center justify-center font-['udemy-regular'] relative">
+          <div className="bg-gray-200 rounded-lg text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
             <RxCross1
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300"
               onClick={onClose}
             />
             <GiExitDoor className="items-center" size={70} />
             <h1 className="text-[25px] mt-3 font-semibold">Confirm Logout</h1>
-            <p className="text-[22px] text-gray-600">
+            <p className="text-[20px] text-gray-600">
               Are you sure you want to logout?
             </p>
             <div className="flex gap-4 items-center mt-4">
