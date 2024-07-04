@@ -188,7 +188,7 @@ function Addrooms({ editdata }) {
     if (editdata) {
       try {
         const res = await axios.put(
-          `http://localhost:8000/api/rooms/${editdata._id}`,
+          `https://api.verydesi.com/api/rooms/${editdata._id}`,
           roomdata,
           {
             headers: {
@@ -210,7 +210,7 @@ function Addrooms({ editdata }) {
     } else {
       try {
         const res = await axios.post(
-          " http://localhost:8000/api/addrooms",
+          " https://api.verydesi.com/api/addrooms",
           roomdata,
           {
             headers: {

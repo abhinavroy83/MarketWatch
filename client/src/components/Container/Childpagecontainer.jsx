@@ -142,7 +142,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
             <div className="mt-3">
               <LeafletMap
                 onLocationReceived={currentloc}
-                // style={{ height: "300px", width: "280px" }}
+                style={{ height: "300px", width: "" }}
               />
             </div>
             {/* <div className="bg-yellow-300 mt-4 rounded-xl shadow-sm shadow-[#000]">
