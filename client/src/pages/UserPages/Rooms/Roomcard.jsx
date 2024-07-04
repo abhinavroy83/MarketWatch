@@ -122,7 +122,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[165px] ${
+      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[420px] lg:h-[165px] ${
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
@@ -133,7 +133,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         }
         alt=""
         // width={220}
-        className=" w-52 rounded-tl-md rounded-bl-md h-[100%] max-w-4xl transition duration-300 ease-in-out hover:opacity-80"
+        className="w-full lg:w-52 rounded-tl-md rounded-tr-md lg:rounded-none lg:rounded-tl-md lg:rounded-bl-md lg:h-[100%] max-w-4xl transition duration-300 ease-in-out hover:opacity-80"
       />
 
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
@@ -145,7 +145,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize">
+        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize mt-2 lg:mt-0">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">

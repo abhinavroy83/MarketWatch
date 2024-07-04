@@ -100,9 +100,9 @@ function AllRooms() {
         theme="dark"
       />
       {rooms.length > 0 ? (
-        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-20 lg:mt-0">
+        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[5.5rem] lg:mt-0">
           <div className="flex justify-between items-center">
-            <h1 className="capitalize text-[18px] lg:text-[26px] font-['udemy-bold']">
+            <h1 className="capitalize text-[20px] lg:text-[26px] font-bold">
               {usercity ? (
                 <p>Featured Rooms In {usercity}</p>
               ) : (
@@ -130,23 +130,23 @@ function AllRooms() {
                   }
                   // navigate("/login");
                 }}
-                className="rounded-md bg-green-800 px-3 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-2 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
             )}
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
+          <div className="lg:mt-8 mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:mt-3 xl:grid-cols-2 xl:gap-2">
             {recentRooms.map((item) => (
               <Roomcard key={item._id} {...item} />
             ))}
           </div>
           {otherRooms.length > 0 && (
             <>
-              <p className="text-[26px] text-black font-['udemy-bold'] mt-7">
+              <p className="text-[22px] lg:text-[26px] font-['udemy-bold'] mt-7">
                 More Rooms
               </p>
-              <div className="mt-4 ">
+              <div className="mt-1 lg:mt-4 ">
                 {currentRooms.map((item) => (
                   <Roomcard2nd key={item._id} {...item} />
                 ))}
