@@ -58,7 +58,7 @@ import Loader from "../../../components/UserCompontents/Loader";
 import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
 import { FaEdit } from "react-icons/fa";
-
+import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 function Rooms() {
   const { _id } = useParams();
   const [rooms, setrooms] = useState([]);
@@ -83,7 +83,7 @@ function Rooms() {
         `https://api.verydesi.com/api/getspecificroom/${_id}`
       );
       setrooms(res.data.rooms);
-      // console.log(res.data.rooms);
+      console.log(res.data.rooms);
       const loc = {
         lat: res.data.rooms.location.coordinates[1],
         lng: res.data.rooms.location.coordinates[0],
@@ -477,7 +477,13 @@ function Rooms() {
                 )}
               </div>
               <div className="flex justify-between my-2">
-                <p className="text-[25px] capitalize">{rooms.city}</p>
+                <p className="text-[25px] capitalize">
+                  {rooms.city},{rooms?.state?.length>2?
+                  stateAbbreviations[item?.state]:
+                  rooms.state
+                  
+                  }
+                </p>
                 <p className=" capitalize">$ {rooms.Expected_Rooms}</p>
               </div>
               <div>

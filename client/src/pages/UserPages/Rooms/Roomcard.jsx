@@ -149,7 +149,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
-          <GrLocation size={20} /> {item.city},{stateAbbreviations[item.State]}
+          <GrLocation size={20} /> {item.city},
+          {item?.state?.length > 2 ? stateAbbreviations[item.State] : item.state}
         </p>
         <p className="text-blue-800 capitalize text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']">
           <CgProfile />

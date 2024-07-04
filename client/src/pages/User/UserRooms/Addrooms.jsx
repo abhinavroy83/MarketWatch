@@ -9,7 +9,9 @@ import { IoInformationCircleSharp } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import authslice from "../../../store/authslice";
 import DatePicker from "react-datepicker";
+import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
+const libraries = ["places"];
 
 function Addrooms({ editdata }) {
   const currentLocation = useSelector((state) => state.auth.location);
@@ -26,6 +28,13 @@ function Addrooms({ editdata }) {
   const [uploadstats, setUploadstats] = useState(false);
   const [profiledata, setprofile] = useState([]);
   const [stayLeaseOption, setStayLeaseOption] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: "AIzaSyDV2wKeoUG0TSghZ1adR-t8z0cJJS8EM24",
+    libraries,
+  });
 
   const {
     register,
@@ -37,9 +46,47 @@ function Addrooms({ editdata }) {
     watch,
   } = useForm();
 
-  const usrId = useSelector((state) => state.auth.userID);
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [location, setLocation] = useState({ lat: null, lng: null });
 
-  const watchStayLease = watch("Stay_lease");
+  const onLoad = (autocompleteInstance) => {
+    setAutocomplete(autocompleteInstance);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlaces()[0];
+      const lat = place.geometry.location.lat();
+      const lng = place.geometry.location.lng();
+      setLocation({ lat, lng });
+      setValue("address", place.formatted_address);
+      setValue("latitude", lat);
+      setValue("longitude", lng);
+      const addressComponents = place.address_components;
+      let city = "";
+      let state = "";
+
+      for (let component of addressComponents) {
+        if (component.types.includes("locality")) {
+          city = component.long_name;
+        }
+        if (component.types.includes("administrative_area_level_1")) {
+          state = component.short_name;
+        }
+      }
+
+      setCity(city);
+      setState(state);
+      setValue("city", city);
+      setValue("state", state);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
+  console.log(location);
+  console.log(city, state);
+
+  const usrId = useSelector((state) => state.auth.userID);
 
   const handleStayLeaseChange = (e) => {
     setStayLeaseOption(e.target.value);
@@ -131,16 +178,17 @@ function Addrooms({ editdata }) {
       email: profiledata.email,
       phone_number: data.phone_number,
       address: data.address,
+      state: data.state,
       zip_code: data.zip_code,
       location: {
-        coordinates: [currentLocation.lng, currentLocation.lat],
+        coordinates: [location.lng, location.lat],
       },
     };
     // console.log("resimgurl", resimgurl);
     if (editdata) {
       try {
         const res = await axios.put(
-          `https://api.verydesi.com/api/rooms/${editdata._id}`,
+          `http://localhost:8000/api/rooms/${editdata._id}`,
           roomdata,
           {
             headers: {
@@ -162,7 +210,7 @@ function Addrooms({ editdata }) {
     } else {
       try {
         const res = await axios.post(
-          " https://api.verydesi.com/api/addrooms",
+          " http://localhost:8000/api/addrooms",
           roomdata,
           {
             headers: {
@@ -199,7 +247,7 @@ function Addrooms({ editdata }) {
   useEffect(() => {
     if (editdata) {
       setStayLeaseOption(editdata?.Stay_lease);
-      setValue("PostingIn", editdata?.PostingIn || "Portland");
+      setValue("PostingIn", editdata?.city || "Portland");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");
@@ -219,6 +267,7 @@ function Addrooms({ editdata }) {
       setValue("Open_house_schedule", editdata?.Open_house_schedule || "");
       setValue("phone_number", editdata?.phone_number || "");
       setValue("address", editdata?.address || "");
+      setValue("state", editdata?.state || "");
       setValue("zip_code", editdata?.zip_code || "");
       if (editdata.Imgurl) {
         setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
@@ -247,6 +296,14 @@ function Addrooms({ editdata }) {
       }
     };
   }, []);
+
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div>Loading Maps</div>;
+  }
 
   return (
     <div className=" w-full mx-auto mt-[7%]">
@@ -1031,18 +1088,37 @@ function Addrooms({ editdata }) {
                   Address <span className=" text-red-500">*</span>
                 </label>
                 <div>
+                  <StandaloneSearchBox
+                    onLoad={onLoad}
+                    onPlacesChanged={onPlaceChanged}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Enter a location"
+                      {...register("address", { required: true })}
+                      className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    />
+                  </StandaloneSearchBox>
                   <input
+                    type="hidden"
+                    {...register("latitude", { required: true })}
+                  />
+                  <input
+                    type="hidden"
+                    {...register("longitude", { required: true })}
+                  />
+                  {/* <input
                     type="text"
                     {...register("address", {
                       required: "Address is required",
                     })}
                     placeholder="Enter Address"
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                  <p className="text-[16px] mt-1 text-red-500">
+                  /> */}
+                  {/* <p className="text-[16px] mt-1 text-red-500">
                     {" "}
                     {errors.address && <p>{errors.address.message}</p>}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 

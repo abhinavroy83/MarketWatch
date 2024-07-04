@@ -21,6 +21,12 @@ const updateroom = async (req, res) => {
     if (!updateFields.postedon) {
       updateFields.postedon = existingRoom.postedon;
     }
+    if (!updateFields.city) {
+      updateFields.city = existingRoom.city;
+    }
+    if (!updateFields.state) {
+      updateFields.state = existingRoom.state;
+    }
     if (updateFields.location) {
       updateFields.location = existingRoom.location;
     }

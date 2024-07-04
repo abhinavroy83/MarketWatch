@@ -27,6 +27,7 @@ const addroom = async (req, res) => {
       email,
       phone_number,
       address,
+      state,
       zip_code,
       location,
     } = req.body;
@@ -59,6 +60,7 @@ const addroom = async (req, res) => {
       email,
       phone_number,
       address,
+      state,
       zip_code,
       location,
     });

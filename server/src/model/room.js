@@ -28,6 +28,7 @@ const roomSchema = mongoose.Schema({
   user_name: { type: String },
   phone_number: { type: String },
   address: { type: String },
+  state: { type: String },
   zip_code: { type: String },
   email: { type: String },
   location: {
