@@ -15,8 +15,9 @@ export default function Footer() {
   return (
     <div className="lg:mt-9 mt-6 w-full ">
       <div className=" mx-auto">
-        <div className="bg-[#232f3e] flex text-white justify-center items-center py-6 gap-10 ">
-          <Link to={"/"} className="bg-cover bg-center flex">
+        <div className="bg-[#232f3e] flex text-[#232f3e] justify-center items-center gap-10 ">
+          <p>hi</p>
+          {/* <Link to={"/"} className="bg-cover bg-center flex">
             <img
               // height={300}
               width={300}
@@ -24,8 +25,8 @@ export default function Footer() {
               src={WebsiteLogo}
               alt=""
             />
-          </Link>
-          <div
+          </Link> */}
+          {/* <div
             className="relative inline-block text-black border p-1 border-[#999] rounded-md"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -42,9 +43,9 @@ export default function Footer() {
             </p>
 
             {isHovered && <Avalableloc />}
-          </div>
+          </div> */}
         </div>
-        <div className=" w-full bg-[#131A22]">
+        <div className=" w-full bg-[#131A22] border-t-7 border-[#232f3e]">
           <div className="max-w-[1370px] lg:max-w-[1600px] mx-auto bg-[#131A22] font-['udemy-regular']">
             <div className="max-w-[1600px] w-full m-auto flex flex-col items-center pb-3 lg:flex-row py-2 justify-center">
               <div className="">
@@ -74,8 +75,67 @@ export default function Footer() {
                 {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
               </div>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 justify-center gap-[1rem] lg:gap-[1rem] row-gap-8 px-4 lg:px-0">
-              <div className="text-[16px] ml-0 lg:ml-6 ">
+
+            <div className="flex text-white items-center gap-5">
+              <Link to={"/"} className="bg-cover bg-center flex">
+                <img
+                  // height={300}
+                  width={300}
+                  className="w-[170px] lg:w-[140px]"
+                  src={WebsiteLogo}
+                  alt=""
+                />
+              </Link>
+              <div
+                className="relative inline-block text-black border p-1 border-[#999] rounded-md"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
+                  <IoIosGlobe size={20} />
+                  {currntcty}
+                  <MdOutlineKeyboardArrowDown
+                    className={`transition-transform duration-300 ${
+                      isHovered ? "rotate-180" : ""
+                    }`}
+                    size={22}
+                  />
+                </p>
+
+                {isHovered && <Avalableloc />}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-5 justify-center gap-[1rem] lg:gap-[1rem] px-4 lg:px-0">
+              {/* <div className="flex text-white items-center gap-5">
+                <Link to={"/"} className="bg-cover bg-center flex">
+                  <img
+                    // height={300}
+                    width={300}
+                    className="w-[200px] lg:w-[140px]"
+                    src={WebsiteLogo}
+                    alt=""
+                  />
+                </Link>
+                <div
+                  className="relative inline-block text-black border p-1 border-[#999] rounded-md"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
+                    <IoIosGlobe size={20} />
+                    {currntcty}
+                    <MdOutlineKeyboardArrowDown
+                      className={`transition-transform duration-300 ${
+                        isHovered ? "rotate-180" : ""
+                      }`}
+                      size={22}
+                    />
+                  </p>
+
+                  {isHovered && <Avalableloc />}
+                </div>
+              </div> */}
+              {/* <div className="text-[16px] ml-0 lg:ml-6 ">
                 <Link
                   to={`/about-us`}
                   className="font-semibold tracking-wide text-white"
@@ -116,8 +176,8 @@ export default function Footer() {
                     </a>
                   </li>
                 </ul>
-              </div>
-              <div className="">
+              </div> */}
+              {/* <div className="">
                 <p className="font-semibold tracking-wide text-[#ddd]">
                   Connect with Us
                 </p>
@@ -147,13 +207,13 @@ export default function Footer() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
 
               <div className="">
                 <p className="font-semibold tracking-wide text-[#DDD]">
-                  Make Money with Us
+                  Make Money
                 </p>
-                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
                   <li>
                     <a
                       href="/"
@@ -184,7 +244,7 @@ export default function Footer() {
                 <p className="font-semibold tracking-wide text-[#DDD]">
                   Make Money
                 </p>
-                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
                   <li>
                     <a
                       href="/"
@@ -215,7 +275,7 @@ export default function Footer() {
                 <p className="font-semibold tracking-wide text-[#DDD]">
                   Make Money with Us
                 </p>
-                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
                   <li>
                     <a
                       href="/"
@@ -246,7 +306,7 @@ export default function Footer() {
                 <p className="font-semibold tracking-wide text-[#DDD]">
                   Let Us Help You
                 </p>
-                <ul className="mt-2 space-y-2 leading-4 text-[14px]">
+                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
                   <li>
                     <a
                       href="/"

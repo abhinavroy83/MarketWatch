@@ -108,7 +108,7 @@ export default function Header() {
             />
             <GiExitDoor className="items-center" size={70} />
             <h1 className="text-[25px] mt-3 font-semibold">Confirm Logout</h1>
-            <p className="text-[20px] text-gray-600">
+            <p className="text-[18px] text-gray-600">
               Are you sure you want to logout?
             </p>
             <div className="flex gap-4 items-center mt-4">
@@ -379,7 +379,7 @@ export default function Header() {
                     <p
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="ml-1 text-[16px] text-white flex gap-2 items-center cursor-pointer mr-2 lg:mr-0"
+                      className="ml-1 text-[16px] text-white flex gap-2 items-center cursor-pointer mr-2 lg:mr-3"
                     >
                       {weatherData.name} /
                       {isHovered

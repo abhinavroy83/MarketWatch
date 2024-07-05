@@ -251,7 +251,7 @@ function Ads() {
           </button> */}
         </div>
       ) : (
-        <div className="leading-4 flex items-center gap-2">
+        <div className="leading-4 flex items-center gap-2 mr-0 lg:mr-3">
           <img
             className="rounded-full w-[45px] h-[45px]"
             height={50}
