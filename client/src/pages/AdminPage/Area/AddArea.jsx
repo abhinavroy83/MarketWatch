@@ -288,12 +288,21 @@ function AddArea({ editdata }) {
 
           <div className="flex justify-center items-center mt-5">
             {editdata ? (
-              <button
-                className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                type="submit"
-              >
-                Update Area
-              </button>
+              <div className=" flex gap-2">
+                <button
+                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  type="button"
+                  onClick={() => navigate(`/admin/allarea`)}
+                >
+                  Back
+                </button>
+                <button
+                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  type="submit"
+                >
+                  Update Area
+                </button>
+              </div>
             ) : (
               <button
                 className="rounded-md bg-green-800 px-4 py-2 text-[18px] justify-center text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -304,6 +313,13 @@ function AddArea({ editdata }) {
             )}
           </div>
         </form>
+        <p className=" text-xl text-red-600 capitalize">
+          * Primary state is a state where area is located
+        </p>
+        <p className=" text-xl text-red-600 capitalize">
+          * Whole state is where the entire state is listed after the subarea
+          are done
+        </p>
       </AdminDashboard>
     </div>
   );
