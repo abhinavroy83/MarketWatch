@@ -483,7 +483,7 @@ function Rooms() {
                     ? stateAbbreviations[item?.state]
                     : rooms.state}
                 </p>
-                <p className=" capitalize">$ {rooms.Expected_Rooms}</p>
+                <p className="text-green-700 font-bold capitalize">$ {rooms.Expected_Rooms}</p>
               </div>
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
