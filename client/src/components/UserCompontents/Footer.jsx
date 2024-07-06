@@ -75,38 +75,38 @@ export default function Footer() {
                 {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
               </div>
             </div>
-
-            <div className="flex text-white items-center gap-5">
-              <Link to={"/"} className="bg-cover bg-center flex">
-                <img
-                  // height={300}
-                  width={300}
-                  className="w-[170px] lg:w-[140px]"
-                  src={WebsiteLogo}
-                  alt=""
-                />
-              </Link>
-              <div
-                className="relative inline-block text-black border p-1 border-[#999] rounded-md"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
-                  <IoIosGlobe size={20} />
-                  {currntcty}
-                  <MdOutlineKeyboardArrowDown
-                    className={`transition-transform duration-300 ${
-                      isHovered ? "rotate-180" : ""
-                    }`}
-                    size={22}
+            <div className="lg:flex gap-20 lg:ml-5 ml-2">
+              <div className="flex text-white items-center gap-5">
+                <Link to={"/"} className="bg-cover bg-center flex">
+                  <img
+                    // height={300}
+                    width={300}
+                    className="w-[170px] lg:w-[140px]"
+                    src={WebsiteLogo}
+                    alt=""
                   />
-                </p>
+                </Link>
+                <div
+                  className="relative inline-block text-black border p-1 border-[#999] rounded-md"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <p className="text-[14px] flex cursor-pointer items-center hover:font-bold gap-1 group text-[#ddd]">
+                    <IoIosGlobe size={20} />
+                    {currntcty}
+                    <MdOutlineKeyboardArrowDown
+                      className={`transition-transform duration-300 ${
+                        isHovered ? "rotate-180" : ""
+                      }`}
+                      size={22}
+                    />
+                  </p>
 
-                {isHovered && <Avalableloc />}
+                  {isHovered && <Avalableloc />}
+                </div>
               </div>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-5 justify-center gap-[1rem] lg:gap-[1rem] px-4 lg:px-0">
-              {/* <div className="flex text-white items-center gap-5">
+              <div className="grid grid-cols-2 lg:grid-cols-5 justify-center gap-[1rem] lg:gap-[4rem] px-2 lg:mt-0 mt-3">
+                {/* <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
                     // height={300}
@@ -135,7 +135,7 @@ export default function Footer() {
                   {isHovered && <Avalableloc />}
                 </div>
               </div> */}
-              {/* <div className="text-[16px] ml-0 lg:ml-6 ">
+                {/* <div className="text-[16px] ml-0 lg:ml-6 ">
                 <Link
                   to={`/about-us`}
                   className="font-semibold tracking-wide text-white"
@@ -177,171 +177,173 @@ export default function Footer() {
                   </li>
                 </ul>
               </div> */}
-              {/* <div className="">
-                <p className="font-semibold tracking-wide text-[#ddd]">
-                  Connect with Us
-                </p>
-                <ul className="mt-2 leading-4 space-y-2 text-[14px]">
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
-              </div> */}
+                {/* <div className="">
+                  <p className="font-semibold tracking-wide text-[#ddd]">
+                    Connect with Us
+                  </p>
+                  <ul className="mt-2 leading-4 space-y-2 text-[14px]">
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </div> */}
 
-              <div className="">
-                <p className="font-semibold tracking-wide text-[#DDD]">
-                  Make Money
-                </p>
-                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="">
-                <p className="font-semibold tracking-wide text-[#DDD]">
-                  Make Money
-                </p>
-                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="">
-                <p className="font-semibold tracking-wide text-[#DDD]">
-                  Make Money with Us
-                </p>
-                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="">
-                <p className="font-semibold tracking-wide text-[#DDD]">
-                  Let Us Help You
-                </p>
-                <ul className="mt-2 space-y-1 leading-4 text-[14px]">
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
+                <div className="">
+                  <p className="font-semibold tracking-wide text-[#DDD]">
+                    Make Money
+                  </p>
+                  <ul className="mt-2 space-y-1 leading-4 text-[14px]">
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="">
+                  <p className="font-semibold tracking-wide text-[#DDD]">
+                    Make Money
+                  </p>
+                  <ul className="mt-2 space-y-1 leading-4 text-[14px]">
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="">
+                  <p className="font-semibold tracking-wide text-[#DDD]">
+                    Make Money with Us
+                  </p>
+                  <ul className="mt-2 space-y-1 leading-4 text-[14px]">
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="">
+                  <p className="font-semibold tracking-wide text-[#DDD]">
+                    Let Us Help You
+                  </p>
+                  <ul className="mt-2 space-y-1 leading-4 text-[14px]">
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
+
             <div className="text-[#DDD] text-[14px] flex gap-3 font-bold justify-center mt-4 cursor-pointer px-5 lg:px-0">
               <p> Conditions of Use</p>
               <p> Privacy Notice</p>
