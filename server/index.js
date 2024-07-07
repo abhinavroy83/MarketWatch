@@ -6,6 +6,7 @@ const cors = require("cors");
 const IsloggedIn = require("./src/middleware/isloggedin");
 const cloudinary = require("cloudinary");
 const Multer = require("multer");
+const path = require("path");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use(
   })
 );
 app.options("*", cors());
+app.use(express.static(path.join(__dirname, "public")));
 
 //connection
 const connectiondb = require("./src/db/dbcongif");
@@ -104,7 +106,7 @@ async function handleUpload(file) {
 
 const storage = new Multer.memoryStorage();
 const upload = Multer({
-  storage, 
+  storage,
 });
 
 app.post("/img/upload", upload.array("my_files", 5), async (req, res) => {
