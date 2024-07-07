@@ -81,7 +81,7 @@ function DashConatiner({ children }) {
 
   return (
     <div className="mt-[8%] mx-auto px-4 flex max-w-[1500px] h-[700px] w-full m-auto overflow-hidden">
-      <div className="w-[18%] h-[900px] bg-[#0b5e86] border-2 p-2 flex flex-col font-roboto items-center">
+      <div className="w-[18%] h-[900px] bg-[#232f3e] border-2 p-2 flex flex-col font-roboto items-center">
         {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
           fill="none"
@@ -125,35 +125,35 @@ function DashConatiner({ children }) {
               setbgcolor(true);
               navigate(`/myaccount/${userID}`);
             }}
-            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start mt-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start mt-2 capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
-            <ImProfile size={22} /> Hello {username}
+            <ImProfile size={20} /> Hello {username}
           </button>
           <button
             onClick={() => {
               setbgcolor(true);
               navigate(`/dashboard/profile/${userID}`);
             }}
-            className="rounded-md bg-transparent px-9 py-1 whitespace-nowrap items-center flex gap-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
-            <FaUserPen size={30} /> My Profile
+            <FaUserPen size={25} /> My Profile
           </button>
           <button
             onClick={() => {
               setbgcolor(true);
               navigate(`/dashboard/wishlist/${userID}`);
             }}
-            className="rounded-md bg-transparent whitespace-nowrap px-9 py-1 items-center flex gap-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
-            <FaHeart size={25} /> My Wishlist
+            <FaHeart size={21} /> My Wishlist
           </button>
           <button
             onClick={() => {
               navigate(`/user/room/${userID}`);
             }}
-            className="rounded-md bg-transparent px-9 py-1  items-center flex gap-2 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+            className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
-            <MdMeetingRoom size={30} /> My Rooms
+            <MdMeetingRoom size={25} /> My Rooms
           </button>
           {bussinessac == "yes" && (
             <>
@@ -161,7 +161,7 @@ function DashConatiner({ children }) {
                 onClick={() => {
                   navigate(`/user/job/${userID}`);
                 }}
-                className="rounded-md bg-transparent px-9 py-1 whitespace-nowrap capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+                className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 Jobs
               </button>
@@ -169,7 +169,7 @@ function DashConatiner({ children }) {
                 onClick={() => {
                   // navigate(`/user/job/${userID}`);
                 }}
-                className="rounded-md bg-transparent px-9 py-1 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+                className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 Events
               </button>
@@ -177,7 +177,7 @@ function DashConatiner({ children }) {
                 onClick={() => {
                   // navigate(`/user/job/${userID}`);
                 }}
-                className="rounded-md bg-transparent px-9 py-1 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+                className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 Movies
               </button>
@@ -185,7 +185,7 @@ function DashConatiner({ children }) {
                 onClick={() => {
                   navigate(`/user/bussiness/${userID}`);
                 }}
-                className="rounded-md bg-transparent px-9 py-1 capitalize text-[22px] text-white hover:text-[#0b5e86] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black"
+                className="rounded-md bg-transparent px-9 py-1 items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize font-bold text-[16px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 Bussiness
               </button>

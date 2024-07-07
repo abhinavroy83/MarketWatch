@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function User() {
   const username = useSelector((state) => state.auth.user);
   // console.log(username);
@@ -25,14 +24,14 @@ function User() {
         pauseOnHover
         theme="dark"
       />
-      <h1 className="text-[30px] text-center font-bold text-[#0b5e86] mt-7 font-['udemy-regular']">
+      <h1 className="text-[25px] text-center font-bold text-[#232f3e] mt-7 font-['udemy-regular']">
         Welcome Back {username}
       </h1>
       <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">
         <Link to={`/dashboard/profile/${userID}`}>
           <div className="">
             <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
-            <img
+              <img
                 className="w-[3.9rem] h-15"
                 src={`https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg`}
                 alt="logo"
