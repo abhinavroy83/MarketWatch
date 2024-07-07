@@ -32,7 +32,7 @@ const LeafletMap2 = ({ onLocationReceived, style }) => {
       setCurrentLocation({ lat, lng });
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
+        maxZoom: 12,
         attribution: "© ",
       }).addTo(map);
 
@@ -40,7 +40,7 @@ const LeafletMap2 = ({ onLocationReceived, style }) => {
         color: "",
         fillColor: "#f03",
         fillOpacity: 0.3,
-        radius: 500,
+        radius: 1000,
       }).addTo(map);
 
       markerRef.current.on("dragend", (e) => {

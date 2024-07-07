@@ -478,11 +478,12 @@ function Rooms() {
               </div>
               <div className="flex justify-between my-2">
                 <p className="text-[25px] capitalize">
-                  {rooms.city},{rooms?.state?.length>2?
-                  stateAbbreviations[item?.state]:
-                  rooms.state
-                  
-                  }
+                  <span className=" px-1">{rooms.city}</span>,
+                  <span className=" px-1">
+                    {rooms?.state?.length > 2
+                      ? stateAbbreviations[item?.state]
+                      : rooms.state}
+                  </span>
                 </p>
                 <p className=" capitalize">$ {rooms.Expected_Rooms}</p>
               </div>

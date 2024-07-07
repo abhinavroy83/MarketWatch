@@ -226,7 +226,7 @@ function AddArea({ editdata }) {
                     onClick={() => setAsPrimaryState(item)}
                     className="text-black"
                   >
-                    {primaryState === item ? "Primary" : "Set as Primary"}
+                    {primaryState === item ? "Primary" : "Primary state"}
                   </button>
                 </div>
               ))}
