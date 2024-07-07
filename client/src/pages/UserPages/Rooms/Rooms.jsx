@@ -478,14 +478,12 @@ function Rooms() {
               </div>
               <div className="flex justify-between my-2">
                 <p className="text-[25px] capitalize">
-                  <span className=" px-1">{rooms.city}</span>,
-                  <span className=" px-1">
-                    {rooms?.state?.length > 2
-                      ? stateAbbreviations[item?.state]
-                      : rooms.state}
-                  </span>
+                  {rooms.city},
+                  {rooms?.state?.length > 2
+                    ? stateAbbreviations[item?.state]
+                    : rooms.state}
                 </p>
-                <p className=" capitalize">$ {rooms.Expected_Rooms}</p>
+                <p className="text-green-700 font-bold capitalize">$ {rooms.Expected_Rooms}</p>
               </div>
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
@@ -680,7 +678,7 @@ function Rooms() {
               <RiMoneyDollarCircleFill size={35} />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Desposite
+                  Deposit
                   <p className="text-black flex text-[18px]">
                     {rooms.Desposite}
                   </p>
@@ -740,7 +738,7 @@ function Rooms() {
               <BiFoodTag size={35} />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Vegeterian prefernce
+                  Dietary Preference
                   <p className="text-black flex text-[18px]">
                     {rooms.Vegeterian_prefernce}
                   </p>

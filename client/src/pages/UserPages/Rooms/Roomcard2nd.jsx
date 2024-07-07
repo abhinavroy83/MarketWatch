@@ -61,7 +61,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         alt=""
       />{" "}
       <div className="block grow">
-        <h1 className="text-[21px] lg:text-[23px] font-['udemy-regular'] text-[#3a3247]">
+        <h1 className="text-[21px] lg:text-[23px] font-['udemy-regular'] text-[#000]">
           {item.Title?.length > 0 ? truncateCharacters(item.Title, 80) : ""}
         </h1>
 

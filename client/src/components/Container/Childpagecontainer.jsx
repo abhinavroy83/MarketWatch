@@ -110,7 +110,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-0 mt-5 h-5/6 font-['udemy-regular'] bg-gray-200 py-5 px-5">
+        <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 py-5 px-5 mr-3 lg:mr-3">
           <div className="h-full flex flex-wrap flex-col gap-1">
             <div className="text-[20px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <div className="flex gap-2 items-center">

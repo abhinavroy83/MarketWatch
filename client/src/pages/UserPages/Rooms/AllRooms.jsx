@@ -100,7 +100,7 @@ function AllRooms() {
         theme="dark"
       />
       {rooms.length > 0 ? (
-        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[5.5rem] lg:mt-0">
+        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[5.5rem] lg:mt-1">
           <div className="flex justify-between items-center">
             <h1 className="capitalize text-[20px] lg:text-[26px] font-bold">
               {usercity ? (

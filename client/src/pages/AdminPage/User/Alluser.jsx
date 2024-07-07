@@ -86,21 +86,21 @@ function Alluser() {
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="divide-x divide-gray-200">
-        <td className="whitespace-nowrap px-6 py-4">
-          <div className="text-base text-gray-500">{items.email}</div>
-        </td>
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.firstName}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.lastName}
         </td>
+        <td className="whitespace-nowrap px-6 py-4">
+          <div className="text-base text-gray-500">{items.email}</div>
+        </td>
         <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.city}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
-        </td>
+        </td> */}
         <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
@@ -174,47 +174,66 @@ function Alluser() {
                       <tr className="divide-x divide-gray-200">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1"> <MdOutlineEmail size={23}/> Email</div>
-                        </th>
-                        <th
-                          scope="col"
                           className="px-6 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                         <div className="flex gap-1"> <BsFillPersonBadgeFill size={20}/> First Name</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <BsFillPersonBadgeFill size={20} /> First Name
+                          </div>
                         </th>
-
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                         <div className="flex gap-1"> <BsFillPersonBadgeFill size={20}/> Last Name</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <BsFillPersonBadgeFill size={20} /> Last Name
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapPin size={20}/> City</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdOutlineEmail size={23} /> Email
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1"> <FaMapLocationDot size={20}/> Country</div>
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapPin size={20} /> City
+                          </div>
+                        </th>
+                        {/* <th
+                          scope="col"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                        >
+                          <div className="flex gap-1">
+                            {" "}
+                            <FaMapLocationDot size={20} /> Country
+                          </div>
+                        </th> */}
+                        <th
+                          scope="col"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                        >
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdEdit size={23} /> Edit
+                          </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                         <div className="flex gap-1"> <MdEdit size={23}/> Edit</div>
-
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                         <div className="flex gap-1"> <MdDeleteForever size={25}/> Delete</div> 
+                          <div className="flex gap-1">
+                            {" "}
+                            <MdDeleteForever size={25} /> Delete
+                          </div>
                         </th>
                       </tr>
                     </thead>
@@ -231,18 +250,18 @@ function Alluser() {
               <div className="space-x-2 flex">
                 {currentPage > 1 && (
                   <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
                     onClick={prevPage}
                   >
-                    < FaArrowLeft /> Previous
+                    <FaArrowLeft /> Previous
                   </button>
                 )}
                 {data.length > currentPage * 4 && (
                   <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
                     onClick={nextPage}
                   >
-                    Next < FaArrowRight />
+                    Next <FaArrowRight />
                   </button>
                 )}
               </div>

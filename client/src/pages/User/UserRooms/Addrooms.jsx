@@ -11,6 +11,9 @@ import authslice from "../../../store/authslice";
 import DatePicker from "react-datepicker";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
+import { CgGenderMale } from "react-icons/cg";
+import { TbGenderFemale } from "react-icons/tb";
+
 const libraries = ["places"];
 
 function Addrooms({ editdata }) {
@@ -324,7 +327,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 font-semibold text-[25px] font-['udemy-regular'] bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
+                    className="mt-6 font-semibold text-[25px] font-['udemy-regular'] border-2 bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
                     onChange={(e) => field.onChange(e.target.value)}
                   >
                     <option className="text-gray-600" value="" disabled hidden>
@@ -365,7 +368,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-10 flex">
+              <div className="mt-5 flex">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -386,14 +389,14 @@ function Addrooms({ editdata }) {
                       },
                     })}
                   />
-                  <p className="text-[16px] mt-1 text-red-500">
+                  <p className="text-[16px] text-red-500">
                     {" "}
                     {errors.Description && <p>{errors.Description.message}</p>}
                   </p>
                 </div>
               </div>
 
-              <div className="flex mt-10">
+              <div className="flex mt-4">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -435,7 +438,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex text-[18px] mt-10">
+              <div className="flex text-[18px] mt-5">
                 <label
                   htmlFor=""
                   className="text-[21px] w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -485,7 +488,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-10 flex">
+              <div className="mt-5 flex">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -535,7 +538,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-10 text-[18px]">
+              <div className="flex mt-5 text-[18px]">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -573,7 +576,7 @@ function Addrooms({ editdata }) {
                   <p className="px-3 py-2 text-black">Hide Rent</p>
                 </div>
               </div>
-              <div className="flex mt-10 gap-5">
+              <div className="flex mt-4 gap-5">
                 <label
                   className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -622,7 +625,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className=" flex mt-10 text-[18px] gap-20">
+              <div className=" flex mt-5 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -659,7 +662,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-10 text-[18px] gap-20">
+              <div className="flex mt-5 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -668,7 +671,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div>
                   <div className="grid grid-cols-4 gap-4 text-[18px] w-[976px]">
-                    <div className=" flex gap-1 items-center">
+                    <div className="flex gap-1 items-center">
                       <input
                         type="radio"
                         value="Male only"
@@ -676,7 +679,10 @@ function Addrooms({ editdata }) {
                           required: "Please select gender",
                         })}
                       />
-                      <p>Male</p>
+                      <p className="flex items-center">
+                        Male
+                        <CgGenderMale size={24} />
+                      </p>
                     </div>
                     <div className=" flex items-center gap-1">
                       <input
@@ -686,7 +692,10 @@ function Addrooms({ editdata }) {
                           required: "Please select gender",
                         })}
                       />
-                      <p>Female</p>
+                      <p className="flex items-center">
+                        Female
+                        <TbGenderFemale size={20} />
+                      </p>
                     </div>
                     <div className=" flex gap-1 items-center">
                       <input
@@ -708,24 +717,24 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-10">
+              <div className="mt-5">
                 <label
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
-                  Desposite
+                  Deposit
                 </label>
                 <span className=" bg-gray-200 items-center justify-center inline-block text-[18px] font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                   $
                 </span>
                 <input
                   type="number"
-                  placeholder="Desposite"
+                  placeholder="Deposit"
                   className="h-100px w-[462px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("Desposite")}
                 />
               </div>
-              <div className="mt-10">
+              <div className="mt-5">
                 <label
                   className="text-[21px] w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -744,7 +753,7 @@ function Addrooms({ editdata }) {
                 </select>
               </div>
 
-              <div className=" flex mt-10">
+              <div className=" flex mt-5">
                 <label
                   className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -852,7 +861,7 @@ function Addrooms({ editdata }) {
                   </div>
                 </div>
               </div>
-              <div className=" flex mt-10 gap-20 text-[18px]">
+              <div className=" flex mt-5 gap-20 text-[18px]">
                 <label
                   className="whitespace-nowrap text-[21px] w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -886,7 +895,7 @@ function Addrooms({ editdata }) {
                   </div>
                 </div>
               </div>
-              <div className=" flex gap-20 mt-10 text-[18px]">
+              <div className=" flex gap-20 mt-5 text-[18px]">
                 <label
                   className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -921,7 +930,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className=" flex mt-10 text-[18px] gap-20">
+              <div className=" flex mt-5 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -961,7 +970,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-10">
+              <div className="mt-5">
                 <label
                   className="text-[21px] w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -1049,7 +1058,7 @@ function Addrooms({ editdata }) {
                   /> */}
                   {<p className="text-[20px]">{fullname}</p>}
                 </div>
-                <div className="mt-10 flex">
+                <div className="mt-5 flex">
                   <label
                     className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -1064,7 +1073,7 @@ function Addrooms({ editdata }) {
                   /> */}
                   <p className="text-[20px]">{profiledata?.email}</p>
                 </div>
-                <div className="mt-10">
+                <div className="mt-5">
                   <label
                     className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -1080,7 +1089,7 @@ function Addrooms({ editdata }) {
                   />
                 </div>
               </div>
-              <div className="flex mt-10">
+              <div className="flex mt-5">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -1122,7 +1131,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex items-center mt-10">
+              <div className="flex items-center mt-5">
                 <label
                   className="text-[21px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
