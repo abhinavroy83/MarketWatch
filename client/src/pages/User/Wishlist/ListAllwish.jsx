@@ -126,11 +126,11 @@ function ListAllwish() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-3xl font-semibold text-[#0b5e86] flex items-center gap-3">
-              <FaHeart className="text-[#0b5e86]" size={30} />
+            <h2 className="text-[25px] font-semibold text-[#232f3e] flex items-center gap-3">
+              <FaHeart className="text-[#232f3e]" size={30} />
               Wishlist
             </h2>
-            <p className="mt-2 text-[22px] text-gray-700 ml-1">
+            <p className="mt-2 text-[25px] text-[#232f3e] ml-1">
               Your Wishlist is here.
             </p>
           </div>
@@ -144,25 +144,25 @@ function ListAllwish() {
                     <tr>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         <span>Room</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-12 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         City
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         Price
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
                       >
                         Visit Page
                       </th>
@@ -174,7 +174,7 @@ function ListAllwish() {
                       </th> */}
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-[20px] font-normal text-gray-700"
                       >
                         Remove
                       </th>
@@ -193,16 +193,16 @@ function ListAllwish() {
             <div className="space-x-2 flex">
               {currentPage > 1 && (
                 <button
-                className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                onClick={prevPage}
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                  onClick={prevPage}
                 >
                   <FaArrowLeft /> Previous
                 </button>
               )}
               {data.length > currentPage * 4 && (
                 <button
-                className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                onClick={nextPage}
+                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
+                  onClick={nextPage}
                 >
                   Next <FaArrowRight />
                 </button>
