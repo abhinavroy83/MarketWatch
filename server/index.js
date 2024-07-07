@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 dotenv.config();
 
 //cors
-
 app.use(
   cors({
     origin: [
