@@ -47,6 +47,8 @@ import Error from "./components/SharedCompontents/Error.jsx";
 import Forgetpass from "./components/UserCompontents/Forgetpass.jsx";
 import Editroom from "./pages/User/UserRooms/Editroom.jsx";
 import Editarea from "./pages/AdminPage/Area/Modify/Editarea.jsx";
+import ResetPassword from "./components/UserCompontents/ResetPassword.jsx";
+import Forgetpassword from "./components/UserCompontents/Forgetpassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -208,8 +210,12 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: "/forget-password",
-        element: <Forgetpass />,
+        path: "/reset-password",
+        element: <ResetPassword />,
+      },
+      {
+        path: "/reset-password/:token",
+        element: <Forgetpassword />,
       },
       // adminpanel components
       {

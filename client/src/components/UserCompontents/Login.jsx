@@ -77,7 +77,7 @@ function Login() {
   };
 
   const handleforget = () => {
-    window.open("/forget-password", "_blank");
+    window.open("/reset-password", "_blank");
   };
 
   // console.log(isMobile);

@@ -428,11 +428,7 @@ function Rooms() {
               )}
             </div>
           </div>
-        </div>
-        {/* <div className="text-[25px] mb-4">
-           <div className="flex gap-1"><MdSubtitles size={30}/><p className="">Title: Cozy Apartment in Downtown</p></div>
-            <div className="flex gap-1"><MdInsertComment size={30}/><p>Description: A spacious and cozy apartment in the heart of the city with all modern amenities.</p></div>
-        </div> */}
+        </div>￼ ￼
         <div className="flex text-[25px]">
           <div>
             {rooms.Imgurl.length > 0 ? (
@@ -483,7 +479,9 @@ function Rooms() {
                     ? stateAbbreviations[item?.state]
                     : rooms.state}
                 </p>
-                <p className="text-green-700 font-bold capitalize">$ {rooms.Expected_Rooms}</p>
+                <p className="text-green-700 font-bold capitalize">
+                  $ {rooms.Expected_Rooms}
+                </p>
               </div>
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
@@ -561,7 +559,6 @@ function Rooms() {
             functional kitchen, or a tranquil study
           </p>
         </div>
-
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
           {/* <div className=" gap-3 border p-5">
@@ -844,7 +841,6 @@ function Rooms() {
             </div>
           )}
         </div>
-
         <div className="mt-4 mb-2">
           <div className="mt-2 flex items-center ">
             <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-[#0b5e86] font-bold">
