@@ -7,7 +7,6 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiMinusCircle } from "react-icons/bi";
 
-
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
@@ -35,7 +34,9 @@ function Getuserroom() {
   const handledeleterooms = async (deleteid) => {
     // console.log(deleteid);
     try {
-      const res = await axios.delete(` https://api.verydesi.com/rooms/${deleteid}`);
+      const res = await axios.delete(
+        ` https://api.verydesi.com/rooms/${deleteid}`
+      );
       if (res) {
         alert("Room delete Sucessfully");
       }
@@ -61,7 +62,7 @@ function Getuserroom() {
     const endIndex = Math.min(startIndex + 5, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items) => (
       <tr key={items.name}>
-        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular']">
+        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
@@ -71,29 +72,31 @@ function Getuserroom() {
               />
             </div>
             <div className="ml-4 font-['udemy-regular']">
-              <div className="text-[22px] font-medium text-gray-900">
+              <div className="text-[20px] font-medium text-gray-900">
                 {items.Hotelname}
               </div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[22px] text-gray-700 font-['udemy-regular']">{items.city}</div>
+          <div className="text-[20px] text-gray-700 font-['udemy-regular']">
+            {items.city}
+          </div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
+        <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-['udemy-regular']">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
+        <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-['udemy-regular']">
           {items.rent}
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-['udemy-regular']">
+        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[20px] font-medium font-['udemy-regular']">
           <a
             onClick={() => {
               handledeleterooms(items._id);
             }}
-            className="flex gap-3 items-center text-red-500 font-semibold cursor-pointer"
+            className="flex gap-3 items-center text-red-500 font-semibold cursor-pointer text-[20px]"
           >
-            <BiMinusCircle size={25}/>  Delete
+            <BiMinusCircle size={25} /> Delete
           </a>
         </td>
       </tr>
@@ -105,8 +108,8 @@ function Getuserroom() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-3xl font-semibold text-[#0b5e86]">Rooms</h2>
-            <p className="mt-1 text-[22px] text-gray-700">
+            <h2 className="text-[25px] font-semibold text-[#232f3e]">Rooms</h2>
+            <p className="mt-1 text-[25px] text-[#232f3e]">
               This is a list of all rooms. You can add new rooms, edit or delete
               existing ones.
             </p>
@@ -125,7 +128,7 @@ function Getuserroom() {
             </div>
           )}
         </div>
-        <div className="mt-6 flex flex-col">
+        <div className="mt-6 flex flex-col text-[20px]">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200 md:rounded-lg">
@@ -134,27 +137,27 @@ function Getuserroom() {
                     <tr>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span>Room</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-12 py-3.5 text-left font-normal text-gray-700"
                       >
                         City
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         Address
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         Price
                       </th>
@@ -164,9 +167,9 @@ function Getuserroom() {
                         //   console.log(roomsdeatails);
                         //   handledeleterooms(roomsdeatails._id);
                         // }}
-                        className="px-4 py-3.5 text-left text-[22px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left  font-normal text-gray-700"
                       >
-                       Delete
+                        Delete
                       </th>
                     </tr>
                   </thead>
