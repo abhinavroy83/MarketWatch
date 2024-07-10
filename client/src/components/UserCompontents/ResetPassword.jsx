@@ -57,7 +57,7 @@ function ResetPassword() {
           {/* {errors.email && <p>{errors.email.message}</p>} */}
           <button
             type="submit"
-            className="rounded-md bg-[#17b19f] mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-[#de98d9] mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Reset Password
           </button>
