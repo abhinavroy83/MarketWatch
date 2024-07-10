@@ -428,7 +428,7 @@ function Rooms() {
               )}
             </div>
           </div>
-        </div>￼ ￼
+        </div>
         <div className="flex text-[25px]">
           <div>
             {rooms.Imgurl.length > 0 ? (
