@@ -260,7 +260,7 @@ function AddArea({ editdata }) {
               <button
                 type="button"
                 onClick={handleAddSubarea}
-                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[18px]"
+                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
               >
                 Add
               </button>
@@ -290,7 +290,7 @@ function AddArea({ editdata }) {
             {editdata ? (
               <div className=" flex gap-2">
                 <button
-                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-green-800 px-4 py-2 text-[19px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   type="button"
                   onClick={() => navigate(`/admin/allarea`)}
                 >
