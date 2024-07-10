@@ -92,8 +92,8 @@ function Getapproval() {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-            <h2 className="text-3xl font-semibold text-[#0b5e86]">List</h2>
-              <p className="mt-1 text-xl text-gray-700">
+            <h2 className="text-[20px] font-semibold text-black">List</h2>
+              <p className="mt-1 text-[17px] text-gray-700">
                 List of all Pending and Approval
               </p>
             </div>

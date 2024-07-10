@@ -9,7 +9,7 @@ function Adminusers() {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <p className="text-3xl font-semibold text-[#0b5e86] p-5">All admin user</p>
+        <p className="text-[20px] font-semibold text-black p-5">All admin user</p>
         
       </AdminDashboard>
     </div>

@@ -146,7 +146,7 @@ function AddArea({ editdata }) {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <p className="text-[25px] font-bold text-[#232f3e] my-7 font-roboto flex justify-center">
+        <p className="text-[22px] font-bold text-[#232f3e] my-7 font-roboto flex justify-center">
           Here You can Add Area
         </p>
         <form onSubmit={handleSubmit(onsubmit)}>
