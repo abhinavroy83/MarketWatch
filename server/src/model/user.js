@@ -7,11 +7,9 @@ const usershema = new mongoose.Schema({
   },
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
@@ -20,7 +18,6 @@ const usershema = new mongoose.Schema({
   },
   phone_number: {
     type: Number,
-    required: true,
   },
   userimg: {
     type: String,
@@ -56,9 +53,16 @@ const usershema = new mongoose.Schema({
     enum: ["yes", "no"],
     default: "no",
   },
+  googleId: {
+    type: String,
+    unique: true,
+  },
+  appleId: {
+    type: String,
+    unique: true,
+  },
   password: {
     type: String,
-    required: true,
   },
 });
 

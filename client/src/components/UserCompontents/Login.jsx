@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Container, Input } from "../index";
 import axios from "axios";
@@ -30,6 +30,44 @@ function Login() {
   const isMobile = windowSize.width < 800;
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+
+  useEffect(() => {
+    const handleGoogleCallback = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+      console.log(token);
+
+      if (token) {
+        try {
+          const res = await axios.get(
+            `http://localhost:8000/auth/google/callback?token=${token}`
+          );
+          console.log(res.data);
+          if (res.data.status === "success") {
+            localStorage.setItem("userdetails", JSON.stringify(res));
+            dispatch(
+              authlogin({
+                token: res.data.jwttoken,
+                user: res.data.data.firstName,
+                userID: res.data.data._id,
+                bussinessac: res.data.data.bussinessac,
+                isverified: res.data.data.isVerified,
+              })
+            );
+            dispatch(cities({ city: res.data.data.city }));
+            dispatch(UserImage({ userimg: res.data.data.userimg }));
+            dispatch(modalclose(isLoginModalOpen));
+            Navigate("/");
+          }
+        } catch (error) {
+          console.error("Error handling Google callback:", error);
+        }
+      }
+    };
+
+    handleGoogleCallback();
+  }, [location.search]);
+
   const onsubmit = async (data) => {
     try {
       const res = await axios.post(
@@ -78,6 +116,10 @@ function Login() {
 
   const handleforget = () => {
     window.open("/reset-password", "_blank");
+  };
+
+  const handleGoogleLogin = () => {
+    window.open("http://localhost:8000/api/auth/google", "_self");
   };
 
   // console.log(isMobile);
@@ -213,7 +255,10 @@ function Login() {
                   type="button"
                   className="rounded-md bg-[#fff] flex mt-2 w-full text-center justify-center gap-4 py-2 text-sm font-semibold shadow-sm shadow-black text-black border border-black/30 shadow-5xl text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <p className="text-[19px] flex gap-4 items-center">
+                  <p
+                    className="text-[19px] flex gap-4 items-center"
+                    onClick={handleGoogleLogin}
+                  >
                     <FaGoogle />
                     Continue With Google
                   </p>

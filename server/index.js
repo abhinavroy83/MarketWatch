@@ -7,6 +7,9 @@ const IsloggedIn = require("./src/middleware/isloggedin");
 const cloudinary = require("cloudinary");
 const Multer = require("multer");
 const path = require("path");
+const session = require("express-session");
+const passport = require("passport");
+require("./src/Config/Passport");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,6 +35,18 @@ app.use(
 app.options("*", cors());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(
+  session({
+    secret: "132ewadfeswfsdfds",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 //connection
 const connectiondb = require("./src/db/dbcongif");
 connectiondb();
@@ -47,7 +62,9 @@ const admin = require("./src/Routes/Admin");
 const approval = require("./src/Routes/Approval");
 const city = require("./src/Routes/City");
 const wish = require("./src/Routes/wishlist");
+const authRoutes = require("./src/Routes/Auth");
 
+app.use("/api", authRoutes);
 app.use("/user", user);
 app.use(room);
 app.use(job);
