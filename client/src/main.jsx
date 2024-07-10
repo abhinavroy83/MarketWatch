@@ -44,7 +44,6 @@ import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
 import Error from "./components/SharedCompontents/Error.jsx";
-import Forgetpass from "./components/UserCompontents/Forgetpass.jsx";
 import Editroom from "./pages/User/UserRooms/Editroom.jsx";
 import Editarea from "./pages/AdminPage/Area/Modify/Editarea.jsx";
 import ResetPassword from "./components/UserCompontents/ResetPassword.jsx";
