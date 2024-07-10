@@ -17,6 +17,7 @@ import { FaApple } from "react-icons/fa";
 import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { RxCross1 } from "react-icons/rx";
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
   const {
@@ -35,32 +36,27 @@ function Login() {
     const handleGoogleCallback = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get("token");
-      console.log(token);
 
       if (token) {
         try {
-          const res = await axios.get(
-            `http://localhost:8000/auth/google/callback?token=${token}`
+          const decoded = jwtDecode(token);
+          console.log(decoded);
+
+          dispatch(
+            authlogin({
+              token: token,
+              user: decoded.user.firstName,
+              userID: decoded.user._id,
+              bussinessac: decoded.user.bussinessac,
+              isverified: decoded.user.isVerified,
+            })
           );
-          console.log(res.data);
-          if (res.data.status === "success") {
-            localStorage.setItem("userdetails", JSON.stringify(res));
-            dispatch(
-              authlogin({
-                token: res.data.jwttoken,
-                user: res.data.data.firstName,
-                userID: res.data.data._id,
-                bussinessac: res.data.data.bussinessac,
-                isverified: res.data.data.isVerified,
-              })
-            );
-            dispatch(cities({ city: res.data.data.city }));
-            dispatch(UserImage({ userimg: res.data.data.userimg }));
-            dispatch(modalclose(isLoginModalOpen));
-            Navigate("/");
-          }
+          dispatch(cities({ city: decoded.user.city }));
+          dispatch(UserImage({ userimg: decoded.user.userimg }));
+          dispatch(modalclose(isLoginModalOpen));
+          Navigate("/");
         } catch (error) {
-          console.error("Error handling Google callback:", error);
+          console.error("Error decoding JWT token:", error);
         }
       }
     };
