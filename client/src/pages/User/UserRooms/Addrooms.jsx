@@ -373,7 +373,7 @@ function Addrooms({ editdata }) {
                   className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
-                  Description*
+                  Description <span className=" text-red-500">*</span>
                 </label>
                 <div>
                   <textarea
@@ -385,7 +385,7 @@ function Addrooms({ editdata }) {
                       validate: {
                         minWords: (value) =>
                           value.trim().split(/\s+/).length >= 50 ||
-                          "Description must be at least 50 words",
+                          "Description must be at least 50 characters",
                       },
                     })}
                   />

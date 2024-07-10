@@ -15,7 +15,7 @@ function ResetPassword() {
     // console.log(data);
     try {
       const res = await axios.post(
-        `http://localhost:8000/user/forgotpassword`,
+        `https://api.verydesi.com/user/forgotpassword`,
         data
       );
       if (res) {
