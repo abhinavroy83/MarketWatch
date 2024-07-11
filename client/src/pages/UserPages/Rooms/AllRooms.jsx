@@ -143,7 +143,7 @@ function AllRooms() {
           </div>
           {otherRooms.length > 0 && (
             <>
-              <p className="text-[22px] lg:text-[26px] font-['udemy-bold'] mt-7">
+              <p className="text-[22px] lg:text-[23px] font-['udemy-bold'] mt-7">
                 More Rooms
               </p>
               <div className="mt-1 lg:mt-4 ">
