@@ -22,7 +22,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             navigate(`/admin/dashboard`);
           }}
-          className="mt-5 text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="mt-5 text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           <FaHome size={22} />
           Dashboard
@@ -31,7 +31,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             navigate(`/admin/alluser`);
           }}
-          className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           <IoPeopleSharp size={25} />
           Basic Users
@@ -41,7 +41,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getalladminsuser`);
             }}
-            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <RiAdminFill size={25} /> Admin Users
           </button>
@@ -51,7 +51,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getapproval`);
             }}
-            className="whitespace-nowrap text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="whitespace-nowrap text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <MdPendingActions size={25} />
             Pending Requests
@@ -62,7 +62,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allarea`);
             }}
-            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <FaMapPin size={22} /> Area
           </button>
@@ -72,7 +72,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/requests`);
             }}
-            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <MdOutlineSpatialTracking size={25} /> Track Status
           </button>
@@ -82,7 +82,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allroom`);
             }}
-            className="text-[16px] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize font-semibold transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <BsPostcard size={25} /> Posts
           </button>
