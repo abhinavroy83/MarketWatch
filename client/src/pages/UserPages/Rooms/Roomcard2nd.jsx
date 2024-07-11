@@ -44,7 +44,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       className={`gap-4 items-center mt-2 inline-flex lg:flex w-full ${
         isSingleRow
           ? "justify-between"
-          : "justify-start border shadow-md p-3 rounded-xl hover:shadow-lg"
+          : "justify-start border shadow-md p-2 rounded-xl hover:shadow-lg"
       }`}
     >
       <img
