@@ -13,6 +13,7 @@ import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
 import { CgGenderMale } from "react-icons/cg";
 import { TbGenderFemale } from "react-icons/tb";
+import Loader from "../../../components/UserCompontents/Loader";
 
 const libraries = ["places"];
 
@@ -34,6 +35,7 @@ function Addrooms({ editdata }) {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [isImmediate, setIsImmediate] = useState(false);
+  const [loaderimg, setLoader] = useState(false);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyDV2wKeoUG0TSghZ1adR-t8z0cJJS8EM24",
@@ -51,6 +53,7 @@ function Addrooms({ editdata }) {
   } = useForm();
   const selectedBathroom = watch("Attchd_Bath");
   const preferredGender = watch("Preferred_gender");
+
   const [autocomplete, setAutocomplete] = useState(null);
   const [location, setLocation] = useState({ lat: null, lng: null });
 
@@ -88,8 +91,6 @@ function Addrooms({ editdata }) {
       console.log("Autocomplete is not loaded yet!");
     }
   };
-  // console.log(location);
-  // console.log(city, state);
 
   const usrId = useSelector((state) => state.auth.userID);
 
@@ -135,7 +136,7 @@ function Addrooms({ editdata }) {
 
   const handleUpload = async () => {
     try {
-      setLoading(true);
+      setLoader(true);
       const data = new FormData();
       files.forEach(({ file }) => {
         data.append("my_files", file);
@@ -153,91 +154,105 @@ function Addrooms({ editdata }) {
       setLoading(false);
     }
   };
+  // useEffect(() => {
+  //   if (files.length > 0) {
+  //     const timeout = setTimeout(() => {
+  //       handleUpload();
+  //     }, 1000);
+
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [files]);
+  // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    if (files.length === 0) {
-      setimgerror(true);
-      return;
-    }
-    const roomdata = {
-      Title: data.Title,
-      Description: data.Description,
-      Propertytype: data.Propertytype,
-      city: data.PostingIn,
-      Stay_lease: data.Stay_lease,
-      Avaliblity_from: data.Avaliblity_from,
-      Available_to: data.Available_to,
-      Immediate: data.Immediate,
-      Attchd_Bath: data.Attchd_Bath,
-      Bath_Location: data.Bath_Location,
-      Preferred_gender: data.Preferred_gender,
-      Couples_welcome: data.Couples_welcome,
-      Expected_Rooms: data.Expected_Rooms,
-      Pricemodel: data.Pricemodel,
-      Desposite: data.Desposite,
-      is_room_furnished: data.is_room_furnished,
-      Amenities_include: data.Amenities_include,
-      Vegeterian_prefernce: data.Vegeterian_prefernce,
-      Smoking_policy: data.Smoking_policy,
-      Pet_friendly: data.Pet_friendly,
-      Open_house_schedule: data.Open_house_schedule,
-      Imgurl: resimgurl,
-      user_name: fullname,
-      email: profiledata.email,
-      phone_number: data.phone_number,
-      address: data.address,
-      state: data.state,
-      zip_code: data.zip_code,
-      location: {
-        coordinates: [location.lng, location.lat],
-      },
-    };
-    // console.log("resimgurl", resimgurl);
-    if (editdata) {
-      try {
-        const res = await axios.put(
-          `https://api.verydesi.com/api/rooms/${editdata._id}`,
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        );
-        if (res) {
-          // console.log(res);
+    setLoading(true);
+    await handleUpload();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
-          alert("update room successfully");
-          navigate(`/rooms/${editdata._id}`);
-        }
-      } catch (error) {
-        console.log("error while update room ", error);
-      }
-    } else {
-      try {
-        const res = await axios.post(
-          " https://api.verydesi.com/api/addrooms",
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
+    if (resimgurl.length > 0) {
+      const roomdata = {
+        Title: data.Title,
+        Description: data.Description,
+        Propertytype: data.Propertytype,
+        city: data.city,
+        Stay_lease: data.Stay_lease,
+        Avaliblity_from: data.Avaliblity_from,
+        Available_to: data.Available_to,
+        Immediate: data.Immediate,
+        Attchd_Bath: data.Attchd_Bath,
+        Bath_Location: data.Bath_Location,
+        Preferred_gender: data.Preferred_gender,
+        Couples_welcome: data.Couples_welcome,
+        Expected_Rooms: data.Expected_Rooms,
+        Pricemodel: data.Pricemodel,
+        Desposite: data.Desposite,
+        is_room_furnished: data.is_room_furnished,
+        Amenities_include: data.Amenities_include,
+        Vegeterian_prefernce: data.Vegeterian_prefernce,
+        Smoking_policy: data.Smoking_policy,
+        Pet_friendly: data.Pet_friendly,
+        Open_house_schedule: data.Open_house_schedule,
+        Imgurl: resimgurl,
+        user_name: fullname,
+        email: profiledata.email,
+        phone_number: data.phone_number,
+        address: data.address,
+        state: data.state,
+        zip_code: data.zip_code,
+        location: {
+          coordinates: [location.lng, location.lat],
+        },
+      };
+
+      if (editdata) {
+        try {
+          console.log("ddcds", editdata._id);
+          const res = await axios.put(
+            `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+
+            alert("update room successfully");
+            navigate(`/rooms/${editdata._id}`);
           }
-        );
-        if (res) {
-          // console.log(res);
-          alert("rooms added successfully");
-          reset();
-          navigate(`/user/room/${userID}`);
+        } catch (error) {
+          console.log("error while update room ", error);
         }
-      } catch (error) {
-        console.log("error during sending data to roomapi", error);
+      } else {
+        try {
+          const res = await axios.post(
+            " https://api.verydesi.com/api/addrooms",
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+            alert("rooms added successfully");
+            reset();
+            navigate(`/room/${res.data.rooms._id}`);
+          }
+        } catch (error) {
+          console.log("error during sending data to roomapi", error);
+        }
       }
     }
+    // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
   };
 
@@ -265,8 +280,9 @@ function Addrooms({ editdata }) {
 
   useEffect(() => {
     if (editdata) {
+      // console.log("Populating form with editdata:", editdata);
       setStayLeaseOption(editdata?.Stay_lease);
-      setValue("PostingIn", editdata?.city || "Portland");
+      setValue("city", editdata?.city || "Portland");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");
@@ -327,6 +343,14 @@ function Addrooms({ editdata }) {
     return <div>Loading Maps</div>;
   }
 
+  if (loaderimg) {
+    return (
+      <div className=" h-full w-full mx-auto">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className=" w-full mx-auto mt-[7%]">
       <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
@@ -341,7 +365,7 @@ function Addrooms({ editdata }) {
               </p>
               <Controller
                 className="bg-black"
-                name="PostingIn"
+                name="city"
                 control={control}
                 rules={{ required: "PostingIn is required" }}
                 render={({ field }) => (
@@ -354,7 +378,11 @@ function Addrooms({ editdata }) {
                       Select city
                     </option>
                     {filtercity.map((city, index) => (
-                      <option value={city} key={index} className="text-[17px] bg-white text-[#232f3e]">
+                      <option
+                        value={city}
+                        key={index}
+                        className="text-[17px] bg-white text-[#232f3e]"
+                      >
                         {city}
                       </option>
                     ))}
@@ -362,6 +390,9 @@ function Addrooms({ editdata }) {
                 )}
               />
             </div>
+            <p className="text-[16px] mt-1 text-red-500">
+              {errors.city && <p>{errors.city.message}</p>}
+            </p>
             <div className="w-full">
               <div className="flex mt-3">
                 <label
@@ -382,7 +413,6 @@ function Addrooms({ editdata }) {
                     })}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
                     {errors.Title && <p>{errors.Title.message}</p>}
                   </p>
                 </div>
@@ -450,7 +480,6 @@ function Addrooms({ editdata }) {
                     )}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
                     {errors.Propertytype && (
                       <p>{errors.Propertytype.message}</p>
                     )}
@@ -596,6 +625,7 @@ function Addrooms({ editdata }) {
                   <p className="px-3 py-2 text-black">Hide Rent</p>
                 </div>
               </div>
+
               <div className="flex mt-4 gap-5">
                 <label
                   className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -1121,7 +1151,7 @@ function Addrooms({ editdata }) {
                       </div>
                     ))}
                   </div>
-
+                  {/* 
                   {files.length > 0 && (
                     <>
                       {!uploadstats ? (
@@ -1136,13 +1166,8 @@ function Addrooms({ editdata }) {
                         <p>uploaded</p>
                       )}
                     </>
-                  )}
+                  )} */}
                 </div>
-                {imgerror && (
-                  <p className="text-red-500 text-[16px] mt-1">
-                    Please upload an image
-                  </p>
-                )}
               </div>
 
               <div>
@@ -1208,18 +1233,12 @@ function Addrooms({ editdata }) {
                     <input
                       type="text"
                       placeholder="Enter a location"
-                      {...register("address", { required: true })}
+                      {...register("address")}
                       className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </StandaloneSearchBox>
-                  <input
-                    type="hidden"
-                    {...register("latitude", { required: true })}
-                  />
-                  <input
-                    type="hidden"
-                    {...register("longitude", { required: true })}
-                  />
+                  <input type="hidden" {...register("latitude")} />
+                  <input type="hidden" {...register("longitude")} />
                   {/* <input
                     type="text"
                     {...register("address", {

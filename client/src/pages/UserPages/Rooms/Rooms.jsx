@@ -267,13 +267,13 @@ function Rooms() {
     return <Loader className={"h-screen flex justify-center items-center"} />;
   }
 
-  const images = rooms.Imgurl.map((url) => ({
+  const images = rooms?.Imgurl?.map((url) => ({
     original: url,
     thumbnail: url,
     renderItem: (item) => (
       <div className="image-gallery-image">
         <img
-          src={item.original}
+          src={item?.original}
           alt=""
           className="h-[560px] w-[880px] rounded-md object-cover"
         />
@@ -476,7 +476,7 @@ function Rooms() {
                 <p className="text-[25px] capitalize">
                   {rooms.city},
                   {rooms?.state?.length > 2
-                    ? stateAbbreviations[item?.state]
+                    ? stateAbbreviations[rooms?.state]
                     : rooms.state}
                 </p>
                 <p className="text-green-700 font-bold capitalize">
@@ -548,15 +548,7 @@ function Rooms() {
         <div className="border p-3 mt-2">
           <p className=" text-[22px] font-bold px-1">Description -</p>
           <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize ">
-            {rooms.Description} Each room has its own character, shaped by the
-            colors on the walls, the arrangement of furniture, and the personal
-            touches that make it unique. Whether it's a cozy bedroom, a lively
-            living room, a functional kitchen, or a tranquil study, rooms are
-            spaces that reflect our personalities and lifestyles.Each room has
-            its own character, shaped by the colors on the walls, the
-            arrangement of furniture, and the personal touches that make it
-            unique. Whether it's a cozy bedroom, a lively living room, a
-            functional kitchen, or a tranquil study
+            {rooms.Description}
           </p>
         </div>
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
