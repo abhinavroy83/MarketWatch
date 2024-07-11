@@ -321,20 +321,21 @@ function Addrooms({ editdata }) {
                 {editdata ? <p>Edit Room In</p> : <p>Post Room In</p>}
               </p>
               <Controller
+                className="bg-black"
                 name="PostingIn"
                 control={control}
                 rules={{ required: "PostingIn is required" }}
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 font-semibold text-[25px] font-['udemy-regular'] border-2 bg-transparent placeholder:text-gray-400 bg-white cursor-pointer"
+                    className="mt-6 text-[25px] font-['udemy-regular'] bg-[#232f3e] text-white border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => field.onChange(e.target.value)}
                   >
                     <option className="text-gray-600" value="" disabled hidden>
                       Select city
                     </option>
                     {filtercity.map((city, index) => (
-                      <option value={city} key={index} className="text-[17px]">
+                      <option value={city} key={index} className="text-[17px] bg-white text-[#232f3e]">
                         {city}
                       </option>
                     ))}
