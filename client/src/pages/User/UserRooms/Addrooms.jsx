@@ -328,7 +328,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 text-[25px] font-['udemy-regular'] bg-[#232f3e] text-white border-2 placeholder:text-gray-400 cursor-pointer"
+                    className="mt-6 text-[23px] font-['udemy-regular'] bg-[#232f3e] text-white border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => field.onChange(e.target.value)}
                   >
                     <option className="text-gray-600" value="" disabled hidden>
