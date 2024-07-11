@@ -27,10 +27,10 @@ function ResetPassword() {
   };
 
   return (
-    <div className="mt-[9rem] bg-white p-5 h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center gap-10 items-center justify-center shadow-gray-300 shadow-lg">
+    <div className="mt-[9rem] bg-white h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center items-center justify-center shadow-gray-300 shadow-lg">
       <img
-        className="w-[370px] h-full"
-        src={`https://th.bing.com/th/id/OIP.g16dr3haEyvBHfEBhqxm_AHaHP?w=793&h=775&rs=1&pid=ImgDetMain`}
+        className="w-[370px] h-[480px]"
+        src={`https://th.bing.com/th/id/R.7fdc1613b5f5aefe4490a92f8722c867?rik=tl6k%2fmIxV8%2fyGw&riu=http%3a%2f%2fwww.cybrhawk.com%2fwp-content%2fuploads%2f2021%2f08%2fSecurity-1.gif&ehk=GFRiBjZrlnvjmlleUJixbqyUqAgioSRPOVPeGDQznvc%3d&risl=&pid=ImgRaw&r=0`}
         alt="logo"
       />
       <div className="w-[400px] flex flex-col gap-3">
@@ -55,7 +55,7 @@ function ResetPassword() {
           {/* {errors.email && <p>{errors.email.message}</p>} */}
           <button
             type="submit"
-            className="rounded-md bg-blue-800 mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-blue-900 mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Reset Password
           </button>

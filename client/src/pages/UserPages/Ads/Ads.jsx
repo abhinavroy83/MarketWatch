@@ -27,6 +27,7 @@ import Signup from "../../../components/UserCompontents/Signup";
 import axios from "axios";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import { IoLocationSharp } from "react-icons/io5";
+import { FaBell } from "react-icons/fa";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -147,8 +148,8 @@ function Ads() {
       </div>
       {isloged ? (
         <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
-          <MdOutlineBedroomParent size={25} />
-          <div className="relative mr-4">
+          <FaBell className="hover:text-blue-700" size={25} />
+          <div className="relative mr-4 hover:text-blue-700">
             <FaRegHeart
               className="cursor-pointer"
               size={22}
@@ -182,7 +183,7 @@ function Ads() {
                 alt={"not found"}
               />
               <FaCaretDown
-                className="group-hover:rotate-[360deg] transition-transform duration-300 ml-1"
+                className="group-hover:rotate-[360deg] transition-transform duration-300 ml-1 hover:text-blue-700"
                 size={20}
               />
             </div>

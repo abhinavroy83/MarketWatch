@@ -31,7 +31,7 @@ function Forgetpassword() {
     }
   };
   return (
-    <div className="mt-[9rem] bg-white p-5 h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center gap-10 items-center justify-center shadow-gray-300 shadow-lg">
+    <div className="mt-[9rem] bg-white p-5 h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center items-center justify-center shadow-gray-300 shadow-lg">
       <img
         className="w-[370px] h-full"
         src={`https://providerportal.lifeisgreat.com.my/Content/images/fpassword.png`}
@@ -55,7 +55,7 @@ function Forgetpassword() {
           {/* {errors.newPassword && <p>{errors.newPassword.message}</p>} */}
           <button
             type="submit"
-            className="rounded-md bg-blue-800 mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-blue-900 mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Update Password
           </button>

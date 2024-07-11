@@ -176,7 +176,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               }}
             >
               <FaHeart
-                className="text-gray-500 hover:text-gray-700 "
+                className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
                 size={25}
               />
             </div>
@@ -188,7 +188,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 unwish(item._id);
               }}
             >
-              <FaHeart color="red" size={25} />
+              <FaHeart
+                className="border p-1 rounded-full"
+                color="red"
+                size={25}
+              />
             </div>
           )}
         </div>
