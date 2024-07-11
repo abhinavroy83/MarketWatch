@@ -29,10 +29,8 @@ function ResetPassword() {
   return (
     <div className="mt-[9rem] bg-white p-5 h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center gap-10 items-center justify-center shadow-gray-300 shadow-lg">
       <img
-        className="w-[350px] h-full"
-        src={`https://img.freepik.com/free-vector/reset-password-concept-illustration_114360-7876.jpg`}
-        // src={`https://th.bing.com/th/id/OIP.gCx0isx19k08ODXaux_nLQHaHa?rs=1&pid=ImgDetMain`}
-
+        className="w-[370px] h-full"
+        src={`https://th.bing.com/th/id/OIP.g16dr3haEyvBHfEBhqxm_AHaHP?w=793&h=775&rs=1&pid=ImgDetMain`}
         alt="logo"
       />
       <div className="w-[400px] flex flex-col gap-3">
@@ -57,7 +55,7 @@ function ResetPassword() {
           {/* {errors.email && <p>{errors.email.message}</p>} */}
           <button
             type="submit"
-            className="rounded-md bg-[#de98d9] mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="rounded-md bg-blue-800 mt-4 w-full p-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Reset Password
           </button>

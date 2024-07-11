@@ -105,7 +105,7 @@ export default function Footer() {
                   {isHovered && <Avalableloc />}
                 </div>
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-5 justify-center gap-[1rem] lg:gap-[4rem] px-2 lg:mt-0 mt-3">
+              <div className="grid grid-cols-2 lg:grid-cols-4 justify-center gap-[1rem] lg:gap-[3rem] px-2 lg:mt-0 mt-3">
                 {/* <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
@@ -209,7 +209,7 @@ export default function Footer() {
                   </ul>
                 </div> */}
 
-                <div className="">
+                {/* <div className="">
                   <p className="font-semibold tracking-wide text-[#DDD]">
                     Make Money
                   </p>
@@ -239,7 +239,7 @@ export default function Footer() {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div className="">
                   <p className="font-semibold tracking-wide text-[#DDD]">
                     Make Money

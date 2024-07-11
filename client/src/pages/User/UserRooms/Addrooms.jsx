@@ -310,7 +310,7 @@ function Addrooms({ editdata }) {
 
   return (
     <div className=" w-full mx-auto mt-[7%]">
-      <div className="w-full max-w-[1400px] mx-auto items-center  justify-center bg-white shadow-lg shadow-black/30">
+      <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-20">
           <form
             onSubmit={handleSubmit(onsubmit)}
@@ -345,7 +345,7 @@ function Addrooms({ editdata }) {
             <div className="w-full">
               <div className="flex mt-3">
                 <label
-                  className="text-[21px] w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[18px] w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Title*
@@ -370,7 +370,7 @@ function Addrooms({ editdata }) {
 
               <div className="mt-5 flex">
                 <label
-                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[18px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description <span className=" text-red-500">*</span>
@@ -398,7 +398,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-4">
                 <label
-                  className="text-[21px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[18px] w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Property Type <span className=" text-red-500">*</span>
@@ -441,7 +441,7 @@ function Addrooms({ editdata }) {
               <div className="flex text-[18px] mt-5">
                 <label
                   htmlFor=""
-                  className="text-[21px] w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[18px] w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
                   Stay/Lease <span className=" text-red-500">*</span>
                 </label>
