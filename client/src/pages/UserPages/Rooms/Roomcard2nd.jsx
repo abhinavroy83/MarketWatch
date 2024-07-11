@@ -82,7 +82,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
               <CgProfile />
               By: {item.user_name}
             </p>
-            <p className="lg:ml-3 ml-0 flex gap-1 items-center">
+            <p className="lg:ml-3 ml-0 flex gap-1 items-center text-blue-700">
               {" "}
               <MdDateRange />
               {calculateTimeDifference(item.postedon)}
