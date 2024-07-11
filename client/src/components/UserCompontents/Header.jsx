@@ -383,8 +383,8 @@ export default function Header() {
                     >
                       {weatherData.name} /
                       {isHovered
-                        ? `${tempInFahrenheit}°F`
-                        : `${tempInCelsius}°C`}
+                        ? `${tempInCelsius}°C`
+                        : `${tempInFahrenheit}°F`}
                     </p>
                   </div>
                 )}

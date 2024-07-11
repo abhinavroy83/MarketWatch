@@ -33,6 +33,7 @@ function Addrooms({ editdata }) {
   const [stayLeaseOption, setStayLeaseOption] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [isImmediate, setIsImmediate] = useState(false);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyDV2wKeoUG0TSghZ1adR-t8z0cJJS8EM24",
@@ -48,7 +49,8 @@ function Addrooms({ editdata }) {
     setValue,
     watch,
   } = useForm();
-
+  const selectedBathroom = watch("Attchd_Bath");
+  const preferredGender = watch("Preferred_gender");
   const [autocomplete, setAutocomplete] = useState(null);
   const [location, setLocation] = useState({ lat: null, lng: null });
 
@@ -86,8 +88,8 @@ function Addrooms({ editdata }) {
       console.log("Autocomplete is not loaded yet!");
     }
   };
-  console.log(location);
-  console.log(city, state);
+  // console.log(location);
+  // console.log(city, state);
 
   const usrId = useSelector((state) => state.auth.userID);
 
@@ -165,8 +167,11 @@ function Addrooms({ editdata }) {
       Stay_lease: data.Stay_lease,
       Avaliblity_from: data.Avaliblity_from,
       Available_to: data.Available_to,
+      Immediate: data.Immediate,
       Attchd_Bath: data.Attchd_Bath,
+      Bath_Location: data.Bath_Location,
       Preferred_gender: data.Preferred_gender,
+      Couples_welcome: data.Couples_welcome,
       Expected_Rooms: data.Expected_Rooms,
       Pricemodel: data.Pricemodel,
       Desposite: data.Desposite,
@@ -247,6 +252,17 @@ function Addrooms({ editdata }) {
     fetchdata();
   }, []);
 
+  const handleCheckboxChange = () => {
+    setIsImmediate(!isImmediate);
+  };
+
+  useEffect(() => {
+    if (isImmediate) {
+      setValue("Avaliblity_from", null);
+      setValue("Available_to", null);
+    }
+  }, [isImmediate, setValue]);
+
   useEffect(() => {
     if (editdata) {
       setStayLeaseOption(editdata?.Stay_lease);
@@ -259,8 +275,11 @@ function Addrooms({ editdata }) {
       setValue("Expected_Rooms", editdata?.Expected_Rooms || "");
       setValue("Avaliblity_from", editdata?.Avaliblity_from || "");
       setValue("Available_to", editdata?.Available_to || "");
+      setValue("Immediate", editdata?.Immediate || "");
       setValue("Attchd_Bath", editdata?.Attchd_Bath || "");
+      setValue("Bath_Location", editdata?.Bath_Location || "");
       setValue("Preferred_gender", editdata?.Preferred_gender || "");
+      setValue("Couples_welcome", editdata?.Couples_welcome || "");
       setValue("Desposite", editdata?.Desposite || "");
       setValue("is_room_furnished", editdata?.is_room_furnished || "");
       setValue("Amenities_include", editdata?.Amenities_include || "");
@@ -579,9 +598,9 @@ function Addrooms({ editdata }) {
               <div className="flex mt-4 gap-5">
                 <label
                   className="text-[21px] w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
+                  htmlFor="availability"
                 >
-                  Availability <span className=" text-red-500">*</span>
+                  Availability <span className="text-red-500">*</span>
                 </label>
                 <div>
                   <Controller
@@ -591,18 +610,21 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        onChange={(date) => field.onChange(date)}
-                        className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholderText="Available to"
+                        className={`h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          isImmediate
+                            ? "bg-gray-200 cursor-not-allowed"
+                            : "bg-white"
+                        }`}
+                        placeholderText="Available from"
+                        disabled={isImmediate}
                       />
                     )}
                   />
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Avaliblity_from && (
-                      <p>{errors.Avaliblity_from.message}</p>
-                    )}
-                  </p>
+                  {errors.Avaliblity_from && (
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {errors.Avaliblity_from.message}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <Controller
@@ -612,29 +634,38 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        onChange={(date) => field.onChange(date)}
-                        className="h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className={`h-100px w-[263px] text-[18px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          isImmediate
+                            ? "bg-gray-200 cursor-not-allowed"
+                            : "bg-white"
+                        }`}
                         placeholderText="Available to"
+                        disabled={isImmediate}
                       />
                     )}
                   />
                 </div>
                 <div className="flex items-center gap-2">
-                  <input type="checkbox" {...register("Immedite")} />
+                  <input
+                    type="checkbox"
+                    {...register("Immediate")}
+                    checked={isImmediate}
+                    onChange={handleCheckboxChange}
+                  />
                   <p className="py-2 text-black text-[18px]">Immediate</p>
                 </div>
               </div>
 
-              <div className=" flex mt-5 text-[18px] gap-20">
+              <div className="flex mt-5 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
+                  htmlFor="bathroom"
                 >
-                  Attached Bath <span className=" text-red-500">*</span>
+                  Separate Bathroom <span className="text-red-500">*</span>
                 </label>
                 <div>
                   <div className="grid grid-cols-4 gap-4 text-[18px] w-[976px]">
-                    <div className=" flex gap-1 items-center">
+                    <div className="flex gap-1 items-center">
                       <input
                         type="radio"
                         value="Yes"
@@ -642,9 +673,9 @@ function Addrooms({ editdata }) {
                           required: "Please select Bath",
                         })}
                       />
-                      <p>Yes </p>
+                      <p>Yes</p>
                     </div>
-                    <div className=" flex gap-1 items-center">
+                    <div className="flex gap-1 items-center">
                       <input
                         type="radio"
                         value="No"
@@ -652,22 +683,53 @@ function Addrooms({ editdata }) {
                           required: "Please select Bath",
                         })}
                       />
-                      <p>No </p>
+                      <p>No</p>
                     </div>
                   </div>
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Attchd_Bath && <p>{errors.Attchd_Bath.message}</p>}
-                  </p>
+                  {errors.Attchd_Bath && (
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {errors.Attchd_Bath.message}
+                    </p>
+                  )}
+
+                  {selectedBathroom === "Yes" && (
+                    <div className="mt-4">
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Attached in Room"
+                          {...register("Bath_Location", {
+                            required: "Please select Bath location",
+                          })}
+                        />
+                        <p>Attached in Room</p>
+                      </div>
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Outside the room"
+                          {...register("Bath_Location", {
+                            required: "Please select Bath location",
+                          })}
+                        />
+                        <p>Outside the room</p>
+                      </div>
+                      {errors.Bath_Location && (
+                        <p className="text-[16px] mt-1 text-red-500">
+                          {errors.Bath_Location.message}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="flex mt-5 text-[18px] gap-20">
                 <label
                   className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
+                  htmlFor="preferred_gender"
                 >
-                  Preferred Gender <span className=" text-red-500">*</span>
+                  Preferred Gender <span className="text-red-500">*</span>
                 </label>
                 <div>
                   <div className="grid grid-cols-4 gap-4 text-[18px] w-[976px]">
@@ -684,7 +746,7 @@ function Addrooms({ editdata }) {
                         <CgGenderMale size={24} />
                       </p>
                     </div>
-                    <div className=" flex items-center gap-1">
+                    <div className="flex items-center gap-1">
                       <input
                         type="radio"
                         value="Female only"
@@ -697,7 +759,7 @@ function Addrooms({ editdata }) {
                         <TbGenderFemale size={20} />
                       </p>
                     </div>
-                    <div className=" flex gap-1 items-center">
+                    <div className="flex gap-1 items-center">
                       <input
                         type="radio"
                         value="Any"
@@ -705,17 +767,56 @@ function Addrooms({ editdata }) {
                           required: "Please select gender",
                         })}
                       />
-                      <p>Any </p>
+                      <p>Any</p>
                     </div>
                   </div>
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Preferred_gender && (
-                      <p>{errors.Preferred_gender.message}</p>
-                    )}
-                  </p>
+                  {errors.Preferred_gender && (
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {errors.Preferred_gender.message}
+                    </p>
+                  )}
                 </div>
               </div>
+
+              {preferredGender && (
+                <div className="flex mt-5 text-[18px] gap-20">
+                  <label
+                    className="text-[21px] w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    htmlFor="couples_welcome"
+                  >
+                    Couples Welcome <span className="text-red-500">*</span>
+                  </label>
+                  <div>
+                    <div className="flex gap-4">
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Yes"
+                          {...register("Couples_welcome", {
+                            required: "Please select an option",
+                          })}
+                        />
+                        <p>Yes</p>
+                      </div>
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="No"
+                          {...register("Couples_welcome", {
+                            required: "Please select an option",
+                          })}
+                        />
+                        <p>No</p>
+                      </div>
+                    </div>
+                    {errors.Couples_welcome && (
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {errors.Couples_welcome.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-5">
                 <label
@@ -747,7 +848,9 @@ function Addrooms({ editdata }) {
                 >
                   <option value="">Select</option>
                   <option value="Unfurnished">Unfurnished</option>
-                  <option value="Furnished with Bed">Furnished with Bed</option>
+                  <option value="Furnished with Bed">
+                    Furnished only with Bed
+                  </option>
                   <option value="Semi Furnished">Semi Furnished</option>
                   <option value="Fully Furnished">Fully Furnished</option>
                 </select>
