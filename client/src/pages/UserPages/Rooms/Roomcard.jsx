@@ -157,7 +157,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               : item.state}
           </span>
         </p>
-        <p className="text-blue-800 capitalize text-[19px] mt-1 flex gap-1 items-center font-['udemy-regular']">
+        <p className="text-blue-700 capitalize text-[19px] mt-1 flex gap-1 items-center font-['udemy-regular']">
           <CgProfile />
           By: {item.user_name}
         </p>
