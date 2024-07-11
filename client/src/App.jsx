@@ -40,6 +40,26 @@ function App() {
     }
   });
 
+  // const PathHandler = () => {
+  //   const history = useHistorycd();
+  //   const location = useLocation();
+
+  //   // Save the current path to localStorage whenever it changes
+  //   useEffect(() => {
+  //     localStorage.setItem("currentPath", location.pathname);
+  //   }, [location.pathname]);
+
+  //   // Navigate to the saved path on component mount
+  //   useEffect(() => {
+  //     const savedPath = localStorage.getItem("currentPath");
+  //     if (savedPath && savedPath !== location.pathname) {
+  //       history.push(savedPath);
+  //     }
+  //   }, [history, location.pathname]);
+
+  //   return null;
+  // };
+
   const isAdminPanel = location.pathname.startsWith("/admin");
   const isAddRoomPage = location.pathname.includes("addroom");
 

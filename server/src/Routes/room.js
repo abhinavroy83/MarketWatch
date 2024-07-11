@@ -16,5 +16,5 @@ router.get("/api/getspecificroom/:roomID", getspecficroom);
 router.delete("/rooms/:roomsID", deleterooms);
 router.get("/api/rooms/:roomId/next", nextroom);
 router.get("/api/rooms/:roomId/previous", prvsroom);
-router.put("/api/rooms/:_id", IsloggedIn, updateroom);
+router.put("/api/updaterooms/:_id", IsloggedIn, updateroom);
 module.exports = router;

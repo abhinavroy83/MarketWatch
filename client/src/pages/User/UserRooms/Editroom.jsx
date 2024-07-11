@@ -6,7 +6,7 @@ import axios from "axios";
 function Editroom() {
   const { _id } = useParams();
   const [data, setdata] = useState([]);
-  console.log(_id);
+  // console.log(_id);
 
   useEffect(() => {
     const fetchroom = async () => {

@@ -40,8 +40,8 @@ function Login() {
       if (token) {
         try {
           const decoded = jwtDecode(token);
-          console.log(decoded);
-
+          // console.log(decoded);
+          localStorage.setItem("userdetails", JSON.stringify(decoded));
           dispatch(
             authlogin({
               token: token,

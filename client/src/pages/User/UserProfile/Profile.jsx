@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import jsoncity from "./city.json";
 import { useDispatch, useSelector } from "react-redux";
 import { UserImage, login } from "../../../store/authslice";
+import Loader from "../../../components/UserCompontents/Loader";
 
 function Profile() {
   const { userID } = useParams();
@@ -73,7 +74,7 @@ function Profile() {
         }
       );
       const uploadedImageUrl = response.data.secure_url;
-      console.log(uploadedImageUrl);
+      // console.log(uploadedImageUrl);
       setuserimg(uploadedImageUrl);
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -151,6 +152,8 @@ function Profile() {
       }
     }
   }, [data, setValue]);
+  
+  
 
   return (
     <DashConatiner>
