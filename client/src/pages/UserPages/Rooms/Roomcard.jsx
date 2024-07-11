@@ -137,7 +137,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       />
 
       <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-        <p className="left-5 top-2 text-[25px] text-green-700 font-['udemy-bold'] text-right">
+        <p className="left-5 top-2 text-[22px] text-green-700 font-['udemy-bold'] text-right">
           ${item.Expected_Rooms}
         </p>
       </p>
@@ -145,10 +145,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[23px] font-['udemy-regular'] capitalize mt-3 lg:mt-0">
+        <h1 className="flex flex-col text-[21px] font-['udemy-regular'] capitalize mt-3 lg:mt-0">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
-        <p className=" flex gap-1 text-[20px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
+        <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} />
           <span>{item.city},</span>
           <span className=" px-1">
@@ -157,11 +157,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               : item.state}
           </span>
         </p>
-        <p className="text-blue-800 capitalize text-[20px] mt-1 flex gap-1 items-center font-['udemy-regular']">
+        <p className="text-blue-800 capitalize text-[19px] mt-1 flex gap-1 items-center font-['udemy-regular']">
           <CgProfile />
           By: {item.user_name}
         </p>
-        <p className="text-blue-800 text-[20px] flex gap-1 mt-1 items-center font-['udemy-regular']">
+        <p className="text-blue-800 text-[19px] flex gap-1 mt-1 items-center font-['udemy-regular']">
           {" "}
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
