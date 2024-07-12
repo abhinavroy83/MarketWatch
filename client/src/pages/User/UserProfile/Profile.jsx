@@ -7,6 +7,7 @@ import jsoncity from "./city.json";
 import { useDispatch, useSelector } from "react-redux";
 import { UserImage, login } from "../../../store/authslice";
 import Loader from "../../../components/UserCompontents/Loader";
+import { ImProfile } from "react-icons/im";
 
 function Profile() {
   const { userID } = useParams();
@@ -152,63 +153,84 @@ function Profile() {
       }
     }
   }, [data, setValue]);
-  
-  
 
   return (
     <DashConatiner>
-      <div className="px-10 overflow-y-scroll">
-        <div className="flex justify-center">
-          <p className="text-[25px] p-2 ml-2 font-bold text-[#232f3e] mt-1 font-['udemy-regular']">
-            Your Profile
-          </p>
-        </div>
+      <div className="flex justify-center text-center self-center">
+        <p className="text-[1.5rem] p-2 text-white font-['udemy-regular'] bg-[#232f3e] w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
+          <ImProfile />
+          Your Profile
+        </p>
+      </div>
+      <div className="px-10 overflow-y-scroll flex justify-center">
         {!data.isVerified && (
           <p className="font-['udemy-regular'] text-red-600 text-lg py-3">
             *Please complete verification of your email, phone number and
             profile page to start using the services.*
           </p>
         )}
-        <h1 className="text-[25px] text-[#232f3e] font-bold font-['udemy-regular'] ">
+        {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
-        </h1>
+        </h1> */}
         <form onSubmit={handleSubmit(handleclick)}>
-          <div className="">
-            <div className="flex font-['udemy-regular'] p-2 items-center">
+          <div className="flex text-[1rem] mt-6 gap-20 items-center">
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
               {/* <img src={data.userimg} alt="" /> */}
-              <label className="min-w-[120px] text-[20px]">FirstName: </label>
+              <label className="text-[1.2rem]">First Name </label>
               {isedit ? (
-                <FormInput
+                <input
                   // label="FirstName:"
-                  // className= p-1 rounded-base"
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("firstName")}
                   defaultValue={data.firstName}
                 />
               ) : (
-                <p className="text-[20px]">{data.firstName}</p>
+                <p className="text-[1rem]">{data.firstName}</p>
               )}
             </div>
 
-            <div className="flex font-['udemy-regular'] p-2 items-center">
-              <label className="min-w-[120px] text-[20px] ">LastName:</label>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
+              <label className="text-[1.2rem] ">Last Name</label>
               {isedit ? (
-                <FormInput
+                <input
                   // label="Lastname"
-                  className="p-1 rounded-base"
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("lastName")}
                   defaultValue={data.lastName}
                 />
               ) : (
-                <p className="text-[20px]">{data.lastName}</p>
+                <p className="text-[1rem]">{data.lastName}</p>
               )}
             </div>
           </div>
-          <div className="">
-            <div className="flex font-['udemy-regular'] p-2 items-center">
-              <label className="min-w-[120px] text-[20px]">Email:</label>
-              <p className="text-[20px]">{data.email}</p>
+          <div className="flex text-[1rem] gap-20 items-center">
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
+              <label className="min-w-[120px] text-[1.2rem]">Gender</label>
+              {isedit ? (
+                <select
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  {...register("gender")}
+                  defaultValue={data.gender}
+                >
+                  <option value="male" className="text-[1.1rem]">
+                    Male
+                  </option>
+                  <option value="female" className="text-[1.1rem]">
+                    Female
+                  </option>
+                  <option value="notspecified" className="text-[1.1rem]">
+                    Not Specified
+                  </option>
+                </select>
+              ) : (
+                <p className="text-[20px]">{data.gender}</p>
+              )}
+            </div>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
+              <label className="min-w-[120px] text-[1.2rem]">Email</label>
+              <p className="text-[1rem]">{data.email}</p>
 
               {/* {isedit ? (
               <FormInput
@@ -221,107 +243,192 @@ function Profile() {
               <p className="text-[20px]">{data.email}</p>
             )} */}
             </div>
-
-            <div className="flex font-['udemy-regular'] p-2 items-center">
-              <label className="min-w-[120px] text-[20px]">Number:</label>
+          </div>
+          <div className="flex gap-20">
+            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
+              <label className="text-[1.2rem]">Number</label>
               {isedit ? (
-                <FormInput
-                  className="p-1 rounded-base"
+                <input
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("number")}
                   defaultValue={data.phone_number}
                 />
               ) : (
-                <p className="text-[20px]">{data.phone_number}</p>
+                <p className="text-[1.2rem]">{data.phone_number}</p>
+              )}
+            </div>
+            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
+              <label className="">Date of Birth</label>
+              {isedit ? (
+                <input
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="date"
+                  {...register("dob")}
+                  defaultValue={data.dob}
+                />
+              ) : (
+                <p className="text-[1.2rem]">{data.dob}</p>
               )}
             </div>
           </div>
+
           {data.isVerified ? (
             <div>
               {isedit && (
-                <div className="flex font-['udemy-regular'] p-2 items-center">
-                  <label className="min-w-[120px] text-[20px]">Image:</label>
+                <div className="flex font-['udemy-regular'] p-2 text-[1.2rem] flex-col gap-1">
+                  <label className="min-w-[120px]">Image</label>
                   <input
-                    className=""
+                    className="text-[1rem]"
                     type="file"
                     accept="image/*"
                     onChange={handleimgchange}
                   />
                 </div>
               )}
-              <div className="flex font-['udemy-regular']  p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">
-                  Date of Birth:
-                </label>
+              {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
+                <label className="min-w-[120px]">Date of Birth:</label>
                 {isedit ? (
                   <input
-                    className="flex h-10 font-['udemy-regular'] w-[400px] bg-white text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] text-[1.2rem] w-[400px] bg-white rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     type="date"
                     {...register("dob")}
                     defaultValue={data.dob}
                   />
                 ) : (
-                  <p className="text-[20px]">{data.dob}</p>
+                  <p className="text-[1.2rem]">{data.dob}</p>
                 )}
-              </div>
+              </div> */}
 
-              <div className=" flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">Gender:</label>
+              {/* <div className=" flex font-['udemy-regular'] p-2 items-center">
+                <label className="min-w-[120px] text-[1.2rem]">Gender:</label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="font-['udemy-regular'] h-10 w-[340px] text-[1.2rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("gender")}
                     defaultValue={data.gender}
                   >
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="notspecified">Not Specified</option>
+                    <option value="male" className="text-[1.1rem]">
+                      Male
+                    </option>
+                    <option value="female" className="text-[1.1rem]">
+                      Female
+                    </option>
+                    <option value="notspecified" className="text-[1.1rem]">
+                      Not Specified
+                    </option>
                   </select>
                 ) : (
                   <p className="text-[20px]">{data.gender}</p>
                 )}
-              </div>
-              <div className=" flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">Country:</label>
-                {isedit ? (
-                  <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("country")}
-                    defaultValue={data.country}
-                  >
-                    <option value="Usa">USA</option>
-                  </select>
-                ) : (
-                  <p className="text-[20px]">{data.country}</p>
-                )}
-              </div>
-              <div className="flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">State:</label>
-                {isedit ? (
-                  <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    {...register("state")}
-                    onChange={handlestatechange}
-                    defaultValue={data.state}
-                  >
-                    <option value="" disabled hidden>
-                      Select State
-                    </option>{" "}
-                    {states.map((state) => (
-                      <option key={state.ste_name} value={state.ste_name}>
-                        {state.ste_name}
+              </div> */}
+              <div className="flex gap-20">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                  <label className="min-w-[120px]">Address: </label>
+                  {isedit ? (
+                    <input
+                      type="text"
+                      placeholder="Enter Address"
+                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("address", {
+                        required: "Address is required",
+                      })}
+                      defaultValue={data.address}
+                      errorMessage={errors.address?.message}
+                    />
+                  ) : (
+                    <p className="">{data.address}</p>
+                  )}
+                </div>
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                  <label className="min-w-[120px]">Country:</label>
+                  {isedit ? (
+                    <select
+                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("country")}
+                      defaultValue={data.country}
+                    >
+                      <option value="Usa" className="text-[1.1rem]">
+                        USA
                       </option>
-                    ))}
-                  </select>
+                    </select>
+                  ) : (
+                    <p className="">{data.country}</p>
+                  )}
+                </div>
+              </div>
+              <div className="flex gap-20">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                  <label className="min-w-[120px]">City</label>
+                  {isedit ? (
+                    <select
+                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("city")}
+                      defaultValue={data.city}
+                    >
+                      <option value="" disabled hidden>
+                        Select City
+                      </option>
+                      {citys &&
+                        citys.length > 0 &&
+                        citys.map((cty) => (
+                          <option key={cty} value={cty}>
+                            {cty}
+                          </option>
+                        ))}
+                    </select>
+                  ) : (
+                    <p className="">{data.city}</p>
+                  )}
+                </div>
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                  <label className="min-w-[120px]">State</label>
+                  {isedit ? (
+                    <select
+                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("state")}
+                      onChange={handlestatechange}
+                      defaultValue={data.state}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        hidden
+                        className="text-[1.1rem]"
+                      >
+                        Select State
+                      </option>{" "}
+                      {states.map((state) => (
+                        <option key={state.ste_name} value={state.ste_name}>
+                          {state.ste_name}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <p className="">{data.state}</p>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <label className="min-w-[120px]">Pin</label>
+                {isedit ? (
+                  <input
+                    type="text"
+                    placeholder="Enter Pin"
+                    className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    {...register("pin", { required: "Pin is required" })}
+                    defaultValue={data.pin}
+                    errorMessage={errors.pin?.message}
+                  />
                 ) : (
-                  <p className="text-[20px]">{data.state}</p>
+                  <p className="text-[1rem]">{data.pin}</p>
                 )}
               </div>
-              <div className="flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">City: </label>
+              {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
+                <label className="min-w-[120px]">City: </label>
                 {isedit ? (
                   <select
-                    className="flex h-10 font-['udemy-regular'] w-[400px] text-[18px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="font-['udemy-regular'] h-10 w-[340px] text-[1.2rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("city")}
                     defaultValue={data.city}
                   >
@@ -337,15 +444,16 @@ function Profile() {
                       ))}
                   </select>
                 ) : (
-                  <p className="text-[20px]">{data.city}</p>
+                  <p className="">{data.city}</p>
                 )}
-              </div>
-              <div className="flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">Address: </label>
+              </div> */}
+              {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
+                <label className="min-w-[120px]">Address: </label>
                 {isedit ? (
-                  <FormInput
+                  <input
                     type="text"
                     placeholder="Enter Address"
+                    className="font-['udemy-regular'] h-10 w-[340px] text-[1.2rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("address", {
                       required: "Address is required",
                     })}
@@ -353,27 +461,28 @@ function Profile() {
                     errorMessage={errors.address?.message}
                   />
                 ) : (
-                  <p className="text-[18px]">{data.address}</p>
+                  <p className="">{data.address}</p>
                 )}
-              </div>
-              <div className="flex font-['udemy-regular'] p-2 items-center">
-                <label className="min-w-[120px] text-[20px]">Pin: </label>
+              </div> */}
+              {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
+                <label className="min-w-[120px]">Pin: </label>
                 {isedit ? (
-                  <FormInput
+                  <input
                     type="text"
                     placeholder="Enter Pin"
+                    className="font-['udemy-regular'] h-10 w-[340px] text-[1.2rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("pin", { required: "Pin is required" })}
                     defaultValue={data.pin}
                     errorMessage={errors.pin?.message}
                   />
                 ) : (
-                  <p className="text-[18px]">{data.pin}</p>
+                  <p className="">{data.pin}</p>
                 )}
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="font-['udemy-regular']">
-              <p className="text-[20px] p-2 text-red-600">
+              <p className="text-[1.2rem] p-2 text-red-600">
                 Please verify your email{" "}
               </p>
             </div>
@@ -395,24 +504,24 @@ function Profile() {
           )} */}
 
           {isedit ? (
-            <>
+            <div className="flex justify-center mt-4">
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[20px]"
+                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
                 type="submit"
               >
                 Update Profile
               </button>
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-4 px-4 py-3 text-[20px] ml-3"
+                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem] ml-3"
                 type="button"
                 onClick={toggleCancel}
               >
                 Cancel
               </button>
-            </>
+            </div>
           ) : (
             <button
-              className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[22px]"
+              className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem]"
               type="button"
               onClick={toggleEdit}
             >

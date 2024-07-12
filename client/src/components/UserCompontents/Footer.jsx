@@ -14,6 +14,28 @@ export default function Footer() {
   //  https://api.verydesi.com/
   return (
     <div className="lg:mt-9 mt-6 w-full ">
+      <div className="justify-center flex mb-2 gap-7">
+        <img
+          className="w-[7.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[7.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[7.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[7.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+      </div>
       <div className=" mx-auto">
         <div className="bg-[#232f3e] flex text-[#232f3e] justify-center items-center gap-10 ">
           <p>hi</p>

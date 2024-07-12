@@ -20,7 +20,6 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { GiExitDoor } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
-import { FaHeart } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import Login from "../../../components/UserCompontents/Login";
 import Signup from "../../../components/UserCompontents/Signup";
@@ -28,6 +27,7 @@ import axios from "axios";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -115,8 +115,7 @@ function Ads() {
   return (
     <div className="flex px-2 lg:px-1 py-2 lg:py-0 gap-7 lg:gap-0 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
-
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <Login />
         <Signup />
         <Link to={"/"} className="bg-cover bg-center flex">
@@ -146,11 +145,33 @@ function Ads() {
           {isHovered && <Avalableloc />}
         </div>
       </div>
+      <div className="flex justify-center gap-7">
+        <img
+          className="w-[6.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[6.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[6.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+        <img
+          className="w-[6.9rem] h-15"
+          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
+          alt="logo"
+        />
+      </div>
       {isloged ? (
         <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
           <FaBell className="hover:text-blue-700" size={25} />
           <div className="relative mr-4 hover:text-blue-700">
-            <FaRegHeart
+            <FaHeart
               className="cursor-pointer"
               size={22}
               onClick={() => {
