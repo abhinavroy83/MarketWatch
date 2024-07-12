@@ -108,8 +108,8 @@ function Getuserroom() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-[25px] font-semibold text-[#232f3e]">Rooms</h2>
-            <p className="mt-1 text-[25px] text-[#232f3e]">
+            <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">Rooms</h2>
+            <p className="mt-1 text-[1.2rem] text-[#232f3e]">
               This is a list of all rooms. You can add new rooms, edit or delete
               existing ones.
             </p>
@@ -121,9 +121,9 @@ function Getuserroom() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+                className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[1.2rem] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
               >
-                Add New Room
+                Add Room
               </button>
             </div>
           )}
@@ -131,8 +131,8 @@ function Getuserroom() {
         <div className="mt-6 flex flex-col text-[20px]">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
-                <table className="min-w-full divide-gray-200">
+              <div className="overflow-hidden border border-gray-200 md:rounded-lg gap-3 flex">
+                <table className="min-w-full divide-gray-200 gap-5">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
