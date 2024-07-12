@@ -9,6 +9,12 @@ import Loader from "../../../components/UserCompontents/Loader";
 import { BiMinusCircle } from "react-icons/bi";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
+import { MdMeetingRoom } from "react-icons/md";
+import { FaMapPin } from "react-icons/fa";
+import { AiFillDollarCircle } from "react-icons/ai";
+import { MdFindInPage } from "react-icons/md";
+import { IoIosRemoveCircle } from "react-icons/io";
+
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
@@ -123,48 +129,53 @@ function ListAllwish() {
   };
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
-        <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-          <div>
-            <h2 className="text-[25px] font-semibold text-[#232f3e] flex items-center gap-3">
-              <FaHeart className="text-[#232f3e]" size={30} />
-              Wishlist
-            </h2>
-            <p className="mt-2 text-[25px] text-[#232f3e] ml-1">
-              Your Wishlist is here.
-            </p>
-          </div>
+      <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
+        <div className="flex justify-center text-center self-center">
+          <p className="text-[1.5rem] p-2 text-white font-['udemy-regular'] bg-[#232f3e] w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
+            <FaHeart size={25} /> Favorites
+          </p>
         </div>
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
+              <div className="overflow-hidden rounded-md text-[1.2rem]">
                 <table className="min-w-full divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
-                        <span>Room</span>
+                        <span className="flex gap-1">
+                          <MdMeetingRoom size={25} />
+                          Room
+                        </span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left text-[20px] font-normal text-gray-700"
+                        className="px-12 py-3.5 text-left font-normal text-gray-700"
                       >
-                        City
+                        <span className="flex gap-1">
+                          <FaMapPin size={22} /> City
+                        </span>
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
-                        Price
+                        <span className="flex gap-1">
+                          <AiFillDollarCircle size={24} />
+                          Price{" "}
+                        </span>
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left text-[20px] font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
-                        Visit Page
+                        <span className="flex gap-1">
+                          <MdFindInPage size={24} />
+                          Visit Page
+                        </span>
                       </th>
                       {/* <th
                         scope="col"
@@ -174,9 +185,12 @@ function ListAllwish() {
                       </th> */}
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-[20px] font-normal text-gray-700"
+                        className="px-4 py-3.5 font-normal text-gray-700"
                       >
-                        Remove
+                        <span className="flex gap-1">
+                          <IoIosRemoveCircle size={24} />
+                          Remove
+                        </span>
                       </th>
                     </tr>
                   </thead>
