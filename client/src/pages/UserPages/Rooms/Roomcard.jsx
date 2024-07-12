@@ -16,6 +16,7 @@ import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviat
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const userID = useSelector((state) => state.auth.userId);
+  const auth = useSelector((state) => state.auth.status);
   const [wishliststatys, setWishliststatys] = useState(false);
 
   const notify = () => toast("Added to Wishlist.");
@@ -162,36 +163,37 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           By: {item.user_name}
         </p>
         <p className="text-blue-800 text-[19px] flex gap-1 mt-1 items-center font-['udemy-regular']">
-          {" "}
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
         </p>
-        <div className="absolute bottom-3 right-4">
-          {!wishliststatys ? (
-            <div
-              className="cursor-pointer p-2 hover:text-white"
-              onClick={(e) => {
-                e.preventDefault();
-                makewishlist(item._id);
-              }}
-            >
-              <FaHeart
-                className="text-gray-500 hover:text-gray-700 "
-                size={25}
-              />
-            </div>
-          ) : (
-            <div
-              className="cursor-pointer p-2"
-              onClick={(e) => {
-                e.preventDefault();
-                unwish(item._id);
-              }}
-            >
-              <FaHeart color="red" size={25} />
-            </div>
-          )}
-        </div>
+        {auth && (
+          <div className="absolute bottom-3 right-4">
+            {!wishliststatys ? (
+              <div
+                className="cursor-pointer p-2 hover:text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  makewishlist(item._id);
+                }}
+              >
+                <FaHeart
+                  className="text-gray-500 hover:text-gray-700 "
+                  size={25}
+                />
+              </div>
+            ) : (
+              <div
+                className="cursor-pointer p-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  unwish(item._id);
+                }}
+              >
+                <FaHeart color="red" size={25} />
+              </div>
+            )}
+          </div>
+        )}
         <img
           className="flex absolute bottom-5 right-14 "
           height={15}

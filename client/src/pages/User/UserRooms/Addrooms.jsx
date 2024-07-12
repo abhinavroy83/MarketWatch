@@ -166,7 +166,7 @@ function Addrooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    setLoading(true);
+    setLoader(true);
     await handleUpload();
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
