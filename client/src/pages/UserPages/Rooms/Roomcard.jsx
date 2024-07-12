@@ -166,34 +166,36 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
         </p>
-        {auth && (
-          <div className="absolute bottom-3 right-4">
-            {!wishliststatys ? (
-              <div
-                className="cursor-pointer p-2 hover:text-white"
-                onClick={(e) => {
-                  e.preventDefault();
-                  makewishlist(item._id);
-                }}
-              >
-                <FaHeart
-                  className="text-gray-500 hover:text-gray-700 "
-                  size={25}
-                />
-              </div>
-            ) : (
-              <div
-                className="cursor-pointer p-2"
-                onClick={(e) => {
-                  e.preventDefault();
-                  unwish(item._id);
-                }}
-              >
-                <FaHeart color="red" size={25} />
-              </div>
-            )}
-          </div>
-        )}
+        <div className="absolute bottom-3 right-4">
+          {!wishliststatys ? (
+            <div
+              className="cursor-pointer p-2 hover:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                makewishlist(item._id);
+              }}
+            >
+              <FaHeart
+                className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
+                size={25}
+              />
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                unwish(item._id);
+              }}
+            >
+              <FaHeart
+                className="border p-1 rounded-full"
+                color="red"
+                size={25}
+              />
+            </div>
+          )}
+        </div>
         <img
           className="flex absolute bottom-5 right-14 "
           height={15}

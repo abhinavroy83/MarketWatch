@@ -75,7 +75,7 @@ export default function Footer() {
                 {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
               </div>
             </div>
-            <div className="lg:flex gap-20 lg:ml-4 ml-2">
+            <div className="lg:flex gap-10 justify-center">
               <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
