@@ -82,8 +82,8 @@ function DashConatiner({ children }) {
   };
 
   return (
-    <div className="mt-[8%] mx-auto px-4 flex max-w-[1500px] h-[700px] w-full m-auto overflow-hidden font-['udemy-regular']">
-      <div className="w-[18%] h-[900px] bg-[#232f3e] p-2 flex flex-col">
+    <div className="mt-[8%] mx-auto px-4 flex max-w-[1600px] h-[700px] w-full m-auto overflow-hidden font-['udemy-regular']">
+      <div className="w-[20%] h-[630px] bg-[#232f3e] border-2 border-black p-2 flex flex-col">
         <div className="relative justify-center flex">
           <img
             className="rounded-full w-[12.5rem] h-[12.5rem] items-center justify-center mt-4 cover"
@@ -190,7 +190,7 @@ function DashConatiner({ children }) {
           )}
         </div>
       </div>
-      <main className="w-4/5 h-[700px] bg-blue-100 p-2 overflow-scroll">
+      <main className="w-4/5 h-[630px] bg-blue-100 p-2 overflow-scroll">
         {children}
       </main>
     </div>
