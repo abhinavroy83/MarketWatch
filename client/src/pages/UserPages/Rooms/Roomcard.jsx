@@ -16,6 +16,7 @@ import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviat
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const userID = useSelector((state) => state.auth.userId);
+  const auth = useSelector((state) => state.auth.status);
   const [wishliststatys, setWishliststatys] = useState(false);
 
   const notify = () => toast("Added to Wishlist.");
@@ -162,7 +163,6 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           By: {item.user_name}
         </p>
         <p className="text-blue-800 text-[19px] flex gap-1 mt-1 items-center font-['udemy-regular']">
-          {" "}
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
         </p>

@@ -99,7 +99,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       </div>
       <div className="flex gap-4 justify-center items-center mr-3">
         <p className="text-[23px] text-green-700 font-['udemy-regular'] font-bold">
-          {item.Expected_Rooms}
+          ${item.Expected_Rooms}
         </p>
       </div>
     </Link>
