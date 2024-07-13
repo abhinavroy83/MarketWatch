@@ -8,7 +8,7 @@ const initialState = {
   location: null,
   city: "Portland",
   bussinessac: null,
-  isverified: null,
+  isverified: false,
   userimg: null,
 };
 

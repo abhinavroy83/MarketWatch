@@ -25,6 +25,7 @@ function Profile() {
   const [selectedstate, setsetselectedstate] = useState("");
   const [userimgs, setuserimg] = useState("");
   const dispatch = useDispatch();
+  const isverified = useSelector((state) => state.auth.isverified);
   // const imgg = useSelector((state) => state.auth.userimg);
 
   const fetchuser = async () => {
@@ -88,6 +89,7 @@ function Profile() {
     }
   };
 
+  console.log(isverified);
   const handleclick = async (data) => {
     const formdt = {
       firstName: data.firstName,
@@ -162,13 +164,8 @@ function Profile() {
           Your Profile
         </p>
       </div>
+
       <div className="px-10 overflow-y-scroll flex justify-center">
-        {!data.isVerified && (
-          <p className="font-['udemy-regular'] text-red-600 text-lg py-3">
-            *Please complete verification of your email, phone number and
-            profile page to start using the services.*
-          </p>
-        )}
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}
