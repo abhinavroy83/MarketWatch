@@ -221,9 +221,8 @@ function Login() {
                     },
                   })}
                 />
-
                 <span
-                  className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs ${
+                  className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-sm  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs ${
         errors.email ? 'text-red-600' : 'text-gray-700'
       }"
                 >
@@ -246,13 +245,40 @@ function Login() {
                 errorMessage={errors.email?.message}
                 className="!w-full"
               /> */}
-              <Input
+              <label
+                htmlFor="password"
+                className={`relative block py-2 rounded-md border shadow-sm focus-within:ring-1 ${
+                  errors.password
+                    ? "border-red-600 focus-within:border-red-600 focus-within:ring-red-600"
+                    : "border-gray-200 focus-within:border-blue-600 focus-within:ring-blue-600"
+                }`}
+              >
+                <input
+                  type="password"
+                  id="Password"
+                  className="peer border-none px-2 bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                  placeholder="Password"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  errorMessage={errors.password?.message}
+                />
+                <span
+                  className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-md  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs ${
+        errors.email ? 'text-red-600' : 'text-gray-700'
+      }"
+                >
+                  {errors.password ? errors.password.message : "Password"}
+                </span>
+              </label>
+
+              {/* <Input
                 label="Password"
                 Placeholder="Password"
                 type="password"
                 {...register("password", { required: "Password is required" })}
                 errorMessage={errors.password?.message}
-              />
+              /> */}
               <div
                 className="flex gap-1 text-[13px] cursor-pointer items-center font-bold justify-end"
                 onClick={handleforget}
