@@ -6,11 +6,13 @@ import axios from "axios";
 import { UserImage } from "../../store/authslice";
 import { FaUserPen } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
-import { MdMeetingRoom } from "react-icons/md";
 import { ImProfile } from "react-icons/im";
 import { BsPostcard } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 import { useId } from "react";
+import { MdMeetingRoom } from "react-icons/md";
+import { BsPostcardHeartFill } from "react-icons/bs";
+import { MdBusinessCenter } from "react-icons/md";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -200,7 +202,7 @@ function DashConatiner({ children }) {
                 setbgcolor(true);
                 navigate(`/myaccount/${userID}`);
               }}
-              className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start mt-2 capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+              className="rounded-md bg-transparent px-2 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start mt-2 capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
             >
               {/* <ImProfile size={20} /> Hello {username} */}
               <FaHome size={22} />
@@ -211,7 +213,7 @@ function DashConatiner({ children }) {
                 setbgcolor(true);
                 navigate(`/dashboard/profile/${userID}`);
               }}
-              className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[17px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+              className="rounded-md bg-transparent px-2 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[17px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
             >
               <FaUserPen size={25} /> Setting
             </button>
@@ -220,7 +222,7 @@ function DashConatiner({ children }) {
                 setbgcolor(true);
                 navigate(`/dashboard/wishlist/${userID}`);
               }}
-              className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+              className="rounded-md bg-transparent px-2 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
             >
               <FaHeart size={22} /> Favorites
             </button>
@@ -228,7 +230,8 @@ function DashConatiner({ children }) {
               className="group [&_summary::-webkit-details-marker]:hidden"
               open
             >
-              <summary className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+              <summary className="rounded-md bg-transparent px-2 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <BsPostcardHeartFill size={20} />
                 <h2 className="font-medium">My Post</h2>
 
                 <svg
@@ -251,12 +254,12 @@ function DashConatiner({ children }) {
                 onClick={() => {
                   navigate(`/user/room/${userID}`);
                 }}
-                className="mt-4 px-4 leading-relaxed rounded-md bg-transparent py-1 w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
-                <BsPostcard size={20} /> My Rooms
+                <MdMeetingRoom size={22} /> My Rooms
               </button>
-              <button className="mt-4 px-4 leading-relaxed rounded-md bg-transparent py-1 w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
-                <BsPostcard size={20} /> My Business
+              <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <MdBusinessCenter size={20} /> My Business
               </button>
             </details>
 
