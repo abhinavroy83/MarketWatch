@@ -87,7 +87,7 @@ function Allroom() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
-      <tr key={items._id} className="divide-x divide-gray-200">
+      <tr key={items._id} className="divide-x divide-gray-200 mb-4 ">
         <td className="whitespace-nowrap px-4 py-4">
           <div className="flex items-center">
             <div className="h-10 w-10 flex-shrink-0">

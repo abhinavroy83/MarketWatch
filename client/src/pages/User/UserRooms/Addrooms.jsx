@@ -1127,7 +1127,7 @@ function Addrooms({ editdata }) {
                   Add your photos below
                 </p>
                 <div className="flex">
-                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
+                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[1000px] bg-white">
                     <div className="">
                       <input
                         type="file"
@@ -1135,7 +1135,7 @@ function Addrooms({ editdata }) {
                         id="file"
                         onChange={handleSelectFile}
                         multiple
-                        class="cursor-pointer relative block opacity-0 w-[20rem] h-full p-20 z-50"
+                        class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
                       />
                       <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
                         <h4>
@@ -1152,7 +1152,7 @@ function Addrooms({ editdata }) {
                       {files.map((file, index) => (
                         <div className="relative" key={index}>
                           <img
-                            className="h-20 w-20 mx-2 rounded-md"
+                            className="h-20 w-20 rounded-md"
                             src={file.preview}
                             alt={`preview-${index}`}
                           />

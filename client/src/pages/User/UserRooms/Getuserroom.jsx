@@ -60,14 +60,14 @@ function Getuserroom() {
   const renderRows = () => {
     const startIndex = (currentPage - 1) * 5;
     const endIndex = Math.min(startIndex + 5, roomsdeatails.length);
-    return roomsdeatails.slice(startIndex, endIndex).map((items) => (
-      <tr key={items.name} className=" my-5 shadow-lg shadow-white">
+    return roomsdeatails.slice(startIndex, endIndex).map((items, index) => (
+      <tr key={items._id}>
         <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.PrdImage}
+                src={items.Imgurl[0]}
                 alt=""
               />
             </div>
@@ -175,7 +175,7 @@ function Getuserroom() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200  bg-white my-8 border-5 border-red-900 ">
+                  <tbody className="divide-y divide-gray-200  bg-white">
                     {renderRows()}
                   </tbody>
                 </table>
