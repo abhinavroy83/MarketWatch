@@ -61,7 +61,7 @@ function Getuserroom() {
     const startIndex = (currentPage - 1) * 5;
     const endIndex = Math.min(startIndex + 5, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items) => (
-      <tr key={items.name}>
+      <tr key={items.name} className=" my-5 shadow-lg shadow-white">
         <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
@@ -108,7 +108,9 @@ function Getuserroom() {
       <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
-            <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">Rooms</h2>
+            <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">
+              Rooms
+            </h2>
             <p className="mt-1 text-[1.2rem] text-[#232f3e]">
               This is a list of all rooms. You can add new rooms, edit or delete
               existing ones.
@@ -132,7 +134,7 @@ function Getuserroom() {
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200 md:rounded-lg gap-3 flex">
-                <table className="min-w-full divide-gray-200 gap-5">
+                <table className="min-w-full gap-4 divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -173,7 +175,7 @@ function Getuserroom() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 bg-white ">
+                  <tbody className="divide-y divide-gray-200  bg-white my-8 border-5 border-red-900 ">
                     {renderRows()}
                   </tbody>
                 </table>

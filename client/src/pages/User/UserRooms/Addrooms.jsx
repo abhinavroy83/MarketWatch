@@ -339,7 +339,7 @@ function Addrooms({ editdata }) {
 
   return (
     <div className="w-full mx-auto mt-[7%] items-center">
-      <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-blue-100 shadow-lg shadow-black/30">
+      <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-20">
           <form
             onSubmit={handleSubmit(onsubmit)}
@@ -1123,32 +1123,36 @@ function Addrooms({ editdata }) {
               {/* Imgae  */}
               <div></div>
               <div className=" mt-5 text-[1.1rem]">
-                <p className="text-[1.1rem] mt-2 font-bold">Add your photos below</p>
+                <p className="text-[1.1rem] mt-2 font-bold">
+                  Add your photos below
+                </p>
                 <div className="flex">
-                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] w-[450px] bg-white">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      id="file"
-                      onChange={handleSelectFile}
-                      multiple
-                      class="cursor-pointer relative block opacity-0 w-[20rem] h-full p-20 z-50"
-                    />
-                    <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
-                      <h4>
-                        Drop files anywhere to upload
-                        <br />
-                        or
-                      </h4>
-                      <p class="">Select Files</p>
+                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
+                    <div className="">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        id="file"
+                        onChange={handleSelectFile}
+                        multiple
+                        class="cursor-pointer relative block opacity-0 w-[20rem] h-full p-20 z-50"
+                      />
+                      <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
+                        <h4>
+                          Drop files anywhere to upload
+                          <br />
+                          or
+                        </h4>
+                        <p class="">Select Files</p>
+                      </div>
                     </div>
                   </div>
                   <div className="">
-                    <div className="image-preview flex ">
+                    <div className="image-preview flex flex-wrap justify-evenly">
                       {files.map((file, index) => (
                         <div className="relative" key={index}>
                           <img
-                            className="h-40 w-40 mx-2 rounded-md"
+                            className="h-20 w-20 mx-2 rounded-md"
                             src={file.preview}
                             alt={`preview-${index}`}
                           />
