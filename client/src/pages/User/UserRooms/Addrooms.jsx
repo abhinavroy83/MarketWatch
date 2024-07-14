@@ -1123,7 +1123,7 @@ function Addrooms({ editdata }) {
               {/* Imgae  */}
               <div></div>
               <div className=" mt-5 text-[1.1rem]">
-                <p className="text-[1.1rem] mt-2">Add your photos below</p>
+                <p className="text-[1.1rem] mt-2 font-bold">Add your photos below</p>
                 <div className="flex">
                   <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] w-[450px] bg-white">
                     <input
@@ -1169,7 +1169,7 @@ function Addrooms({ editdata }) {
                           <button
                             type="button"
                             onClick={handleUpload}
-                            className=" bg-green-700 py-2 px-3 text-white text-[18px] font-bold rounded-md ml-2 mt-4"
+                            className=" bg-green-700 py-2 px-3 text-white text-[1.2rem] font-bold rounded-md ml-2 mt-4"
                           >
                             {loading ? "Uploading..." : "Upload"}
                           </button>
@@ -1183,7 +1183,7 @@ function Addrooms({ editdata }) {
               </div>
 
               <div>
-                <p className="text-[22px] mt-5 font-bold">Your Details:-</p>
+                <p className="text-[1.2rem] mt-5 font-bold">Your Details:-</p>
                 <div className="flex items-center">
                   <label
                     className="mt-2 text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -1219,7 +1219,7 @@ function Addrooms({ editdata }) {
                     className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
-                    Phone Number*
+                    Phone Number <span className=" text-red-500">*</span>
                   </label>
                   <input
                     type="text"
