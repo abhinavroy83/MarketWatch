@@ -3,18 +3,35 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
+import axios from "axios";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
+  const mapRef = useRef(null);
   const markerRef = useRef(null);
+  const usercity = useSelector((state) => state.auth.city);
   const circleRef = useRef(null);
   const dispatch = useDispatch();
   const currentloc = useSelector((state) => state.auth.location);
-
+  const [locdata, setlocdata] = useState([]);
   const [currentLocation, setCurrentLocation] = useState({
     lat: 0,
     lng: 0,
   });
+
+  const getRooms = async () => {
+    try {
+      const res = await axios.get(
+        usercity
+          ? `https://api.verydesi.com/api/getallrooms?city=${usercity}`
+          : `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+      );
+      // console.log(res.data.Allrooms);
+      setlocdata(res.data.Allrooms.map((room) => room.location.coordinates));
+    } catch (error) {
+      console.log("error during fetching api", error);
+    }
+  };
 
   useEffect(() => {
     let lat, lng;
@@ -27,12 +44,13 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     } else {
       return;
     }
-    if (mapContainerRef) {
-      const map = L.map(mapContainerRef.current).setView([lat, lng], 15);
+    if (mapContainerRef.current) {
+      const map = L.map(mapContainerRef.current).setView([lat, lng], 12);
+      mapRef.current = map;
       setCurrentLocation({ lat, lng });
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
+        maxZoom: 18,
         attribution: "© ",
       }).addTo(map);
 
@@ -40,20 +58,31 @@ const LeafletMap = ({ onLocationReceived, style }) => {
         draggable: true,
       }).addTo(map);
 
-      markerRef.current.on("dragend", (e) => {
-        const { lat, lng } = e.target.getLatLng();
-        setCurrentLocation({ lat, lng });
-      });
+      // markerRef.current = L.circle([lat, lng], {
+      //   color: "",
+      //   fillColor: "#f03",
+      //   fillOpacity: 0.3,
+      //   radius: 1000,
+      // }).addTo(map);
 
-      map.on("click", (e) => {
-        const { lat, lng } = e.latlng;
-        markerRef.current.setLatLng([lat, lng]);
-        setCurrentLocation({ lat, lng });
-      });
+      getRooms();
 
       return () => map.remove();
     }
-  }, [onLocationReceived]);
+  }, [onLocationReceived, usercity]);
+
+  useEffect(() => {
+    if (mapRef.current && locdata.length > 0) {
+      locdata.forEach((coords) => {
+        L.circle([coords[1], coords[0]], {
+          color: "",
+          fillColor: "#f03",
+          fillOpacity: 0.2,
+          radius: 500,
+        }).addTo(mapRef.current);
+      });
+    }
+  }, [locdata]);
 
   useEffect(() => {
     // dispatch(redlocation({ location: currentLocation }));

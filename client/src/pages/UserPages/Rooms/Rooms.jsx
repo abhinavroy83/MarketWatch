@@ -59,6 +59,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
 import { FaEdit } from "react-icons/fa";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+
 function Rooms() {
   const { _id } = useParams();
   const [rooms, setrooms] = useState([]);
@@ -262,6 +263,9 @@ function Rooms() {
   const toggleSharePopup = () => {
     setIsSharePopupOpen(!isSharePopupOpen);
   };
+  const toggleSharePopupclose = () => {
+    setIsSharePopupOpen(false);
+  };
 
   if (!rooms || !rooms.Imgurl) {
     return <Loader className={"h-screen flex justify-center items-center"} />;
@@ -458,7 +462,7 @@ function Rooms() {
                     <ShareComponent
                       url={url}
                       title="Room title"
-                      onClose={toggleSharePopup}
+                      onClose={toggleSharePopupclose}
                     />
                     {/* <button
                       onClick={toggleSharePopup}

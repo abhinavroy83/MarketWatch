@@ -1,23 +1,51 @@
-import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import React, { useEffect, useRef } from "react";
+import { FaWhatsapp, FaFacebook, FaShareAlt } from "react-icons/fa";
 import { TbBrandTwitter } from "react-icons/tb";
 import { IoCloseCircleSharp } from "react-icons/io5";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { FaShareAlt } from "react-icons/fa";
-
 import {
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+
 const ShareComponent = ({ url, title, onClose }) => {
-  const handlecopy = () => {
+  const handleCopy = () => {
     alert("Link Copied");
   };
 
+  const ref = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
-    <div className="grid grid-cols-4 gap-12 max-w-2xl relative p-20">
+    <div ref={ref} className="grid grid-cols-4 gap-12 max-w-2xl relative p-20">
       <div className="text-green-600 text-[25px] font-bold items-center justify-center w-full hover:text-black">
         <WhatsappShareButton
           className="flex flex-col gap-2 items-center justify-center"
@@ -52,14 +80,17 @@ const ShareComponent = ({ url, title, onClose }) => {
       </div>
 
       <div className="text-gray-600 text-[25px] font-bold items-center hover:text-black text">
-                <CopyToClipboard 
-                     className="flex flex-col gap-2 items-center justify-center ml-2"
-                     text={url} onCopy={handlecopy}>
-                <FaShareAlt size={27} />
-                </CopyToClipboard>
-                <p className=" text-2xl mt-3">Link</p>
-       </div>
-      <div className=" absolute right-1 top-1">
+        <CopyToClipboard
+          className="flex flex-col gap-2 items-center justify-center ml-2"
+          text={url}
+          onCopy={handleCopy}
+        >
+          <FaShareAlt size={27} />
+        </CopyToClipboard>
+        <p className=" text-2xl mt-3">Link</p>
+      </div>
+
+      <div className="absolute right-1 top-1">
         <button onClick={onClose}>
           <IoCloseCircleSharp
             size={35}

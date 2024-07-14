@@ -9,7 +9,7 @@ import { FaEnvelopeOpenText } from "react-icons/fa6";
 function Conractform({ isOpen, onClose }) {
   const { register, handleSubmit } = useForm();
   const onSubmit = async () => {
-    console.log(data);
+    // console.log(data);
   };
 
   return (

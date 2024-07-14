@@ -28,13 +28,9 @@ function Allroom() {
           ? ` https://api.verydesi.com/api/admin/getroombycity/${city}`
           : ` https://api.verydesi.com/api/admin/getallrooms`
       );
-
-      // console.log(res.data.Allroom);
-
       setdata(res.data.Allroom.reverse());
     } catch (error) {
       console.log("Error during fetching rooms", error);
-      r;
     }
   };
 
