@@ -35,7 +35,6 @@ function Addrooms({ editdata }) {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [isImmediate, setIsImmediate] = useState(false);
-  const [loaderimg, setLoader] = useState(false);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyDV2wKeoUG0TSghZ1adR-t8z0cJJS8EM24",
@@ -166,92 +165,87 @@ function Addrooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    setLoader(true);
-    await handleUpload();
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const roomdata = {
+      Title: data.Title,
+      Description: data.Description,
+      Propertytype: data.Propertytype,
+      city: data.city,
+      Stay_lease: data.Stay_lease,
+      Avaliblity_from: data.Avaliblity_from,
+      Available_to: data.Available_to,
+      Immediate: data.Immediate,
+      Attchd_Bath: data.Attchd_Bath,
+      Bath_Location: data.Bath_Location,
+      Preferred_gender: data.Preferred_gender,
+      Couples_welcome: data.Couples_welcome,
+      Expected_Rooms: data.Expected_Rooms,
+      Pricemodel: data.Pricemodel,
+      Desposite: data.Desposite,
+      is_room_furnished: data.is_room_furnished,
+      Amenities_include: data.Amenities_include,
+      Vegeterian_prefernce: data.Vegeterian_prefernce,
+      Smoking_policy: data.Smoking_policy,
+      Pet_friendly: data.Pet_friendly,
+      Open_house_schedule: data.Open_house_schedule,
+      Imgurl: resimgurl,
+      user_name: fullname,
+      email: profiledata.email,
+      phone_number: data.phone_number,
+      address: data.address,
+      state: data.state,
+      zip_code: data.zip_code,
+      location: {
+        coordinates: [location.lng, location.lat],
+      },
+    };
 
-    if (resimgurl.length > 0) {
-      const roomdata = {
-        Title: data.Title,
-        Description: data.Description,
-        Propertytype: data.Propertytype,
-        city: data.city,
-        Stay_lease: data.Stay_lease,
-        Avaliblity_from: data.Avaliblity_from,
-        Available_to: data.Available_to,
-        Immediate: data.Immediate,
-        Attchd_Bath: data.Attchd_Bath,
-        Bath_Location: data.Bath_Location,
-        Preferred_gender: data.Preferred_gender,
-        Couples_welcome: data.Couples_welcome,
-        Expected_Rooms: data.Expected_Rooms,
-        Pricemodel: data.Pricemodel,
-        Desposite: data.Desposite,
-        is_room_furnished: data.is_room_furnished,
-        Amenities_include: data.Amenities_include,
-        Vegeterian_prefernce: data.Vegeterian_prefernce,
-        Smoking_policy: data.Smoking_policy,
-        Pet_friendly: data.Pet_friendly,
-        Open_house_schedule: data.Open_house_schedule,
-        Imgurl: resimgurl,
-        user_name: fullname,
-        email: profiledata.email,
-        phone_number: data.phone_number,
-        address: data.address,
-        state: data.state,
-        zip_code: data.zip_code,
-        location: {
-          coordinates: [location.lng, location.lat],
-        },
-      };
-
-      if (editdata) {
-        try {
-          console.log("ddcds", editdata._id);
-          const res = await axios.put(
-            `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
-            roomdata,
-            {
-              headers: {
-                jwttoken: `${token}`,
-                "Content-Type": "application/json",
-              },
-              withCredentials: true,
-            }
-          );
-          if (res) {
-            // console.log(res);
-
-            alert("update room successfully");
-            navigate(`/rooms/${editdata._id}`);
+    if (editdata) {
+      try {
+        console.log("ddcds", editdata._id);
+        const res = await axios.put(
+          `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
           }
-        } catch (error) {
-          console.log("error while update room ", error);
+        );
+        if (res) {
+          // console.log(res);
+
+          alert("update room successfully");
+          navigate(`/rooms/${editdata._id}`);
         }
-      } else {
-        try {
-          const res = await axios.post(
-            " https://api.verydesi.com/api/addrooms",
-            roomdata,
-            {
-              headers: {
-                jwttoken: `${token}`,
-                "Content-Type": "application/json",
-              },
-              withCredentials: true,
-            }
-          );
-          if (res) {
-            // console.log(res);
-            alert("rooms added successfully");
-            reset();
-            navigate(`/room/${res.data.rooms._id}`);
+      } catch (error) {
+        console.log("error while update room ", error);
+      }
+    } else {
+      try {
+        const res = await axios.post(
+          " https://api.verydesi.com/api/addrooms",
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
           }
-        } catch (error) {
-          console.log("error during sending data to roomapi", error);
+        );
+        if (res) {
+          // console.log(res);
+          alert("rooms added successfully");
+          reset();
+          navigate(`/room/${res.data.rooms._id}`);
         }
+      } catch (error) {
+        console.log("error during sending data to roomapi", error);
       }
     }
+
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
   };
@@ -341,14 +335,6 @@ function Addrooms({ editdata }) {
 
   if (!isLoaded) {
     return <div>Loading Maps</div>;
-  }
-
-  if (loaderimg) {
-    return (
-      <div className=" h-full w-full mx-auto">
-        <Loader />
-      </div>
-    );
   }
 
   return (
@@ -1126,21 +1112,28 @@ function Addrooms({ editdata }) {
                   className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
-              {/* Imgae  */}
 
+              {/* Imgae  */}
               <div>
-                <p className="text-[22px] font-bold mt-2">Upload Photo:-</p>
-                <p className="mt-2 text-[18px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                  Add Photo
-                </p>
-                <div className=" flex">
+                <div class="border border-dashed border-gray-500 relative">
                   <input
                     type="file"
                     accept="image/*"
                     id="file"
                     onChange={handleSelectFile}
                     multiple
+                    class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
                   />
+                  <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
+                    <h4>
+                      Drop files anywhere to upload
+                      <br />
+                      or
+                    </h4>
+                    <p class="">Select Files</p>
+                  </div>
+                </div>
+                <div className=" flex">
                   <div className="image-preview flex ">
                     {files.map((file, index) => (
                       <div className="relative" key={index}>
@@ -1159,7 +1152,7 @@ function Addrooms({ editdata }) {
                       </div>
                     ))}
                   </div>
-                  {/* 
+
                   {files.length > 0 && (
                     <>
                       {!uploadstats ? (
@@ -1174,7 +1167,7 @@ function Addrooms({ editdata }) {
                         <p>uploaded</p>
                       )}
                     </>
-                  )} */}
+                  )}
                 </div>
               </div>
 

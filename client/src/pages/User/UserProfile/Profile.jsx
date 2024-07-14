@@ -89,7 +89,7 @@ function Profile() {
     }
   };
 
-  console.log(isverified);
+  // console.log(isverified);
   const handleclick = async (data) => {
     const formdt = {
       firstName: data.firstName,

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
@@ -10,6 +10,7 @@ import { MdMeetingRoom } from "react-icons/md";
 import { ImProfile } from "react-icons/im";
 import { BsPostcard } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
+import { useId } from "react";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -18,7 +19,11 @@ function DashConatiner({ children }) {
   const [bgcolor, setbgcolor] = useState(false);
   const isverified = useSelector((state) => state.auth.isverified);
   const [alertstatus, SetAlertstatus] = useState(true);
+  const [data, setdata] = useState([]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   // console.log(username);
   const navigate = useNavigate();
   const { userID } = useParams();
@@ -83,6 +88,21 @@ function DashConatiner({ children }) {
       }
     }
   };
+
+  const fetchuser = async () => {
+    try {
+      const res = await axios.get(
+        ` https://api.verydesi.com/user/dashboard/profile/${userID}`
+      );
+      setdata(res.data.user);
+    } catch (error) {
+      console.log("error during fetcing userdetails");
+    }
+  };
+
+  useEffect(() => {
+    fetchuser();
+  }, [userID]);
 
   return (
     <div className="mt-[8%] mx-auto px-4 flex flex-col max-w-[1600px] h-[700px] w-full m-auto overflow-hidden font-['udemy-regular']">
@@ -169,9 +189,9 @@ function DashConatiner({ children }) {
             </div>
           </div>
           <div className="text-center mt-2 text-white text-[1.1rem]">
-            <p>Name</p>
-            <p>Address</p>
-            <p>Date</p>
+            <p>{data.firstName}</p>
+            <p>{data.address}</p>
+            {/* <p>{Date.now()}</p> */}
           </div>
 
           <div className="flex flex-col mt-2">
@@ -193,7 +213,7 @@ function DashConatiner({ children }) {
               }}
               className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[17px] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
             >
-              <FaUserPen size={25} /> My Profile
+              <FaUserPen size={25} /> Setting
             </button>
             <button
               onClick={() => {
@@ -204,14 +224,42 @@ function DashConatiner({ children }) {
             >
               <FaHeart size={22} /> Favorites
             </button>
-            <button
-              onClick={() => {
-                navigate(`/user/room/${userID}`);
-              }}
-              className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+            <details
+              className="group [&_summary::-webkit-details-marker]:hidden"
+              open
             >
-              <BsPostcard size={20} /> My Posts
-            </button>
+              <summary className="rounded-md bg-transparent px-2 py-1 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <h2 className="font-medium">My Post</h2>
+
+                <svg
+                  className="size-5 shrink-0 transition duration-300 group-open:-rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+
+              <button
+                onClick={() => {
+                  navigate(`/user/room/${userID}`);
+                }}
+                className="mt-4 px-4 leading-relaxed rounded-md bg-transparent py-1 w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+              >
+                <BsPostcard size={20} /> My Rooms
+              </button>
+              <button className="mt-4 px-4 leading-relaxed rounded-md bg-transparent py-1 w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-white hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <BsPostcard size={20} /> My Business
+              </button>
+            </details>
+
             {bussinessac == "yes" && (
               <>
                 <button
