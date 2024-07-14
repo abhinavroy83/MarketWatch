@@ -375,6 +375,38 @@ export default function Footer() {
             <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-2 cursor-pointer">
               © 2024, VeryDesi.com, Inc.
             </p>
+            <div className="justify-center flex mb-2 gap-5 mt-7">
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+              <img
+                className="w-[7.9rem] h-15"
+                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
+                alt="logo"
+              />
+            </div>
 
             <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
               {/* <a
