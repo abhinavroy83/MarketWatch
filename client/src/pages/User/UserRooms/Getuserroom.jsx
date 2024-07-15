@@ -96,7 +96,7 @@ function Getuserroom() {
             }}
             className="flex gap-3 items-center text-red-500 font-semibold cursor-pointer text-[20px]"
           >
-            <BiMinusCircle size={25} /> Delete
+            Delete
           </a>
         </td>
       </tr>
@@ -134,7 +134,7 @@ function Getuserroom() {
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200 md:rounded-lg gap-3 flex">
-                <table className="min-w-full gap-4 divide-gray-200">
+                <table className="min-w-full gap-4 divide-y divide-gray-200 ">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -169,13 +169,17 @@ function Getuserroom() {
                         //   console.log(roomsdeatails);
                         //   handledeleterooms(roomsdeatails._id);
                         // }}
-                        className="px-4 py-3.5 text-left  font-normal text-gray-700"
+                        className="px-4 py-3.5 text-left  font-normal text-gray-700 flex gap-1"
                       >
-                        Delete
+                        <BiMinusCircle size={25} /> Delete
                       </th>
                     </tr>
                   </thead>
+<<<<<<< Updated upstream
                   <tbody className="divide-y divide-gray-200  bg-white">
+=======
+                  <tbody className="divide-y divide-gray-200 rounded-md bg-white my-8">
+>>>>>>> Stashed changes
                     {renderRows()}
                   </tbody>
                 </table>
