@@ -107,7 +107,7 @@ function DashConatiner({ children }) {
   }, [userID]);
 
   return (
-    <div className="mt-[10rem] mx-auto px-4 flex flex-col max-w-[1600px] h-[700px] w-full m-auto overflow-hidden font-['udemy-regular']">
+    <div className="mt-[10rem] mx-auto px-4 flex flex-col max-w-[1600px] h-[630px] w-full m-auto overflow-hidden font-['udemy-regular']">
       {alertstatus && (
         <div>
           {!isverified && (
