@@ -404,7 +404,9 @@ function Addrooms({ editdata }) {
             <p className="text-[16px] mt-1 text-red-500">
               {errors.city && <p>{errors.city.message}</p>}
             </p>
-            <p className="text-[1.1rem]">Your Account is belong {profiledata.belongcity}</p>
+            <p className="text-[1.1rem]">
+              Your Account is belong {profiledata.belongcity}
+            </p>
             <div className="w-full items-center">
               <div className="flex mt-5 text-[1.1rem] items-center">
                 <label
@@ -425,7 +427,7 @@ function Addrooms({ editdata }) {
                     })}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
-                    {errors.Title && <p>{errors.Title.message}</p>}
+                    {errors.Title &&<p>{errors.Title.message}</p>}
                   </p>
                 </div>
               </div>
@@ -1295,76 +1297,78 @@ function Addrooms({ editdata }) {
                   </p> */}
                 </div>
               </div>
-              <div className="flex gap-4 items-center">
-                <div className="flex items-center mt-5 text-[1.1rem]">
-                  {/* <label
-                    className="text-[1.1rem] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    City
-                  </label> */}
-                  <div>
-                    <input
-                      type="text"
-                      className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      placeholder="City"
-                      {...register("city")}
-                    />
+              <div className="flex  text-[1.1rem]">
+                <label
+                  className="text-[1.1rem] text-white w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  City
+                </label>
+                <div className="flex gap-4 items-center">
+                  <div className="flex items-center mt-5 text-[1.1rem]">
+                    <div>
+                      <input
+                        type="text"
+                        className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        placeholder="City"
+                        {...register("city")}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-center mt-5 text-[1.1rem]">
-                  {/* <label
+                  <div className="flex items-center mt-5 text-[1.1rem]">
+                    {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     State
                   </label> */}
-                  <div>
-                    <input
-                      type="text"
-                      className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      placeholder="State"
-                      {...register("state")}
-                    />
+                    <div>
+                      <input
+                        type="text"
+                        className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        placeholder="State"
+                        {...register("state")}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center mt-5 text-[1.1rem]">
-                  {/* <label
+                  <div className="flex items-center mt-5 text-[1.1rem]">
+                    {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Zip code
                   </label> */}
-                  <div>
-                    <input
-                      type="text"
-                      // defaultValue={profiledata?.pin}
-                      className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      placeholder="Enter zipcode"
-                      {...register("zip_code")}
-                    />
-                    <p className="text-[16px] text-red-500">
-                      {" "}
-                      {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
-                    </p>
+                    <div>
+                      <input
+                        type="text"
+                        // defaultValue={profiledata?.pin}
+                        className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        placeholder="Enter zipcode"
+                        {...register("zip_code")}
+                      />
+                      <p className="text-[16px] text-red-500">
+                        {" "}
+                        {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-center mt-5 text-[1.1rem]">
-                  {/* <label
+                  <div className="flex items-center mt-5 text-[1.1rem]">
+                    {/* <label
                     className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Country
                   </label> */}
-                  <div>
-                    <input
-                      type="text"
-                      className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                      placeholder="Country"
-                      {...register("country")}
-                    />
+                    <div>
+                      <input
+                        type="text"
+                        className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        placeholder="Country"
+                        {...register("country")}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

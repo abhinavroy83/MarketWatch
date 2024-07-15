@@ -738,7 +738,7 @@ function Rooms() {
                 <p className="text-gray-500 text-[20px]">
                   Open house schedule
                   <p className="text-black flex text-[18px]">
-                    Every Saturday 10AM-12PM
+                    {rooms?.Open_house_schedule}
                   </p>
                 </p>
               </div>
@@ -748,7 +748,7 @@ function Rooms() {
             <div>
               <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
                 <MdRoomPreferences size={30} />
-                Amenities included-{" "}
+                Amenities included-
               </h1>
               <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
                 {rooms?.Amenities_include?.map((amenity) => {
