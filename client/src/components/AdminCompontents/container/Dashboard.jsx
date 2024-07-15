@@ -16,7 +16,7 @@ function AdminDashboard({ children }) {
   const role = useSelector((state) => state.adminauth.role);
 
   return (
-    <div className="max-w-[1600px] mx-auto px-4 flex items-center h-screen overflow-hidden font-['udemy-regular'] mt-[1rem] lg:mt-[2rem] text-[20px]">
+    <div className="max-w-[1600px] mx-auto px-4 flex items-center h-screen overflow-hidden font-['udemy-regular'] mt-[1rem] text-[20px]">
       <div className="w-[20%] bg-[#232f3e] h-[630px] p-2 flex flex-col items-center gap-2">
         <button
           onClick={() => {
