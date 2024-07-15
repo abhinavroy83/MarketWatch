@@ -5,9 +5,10 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import jsoncity from "./city.json";
 import { useDispatch, useSelector } from "react-redux";
-import { UserImage, login } from "../../../store/authslice";
+import { UserImage, login, logout } from "../../../store/authslice";
 import Loader from "../../../components/UserCompontents/Loader";
 import { ImProfile } from "react-icons/im";
+import ConfirmationDialog from "../../../components/UserCompontents/Alert/ConfirmationDialog";
 
 function Profile() {
   const { userID } = useParams();
@@ -17,7 +18,7 @@ function Profile() {
     setValue,
     formState: { errors },
   } = useForm();
-  const [isedit, setisedit] = useState(false);
+  const [isedit, setisedit] = useState(true);
   const [data, setdata] = useState([]);
   const [states, setStates] = useState([]);
   const [citys, setcitys] = useState([]);
@@ -26,6 +27,8 @@ function Profile() {
   const [userimgs, setuserimg] = useState("");
   const dispatch = useDispatch();
   const isverified = useSelector((state) => state.auth.isverified);
+
+  const [showConfirm, setShowConfirm] = useState(false);
   // const imgg = useSelector((state) => state.auth.userimg);
 
   const fetchuser = async () => {
@@ -92,6 +95,7 @@ function Profile() {
   // console.log(isverified);
   const handleclick = async (data) => {
     const formdt = {
+      belongcity: data.belongcity,
       firstName: data.firstName,
       lastName: data.lastName,
       userimg: userimgs,
@@ -156,8 +160,42 @@ function Profile() {
     }
   }, [data, setValue]);
 
+  const handleDelete = async () => {
+    setShowConfirm(true);
+  };
+
+  const confirmDelete = async () => {
+    setShowConfirm(false);
+    try {
+      const res = await axios.delete(
+        `https://api.verydesi.com/user/deleteuser/${userID}`
+      );
+      if (res) {
+        alert("Successfully delete you account");
+        dispatch(logout());
+        localStorage.removeItem("userdetails");
+        navigate("/");
+      }
+    } catch (error) {}
+    console.log("Item deleted");
+  };
+
+  const cancelDelete = () => {
+    setShowConfirm(false);
+  };
+
   return (
     <DashConatiner>
+      {showConfirm && (
+        <ConfirmationDialog
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+          Heading={"Are you Sure to delete you Account"}
+          Para={
+            "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
+          }
+        />
+      )}
       <div className="flex justify-center text-center self-center">
         <p className="text-[1.5rem] p-2 text-white font-['udemy-regular'] bg-[#232f3e] w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
           <ImProfile />
@@ -170,6 +208,16 @@ function Profile() {
           Your Personal Details Are -
         </h1> */}
         <form onSubmit={handleSubmit(handleclick)}>
+          {isedit && (
+            <div>
+              <label htmlFor="">You Account belong to </label>
+              <input
+                type="text"
+                {...register("belongcity")}
+                defaultValue={data.belongcity}
+              />
+            </div>
+          )}
           <div className="flex [1.2rem] mt-6 gap-20 items-center">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
               {/* <img src={data.userimg} alt="" /> */}
@@ -484,6 +532,13 @@ function Profile() {
               </p>
             </div>
           )}
+          <p
+            onClick={handleDelete}
+            className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+            href="#"
+          >
+            Delete Account
+          </p>
 
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-['udemy-regular'] ml-2 text-red-700">

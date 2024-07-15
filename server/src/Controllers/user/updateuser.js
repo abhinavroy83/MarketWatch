@@ -4,6 +4,7 @@ const updateuser = async (req, res) => {
   try {
     const { _id } = req.params;
     const {
+      belongcity,
       lastName,
       firstName,
       dob,
@@ -19,7 +20,8 @@ const updateuser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
+    
+    user.belongcity = belongcity || user.belongcity;
     user.lastName = lastName || user.lastName;
     user.firstName = firstName || user.firstName;
     user.userimg = userimg || user.userimg;
@@ -43,4 +45,3 @@ const updateuser = async (req, res) => {
 };
 
 module.exports = updateuser;
-

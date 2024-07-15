@@ -23,7 +23,6 @@ function Addrooms({ editdata }) {
   const cunrtcity = useSelector((state) => state.auth.city);
   const navigate = useNavigate();
   const [filtercity, setfiltercity] = useState([]);
-  const [zip, setzip] = useState([]);
   const [userimgs, setuserimg] = useState("");
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +32,9 @@ function Addrooms({ editdata }) {
   const [profiledata, setprofile] = useState([]);
   const [stayLeaseOption, setStayLeaseOption] = useState("");
   const [city, setCity] = useState("");
+  const [zip, setzip] = useState("");
   const [state, setState] = useState("");
+  const [country, setcountry] = useState("");
   const [isImmediate, setIsImmediate] = useState(false);
 
   const { isLoaded, loadError } = useLoadScript({
@@ -72,6 +73,8 @@ function Addrooms({ editdata }) {
       const addressComponents = place.address_components;
       let city = "";
       let state = "";
+      let zip = "";
+      let country = "";
 
       for (let component of addressComponents) {
         if (component.types.includes("locality")) {
@@ -80,12 +83,20 @@ function Addrooms({ editdata }) {
         if (component.types.includes("administrative_area_level_1")) {
           state = component.short_name;
         }
+        if (component.types.includes("postal_code")) {
+          zip = component.long_name;
+        }
+        if (component.types.includes("country")) {
+          country = component.long_name;
+        }
       }
 
       setCity(city);
       setState(state);
       setValue("city", city);
       setValue("state", state);
+      setValue("zip_code", zip);
+      setValue("country", country);
     } else {
       console.log("Autocomplete is not loaded yet!");
     }
@@ -135,7 +146,7 @@ function Addrooms({ editdata }) {
 
   const handleUpload = async () => {
     try {
-      setLoader(true);
+      // setLoader(true);
       const data = new FormData();
       files.forEach(({ file }) => {
         data.append("my_files", file);
@@ -165,84 +176,88 @@ function Addrooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    const roomdata = {
-      Title: data.Title,
-      Description: data.Description,
-      Propertytype: data.Propertytype,
-      city: data.city,
-      Stay_lease: data.Stay_lease,
-      Avaliblity_from: data.Avaliblity_from,
-      Available_to: data.Available_to,
-      Immediate: data.Immediate,
-      Attchd_Bath: data.Attchd_Bath,
-      Bath_Location: data.Bath_Location,
-      Preferred_gender: data.Preferred_gender,
-      Couples_welcome: data.Couples_welcome,
-      Expected_Rooms: data.Expected_Rooms,
-      Pricemodel: data.Pricemodel,
-      Desposite: data.Desposite,
-      is_room_furnished: data.is_room_furnished,
-      Amenities_include: data.Amenities_include,
-      Vegeterian_prefernce: data.Vegeterian_prefernce,
-      Smoking_policy: data.Smoking_policy,
-      Pet_friendly: data.Pet_friendly,
-      Open_house_schedule: data.Open_house_schedule,
-      Imgurl: resimgurl,
-      user_name: fullname,
-      email: profiledata.email,
-      phone_number: data.phone_number,
-      address: data.address,
-      state: data.state,
-      zip_code: data.zip_code,
-      location: {
-        coordinates: [location.lng, location.lat],
-      },
-    };
-
-    if (editdata) {
-      try {
-        console.log("ddcds", editdata._id);
-        const res = await axios.put(
-          `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        );
-        if (res) {
-          // console.log(res);
-
-          alert("update room successfully");
-          navigate(`/rooms/${editdata._id}`);
-        }
-      } catch (error) {
-        console.log("error while update room ", error);
-      }
+    if (data.city !== city) {
+      alert("Your Posting city and enter not matched");
     } else {
-      try {
-        const res = await axios.post(
-          " https://api.verydesi.com/api/addrooms",
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
+      const roomdata = {
+        Title: data.Title,
+        Description: data.Description,
+        Propertytype: data.Propertytype,
+        city: data.city,
+        Stay_lease: data.Stay_lease,
+        Avaliblity_from: data.Avaliblity_from,
+        Available_to: data.Available_to,
+        Immediate: data.Immediate,
+        Attchd_Bath: data.Attchd_Bath,
+        Bath_Location: data.Bath_Location,
+        Preferred_gender: data.Preferred_gender,
+        Couples_welcome: data.Couples_welcome,
+        Expected_Rooms: data.Expected_Rooms,
+        Pricemodel: data.Pricemodel,
+        Desposite: data.Desposite,
+        is_room_furnished: data.is_room_furnished,
+        Amenities_include: data.Amenities_include,
+        Vegeterian_prefernce: data.Vegeterian_prefernce,
+        Smoking_policy: data.Smoking_policy,
+        Pet_friendly: data.Pet_friendly,
+        Open_house_schedule: data.Open_house_schedule,
+        Imgurl: resimgurl,
+        user_name: fullname,
+        email: profiledata.email,
+        phone_number: data.phone_number,
+        address: data.address,
+        state: data.state,
+        zip_code: data.zip_code,
+        location: {
+          coordinates: [location.lng, location.lat],
+        },
+      };
+
+      if (editdata) {
+        try {
+          console.log("ddcds", editdata._id);
+          const res = await axios.put(
+            `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+
+            alert("update room successfully");
+            navigate(`/rooms/${editdata._id}`);
           }
-        );
-        if (res) {
-          // console.log(res);
-          alert("rooms added successfully");
-          reset();
-          navigate(`/room/${res.data.rooms._id}`);
+        } catch (error) {
+          console.log("error while update room ", error);
         }
-      } catch (error) {
-        console.log("error during sending data to roomapi", error);
+      } else {
+        try {
+          const res = await axios.post(
+            " https://api.verydesi.com/api/addrooms",
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+            alert("rooms added successfully");
+            reset();
+            navigate(`/rooms/${res.data.rooms._id}`);
+          }
+        } catch (error) {
+          console.log("error during sending data to roomapi", error);
+        }
       }
     }
 
@@ -358,7 +373,17 @@ function Addrooms({ editdata }) {
                   <select
                     {...field}
                     className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-[#232f3e] text-white border-2 placeholder:text-gray-400 cursor-pointer"
-                    onChange={(e) => field.onChange(e.target.value)}
+                    onChange={(e) => {
+                      const selectedValue = e.target.value;
+
+                      if (selectedValue !== profiledata.belongcity) {
+                        alert(
+                          `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
+                        );
+                      }
+
+                      field.onChange(selectedValue);
+                    }}
                   >
                     <option className="text-gray-600" value="" disabled hidden>
                       Select city
@@ -379,6 +404,7 @@ function Addrooms({ editdata }) {
             <p className="text-[16px] mt-1 text-red-500">
               {errors.city && <p>{errors.city.message}</p>}
             </p>
+            <p>Your Account is belong {profiledata.belongcity}</p>
             <div className="w-full items-center">
               <div className="flex mt-5 text-[1.1rem] items-center">
                 <label
@@ -1269,7 +1295,39 @@ function Addrooms({ editdata }) {
                   </p> */}
                 </div>
               </div>
+              <div className="flex items-center mt-5 text-[18px]">
+                <label
+                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  City
+                </label>
+                <div>
+                  <input
+                    type="text"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="city"
+                    {...register("city")}
+                  />
+                </div>
+              </div>
 
+              <div className="flex items-center mt-5 text-[18px]">
+                <label
+                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  State
+                </label>
+                <div>
+                  <input
+                    type="text"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="State"
+                    {...register("state")}
+                  />
+                </div>
+              </div>
               <div className="flex items-center mt-5 text-[18px]">
                 <label
                   className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -1280,7 +1338,7 @@ function Addrooms({ editdata }) {
                 <div>
                   <input
                     type="text"
-                    defaultValue={profiledata?.pin}
+                    // defaultValue={profiledata?.pin}
                     className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     placeholder="Enter zipcode"
                     {...register("zip_code")}
@@ -1289,6 +1347,23 @@ function Addrooms({ editdata }) {
                     {" "}
                     {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
                   </p>
+                </div>
+              </div>
+
+              <div className="flex items-center mt-5 text-[18px]">
+                <label
+                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  htmlFor=""
+                >
+                  Country
+                </label>
+                <div>
+                  <input
+                    type="text"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="country"
+                    {...register("country")}
+                  />
                 </div>
               </div>
             </div>

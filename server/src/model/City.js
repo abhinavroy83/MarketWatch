@@ -30,7 +30,7 @@ const cityschema = new mongoose.Schema({
     // require: true,
   },
   zipcode: {
-    type: String,
+    type: [String],
   },
 });
 

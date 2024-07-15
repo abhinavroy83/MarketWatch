@@ -5,6 +5,9 @@ const usershema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  belongcity: {
+    type: String,
+  },
   firstName: {
     type: String,
   },
