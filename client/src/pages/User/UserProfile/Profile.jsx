@@ -559,7 +559,7 @@ function Profile() {
           )} */}
 
           {isedit ? (
-            <div className="flex justify-center gap-3">
+            <div className="flex justify-center mt-4 gap-3">
               <p
                 onClick={handleDelete}
                 className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
