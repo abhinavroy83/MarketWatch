@@ -557,16 +557,15 @@ function Profile() {
               </button>
             </div>
           )} */}
+          <p
+            onClick={handleDelete}
+            className="inline-block rounded bg-red-600 cursor-pointer px-4 py-2 text-[1.1rem] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+          >
+            Delete Account
+          </p>
 
           {isedit ? (
             <div className="flex justify-center gap-3">
-              <p
-                onClick={handleDelete}
-                className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
-                href="#"
-              >
-                Delete Account
-              </p>
               <button
                 className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
                 type="submit"
