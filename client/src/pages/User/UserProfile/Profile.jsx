@@ -203,22 +203,25 @@ function Profile() {
         </p>
       </div>
 
-      <div className="px-10 overflow-y-scroll flex justify-center">
+      <div className="px-10 overflow-y-scroll flex justify-center mt-7">
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}
         <form onSubmit={handleSubmit(handleclick)}>
           {isedit && (
-            <div>
-              <label htmlFor="">You Account belong to </label>
+            <div className="flex flex-col ml-1 gap-1">
+              <label htmlFor="" className="text-[1.2rem]">
+                You Account belong to{" "}
+              </label>
               <input
+                className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 {...register("belongcity")}
                 defaultValue={data.belongcity}
               />
             </div>
           )}
-          <div className="flex [1.2rem] mt-6 gap-20 items-center">
+          <div className="flex [1.2rem] gap-20 items-center">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
               {/* <img src={data.userimg} alt="" /> */}
               <label className="text-[1.2rem]">First Name </label>
@@ -532,13 +535,13 @@ function Profile() {
               </p>
             </div>
           )}
-          <p
+          {/* <p
             onClick={handleDelete}
-            className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+            className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] ml-2 font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
             href="#"
           >
             Delete Account
-          </p>
+          </p> */}
 
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-['udemy-regular'] ml-2 text-red-700">
@@ -556,7 +559,14 @@ function Profile() {
           )} */}
 
           {isedit ? (
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center gap-3">
+              <p
+                onClick={handleDelete}
+                className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+                href="#"
+              >
+                Delete Account
+              </p>
               <button
                 className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
                 type="submit"
@@ -564,7 +574,7 @@ function Profile() {
                 Update Profile
               </button>
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem] ml-3"
+                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
                 type="button"
                 onClick={toggleCancel}
               >
