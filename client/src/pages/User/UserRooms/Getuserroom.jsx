@@ -175,11 +175,7 @@ function Getuserroom() {
                       </th>
                     </tr>
                   </thead>
-<<<<<<< Updated upstream
                   <tbody className="divide-y divide-gray-200  bg-white">
-=======
-                  <tbody className="divide-y divide-gray-200 rounded-md bg-white my-8">
->>>>>>> Stashed changes
                     {renderRows()}
                   </tbody>
                 </table>
