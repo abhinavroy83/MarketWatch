@@ -653,7 +653,7 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        className={`h-100px w-[263px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                        className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                           isImmediate
                             ? "bg-gray-200 cursor-not-allowed"
                             : "bg-white"
@@ -677,7 +677,7 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        className={`h-100px w-[263px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                        className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                           isImmediate
                             ? "bg-gray-200 cursor-not-allowed"
                             : "bg-white"
@@ -1153,7 +1153,7 @@ function Addrooms({ editdata }) {
                   Add your photos below
                 </p>
                 <div className="flex">
-                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[1000px] bg-white">
+                  <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
                     <div className="">
                       <input
                         type="file"
@@ -1216,7 +1216,7 @@ function Addrooms({ editdata }) {
                 <p className="text-[1.2rem] mt-5 font-bold">Your Details:-</p>
                 <div className="flex items-center">
                   <label
-                    className="mt-2 text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="mt-2 w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Name
@@ -1227,11 +1227,11 @@ function Addrooms({ editdata }) {
                     {...register("user_name")}
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                  {<p className="text-[18px]">{fullname}</p>}
+                  {<p className="text-[1.1rem]">{fullname}</p>}
                 </div>
                 <div className="mt-5 flex">
                   <label
-                    className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Email
@@ -1240,13 +1240,13 @@ function Addrooms({ editdata }) {
                     type="text"
                     placeholder="Enter Email"
                     {...register("email")}
-                    className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                  <p className="text-[18px]">{profiledata?.email}</p>
+                  <p className="text-[1.1rem]">{profiledata?.email}</p>
                 </div>
-                <div className="mt-5 text-[18px]">
+                <div className="mt-5 text-[1.1rem]">
                   <label
-                    className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Phone Number <span className=" text-red-500">*</span>
@@ -1256,13 +1256,13 @@ function Addrooms({ editdata }) {
                     placeholder="Enter Number"
                     {...register("phone_number")}
                     defaultValue={profiledata?.phone_number}
-                    className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
               </div>
-              <div className="flex mt-5">
+              <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Address <span className=" text-red-500">*</span>
@@ -1276,7 +1276,7 @@ function Addrooms({ editdata }) {
                       type="text"
                       placeholder="Enter a location"
                       {...register("address")}
-                      className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </StandaloneSearchBox>
                   <input type="hidden" {...register("latitude")} />
@@ -1295,9 +1295,9 @@ function Addrooms({ editdata }) {
                   </p> */}
                 </div>
               </div>
-              <div className="flex items-center mt-5 text-[18px]">
+              <div className="flex items-center mt-5 text-[1.1rem]">
                 <label
-                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[1.1rem] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   City
@@ -1305,16 +1305,16 @@ function Addrooms({ editdata }) {
                 <div>
                   <input
                     type="text"
-                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    placeholder="city"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="City"
                     {...register("city")}
                   />
                 </div>
               </div>
 
-              <div className="flex items-center mt-5 text-[18px]">
+              <div className="flex items-center mt-5 text-[1.1rem]">
                 <label
-                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   State
@@ -1322,15 +1322,15 @@ function Addrooms({ editdata }) {
                 <div>
                   <input
                     type="text"
-                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     placeholder="State"
                     {...register("state")}
                   />
                 </div>
               </div>
-              <div className="flex items-center mt-5 text-[18px]">
+              <div className="flex items-center mt-5 text-[1.1rem]">
                 <label
-                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Zip code
@@ -1339,7 +1339,7 @@ function Addrooms({ editdata }) {
                   <input
                     type="text"
                     // defaultValue={profiledata?.pin}
-                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                     placeholder="Enter zipcode"
                     {...register("zip_code")}
                   />
@@ -1350,9 +1350,9 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex items-center mt-5 text-[18px]">
+              <div className="flex items-center mt-5 text-[1.1rem]">
                 <label
-                  className="text-[18px] w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Country
@@ -1360,8 +1360,8 @@ function Addrooms({ editdata }) {
                 <div>
                   <input
                     type="text"
-                    className="flex h-10 font-['udemy-regular'] w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    placeholder="country"
+                    className="flex h-10 font-['udemy-regular'] w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                    placeholder="Country"
                     {...register("country")}
                   />
                 </div>
@@ -1371,14 +1371,14 @@ function Addrooms({ editdata }) {
             {editdata ? (
               <button
                 type="submit"
-                className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[19px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Update Room
               </button>
             ) : (
               <button
                 type="submit"
-                className="rounded-md bg-green-800 my-4 mt-6 px-4 py-3 mb-10 text-[19px] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 my-4 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add New Room
               </button>
