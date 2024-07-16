@@ -67,6 +67,7 @@ function Ads() {
 
   const [isloginmodalopen, setloginmodeopen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [openNotification, setopenNotfication] = useState(false);
 
   const toggleAdminMenu = () => {
     setOpenMenu(!openMenu);
@@ -171,7 +172,19 @@ function Ads() {
       </div>
       {isloged ? (
         <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
-          <HiOutlineBellAlert className="hover:text-blue-700" size={25} />
+          <div
+            className=" relative inline-block"
+            onMouseEnter={() => setopenNotfication(true)}
+            onMouseLeave={() => setopenNotfication(false)}
+          >
+            <HiOutlineBellAlert className="hover:text-blue-700" size={25} />
+            {openNotification && (
+              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[20px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
+                <p>No new notification</p>
+                <p>10 new rooms added in past 24hours</p>
+              </div>
+            )}
+          </div>
           <div className="relative mr-4 hover:text-blue-700">
             <LuHeart
               className="cursor-pointer"

@@ -16,6 +16,7 @@ function AddArea({ editdata }) {
   const [primaryState, setPrimaryState] = useState("");
   const [subarea, setSubareas] = useState([]);
   const [subareaInput, setSubareaInput] = useState("");
+  const [zipcode, setZipcodeInput] = useState("");
   const token = useSelector((state) => state.adminauth.token);
   const navigate = useNavigate();
 
@@ -31,7 +32,8 @@ function AddArea({ editdata }) {
     data.state = selectedstate;
     data.primaryState = primaryState;
     data.subarea = subarea;
-    console.log(data);
+    data.zipcode = zipcode;
+    // console.log(data);
     if (editdata) {
       try {
         const res = await axios.put(
@@ -101,9 +103,14 @@ function AddArea({ editdata }) {
   };
 
   const handleAddSubarea = () => {
-    if (subareaInput.trim() && !subarea.includes(subareaInput.trim())) {
-      setSubareas((prevSubareas) => [...prevSubareas, subareaInput.trim()]);
+    if (subareaInput.trim() && zipcodeInput.trim()) {
+      const newSubarea = {
+        subarea: subareaInput.trim(),
+        zipcode: zipcodeInput.trim(),
+      };
+      setSubareas((prevSubareas) => [...prevSubareas, newSubarea]);
       setSubareaInput("");
+      setZipcodeInput("");
     }
   };
 
@@ -121,6 +128,7 @@ function AddArea({ editdata }) {
     register("state");
     register("primaryState");
     register("subarea");
+    register("zipcode");
   }, [register]);
 
   useEffect(() => {
@@ -130,9 +138,11 @@ function AddArea({ editdata }) {
       setValue("primaryState", editdata.primaryState || "");
       setValue("area", editdata.area || "");
       setValue("subarea", editdata.subarea || "");
+      setValue("zipcode", editdata.zipcode || "");
       setSelectedstate(editdata.state || []);
       setPrimaryState(editdata.primaryState || "");
       setSubareas(editdata.subarea || []);
+      setZipcodeInput(editdata.zipcode || []);
     }
   }, [editdata, setValue]);
 
@@ -140,7 +150,8 @@ function AddArea({ editdata }) {
     setValue("state", selectedstate);
     setValue("primaryState", primaryState);
     setValue("subarea", subarea);
-  }, [selectedstate, primaryState, subarea, setValue]);
+    setValue("zipcode", zipcode);
+  }, [selectedstate, primaryState, subarea, , zipcode, setValue]);
 
   return (
     <div>
@@ -257,6 +268,21 @@ function AddArea({ editdata }) {
                 onChange={(e) => setSubareaInput(e.target.value)}
                 placeholder="Type subarea here"
               />
+              <div className="flex items-center mt-3">
+                <label
+                  className="min-w-[160px] text-[18px] ml-[4.5rem]"
+                  htmlFor="zipcode"
+                >
+                  Zipcode
+                </label>
+                <input
+                  className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  value={zipcode}
+                  onChange={(e) => setZipcodeInput(e.target.value)}
+                  placeholder="Type zipcode here"
+                />
+              </div>
               <button
                 type="button"
                 onClick={handleAddSubarea}

@@ -97,7 +97,7 @@ export default function Footer() {
                 {/* <button className="flex rounded-md bg-green-800 mt-4 p-2 px-3 my-4 text-[22px] border-2 border-white text-white shadow-sm hover:bg-green-900 hover:text-white" type="submit">Get Started</button> */}
               </div>
             </div>
-            <div className="lg:flex gap-10 justify-center">
+            <div className="lg:flex justify-center gap-10">
               <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
@@ -127,7 +127,7 @@ export default function Footer() {
                   {isHovered && <Avalableloc />}
                 </div>
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 justify-center gap-[1rem] lg:gap-[3rem] px-2 lg:mt-0 mt-3">
+              <div className="grid grid-cols-2  lg:grid-cols-3 justify-center gap-10 px-2 lg:mt-0 mt-3">
                 {/* <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img

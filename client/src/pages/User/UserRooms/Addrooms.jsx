@@ -372,7 +372,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-200 text-black border-2 placeholder:text-gray-400 cursor-pointer"
+                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-white border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => {
                       const selectedValue = e.target.value;
 
@@ -385,7 +385,7 @@ function Addrooms({ editdata }) {
                       field.onChange(selectedValue);
                     }}
                   >
-                    <option className="text-gray-600" value="" disabled hidden>
+                    <option className="text-gray-200" value="" disabled hidden>
                       Select city
                     </option>
                     {filtercity.map((city, index) => (
@@ -427,8 +427,11 @@ function Addrooms({ editdata }) {
                     })}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
-                    {errors.Title && <p>{errors.Title.message}</p>}
+                    Title is required
                   </p>
+                  {/* <p className="text-[16px] mt-1 text-red-500">
+                    {errors.Title &&<p>{errors.Title.message}</p>}
+                  </p> */}
                 </div>
               </div>
 

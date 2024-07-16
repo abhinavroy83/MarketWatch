@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { UserImage, login as authlogin, cities } from "../../store/authslice";
 import { modalclose, modalopen } from "../../store/modalslice";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import WebsiteLogo from "../../assets/logo-transparent.png";
@@ -18,6 +18,7 @@ import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { RxCross1 } from "react-icons/rx";
 import { jwtDecode } from "jwt-decode";
+import Alert from "./Alert/Alert";
 
 function Login() {
   const {
@@ -31,20 +32,24 @@ function Login() {
   const isMobile = windowSize.width < 800;
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  const { jwttoken } = useParams();
+  const [alerton, Setalerton] = useState(false);
 
   useEffect(() => {
     const handleGoogleCallback = async () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get("token");
+      const jwttoken = urlParams.get("jwttoken");
 
-      if (token) {
+      console.log(jwttoken);
+
+      if (jwttoken) {
         try {
-          const decoded = jwtDecode(token);
-          // console.log(decoded);
+          const decoded = jwtDecode(jwttoken);
+          // console.log("Decoded JWT:", decoded);
           localStorage.setItem("userdetails", JSON.stringify(decoded));
           dispatch(
             authlogin({
-              token: token,
+              token: jwttoken,
               user: decoded.user.firstName,
               userID: decoded.user._id,
               bussinessac: decoded.user.bussinessac,
@@ -89,6 +94,7 @@ function Login() {
         dispatch(UserImage({ userimg: res.data.data.userimg }));
         dispatch(modalclose(isLoginModalOpen));
         Navigate("/");
+        Setalerton(true);
       } else if (res.data.Status === "Incorrect password") {
         alert("incorrect password");
       } else if (res.data.msg === "user not find") {
@@ -115,24 +121,13 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-    window.open("https://api.verydesi.com/api/auth/google", "_self");
+    window.open("http://localhost:8000/api/auth/google", "_self");
   };
 
   // console.log(isMobile);
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      {alerton && <Alert close={false} />}
       <Modal
         isOpen={isLoginModalOpen}
         onRequestClose={() => handleModal(false, false)}
