@@ -366,7 +366,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="text-[#DDD] text-[14px] flex gap-3 font-bold justify-center mt-4 cursor-pointer px-5 lg:px-0">
+            <div className="text-[#DDD] text-[14px] flex gap-6 font-bold justify-center mt-4 cursor-pointer px-5 lg:px-0">
               <p> Conditions of Use</p>
               <p> Privacy Notice</p>
               <p> Consumer Health Data Privacy </p>

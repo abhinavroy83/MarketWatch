@@ -37,7 +37,7 @@ function User() {
                 alt="logo"
               />
               <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
-                Your Profile
+                Settings
               </h1>
             </div>
           </div>

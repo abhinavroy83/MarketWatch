@@ -190,12 +190,14 @@ function Profile() {
         <ConfirmationDialog
           onConfirm={confirmDelete}
           onCancel={cancelDelete}
-          Heading={"Are you Sure to delete you Account"}
+          Heading={"Delete Account"}
           Para={
-            "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
+            "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
+            // "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
           }
         />
       )}
+
       <div className="flex justify-center text-center self-center">
         <p className="text-[1.5rem] p-2 text-black font-['udemy-regular'] bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
           <ImProfile />
@@ -535,14 +537,21 @@ function Profile() {
               </p>
             </div>
           )}
-          {/* <p
-            onClick={handleDelete}
-            className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] ml-2 font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
-            href="#"
-          >
-            Delete Account
-          </p> */}
+          <div className="mt-3 ml-2">
+            <p className="text-[1.4rem]">Close Account</p>
+            <p className="text-[1rem] text-gray-500 font-light">
+              This will remove your login information from our system and you
+              will not be able to login again. It cannot be undone.
+            </p>
 
+            <p
+              onClick={handleDelete}
+              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+              href="#"
+            >
+              Delete Account
+            </p>
+          </div>
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-['udemy-regular'] ml-2 text-red-700">
               <p>For bussiness account : </p>
@@ -566,13 +575,13 @@ function Profile() {
 
           {isedit ? (
             <div className="flex justify-center mt-4 gap-3">
-              <p
+              {/* <p
                 onClick={handleDelete}
                 className="inline-block rounded bg-red-600 cursor-pointer px-8 py-3 text-[1.1rem] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
                 href="#"
               >
                 Delete Account
-              </p>
+              </p> */}
               <button
                 className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
                 type="submit"
