@@ -30,6 +30,7 @@ import { FaBell } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { HiOutlineBellAlert } from "react-icons/hi2";
 import { LuHeart } from "react-icons/lu";
+import { IoSettingsOutline } from "react-icons/io5";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -179,9 +180,16 @@ function Ads() {
           >
             <HiOutlineBellAlert className="hover:text-blue-700" size={25} />
             {openNotification && (
-              <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[20px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
-                <p>No new notification</p>
-                <p>10 new rooms added in past 24hours</p>
+              <div className="bg-white flex flex-col absolute bottom-0 top-[1.5rem] rounded-md right-[2px] w-[300px] border h-[320px] shadow-md shadow-gray-400">
+                <div className="w-full justify-between flex items-center mt-[0.4rem] p-1">
+                  <p className="text-[1.2rem]">Notification</p>
+                  <IoSettingsOutline size={20} />
+                </div>
+                <hr></hr>
+                <div className="text-[1rem] px-2 flex gap-1 mt-2 flex-col">
+                  <p>No new notification</p>
+                  <p>10 new rooms added in past 24hours</p>
+                </div>
               </div>
             )}
           </div>
