@@ -104,7 +104,7 @@ function AdminDashboard({ children }) {
           Bussiness
         </button> */}
       </div>
-      <main className=" w-4/5 bg-blue-100 h-[630px] p-2 ">{children}</main>
+      <main className=" w-4/5 bg-gray-100 h-[630px] p-2 ">{children}</main>
     </div>
   );
 }

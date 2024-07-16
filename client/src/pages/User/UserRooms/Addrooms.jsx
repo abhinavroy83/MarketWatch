@@ -361,7 +361,7 @@ function Addrooms({ editdata }) {
             className="flex flex-col justify-center mt-7 items-center"
           >
             <div className="flex gap-2 items-center">
-              <p className="text-[1.5rem] font-semibold text-[#000] flex items-center justify-center mt-6">
+              <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
                 {editdata ? <p>Edit Room In</p> : <p>Post Room In</p>}
               </p>
               <Controller
@@ -372,7 +372,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-[#232f3e] text-white border-2 placeholder:text-gray-400 cursor-pointer"
+                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-200 text-black border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => {
                       const selectedValue = e.target.value;
 
@@ -427,7 +427,7 @@ function Addrooms({ editdata }) {
                     })}
                   />
                   <p className="text-[16px] mt-1 text-red-500">
-                    {errors.Title &&<p>{errors.Title.message}</p>}
+                    {errors.Title && <p>{errors.Title.message}</p>}
                   </p>
                 </div>
               </div>
@@ -738,7 +738,7 @@ function Addrooms({ editdata }) {
                   )}
 
                   {selectedBathroom === "Yes" && (
-                    <div className="mt-4">
+                    <div className="grid grid-cols-4 gap-4 w-[976px] mt-2">
                       <div className="flex gap-1 items-center">
                         <input
                           type="radio"
@@ -844,10 +844,10 @@ function Addrooms({ editdata }) {
                     className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor="couples_welcome"
                   >
-                    Couples Welcome <span className="text-red-500">*</span>
+                    Couples Welcome
                   </label>
                   <div>
-                    <div className="flex gap-4">
+                    <div className="grid grid-cols-4 gap-4 w-[976px]">
                       <div className="flex gap-1 items-center">
                         <input
                           type="radio"

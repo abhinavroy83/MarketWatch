@@ -301,7 +301,7 @@ function DashConatiner({ children }) {
             )}
           </div>
         </div>
-        <main className="w-4/5 h-[630px] bg-blue-100 p-2 overflow-scroll">
+        <main className="w-4/5 h-[630px] bg-gray-100 p-2 overflow-scroll">
           {children}
         </main>
       </div>

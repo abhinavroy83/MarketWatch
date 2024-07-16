@@ -152,7 +152,7 @@ export default function Header() {
     <div className="relative">
       <div className="w-full fixed z-50 flex bg-white flex-col">
         <Ads />
-        <div className="w-full bg-[#232f3e] shadow-2xl h-[45px] font-['udemy-regular'] items-center flex">
+        <div className="w-full bg-[#da1d1d] shadow-2xl h-[45px] font-['udemy-regular'] items-center flex">
           <div className="flex justify-between items-center w-full mx-auto max-w-[1370px] lg:max-w-[1600px]">
             <div className="relative block lg:hidden">
               <button
@@ -176,7 +176,7 @@ export default function Header() {
                           handlehamburger;
                         }
                       }}
-                      className="flex gap-1 items-center py-1 group text-[16px] text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
+                      className="flex gap-1 items-center py-1 group text-[1.1rem] text-white font-medium transition duration-300 ease-in-out hover:shadow-md"
                     >
                       <IoHome /> Home
                     </button>
@@ -270,11 +270,12 @@ export default function Header() {
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="uppercase flex gap-1 p-1 group text-white text-[16px] transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
+                  // className="uppercase flex gap-1 p-1 group text-white text-[16px] transition duration-300 ease-in-out hover:bg-white rounded-md hover:text-[#232f3e]"
+                  className="uppercase flex gap-1 p-1 group text-white text-[16px] transition duration-300 ease-in-out hover:underline hover:text-[#fff]"
                 >
                   <IoHomeSharp
                     size={16}
-                    className="group-hover:rotate-[360deg] transition-transform duration-300 mt-1"
+                    className="group-hover:rotate-[360deg] transition-transform duration-300 mt-[2%]"
                   />{" "}
                   Home
                 </button>

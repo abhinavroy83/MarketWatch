@@ -375,7 +375,7 @@ export default function Footer() {
             <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-2 cursor-pointer">
               © 2024, VeryDesi.com, Inc.
             </p>
-            <div className="justify-center flex mb-2 gap-5 mt-7">
+            <div className="justify-center flex mb-2 gap-3 mt-7">
               <img
                 className="w-[7.9rem] h-15"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}

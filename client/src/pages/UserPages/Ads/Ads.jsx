@@ -28,6 +28,8 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { HiOutlineBellAlert } from "react-icons/hi2";
+import { LuHeart } from "react-icons/lu";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -169,11 +171,11 @@ function Ads() {
       </div>
       {isloged ? (
         <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
-          <FaBell className="hover:text-blue-700" size={25} />
+          <HiOutlineBellAlert className="hover:text-blue-700" size={25} />
           <div className="relative mr-4 hover:text-blue-700">
-            <FaHeart
+            <LuHeart
               className="cursor-pointer"
-              size={22}
+              size={23}
               onClick={() => {
                 navigate(`/dashboard/wishlist/${userID}`);
               }}
