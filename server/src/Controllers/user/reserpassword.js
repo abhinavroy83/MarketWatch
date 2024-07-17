@@ -71,7 +71,7 @@ async function sendemailverification(email, token) {
     subject: "Reset Password",
     html: `<h1>Reset Your Password</h1>
     <p>Click on the following link to reset your password:</p>
-    <a href="http://localhost:5173/reset-password/${token}">http://localhost:5173/reset-password/${token}</a>
+    <a href="https://verydesi.com/reset-password/${token}">https://verydesi.com/reset-password/${token}</a>
     <p>The link will expire in 10 minutes.</p>
     <p>If you didn't request a password reset, please ignore this email.</p>`,
   });

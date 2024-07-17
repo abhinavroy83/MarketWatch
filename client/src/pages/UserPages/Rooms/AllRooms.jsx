@@ -68,6 +68,7 @@ function AllRooms() {
       setLocationsndString(loc);
     }
   }, [usercity, currentloc]);
+  // console.log(isverified);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -89,7 +90,7 @@ function AllRooms() {
     >
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -97,8 +98,11 @@ function AllRooms() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
+        transition:Bounce
       />
+      {/* Same as */}
+      <ToastContainer />
       {rooms.length > 0 ? (
         <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[5.5rem] lg:mt-1">
           <div className="flex justify-between items-center">

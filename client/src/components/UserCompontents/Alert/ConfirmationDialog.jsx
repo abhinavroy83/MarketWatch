@@ -16,7 +16,7 @@ const ConfirmationDialog = ({ onConfirm, onCancel, Heading, Para }) => {
         <div className="mt-7 flex gap-3 justify-end">
           <button
             type="button"
-            onClick={onConfirm}
+            onClick={onCancel}
             className="rounded bg-gray-100 border px-6 py-2 text-[1rem] font-medium text-black"
           >
             Cancel
@@ -24,7 +24,7 @@ const ConfirmationDialog = ({ onConfirm, onCancel, Heading, Para }) => {
 
           <button
             type="button"
-            onClick={onCancel}
+            onClick={onConfirm}
             className="rounded bg-red-600 px-6 text-[1rem] font-medium text-white"
           >
             Delete

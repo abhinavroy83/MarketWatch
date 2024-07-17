@@ -50,6 +50,7 @@ function Addrooms({ editdata }) {
     control,
     setValue,
     watch,
+    trigger,
   } = useForm();
   const selectedBathroom = watch("Attchd_Bath");
   const preferredGender = watch("Preferred_gender");
@@ -101,14 +102,18 @@ function Addrooms({ editdata }) {
       console.log("Autocomplete is not loaded yet!");
     }
   };
-
+  const { userID } = useParams();
+  useEffect(() => {
+    trigger();
+  }, [trigger,userID]);
+  
   const usrId = useSelector((state) => state.auth.userID);
 
   const handleStayLeaseChange = (e) => {
     setStayLeaseOption(e.target.value);
   };
 
-  const { userID } = useParams();
+  
 
   useEffect(() => {
     const fetchusedetails = async () => {
@@ -426,12 +431,10 @@ function Addrooms({ editdata }) {
                       required: "Title is required",
                     })}
                   />
+
                   <p className="text-[16px] mt-1 text-red-500">
-                    Title is required
+                    {errors.Title && <p>{errors.Title.message}</p>}
                   </p>
-                  {/* <p className="text-[16px] mt-1 text-red-500">
-                    {errors.Title &&<p>{errors.Title.message}</p>}
-                  </p> */}
                 </div>
               </div>
 
@@ -450,14 +453,13 @@ function Addrooms({ editdata }) {
                     {...register("Description", {
                       required: "Description is required",
                       validate: {
-                        minWords: (value) =>
-                          value.trim().split(/\s+/).length >= 50 ||
+                        minChars: (value) =>
+                          value.trim().length >= 50 ||
                           "Description must be at least 50 characters",
                       },
                     })}
                   />
                   <p className="text-[16px] text-red-500">
-                    {" "}
                     {errors.Description && <p>{errors.Description.message}</p>}
                   </p>
                 </div>

@@ -30,7 +30,7 @@ router.get(
       { user: user.toJSON() },
       process.env.JWTSECRETKEY
     );
-    res.redirect(`http://localhost:5173/login?jwttoken=${jwttoken}`);
+    res.redirect(`https://verydesi.com/login?jwttoken=${jwttoken}`);
   }
 );
 

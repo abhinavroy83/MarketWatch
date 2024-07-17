@@ -15,11 +15,13 @@ import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlineMeetingRoom } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cities, setCities] = useState([]);
   const [selectedCity, setselectedCity] = useState("");
+  const navigate = useNavigate();
 
   const fetchrooms = async (city) => {
     try {
@@ -173,7 +175,7 @@ function Allroom() {
               <button
                 type="button"
                 onClick={() => {
-                  // navigate(`/addjobs/${userID}`);
+                  navigate(`/admin/postroom`);
                 }}
                 className="whitespace-nowrap flex rounded-md bg-green-800 px-3 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >

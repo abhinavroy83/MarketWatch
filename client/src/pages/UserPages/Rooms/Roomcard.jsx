@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import femaleLogo from "../../../assets/female.png";
+import femaleLogo from "../../../assets/female4.png";
 import maleLogo from "../../../assets/maleicon.png";
 import { IoHeartCircle } from "react-icons/io5";
 import { useSelector } from "react-redux";
@@ -21,32 +21,37 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
 
   const notify = () => toast("Added to Wishlist.");
   const unnotify = () => toast("Remove from Wishlist.");
+  const unauthnotify = () => toast("Please Login");
 
   const makewishlist = async (_id) => {
-    try {
-      const dat = {
-        roomId: _id,
-        status: true,
-      };
-      // console.log(dat);
-      const res = await axios.post(
-        ` https://api.verydesi.com/api/addtowish`,
-        dat,
-        {
-          headers: {
-            jwttoken: `${token}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
+    if (auth) {
+      try {
+        const dat = {
+          roomId: _id,
+          status: true,
+        };
+        // console.log(dat);
+        const res = await axios.post(
+          ` https://api.verydesi.com/api/addtowish`,
+          dat,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (res) {
+          setWishliststatys(true);
+          notify();
+          // alert("successfully added to wishlist");
         }
-      );
-      if (res) {
-        setWishliststatys(true);
-        notify();
-        // alert("successfully added to wishlist");
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      unauthnotify();
     }
   };
 
