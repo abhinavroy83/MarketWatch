@@ -383,14 +383,14 @@ function Profile() {
           {data.isVerified ? (
             <div>
               {isedit && (
-                <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
+                <div class="border border-dashed ml-2 border-gray-400 relative mt-3 text-[1.1rem] flex flex-col justify-center w-[713px] mb-2 bg-white">
                   <div className="">
                     <input
                       className="text-[1rem]"
                       type="file"
                       accept="image/*"
                       onChange={handleimgchange}
-                      class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
+                      class="cursor-pointer relative block opacity-0 h-full p-20 z-50"
                     />
                     <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
                       <h4>
@@ -534,8 +534,23 @@ function Profile() {
                     <p className="">{data.state}</p>
                   )}
                 </div>
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                  <label className="min-w-[120px]">Pin</label>
+                  {isedit ? (
+                    <input
+                      type="text"
+                      placeholder="Enter Pin"
+                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("pin", { required: "Pin is required" })}
+                      defaultValue={data.pin}
+                      errorMessage={errors.pin?.message}
+                    />
+                  ) : (
+                    <p className="text-[1rem]">{data.pin}</p>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+              {/* <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                 <label className="min-w-[120px]">Pin</label>
                 {isedit ? (
                   <input
@@ -549,7 +564,7 @@ function Profile() {
                 ) : (
                   <p className="text-[1rem]">{data.pin}</p>
                 )}
-              </div>
+              </div> */}
               {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
                 <label className="min-w-[120px]">City: </label>
                 {isedit ? (
