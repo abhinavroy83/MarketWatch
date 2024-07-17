@@ -289,7 +289,7 @@ function Rooms() {
     <div className=" mt-[5%] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -297,25 +297,20 @@ function Rooms() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
+        transition:Bounce
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className=" w-full mx-auto px-4 py-2 mt-10 font-['udemy-regular']">
-        {/*
-  Heads up! 👋
-
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
-*/}
-
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-1 py-1 text-sm text-gray-600">
+          <ol className="flex items-center gap-1 py-1 text-xl text-gray-600">
             <li>
               <Link to="/" className="block transition hover:text-gray-700">
                 <span className="sr-only"> Home </span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
