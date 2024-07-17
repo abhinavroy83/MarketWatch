@@ -372,7 +372,7 @@ function Addrooms({ editdata }) {
                 render={({ field }) => (
                   <select
                     {...field}
-                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-black border-2 placeholder:text-gray-400 cursor-pointer"
+                    className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-200 text-black border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => {
                       const selectedValue = e.target.value;
 
