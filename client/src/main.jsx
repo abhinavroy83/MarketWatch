@@ -48,6 +48,7 @@ import Editroom from "./pages/User/UserRooms/Editroom.jsx";
 import Editarea from "./pages/AdminPage/Area/Modify/Editarea.jsx";
 import ResetPassword from "./components/UserCompontents/ResetPassword.jsx";
 import Forgetpassword from "./components/UserCompontents/Forgetpassword.jsx";
+import AdminPostRooms from "./pages/AdminPage/Rooms/AdminPostRooms.jsx";
 
 const router = createBrowserRouter([
   {
@@ -318,6 +319,14 @@ const router = createBrowserRouter([
         element: (
           <Adminauthlayout authentication>
             <Userrooms />
+          </Adminauthlayout>
+        ),
+      },
+      {
+        path: "/admin/postroom",
+        element: (
+          <Adminauthlayout authentication>
+            <AdminPostRooms />
           </Adminauthlayout>
         ),
       },

@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 import axios from "axios";
+import markerIcon from "../../assets/map-marker5.png";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
@@ -45,7 +46,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       return;
     }
     if (mapContainerRef.current) {
-      const map = L.map(mapContainerRef.current).setView([lat, lng], 12);
+      const map = L.map(mapContainerRef.current).setView([lat, lng], 10);
       mapRef.current = map;
       setCurrentLocation({ lat, lng });
 
@@ -54,9 +55,9 @@ const LeafletMap = ({ onLocationReceived, style }) => {
         attribution: "© ",
       }).addTo(map);
 
-      markerRef.current = L.marker([lat, lng], {
-        draggable: true,
-      }).addTo(map);
+      // markerRef.current = L.marker([lat, lng], {
+      //   draggable: true,
+      // }).addTo(map);
 
       // markerRef.current = L.circle([lat, lng], {
       //   color: "",
@@ -74,11 +75,14 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   useEffect(() => {
     if (mapRef.current && locdata.length > 0) {
       locdata.forEach((coords) => {
-        L.circle([coords[1], coords[0]], {
-          color: "",
-          fillColor: "#f03",
-          fillOpacity: 0.2,
-          radius: 500,
+        L.marker([coords[1], coords[0]], {
+          icon: L.icon({
+            iconUrl: markerIcon,
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            tooltipAnchor: [16, -28],
+          }),
         }).addTo(mapRef.current);
       });
     }

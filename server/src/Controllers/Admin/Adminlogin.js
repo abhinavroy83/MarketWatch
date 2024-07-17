@@ -16,10 +16,10 @@ const adminlogin = async (req, res) => {
     if (ispassmatched) {
       const jwttoken = jwt.sign(
         { user: user.toJSON(), role: user.role },
-        process.env.JWTSECRETKEY,
-        {
-          expiresIn: "100m",
-        }
+        process.env.JWTSECRETKEY
+        // {
+        //   expiresIn: "100m",
+        // }
       );
       res.json({
         Status: "success",

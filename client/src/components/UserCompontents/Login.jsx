@@ -121,7 +121,7 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-    window.open("http://localhost:8000/api/auth/google", "_self");
+    window.open("https://api.verydesi.com/api/auth/google", "_self");
   };
 
   // console.log(isMobile);
