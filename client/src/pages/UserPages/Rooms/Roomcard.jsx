@@ -202,7 +202,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           )}
         </div>
         <img
-          className="flex absolute bottom-5 right-14 "
+          className="flex absolute bottom-5 right-12"
           height={15}
           width={27}
           src={
