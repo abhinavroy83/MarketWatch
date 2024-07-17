@@ -449,7 +449,7 @@ function Profile() {
                 )}
               </div> */}
               <div className="flex gap-[1rem]">
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
                   <label className="min-w-[120px]">Address: </label>
                   {isedit ? (
                     <input
@@ -466,7 +466,7 @@ function Profile() {
                     <p className="">{data.address}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
                   <label className="min-w-[120px]">Country:</label>
                   {isedit ? (
                     <select
@@ -484,7 +484,7 @@ function Profile() {
                 </div>
               </div>
               <div className="flex gap-[1rem]">
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
                   <label className="min-w-[120px]">City</label>
                   {isedit ? (
                     <select
@@ -507,7 +507,7 @@ function Profile() {
                     <p className="">{data.city}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
                   <label className="min-w-[120px]">State</label>
                   {isedit ? (
                     <select
@@ -534,7 +534,7 @@ function Profile() {
                     <p className="">{data.state}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
                   <label className="min-w-[120px]">Pin</label>
                   {isedit ? (
                     <input
