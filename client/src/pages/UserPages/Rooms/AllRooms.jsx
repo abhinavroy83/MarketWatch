@@ -104,9 +104,9 @@ function AllRooms() {
       {/* Same as */}
       <ToastContainer />
       {rooms.length > 0 ? (
-        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[5.5rem] lg:mt-1">
+        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[4.4rem] lg:mt-1">
           <div className="flex justify-between items-center">
-            <h1 className="capitalize text-[20px] lg:text-[23px] font-['udemy-bold']">
+            <h1 className="capitalize text-[18px] lg:text-[23px] font-['udemy-bold']">
               {usercity ? (
                 <p>Featured Rooms In {usercity}</p>
               ) : (
@@ -134,7 +134,7 @@ function AllRooms() {
                   }
                   // navigate("/login");
                 }}
-                className="rounded-md bg-green-800 px-2 py-2 text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 px-2 py-2 text-[18px] lg:text-[19px] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>

@@ -118,7 +118,7 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-2 lg:px-1 py-2 lg:py-0 gap-7 lg:gap-0 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
+    <div className="flex flex-col lg:flex-row px-2 lg:px-1 py-2 lg:py-0 gap- lg:gap-0 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
       <div className="flex items-center justify-between">
         <Login />
@@ -150,27 +150,28 @@ function Ads() {
           {isHovered && <Avalableloc />}
         </div>
       </div>
-      <div className="flex justify-center gap-7">
+
+      <div className="flex justify-center gap-4 lg:gap-7">
         <img
-          className="w-[6.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[6.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
         <img
-          className="w-[6.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[6.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
         <img
-          className="w-[6.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[6.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
-        <img
+        {/* <img
           className="w-[6.9rem] h-15"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
-        />
+        /> */}
       </div>
       {isloged ? (
         <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">

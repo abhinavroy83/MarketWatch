@@ -59,6 +59,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
 import { FaEdit } from "react-icons/fa";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 
 function Rooms() {
   const { _id } = useParams();
@@ -180,6 +181,8 @@ function Rooms() {
   };
 
   const [isloginmodalopen, setloginmodeopen] = useState(false);
+  const screenSize = getScreenSizeHook();
+  const isMobile = screenSize.windowSize.width < 800;
 
   const handleloginmodelopen = () => {
     if (authstatus) {
@@ -286,7 +289,7 @@ function Rooms() {
   }));
 
   return (
-    <div className=" mt-[5%] h-full w-full max-w-[1600px] mx-auto">
+    <div className="lg:mt-[4.4rem] mt-[9.4rem] h-full w-full max-w-[1600px] mx-auto">
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -360,7 +363,7 @@ function Rooms() {
                     onClick={fetchPreviousRoom}
                     disabled={!hasNextRoom}
                   >
-                    <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                    <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                       <MdKeyboardDoubleArrowLeft
                         size={45}
                         className="text-white flex"
@@ -386,7 +389,7 @@ function Rooms() {
                   onClick={fetchNextRoom}
                   disabled={!hasPreviousRoom}
                 >
-                  <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[22px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                  <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                     <button
                       // type="submit"
                       className="flex text-[22px] items-center text-white font-bold"
@@ -453,7 +456,7 @@ function Rooms() {
                 onClick={toggleSharePopup}
                 className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <FaShare className="text-black" /> Share Now
+                <FaShare className="text-black" /> Share
               </button>
 
               {isSharePopupOpen && (
@@ -476,7 +479,7 @@ function Rooms() {
             </div>
           </div>
         </div>
-        <div className="flex text-[25px]">
+        <div className="flex-col lg:flex-row flex text-[25px]">
           <div>
             {rooms.Imgurl.length > 0 ? (
               <ImageGallery
@@ -492,11 +495,11 @@ function Rooms() {
                   "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
                 }
                 alt="not"
-                className="h-[560px] w-[880px] rounded-md object-cover"
+                className="h-[460px] rounded-md object-cover"
               />
             )}
           </div>
-          <div className="px-3 font-['udemy-regular'] ml-7 flex flex-col gap-3 w-[660px]">
+          <div className="px-3 font-['udemy-regular'] lg:ml-7 ml-0 flex flex-col gap-3 w-auto lg:w-[660px]">
             <div className="">
               <div className="flex justify-between">
                 <p className="font-bold flex gap-3">
@@ -560,10 +563,10 @@ function Rooms() {
                   <button
                     type="button"
                     onClick={handleloginmodelopen}
-                    className="flex self-center rounded-md bg-green-800 px-5 py-4 mb-2 text-[19px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 py-4 lg:text-[19px] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     <LuPhoneCall size={25} />
-                    <span class="ml-2 items-center justify-center">
+                    <span class="items-center justify-center">
                       Get In touch{" "}
                     </span>
                   </button>
@@ -572,8 +575,12 @@ function Rooms() {
               {locationsndString ? (
                 <div className="mt-2">
                   <LeafletMap2
+                    className="w-[9rem]"
                     onLocationReceived={locationsndString}
-                    style={{ height: "350px", width: "638px" }}
+                    style={{
+                      height: "350px",
+                      width: isMobile ? "100%" : "640px",
+                    }}
                   />
                 </div>
               ) : (
@@ -608,7 +615,7 @@ function Rooms() {
             <GiEntryDoor size={30} />
             More Info About Room-{" "}
           </h1>
-          <div className="grid grid-cols-3 gap-4 border p-5 mt-2">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 border p-5 mt-2">
             <div className="flex gap-2 items-center">
               <BsBuildingsFill className="" size={35} />
               <div className="flex">
@@ -750,7 +757,7 @@ function Rooms() {
                 <MdRoomPreferences size={30} />
                 Amenities included-
               </h1>
-              <div className="border p-5 grid grid-cols-3 gap-4 text-[18px] text-black mt-2">
+              <div className="border p-5 grid grid-cols-2 lg:grid-cols-3 gap-4 text-[18px] text-black mt-2">
                 {rooms?.Amenities_include?.map((amenity) => {
                   const IconComponent = amenityIcons[amenity];
                   return (
@@ -769,7 +776,7 @@ function Rooms() {
             <MdAddBusiness size={30} />
             Additional Information-{" "}
           </h1>
-          <div className="grid grid-cols-3 gap-3 border p-5 mt-2">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
             <div className="flex gap-2 items-center">
               <BiFoodTag size={35} />
               <div className="flex">
@@ -814,7 +821,7 @@ function Rooms() {
             )}
           </h1>
           {authstatus && (
-            <div className="grid grid-cols-3 gap-3 border p-5 mt-2">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
               <div className="flex gap-2 items-center">
                 <FaUserAlt size={35} />
                 <div className="flex">

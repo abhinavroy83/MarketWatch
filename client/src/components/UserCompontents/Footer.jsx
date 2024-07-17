@@ -16,22 +16,22 @@ export default function Footer() {
     <div className="lg:mt-9 mt-6 w-full ">
       <div className="justify-center flex mb-2 gap-7">
         <img
-          className="w-[7.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[7.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
         <img
-          className="w-[7.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[7.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
         <img
-          className="w-[7.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[7.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
         <img
-          className="w-[7.9rem] h-15"
+          className="w-[3.9rem] h-15 lg:w-[7.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
@@ -98,7 +98,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="lg:flex justify-center gap-10">
-              <div className="flex text-white items-center gap-5">
+              <div className="flex text-white items-center gap-5 px-3 lg:px-0">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
                     // height={300}
@@ -127,7 +127,7 @@ export default function Footer() {
                   {isHovered && <Avalableloc />}
                 </div>
               </div>
-              <div className="grid grid-cols-2  lg:grid-cols-3 justify-center gap-10 px-2 lg:mt-0 mt-3">
+              <div className="grid grid-cols-2  lg:grid-cols-3 justify-center gap-10 px-4 lg:px-0 lg:mt-0 mt-3">
                 {/* <div className="flex text-white items-center gap-5">
                 <Link to={"/"} className="bg-cover bg-center flex">
                   <img
@@ -366,7 +366,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="text-[#DDD] text-[14px] flex gap-6 font-bold justify-center mt-4 cursor-pointer px-5 lg:px-0">
+            <div className="text-[#DDD] text-[14px] flex gap-6 font-bold justify-center mt-4 cursor-pointer px-4 lg:px-0">
               <p> Conditions of Use</p>
               <p> Privacy Notice</p>
               <p> Consumer Health Data Privacy </p>
@@ -377,35 +377,35 @@ export default function Footer() {
             </p>
             <div className="justify-center flex mb-2 gap-3 mt-7">
               <img
-                className="w-[7.9rem] h-15"
+                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
               />
               <img
-                className="w-[7.9rem] h-15"
+                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
               />
               <img
-                className="w-[7.9rem] h-15"
+                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
               />
               <img
-                className="w-[7.9rem] h-15"
+                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
               />
               <img
-                className="w-[7.9rem] h-15"
+                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
               />
-              <img
+              {/* <img
                 className="w-[7.9rem] h-15"
                 src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
                 alt="logo"
-              />
+              /> */}
             </div>
 
             <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
