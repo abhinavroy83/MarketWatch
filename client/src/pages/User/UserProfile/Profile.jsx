@@ -285,11 +285,17 @@ function Profile() {
               )}
             </div>
             <div className="items-end mb-[0.4rem]">
-              <button className=" bg-gray-300  px-6 py-2 text-[1rem] w-[340px] font-bold text-black">
+              <button
+                type="button"
+                className=" bg-gray-300  px-6 py-2 text-[1rem] w-[340px] font-bold text-black"
+              >
                 Change Password
               </button>
             </div>
-            <button className=" bg-red-600 px-6 py-2 text-[1rem] w-[340px] font-bold text-white mb-[0.4rem]">
+            <button
+              type="button"
+              className=" bg-red-600 px-6 py-2 text-[1rem] w-[340px] font-bold text-white mb-[0.4rem]"
+            >
               Save Updates
             </button>
           </div>
@@ -377,15 +383,34 @@ function Profile() {
           {data.isVerified ? (
             <div>
               {isedit && (
-                <div className="flex font-['udemy-regular'] p-2 text-[1.2rem] flex-col gap-1">
-                  <label className="min-w-[120px]">Image</label>
-                  <input
-                    className="text-[1rem]"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleimgchange}
-                  />
+                <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
+                  <div className="">
+                    <input
+                      className="text-[1rem]"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleimgchange}
+                      class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
+                    />
+                    <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
+                      <h4>
+                        Drop files anywhere to upload
+                        <br />
+                        or
+                      </h4>
+                      <p class="">Select Files</p>
+                    </div>
+                  </div>
                 </div>
+                // <div className="flex font-['udemy-regular'] p-2 text-[1.2rem] flex-col gap-1">
+                //   <label className="min-w-[120px]">Image</label>
+                //   <input
+                //     className="text-[1rem]"
+                //     type="file"
+                //     accept="image/*"
+                //     onChange={handleimgchange}
+                //   />
+                // </div>
               )}
               {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
                 <label className="min-w-[120px]">Date of Birth:</label>
