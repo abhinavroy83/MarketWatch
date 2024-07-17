@@ -105,15 +105,13 @@ function Addrooms({ editdata }) {
   const { userID } = useParams();
   useEffect(() => {
     trigger();
-  }, [trigger,userID]);
-  
+  }, [trigger, userID]);
+
   const usrId = useSelector((state) => state.auth.userID);
 
   const handleStayLeaseChange = (e) => {
     setStayLeaseOption(e.target.value);
   };
-
-  
 
   useEffect(() => {
     const fetchusedetails = async () => {
