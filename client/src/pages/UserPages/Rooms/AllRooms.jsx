@@ -68,6 +68,7 @@ function AllRooms() {
       setLocationsndString(loc);
     }
   }, [usercity, currentloc]);
+  // console.log(isverified);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
