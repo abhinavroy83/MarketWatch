@@ -345,7 +345,7 @@ function Profile() {
             )}
             </div> */}
           </div>
-          <div className="flex gap-20">
+          <div className="flex gap-[1rem]">
             {/* <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
               <label className="text-[1.2rem]">Number</label>
               {isedit ? (
@@ -423,7 +423,7 @@ function Profile() {
                   <p className="text-[20px]">{data.gender}</p>
                 )}
               </div> */}
-              <div className="flex gap-20">
+              <div className="flex gap-[1rem]">
                 <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                   <label className="min-w-[120px]">Address: </label>
                   {isedit ? (
@@ -458,7 +458,7 @@ function Profile() {
                   )}
                 </div>
               </div>
-              <div className="flex gap-20">
+              <div className="flex gap-[1rem]">
                 <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                   <label className="min-w-[120px]">City</label>
                   {isedit ? (
