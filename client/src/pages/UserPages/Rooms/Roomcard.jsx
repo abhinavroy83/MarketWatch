@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import femaleLogo from "../../../assets/female4.png";
-import maleLogo from "../../../assets/maleicon.png";
+import femaleLogo from "../../../assets/female5.png";
+import maleLogo from "../../../assets/male5.png";
 import { IoHeartCircle } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import axios from "axios";
