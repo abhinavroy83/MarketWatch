@@ -110,7 +110,7 @@ function DashConatiner({ children }) {
   }, [userID]);
 
   return (
-    <div className="mt-[9rem] mx-auto px-4 flex flex-col max-w-[1600px] h-[630px] w-full m-auto overflow-hidden font-['udemy-regular']">
+    <div className="mt-[9rem] mx-auto px-4 flex flex-col max-w-[1600px] h-[700px] w-full m-auto overflow-hidden font-['udemy-regular']">
       {alertstatus && (
         <div>
           {!isverified && (
@@ -168,7 +168,7 @@ function DashConatiner({ children }) {
         </div>
       )}
       <div className=" flex">
-        <div className=" w-1/4 h-[900px] bg-white border-gray-300 border flex flex-col">
+        <div className=" w-1/4 h-[700px] bg-white border-gray-300 border flex flex-col">
           {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
           fill="none"
@@ -264,11 +264,12 @@ function DashConatiner({ children }) {
             >
               <FaHeart size={20} /> Favorites
             </button>
+            <hr className="mt-2"></hr>
             <details
               className="group [&_summary::-webkit-details-marker]:hidden"
               open
             >
-              <summary className="rounded-md bg-transparent px-2 w-full items-center whitespace-nowrap flex gap-2 leading-8 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+              <summary className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
                 <BsPostcardHeartFill size={20} />
                 <h2 className="font-medium">My Post</h2>
 
@@ -348,7 +349,7 @@ function DashConatiner({ children }) {
             )}
           </div>
         </div>
-        <main className="w-4/5 h-[630px] bg-gray-100 p-2 overflow-scroll">
+        <main className="w-4/5 h-[700px] border p-2 overflow-scroll">
           {children}
         </main>
       </div>
