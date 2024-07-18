@@ -274,8 +274,8 @@ export default function Header() {
                   className="uppercase flex gap-1 items-center p-1 group text-[0.9rem] text-white font-medium transition duration-300 ease-in-out hover:shadow-md hover:bg-white rounded-md hover:text-[#232f3e]"
                 >
                   <IoHomeSharp
-                    size={16}
-                    className="group-hover:rotate-[360deg] transition-transform duration-300 mt-[2%]"
+                    size={14}
+                    className="group-hover:rotate-[360deg] transition-transform duration-300 "
                   />{" "}
                   Home
                 </button>
