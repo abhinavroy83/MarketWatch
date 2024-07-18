@@ -218,9 +218,17 @@ function DashConatiner({ children }) {
                   <p className="text-gray-500 text-[0.9rem]">Edit Profile</p>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-gray-700">
-                  <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
-                    <CgProfile size={24} />
-                  </p>
+                  <div className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={handleimgchange}
+                    />
+                    <CgProfile size={30} onClick={handleFileUpload} />
+                  </div>
+
                   <p className="text-gray-500 text-[0.9rem]">Add Photo</p>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-gray-700">
