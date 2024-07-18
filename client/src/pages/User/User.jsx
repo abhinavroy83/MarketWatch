@@ -30,7 +30,7 @@ function User() {
       <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">
         <Link to={`/dashboard/profile/${userID}`}>
           <div className="">
-            <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
               <img
                 className="w-[3.9rem] h-15"
                 src={`https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg`}
@@ -44,7 +44,7 @@ function User() {
         </Link>
         <Link to={`/user/room/${userID}`}>
           <div className="">
-            <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
               <img
                 className="w-[4.9rem] h-15"
                 src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
@@ -57,7 +57,7 @@ function User() {
           </div>
         </Link>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[4.9rem] h-15"
               src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
@@ -69,7 +69,7 @@ function User() {
           </div>
         </div>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[6.4rem] h-13"
               src={`https://img.freepik.com/premium-vector/upcoming-events-announcement-megaphone-label-loudspeaker-speech-bubble_123447-5297.jpg`}
@@ -81,7 +81,7 @@ function User() {
           </div>
         </div>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
             <img
               className="w-[4.9rem] h-15"
               src={`https://www.freeiconspng.com/thumbs/movie-icon/movie-icon-6.png`}
@@ -97,7 +97,7 @@ function User() {
           // to={`/user/bussiness/${userID}`}
         >
           <div className="">
-            <div className="bg-white text-center flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
               <img
                 className="w-[4.9rem] h-15"
                 src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}

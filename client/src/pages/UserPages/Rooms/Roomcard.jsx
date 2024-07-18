@@ -202,9 +202,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           )}
         </div>
         <img
-          className="flex absolute bottom-5 right-12"
+          className="flex absolute bottom-[1.4rem] right-[3.2rem] items-center"
           height={15}
-          width={27}
+          width={20}
           src={
             item.Preferred_gender === "Female only"
               ? femaleLogo
