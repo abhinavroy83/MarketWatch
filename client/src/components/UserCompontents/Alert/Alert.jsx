@@ -5,7 +5,7 @@ function Alert({ close }) {
   const [remainingTime, setRemainingTime] = useState(100); 
 
   useEffect(() => {
-    const totalTime = 2000;
+    const totalTime = 5000;
     let currentTime = 0;
 
     const intervalId = setInterval(() => {

@@ -26,17 +26,18 @@ function ChildContainer({ className, children, onLocationReceived }) {
 
   useEffect(() => {
     const fetchExchangeRate = async () => {
-      try {
-        const response = await axios.get(
-          `https://v6.exchangerate-api.com/v6/ca2ecba4b423e1e50d379941/latest/USD`
-        );
-        const rates = response.data.conversion_rates;
-        const rate = rates.INR;
-        setExchangeRate(rate);
-        setConvertedAmount(amount * rate);
-      } catch (error) {
-        console.error("Error fetching exchange rates:", error);
-      }
+      // try {
+      //   const response = await axios.get(
+      //     `https://v6.exchangerate-api.com/v6/ca2ecba4b423e1e50d379941/latest/USD`
+      //   );
+      //   console.log("res",response.response.data.result)
+      //   const rates = response.data.conversion_rates;
+      //   const rate = rates.INR;
+      //   setExchangeRate(rate);
+      //   setConvertedAmount(amount * rate);
+      // } catch (error) {
+      //   console.error("Error fetching exchange rates:", error);
+      // }
     };
 
     fetchExchangeRate();
