@@ -304,7 +304,7 @@ function Rooms() {
         transition:Bounce
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-      <div className=" w-full mx-auto px-4 py-2 mt-10 font-['udemy-regular']">
+      <div className=" w-full mx-auto px-4 py-2 mt-0 lg:mt-10 font-['udemy-regular']">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-1 py-1 text-xl text-gray-600">
             <li>
@@ -348,7 +348,7 @@ function Rooms() {
             </li>
           </ol>
         </nav>
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col items-start lg:justify-between lg:flex-row mb-7 lg:mb-0">
           <div className=" flex gap-2">
             <div>
               {hasNextRoom ? (
@@ -403,7 +403,7 @@ function Rooms() {
             </div>
           </div>
 
-          <div className="flex gap-4 items-center self-center">
+          <div className="flex gap-4 items-center ">
             {/* <div
               className="flex justify-end"
               onClick={fetchNextRoom}
@@ -494,12 +494,12 @@ function Rooms() {
               />
             )}
           </div>
-          <div className="px-3 font-['udemy-regular'] lg:ml-7 ml-0 flex flex-col gap-3 w-auto lg:w-[660px]">
+          <div className="px-0 lg:px-3 font-['udemy-regular'] lg:ml-7 ml-0 flex flex-col gap-3 w-auto lg:w-[660px]">
             <div className="">
               <div className="flex justify-between">
                 <p className="font-bold flex gap-3">
                   <div className="text-[27px]">
-                    <div className="flex gap-1 font-bold">
+                    <div className="flex gap-1 font-bold mt-3 lg:mt-0">
                       <p className=" capitalize">{rooms.Title}</p>
                     </div>
                   </div>
@@ -543,11 +543,11 @@ function Rooms() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between text-[1.2rem] lg:text-[25px]">
                 {
                   <div className="flex ">
                     <BsBuildingsFill className="" size={35} />
-                    <p className=" px-2">{rooms.Propertytype}</p>
+                    <p className="px-2">{rooms.Propertytype}</p>
                   </div>
                 }
                 <div
@@ -821,7 +821,7 @@ function Rooms() {
                 <FaUserAlt size={35} />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
-                    User name
+                    Name
                     <p className="text-black flex text-[18px]">
                       {rooms.user_name}
                     </p>
@@ -844,7 +844,7 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              {/* <div className="flex gap-2 items-center">
                 <FaAddressCard size={35} />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
@@ -854,8 +854,8 @@ function Rooms() {
                     </p>
                   </p>
                 </div>
-              </div>
-              <div className="flex gap-2 items-center">
+              </div> */}
+              {/* <div className="flex gap-2 items-center">
                 <BiSolidMessageRoundedDots size={35} />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
@@ -865,7 +865,7 @@ function Rooms() {
                     </p>
                   </p>
                 </div>
-              </div>
+              </div> */}
               <div className="flex gap-2 items-center">
                 <MdOutlineEmail size={35} />
                 <div className="flex flex-col">

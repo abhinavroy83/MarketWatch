@@ -356,9 +356,9 @@ function Addrooms({ editdata }) {
   }
 
   return (
-    <div className="w-full mx-auto mt-[7%] items-center">
+    <div className="w-full mx-auto mt-[9rem] items-center lg:mt-[7%]">
       <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
-        <div className="font-['udemy-regular'] mx-20">
+        <div className="font-['udemy-regular'] mx-4 lg:mx-20">
           <form
             onSubmit={handleSubmit(onsubmit)}
             className="flex flex-col justify-center mt-7 items-center"
@@ -411,7 +411,7 @@ function Addrooms({ editdata }) {
               Your Account is belong {profiledata.belongcity}
             </p>
             <div className="w-full items-center">
-              <div className="flex mt-5 text-[1.1rem] items-center">
+              <div className="flex mt-5 text-[1.1rem]">
                 <label
                   className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -420,7 +420,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <input
-                    className="font-['udemy-regular'] h-10 w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px]  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
                     // defaultValue={editdata?.Title}
@@ -436,16 +436,16 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-5 flex text-[1.1rem] items-center">
+              <div className="mt-5 flex text-[1.1rem]">
                 <label
-                  className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description <span className=" text-red-500">*</span>
                 </label>
-                <div>
+                <div className="">
                   <textarea
-                    className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     name="description"
                     placeholder="Description"
                     {...register("Description", {
@@ -457,15 +457,15 @@ function Addrooms({ editdata }) {
                       },
                     })}
                   />
-                  <p className="text-[16px] text-red-500">
+                  <p className="text-[16px] text-red-500 ">
                     {errors.Description && <p>{errors.Description.message}</p>}
                   </p>
                 </div>
               </div>
 
-              <div className="flex mt-4 text-[1.1rem] items-center">
+              <div className="flex mt-4 text-[1.1rem]">
                 <label
-                  className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className=" w-[260px] lg:w-[266px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Property Type <span className=" text-red-500">*</span>
@@ -479,7 +479,7 @@ function Addrooms({ editdata }) {
                     render={({ field }) => (
                       <select
                         {...field}
-                        className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         name=""
                         id=""
                       >
@@ -504,15 +504,15 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex text-[1.1rem] mt-5 items-center">
+              <div className="flex text-[1.1rem] mt-5">
                 <label
                   htmlFor=""
-                  className=" w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[150px] lg:w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
                   Stay/Lease <span className=" text-red-500">*</span>
                 </label>
                 <div>
-                  <div className="grid grid-cols-4 gap-4 w-auto">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-auto ">
                     <div className=" flex gap-2 whitespace-nowrap ">
                       <input
                         type="radio"
@@ -524,7 +524,7 @@ function Addrooms({ editdata }) {
                       />
                       <p>Short term(1Day to 6Months) </p>
                     </div>
-                    <div className="flex gap-2 whitespace-nowrap px-2">
+                    <div className="flex gap-2 whitespace-nowrap lg:px-2">
                       <input
                         type="radio"
                         value="Long term(6+ months)"
@@ -554,7 +554,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="mt-5 flex text-[1.1rem] items-center">
+              <div className="mt-5 flex text-[1.1rem]">
                 <label
                   className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -571,7 +571,7 @@ function Addrooms({ editdata }) {
                         <select
                           {...field}
                           value={field.value || ""}
-                          className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="h-100px w-[220px] lg:w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           <option value="">Select</option>
                           {stayLeaseOption === "Short term" && (
@@ -604,48 +604,54 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-5 text-[1.1rem] items-center">
+              <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[366px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Rent <span className=" text-red-500">*</span>
                 </label>
-                <div className="items-center">
-                  <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                    $
-                  </span>
-                  <input
-                    type="number"
-                    placeholder="Rent"
-                    className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    {...register("Expected_Rooms", {
-                      required: "Rent is require",
-                    })}
-                  />
-                  <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
-                    {errors.Expected_Rooms && (
-                      <p>{errors.Expected_Rooms.message}</p>
-                    )}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1 ml-5">
-                  <input
-                    type="checkbox"
-                    // {...register("Negotiable")}
-                  />
-                  <p className="px-3 py-2 text-black">Negotiable</p>
-                </div>
-                <div className="flex items-center gap-1">
-                  <input type="checkbox" />
-                  <p className="px-3 py-2 text-black">Hide Rent</p>
+                <div className="flex lg:flex-row flex-col">
+                  <div className="items-center">
+                    <div className="flex">
+                      <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                        $
+                      </span>
+                      <input
+                        type="number"
+                        placeholder="Rent"
+                        className="h-100px w-[220px] lg:w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        {...register("Expected_Rooms", {
+                          required: "Rent is require",
+                        })}
+                      />
+                    </div>
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {" "}
+                      {errors.Expected_Rooms && (
+                        <p>{errors.Expected_Rooms.message}</p>
+                      )}
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <div className="flex items-center gap-1 lg:ml-5 ml-0">
+                      <input
+                        type="checkbox"
+                        // {...register("Negotiable")}
+                      />
+                      <p className="px-3 py-2 text-black">Negotiable</p>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <input type="checkbox" />
+                      <p className="px-3 py-2 text-black">Hide Rent</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex mt-4 gap-5 text-[1.1rem] items-center">
+              <div className="flex mt-4 gap-5 text-[1.1rem]">
                 <label
-                  className=" w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[250px] lg:w-[246px] flex gap-1 font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:inline-block"
                   htmlFor=""
                 >
                   Availability <span className="text-red-500">*</span>
@@ -658,7 +664,7 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                        className={`h-100px w-[220px] lg:w-[240px] ml-6 lg:ml-0 font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                           isImmediate
                             ? "bg-gray-200 cursor-not-allowed"
                             : "bg-white"
@@ -682,7 +688,7 @@ function Addrooms({ editdata }) {
                       <DatePicker
                         {...field}
                         selected={field.value}
-                        className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                        className={`h-100px w-[250px] lg:w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                           isImmediate
                             ? "bg-gray-200 cursor-not-allowed"
                             : "bg-white"
@@ -704,7 +710,7 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-5 text-[1.1rem] items-center gap-20">
+              <div className="flex mt-5 text-[1rem] gap-20">
                 <label
                   className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
@@ -712,7 +718,7 @@ function Addrooms({ editdata }) {
                   Separate Bathroom <span className="text-red-500">*</span>
                 </label>
                 <div>
-                  <div className="grid grid-cols-4 gap-4 w-[976px]">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-[976px]">
                     <div className="flex gap-1 items-center">
                       <input
                         type="radio"
@@ -741,7 +747,7 @@ function Addrooms({ editdata }) {
                   )}
 
                   {selectedBathroom === "Yes" && (
-                    <div className="grid grid-cols-4 gap-4 w-[976px] mt-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-[976px] mt-2">
                       <div className="flex gap-1 items-center">
                         <input
                           type="radio"
