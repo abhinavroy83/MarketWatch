@@ -1,13 +1,19 @@
 import React from "react";
 import { RxCross1 } from "react-icons/rx";
 
-const ConfirmationDialog = ({ onConfirm, onCancel, Heading, Para }) => {
+const ConfirmationDialog = ({
+  onConfirm,
+  onCancel,
+  Heading,
+  Para,
+  onClose,
+}) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
       <div className="bg-white p-8 shadow-2xl relative">
         <RxCross1
           className="h-5 w-5 text-black absolute top-3 right-5 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
-          onClick={() => handleModal(false, false)}
+          onClick={onClose}
         />
         <h2 className="text-[1.4rem] font-bold ">{Heading}</h2>
 

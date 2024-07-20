@@ -190,6 +190,7 @@ function Profile() {
         <ConfirmationDialog
           onConfirm={confirmDelete}
           onCancel={cancelDelete}
+          onClose={cancelDelete}
           Heading={"Delete Account"}
           Para={
             "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
@@ -198,18 +199,18 @@ function Profile() {
         />
       )}
 
-      <div className="flex justify-center text-center self-center">
+      <div className="flex justify-center text-center self-center ">
         <p className="text-[1.5rem] p-2 text-black font-['udemy-regular'] bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
           <ImProfile />
           Settings
         </p>
       </div>
 
-      <div className="px-10 overflow-y-scroll flex justify-center mt-7">
+      <div className="px-10 overflow-y-scroll flex justify-center mt-7 w-[100%]">
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}
-        <form onSubmit={handleSubmit(handleclick)}>
+        <form onSubmit={handleSubmit(handleclick)} className="w-full">
           {isedit && (
             <div className="flex flex-col ml-1 gap-1">
               <label htmlFor="" className="text-[1.2rem]">
@@ -287,17 +288,17 @@ function Profile() {
             <div className="items-end mb-[0.4rem]">
               <button
                 type="button"
-                className=" bg-gray-300  px-6 py-2 text-[1rem] w-[340px] font-bold text-black"
+                className=" bg-gray-300 px-6 py-2 text-[1rem] w-[340px] hover:bg-gray-400 font-bold text-black"
               >
                 Change Password
               </button>
             </div>
-            <button
+            {/* <button
               type="button"
               className=" bg-red-600 px-6 py-2 text-[1rem] w-[340px] font-bold text-white mb-[0.4rem]"
             >
               Save Updates
-            </button>
+            </button> */}
           </div>
           <div className="flex text-[1rem] gap-[1rem] items-center">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
@@ -381,7 +382,7 @@ function Profile() {
           </div>
 
           {data.isVerified ? (
-            <div>
+            <div className="z-0 relative">
               {isedit && (
                 <div class="border border-dashed ml-2 border-gray-400 relative mt-3 text-[1.1rem] flex flex-col justify-center w-[713px] mb-2 bg-white">
                   <div className="">
@@ -390,7 +391,7 @@ function Profile() {
                       type="file"
                       accept="image/*"
                       onChange={handleimgchange}
-                      class="cursor-pointer relative block opacity-0 h-full p-20 z-50"
+                      class="cursor-pointer relative block opacity-0 h-full p-20 z-0"
                     />
                     <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
                       <h4>
@@ -637,7 +638,7 @@ function Profile() {
 
             <p
               onClick={handleDelete}
-              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring"
               href="#"
             >
               Delete Account
@@ -674,13 +675,13 @@ function Profile() {
                 Delete Account
               </p> */}
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
+                className=" font-['udemy-regular'] bg-green-800 text-white px-3 py-2 text-[1.1rem]"
                 type="submit"
               >
                 Update Profile
               </button>
               <button
-                className="rounded-md font-['udemy-regular'] bg-green-800 text-white px-4 py-3 text-[1.1rem]"
+                className=" bg-gray-300 text-black hover:bg-gray-400 px-3 py-2 text-[1.1rem]"
                 type="button"
                 onClick={toggleCancel}
               >
@@ -689,7 +690,7 @@ function Profile() {
             </div>
           ) : (
             <button
-              className="rounded-md font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem]"
+              className=" font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem]"
               type="button"
               onClick={toggleEdit}
             >

@@ -168,7 +168,7 @@ function DashConatiner({ children }) {
         </div>
       )}
       <div className=" flex">
-        <div className=" w-1/4 h-[700px] bg-white border-gray-300 border flex flex-col">
+        <div className=" w-auto h-[700px] bg-white border-gray-300 border flex flex-col">
           {/* <svg
           class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
           fill="none"
