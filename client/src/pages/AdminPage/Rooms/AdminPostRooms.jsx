@@ -192,8 +192,8 @@ function AdminPostRooms({ editdata }) {
         Pet_friendly: data.Pet_friendly,
         Open_house_schedule: data.Open_house_schedule,
         Imgurl: resimgurl,
-        user_name: fullname,
-        email: profiledata.email,
+        user_name: data.user_name,
+        email: data.email,
         phone_number: data.phone_number,
         address: data.address,
         state: data.state,
@@ -367,14 +367,13 @@ function AdminPostRooms({ editdata }) {
                       className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-white border-2 placeholder:text-gray-400 cursor-pointer"
                       onChange={(e) => {
                         const selectedValue = e.target.value;
-
-                        if (selectedValue !== profiledata.belongcity) {
-                          alert(
-                            `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
-                          );
-                        }
-
                         field.onChange(selectedValue);
+
+                        // if (selectedValue !== profiledata.belongcity) {
+                        //   alert(
+                        //     `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
+                        //   );
+                        // }
                       }}
                     >
                       <option
@@ -401,9 +400,9 @@ function AdminPostRooms({ editdata }) {
               <p className="text-[16px] mt-1 text-red-500">
                 {errors.city && <p>{errors.city.message}</p>}
               </p>
-              <p className="text-[1.1rem]">
+              {/* <p className="text-[1.1rem]">
                 Your Account is belong {profiledata.belongcity}
-              </p>
+              </p> */}
               <div className="w-full items-center">
                 <div className="flex mt-5 text-[1.1rem] items-center">
                   <label
@@ -1222,13 +1221,21 @@ function AdminPostRooms({ editdata }) {
                     >
                       Name
                     </label>
-                    {/* <input
-                    type="text"
-                    placeholder="Enter Name"
-                    {...register("user_name")}
-                    className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  /> */}
-                    {/* {<p className="text-[1.1rem]">{fullname}</p>} */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Enter Name"
+                        {...register("user_name", {
+                          required: "Username is required",
+                        })}
+                        className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      />
+                      {errors.user_name && (
+                        <p className=" text-red-600 text-sm">
+                          {errors.user_name.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <div className="mt-5 flex">
                     <label
@@ -1237,13 +1244,21 @@ function AdminPostRooms({ editdata }) {
                     >
                       Email
                     </label>
-                    {/* <input
-                    type="text"
-                    placeholder="Enter Email"
-                    {...register("email")}
-                    className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  /> */}
-                    {/* <p className="text-[1.1rem]">{profiledata?.email}</p> */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Enter Email"
+                        {...register("email", {
+                          required: "Email is required",
+                        })}
+                        className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      />
+                      {errors.email && (
+                        <p className=" text-red-600 text-sm">
+                          {errors.email.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <div className="mt-5 text-[1.1rem]">
                     <label
