@@ -32,7 +32,7 @@ function User() {
           <div className="">
             <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
               <img
-                className="w-[3.9rem] h-15"
+                className="w-[3rem] h-15"
                 src={`https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg`}
                 alt="logo"
               />

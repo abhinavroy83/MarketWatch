@@ -295,7 +295,7 @@ export default function Footer() {
                 </div>
                 <div className="">
                   <p className="font-semibold tracking-wide text-[#DDD]">
-                    Make Money with Us
+                    Make Money
                   </p>
                   <ul className="mt-2 space-y-1 leading-4 text-[14px]">
                     <li>
