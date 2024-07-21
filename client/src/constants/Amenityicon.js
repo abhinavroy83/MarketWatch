@@ -23,6 +23,9 @@ import visitors from "../assets/visitors.png";
 import waterheater from "../assets/waterheater.png";
 import security from "../assets/security.png";
 import power from "../assets/power.png";
+import lawn from "../assets/lawn.png";
+import elevator from "../assets/elevator.png";
+import clubhouse from "../assets/clubhouse.png";
 
 const amenityIcons = {
   "Gym/Fitness Center": gym,
@@ -31,12 +34,12 @@ const amenityIcons = {
   "Visitors Parking": visitors,
   "Power Backup": power,
   "Garbage Disposal": garbage,
-  "Private Lawn": PiPark,
+  "Private Lawn": lawn,
   "Water Heater Plant": waterheater,
   "Security System": security,
   "Laundry Service": washing,
-  Elevator: GiElevator,
-  "Club House": GiGlassCelebration,
+  Elevator: elevator,
+  "Club House": clubhouse,
 };
 
 export default amenityIcons;
