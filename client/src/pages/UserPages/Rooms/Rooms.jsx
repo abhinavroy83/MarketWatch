@@ -790,7 +790,8 @@ function Rooms() {
                   return (
                     <div key={amenity} className="flex gap-2">
                       {IconComponent && (
-                        <IconComponent className="amenity-icon" size={30} />
+                        // <IconComponent className="amenity-icon" size={30} />
+                        <img src={IconComponent} className="h-10 w-10" alt="" />
                       )}
                       <p>{amenity}</p>
                     </div>

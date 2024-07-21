@@ -13,19 +13,29 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { MdLocalLaundryService } from "react-icons/md";
 import { GiElevator } from "react-icons/gi";
 import { GiGlassCelebration } from "react-icons/gi";
+import pool from "../assets/pool.png";
+import garbage from "../assets/garbage.png";
+import washing from "../assets/washing.png";
+// import wifi from "../assets/wifi.png";
+import gym from "../assets/gym.png";
+import parking from "../assets/parking.png";
+import visitors from "../assets/visitors.png";
+import waterheater from "../assets/waterheater.png";
+import security from "../assets/security.png";
+import power from "../assets/power.png";
 
 const amenityIcons = {
-  "Gym/Fitness Center": CgGym,
-  "Swimming Pool": MdPool,
-  "Car Park": FaCar,
-  "Visitors Parking": LuParkingCircle,
-  "Power Backup": FaPowerOff,
-  "Garbage Disposal": FaBoxOpen,
+  "Gym/Fitness Center": gym,
+  "Swimming Pool": pool,
+  "Car Park": parking,
+  "Visitors Parking": visitors,
+  "Power Backup": power,
+  "Garbage Disposal": garbage,
   "Private Lawn": PiPark,
-  "Water Heater Plant": FaWater,
-  "Security System": MdOutlineSecurity,
-  "Laundry Service": MdLocalLaundryService,
-  "Elevator": GiElevator,
+  "Water Heater Plant": waterheater,
+  "Security System": security,
+  "Laundry Service": washing,
+  Elevator: GiElevator,
   "Club House": GiGlassCelebration,
 };
 
