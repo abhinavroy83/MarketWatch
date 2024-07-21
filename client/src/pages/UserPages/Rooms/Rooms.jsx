@@ -15,6 +15,24 @@ import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import SkyScrapper from "../../../assets/skyscraper.png";
+import map from "../../../assets/map.png";
+import stayhome from "../../../assets/stay-at-home.png";
+import clock from "../../../assets/clock.png";
+import availability from "../../../assets/availability.png";
+import bathroom1 from "../../../assets/bathroom1.png";
+import gay from "../../../assets/gay.png";
+import pricing from "../../../assets/pricing.png";
+import deposit from "../../../assets/deposit.png";
+import furniture from "../../../assets/furniture.png";
+import schedule from "../../../assets/schedule.png";
+import dietary from "../../../assets/dietary.png";
+import smoke from "../../../assets/smoke.png";
+import dog from "../../../assets/dog.png";
+import name from "../../../assets/name.png";
+import number from "../../../assets/number.png";
+import email from "../../../assets/email.png";
+
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
@@ -612,7 +630,8 @@ function Rooms() {
           </h1>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 border p-5 mt-2">
             <div className="flex gap-2 items-center">
-              <BsBuildingsFill className="" size={35} />
+              {/* <BsBuildingsFill className="" size={35} /> */}
+              <img className="h-10 w-10" src={SkyScrapper} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Property type
@@ -623,7 +642,9 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <FaMapMarkerAlt className="" size={35} />
+              {/* <FaMapMarkerAlt className="" size={35} /> */}
+              <img className="h-10 w-10" src={map} alt="" />
+
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   City
@@ -632,7 +653,9 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <MdOutlineTimer className="" size={35} />
+              {/* <MdOutlineTimer className="" size={35} /> */}
+              <img className="h-10 w-10" src={stayhome} alt="" />
+
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Stay/lease
@@ -643,7 +666,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <LuClock10 size={35} />
+              {/* <LuClock10 size={35} /> */}
+              <img className="h-10 w-10" src={clock} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Avaliblity from
@@ -654,7 +678,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <LuClock3 size={35} />
+              {/* <LuClock3 size={35} /> */}
+              <img className="h-10 w-10" src={clock} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Available to
@@ -665,7 +690,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <IoToday size={35} />
+              {/* <IoToday size={35} /> */}
+              <img className="h-10 w-10" src={schedule} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Day Available
@@ -676,7 +702,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <FaBath size={35} />
+              {/* <FaBath size={35} /> */}
+              <img className="h-10 w-10" src={bathroom1} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Attachted Bath
@@ -687,7 +714,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <BsGenderTrans size={35} />
+              {/* <BsGenderTrans size={35} /> */}
+              <img className="h-10 w-10" src={gay} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Preferred Gender
@@ -702,7 +730,8 @@ function Rooms() {
             <p className="text-black flex">1</p>
             </p></div></div> */}
             <div className="flex gap-2 items-center">
-              <MdOutlinePriceChange size={35} />
+              {/* <MdOutlinePriceChange size={35} /> */}{" "}
+              <img className="h-10 w-10" src={pricing} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Pricemodel
@@ -713,7 +742,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <RiMoneyDollarCircleFill size={35} />
+              {/* <RiMoneyDollarCircleFill size={35} /> */}
+              <img className="h-10 w-10" src={deposit} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Deposit
@@ -724,7 +754,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <MdBedroomParent size={35} />
+              {/* <MdBedroomParent size={35} /> */}
+              <img className="h-10 w-10" src={furniture} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Is room furnished
@@ -735,7 +766,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <GrDocumentTime size={35} />
+              {/* <GrDocumentTime size={35} /> */}
+              <img className="h-10 w-10" src={schedule} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Open house schedule
@@ -773,7 +805,8 @@ function Rooms() {
           </h1>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
             <div className="flex gap-2 items-center">
-              <BiFoodTag size={35} />
+              {/* <BiFoodTag size={35} /> */}
+              <img className="h-10 w-10" src={dietary} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Dietary Preference
@@ -784,7 +817,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <FaSmoking size={35} />
+              {/* <FaSmoking size={35} /> */}
+              <img className="h-10 w-10" src={smoke} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Smoking policy
@@ -795,7 +829,8 @@ function Rooms() {
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              <MdPets size={35} />
+              {/* <MdPets size={35} /> */}
+              <img className="h-10 w-10" src={dog} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Pet friendly
@@ -818,7 +853,8 @@ function Rooms() {
           {authstatus && (
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
               <div className="flex gap-2 items-center">
-                <FaUserAlt size={35} />
+                {/* <FaUserAlt size={35} /> */}
+                <img className="h-10 w-10" src={name} alt="" />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Name
@@ -829,7 +865,8 @@ function Rooms() {
                 </div>
               </div>
               <div className="flex gap-2 items-center">
-                <FaPhoneVolume size={35} />
+                {/* <FaPhoneVolume size={35} /> */}
+                <img className="h-10 w-10" src={number} alt="" />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Phone number
@@ -867,7 +904,8 @@ function Rooms() {
                 </div>
               </div> */}
               <div className="flex gap-2 items-center">
-                <MdOutlineEmail size={35} />
+                {/* <MdOutlineEmail size={35} /> */}
+                <img className="h-10 w-10" src={email} alt="" />
                 <div className="flex flex-col">
                   <p className="text-gray-500 text-[20px]">
                     Email
