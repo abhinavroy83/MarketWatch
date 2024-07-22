@@ -7,6 +7,7 @@ import { BsChatText } from "react-icons/bs";
 import name from "../../../assets/name.png";
 import email from "../../../assets/email.png";
 import number from "../../../assets/number.png";
+import info from "../../../assets/info.png";
 import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 function Conractform({ isOpen, onClose }) {
@@ -51,7 +52,8 @@ function Conractform({ isOpen, onClose }) {
             onClick={onClose}
           />{" "}
           <div className="flex items-center">
-            <FaEnvelopeOpenText className="items-center" size={30} />
+            {/* <FaEnvelopeOpenText className="items-center" size={30} /> */}
+            <img className="h-8 w-8" src={info} alt="" />
             <p className="text-[25px] text-black p-3 font-bold">Your Details</p>
           </div>
           <form

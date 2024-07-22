@@ -33,6 +33,7 @@ import {
   bathroom1,
   stayhome,
 } from "../../../assets/index";
+import gendericon from "../../../assets/gendericon.png";
 import availability from "../../../assets/availability.png";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
@@ -423,7 +424,7 @@ function Rooms() {
                   onClick={makewishlist}
                 >
                   <FaHeart
-                    className="flex lg:w-10 lg:h-10 w-5 h-5"
+                    className="flex lg:w-7 lg:h-7 w-5 h-5"
                     color="#fff"
                     // size={30}
                   />
@@ -706,7 +707,7 @@ function Rooms() {
             </div>
             <div className="flex gap-2 items-center">
               {/* <BsGenderTrans size={35} /> */}
-              <img className="h-10 w-10" src={gay} alt="" />
+              <img className="h-10 w-10" src={gendericon} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Preferred Gender
