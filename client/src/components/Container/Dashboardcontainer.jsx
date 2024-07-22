@@ -169,7 +169,7 @@ function DashConatiner({ children }) {
       )}
       <div className="flex lg:flex-row flex-col">
         <div className="border-gray-300 border">
-          <div className=" w-auto bg-white justify-center  flex flex-col">
+          <div className="w-auto bg-white px-3 mt-4 flex flex-col">
             {/* <svg
             class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
             fill="none"
@@ -183,7 +183,7 @@ function DashConatiner({ children }) {
               d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg> */}
-            <div className="border w-[20rem] p-[1.6rem] mx-2 lg:mx-8 mt-0 lg:mt-4 items-center flex flex-col rounded-lg ">
+            <div className="border w-full p-[1.6rem] self-center mt-2 justify-center items-center flex flex-col rounded-lg ">
               <div className="relative">
                 <img
                   className="rounded-full w-[9.5rem] h-[9.5rem] items-center justify-center cover"
@@ -242,7 +242,7 @@ function DashConatiner({ children }) {
                 {/* <p>{Date.now()}</p> */}
               </div>
             </div>
-            <div className="flex flex-col mt-2 px-[2rem]">
+            <div className="flex flex-col mt-2">
               <button
                 onClick={() => {
                   setbgcolor(true);
