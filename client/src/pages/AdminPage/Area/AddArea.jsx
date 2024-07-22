@@ -11,12 +11,13 @@ import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviat
 import { MdOutlineErrorOutline } from "react-icons/md";
 
 function AddArea({ editdata }) {
-  const [state, setstate] = useState([]);
+  const [stateab, setstateab] = useState("");
   const [selectedstate, setSelectedstate] = useState([]);
   const [primaryState, setPrimaryState] = useState("");
   const [subarea, setSubareas] = useState([]);
   const [subareaInput, setSubareaInput] = useState("");
   const [zipcodeInput, setZipcodeInput] = useState("");
+  const [zipcode, setZipcode] = useState([]);
   const token = useSelector((state) => state.adminauth.token);
   const navigate = useNavigate();
 
@@ -32,11 +33,12 @@ function AddArea({ editdata }) {
     data.state = selectedstate;
     data.primaryState = primaryState;
     data.subarea = subarea;
-    console.log(data);
+    data.zipcode = zipcode;
+    // console.log(data);
     if (editdata) {
       try {
         const res = await axios.put(
-          `https://api.verydesi.com/api/admin/updatearea/${editdata?._id}`,
+          `http://localhost:8000/api/admin/updatearea/${editdata?._id}`,
           data,
           {
             headers: {
@@ -59,7 +61,7 @@ function AddArea({ editdata }) {
     } else {
       try {
         const res = await axios.post(
-          `https://api.verydesi.com/api/admin/postcity`,
+          `http://localhost:8000/api/admin/postcity`,
           data,
           {
             headers: {
@@ -84,6 +86,9 @@ function AddArea({ editdata }) {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
+    const abbreviation = stateAbbreviations[selectedState];
+    const stateAndAbbreviation = `${selectedState},${abbreviation}`;
+
     if (!selectedstate.includes(selectedState)) {
       setSelectedstate((prevSelectedstate) => [
         ...prevSelectedstate,
@@ -100,10 +105,12 @@ function AddArea({ editdata }) {
       setPrimaryState("");
     }
   };
-
+  //Subarea or cities is same here
   const handleAddSubarea = () => {
-    if (subareaInput.trim() && !subarea.includes(subareaInput.trim())) {
-      setSubareas((prevSubareas) => [...prevSubareas, subareaInput.trim()]);
+    const abbreviation = stateAbbreviations[stateab];
+    const cities = `${subareaInput},${abbreviation}`;
+    if (cities) {
+      setSubareas((prevSubareas) => [...prevSubareas, cities]);
       setSubareaInput("");
     }
   };
@@ -114,6 +121,16 @@ function AddArea({ editdata }) {
     );
   };
 
+  const handleAddzipcode = () => {
+    if (zipcode) {
+      setZipcode((prvs) => [...prvs, zipcodeInput]);
+      setZipcodeInput("");
+    }
+  };
+  const removezipcode = (zip) => {
+    setZipcode((prvs) => prvs.filter((item) => item !== zip));
+  };
+
   const setAsPrimaryState = (state) => {
     setPrimaryState(state);
   };
@@ -122,6 +139,7 @@ function AddArea({ editdata }) {
     register("state");
     register("primaryState");
     register("subarea");
+    register("zipcode");
   }, [register]);
 
   useEffect(() => {
@@ -131,9 +149,11 @@ function AddArea({ editdata }) {
       setValue("primaryState", editdata.primaryState || "");
       setValue("area", editdata.area || "");
       setValue("subarea", editdata.subarea || "");
+      setValue("zipcode", editdata.zipcode || "");
       setSelectedstate(editdata.state || []);
       setPrimaryState(editdata.primaryState || "");
       setSubareas(editdata.subarea || []);
+      setZipcode(editdata.zipcode || []);
     }
   }, [editdata, setValue]);
 
@@ -141,7 +161,8 @@ function AddArea({ editdata }) {
     setValue("state", selectedstate);
     setValue("primaryState", primaryState);
     setValue("subarea", subarea);
-  }, [selectedstate, primaryState, subarea, setValue]);
+    setValue("zipcode", zipcode);
+  }, [selectedstate, primaryState, subarea, setValue, zipcode]);
 
   return (
     <div>
@@ -240,10 +261,12 @@ function AddArea({ editdata }) {
               <input
                 className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
+                required="true"
                 {...register("area")}
                 placeholder="Type Area here"
               />
             </div>
+            {/* previosuly we named this as subarea ,now its cities  */}
             <div className="flex items-center">
               <label
                 className="min-w-[160px] text-[18px] ml-[4.5rem]"
@@ -258,9 +281,11 @@ function AddArea({ editdata }) {
                 onChange={(e) => setSubareaInput(e.target.value)}
                 placeholder="Type subarea here"
               />
-              <select>
+              <select onChange={(e) => setstateab(e.target.value)}>
                 {selectedstate.map((item) => (
-                  <option value="item">{item}</option>
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
 
@@ -301,18 +326,36 @@ function AddArea({ editdata }) {
               <input
                 className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
-                // value={subareaInput}
-                // onChange={(e) => setSubareaInput(e.target.value)}
+                value={zipcodeInput}
+                onChange={(e) => setZipcodeInput(e.target.value)}
                 placeholder="Type subarea here"
               />
 
               <button
                 type="button"
-                // onClick={handleAddSubarea}
+                onClick={handleAddzipcode}
                 className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
               >
                 Add
               </button>
+            </div>
+            <div className="flex flex-wrap text-[17px] text-red-600 items-center">
+              {zipcode?.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center bg-gray-200 rounded-md px-1"
+                >
+                  <MdOutlineErrorOutline />
+                  <span className="mr-2">{item}</span>
+                  <button
+                    type="button"
+                    onClick={() => removezipcode(item)}
+                    className="text-black"
+                  >
+                    x
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
 

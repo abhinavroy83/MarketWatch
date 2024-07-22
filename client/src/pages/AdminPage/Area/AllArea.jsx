@@ -61,7 +61,7 @@ function AllArea() {
 
   useEffect(() => {
     const filtercity = data.filter((item) => item.country === selectedcountry);
-    // console.log(filtercity.area);
+
     const uniquecity = [...new Set(filtercity.map((item) => item.area))];
     setFiltercity(uniquecity);
   }, [selectedcountry]);
@@ -70,9 +70,11 @@ function AllArea() {
     const filterstate = data.filter((item) => item.area === selectedCity);
     if (filterstate.length > 0 && filterstate[0]?.subarea) {
       setFiltersub(filterstate[0]?.subarea);
+      setfilterpin(filterstate[0]?.zipcode);
       // console.log("Filtered subarea:", filterstate[0]?.subarea);
     } else {
       setFiltersub([]);
+      setfilterpin([]);
       console.log("Filtered subarea not found or undefined.");
     }
 
@@ -249,6 +251,25 @@ function AllArea() {
                 <ul className="rounded-sm text-[20px] flex flex-col ">
                   {Filteresub.length > 0 &&
                     Filteresub.map((item, index) => (
+                      <li
+                        key={index}
+                        className=" border-red-600 border-2 rounded-md"
+                      >
+                        {item}
+                        {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col border-2 w-[15rem]">
+              <div className="border-2 border-gray-400 ">
+                <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
+                  List of zipcode
+                </p>
+                <ul className="rounded-sm text-[20px] flex flex-col ">
+                  {filterpin.length > 0 &&
+                    filterpin.map((item, index) => (
                       <li
                         key={index}
                         className=" border-red-600 border-2 rounded-md"
