@@ -4,7 +4,12 @@ import { DashConatiner } from "../../components";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import settings from "../../assets/settings.png";
+import rooms from "../../assets/rooms.png";
+import job1 from "../../assets/job1.png";
+import event from "../../assets/event.png";
+import movie from "../../assets/movie.png";
+import work from "../../assets/work.png";
 function User() {
   const username = useSelector((state) => state.auth.user);
   // console.log(username);
@@ -27,16 +32,16 @@ function User() {
       <h1 className="text-[25px] text-center font-bold text-[#232f3e] mt-7 font-['udemy-regular']">
         Welcome Back {username}
       </h1>
-      <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">
+      <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 lg:mt-10 max-w-[860px] font-['udemy-regular']">
         <Link to={`/dashboard/profile/${userID}`}>
           <div className="">
-            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
               <img
-                className="w-[3rem] h-15"
-                src={`https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg`}
+                className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                src={settings}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000]">
                 Settings
               </h1>
             </div>
@@ -44,50 +49,50 @@ function User() {
         </Link>
         <Link to={`/user/room/${userID}`}>
           <div className="">
-            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
               <img
-                className="w-[4.9rem] h-15"
-                src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
+                className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                src={rooms}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
                 Rooms
               </h1>
             </div>
           </div>
         </Link>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
             <img
-              className="w-[4.9rem] h-15"
-              src={`https://cdn-icons-png.flaticon.com/512/3688/3688609.png`}
+              className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+              src={job1}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
               Jobs
             </h1>
           </div>
         </div>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
             <img
-              className="w-[6.4rem] h-13"
-              src={`https://img.freepik.com/premium-vector/upcoming-events-announcement-megaphone-label-loudspeaker-speech-bubble_123447-5297.jpg`}
+              className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+              src={event}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
               Events
             </h1>
           </div>
         </div>
         <div className="" onClick={notify}>
-          <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+          <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
             <img
-              className="w-[4.9rem] h-15"
-              src={`https://www.freeiconspng.com/thumbs/movie-icon/movie-icon-6.png`}
+              className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+              src={movie}
               alt="logo"
             />
-            <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
               Movies
             </h1>
           </div>
@@ -97,13 +102,13 @@ function User() {
           // to={`/user/bussiness/${userID}`}
         >
           <div className="">
-            <div className="bg-white text-center border flex flex-col items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[170px]">
+            <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[120px] lg:h-[170px]">
               <img
-                className="w-[4.9rem] h-15"
-                src={`https://freepngimg.com/download/business/70298-management-business-icons-consultant-company-social-marketing.png`}
+                className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                src={work}
                 alt="logo"
               />
-              <h1 className="text-[22px] text-center font-bold text-[#000] mt-3 font-['udemy-regular']">
+              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
                 Business
               </h1>
             </div>
