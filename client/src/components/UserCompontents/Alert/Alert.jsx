@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 function Alert({ close }) {
   const [isOpen, setIsOpen] = useState(true);
-  const [remainingTime, setRemainingTime] = useState(100); 
+  const [remainingTime, setRemainingTime] = useState(100);
 
   useEffect(() => {
     const totalTime = 5000;
@@ -19,7 +19,7 @@ function Alert({ close }) {
       } else {
         setRemainingTime(percentageLeft);
       }
-    }, 100); 
+    }, 100);
 
     return () => {
       clearInterval(intervalId);
@@ -28,7 +28,6 @@ function Alert({ close }) {
 
   const handleClose = () => {
     setIsOpen(false);
-   
   };
 
   if (!isOpen) return null;
@@ -36,9 +35,9 @@ function Alert({ close }) {
   return (
     <div
       role="alert"
-      className="fixed top-4 right-4 rounded-xl border border-gray-100 bg-white p-4 z-50"
+      className="fixed top-[7rem] right-4 rounded-xl border border-gray-100 bg-green-100 p-4 z-50"
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         <span className="text-green-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +57,7 @@ function Alert({ close }) {
 
         <div className="flex-1">
           <strong className="block font-medium text-gray-900">
-            Welocome! Successfully loged
+            Welcome! Successfully loged
           </strong>
 
           {/* <p className="mt-1 text-sm text-gray-700">
@@ -68,7 +67,7 @@ function Alert({ close }) {
 
         <button
           onClick={handleClose}
-          className="text-gray-500 transition hover:text-gray-600"
+          className="text-gray-900 transition hover:text-gray-600"
         >
           <span className="sr-only">Dismiss popup</span>
 
@@ -78,7 +77,7 @@ function Alert({ close }) {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-6 w-6"
+            className="h-5 w-5"
           >
             <path
               strokeLinecap="round"
@@ -89,11 +88,11 @@ function Alert({ close }) {
         </button>
       </div>
       <div
-        className="absolute bottom-0 left-0 bg-green-400"
+        className="absolute bottom-0 left-0 bg-green-500 rounded-sm"
         style={{
           height: "4px",
           width: `${remainingTime}%`, // Adjusting width dynamically
-          transition: "width 0.1s ease-out", // Smooth transition
+          transition: "width 0.6s ease-out", // Smooth transition
         }}
       />
     </div>

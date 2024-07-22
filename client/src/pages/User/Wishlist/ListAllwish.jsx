@@ -131,7 +131,7 @@ function ListAllwish() {
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
-          <p className="text-[1.5rem] p-2 text-white font-['udemy-regular'] bg-[#232f3e] w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
+          <p className="text-[1.5rem] p-2 text-black font-['udemy-regular'] bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
             <FaHeart size={25} /> Favorites
           </p>
         </div>
