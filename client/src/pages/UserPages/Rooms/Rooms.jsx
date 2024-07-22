@@ -647,7 +647,7 @@ function Rooms() {
             <div className="flex gap-2 items-center">
               {/* <LuClock10 size={35} /> */}
               <img className="h-10 w-10" src={clock} alt="" />
-              <div className="flex">map, SkyScrapper, stayhome, clock
+              <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Avaliblity from
                   <p className="text-black flex text-[18px]">
