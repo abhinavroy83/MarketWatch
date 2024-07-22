@@ -14,6 +14,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CgGenderMale } from "react-icons/cg";
 import { TbGenderFemale } from "react-icons/tb";
 import Loader from "../../../components/UserCompontents/Loader";
+import male from "../../../assets/male.png";
+import female2 from "../../../assets/female2.png";
+import any from "../../../assets/any.png";
 
 const libraries = ["places"];
 
@@ -413,7 +416,7 @@ function Addrooms({ editdata }) {
             <div className="w-full items-center">
               <div className="flex mt-5">
                 <label
-                  className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Title<span className=" text-red-500">*</span>
@@ -438,14 +441,14 @@ function Addrooms({ editdata }) {
 
               <div className="mt-5 flex">
                 <label
-                  className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Description<span className=" text-red-500">*</span>
                 </label>
                 <div className="">
                   <textarea
-                    className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-20 w-[220px] lg:w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     name="description"
                     placeholder="Description"
                     {...register("Description", {
@@ -465,7 +468,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-4">
                 <label
-                  className=" w-[260px] lg:w-[266px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Property Type<span className=" text-red-500">*</span>
@@ -507,7 +510,7 @@ function Addrooms({ editdata }) {
               <div className="flex mt-5">
                 <label
                   htmlFor=""
-                  className="w-[128px] lg:w-[275px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[275px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                 >
                   Stay/Lease<span className=" text-red-500">*</span>
                 </label>
@@ -555,7 +558,7 @@ function Addrooms({ editdata }) {
 
               <div className="mt-5 flex text-[1.1rem]">
                 <label
-                  className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Price Model<span className=" text-red-500">*</span>
@@ -605,7 +608,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className="w-[366px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Rent<span className=" text-red-500">*</span>
@@ -648,9 +651,9 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-4 gap-5 text-[1.1rem]">
+              <div className="flex mt-4 lg:gap-5  text-[1.1rem]">
                 <label
-                  className="w-[246px] lg:w-[245px] flex gap-1 font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:inline-block"
+                  className="w-[118px] lg:w-[245px] flex gap-1 font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:inline-block"
                   htmlFor=""
                 >
                   Availability<span className="text-red-500">*</span>
@@ -711,9 +714,9 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-5 text-[1.1rem] gap-[2.2rem] lg:gap-20">
+              <div className="flex mt-5 text-[1.1rem] lg:gap-20">
                 <label
-                  className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Separate Bathroom<span className="text-red-500">*</span>
@@ -779,9 +782,9 @@ function Addrooms({ editdata }) {
                 </div>
               </div>
 
-              <div className="flex mt-5 text-[1.1rem] gap-[3rem] lg:gap-20">
+              <div className="flex mt-5 text-[1.1rem] lg:gap-20">
                 <label
-                  className="w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Preferred Gender<span className="text-red-500">*</span>
@@ -798,11 +801,7 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center gap-1">
                         Male
-                        <img
-                          className="w-5 h-5"
-                          src={`https://static.vecteezy.com/system/resources/previews/017/178/570/original/male-symbol-isolated-icon-on-transparent-background-free-png.png`}
-                          alt="logo"
-                        />
+                        <img className="h-5 w-5" src={male} alt="" />
                       </p>
                     </div>
                     <div className="flex items-center gap-1">
@@ -815,11 +814,7 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center">
                         Female
-                        <img
-                          className="w-5 h-5"
-                          src={`https://th.bing.com/th/id/R.1aea569e5445749d245b1dafe88aceb1?rik=duC79JxhKgHKSA&riu=httpfemale-symbol-transparent-5.png&ehk=3Nz1Zx0ol8BnZKZZLEarwiLHRGPiQBTA9EkJ%2b2%2b9Y%2bA%3d&risl=&pid=ImgRaw&r=0`}
-                          alt="logo"
-                        />{" "}
+                        <img className="h-4 w-4" src={female2} alt="" />
                       </p>
                     </div>
                     <div className="flex gap-1 items-center">
@@ -832,11 +827,7 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center gap-1">
                         Any
-                        <img
-                          className="w-6 h-6"
-                          src={`https://th.bing.com/th/id/R.4ce35e0c60e819c849bd95b9eb74e759?rik=55m8E7sNenQhvQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fGender-Symbol-PNG-Free-Download.png&ehk=5R2DPMpY54MPw4g17Q47uY7EXmDBexZa4wVXcXe1KiU%3d&risl=&pid=ImgRaw&r=0`}
-                          alt="logo"
-                        />{" "}
+                        <img className="h-5 w-5" src={any} alt="" />
                       </p>
                     </div>
                   </div>
@@ -851,7 +842,7 @@ function Addrooms({ editdata }) {
               {preferredGender && (
                 <div className="flex mt-5 gap-[3rem] lg:gap-20 text-[1.1rem]">
                   <label
-                    className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor="couples_welcome"
                   >
                     Couples Welcome
@@ -890,7 +881,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className="w-[366px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Deposit
@@ -912,7 +903,7 @@ function Addrooms({ editdata }) {
 
               <div className="mt-5 text-[1.1rem] items-center flex">
                 <label
-                  className=" w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className=" w-[118px] lg:w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Is room/ furnished?
@@ -933,13 +924,13 @@ function Addrooms({ editdata }) {
 
               <div className=" flex mt-5 text-[1.1rem]">
                 <label
-                  className="w-[369px] lg:w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className=" w-[118px] lg:w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Amenities include
                 </label>
 
-                <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[660px] lg:w-[980px]">
+                <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[980px]">
                   <div className=" flex gap-1">
                     <input
                       // className="px-3 py-2 text-black mr-1 "
@@ -1232,7 +1223,7 @@ function Addrooms({ editdata }) {
                 <p className="text-[1.2rem] mt-5 font-bold">Your Details:-</p>
                 <div className="flex items-center">
                   <label
-                    className="mt-2 lg:w-[270px] w-[110px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="mt-2 lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Name
@@ -1247,7 +1238,7 @@ function Addrooms({ editdata }) {
                 </div>
                 <div className="mt-5 flex">
                   <label
-                    className="lg:w-[270px] w-[110px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Email
@@ -1262,7 +1253,7 @@ function Addrooms({ editdata }) {
                 </div>
                 <div className="mt-5 text-[1.1rem] flex">
                   <label
-                    className="lg:w-[270px] w-[110px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    className="lg:w-[270px] w-[118px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Phone Number<span className=" text-red-500">*</span>
@@ -1278,7 +1269,7 @@ function Addrooms({ editdata }) {
               </div>
               <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className="lg:w-[270px] w-[110px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="lg:w-[270px] w-[118px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Address<span className=" text-red-500">*</span>
@@ -1313,7 +1304,7 @@ function Addrooms({ editdata }) {
               </div>
               <div className="flex text-[1.1rem]">
                 <label
-                  className="text-[1.1rem] text-white w-[110px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[1.1rem] text-white w-[118px] lg:w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   City
