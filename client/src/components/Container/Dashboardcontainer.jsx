@@ -183,7 +183,7 @@ function DashConatiner({ children }) {
               d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg> */}
-            <div className="border w-full p-[1.6rem] self-center mt-2 justify-center items-center flex flex-col rounded-lg ">
+            <div className="border w-full p-[1.6rem] self-center justify-center items-center flex flex-col rounded-lg ">
               <div className="relative">
                 <img
                   className="rounded-full w-[9.5rem] h-[9.5rem] items-center justify-center cover"
