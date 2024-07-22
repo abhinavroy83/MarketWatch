@@ -27,8 +27,10 @@ function Profile() {
   const [userimgs, setuserimg] = useState("");
   const dispatch = useDispatch();
   const isverified = useSelector((state) => state.auth.isverified);
-
+  const [showPasswordInput, setShowPasswordInput] = useState(false);
+  const [password, setPassword] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
+  const [isPasswordVerified, setIsPasswordVerified] = useState(false);
   // const imgg = useSelector((state) => state.auth.userimg);
 
   const fetchuser = async () => {
@@ -182,6 +184,24 @@ function Profile() {
 
   const cancelDelete = () => {
     setShowConfirm(false);
+  };
+
+  const handlePasswordVerification = async () => {
+    try {
+      const verifyResponse = await axios.post(
+        `http://localhost:8000/user/verifypassword`,
+        { userID, password }
+      );
+
+      if (verifyResponse.data.success) {
+        setIsPasswordVerified(true);
+      } else {
+        alert("Incorrect password. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -637,12 +657,41 @@ function Profile() {
             </p>
 
             <p
-              onClick={handleDelete}
-              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring"
+              onClick={() => {
+                setShowPasswordInput(true);
+              }}
+              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition  focus:outline-none focus:ring"
               href="#"
             >
               Delete Account
             </p>
+            {showPasswordInput && (
+              <div>
+                <input
+                  type="password"
+                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                />
+                {!isPasswordVerified && (
+                  <p
+                    onClick={handlePasswordVerification}
+                    className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition focus:outline-none focus:ring"
+                  >
+                    Verify Password
+                  </p>
+                )}
+                {isPasswordVerified && (
+                  <p
+                    onClick={handleDelete}
+                    className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition focus:outline-none focus:ring"
+                  >
+                    Delete Account
+                  </p>
+                )}
+              </div>
+            )}
           </div>
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-['udemy-regular'] ml-2 text-red-700">
