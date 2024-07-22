@@ -357,7 +357,7 @@ function Addrooms({ editdata }) {
 
   return (
     <div className="w-full mx-auto mt-[9rem] items-center lg:mt-[7%]">
-      <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
+      <div className="w-full lg:max-w-[1400px] md:max-w-sm mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-4 lg:mx-20">
           <form
             onSubmit={handleSubmit(onsubmit)}
@@ -719,7 +719,7 @@ function Addrooms({ editdata }) {
                   Separate Bathroom<span className="text-red-500">*</span>
                 </label>
                 <div>
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-[976px]">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
                     <div className="flex gap-1 items-center">
                       <input
                         type="radio"
@@ -748,7 +748,7 @@ function Addrooms({ editdata }) {
                   )}
 
                   {selectedBathroom === "Yes" && (
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-[976px] mt-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
                       <div className="flex gap-1 items-center">
                         <input
                           type="radio"
@@ -787,7 +787,7 @@ function Addrooms({ editdata }) {
                   Preferred Gender<span className="text-red-500">*</span>
                 </label>
                 <div>
-                  <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 w-[976px]">
+                  <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
                     <div className="flex gap-1 items-center">
                       <input
                         type="radio"
