@@ -781,7 +781,7 @@ function Addrooms({ editdata }) {
 
               <div className="flex mt-5 text-[1.1rem] gap-[3rem] lg:gap-20">
                 <label
-                  className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Preferred Gender<span className="text-red-500">*</span>
@@ -1278,7 +1278,7 @@ function Addrooms({ editdata }) {
               </div>
               <div className="flex mt-5 text-[1.1rem]">
                 <label
-                  className="lg:w-[270px] w-[210px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="lg:w-[270px] w-[110px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   Address<span className=" text-red-500">*</span>
@@ -1313,7 +1313,7 @@ function Addrooms({ editdata }) {
               </div>
               <div className="flex text-[1.1rem]">
                 <label
-                  className="text-[1.1rem] text-white w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  className="text-[1.1rem] text-white w-[110px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                   htmlFor=""
                 >
                   City
