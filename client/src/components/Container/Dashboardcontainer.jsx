@@ -208,8 +208,8 @@ function DashConatiner({ children }) {
           </div> */}
             </div>
             <div className="text-center text-black text-[1.1rem]">
-              <p className="text-[1.8rem] font-bold">Sam</p>
-              <p className="text-gray-600">Address</p>
+              <p className="text-[1.8rem] font-bold">{data.firstName}</p>
+              <p className="text-gray-600">{data.address}</p>
               <div className="flex gap-6 mt-4">
                 <div className="flex flex-col items-center gap-2 text-gray-700">
                   <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
@@ -218,7 +218,7 @@ function DashConatiner({ children }) {
                   <p className="text-gray-500 text-[0.9rem]">Edit Profile</p>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-gray-700">
-                  <div className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
+                  <div className="bg-gray-200 rounded-full cursor-pointer w-[3rem] h-[3rem] items-center justify-center flex">
                     <input
                       type="file"
                       ref={fileInputRef}

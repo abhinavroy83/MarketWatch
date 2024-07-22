@@ -171,38 +171,42 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
         </p>
-        <div className="absolute bottom-3 right-4">
-          {!wishliststatys ? (
-            <div
-              className="cursor-pointer p-2 hover:text-white"
-              onClick={(e) => {
-                e.preventDefault();
-                makewishlist(item._id);
-              }}
-            >
-              <FaHeart
-                className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
-                size={25}
-              />
-            </div>
-          ) : (
-            <div
-              className="cursor-pointer p-2"
-              onClick={(e) => {
-                e.preventDefault();
-                unwish(item._id);
-              }}
-            >
-              <FaHeart
-                className="border p-1 rounded-full"
-                color="red"
-                size={25}
-              />
-            </div>
-          )}
-        </div>
+        {auth && (
+          <div className="absolute bottom-3 right-4">
+            {!wishliststatys ? (
+              <div
+                className="cursor-pointer p-2 hover:text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  makewishlist(item._id);
+                }}
+              >
+                <FaHeart
+                  className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
+                  size={25}
+                />
+              </div>
+            ) : (
+              <div
+                className="cursor-pointer p-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  unwish(item._id);
+                }}
+              >
+                <FaHeart
+                  className="border p-1 rounded-full"
+                  color="red"
+                  size={25}
+                />
+              </div>
+            )}
+          </div>
+        )}
         <img
-          className="flex absolute bottom-[1.4rem] right-[3.2rem] items-center"
+          className={`flex absolute bottom-[1.4rem]  items-center ${
+            auth ? "right-[3.2rem]" : "right-[1rem]"
+          }`}
           height={15}
           width={20}
           src={

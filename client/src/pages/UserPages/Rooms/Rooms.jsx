@@ -15,24 +15,25 @@ import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import SkyScrapper from "../../../assets/skyscraper.png";
-import map from "../../../assets/map.png";
-import stayhome from "../../../assets/stay-at-home.png";
-import clock from "../../../assets/clock.png";
+import {
+  SkyScrapper,
+  email,
+  number,
+  name,
+  dog,
+  smoke,
+  dietary,
+  schedule,
+  furniture,
+  clock,
+  deposit,
+  pricing,
+  gay,
+  map,
+  bathroom1,
+  stayhome,
+} from "../../../assets/index";
 import availability from "../../../assets/availability.png";
-import bathroom1 from "../../../assets/bathroom1.png";
-import gay from "../../../assets/gay.png";
-import pricing from "../../../assets/pricing.png";
-import deposit from "../../../assets/deposit.png";
-import furniture from "../../../assets/furniture.png";
-import schedule from "../../../assets/schedule.png";
-import dietary from "../../../assets/dietary.png";
-import smoke from "../../../assets/smoke.png";
-import dog from "../../../assets/dog.png";
-import name from "../../../assets/name.png";
-import number from "../../../assets/number.png";
-import email from "../../../assets/email.png";
-
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
@@ -45,30 +46,8 @@ import maleLogo from "../../../assets/male.jpeg";
 import { CgSmartHomeWashMachine } from "react-icons/cg";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { MdSubtitles } from "react-icons/md";
-import { MdInsertComment } from "react-icons/md";
 import { BsBuildingsFill } from "react-icons/bs";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { MdOutlineTimer } from "react-icons/md";
-import { LuClock10 } from "react-icons/lu";
-import { LuClock3 } from "react-icons/lu";
-import { IoToday } from "react-icons/io5";
-import { FaBath } from "react-icons/fa6";
-import { BsGenderTrans } from "react-icons/bs";
-import { MdOutlineMeetingRoom } from "react-icons/md";
-import { MdOutlinePriceChange } from "react-icons/md";
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
-import { MdBedroomParent } from "react-icons/md";
 import { MdRoomPreferences } from "react-icons/md";
-import { BiFoodTag } from "react-icons/bi";
-import { FaSmoking } from "react-icons/fa6";
-import { MdPets } from "react-icons/md";
-import { GrDocumentTime } from "react-icons/gr";
-import { FaUserAlt } from "react-icons/fa";
-import { FaPhoneVolume } from "react-icons/fa6";
-import { FaAddressCard } from "react-icons/fa";
-import { BiSolidMessageRoundedDots } from "react-icons/bi";
-import { MdOutlineEmail } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
 import { GiEntryDoor } from "react-icons/gi";
 import { MdAddBusiness } from "react-icons/md";
@@ -103,7 +82,7 @@ function Rooms() {
         `https://api.verydesi.com/api/getspecificroom/${_id}`
       );
       setrooms(res.data.rooms);
-      console.log(res.data.rooms);
+      // console.log(res.data.rooms);
       const loc = {
         lat: res.data.rooms.location.coordinates[1],
         lng: res.data.rooms.location.coordinates[0],

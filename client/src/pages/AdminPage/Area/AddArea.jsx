@@ -227,7 +227,7 @@ function AddArea({ editdata }) {
                     onClick={() => setAsPrimaryState(item)}
                     className="text-black"
                   >
-                    {primaryState === item ? "Primary" : "Primary state"}
+                    {primaryState === item ? "Primary" : "Choose as Primary"}
                   </button>
                 </div>
               ))}
@@ -249,15 +249,21 @@ function AddArea({ editdata }) {
                 className="min-w-[160px] text-[18px] ml-[4.5rem]"
                 htmlFor="subarea"
               >
-                Subarea
+                Cities
               </label>
               <input
-                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 font-roboto w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 value={subareaInput}
                 onChange={(e) => setSubareaInput(e.target.value)}
                 placeholder="Type subarea here"
               />
+              <select>
+                {selectedstate.map((item) => (
+                  <option value="item">{item}</option>
+                ))}
+              </select>
+
               <button
                 type="button"
                 onClick={handleAddSubarea}
@@ -284,6 +290,29 @@ function AddArea({ editdata }) {
                   </button>
                 </div>
               ))}
+            </div>
+            <div className="flex items-center">
+              <label
+                className="min-w-[160px] text-[18px] ml-[4.5rem]"
+                htmlFor="zipcode"
+              >
+                Zip & Codes
+              </label>
+              <input
+                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                type="text"
+                // value={subareaInput}
+                // onChange={(e) => setSubareaInput(e.target.value)}
+                placeholder="Type subarea here"
+              />
+
+              <button
+                type="button"
+                // onClick={handleAddSubarea}
+                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
+              >
+                Add
+              </button>
             </div>
           </div>
 
@@ -327,4 +356,3 @@ function AddArea({ editdata }) {
 }
 
 export default AddArea;
-
