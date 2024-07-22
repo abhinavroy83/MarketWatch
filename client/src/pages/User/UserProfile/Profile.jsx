@@ -391,7 +391,7 @@ function Profile() {
                       type="file"
                       accept="image/*"
                       onChange={handleimgchange}
-                      class="cursor-pointer relative block opacity-0 h-full p-20 z-0"
+                      class="cursor-pointer relative block opacity-0 h-full w-full p-20 z-50"
                     />
                     <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
                       <h4>

@@ -548,7 +548,6 @@ function Addrooms({ editdata }) {
                     </div>
                   </div>
                   <p className="text-[16px] mt-1 text-red-500">
-                    {" "}
                     {errors.Stay_lease && <p>{errors.Stay_lease.message}</p>}
                   </p>
                 </div>

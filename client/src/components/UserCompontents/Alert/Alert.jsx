@@ -92,8 +92,8 @@ function Alert({ close }) {
         className="absolute bottom-0 left-0 bg-green-400"
         style={{
           height: "4px",
-          width: `${remainingTime}%`, // Adjusting width dynamically
-          transition: "width 0.1s ease-out", // Smooth transition
+          width: `${remainingTime}%`, 
+          transition: "width 0.1s ease-out",
         }}
       />
     </div>
