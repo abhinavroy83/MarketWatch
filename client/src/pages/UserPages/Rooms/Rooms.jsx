@@ -279,7 +279,7 @@ function Rooms() {
         <img
           src={item?.original}
           alt=""
-          className="h-[560px] w-[880px] rounded-md object-cover"
+          className="lg:h-[560px] w-[880px] rounded-md object-cover"
         />
       </div>
     ),
@@ -356,14 +356,11 @@ function Rooms() {
                     disabled={!hasNextRoom}
                   >
                     <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
-                      <MdKeyboardDoubleArrowLeft
-                        size={45}
-                        className="text-white flex"
-                      />
+                      <MdKeyboardDoubleArrowLeft className="text-white flex lg:w-10 lg:h-10 w-7 h-7" />
                       <button
                         // type="submit"
                         // disabled={!hasPreviousRoom}
-                        className="flex text-[22px] items-center text-white font-bold px-2 pl-0"
+                        className="flex lg:text-[22px] text-[17px] items-center text-white font-bold px-2 pl-0"
                       >
                         PREV
                       </button>
@@ -384,13 +381,13 @@ function Rooms() {
                   <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                     <button
                       // type="submit"
-                      className="flex text-[22px] items-center text-white font-bold"
+                      className="flex lg:text-[22px] text-[17px] items-center text-white font-bold"
                     >
                       NEXT
                     </button>
                     <MdKeyboardDoubleArrowRight
-                      size={45}
-                      className="flex text-[22px] items-center text-white font-bold"
+                      // size={45}
+                      className="text-white flex lg:w-10 lg:h-10 w-7 h-7"
                     />
                   </button>
                 </div>
@@ -422,21 +419,33 @@ function Rooms() {
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
-                  className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600"
+                  className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600 "
                   onClick={makewishlist}
                 >
-                  <FaHeart color="#fff" size={30} />
+                  <FaHeart
+                    className="flex lg:w-10 lg:h-10 w-5 h-5"
+                    color="#fff"
+                    // size={30}
+                  />
                 </div>
               ) : (
                 <div
                   className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
                   onClick={unwish}
                 >
-                  <FaHeart color="#fff" size={30} />
+                  <FaHeart
+                    className=" flex lg:w-7 lg:h-7 w-5 h-5"
+                    color="#fff"
+                    // size={30}
+                  />
                 </div>
               )}
               <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
-                <BiSolidMessageRounded color="#fff" size={30} />
+                <BiSolidMessageRounded
+                  className="flex lg:w-7 lg:h-7 w-5 h-5"
+                  color="#fff"
+                  // size={30}
+                />
               </div>
               {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
@@ -446,9 +455,10 @@ function Rooms() {
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="rounded-md justify-between bg-gray-400 gap-2 px-5 py-2 text-[19px] flex items-center text-black shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md justify-between bg-gray-400 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[20px] flex items-center text-black shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <FaShare className="text-black" /> Share
+                <FaShare className="text-black flex lg:w-5 lg:h-5 w-4 h-4" />
+                Share
               </button>
 
               {isSharePopupOpen && (
@@ -495,15 +505,17 @@ function Rooms() {
             <div className="">
               <div className="flex justify-between">
                 <p className="font-bold flex gap-3">
-                  <div className="text-[27px]">
+                  <div className="text-[1.2rem] lg:text-[30px]">
                     <div className="flex gap-1 font-bold mt-3 lg:mt-0">
-                      <p className=" capitalize">{rooms.Title}</p>
+                      <p className="text-[1.5rem] lg:text-[27px] capitalize">
+                        {rooms.Title}
+                      </p>
                     </div>
                   </div>
                 </p>
                 {userstatus && (
                   <button
-                    className="flex items-center text-black gap-2 text-[24px]"
+                    className="flex items-center text-black gap-2 text-[1.2rem] lg:text-[24px]"
                     onClick={(e) => {
                       // e.preventDefault();
                       // window.open(`/room/editroom/${_id}`, "_blank");
@@ -555,7 +567,7 @@ function Rooms() {
                   <button
                     type="button"
                     onClick={handleloginmodelopen}
-                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 py-4 lg:text-[19px] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[19px] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     <LuPhoneCall size={25} />
                     <span class="items-center justify-center">
