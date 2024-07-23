@@ -29,7 +29,7 @@ function User() {
         pauseOnHover
         theme="dark"
       />
-      <h1 className="text-[25px] text-center font-bold text-[#232f3e] mt-0 lg:mt-7 font-['udemy-regular']">
+      <h1 className="lg:text-[25px] text-[22px] text-center text-[#232f3e] mt-0 lg:mt-7 font-['udemy-regular']">
         Welcome Back {username}
       </h1>
       <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 lg:mt-10 max-w-[860px] font-['udemy-regular']">
@@ -41,7 +41,7 @@ function User() {
                 src={settings}
                 alt="logo"
               />
-              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000]">
+              <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
                 Settings
               </h1>
             </div>
@@ -55,7 +55,7 @@ function User() {
                 src={rooms}
                 alt="logo"
               />
-              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
+              <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
                 Rooms
               </h1>
             </div>
@@ -68,7 +68,7 @@ function User() {
               src={job1}
               alt="logo"
             />
-            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
               Jobs
             </h1>
           </div>
@@ -80,7 +80,7 @@ function User() {
               src={event2}
               alt="logo"
             />
-            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
               Events
             </h1>
           </div>
@@ -92,7 +92,7 @@ function User() {
               src={movie}
               alt="logo"
             />
-            <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
+            <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
               Movies
             </h1>
           </div>
@@ -108,7 +108,7 @@ function User() {
                 src={work}
                 alt="logo"
               />
-              <h1 className="text-[17px] lg:text-[22px] text-center font-bold text-[#000] font-['udemy-regular']">
+              <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
                 Business
               </h1>
             </div>

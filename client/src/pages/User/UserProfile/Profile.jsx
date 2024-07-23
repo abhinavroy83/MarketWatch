@@ -244,10 +244,10 @@ function Profile() {
               />
             </div>
           )}
-          <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:items-center">
+          <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:items-center lg:text-[1.2rem] text-[1.1rem]">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
               {/* <img src={data.userimg} alt="" /> */}
-              <label className="text-[1.2rem]">First Name </label>
+              <label className="">First Name </label>
               {isedit ? (
                 <input
                   // label="FirstName:"
@@ -261,8 +261,8 @@ function Profile() {
               )}
             </div>
 
-            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
-              <label className="text-[1.2rem] ">Last Name</label>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
+              <label className="">Last Name</label>
               {isedit ? (
                 <input
                   // label="Lastname"
@@ -275,8 +275,8 @@ function Profile() {
                 <p className="text-[1rem]">{data.lastName}</p>
               )}
             </div>
-            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
-              <label className="min-w-[120px] text-[1.2rem]">Email</label>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
+              <label className="min-w-[120px]">Email</label>
               <p className="text-[1rem]">{data.email}</p>
 
               {/* {isedit ? (
@@ -291,9 +291,9 @@ function Profile() {
             )} */}
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-end items-center lg:gap-[1.5rem]">
-            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
-              <label className="text-[1.2rem]">Number</label>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:text-[1.2rem] text-[1.1rem] lg:gap-[1.5rem]">
+            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2">
+              <label className="">Number</label>
               {isedit ? (
                 <input
                   className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -305,7 +305,7 @@ function Profile() {
                 <p className="text-[1.2rem]">{data.phone_number}</p>
               )}
             </div>
-            <div className="items-end mb-[0.4rem]">
+            <div className="ml-2 lg:ml-0 mb-[0.4rem]">
               <button
                 type="button"
                 className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] hover:bg-gray-400 font-bold text-black"
