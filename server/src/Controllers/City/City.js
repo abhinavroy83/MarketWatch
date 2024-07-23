@@ -95,6 +95,21 @@ const getcity = async (req, res) => {
   }
 };
 
+const findzipcode = async (req, res) => {
+  const { zipcode } = req.query;
+  try {
+    const city = await City.findOne({ zipcode: zipcode });
+    if (city) {
+      res.json({ exists: true });
+    } else {
+      res.json({ exists: false });
+    }
+  } catch (error) {
+    console.error("Error checking zipcode:", error);
+    res.status(500).json({ exists: false, error: "Server error" });
+  }
+};
+
 const findsuburbs = async (req, res) => {
   try {
     const { area_name } = req.params;
@@ -131,4 +146,5 @@ module.exports = {
   deletesub,
   updatecity,
   findsuburbs,
+  findzipcode,
 };

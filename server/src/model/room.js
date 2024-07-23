@@ -6,6 +6,7 @@ const roomSchema = mongoose.Schema({
   UserId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   postedon: { type: Date, default: Date.now },
   Title: { type: String },
+  postingincity: { type: String },
   Description: { type: String },
   Propertytype: { type: String },
   city: { type: String },

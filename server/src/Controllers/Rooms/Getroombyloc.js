@@ -5,7 +5,7 @@ const getroombycurrentlocation = async (req, res) => {
     const { lat, lng, city } = req.query;
     let Allrooms;
     if (city) {
-      Allrooms = await Room.find({ city });
+      Allrooms = await Room.find({ postingincity: city });
     } else {
       Allrooms = await Room.find({
         location: {
