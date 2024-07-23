@@ -38,7 +38,7 @@ function AddArea({ editdata }) {
     if (editdata) {
       try {
         const res = await axios.put(
-          `http://localhost:8000/api/admin/updatearea/${editdata?._id}`,
+          `https://api.verydesi.com/api/admin/updatearea/${editdata?._id}`,
           data,
           {
             headers: {
@@ -61,7 +61,7 @@ function AddArea({ editdata }) {
     } else {
       try {
         const res = await axios.post(
-          `http://localhost:8000/api/admin/postcity`,
+          `https://api.verydesi.com/api/admin/postcity`,
           data,
           {
             headers: {
@@ -282,6 +282,9 @@ function AddArea({ editdata }) {
                 placeholder="Type subarea here"
               />
               <select onChange={(e) => setstateab(e.target.value)}>
+                <option value="" disabled selected>
+                  Select State
+                </option>
                 {selectedstate.map((item) => (
                   <option key={item} value={item}>
                     {item}

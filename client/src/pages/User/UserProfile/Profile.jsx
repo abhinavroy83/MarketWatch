@@ -189,7 +189,7 @@ function Profile() {
   const handlePasswordVerification = async () => {
     try {
       const verifyResponse = await axios.post(
-        `http://localhost:8000/user/verifypassword`,
+        `https://api.verydesi.com/user/verifypassword`,
         { userID, password }
       );
 
