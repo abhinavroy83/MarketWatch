@@ -606,7 +606,7 @@ function Rooms() {
         </div> */}
         <div className="border p-3 mt-2">
           <p className=" text-[22px] font-bold px-1">Description -</p>
-          <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize ">
+          <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize text-ellipsis overflow-auto">
             {rooms.Description}
           </p>
         </div>

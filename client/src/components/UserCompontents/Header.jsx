@@ -159,11 +159,10 @@ export default function Header() {
                 className="items-center mt-1 ml-2 flex"
                 onClick={handlehamburger}
               >
-                {" "}
                 <GiHamburgerMenu
                   className="cursor-pointer text-white"
                   size={27}
-                />{" "}
+                />
               </button>
               {openhamburger && (
                 <div className="inline-flex flex-col bg-[#232f3e] p-2 overflow-auto border-2 border-black absolute top-[115%] fit-content w-[230px] left-0">

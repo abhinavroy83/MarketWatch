@@ -226,32 +226,32 @@ function Profile() {
         </p>
       </div>
 
-      <div className="px-10 overflow-y-scroll flex justify-center mt-7 w-[100%]">
+      <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-4 w-[100%]">
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}
         <form onSubmit={handleSubmit(handleclick)} className="w-full">
           {isedit && (
-            <div className="flex flex-col ml-1 gap-1">
+            <div className="flex flex-col p-2 gap-1">
               <label htmlFor="" className="text-[1.2rem]">
                 Your Account belong to{" "}
               </label>
               <input
-                className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 {...register("belongcity")}
                 defaultValue={data.belongcity}
               />
             </div>
           )}
-          <div className="flex [1.2rem] gap-[1rem] items-center">
+          <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:items-center lg:text-[1.2rem] text-[1.1rem]">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
               {/* <img src={data.userimg} alt="" /> */}
-              <label className="text-[1.2rem]">First Name </label>
+              <label className="">First Name </label>
               {isedit ? (
                 <input
                   // label="FirstName:"
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("firstName")}
                   defaultValue={data.firstName}
@@ -261,12 +261,12 @@ function Profile() {
               )}
             </div>
 
-            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
-              <label className="text-[1.2rem] ">Last Name</label>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
+              <label className="">Last Name</label>
               {isedit ? (
                 <input
                   // label="Lastname"
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("lastName")}
                   defaultValue={data.lastName}
@@ -275,8 +275,8 @@ function Profile() {
                 <p className="text-[1rem]">{data.lastName}</p>
               )}
             </div>
-            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
-              <label className="min-w-[120px] text-[1.2rem]">Email</label>
+            <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
+              <label className="min-w-[120px]">Email</label>
               <p className="text-[1rem]">{data.email}</p>
 
               {/* {isedit ? (
@@ -291,12 +291,12 @@ function Profile() {
             )} */}
             </div>
           </div>
-          <div className="flex items-end gap-[1.5rem]">
-            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
-              <label className="text-[1.2rem]">Number</label>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:text-[1.2rem] text-[1.1rem] lg:gap-[1.5rem]">
+            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2">
+              <label className="">Number</label>
               {isedit ? (
                 <input
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
                   {...register("number")}
                   defaultValue={data.phone_number}
@@ -305,10 +305,10 @@ function Profile() {
                 <p className="text-[1.2rem]">{data.phone_number}</p>
               )}
             </div>
-            <div className="items-end mb-[0.4rem]">
+            <div className="ml-2 lg:ml-0 mb-[0.4rem]">
               <button
                 type="button"
-                className=" bg-gray-300 px-6 py-2 text-[1rem] w-[340px] hover:bg-gray-400 font-bold text-black"
+                className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] hover:bg-gray-400 font-bold text-black"
               >
                 Change Password
               </button>
@@ -320,12 +320,12 @@ function Profile() {
               Save Updates
             </button> */}
           </div>
-          <div className="flex text-[1rem] gap-[1rem] items-center">
+          <div className="flex flex-col lg:flex-row lg:text-[1.2rem] text-[1.1rem] lg:gap-[1rem] lg:items-center">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1">
-              <label className="min-w-[120px] text-[1.2rem]">Gender</label>
+              <label className="min-w-[120px]">Gender</label>
               {isedit ? (
                 <select
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("gender")}
                   defaultValue={data.gender}
                 >
@@ -343,11 +343,11 @@ function Profile() {
                 <p className="text-[20px]">{data.gender}</p>
               )}
             </div>
-            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
+            <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem]">
               <label className="">Date of Birth</label>
               {isedit ? (
                 <input
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="date"
                   {...register("dob")}
                   defaultValue={data.dob}
@@ -404,7 +404,7 @@ function Profile() {
           {data.isVerified ? (
             <div className="z-0 relative">
               {isedit && (
-                <div class="border border-dashed ml-2 border-gray-400 relative mt-3 text-[1.1rem] flex flex-col justify-center w-[713px] mb-2 bg-white">
+                <div class="border border-dashed ml-2 border-gray-400 relative mt-3 lg:text-[1.2rem] text-[1.1rem] flex flex-col justify-center w-[300px] lg:w-[713px] mb-2 bg-white">
                   <div className="">
                     <input
                       className="text-[1rem]"
@@ -469,14 +469,14 @@ function Profile() {
                   <p className="text-[20px]">{data.gender}</p>
                 )}
               </div> */}
-              <div className="flex gap-[1rem]">
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
-                  <label className="min-w-[120px]">Address: </label>
+              <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:text-[1.2rem] text-[1.1rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 gap-1">
+                  <label className="min-w-[120px]">Address </label>
                   {isedit ? (
                     <input
                       type="text"
                       placeholder="Enter Address"
-                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("address", {
                         required: "Address is required",
                       })}
@@ -487,15 +487,18 @@ function Profile() {
                     <p className="">{data.address}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
-                  <label className="min-w-[120px]">Country:</label>
+                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
+                  <label className="min-w-[120px]">Country</label>
                   {isedit ? (
                     <select
-                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("country")}
                       defaultValue={data.country}
                     >
-                      <option value="Usa" className="text-[1.1rem]">
+                      <option
+                        value="Usa"
+                        className="lg:text-[1.1rem] text-[1rem]"
+                      >
                         USA
                       </option>
                     </select>
@@ -504,12 +507,12 @@ function Profile() {
                   )}
                 </div>
               </div>
-              <div className="flex gap-[1rem]">
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
+              <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:text-[1.2rem] text-[1.1rem]">
+                <div className="flex flex-col font-['udemy-regular'] p-2 gap-1">
                   <label className="min-w-[120px]">City</label>
                   {isedit ? (
                     <select
-                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("city")}
                       defaultValue={data.city}
                     >
@@ -528,11 +531,11 @@ function Profile() {
                     <p className="">{data.city}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
+                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
                   <label className="min-w-[120px]">State</label>
                   {isedit ? (
                     <select
-                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("state")}
                       onChange={handlestatechange}
                       defaultValue={data.state}
@@ -555,13 +558,13 @@ function Profile() {
                     <p className="">{data.state}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem] gap-1">
+                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
                   <label className="min-w-[120px]">Pin</label>
                   {isedit ? (
                     <input
                       type="text"
                       placeholder="Enter Pin"
-                      className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("pin", { required: "Pin is required" })}
                       defaultValue={data.pin}
                       errorMessage={errors.pin?.message}
