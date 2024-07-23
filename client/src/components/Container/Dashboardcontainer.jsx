@@ -176,7 +176,7 @@ function DashConatiner({ children }) {
       <div className="flex lg:flex-row flex-col">
         <div className="lg:hidden">
           <button
-            className="items-center mt-1 mb-2 flex border-gray-300 border px-3 py-1"
+            className="items-center mt-1 mb-2 bg-gray-300 flex px-3 py-1"
             onClick={handlehamburger}
           >
             <GiHamburgerMenu className="cursor-pointer text-black" size={20} />
@@ -293,11 +293,11 @@ function DashConatiner({ children }) {
                       onClick={() => {
                         navigate(`/user/room/${userID}`);
                       }}
-                      className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                      className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
                     >
                       <MdMeetingRoom size={22} /> My Rooms
                     </button>
-                    <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                    <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
                       <MdBusinessCenter size={20} /> My Business
                     </button>
                   </details>
@@ -486,11 +486,11 @@ function DashConatiner({ children }) {
                   onClick={() => {
                     navigate(`/user/room/${userID}`);
                   }}
-                  className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                  className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
                 >
                   <MdMeetingRoom size={22} /> My Rooms
                 </button>
-                <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-2  self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
                   <MdBusinessCenter size={20} /> My Business
                 </button>
               </details>
