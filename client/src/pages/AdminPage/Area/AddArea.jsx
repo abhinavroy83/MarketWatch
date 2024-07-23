@@ -282,6 +282,9 @@ function AddArea({ editdata }) {
                 placeholder="Type subarea here"
               />
               <select onChange={(e) => setstateab(e.target.value)}>
+                <option value="" disabled selected>
+                  Select State
+                </option>
                 {selectedstate.map((item) => (
                   <option key={item} value={item}>
                     {item}
