@@ -498,7 +498,7 @@ function Rooms() {
                   "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
                 }
                 alt="not"
-                className="h-[460px] rounded-md object-cover"
+                className="lg:h-[560px] lg:w-[880px] rounded-md object-cover"
               />
             )}
           </div>
