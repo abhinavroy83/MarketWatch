@@ -20,6 +20,7 @@ function AddArea({ editdata }) {
   const [zipcode, setZipcode] = useState([]);
   const token = useSelector((state) => state.adminauth.token);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
     handleSubmit,
@@ -53,7 +54,7 @@ function AddArea({ editdata }) {
           alert("Update area successfully");
           setSelectedstate([]);
           reset();
-          navigate(`/admin/allarea`);
+          // navigate(`/admin/allarea`);
         }
       } catch (error) {
         console.log("Error during adding area", error);
@@ -121,10 +122,34 @@ function AddArea({ editdata }) {
     );
   };
 
-  const handleAddzipcode = () => {
-    if (zipcode) {
-      setZipcode((prvs) => [...prvs, zipcodeInput]);
-      setZipcodeInput("");
+  const handleAddZipcode = async () => {
+    if (zipcodeInput.trim() !== "") {
+      const newZipcodes = zipcodeInput.split(",").map((zip) => zip.trim());
+      const filteredZipcodes = newZipcodes.filter(
+        (zip) => zip !== "" && !zipcode.includes(zip)
+      );
+
+      let exists = false;
+      for (const zip of filteredZipcodes) {
+        console.log(zip);
+        const response = await axios(
+          `https://api.verydesi.com/api/admin/check-zipcode?zipcode=${zip}`
+        );
+        console.log(response);
+        // const result = await response.json();
+        if (response.data.exists) {
+          alert(`Zip code  already exists`);
+          setErrorMessage(`Zip code ${zip} already exists`);
+          exists = true;
+          break;
+        }
+      }
+
+      if (!exists) {
+        setZipcode((prevZipcodes) => [...prevZipcodes, ...filteredZipcodes]);
+        setZipcodeInput("");
+        setErrorMessage("");
+      }
     }
   };
   const removezipcode = (zip) => {
@@ -336,12 +361,13 @@ function AddArea({ editdata }) {
 
               <button
                 type="button"
-                onClick={handleAddzipcode}
+                onClick={handleAddZipcode}
                 className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
               >
                 Add
               </button>
             </div>
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             <div className="flex flex-wrap text-[17px] text-red-600 items-center">
               {zipcode?.map((item) => (
                 <div

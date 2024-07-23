@@ -8,10 +8,12 @@ const {
   deletesub,
   updatecity,
   findcitybyid,
+  findzipcode,
 } = require("../Controllers/City/City");
 
 Router.post("/api/admin/postcity", verifyAdminPage, postcity);
 Router.get("/api/admin/getallcity", getcity);
+Router.get("/api/admin/check-zipcode", findzipcode);
 Router.get("/api/admin/area/:area_name", findsuburbs);
 Router.delete("/api/admin/deletesub/:id", deletesub);
 Router.put("/api/admin/updatearea/:_id", verifyAdminPage, updatecity);

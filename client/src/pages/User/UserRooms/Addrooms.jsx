@@ -182,14 +182,14 @@ function Addrooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    if (data.city !== city) {
-      alert("Your Posting city and enter not matched");
+    if (data.postingincity !== city) {
+      alert("Your Posting city and entered city not matched");
     } else {
       const roomdata = {
         Title: data.Title,
         Description: data.Description,
         Propertytype: data.Propertytype,
-        city: data.city,
+        postingincity: data.postingincity,
         Stay_lease: data.Stay_lease,
         Avaliblity_from: data.Avaliblity_from,
         Available_to: data.Available_to,
@@ -211,6 +211,7 @@ function Addrooms({ editdata }) {
         user_name: fullname,
         email: profiledata.email,
         phone_number: data.phone_number,
+        city: data.city,
         address: data.address,
         state: data.state,
         zip_code: data.zip_code,
@@ -221,7 +222,7 @@ function Addrooms({ editdata }) {
 
       if (editdata) {
         try {
-          console.log("ddcds", editdata._id);
+          // console.log("ddcds", editdata._id);
           const res = await axios.put(
             `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
             roomdata,
@@ -266,7 +267,6 @@ function Addrooms({ editdata }) {
         }
       }
     }
-
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
   };
@@ -297,7 +297,7 @@ function Addrooms({ editdata }) {
     if (editdata) {
       // console.log("Populating form with editdata:", editdata);
       setStayLeaseOption(editdata?.Stay_lease);
-      setValue("city", editdata?.city || "Portland");
+      setValue("postingincity", editdata?.postingincity || "Portland");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");
@@ -320,6 +320,7 @@ function Addrooms({ editdata }) {
       setValue("Open_house_schedule", editdata?.Open_house_schedule || "");
       setValue("phone_number", editdata?.phone_number || "");
       setValue("address", editdata?.address || "");
+      setValue("city", editdata?.city || "");
       setValue("state", editdata?.state || "");
       setValue("zip_code", editdata?.zip_code || "");
       if (editdata.Imgurl) {
@@ -372,7 +373,7 @@ function Addrooms({ editdata }) {
               </p>
               <Controller
                 className="bg-black"
-                name="city"
+                name="postingincity"
                 control={control}
                 rules={{ required: "PostingIn is required" }}
                 render={({ field }) => (
@@ -408,7 +409,7 @@ function Addrooms({ editdata }) {
               />
             </div>
             <p className="text-[16px] mt-1 text-red-500">
-              {errors.city && <p>{errors.city.message}</p>}
+              {errors.postingincity && <p>{errors.postingincity.message}</p>}
             </p>
             <p className="text-[1.1rem]">
               Your Account is belong {profiledata.belongcity}
