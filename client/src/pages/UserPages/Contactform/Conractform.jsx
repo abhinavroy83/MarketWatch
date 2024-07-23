@@ -46,7 +46,7 @@ function Conractform({ isOpen, onClose }) {
         }}
       >
         {/* <div className="font-['udemy-regular'] items-center flex flex-col justify-center h-full w-full bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover"> */}
-        <div className="font-['udemy-regular'] items-center flex flex-col justify-center h-full w-full bg-green-100 bg-cover">
+        <div className="font-['udemy-regular'] items-center flex flex-col justify-center h-full w-full bg-white bg-cover">
           <RxCross1
             className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
             onClick={onClose}

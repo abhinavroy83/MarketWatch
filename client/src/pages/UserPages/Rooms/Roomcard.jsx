@@ -183,7 +183,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               >
                 <FaHeart
                   className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
-                  size={25}
+                  size={27}
                 />
               </div>
             ) : (
@@ -197,7 +197,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 <FaHeart
                   className="border p-1 rounded-full"
                   color="red"
-                  size={25}
+                  size={27}
                 />
               </div>
             )}
@@ -207,8 +207,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           className={`flex absolute bottom-[1.4rem]  items-center ${
             auth ? "right-[3.2rem]" : "right-[1rem]"
           }`}
-          height={15}
-          width={20}
+          height={22}
+          width={25}
           src={
             item.Preferred_gender === "Female only"
               ? femaleLogo
