@@ -87,7 +87,7 @@ function Getuserroom() {
           {items.address}
         </td>
         <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-['udemy-regular']">
-          {items.rent}
+          {items.Expected_Rooms}
         </td>
         <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[20px] font-medium font-['udemy-regular']">
           <a

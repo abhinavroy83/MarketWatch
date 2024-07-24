@@ -17,6 +17,7 @@ import Loader from "../../../components/UserCompontents/Loader";
 import male from "../../../assets/male.png";
 import female2 from "../../../assets/female2.png";
 import any from "../../../assets/any.png";
+import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
 
 const libraries = ["places"];
 
@@ -180,11 +181,36 @@ function Addrooms({ editdata }) {
   //   }
   // }, [files]);
   // console.log(resimgurl);
+  const fetchAreaData = async () => {
+    const response = await axios(
+      `http://localhost:8000/api/admin/area/Portland`
+    );
+    // const data = response.j();
+    console.log(response.data.area[0]);
+    return response.data.area[0];
+  };
 
   const onsubmit = async (data) => {
-    if (data.postingincity !== city) {
-      alert("Your Posting city and entered city not matched");
-    } else {
+    const areaData = await fetchAreaData();
+    const enteredStateAbbreviation = state;
+    const enteredStateFullName = Object.keys(stateAbbreviationMapping).find(
+      (key) => stateAbbreviationMapping[key] === enteredStateAbbreviation
+    );
+    // const enteredState = data.state;
+    const enteredCity = data.city;
+    const enteredZip = data.zipcode;
+    const isPrimaryState = areaData.primaryState.includes(
+      enteredStateFullName || data.state
+    );
+    const isStateInList = areaData.state.includes(
+      enteredStateFullName || data.state
+    );
+    const isValidCity = areaData.subarea.some(
+      (subarea) => subarea.split(",")[0] === enteredCity
+    );
+    const isValidZip = areaData.zipcode.includes(enteredZip);
+
+    if (isPrimaryState || (isStateInList && (isValidCity || isValidZip))) {
       const roomdata = {
         Title: data.Title,
         Description: data.Description,
@@ -214,7 +240,7 @@ function Addrooms({ editdata }) {
         city: data.city,
         address: data.address,
         state: data.state,
-        zip_code: data.zip_code,
+        zip_code: data.zipcode,
         location: {
           coordinates: [location.lng, location.lat],
         },
@@ -266,6 +292,8 @@ function Addrooms({ editdata }) {
           console.log("error during sending data to roomapi", error);
         }
       }
+    } else {
+      alert("sd");
     }
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
@@ -322,7 +350,7 @@ function Addrooms({ editdata }) {
       setValue("address", editdata?.address || "");
       setValue("city", editdata?.city || "");
       setValue("state", editdata?.state || "");
-      setValue("zip_code", editdata?.zip_code || "");
+      setValue("zipcode", editdata?.zipcode || "");
       if (editdata.Imgurl) {
         setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
         setResimgurl(editdata.Imgurl);
@@ -1352,7 +1380,7 @@ function Addrooms({ editdata }) {
                         // defaultValue={profiledata?.pin}
                         className="flex h-10 font-['udemy-regular'] lg:w-[180px] w-[230px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         placeholder="Enter zipcode"
-                        {...register("zip_code")}
+                        {...register("zipcode")}
                       />
                       <p className="text-[16px] text-red-500">
                         {" "}
