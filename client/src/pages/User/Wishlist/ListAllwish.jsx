@@ -87,7 +87,7 @@ function ListAllwish() {
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.Imgurl}
+                src={items.Imgurl[0]}
                 alt=""
               />
             </div>

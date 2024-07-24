@@ -375,6 +375,7 @@ function Addrooms({ editdata }) {
                 className="bg-black"
                 name="postingincity"
                 control={control}
+                defaultValue="Portland"
                 rules={{ required: "PostingIn is required" }}
                 render={({ field }) => (
                   <select

@@ -100,6 +100,7 @@ function Ads() {
                 onClick={() => {
                   dispatch(logout());
                   localStorage.removeItem("userdetails");
+                  navigate("/");
                   onClose();
                 }}
               >
