@@ -6,6 +6,13 @@ import { useSelector } from "react-redux";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { BiMinusCircle } from "react-icons/bi";
+import { MdOutlineMeetingRoom } from "react-icons/md";
+import { FaMapPin } from "react-icons/fa";
+import door from "../../../assets/door.png";
+import { SkyScrapper } from "../../../assets";
+import map from "../../../assets/map.png";
+import pricetag from "../../../assets/pricetag.png";
+import removed from "../../../assets/removed.png";
 
 function Getuserroom() {
   const { userID } = useParams();
@@ -79,22 +86,20 @@ function Getuserroom() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[20px] text-gray-700 font-['udemy-regular']">
-            {items.city}
-          </div>
+          <div className="text-[20px] text-gray-700">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-['udemy-regular']">
+        <td className="whitespace-nowrap px-8 py-4 text-[20px] text-gray-700">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[20px] text-gray-700 font-['udemy-regular']">
-          {items.rent}
+        <td className="whitespace-nowrap px-8 py-4 text-[20px] text-gray-700">
+          {items.Expected_Rooms}
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[20px] font-medium font-['udemy-regular']">
+        <td className="whitespace-nowrap gap-2 px-8 py-6 text-[20px] font-medium">
           <a
             onClick={() => {
               handledeleterooms(items._id);
             }}
-            className="flex gap-3 items-center text-red-500 font-semibold cursor-pointer text-[20px]"
+            className="text-gray-700 cursor-pointer text-[20px]"
           >
             Delete
           </a>
@@ -105,7 +110,7 @@ function Getuserroom() {
 
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl px-4 py-4 font-['udemy-regular']">
+      <section className="mx-auto w-full max-w-7xl rounded-sm px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">
@@ -131,9 +136,9 @@ function Getuserroom() {
           )}
         </div>
         <div className="mt-6 flex flex-col text-[20px]">
-          <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 overflow-x-auto">
+          <div className="sm:-mx-6 lg:-mx-8 overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="border border-gray-200 md:rounded-lg gap-3 flex">
+              <div className="border border-gray-200 md:rounded-lg gap-3 flex lg:w-full">
                 <table className="min-w-full gap-4 divide-y divide-gray-200 ">
                   <thead className="bg-gray-50">
                     <tr>
@@ -141,31 +146,49 @@ function Getuserroom() {
                         scope="col"
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
-                        Room
+                        <div className="flex">
+                          {" "}
+                          <img className="h-7 w-7" src={door} alt="" />
+                          Room
+                        </div>{" "}
                       </th>
                       <th
                         scope="col"
                         className="px-12 py-3.5 text-left font-normal text-gray-700"
                       >
-                        City
+                        <div className="flex gap-1">
+                          {" "}
+                          <img className="h-7 w-7" src={SkyScrapper} alt="" />
+                          City
+                        </div>{" "}
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
-                        Address
+                        <div className="flex gap-1">
+                          <img className="h-7 w-7" src={map} alt="" />
+                          Address
+                        </div>
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
-                        Price
+                        {" "}
+                        <div className="flex gap-1">
+                          <img className="h-7 w-7" src={pricetag} alt="" />
+                          Price
+                        </div>
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left font-normal text-gray-700 flex gap-1"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700 flex gap-1"
                       >
-                        <BiMinusCircle size={25} /> Delete
+                        <div className="flex gap-1">
+                          <img className="h-7 w-7" src={removed} alt="" />
+                          Delete
+                        </div>
                       </th>
                     </tr>
                   </thead>

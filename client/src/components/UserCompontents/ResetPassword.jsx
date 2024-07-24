@@ -27,7 +27,7 @@ function ResetPassword() {
   };
 
   return (
-    <div className="mt-[12rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[500px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
+    <div className="mt-[11rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[620px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
       <img
         className="w-[370px] lg:h-[480px] h-[300px]"
         src={resetimg}
