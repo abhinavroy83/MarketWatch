@@ -131,20 +131,10 @@ function Getuserroom() {
           )}
         </div>
         <div className="mt-6 flex flex-col text-[20px]">
-<<<<<<< Updated upstream
-          <div
-            className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 overflow-x-auto "
-            // style={{ overflowX: "scroll" }}
-          >
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200">
-=======
           <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="border border-gray-200 md:rounded-lg gap-3 flex">
                 <table className="min-w-full gap-4 divide-y divide-gray-200 ">
->>>>>>> Stashed changes
                   <thead className="bg-gray-50">
                     <tr>
                       <th
