@@ -542,7 +542,7 @@ function DashConatiner({ children }) {
               )}
             </div>
           </div>
-        </div>
+        </div> 
         <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
           {children}
         </main>
