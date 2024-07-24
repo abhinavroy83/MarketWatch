@@ -288,13 +288,13 @@ function AddArea({ editdata }) {
                 type="text"
                 required="true"
                 {...register("area")}
-                placeholder="Type Area here"
+                placeholder="Type Area"
               />
             </div>
             {/* previosuly we named this as subarea ,now its cities  */}
-            <div className="flex items-center">
+            <div className="flex gap-2 items-center text-[17px]">
               <label
-                className="min-w-[160px] text-[18px] ml-[4.5rem]"
+                className="min-w-[150px] text-[18px] ml-[5.7rem]"
                 htmlFor="subarea"
               >
                 Cities
@@ -304,9 +304,12 @@ function AddArea({ editdata }) {
                 type="text"
                 value={subareaInput}
                 onChange={(e) => setSubareaInput(e.target.value)}
-                placeholder="Type subarea here"
+                placeholder="Type Subarea "
               />
-              <select onChange={(e) => setstateab(e.target.value)}>
+              <select
+                className="flex h-10 font-roboto w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                onChange={(e) => setstateab(e.target.value)}
+              >
                 <option value="" disabled selected>
                   Select State
                 </option>
@@ -344,7 +347,7 @@ function AddArea({ editdata }) {
             </div>
             <div className="flex items-center">
               <label
-                className="min-w-[160px] text-[18px] ml-[4.5rem]"
+                className="min-w-[160px] text-[18px] ml-[5rem]"
                 htmlFor="zipcode"
               >
                 Zip & Codes
@@ -354,7 +357,7 @@ function AddArea({ editdata }) {
                 type="text"
                 value={zipcodeInput}
                 onChange={(e) => setZipcodeInput(e.target.value)}
-                placeholder="Type subarea here"
+                placeholder="Zip Code"
               />
 
               <button
