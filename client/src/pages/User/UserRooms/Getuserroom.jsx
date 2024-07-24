@@ -131,17 +131,20 @@ function Getuserroom() {
           )}
         </div>
         <div className="mt-6 flex flex-col text-[20px]">
-          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div
+            className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 overflow-x-auto "
+            // style={{ overflowX: "scroll" }}
+          >
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 md:rounded-lg gap-3 flex">
-                <table className="min-w-full gap-4 divide-y divide-gray-200 ">
+              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
-                        <span>Room</span>
+                        Room
                       </th>
                       <th
                         scope="col"
@@ -149,14 +152,12 @@ function Getuserroom() {
                       >
                         City
                       </th>
-
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         Address
                       </th>
-
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
@@ -165,17 +166,13 @@ function Getuserroom() {
                       </th>
                       <th
                         scope="col"
-                        // onClick={() => {
-                        //   console.log(roomsdeatails);
-                        //   handledeleterooms(roomsdeatails._id);
-                        // }}
-                        className="px-4 py-3.5 text-left  font-normal text-gray-700 flex gap-1"
+                        className="px-4 py-3.5 text-left font-normal text-gray-700 flex gap-1"
                       >
                         <BiMinusCircle size={25} /> Delete
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200  bg-white">
+                  <tbody className="divide-y divide-gray-200 bg-white">
                     {renderRows()}
                   </tbody>
                 </table>
@@ -183,6 +180,7 @@ function Getuserroom() {
             </div>
           </div>
         </div>
+
         <div className="mt-4 w-full border-gray-300">
           <div className="mt-2 flex items-center justify-end">
             <div className="space-x-2 flex">

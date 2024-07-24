@@ -116,7 +116,7 @@ function DashConatiner({ children }) {
   }, [userID]);
 
   return (
-    <div className="lg:mt-[9rem] mt-[10rem]  mx-auto px-4 flex flex-col max-w-[1600px] h-auto w-full m-auto overflow-hidden font-['udemy-regular']">
+    <div className="lg:mt-[9rem] mt-[10rem] overflow-x-hidden overflow-y-hidden  mx-auto px-4 flex flex-col max-w-[1600px] h-auto w-full m-auto overflow-hidden font-['udemy-regular']">
       {alertstatus && (
         <div>
           {!isverified && (
@@ -352,7 +352,7 @@ function DashConatiner({ children }) {
             </div>
           )}
         </div>
-        <div className="border-gray-300 border hidden lg:flex">
+        <div className="border-gray-300 border hidden lg:flex overflow-x-hidden overflow-y-hidden">
           <div className="w-auto bg-white px-3 mt-4 flex flex-col">
             {/* <svg
             class="h-[9rem] w-[242em] text-white hover:text-white mt-2 items-center"
@@ -543,7 +543,7 @@ function DashConatiner({ children }) {
             </div>
           </div>
         </div>
-        <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll mt-3 lg:mt-0">
+        <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
           {children}
         </main>
       </div>
