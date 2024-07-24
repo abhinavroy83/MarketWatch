@@ -243,19 +243,16 @@ function AllArea() {
               </div>
             </div>
 
-            <div className="flex flex-col border-2 w-[15rem]">
+            <div className="flex flex-col w-[15rem]">
               <div className="border-2 border-gray-400 ">
                 <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of Subarea
                 </p>
-                <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center">
-                  <ul className="rounded-sm text-[20px] flex flex-col ">
+                <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
+                  <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
                     {Filteresub.length > 0 &&
                       Filteresub.map((item, index) => (
-                        <li
-                          key={index}
-                          className=" border-red-600 border-2 rounded-md"
-                        >
+                        <li key={index} className="">
                           {item}
                           {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
                         </li>
@@ -264,19 +261,16 @@ function AllArea() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-2 w-[15rem]">
-              <div className="border-2 border-gray-400 ">
+            <div className="flex flex-col w-[15rem]">
+              <div className="border-2 border-gray-400">
                 <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of zipcode
                 </p>
-                <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center">
-                  <ul className="rounded-sm text-[20px] flex flex-col ">
+                <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
+                  <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
                     {filterpin.length > 0 &&
                       filterpin.map((item, index) => (
-                        <li
-                          key={index}
-                          className=" border-red-600 border-2 rounded-md"
-                        >
+                        <li key={index} className="">
                           {item}
                           {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
                         </li>
