@@ -287,7 +287,7 @@ function Rooms() {
   }));
 
   return (
-    <div className="lg:mt-[4.4rem] mt-[9.4rem] h-full w-full max-w-[1600px] mx-auto">
+    <div className="lg:mt-[4.4rem] mt-[9.4rem] h-full w-full max-w-[1600px] mx-auto capitalize">
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -626,7 +626,7 @@ function Rooms() {
               <img className="h-10 w-10" src={SkyScrapper} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Property type
+                  Property Type
                   <p className="text-black flex text-[18px]">
                     {rooms.Propertytype}
                   </p>
@@ -650,7 +650,7 @@ function Rooms() {
 
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Stay/lease
+                  Stay/Lease
                   <p className="text-black flex text-[18px]">
                     {rooms.Stay_lease}
                   </p>
@@ -662,7 +662,7 @@ function Rooms() {
               <img className="h-10 w-10" src={clock} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Avaliblity from
+                  Avaliblity From
                   <p className="text-black flex text-[18px]">
                     {rooms.Avaliblity_from}
                   </p>
@@ -674,7 +674,7 @@ function Rooms() {
               <img className="h-10 w-10" src={clock} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Available to
+                  Available To
                   <p className="text-black flex text-[18px]">
                     {rooms.Available_to}
                   </p>
@@ -750,7 +750,7 @@ function Rooms() {
               <img className="h-10 w-10" src={furniture} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Is room furnished
+                  Is Room Furnished
                   <p className="text-black flex text-[18px]">
                     {rooms.is_room_furnished}
                   </p>
@@ -762,7 +762,7 @@ function Rooms() {
               <img className="h-10 w-10" src={schedule} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Open house schedule
+                  Open House Schedule
                   <p className="text-black flex text-[18px]">
                     {rooms?.Open_house_schedule}
                   </p>
@@ -774,7 +774,7 @@ function Rooms() {
             <div>
               <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
                 <MdRoomPreferences size={30} />
-                Amenities included-
+                Amenities Included-
               </h1>
               <div className="border p-5 grid grid-cols-2 lg:grid-cols-3 gap-4 text-[18px] text-black mt-2">
                 {rooms?.Amenities_include?.map((amenity) => {
@@ -814,7 +814,7 @@ function Rooms() {
               <img className="h-10 w-10" src={smoke} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Smoking policy
+                  Smoking Policy
                   <p className="text-black flex text-[18px]">
                     {rooms.Smoking_policy}
                   </p>
@@ -826,7 +826,7 @@ function Rooms() {
               <img className="h-10 w-10" src={dog} alt="" />
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
-                  Pet friendly
+                  Pet Friendly
                   <p className="text-black flex text-[18px]">
                     {rooms.Pet_friendly}
                   </p>
@@ -839,7 +839,7 @@ function Rooms() {
             User Details-{" "}
             {!authstatus && (
               <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
-                <MdErrorOutline /> login to see Details
+                <MdErrorOutline /> Login To See Details
               </span>
             )}
           </h1>
@@ -862,7 +862,7 @@ function Rooms() {
                 <img className="h-10 w-10" src={number} alt="" />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
-                    Phone number
+                    Phone Number
                     <p className="text-black flex text-[18px]">
                       <a
                         href={`tel:${rooms.phone_number}`}
@@ -913,7 +913,7 @@ function Rooms() {
             </div>
           )}
         </div>
-        <div className="mt-4 mb-2">
+        <div className="mt-4 mb-2 capitalize">
           <div className="mt-2 flex items-center ">
             <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-[#0b5e86] font-bold">
               <p>Similar room In The Area</p>

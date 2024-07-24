@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { MdLockReset } from "react-icons/md";
-
+import resetimg from "../../assets/reset.jpg";
 function ResetPassword() {
   const {
     register,
@@ -27,13 +27,13 @@ function ResetPassword() {
   };
 
   return (
-    <div className="mt-[9rem] bg-white h-[500px] rounded-md border-t-2 border-b-2 border-black w-[850px] font-['udemy-regular'] flex self-center items-center justify-center shadow-gray-300 shadow-lg">
+    <div className="mt-[12rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[500px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
       <img
-        className="w-[370px] h-[480px]"
-        src={`https://th.bing.com/th/id/R.7fdc1613b5f5aefe4490a92f8722c867?rik=tl6k%2fmIxV8%2fyGw&riu=http%3a%2f%2fwww.cybrhawk.com%2fwp-content%2fuploads%2f2021%2f08%2fSecurity-1.gif&ehk=GFRiBjZrlnvjmlleUJixbqyUqAgioSRPOVPeGDQznvc%3d&risl=&pid=ImgRaw&r=0`}
+        className="w-[370px] lg:h-[480px] h-[300px]"
+        src={resetimg}
         alt="logo"
       />
-      <div className="w-[400px] flex flex-col gap-3">
+      <div className="w-[300px] lg:w-[400px] flex flex-col gap-3">
         <p className="text-[29px] text-black flex gap-1 items-center">
           <MdLockReset size={35} />
           Reset Password
