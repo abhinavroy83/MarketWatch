@@ -329,10 +329,8 @@ function AddArea({ editdata }) {
               {subarea.map((subarea) => (
                 <div
                   key={subarea}
-                  className="flex items-center bg-gray-200 rounded-md px-1"
+                  className="flex m-2 p-2 items-center bg-gray-200 rounded-md px-1"
                 >
-                  {" "}
-                  <MdOutlineErrorOutline />
                   <span className="mr-2">{subarea}</span>
                   <button
                     type="button"
@@ -372,9 +370,8 @@ function AddArea({ editdata }) {
               {zipcode?.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center bg-gray-200 rounded-md px-1"
+                  className="flex m-2 items-center bg-gray-200 rounded-md px-1"
                 >
-                  <MdOutlineErrorOutline />
                   <span className="mr-2">{item}</span>
                   <button
                     type="button"
