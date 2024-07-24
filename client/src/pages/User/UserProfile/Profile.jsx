@@ -733,13 +733,13 @@ function Profile() {
               >
                 Update Profile
               </button>
-              <button
+              {/* <button
                 className=" bg-gray-300 text-black hover:bg-gray-400 px-3 py-2 text-[1.1rem]"
                 type="button"
                 onClick={toggleCancel}
               >
                 Cancel
-              </button>
+              </button> */}
             </div>
           ) : (
             <button

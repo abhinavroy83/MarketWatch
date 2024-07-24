@@ -73,9 +73,9 @@ function ListAllwish() {
   const prevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
-  if (loading) {
-    return <Loader className={"h-screen flex justify-center items-center"} />;
-  }
+  // if (loading) {
+  //   return <Loader className={"h-screen flex justify-center items-center"} />;
+  // }
 
   const renderRows = () => {
     const startIndex = (currentPage - 1) * 10;
