@@ -660,15 +660,16 @@ function Profile() {
             </p>
 
             <p
-              onClick={() => {
-                setShowPasswordInput(true);
-              }}
+              // onClick={() => {
+              //   handleDelete;
+              // }}
+              onClick={handleDelete}
               className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition  focus:outline-none focus:ring"
               href="#"
             >
               Delete Account
             </p>
-            {showPasswordInput && (
+            {/* {showPasswordInput && (
               <div>
                 <input
                   type="password"
@@ -694,7 +695,7 @@ function Profile() {
                   </p>
                 )}
               </div>
-            )}
+            )} */}
           </div>
           {/* {data.bussinessac === "no" && (
             <div className="flex font-bold font-['udemy-regular'] ml-2 text-red-700">
