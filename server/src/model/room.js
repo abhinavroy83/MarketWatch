@@ -18,6 +18,8 @@ const roomSchema = mongoose.Schema({
   Preferred_gender: { type: String },
   Expected_Rooms: { type: Number },
   Pricemodel: { type: String },
+  Bath_Location: { type: String },
+  Couples_welcome: { type: String },
   Desposite: { type: Number },
   is_room_furnished: { type: String },
   Amenities_include: { type: [String] },

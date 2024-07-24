@@ -902,7 +902,7 @@ function Rooms() {
                 <div className="flex flex-col">
                   <p className="text-gray-500 text-[20px]">
                     Email
-                    <p className="text-black flex text-[18px]">
+                    <p className="text-black flex text-[18px] lowercase">
                       <a href={`mailto:${rooms.email}`} className="text-black">
                         {rooms.email}
                       </a>

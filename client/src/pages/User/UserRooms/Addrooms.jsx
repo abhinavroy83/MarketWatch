@@ -181,17 +181,19 @@ function Addrooms({ editdata }) {
   //   }
   // }, [files]);
   // console.log(resimgurl);
-  const fetchAreaData = async () => {
+  const fetchAreaData = async (city) => {
+    console.log(city);
     const response = await axios(
-      `http://localhost:8000/api/admin/area/Portland`
+      `https://api.verydesi.com/api/admin/area/${city}`
     );
     // const data = response.j();
-    console.log(response.data.area[0]);
+    // console.log(response.data.area[0]);
     return response.data.area[0];
   };
 
   const onsubmit = async (data) => {
-    const areaData = await fetchAreaData();
+    const city = data.postingincity;
+    const areaData = await fetchAreaData(city);
     const enteredStateAbbreviation = state;
     const enteredStateFullName = Object.keys(stateAbbreviationMapping).find(
       (key) => stateAbbreviationMapping[key] === enteredStateAbbreviation
@@ -293,7 +295,7 @@ function Addrooms({ editdata }) {
         }
       }
     } else {
-      alert("sd");
+      alert("Enter Address is not available");
     }
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);

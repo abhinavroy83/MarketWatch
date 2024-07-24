@@ -10,6 +10,7 @@ import Pagination from "../../../components/SharedCompontents/Pagination";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Roomcardforsimilar from "./Roomcardforsimilar";
+import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -32,7 +33,38 @@ function AllRooms() {
           ? ` https://api.verydesi.com/api/getallrooms?city=${usercity}`
           : ` https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
-      setRooms(res.data.Allrooms.reverse());
+      const rooms = res.data.Allrooms.reverse();
+      const areaRes = await axios.get(
+        `https://api.verydesi.com/api/admin/area/${usercity}`
+      );
+      const areaData = areaRes.data.area[0];
+      // console.log(areaData);
+      const primaryState = areaData.primaryState;
+      // console.log(primaryState);
+      const states = areaData.state;
+
+      const priority = (room) => {
+        const roomStateFullName = Object.keys(stateAbbreviationMapping).find(
+          (key) => stateAbbreviationMapping[key] === room.state
+        );
+
+        const isPrimaryState = roomStateFullName || room.state === primaryState;
+        const isStateListed = states.includes(roomStateFullName || room.state);
+        const isCityListed = areaData.subarea.some(
+          (subarea) => subarea.split(",")[0] === room.city
+        );
+        const isZipListed = areaData.zipcode.includes(room.zip_code);
+
+        if (isPrimaryState && (isCityListed || isZipListed)) return 1;
+        if (isStateListed && (isCityListed || isZipListed)) return 2;
+        if (isCityListed) return 3;
+        if (isZipListed) return 4;
+        if (isPrimaryState) return 5;
+        return 6;
+      };
+
+      rooms.sort((a, b) => priority(a) - priority(b));
+      setRooms(rooms);
       setLoading(false);
     } catch (error) {
       console.log("error during fetching api", error);
