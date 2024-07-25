@@ -35,6 +35,10 @@
 .slick-next {
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
+
 .slick-slide > div > div {
   padding: 6px !important;
 }

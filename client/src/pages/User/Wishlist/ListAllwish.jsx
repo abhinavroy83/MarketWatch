@@ -14,6 +14,11 @@ import { FaMapPin } from "react-icons/fa";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { MdFindInPage } from "react-icons/md";
 import { IoIosRemoveCircle } from "react-icons/io";
+import door from "../../../assets/door.png";
+import { SkyScrapper } from "../../../assets";
+import pagelink from "../../../assets/pagelink.png";
+import pricetag from "../../../assets/pricetag.png";
+import removed from "../../../assets/removed.png";
 
 function ListAllwish() {
   const { userID } = useParams();
@@ -82,7 +87,7 @@ function ListAllwish() {
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id}>
-        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[22px]">
+        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
@@ -92,34 +97,32 @@ function ListAllwish() {
               />
             </div>
             <div className="ml-4 font-['udemy-regular']">
-              <div className="text-[22px] font-medium text-gray-900">
-                {items.Title}
-              </div>
+              <div className=" font-medium text-gray-900">{items.Title}</div>
             </div>
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[22px] text-gray-700 font-['udemy-regular']">
+          <div className=" text-gray-700 font-['udemy-regular']">
             {items.city}
           </div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']">
+        <td className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular']">
           {items.Expected_Rooms}
         </td>
         <td
-          className="whitespace-nowrap px-4 py-4 text-[22px] text-gray-700 font-['udemy-regular']  cursor-pointer"
+          className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular']  cursor-pointer"
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
         >
           Click here
         </td>
-        <td className="whitespace-nowrap flex justify-center items-center gap-2 px-4 py-6 text-right text-[22px] font-medium font-['udemy-regular']">
+        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 text-right font-medium font-['udemy-regular']">
           <a
             onClick={() => {
               handleDeleteRoom(items._id);
             }}
-            className="text-red-500 font-semibold cursor-pointer flex items-center gap-3"
+            className="text-red-500 font-semibold items-center cursor-pointer flex gap-3"
           >
             <BiMinusCircle size={25} /> Remove
           </a>
@@ -131,15 +134,15 @@ function ListAllwish() {
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
-          <p className="text-[1.5rem] p-2 text-black font-['udemy-regular'] bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
+          <p className="text-[1.5rem] p-2 text-black bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
             <FaHeart size={25} /> Favorites
           </p>
         </div>
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-md text-[1.2rem]">
-                <table className="min-w-full divide-gray-200">
+              <div className="overflow-hidden rounded-md text-[1.2rem] border border-gray-200 md:rounded-lg">
+                <table className="min-w-full divide-gray-200 divide-y">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -147,7 +150,8 @@ function ListAllwish() {
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <MdMeetingRoom size={25} />
+                          {/* <MdMeetingRoom size={25} /> */}
+                          <img className="h-7 w-7" src={door} alt="" />
                           Room
                         </span>
                       </th>
@@ -156,7 +160,8 @@ function ListAllwish() {
                         className="px-12 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <FaMapPin size={22} /> City
+                          <img className="h-7 w-7" src={SkyScrapper} alt="" />
+                          City
                         </span>
                       </th>
                       <th
@@ -164,7 +169,8 @@ function ListAllwish() {
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <AiFillDollarCircle size={24} />
+                          {/* <AiFillDollarCircle size={24} /> */}
+                          <img className="h-7 w-7" src={pricetag} alt="" />
                           Price{" "}
                         </span>
                       </th>
@@ -173,7 +179,8 @@ function ListAllwish() {
                         className="px-4 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <MdFindInPage size={24} />
+                          {/* <MdFindInPage size={24} /> */}
+                          <img className="h-7 w-7" src={pagelink} alt="" />
                           Visit Page
                         </span>
                       </th>
@@ -188,7 +195,8 @@ function ListAllwish() {
                         className="px-4 py-3.5 font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <IoIosRemoveCircle size={24} />
+                          {/* <IoIosRemoveCircle size={24} /> */}
+                          <img className="h-7 w-7" src={removed} alt="" />
                           Remove
                         </span>
                       </th>
