@@ -43,26 +43,38 @@ function ListAllwish() {
   useEffect(() => {
     const fetchAllList = async () => {
       try {
+        // Fetch the wishlist
         const listResponse = await axios.get(
-          `https://api.verydesi.com/api/getlist/${userID}`
+          `http://localhost:8000/api/getlist/${userID}`
         );
-        // console.log(listResponse.data.list);
-        const list = listResponse.data.list.map((item) => item.roomId);
-        // console.log(list);
+
+        if (listResponse.data.status === "error") {
+          console.error(listResponse.data.msg);
+          setLoading(false);
+          return;
+        }
+
+        const list = listResponse.data.wishlist.rooms.map(
+          (item) => item.roomId
+        );
+
+        // Fetch the rooms
         const roomResponse = await axios.get(
           `https://api.verydesi.com/api/getrooms/${userID}`
         );
+
         const rooms = roomResponse.data.rooms;
-        // console.log(rooms);
+
         const matchedRooms = rooms.filter((room) => list.includes(room._id));
-        // console.log(matchedRooms);
+
         setdata(matchedRooms);
-        // console.log(matchedRooms);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching wishlist or rooms:", error);
+        setLoading(false);
       }
     };
+
     fetchAllList();
   }, [userID, handleDeleteRoom]);
 

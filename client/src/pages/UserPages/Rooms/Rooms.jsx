@@ -69,7 +69,7 @@ function Rooms() {
   const authstatus = useSelector((state) => state.auth.status);
   const currentloc = useSelector((state) => state.auth.location);
   const usrid = useSelector((state) => state.auth.userID);
-  const [wishliststatys, setWishliststatys] = useState(false);
+  const [wishliststatys, setWishlistStatus] = useState(false);
   const token = useSelector((state) => state.auth.token);
   const [hasNextRoom, setHasNextRoom] = useState(true);
   const [hasPreviousRoom, setHasPreviousRoom] = useState(true);
@@ -200,64 +200,76 @@ function Rooms() {
 
   const makewishlist = async () => {
     try {
-      const dat = {
-        roomId: _id,
-        status: true,
-      };
-      // console.log(dat);
-      const res = await axios.post(
-        `https://api.verydesi.com/api/addtowish`,
-        dat,
-        {
-          headers: {
-            jwttoken: `${token}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-      if (res) {
-        setWishliststatys(true);
+      const dat = { roomId: _id, status: true };
+      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+        headers: {
+          jwttoken: `${token}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+
+      if (
+        res.data.msg === "Successfully added to wishlist" ||
+        res.data.msg === "Successfully updated"
+      ) {
+        setWishlistStatus(true);
         notify();
-        // alert("successfully added to wishlist");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error adding to wishlist:", error);
     }
   };
+
   const unwish = async () => {
     try {
-      const res = await axios.delete(
-        `https://api.verydesi.com/api/deletelist/${_id}`
-      );
-      if (res) {
-        setWishliststatys(false);
+      const dat = { roomId: _id, status: false };
+      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+        headers: {
+          jwttoken: `${token}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+
+      if (
+        res.data.msg === "Successfully removed" ||
+        res.data.msg === "Wishlist cleared"
+      ) {
+        setWishlistStatus(false);
         unnotify();
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error removing from wishlist:", error);
     }
   };
 
   useEffect(() => {
-    const fetchwishstatus = async () => {
+    const fetchWishStatus = async () => {
       try {
         const res = await axios.get(
-          `https://api.verydesi.com/api/getlistbyroom/${_id}`
+          `http://localhost:8000/api/getlistbyroom/${_id}`,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
         );
-        if (res.data.status == "not") {
-          setWishliststatys(false);
-        } else if (res.data.list[0].status) {
-          setWishliststatys(true);
+
+        if (res.data.status === "not found") {
+          setWishlistStatus(false);
         } else {
-          setWishliststatys(false);
+          setWishlistStatus(res.data.status);
         }
       } catch (error) {
-        console.log("error during fetcignlist", error);
+        console.error("Error during fetching wishlist status:", error);
       }
     };
-    fetchwishstatus();
-  }, [_id]);
+
+    fetchWishStatus();
+  }, [_id, token]);
 
   const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
 

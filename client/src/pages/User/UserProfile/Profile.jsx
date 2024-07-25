@@ -9,6 +9,7 @@ import { UserImage, login, logout } from "../../../store/authslice";
 import Loader from "../../../components/UserCompontents/Loader";
 import { ImProfile } from "react-icons/im";
 import ConfirmationDialog from "../../../components/UserCompontents/Alert/ConfirmationDialog";
+import { fetchcity } from "../../../Services/CityApi/Cityapi";
 
 function Profile() {
   const { userID } = useParams();
@@ -93,6 +94,18 @@ function Profile() {
       }
     }
   };
+  const [cty, setcty] = useState([]);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const res = await fetchcity();
+      const uniquecity = Array.from(
+        new Set(res.data.city.map((item) => item.area))
+      );
+      setcty(uniquecity);
+    };
+    fetchdata();
+  }, []);
 
   // console.log(isverified);
   const handleclick = async (data) => {
@@ -236,12 +249,22 @@ function Profile() {
               <label htmlFor="" className="text-[1.2rem]">
                 Your Account belong to{" "}
               </label>
-              <input
-                className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                type="text"
+              <select
                 {...register("belongcity")}
                 defaultValue={data.belongcity}
-              />
+                className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="">Select Belong city</option>
+                {cty.map((item, index) => (
+                  <option
+                    className="w-[80%] cursor-pointer px-3 py-1.5 ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
+                    key={index}
+                    value={item}
+                  >
+                    {item}
+                  </option>
+                ))}
+              </select>
             </div>
           )}
           <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:items-center lg:text-[1.2rem] text-[1.1rem]">
