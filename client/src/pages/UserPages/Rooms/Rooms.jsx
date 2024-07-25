@@ -122,7 +122,7 @@ function Rooms() {
       // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
-    }
+    } 
   };
   useEffect(() => {
     getRooms();
