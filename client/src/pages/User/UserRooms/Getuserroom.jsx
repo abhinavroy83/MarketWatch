@@ -3,16 +3,15 @@ import { DashConatiner } from "../../../components";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { BiMinusCircle } from "react-icons/bi";
-import { MdOutlineMeetingRoom } from "react-icons/md";
-import { FaMapPin } from "react-icons/fa";
 import door from "../../../assets/door.png";
 import { SkyScrapper } from "../../../assets";
 import map from "../../../assets/map.png";
 import pricetag from "../../../assets/pricetag.png";
 import removed from "../../../assets/removed.png";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoPeopleSharp } from "react-icons/io5";
 
 function Getuserroom() {
   const { userID } = useParams();
@@ -46,6 +45,9 @@ function Getuserroom() {
       );
       if (res) {
         alert("Room delete Sucessfully");
+        setRoomDetails((prevRooms) =>
+          prevRooms.filter((room) => room._id !== deleteid)
+        );
       }
     } catch (error) {
       console.error(error);
@@ -54,7 +56,7 @@ function Getuserroom() {
 
   useEffect(() => {
     fetchUserRoomDetails();
-  }, [userID, handledeleterooms]);
+  }, [userID]);
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -112,6 +114,17 @@ function Getuserroom() {
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl rounded-sm px-4 py-4 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+          <div className="lg:hidden flex items-center text-gray-700 mt-2">
+            <Link to="/">
+              <FaHome size={20} />
+            </Link>
+            <IoIosArrowForward />
+            <Link to={`/myaccount/${userID}`}>
+              <IoPeopleSharp size={20} />
+            </Link>
+            <IoIosArrowForward />
+            <p>Rooms</p>
+          </div>
           <div>
             <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">
               Rooms

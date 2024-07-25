@@ -10,6 +10,9 @@ import Loader from "../../../components/UserCompontents/Loader";
 import { ImProfile } from "react-icons/im";
 import ConfirmationDialog from "../../../components/UserCompontents/Alert/ConfirmationDialog";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
+import { FaHome } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoPeopleSharp } from "react-icons/io5";
 
 function Profile() {
   const { userID } = useParams();
@@ -199,24 +202,6 @@ function Profile() {
     setShowConfirm(false);
   };
 
-  const handlePasswordVerification = async () => {
-    try {
-      const verifyResponse = await axios.post(
-        `https://api.verydesi.com/user/verifypassword`,
-        { userID, password }
-      );
-
-      if (verifyResponse.data.success) {
-        setIsPasswordVerified(true);
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
-    } catch (error) {
-      console.log(error);
-      alert("An error occurred. Please try again.");
-    }
-  };
-
   return (
     <DashConatiner>
       {showConfirm && (
@@ -237,6 +222,17 @@ function Profile() {
           <ImProfile />
           Settings
         </p>
+      </div>
+      <div className="lg:hidden flex items-center text-gray-700 mt-2">
+        <Link to="/">
+          <FaHome size={20} />
+        </Link>
+        <IoIosArrowForward />
+        <Link to={`/myaccount/${userID}`}>
+          <IoPeopleSharp size={20} />
+        </Link>
+        <IoIosArrowForward />
+        <p>Settings</p>
       </div>
 
       <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-4 w-[100%]">
