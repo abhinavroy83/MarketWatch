@@ -81,7 +81,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     const fetchWishStatus = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/getlistbyroom/${_id}`,
+          `http://localhost:8000/api/getlistbyroom/${item._id}`,
           {
             headers: {
               jwttoken: `${token}`,
