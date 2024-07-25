@@ -6,7 +6,7 @@ const initialState = {
   user: null,
   userID: null,
   location: null,
-  city: "Portland",
+  city: null,
   bussinessac: null,
   isverified: false,
   userimg: null,
@@ -41,7 +41,7 @@ const authSlice = createSlice({
       state.location = action.payload.location;
     },
     cities: (state, action) => {
-      state.city = action.payload.city;
+      state.city = action.payload.city || "Portland";
     },
   },
 });

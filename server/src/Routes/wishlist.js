@@ -10,7 +10,7 @@ const IsloggedIn = require("../middleware/isloggedin");
 
 router.post("/api/addtowish", IsloggedIn, postwistlist);
 router.get(`/api/getlist/:UserId`, findwishlist);
-router.get(`/api/getlistbyroom/:roomId`, findwishlistwithroomid);
-router.delete("/api/deletelist/:userid", deletelist);
+router.get(`/api/getlistbyroom/:roomId`, IsloggedIn, findwishlistwithroomid);
+router.delete("/api/deletelist/:userid", IsloggedIn, deletelist);
 
 module.exports = router;

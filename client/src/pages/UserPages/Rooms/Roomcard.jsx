@@ -17,7 +17,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const userID = useSelector((state) => state.auth.userId);
   const auth = useSelector((state) => state.auth.status);
-  const [wishliststatys, setWishliststatys] = useState(false);
+  const [wishliststatys, setWishlistStatus] = useState(false);
 
   const notify = () => toast("Added to Wishlist.");
   const unnotify = () => toast("Remove from Wishlist.");
@@ -26,13 +26,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const makewishlist = async (_id) => {
     if (auth) {
       try {
-        const dat = {
-          roomId: _id,
-          status: true,
-        };
-        // console.log(dat);
+        const dat = { roomId: _id, status: true };
         const res = await axios.post(
-          ` https://api.verydesi.com/api/addtowish`,
+          `http://localhost:8000/api/addtowish`,
           dat,
           {
             headers: {
@@ -42,13 +38,16 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
             withCredentials: true,
           }
         );
-        if (res) {
-          setWishliststatys(true);
+
+        if (
+          res.data.msg === "Successfully added to wishlist" ||
+          res.data.msg === "Successfully updated"
+        ) {
+          setWishlistStatus(true);
           notify();
-          // alert("successfully added to wishlist");
         }
       } catch (error) {
-        console.log(error);
+        console.error("Error adding to wishlist:", error);
       }
     } else {
       unauthnotify();
@@ -57,38 +56,53 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
 
   const unwish = async (_id) => {
     try {
-      const res = await axios.delete(
-        ` https://api.verydesi.com/api/deletelist/${_id}`
-      );
-      if (res) {
-        setWishliststatys(false);
+      const dat = { roomId: _id, status: false };
+      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+        headers: {
+          jwttoken: `${token}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+
+      if (
+        res.data.msg === "Successfully removed" ||
+        res.data.msg === "Wishlist cleared"
+      ) {
+        setWishlistStatus(false);
         unnotify();
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error removing from wishlist:", error);
     }
   };
 
   useEffect(() => {
-    const fetchwishstatus = async () => {
+    const fetchWishStatus = async () => {
       try {
         const res = await axios.get(
-          ` https://api.verydesi.com/api/getlistbyroom/${item._id}`
+          `http://localhost:8000/api/getlistbyroom/${item._id}`,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
         );
-        // console.log(res.data.list.status);
-        if (res.data.status == "not") {
-          setWishliststatys(false);
-        } else if (res.data.list[0].status == true) {
-          setWishliststatys(true);
+
+        if (res.data.status === "not found") {
+          setWishlistStatus(false);
         } else {
-          setWishliststatys(false);
+          setWishlistStatus(res.data.status);
         }
       } catch (error) {
-        console.log("error during fetcignlist", error);
+        console.error("Error during fetching wishlist status:", error);
       }
     };
-    fetchwishstatus();
-  }, [item._id]);
+
+    fetchWishStatus();
+  }, [item._id, token]);
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
       return str.slice(0, numCharacters) + "...";

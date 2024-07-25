@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link, useNavigate } from "react-router-dom";
 import Avalableloc from "./Avalableloc";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { ImProfile } from "react-icons/im";
 import { RiContactsFill } from "react-icons/ri";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosHelpCircle } from "react-icons/io";
@@ -51,12 +49,13 @@ function Ads() {
     if (userID) {
       try {
         const res = await axios.get(
-          ` https://api.verydesi.com/api/getlist/${userID}`
+          ` http://localhost:8000/api/getlist/${userID}`
         );
-        if (res.data.list.status === "error") {
+        console.log(res.data.count);
+        if (res.data.status === "error") {
           setCartno("");
         } else {
-          setCartno(res.data.list.length);
+          setCartno(res.data.count);
         }
       } catch (error) {
         console.log("error during fetcing count api in header", error);
@@ -163,7 +162,7 @@ function Ads() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <p className="text-[16px] flex cursor-pointer items-center hover:font-bold gap-0 lg:gap-1 group ">
-                <IoLocationSharp size={20} /> {currntcty}
+                <IoLocationSharp size={20} /> {currntcty || "Portland"}
                 <MdOutlineKeyboardArrowDown
                   className={`transition-transform duration-300 ${
                     isHovered ? "rotate-180" : ""

@@ -25,7 +25,7 @@ function Avalableloc({ isOpen, onClose }) {
   const handleLocation = (city) => {
     dispatch(cities({ city: city }));
     onClose(false);
-    console.log("Selected location:", city);
+    // console.log("Selected location:", city);
   };
 
   return (
