@@ -43,13 +43,13 @@ const ConfirmationDialog = ({
 
         <input
           type="password"
-          className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-4 font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
         />
 
-        <div className="mt-7 flex gap-3 justify-end">
+        <div className="mt-6 lg:mt-2 flex gap-3 justify-end">
           <button
             type="button"
             onClick={onCancel}
@@ -61,7 +61,7 @@ const ConfirmationDialog = ({
           {!isPasswordVerified && (
             <p
               onClick={handlePasswordVerification}
-              className="rounded bg-red-600 px-6 text-[1rem] font-medium text-white"
+              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white"
             >
               Verify Password
             </p>
@@ -69,7 +69,7 @@ const ConfirmationDialog = ({
           {isPasswordVerified && (
             <p
               onClick={onConfirm}
-              className="rounded bg-red-600 px-6 text-[1rem] font-medium text-white"
+              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white"
             >
               Delete Account
             </p>

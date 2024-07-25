@@ -175,12 +175,12 @@ function DashConatiner({ children }) {
       )}
       <div className="flex lg:flex-row flex-col">
         <div className="lg:hidden">
-          <button
+          {/* <button
             className="items-center mt-1 mb-2 bg-gray-300 flex px-3 py-1"
             onClick={handlehamburger}
           >
             <GiHamburgerMenu className="cursor-pointer text-black" size={20} />
-          </button>
+          </button> */}
           {openhamburger && (
             <div className="border-gray-300 border">
               <div className="w-auto bg-white bg-transparent px-3 lg:mt-4 flex flex-col">
@@ -542,7 +542,7 @@ function DashConatiner({ children }) {
               )}
             </div>
           </div>
-        </div> 
+        </div>
         <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
           {children}
         </main>

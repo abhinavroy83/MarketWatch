@@ -245,8 +245,8 @@ function Profile() {
         </h1> */}
         <form onSubmit={handleSubmit(handleclick)} className="w-full">
           {isedit && (
-            <div className="flex flex-col p-2 gap-1">
-              <label htmlFor="" className="text-[1.2rem]">
+            <div className="flex flex-col p-2 gap-1 lg:text-[1.2rem] text-[1.1rem]">
+              <label htmlFor="" className="">
                 Your Account belong to{" "}
               </label>
               <select
