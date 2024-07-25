@@ -153,7 +153,7 @@ function ListAllwish() {
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-md text-[1.2rem] border border-gray-200 md:rounded-lg">
+              <div className="overflow-hidden rounded-md text-[1.2rem] border border-gray-200 md:rounded-lg w-full">
                 <table className="min-w-full divide-gray-200 divide-y">
                   <thead className="bg-gray-50">
                     <tr>
@@ -178,7 +178,7 @@ function ListAllwish() {
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
                           {/* <AiFillDollarCircle size={24} /> */}
@@ -188,7 +188,7 @@ function ListAllwish() {
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700 whitespace-nowrap"
                       >
                         <span className="flex gap-1">
                           {/* <MdFindInPage size={24} /> */}
@@ -204,7 +204,7 @@ function ListAllwish() {
                       </th> */}
                       <th
                         scope="col"
-                        className="px-4 py-3.5 font-normal text-gray-700"
+                        className="px-8 py-3.5 font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
                           {/* <IoIosRemoveCircle size={24} /> */}
