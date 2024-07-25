@@ -17,6 +17,8 @@ import { GrEdit } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoPeopleSharp } from "react-icons/io5";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -174,6 +176,18 @@ function DashConatiner({ children }) {
         </div>
       )}
       <div className="flex lg:flex-row flex-col">
+        <div className="lg:hidden flex items-center text-gray-700">
+          <p>
+            <FaHome size={20} />
+          </p>
+          <IoIosArrowForward />
+          <p>
+            <IoPeopleSharp size={20} />
+          </p>
+          <IoIosArrowForward />
+          <p>Current Page</p>
+        </div>
+
         <div className="lg:hidden">
           {/* <button
             className="items-center mt-1 mb-2 bg-gray-300 flex px-3 py-1"
