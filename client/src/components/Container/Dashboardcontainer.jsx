@@ -33,6 +33,7 @@ function DashConatiner({ children }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+  // console.log(imgss)
   // console.log(username);
   const navigate = useNavigate();
   const { userID } = useParams();
@@ -176,18 +177,6 @@ function DashConatiner({ children }) {
         </div>
       )}
       <div className="flex lg:flex-row flex-col">
-        <div className="lg:hidden flex items-center text-gray-700">
-          <p>
-            <FaHome size={20} />
-          </p>
-          <IoIosArrowForward />
-          <p>
-            <IoPeopleSharp size={20} />
-          </p>
-          <IoIosArrowForward />
-          <p>Current Page</p>
-        </div>
-
         <div className="lg:hidden">
           {/* <button
             className="items-center mt-1 mb-2 bg-gray-300 flex px-3 py-1"

@@ -4,8 +4,6 @@ import {
   AdminHeader,
 } from "../../../components/AdminCompontents";
 import axios from "axios";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { FaMapPin } from "react-icons/fa";

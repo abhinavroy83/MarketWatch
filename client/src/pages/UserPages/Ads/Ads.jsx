@@ -49,7 +49,7 @@ function Ads() {
     if (userID) {
       try {
         const res = await axios.get(
-          ` http://localhost:8000/api/getlist/${userID}`
+          ` https://api.verydesi.com/api/getlist/${userID}`
         );
         console.log(res.data.count);
         if (res.data.status === "error") {

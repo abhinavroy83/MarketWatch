@@ -28,7 +28,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       try {
         const dat = { roomId: _id, status: true };
         const res = await axios.post(
-          `http://localhost:8000/api/addtowish`,
+          `https://api.verydesi.com/api/addtowish`,
           dat,
           {
             headers: {
@@ -57,7 +57,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const unwish = async (_id) => {
     try {
       const dat = { roomId: _id, status: false };
-      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     const fetchWishStatus = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/getlistbyroom/${item._id}`,
+          `https://api.verydesi.com/api/getlistbyroom/${item._id}`,
           {
             headers: {
               jwttoken: `${token}`,

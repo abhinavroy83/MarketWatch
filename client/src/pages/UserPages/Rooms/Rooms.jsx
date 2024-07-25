@@ -122,7 +122,7 @@ function Rooms() {
       // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
-    }
+    } 
   };
   useEffect(() => {
     getRooms();
@@ -201,7 +201,7 @@ function Rooms() {
   const makewishlist = async () => {
     try {
       const dat = { roomId: _id, status: true };
-      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -224,7 +224,7 @@ function Rooms() {
   const unwish = async () => {
     try {
       const dat = { roomId: _id, status: false };
-      const res = await axios.post(`http://localhost:8000/api/addtowish`, dat, {
+      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
         headers: {
           jwttoken: `${token}`,
           "Content-Type": "application/json",
@@ -248,7 +248,7 @@ function Rooms() {
     const fetchWishStatus = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/getlistbyroom/${_id}`,
+          `https://api.verydesi.com/api/getlistbyroom/${_id}`,
           {
             headers: {
               jwttoken: `${token}`,
