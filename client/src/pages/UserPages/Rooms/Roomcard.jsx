@@ -12,6 +12,7 @@ import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { LuHeart } from "react-icons/lu";
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -57,13 +58,17 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const unwish = async (_id) => {
     try {
       const dat = { roomId: _id, status: false };
-      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
-        headers: {
-          jwttoken: `${token}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       if (
         res.data.msg === "Successfully removed" ||
@@ -186,7 +191,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           {calculateTimeDifference(item.postedon)}
         </p>
         {auth && (
-          <div className="absolute bottom-3 right-4">
+          <div className="absolute bottom-4 right-4">
             {!wishliststatys ? (
               <div
                 className="cursor-pointer p-2 hover:text-white"
@@ -195,9 +200,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <FaHeart
-                  className="text-gray-500 hover:text-red-500 hover:border p-1 rounded-full"
-                  size={27}
+                <LuHeart
+                  className="text-black hover:text-gray-600"
+                  size={22}
                 />
               </div>
             ) : (
@@ -208,10 +213,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   unwish(item._id);
                 }}
               >
-                <FaHeart
-                  className="border p-1 rounded-full"
+                <LuHeart
+                  className=""
                   color="red"
-                  size={27}
+                  size={22}
                 />
               </div>
             )}

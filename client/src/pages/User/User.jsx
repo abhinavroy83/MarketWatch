@@ -10,16 +10,17 @@ import job2 from "../../assets/job2.png";
 import event2 from "../../assets/event2.png";
 import movie2 from "../../assets/movie2.png";
 import work from "../../assets/work.png";
+import Favorites from "../../assets/Favorites.png";
 function User() {
   const username = useSelector((state) => state.auth.user);
   // console.log(username);
-  const notify = () => toast("Coming Soon...");
+  const notify = () => toast("Coming Soon now...");
   const { userID } = useParams();
   return (
     <DashConatiner>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -27,7 +28,7 @@ function User() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        // theme="dark"
       />
       <h1 className="lg:text-[25px] text-[22px] text-center text-[#232f3e] mt-0 lg:mt-7 font-['udemy-regular']">
         Welcome Back {username}
@@ -66,6 +67,18 @@ function User() {
         <div className="" onClick={notify}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img
+              className="w-[2.5rem] h-[2.5rem] lg:w-[3.7rem] lg:h-[3.7rem]"
+              src={Favorites}
+              alt="logo"
+            />
+            <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
+              Favorites
+            </h1>
+          </div>
+        </div>
+        {/* <div className="" onClick={notify}>
+          <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
+            <img
               className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
               src={job2}
               alt="logo"
@@ -74,7 +87,7 @@ function User() {
               Jobs
             </h1>
           </div>
-        </div>
+        </div> */}
         <div className="" onClick={notify}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img
@@ -87,7 +100,7 @@ function User() {
             </h1>
           </div>
         </div>
-        <div className="" onClick={notify}>
+        {/* <div className="" onClick={notify}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img
               className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -98,11 +111,8 @@ function User() {
               Movies
             </h1>
           </div>
-        </div>
-        <Link
-          onClick={notify}
-          // to={`/user/bussiness/${userID}`}
-        >
+        </div> */}
+        {/* <Link onClick={notify} to={`/user/bussiness/${userID}`}>
           <div className="">
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
@@ -115,7 +125,7 @@ function User() {
               </h1>
             </div>
           </div>
-        </Link>
+        </Link> */}
       </div>
     </DashConatiner>
   );

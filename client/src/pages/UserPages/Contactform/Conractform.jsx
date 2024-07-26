@@ -54,7 +54,7 @@ function Conractform({ isOpen, onClose }) {
           <div className="flex items-center">
             {/* <FaEnvelopeOpenText className="items-center" size={30} /> */}
             <img className="h-8 w-8" src={info} alt="" />
-            <p className="text-[25px] text-black p-3 font-bold">Your Details</p>
+            <p className="text-[25px] text-black p-3 font-bold">Contact</p>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}

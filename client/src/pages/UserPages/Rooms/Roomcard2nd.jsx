@@ -1,11 +1,12 @@
 import React from "react";
-import femaleLogo from "../../../assets/female.png";
-import maleLogo from "../../../assets/male.jpeg";
+import femaleLogo from "../../../assets/female5.png";
+import maleLogo from "../../../assets/male5.png";
 import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { LuHeart } from "react-icons/lu";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   function truncateCharacters(str, numCharacters) {
@@ -49,8 +50,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
     >
       <img
         className="flex"
-        height={50}
-        width={50}
+        height={37}
+        width={37}
         src={
           item.Preferred_gender === "Female only"
             ? femaleLogo
@@ -97,8 +98,9 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </div>
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
-      <div className="flex gap-4 justify-center items-center mr-3">
-        <p className="text-[23px] text-green-700 font-['udemy-regular'] font-bold">
+      <div className="flex lg:gap-3 gap-2 justify-center items-center mr-3">
+        <LuHeart className="text-black hover:text-gray-600" size={22} />
+        <p className="text-[22px] text-green-700 font-['udemy-regular'] font-bold">
           ${item.Expected_Rooms}
         </p>
       </div>

@@ -398,6 +398,7 @@ function DashConatiner({ children }) {
               <div className="text-center text-black text-[1.1rem]">
                 <p className="text-[1.8rem] font-bold">{data.firstName}</p>
                 <p className="text-gray-600">{data.address}</p>
+                <p className="text-gray-600">Since 2024</p>
                 <div className="flex gap-6 mt-4">
                   <div className="flex flex-col items-center gap-2 text-gray-700">
                     <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">

@@ -13,7 +13,7 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
-
+import settings2 from "../../../assets/settings2.png";
 function Profile() {
   const { userID } = useParams();
   const {
@@ -217,13 +217,14 @@ function Profile() {
         />
       )}
 
-      <div className="flex justify-center text-center self-center ">
-        <p className="text-[1.5rem] p-2 text-black font-['udemy-regular'] bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
-          <ImProfile />
+      <div className="flex justify-center text-center self-center  font-['udemy-regular'] ">
+        <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-3 justify-center shadow-black shadow-sm items-center text-center">
+          {/* <ImProfile /> */}
+          <img className="w-[2rem] h-[2rem]" src={settings2} alt="logo" />
           Settings
         </p>
       </div>
-      <div className="lg:hidden flex items-center text-gray-700 mt-2">
+      <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
         <Link to="/">
           <FaHome size={20} />
         </Link>
@@ -235,11 +236,14 @@ function Profile() {
         <p>Settings</p>
       </div>
 
-      <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-4 w-[100%]">
+      <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-4 w-[100%]  font-['udemy-regular'] ">
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}
-        <form onSubmit={handleSubmit(handleclick)} className="w-full">
+        <form
+          onSubmit={handleSubmit(handleclick)}
+          className="w-full font-['udemy-regular'] "
+        >
           {isedit && (
             <div className="flex flex-col p-2 gap-1 lg:text-[1.2rem] text-[1.1rem]">
               <label htmlFor="" className="">
@@ -529,7 +533,11 @@ function Profile() {
               <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:text-[1.2rem] text-[1.1rem]">
                 <div className="flex flex-col font-['udemy-regular'] p-2 gap-1">
                   <label className="min-w-[120px]">City</label>
-                  {isedit ? (
+                  <input
+                    className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                  />
+                  {/* {isedit ? (
                     <select
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("city")}
@@ -548,7 +556,7 @@ function Profile() {
                     </select>
                   ) : (
                     <p className="">{data.city}</p>
-                  )}
+                  )} */}
                 </div>
                 <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
                   <label className="min-w-[120px]">State</label>

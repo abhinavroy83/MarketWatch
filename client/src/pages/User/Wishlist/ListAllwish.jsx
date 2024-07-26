@@ -20,7 +20,7 @@ import pagelink from "../../../assets/pagelink.png";
 import pricetag from "../../../assets/pricetag.png";
 import removed from "../../../assets/removed.png";
 import { IoPeopleSharp } from "react-icons/io5";
-
+import Favorites from "../../../assets/Favorites.png";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
@@ -147,8 +147,10 @@ function ListAllwish() {
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
-          <p className="text-[1.5rem] p-2 text-black bg-gray-300 w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
-            <FaHeart size={25} /> Favorites
+          <p className="text-[1.5rem] p-2 mt-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
+            {/* <FaHeart size={25} /> */}
+            <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" />
+            Favorites
           </p>
         </div>
         <div className="lg:hidden flex items-center text-gray-700 mt-2">

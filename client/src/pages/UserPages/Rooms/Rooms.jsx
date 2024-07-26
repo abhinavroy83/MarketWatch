@@ -122,7 +122,7 @@ function Rooms() {
       // console.log(res.data.Allrooms);
     } catch (error) {
       console.log("error during fetching api", error);
-    } 
+    }
   };
   useEffect(() => {
     getRooms();
@@ -201,13 +201,17 @@ function Rooms() {
   const makewishlist = async () => {
     try {
       const dat = { roomId: _id, status: true };
-      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
-        headers: {
-          jwttoken: `${token}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       if (
         res.data.msg === "Successfully added to wishlist" ||
@@ -224,13 +228,17 @@ function Rooms() {
   const unwish = async () => {
     try {
       const dat = { roomId: _id, status: false };
-      const res = await axios.post(`https://api.verydesi.com/api/addtowish`, dat, {
-        headers: {
-          jwttoken: `${token}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       if (
         res.data.msg === "Successfully removed" ||
@@ -453,13 +461,13 @@ function Rooms() {
                   />
                 </div>
               )}
-              <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
+              {/* <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
                 <BiSolidMessageRounded
                   className="flex lg:w-7 lg:h-7 w-5 h-5"
                   color="#fff"
                   // size={30}
                 />
-              </div>
+              </div> */}
               {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
                 <CopyToClipboard text={url} onCopy={handlecopy}>
                   <IoIosShareAlt color="#fff" size={30} />
@@ -914,8 +922,8 @@ function Rooms() {
                 <div className="flex flex-col">
                   <p className="text-gray-500 text-[20px]">
                     Email
-                    <p className="text-black flex text-[18px] lowercase">
-                      <a href={`mailto:${rooms.email}`} className="text-black">
+                    <p className="text-blue-600 flex text-[18px] lowercase">
+                      <a href={`mailto:${rooms.email}`} className="hover:underline">
                         {rooms.email}
                       </a>
                     </p>
