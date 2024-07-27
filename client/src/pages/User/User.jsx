@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { DashConatiner } from "../../components";
 import { Link, useParams } from "react-router-dom";
@@ -11,16 +11,30 @@ import event2 from "../../assets/event2.png";
 import movie2 from "../../assets/movie2.png";
 import work from "../../assets/work.png";
 import Favorites from "../../assets/Favorites.png";
+import Alert from "../../components/UserCompontents/Alert/Alert";
 function User() {
   const username = useSelector((state) => state.auth.user);
-  // console.log(username);
-  const notify = () => toast("Coming Soon now...");
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleAlertBar = () => {
+    setShowAlert(true);
+
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 5000);
+  };
+
+  const notify = () =>
+    toast("Coming Soon", {
+      type: "error",
+      className: "!bg-red-100",
+    });
   const { userID } = useParams();
   return (
     <DashConatiner>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
-        autoClose={4000}
+        autoClose={700000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -29,7 +43,8 @@ function User() {
         draggable
         pauseOnHover
         // theme="dark"
-      />
+      /> */}
+      {showAlert && <Alert close={false} type="error" text="Coming Soon" />}
       <h1 className="lg:text-[25px] text-[22px] text-center text-[#232f3e] mt-0 lg:mt-7 font-['udemy-regular']">
         Welcome Back {username}
       </h1>
@@ -88,7 +103,7 @@ function User() {
             </h1>
           </div>
         </div> */}
-        <div className="" onClick={notify}>
+        <div className="" onClick={handleAlertBar}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img
               className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"

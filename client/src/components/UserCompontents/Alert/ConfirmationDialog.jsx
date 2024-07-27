@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 
@@ -30,8 +30,21 @@ const ConfirmationDialog = ({
       alert("An error occurred. Please try again.");
     }
   };
+
+  useEffect(() => {
+    function handleCloseOnOutsideClick(e) {
+      if (e.target.id === "modalOuter") onClose();
+    }
+
+    window.addEventListener("click", handleCloseOnOutsideClick);
+    return () => window.removeEventListener("click", handleCloseOnOutsideClick);
+  }, []);
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
+      id="modalOuter"
+    >
       <div className="bg-white p-8 shadow-2xl relative">
         <RxCross1
           className="h-5 w-5 text-black absolute top-3 right-5 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
@@ -61,7 +74,7 @@ const ConfirmationDialog = ({
           {!isPasswordVerified && (
             <p
               onClick={handlePasswordVerification}
-              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white"
+              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white cursor-pointer"
             >
               Verify Password
             </p>
@@ -69,7 +82,7 @@ const ConfirmationDialog = ({
           {isPasswordVerified && (
             <p
               onClick={onConfirm}
-              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white"
+              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white cursor-pointer"
             >
               Delete Account
             </p>

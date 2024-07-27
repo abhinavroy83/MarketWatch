@@ -12,7 +12,8 @@ function AdminHome() {
   const role = useSelector((state) => state.adminauth.role);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const notify = () => toast("Coming Soon...");
+  const notify = () =>
+    toast("Coming Soon...");
 
   return (
     <div className="font-['udemy-regular'] text-[20px]">

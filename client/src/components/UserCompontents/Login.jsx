@@ -127,7 +127,13 @@ function Login() {
   // console.log(isMobile);
   return (
     <>
-      {alerton && <Alert close={false} />}
+      {alerton && (
+        <Alert
+          close={false}
+          type="success"
+          text="Welcome! Successfully logged"
+        />
+      )}
       <Modal
         isOpen={isLoginModalOpen}
         onRequestClose={() => handleModal(false, false)}

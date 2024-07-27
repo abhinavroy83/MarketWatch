@@ -164,27 +164,27 @@ function Signup() {
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
-                <div className="flex gap-3 mt-1 lg:mt-3">
-                  <Input
-                    label="First Name"
-                    Placeholder="First name"
-                    type="text"
-                    {...register("firstName", {
-                      required: "First Name is required",
-                    })}
-                    errorMessage={errors.firstName?.message}
-                  />
-                  <Input
-                    label="Last Name"
-                    Placeholder="Last name"
-                    type="text"
-                    {...register("lastName", {
-                      required: "Last Name is required",
-                    })}
-                    errorMessage={errors.lastName?.message}
-                  />
-                </div>
-                <div className="flex flex-col gap-1 mt-1">
+                <div className="flex flex-col gap-3 mt-1">
+                  <div className="flex gap-3 mt-1 lg:mt-3">
+                    <Input
+                      label="First Name"
+                      Placeholder="First name"
+                      type="text"
+                      {...register("firstName", {
+                        required: "First Name is required",
+                      })}
+                      errorMessage={errors.firstName?.message}
+                    />
+                    <Input
+                      label="Last Name"
+                      Placeholder="Last name"
+                      type="text"
+                      {...register("lastName", {
+                        required: "Last Name is required",
+                      })}
+                      errorMessage={errors.lastName?.message}
+                    />
+                  </div>
                   <div className="flex gap-3">
                     <Input
                       label="Email"

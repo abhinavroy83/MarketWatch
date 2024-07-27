@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Alert({ close }) {
+function Alert({ close, type, text }) {
   const [isOpen, setIsOpen] = useState(true);
   const [remainingTime, setRemainingTime] = useState(100);
 
@@ -31,14 +31,17 @@ function Alert({ close }) {
   };
 
   if (!isOpen) return null;
+  let typeClass = type === "success" ? "bg-green-100" : "bg-red-100";
+  let textColorClass = type === "success" ? "text-green-600" : "text-red-600";
+  let bgColorClass = type === "success" ? "bg-green-600" : "bg-red-600";
 
   return (
     <div
       role="alert"
-      className="fixed top-[7rem] right-4 rounded-xl border border-gray-100 bg-green-100 p-4 z-50"
+      className={`fixed top-[7rem] right-4 rounded-xl border border-gray-100 ${typeClass} p-4 z-50`}
     >
       <div className="flex items-center gap-2">
-        <span className="text-green-600">
+        <span className={textColorClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -56,9 +59,7 @@ function Alert({ close }) {
         </span>
 
         <div className="flex-1">
-          <strong className="block font-medium text-gray-900">
-            Welcome! Successfully loged
-          </strong>
+          <strong className="block font-medium text-gray-900">{text}</strong>
 
           {/* <p className="mt-1 text-sm text-gray-700">
             Your product changes have been saved.
@@ -88,7 +89,7 @@ function Alert({ close }) {
         </button>
       </div>
       <div
-        className="absolute bottom-0 left-0 bg-green-500 rounded-sm"
+        className={`absolute bottom-0 left-0 ${bgColorClass} rounded-sm`}
         style={{
           height: "4px",
           width: `${remainingTime}%`, // Adjusting width dynamically

@@ -16,7 +16,7 @@ const Input = forwardRef(function Input(
     <div className={`w-full ${parentClassName}`}>
       {label && (
         <label
-          className="text-[1.2rem] font-['udemy-regular'] font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="text-[1.1rem] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           htmlFor={id}
         >
           {label}
@@ -24,7 +24,7 @@ const Input = forwardRef(function Input(
       )}
       <input
         type={type}
-        className={`flex h-10 w-full font-['udemy-regular'] rounded-md border border-black/30 bg-transparent px-3 py-2 text-[1.2rem] placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+        className={`flex h-10 w-full font-['udemy-regular'] rounded-md border border-black/30 bg-transparent px-3 py-2 text-[1.1rem] placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
         ref={ref}
         {...props}
         id={id}
