@@ -80,7 +80,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         } w-full`}
       >
         {/* <p>{item.postedon}</p> */}
-        <p className="flex flex-col text-[21px] capitalize mt-3 lg:mt-0">
+        <p className="flex flex-col text-[21px] capitalize mt-3 lg:mt-1">
           {item.Title && truncateWords(item.Title, 3)}
         </p>
         <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">

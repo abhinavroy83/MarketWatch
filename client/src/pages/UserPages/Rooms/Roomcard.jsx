@@ -170,7 +170,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[21px] capitalize mt-3 lg:mt-0">
+        <h1 className="flex flex-col text-[21px] capitalize mt-3 lg:mt-1">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
