@@ -152,11 +152,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
-      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden rounded-md">
+      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden rounded-tl-md rounded-bl-md">
         <img
           src={item.Imgurl[0] || noimg}
           alt=""
-          className="hover:scale-105 object-cover transition-transform ease-in duration-40 w-full h-full"
+          className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full h-full"
         />
       </div>
 
