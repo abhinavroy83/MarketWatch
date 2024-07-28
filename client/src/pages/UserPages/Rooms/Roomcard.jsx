@@ -153,7 +153,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       }`}
     >
       <img
-        src={item.Imgurl[0] || { noimg }}
+        src={item.Imgurl[0] || noimg}
         alt=""
         // width={220}
         className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md lg:h-[100%] max-w-4xl transition "
