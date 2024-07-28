@@ -158,7 +158,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         }
         alt=""
         // width={220}
-        className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md  lg:h-[100%] max-w-4xl transition "
+        className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md lg:h-[100%] max-w-4xl transition "
       />
 
       <p className="absolute font-['udemy-bold'] bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
