@@ -8,9 +8,6 @@ import {
   ShareComponent,
 } from "../../../components";
 import { useSelector } from "react-redux";
-import CopyToClipboard from "react-copy-to-clipboard";
-import Roomcard from "./Roomcard";
-import { IoIosShareAlt } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
@@ -307,6 +304,20 @@ function Rooms() {
       </div>
     ),
   }));
+
+   const formatPhoneNumber = (phoneNumber) => {
+    const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+
+    if (cleaned.length >= 10) {
+      const part1 = cleaned.slice(0, 3);
+      const part2 = cleaned.slice(3, 5);
+      const part3 = cleaned.slice(5, 9);
+
+      return `(${part1}) ${part2} - ${part3}`;
+    }
+
+    return phoneNumber;
+  };
 
   return (
     <div className="lg:mt-[4.4rem] mt-[9.4rem] h-full w-full max-w-[1600px] mx-auto capitalize">
@@ -888,7 +899,8 @@ function Rooms() {
                         href={`tel:${rooms.phone_number}`}
                         className="text-black"
                       >
-                        {rooms.phone_number}
+                        {/* {rooms.phone_number} */}
+                        {formatPhoneNumber(rooms.phone_number)}
                       </a>
                     </p>
                   </p>

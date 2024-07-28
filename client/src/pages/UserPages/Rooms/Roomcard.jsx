@@ -152,12 +152,13 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
-      <img
-        src={item.Imgurl[0] || noimg}
-        alt=""
-        // width={220}
-        className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md lg:h-[100%] max-w-4xl transition "
-      />
+      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden rounded-md">
+        <img
+          src={item.Imgurl[0] || noimg}
+          alt=""
+          className="hover:scale-105 object-cover transition-transform ease-in duration-40 w-full h-full"
+        />
+      </div>
 
       <p className="absolute font-['udemy-bold'] bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
         <p className="left-5 top-2 text-[22px] text-green-700 text-right">

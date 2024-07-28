@@ -17,16 +17,18 @@ const singup = async (req, res) => {
       city,
     } = req.body;
     const encrytpass = await bcrypt.hash(password, 10);
+    const joinedon = new Date().toISOString().split("T")[0];
     const newUser = new User({
       isVerified,
       email,
       phone_number,
       lastName,
       bussinessac,
-      firstName, 
+      firstName,
       country,
       city,
       password: encrytpass,
+      joinedon
     });
     const ress = await newUser.save();
     if (ress) {

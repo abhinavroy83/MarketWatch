@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import femaleLogo from "../../../assets/female.png";
 import { MdDateRange } from "react-icons/md";
@@ -7,8 +7,126 @@ import { GrLocation } from "react-icons/gr";
 import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
 import { LuHeart } from "react-icons/lu";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
+  const token = useSelector((state) => state.auth.token);
+  const userID = useSelector((state) => state.auth.userId);
+  const auth = useSelector((state) => state.auth.status);
+  const [wishliststatys, setWishlistStatus] = useState(false);
+
+  const notify = () => toast("Added to Wishlist.");
+  const unnotify = () => toast("Remove from Wishlist.");
+  const unauthnotify = () => toast("Please Login");
+
+  const makewishlist = async (_id) => {
+    if (auth) {
+      try {
+        const dat = { roomId: _id, status: true };
+        const res = await axios.post(
+          `https://api.verydesi.com/api/addtowish`,
+          dat,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        if (
+          res.data.msg === "Successfully added to wishlist" ||
+          res.data.msg === "Successfully updated"
+        ) {
+          setWishlistStatus(true);
+          notify();
+        }
+      } catch (error) {
+        console.error("Error adding to wishlist:", error);
+      }
+    } else {
+      unauthnotify();
+    }
+  };
+
+  const unwish = async (_id) => {
+    try {
+      const dat = { roomId: _id, status: false };
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (
+        res.data.msg === "Successfully removed" ||
+        res.data.msg === "Wishlist cleared"
+      ) {
+        setWishlistStatus(false);
+        unnotify();
+      }
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchWishStatus = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.verydesi.com/api/getlistbyroom/${item._id}`,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        if (res.data.status === "not found") {
+          setWishlistStatus(false);
+        } else {
+          setWishlistStatus(res.data.status);
+        }
+      } catch (error) {
+        console.error("Error during fetching wishlist status:", error);
+      }
+    };
+
+    fetchWishStatus();
+  }, [item._id, token]);
+  const calculateTimeDifference = (dateStr) => {
+    const date = new Date(dateStr);
+    const currentDate = new Date();
+    const diffInMs = currentDate - date;
+    const diffInSeconds = Math.floor(diffInMs / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    const diffInDays = Math.floor(diffInHours / 24);
+    const diffInMonths = Math.floor(diffInDays / 30);
+
+    if (diffInSeconds < 60) {
+      return "Just now";
+    } else if (diffInMinutes < 60) {
+      return `${diffInMinutes} minute${diffInMinutes > 1 ? "s" : ""} ago`;
+    } else if (diffInHours < 24) {
+      return `${diffInHours} hour${diffInHours > 1 ? "s" : ""} ago`;
+    } else if (diffInDays < 30) {
+      return `${diffInDays} day${diffInDays > 1 ? "s" : ""} ago`;
+    } else {
+      return `${diffInMonths} month${diffInMonths > 1 ? "s" : ""} ago`;
+    }
+  };
   function truncateWords(str, numWords) {
     const words = str.split(" ");
 
@@ -47,33 +165,46 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
           {new Intl.DateTimeFormat("en-US", { month: "short" }).format(date)}
         </span>
       </p> */}
+
       <img
-        className="absolute bottom-[1.4rem] right-[3.2rem]"
+        className={"absolute bottom-[1.4rem] right-[3.2rem]"}
         height={22}
         width={25}
-        src={femaleLogo}
-        alt=""
+        src={
+          item.Preferred_gender === "Female only"
+            ? femaleLogo
+            : item.Preferred_gender === "Male only"
+            ? maleLogo
+            : femaleLogo
+        }
       />
-      <div className="absolute bottom-4 right-4">
-        <div
-          className="cursor-pointer p-2 hover:text-white"
-          // onClick={(e) => {
-          //   e.preventDefault();
-          //   makewishlist(item._id);
-          // }}
-        >
-          <LuHeart className="text-black hover:text-gray-600" size={22} />
+
+      {auth && (
+        <div className="absolute bottom-4 right-4">
+          {!wishliststatys ? (
+            <div
+              className="cursor-pointer p-2 hover:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                makewishlist(item._id);
+              }}
+            >
+              <LuHeart className="text-black hover:text-gray-600" size={22} />
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                unwish(item._id);
+              }}
+            >
+              <LuHeart className="" color="red" size={22} />
+            </div>
+          )}
         </div>
-        {/* <div
-          className="cursor-pointer p-2"
-          onClick={(e) => {
-            e.preventDefault();
-            unwish(item._id);
-          }}
-        >
-          <LuHeart className="" color="red" size={22} />
-        </div> */}
-      </div>
+      )}
+
       <div
         className={`px-4 py-1 flex flex-col ${
           isRoomOnlyPage ? "mt-4" : ""
@@ -85,23 +216,20 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         </p>
         <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} />
-          location
-          {/* <span>{item.city},</span>
+          <span>{item.city},</span>
           <span className=" px-1">
             {item?.state?.length > 2
               ? stateAbbreviations[item.State]
               : item.state}
-          </span> */}
+          </span>
         </p>
         <p className="text-blue-800 capitalize text-[19px] mt-1 flex gap-1 items-center font-['udemy-regular']">
           <CgProfile />
-          By:
-          {/* {item.user_name} */}
+          {item.user_name}
         </p>
         <p className="text-blue-800 text-[19px] flex gap-1 mt-1 items-center font-['udemy-regular']">
           <MdDateRange />
-          Date
-          {/* {calculateTimeDifference(item.postedon)} */}
+          {calculateTimeDifference(item.postedon)}
         </p>
         {/* <p className="text-[18px] text-gray-500 font-roboto">{item.area}</p> */}
         {/* <p className="text-[18px] text-gray-500  font-roboto">{item.address}</p> */}

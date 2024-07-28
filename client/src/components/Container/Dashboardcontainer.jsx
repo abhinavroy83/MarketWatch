@@ -19,6 +19,7 @@ import { IoPersonAddOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
+import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -114,6 +115,15 @@ function DashConatiner({ children }) {
     }
   };
 
+  const extractyear = (datastring) => {
+    if (!datastring) {
+      return 2024;
+    }
+
+    const date = new Date(datastring);
+    return date.getFullYear();
+  };
+
   useEffect(() => {
     fetchuser();
   }, [userID]);
@@ -178,12 +188,6 @@ function DashConatiner({ children }) {
       )}
       <div className="flex lg:flex-row flex-col">
         <div className="lg:hidden">
-          {/* <button
-            className="items-center mt-1 mb-2 bg-gray-300 flex px-3 py-1"
-            onClick={handlehamburger}
-          >
-            <GiHamburgerMenu className="cursor-pointer text-black" size={20} />
-          </button> */}
           {openhamburger && (
             <div className="border-gray-300 border">
               <div className="w-auto bg-white bg-transparent px-3 lg:mt-4 flex flex-col">
@@ -398,7 +402,19 @@ function DashConatiner({ children }) {
               <div className="text-center text-black text-[1.1rem]">
                 <p className="text-[1.8rem] font-bold">{data.firstName}</p>
                 <p className="text-gray-600">{data.address}</p>
-                <p className="text-gray-600">Since 2024</p>
+                <p className="text-gray-600">
+                  since
+                  {extractyear(data?.joinedon)}
+                </p>
+                <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 text-center justify-center items-center">
+                  <span>{data.city},</span>
+                  <span className=" px-1">
+                    {data?.state?.length > 2
+                      ? stateAbbreviations[data.state]
+                      : data.state}
+                  </span>
+                </p>
+
                 <div className="flex gap-6 mt-4">
                   <div className="flex flex-col items-center gap-2 text-gray-700">
                     <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">

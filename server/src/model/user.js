@@ -67,6 +67,10 @@ const usershema = new mongoose.Schema({
   password: {
     type: String,
   },
+  joinedon: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const User = mongoose.model("user", usershema);

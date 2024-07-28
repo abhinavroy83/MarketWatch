@@ -6,7 +6,7 @@ const initialState = {
   user: null,
   userID: null,
   location: null,
-  city: null,
+  city: "Portland",
   bussinessac: null,
   isverified: false,
   userimg: null,
