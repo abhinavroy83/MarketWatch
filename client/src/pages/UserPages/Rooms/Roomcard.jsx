@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
+import noimg from "../../../assets/noimg.png";
 import { IoHeartCircle } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -152,10 +153,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       }`}
     >
       <img
-        src={
-          item.Imgurl[0] ||
-          "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
-        }
+        src={item.Imgurl[0] || { noimg }}
         alt=""
         // width={220}
         className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md lg:h-[100%] max-w-4xl transition "
