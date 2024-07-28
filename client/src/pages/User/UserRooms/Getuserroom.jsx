@@ -12,7 +12,7 @@ import pricetag from "../../../assets/pricetag.png";
 import removed from "../../../assets/removed.png";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
-
+import rooms from "../../../assets/rooms.png";
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
@@ -112,9 +112,9 @@ function Getuserroom() {
 
   return (
     <DashConatiner>
-      <section className="mx-auto w-full max-w-7xl rounded-sm px-4 py-4 font-['udemy-regular']">
+      <section className="mx-auto w-full max-w-7xl rounded-sm mt-2 font-['udemy-regular']">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-          <div className="lg:hidden flex items-center text-gray-700 mt-2">
+          <div className="lg:hidden items-center text-gray-700 flex">
             <Link to="/">
               <FaHome size={20} />
             </Link>
@@ -125,28 +125,33 @@ function Getuserroom() {
             <IoIosArrowForward />
             <p>Rooms</p>
           </div>
-          <div>
-            <h2 className="text-[1.5rem] font-semibold text-[#232f3e]">
-              Rooms
-            </h2>
-            <p className="mt-1 text-[1.2rem] text-[#232f3e]">
-              This is a list of all rooms. You can add new rooms, edit or delete
-              existing ones.
+          <div className="flex-col w-full">
+            <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
+              {/* <FaHeart size={25} /> */}
+              {/* <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" /> */}
+              <img className="w-[2rem] h-[2rem]" src={rooms} alt="" />
+              Rooms Posted
             </p>
-          </div>
-          {isverified && (
-            <div>
-              <button
-                type="button"
-                onClick={() => {
-                  navigate(`/addroom/${userID}`);
-                }}
-                className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[1.2rem] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
-              >
-                Add Room
-              </button>
+            <div className="flex items-center justify-between w-full mt-4">
+              <p className="text-[1.2rem] text-[#232f3e]">
+                This is a list of all rooms. You can add new rooms, edit or
+                delete existing ones.
+              </p>
+              {isverified && (
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigate(`/addroom/${userID}`);
+                    }}
+                    className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[1.2rem] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+                  >
+                    Add Room
+                  </button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
         <div className="mt-6 flex flex-col text-[20px]">
           <div className="sm:-mx-6 lg:-mx-8 overflow-x-auto">

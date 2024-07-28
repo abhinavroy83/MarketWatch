@@ -30,6 +30,8 @@ import {
   bathroom1,
   stayhome,
 } from "../../../assets/index";
+import noimg from "../../../assets/noimg.png";
+import rooms from "../../../assets/rooms.png";
 import gendericon from "../../../assets/gendericon.png";
 import availability from "../../../assets/availability.png";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
@@ -525,11 +527,9 @@ function Rooms() {
               />
             ) : (
               <img
-                src={
-                  "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG"
-                }
+                src={noimg}
                 alt="not"
-                className="lg:h-[560px] lg:w-[880px] rounded-md object-cover"
+                className="lg:h-[560px] lg:w-[880px] rounded-md object-contain"
               />
             )}
           </div>
