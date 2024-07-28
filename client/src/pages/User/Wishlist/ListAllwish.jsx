@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { DashConatiner } from "../../../components";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
 import axios from "axios";
-import Loader from "../../../components/UserCompontents/Loader";
 import { BiMinusCircle } from "react-icons/bi";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
-import { MdMeetingRoom } from "react-icons/md";
-import { FaMapPin } from "react-icons/fa";
-import { AiFillDollarCircle } from "react-icons/ai";
-import { MdFindInPage } from "react-icons/md";
-import { IoIosArrowForward, IoIosRemoveCircle } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import door from "../../../assets/door.png";
 import { SkyScrapper } from "../../../assets";
 import pagelink from "../../../assets/pagelink.png";
@@ -21,6 +13,7 @@ import pricetag from "../../../assets/pricetag.png";
 import removed from "../../../assets/removed.png";
 import { IoPeopleSharp } from "react-icons/io5";
 import Favorites from "../../../assets/Favorites.png";
+import { FaHome } from "react-icons/fa";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);

@@ -79,7 +79,7 @@ function User() {
             </div>
           </div>
         </Link>
-        <div className="" onClick={notify}>
+        <Link to={`/dashboard/wishlist/${userID}`} className="">
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img
               className="w-[2.5rem] h-[2.5rem] lg:w-[3.7rem] lg:h-[3.7rem]"
@@ -90,7 +90,7 @@ function User() {
               Favorites
             </h1>
           </div>
-        </div>
+        </Link>
         {/* <div className="" onClick={notify}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img

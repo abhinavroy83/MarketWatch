@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
 import { Link } from "react-router-dom";
@@ -7,8 +7,16 @@ import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { LuHeart } from "react-icons/lu";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
+  const token = useSelector((state) => state.auth.token);
+  const auth = useSelector((state) => state.auth.status);
+
+  const [wishliststatys, setWishlistStatus] = useState(false);
   function truncateCharacters(str, numCharacters) {
     if (str.length > numCharacters) {
       return str.slice(0, numCharacters) + "...";
@@ -38,6 +46,94 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       return `${diffInMonths} month${diffInMonths > 1 ? "s" : ""} ago`;
     }
   };
+
+  const notify = () => toast("Added to Wishlist.");
+  const unnotify = () => toast("Remove from Wishlist.");
+  const unauthnotify = () => toast("Please Login");
+
+  const makewishlist = async (_id) => {
+    if (auth) {
+      try {
+        const dat = { roomId: _id, status: true };
+        const res = await axios.post(
+          `https://api.verydesi.com/api/addtowish`,
+          dat,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        if (
+          res.data.msg === "Successfully added to wishlist" ||
+          res.data.msg === "Successfully updated"
+        ) {
+          setWishlistStatus(true);
+          notify();
+        }
+      } catch (error) {
+        console.error("Error adding to wishlist:", error);
+      }
+    } else {
+      unauthnotify();
+    }
+  };
+  const unwish = async (_id) => {
+    try {
+      const dat = { roomId: _id, status: false };
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (
+        res.data.msg === "Successfully removed" ||
+        res.data.msg === "Wishlist cleared"
+      ) {
+        setWishlistStatus(false);
+        unnotify();
+      }
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchWishStatus = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.verydesi.com/api/getlistbyroom/${item._id}`,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+
+        if (res.data.status === "not found") {
+          setWishlistStatus(false);
+        } else {
+          setWishlistStatus(res.data.status);
+        }
+      } catch (error) {
+        console.error("Error during fetching wishlist status:", error);
+      }
+    };
+
+    fetchWishStatus();
+  }, [item._id, token]);
 
   return (
     <Link
@@ -99,7 +195,31 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
       <div className="flex lg:gap-3 gap-2 justify-center items-center mr-3">
-        <LuHeart className="text-black hover:text-gray-600" size={22} />
+        {auth && (
+          <div className="">
+            {!wishliststatys ? (
+              <div
+                className="cursor-pointer p-2 hover:text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  makewishlist(item._id);
+                }}
+              >
+                <LuHeart className="text-black hover:text-gray-600" size={22} />
+              </div>
+            ) : (
+              <div
+                className="cursor-pointer p-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  unwish(item._id);
+                }}
+              >
+                <LuHeart className="" color="red" size={22} />
+              </div>
+            )}
+          </div>
+        )}{" "}
         <p className="text-[22px] text-green-700 font-['udemy-regular'] font-bold">
           ${item.Expected_Rooms}
         </p>
