@@ -147,7 +147,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     <Link
       to={`/rooms/${item._id}`}
       key={item._id}
-      className={`flex relative max-w-4xl flex-col rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[450px] lg:h-[165px] ${
+      className={`flex relative max-w-4xl flex-col font-['udemy-regular'] rounded-xl md:flex-row border shadow-md hover:shadow-lg h-[450px] lg:h-[165px] ${
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
@@ -158,11 +158,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         }
         alt=""
         // width={220}
-        className="w-full lg:w-52 rounded-tl-md rounded-tr-md lg:rounded-none lg:rounded-tl-md lg:rounded-bl-md lg:h-[100%] max-w-4xl transition duration-300 ease-in-out hover:opacity-80"
+        className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md  lg:h-[100%] max-w-4xl transition "
       />
 
-      <p className="absolute font-roboto bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
-        <p className="left-5 top-2 text-[22px] text-green-700 font-['udemy-bold'] text-right">
+      <p className="absolute font-['udemy-bold'] bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
+        <p className="left-5 top-2 text-[22px] text-green-700 text-right">
           ${item.Expected_Rooms}
         </p>
       </p>
@@ -170,7 +170,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       <div
         className={`px-4 py-1 flex flex-col ${isRoomOnlyPage ? "" : ""} w-full`}
       >
-        <h1 className="flex flex-col text-[21px] font-['udemy-regular'] capitalize mt-3 lg:mt-0">
+        <h1 className="flex flex-col text-[21px] capitalize mt-3 lg:mt-0">
           {item.Title && truncateCharacters(item.Title, 42)}
         </h1>
         <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
@@ -200,10 +200,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <LuHeart
-                  className="text-black hover:text-gray-600"
-                  size={22}
-                />
+                <LuHeart className="text-black hover:text-gray-600" size={22} />
               </div>
             ) : (
               <div
@@ -213,11 +210,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   unwish(item._id);
                 }}
               >
-                <LuHeart
-                  className=""
-                  color="red"
-                  size={22}
-                />
+                <LuHeart className="" color="red" size={22} />
               </div>
             )}
           </div>
