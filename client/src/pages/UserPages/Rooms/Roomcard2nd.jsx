@@ -98,9 +98,9 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         </div>
         {/* <p className="text-blue-800 text-2xl items-center mt-1"> {calculateTimeDifference(item.postedon)}</p> */}
       </div>
-      <div className="flex lg:gap-3 gap-2 justify-center items-center mr-3">
+      <div className="flex lg:gap-3 gap-2 justify-center items-center">
         <LuHeart className="text-black hover:text-gray-600" size={22} />
-        <p className="text-[22px] text-green-700 font-['udemy-regular'] font-bold">
+        <p className="text-[22px] text-green-700 font-['udemy-regular'] font-bold w-[80px]">
           ${item.Expected_Rooms}
         </p>
       </div>
