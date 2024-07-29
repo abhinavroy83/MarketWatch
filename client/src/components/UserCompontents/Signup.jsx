@@ -128,7 +128,8 @@ function Signup() {
         }}
       >
         <div className="capitalize w-full flex h-full">
-          <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex">
+          <div className="capitalize bg-gradient-to-r from-cyan-400 to-green-400 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
+            {/* <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex"> */}
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
                 <img

@@ -158,7 +158,7 @@ function Login() {
         }}
       >
         <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular']">
-          <div className="capitalize bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
+          <div className="capitalize bg-gradient-to-r from-cyan-400 to-green-400 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}

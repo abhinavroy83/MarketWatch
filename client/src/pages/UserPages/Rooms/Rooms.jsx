@@ -305,8 +305,8 @@ function Rooms() {
     ),
   }));
 
-   const formatPhoneNumber = (phoneNumber) => {
-    const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+  const formatPhoneNumber = (phoneNumber) => {
+    const cleaned = ("" + phoneNumber).replace(/\D/g, "");
 
     if (cleaned.length >= 10) {
       const part1 = cleaned.slice(0, 3);
