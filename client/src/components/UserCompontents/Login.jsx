@@ -289,7 +289,7 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 mt-1 px-0 py-2 text-[19px] font-semibold text-black shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 mt-1 px-0 py-2 text-[19px] font-semibold text-black border-black border shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
