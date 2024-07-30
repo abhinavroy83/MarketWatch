@@ -17,12 +17,12 @@ function AdminDashboard({ children }) {
 
   return (
     <div className="max-w-[1600px] mx-auto px-4 flex items-center h-screen overflow-hidden font-['udemy-regular'] mt-[1rem] text-[20px]">
-      <div className="w-[20%] bg-[#232f3e] h-[630px] p-2 flex flex-col items-center gap-2">
+      <div className="w-[20%] h-[630px] border p-2 flex flex-col items-center">
         <button
           onClick={() => {
             navigate(`/admin/dashboard`);
           }}
-          className="mt-5 text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
         >
           <FaHome size={22} />
           Dashboard
@@ -31,7 +31,7 @@ function AdminDashboard({ children }) {
           onClick={() => {
             navigate(`/admin/alluser`);
           }}
-          className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
         >
           <IoPeopleSharp size={25} />
           Basic Users
@@ -41,7 +41,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getalladminsuser`);
             }}
-            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <RiAdminFill size={25} /> Admin Users
           </button>
@@ -51,7 +51,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/getapproval`);
             }}
-            className="whitespace-nowrap text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <MdPendingActions size={25} />
             Pending Requests
@@ -62,7 +62,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allarea`);
             }}
-            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <FaMapPin size={22} /> Area
           </button>
@@ -72,7 +72,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/requests`);
             }}
-            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <MdOutlineSpatialTracking size={25} /> Track Status
           </button>
@@ -82,7 +82,7 @@ function AdminDashboard({ children }) {
             onClick={() => {
               navigate(`/admin/allroom`);
             }}
-            className="text-[1.1rem] w-full flex gap-2 text-white rounded-md bg-transparent pr-7 pl-2 py-2 capitalize transition duration-300 ease-in-out  hover:bg-white hover:text-[#232f3e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <BsPostcard size={25} /> Posts
           </button>
@@ -104,7 +104,9 @@ function AdminDashboard({ children }) {
           Bussiness
         </button> */}
       </div>
-      <main className=" w-4/5 bg-gray-100 h-[630px] p-2 ">{children}</main>
+      <main className="w-auto lg:w-4/5 h-[630px] border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
+        {children}
+      </main>
     </div>
   );
 }
