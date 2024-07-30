@@ -401,9 +401,9 @@ function DashConatiner({ children }) {
               </div>
               <div className="text-center text-black text-[1.1rem]">
                 <p className="text-[1.8rem] font-bold">{data.firstName}</p>
-                <p className="text-gray-600">{data.address}</p>
+                {/* <p className="text-gray-600">{data.address}</p> */}
                 <p className="text-gray-600">
-                  since
+                  Since
                   {extractyear(data?.joinedon)}
                 </p>
                 <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 text-center justify-center items-center">

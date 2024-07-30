@@ -199,15 +199,15 @@ function Login() {
               onSubmit={handleSubmit(onsubmit)}
               className="flex flex-col mt-2 gap-3 font-['udemy-regular']"
             >
-              <label
+              {/* <label
                 htmlFor="Email"
                 className={`relative block py-2 rounded-md border shadow-sm focus-within:ring-1 ${
                   errors.email
                     ? "border-red-600 focus-within:border-red-600 focus-within:ring-red-600"
                     : "border-gray-200 focus-within:border-blue-600 focus-within:ring-blue-600"
                 }`}
-              >
-                <input
+              > */}
+              {/* <input
                   type="text"
                   id="Email"
                   className="peer border-none px-2 bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
@@ -229,8 +229,8 @@ function Login() {
                 >
                   {errors.email ? errors.email.message : "Email"}
                 </span>
-              </label>
-              {/* <Input
+              </label> */}
+              <Input
                 label="Email"
                 Placeholder="Email"
                 type="Email"
@@ -245,8 +245,8 @@ function Login() {
                 })}
                 errorMessage={errors.email?.message}
                 className="!w-full"
-              /> */}
-              <label
+              />
+              {/* <label
                 htmlFor="password"
                 className={`relative block py-2 rounded-md border shadow-sm focus-within:ring-1 ${
                   errors.password
@@ -271,17 +271,17 @@ function Login() {
                 >
                   {errors.password ? errors.password.message : "Password"}
                 </span>
-              </label>
+              </label> */}
 
-              {/* <Input
+              <Input
                 label="Password"
                 Placeholder="Password"
                 type="password"
                 {...register("password", { required: "Password is required" })}
                 errorMessage={errors.password?.message}
-              /> */}
+              />
               <div
-                className="flex gap-1 text-[13px] cursor-pointer items-center font-bold justify-end"
+                className="flex gap-1 text-[13px] cursor-pointer items-center font-bold justify-end "
                 onClick={handleforget}
               >
                 <HiQuestionMarkCircle size={17} />
@@ -289,7 +289,7 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="rounded-md bg-[#17b19f] mt-1 px-0 py-2 text-[19px] font-semibold text-white shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 mt-1 px-0 py-2 text-[19px] font-semibold text-black shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
