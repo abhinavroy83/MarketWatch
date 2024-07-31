@@ -24,9 +24,7 @@ function AdminHome() {
       <AdminHeader />
       <AdminDashboard>
         <div className="text-black text-[25px] mt-4 items-center justify-center text-center">
-          <p className="border-b-2 border-gray-500 pb-4">Home Page</p>{" "}
-          <hr className="text-black"></hr>
-          <p className="mt-4">Welcome , {role}</p>
+          <p className="">Home Page</p> <p className="mt-4">Welcome , {role}</p>
           <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-10 max-w-[860px]">
             <Link>
               <div className="">
