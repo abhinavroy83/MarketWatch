@@ -46,7 +46,10 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       return;
     }
     if (mapContainerRef.current) {
-      const map = L.map(mapContainerRef.current).setView([lat, lng], 10);
+      const map = L.map(mapContainerRef.current).setView(
+        [45.56123,-122.61345],
+        10
+      );
       mapRef.current = map;
       setCurrentLocation({ lat, lng });
 
