@@ -11,6 +11,8 @@ import home from "../../assets/home.png";
 import basicuser from "../../assets/basicuser.png";
 import adminuser from "../../assets/adminuser.png";
 import pending from "../../assets/pending.png";
+import map from "../../assets/map.png";
+import rooms from "../../assets/rooms.png";
 function AdminHome() {
   const role = useSelector((state) => state.adminauth.role);
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ function AdminHome() {
                     alt="logo"
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
-                    Home Page
+                    Dashboard
                   </h1>
                 </div>
               </div>
@@ -81,8 +83,8 @@ function AdminHome() {
             <Link className="" onClick={notify} to={`/admin/allarea`}>
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
-                  className="w-[4.9rem] h-15"
-                  src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSshtTS_vGs6BYaAZgseMNvqzmW4UAqXhT4WVNtAgHI-w&s`}
+                  className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                  src={map}
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -98,8 +100,8 @@ function AdminHome() {
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
-                    className="w-[4.9rem] h-15"
-                    src={`https://cdn-icons-png.flaticon.com/512/751/751683.png`}
+                    className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                    src={rooms}
                     alt="logo"
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
