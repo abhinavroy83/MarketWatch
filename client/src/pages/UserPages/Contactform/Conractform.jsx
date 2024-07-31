@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { FormInput } from "../../../components";
@@ -10,15 +10,35 @@ import number from "../../../assets/number.png";
 import info from "../../../assets/info.png";
 import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
+import { useSelector } from "react-redux";
+import axios from "axios";
 function Conractform({ isOpen, onClose }) {
   const { register, handleSubmit } = useForm();
   const { windowSize } = getScreenSizeHook();
+  const [data, setdata] = useState([]);
   const isMobile = windowSize.width < 800;
 
-  const onSubmit = async () => {
-    // console.log(data);
+  const userId = useSelector((state) => state.auth.userID);
+
+  const fetchuser = async () => {
+    try {
+      const res = await axios.get(
+        ` https://api.verydesi.com/user/dashboard/profile/${userId}`
+      );
+
+      setdata(res.data.user);
+    } catch (error) {
+      console.log("error during fetcing userdetails");
+    }
   };
 
+  const onSubmit = async () => {
+    console.log(first);
+  };
+
+  useEffect(() => {
+    fetchuser();
+  }, []);
   return (
     <div>
       <Modal
@@ -65,30 +85,27 @@ function Conractform({ isOpen, onClose }) {
                 <img className="h-8 w-8" src={name} alt="" />
                 Name
               </label>
-              <input
-                className="flex h-10 w-[200px] lg:w-[300px] bg-white text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-                type="text"
-              />
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+                {data.firstName} {data.lastName}
+              </p>
             </div>
             <div className="flex font-['udemy-regular']  p-2 items-center">
               <label className="w-[120px] lg:w-[120px] flex text-[17px] items-center gap-2">
                 <img className="h-8 w-8" src={email} alt="" />
                 Email
               </label>
-              <input
-                className="flex h-10 w-[200px] lg:w-[300px] bg-white text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-                type="text"
-              />
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+                {data.email}
+              </p>
             </div>
             <div className="flex font-['udemy-regular'] p-2 items-center">
               <label className="w-[120px] lg:w-[120px] flex text-[17px] items-center gap-2">
                 <img className="h-8 w-8" src={number} alt="" />
                 Number
               </label>
-              <input
-                className="flex h-10 w-[200px] lg:w-[300px] bg-white text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-                type="text"
-              />
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+                {data.phone_number}
+              </p>
             </div>
             {/* <div className="flex font-['udemy-regular'] p-2">
               <label className="min-w-[130px] text-[22px]">Description:</label>
@@ -97,12 +114,12 @@ function Conractform({ isOpen, onClose }) {
                 type="text"
               />
             </div> */}
-            <button
+            {/* <button
               className="flex mb-4 bg-green-800 mt-4 p-2 px-3 text-[20px] font-normal text-white shadow-sm hover:bg-green-900 hover:text-white"
               type="submit"
             >
               Send response
-            </button>
+            </button> */}
           </form>
         </div>
       </Modal>
