@@ -1,54 +1,119 @@
 import "./index.css";
-import React, { useState } from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/UserCompontents/Login.jsx";
-import Signup from "./components/UserCompontents/Signup.jsx";
-import Home from "./components/UserCompontents/Home.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Authlayout } from "./components/index.js";
-import User from "./pages/User/User.jsx";
-import Getuserroom from "./pages/User/UserRooms/Getuserroom.jsx";
-import Getuserjobs from "./pages/User/Userjobs/Getuserjobs.jsx";
-import Addrooms from "./pages/User/UserRooms/Addrooms.jsx";
-import Addjob from "./pages/User/Userjobs/Addjob.jsx";
-import AllRooms from "./pages/UserPages/Rooms/AllRooms.jsx";
-import Rooms from "./pages/UserPages/Rooms/Rooms.jsx";
-import Getuserbussiness from "./pages/User/Userbussines/Getuserbussiness.jsx";
-import AllBusiness from "./pages/UserPages/Bussiness/AllBusiness.jsx";
-import Bussiness from "./pages/UserPages/Bussiness/Bussiness.jsx";
-import Adminlogin from "./components/AdminCompontents/Adminlogin.jsx";
-import {
-  Adminauthlayout,
-  AdminHome,
-} from "./components/AdminCompontents/index.js";
-import Alluser from "./pages/AdminPage/User/Alluser.jsx";
-import Allroom from "./pages/AdminPage/Rooms/Allroom.jsx";
-import Allbussiness from "./pages/AdminPage/Bussiness/Allbussiness.jsx";
-import AllEvents from "./pages/UserPages/Events/AllEvents.jsx";
-import Allmovie from "./pages/UserPages/movie/Allmovie.jsx";
-import Getapproval from "./pages/AdminPage/PendingApproval/Getapproval.jsx";
-import Adminusers from "./pages/AdminPage/User/Adminusers.jsx";
-import Pendingrequest from "./pages/AdminPage/PendingRequest/Pendingrequest.jsx";
-import Events from "./pages/UserPages/Events/Events.jsx";
-import Cnf_to_dltuser from "./pages/AdminPage/User/Cnf_to_dltuser.jsx";
-import Userrooms from "./pages/AdminPage/User/Detailsofuser/Userrooms.jsx";
-import Profile from "./pages/User/UserProfile/Profile.jsx";
-import BussinessPages from "./pages/User/Bussinessprofile/BussinessPages.jsx";
-import Addbussiness from "./pages/User/Userbussines/Addbussiness.jsx";
-import AllArea from "./pages/AdminPage/Area/AllArea.jsx";
-import AddArea from "./pages/AdminPage/Area/AddArea.jsx";
-import ListAllwish from "./pages/User/Wishlist/ListAllwish.jsx";
-import AboutUs from "./pages/AboutUs.jsx";
-import Update_del_Area from "./pages/AdminPage/Area/Modify/Update_del_Area.jsx";
-import Error from "./components/SharedCompontents/Error.jsx";
-import Editroom from "./pages/User/UserRooms/Editroom.jsx";
-import Editarea from "./pages/AdminPage/Area/Modify/Editarea.jsx";
-import ResetPassword from "./components/UserCompontents/ResetPassword.jsx";
-import Forgetpassword from "./components/UserCompontents/Forgetpassword.jsx";
-import AdminPostRooms from "./pages/AdminPage/Rooms/AdminPostRooms.jsx";
+
+const Home = React.lazy(() => import("./components/UserCompontents/Home.jsx"));
+const Login = React.lazy(() =>
+  import("./components/UserCompontents/Login.jsx")
+);
+const Signup = React.lazy(() =>
+  import("./components/UserCompontents/Signup.jsx")
+);
+const User = React.lazy(() => import("./pages/User/User.jsx"));
+const Getuserroom = React.lazy(() =>
+  import("./pages/User/UserRooms/Getuserroom.jsx")
+);
+const Getuserjobs = React.lazy(() =>
+  import("./pages/User/Userjobs/Getuserjobs.jsx")
+);
+const Addrooms = React.lazy(() =>
+  import("./pages/User/UserRooms/Addrooms.jsx")
+);
+const Addjob = React.lazy(() => import("./pages/User/Userjobs/Addjob.jsx"));
+const AllRooms = React.lazy(() =>
+  import("./pages/UserPages/Rooms/AllRooms.jsx")
+);
+const Rooms = React.lazy(() => import("./pages/UserPages/Rooms/Rooms.jsx"));
+const Getuserbussiness = React.lazy(() =>
+  import("./pages/User/Userbussines/Getuserbussiness.jsx")
+);
+const AllBusiness = React.lazy(() =>
+  import("./pages/UserPages/Bussiness/AllBusiness.jsx")
+);
+const Bussiness = React.lazy(() =>
+  import("./pages/UserPages/Bussiness/Bussiness.jsx")
+);
+const Adminlogin = React.lazy(() =>
+  import("./components/AdminCompontents/Adminlogin.jsx")
+);
+const Adminauthlayout = React.lazy(() =>
+  import("./components/AdminCompontents/index.js").then((module) => ({
+    default: module.Adminauthlayout,
+  }))
+);
+const AdminHome = React.lazy(() =>
+  import("./components/AdminCompontents/index.js").then((module) => ({
+    default: module.AdminHome,
+  }))
+);
+const Alluser = React.lazy(() => import("./pages/AdminPage/User/Alluser.jsx"));
+const Allroom = React.lazy(() => import("./pages/AdminPage/Rooms/Allroom.jsx"));
+const Allbussiness = React.lazy(() =>
+  import("./pages/AdminPage/Bussiness/Allbussiness.jsx")
+);
+const AllEvents = React.lazy(() =>
+  import("./pages/UserPages/Events/AllEvents.jsx")
+);
+const Allmovie = React.lazy(() =>
+  import("./pages/UserPages/movie/Allmovie.jsx")
+);
+const Getapproval = React.lazy(() =>
+  import("./pages/AdminPage/PendingApproval/Getapproval.jsx")
+);
+const Adminusers = React.lazy(() =>
+  import("./pages/AdminPage/User/Adminusers.jsx")
+);
+const Pendingrequest = React.lazy(() =>
+  import("./pages/AdminPage/PendingRequest/Pendingrequest.jsx")
+);
+const Events = React.lazy(() => import("./pages/UserPages/Events/Events.jsx"));
+const Cnf_to_dltuser = React.lazy(() =>
+  import("./pages/AdminPage/User/Cnf_to_dltuser.jsx")
+);
+const Userrooms = React.lazy(() =>
+  import("./pages/AdminPage/User/Detailsofuser/Userrooms.jsx")
+);
+const Profile = React.lazy(() =>
+  import("./pages/User/UserProfile/Profile.jsx")
+);
+const BussinessPages = React.lazy(() =>
+  import("./pages/User/Bussinessprofile/BussinessPages.jsx")
+);
+const Addbussiness = React.lazy(() =>
+  import("./pages/User/Userbussines/Addbussiness.jsx")
+);
+const AllArea = React.lazy(() => import("./pages/AdminPage/Area/AllArea.jsx"));
+const AddArea = React.lazy(() => import("./pages/AdminPage/Area/AddArea.jsx"));
+const ListAllwish = React.lazy(() =>
+  import("./pages/User/Wishlist/ListAllwish.jsx")
+);
+const AboutUs = React.lazy(() => import("./pages/AboutUs.jsx"));
+const Update_del_Area = React.lazy(() =>
+  import("./pages/AdminPage/Area/Modify/Update_del_Area.jsx")
+);
+const Error = React.lazy(() =>
+  import("./components/SharedCompontents/Error.jsx")
+);
+const Editroom = React.lazy(() =>
+  import("./pages/User/UserRooms/Editroom.jsx")
+);
+const Editarea = React.lazy(() =>
+  import("./pages/AdminPage/Area/Modify/Editarea.jsx")
+);
+const ResetPassword = React.lazy(() =>
+  import("./components/UserCompontents/ResetPassword.jsx")
+);
+const Forgetpassword = React.lazy(() =>
+  import("./components/UserCompontents/Forgetpassword.jsx")
+);
+const AdminPostRooms = React.lazy(() =>
+  import("./pages/AdminPage/Rooms/AdminPostRooms.jsx")
+);
 
 const router = createBrowserRouter([
   {
@@ -57,282 +122,374 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/login",
         element: (
-          <Authlayout authentication={false}>
-            <Login isOpen={true} />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication={false}>
+              <Login isOpen={true} />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/signup",
         element: (
-          <Authlayout authentication={false}>
-            <Signup isOpen={true} />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication={false}>
+              <Signup isOpen={true} />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/myaccount/:userID",
         element: (
-          <Authlayout authentication>
-            <User />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <User />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/dashboard/wishlist/:userID",
         element: (
-          <Authlayout authentication>
-            <ListAllwish />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <ListAllwish />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/user/room/:userID",
         element: (
-          <Authlayout authentication>
-            <Getuserroom />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Getuserroom />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/addroom/:userID",
         element: (
-          <Authlayout authentication>
-            <Addrooms />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Addrooms />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/room/editroom/:_id",
         element: (
-          <Authlayout authentication>
-            <Editroom />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Editroom />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/user/job/:userID",
         element: (
-          <Authlayout authentication>
-            <Getuserjobs />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Getuserjobs />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/addjobs/:userID",
         element: (
-          <Authlayout authentication>
-            <Addjob />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Addjob />
+            </Authlayout>
+          </Suspense>
         ),
       },
-
       {
         path: "/rooms",
         element: (
-          <Authlayout authentication>
-            <AllRooms />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <AllRooms />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/rooms/:_id",
-        element: <Rooms />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Rooms />
+          </Suspense>
+        ),
       },
-
       {
         path: "/user/bussiness/:userID",
         element: (
-          <Authlayout authentication>
-            <Getuserbussiness />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Getuserbussiness />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/bussiness/:_id",
-        element: <Bussiness />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Bussiness />
+          </Suspense>
+        ),
       },
       {
         path: "/bussiness",
         element: (
-          <Authlayout authentication>
-            <AllBusiness />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <AllBusiness />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/addbussiness/:userID",
         element: (
-          <Authlayout authentication>
-            <Addbussiness />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Addbussiness />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/Events",
         element: (
-          <Authlayout authentication>
-            <AllEvents />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <AllEvents />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
         path: "/events/:_id",
-        element: <Events />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Events />
+          </Suspense>
+        ),
       },
       {
         path: "/Movie",
         element: (
-          <Authlayout authentication>
-            <Allmovie />
-          </Authlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Authlayout authentication>
+              <Allmovie />
+            </Authlayout>
+          </Suspense>
         ),
       },
       {
-        path: "/events/:_id",
-        element: <Events />,
-      },
-      {
         path: "/dashboard/profile/:userID",
-        element: <Profile />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Profile />
+          </Suspense>
+        ),
       },
       {
         path: "/createbussinessprofile",
-        element: <BussinessPages />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <BussinessPages />
+          </Suspense>
+        ),
       },
       {
         path: "/about-us",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "/reset-password",
-        element: <ResetPassword />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <ResetPassword />
+          </Suspense>
+        ),
       },
       {
         path: "/reset-password/:token",
-        element: <Forgetpassword />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Forgetpassword />
+          </Suspense>
+        ),
       },
       // adminpanel components
       {
         path: "/admin/login",
         element: (
-          <Adminauthlayout authentication={false}>
-            <Adminlogin />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication={false}>
+              <Adminlogin />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/dashboard",
         element: (
-          <Adminauthlayout authentication>
-            <AdminHome />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <AdminHome />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/alluser",
         element: (
-          <Adminauthlayout authentication>
-            <Alluser />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Alluser />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/allroom",
         element: (
-          <Adminauthlayout authentication>
-            <Allroom />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Allroom />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/allbussiness",
         element: (
-          <Adminauthlayout authentication>
-            <Allbussiness />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Allbussiness />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/getalladminsuser",
         element: (
-          <Adminauthlayout authentication>
-            <Adminusers />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Adminusers />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/getapproval",
         element: (
-          <Adminauthlayout authentication>
-            <Getapproval />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Getapproval />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/requests",
         element: (
-          <Adminauthlayout authentication>
-            <Pendingrequest />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Pendingrequest />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/allarea",
         element: (
-          <Adminauthlayout authentication>
-            <AllArea />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <AllArea />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/addarea",
         element: (
-          <Adminauthlayout authentication>
-            <AddArea />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <AddArea />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/area/update/:area_name",
         element: (
-          <Adminauthlayout authentication>
-            <Editarea />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Editarea />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/confirmtodelete/:id",
         element: (
-          <Adminauthlayout authentication>
-            <Cnf_to_dltuser />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Cnf_to_dltuser />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/confirmtodelete/userrooms/:id",
         element: (
-          <Adminauthlayout authentication>
-            <Userrooms />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <Userrooms />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/admin/postroom",
         element: (
-          <Adminauthlayout authentication>
-            <AdminPostRooms />
-          </Adminauthlayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Adminauthlayout authentication>
+              <AdminPostRooms />
+            </Adminauthlayout>
+          </Suspense>
         ),
       },
       {
         path: "/*",
-        element: <Error />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Error />
+          </Suspense>
+        ),
       },
     ],
   },
