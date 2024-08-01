@@ -158,7 +158,7 @@ function Login() {
         }}
       >
         <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular']">
-          <div className="capitalize bg-gradient-to-r from-cyan-400 to-green-400 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
+          <div className="capitalize bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
@@ -171,10 +171,10 @@ function Login() {
                 Welcome
               </p>
               <p className=" text-black text-center mt-2 px-10 text-[20px] font-['udemy-regular'] capitalize">
-                Register here to start using VeryDesi
+                Register here to start <br></br>using VeryDesi
               </p>
               <button
-                className="capitalize place-items-center items-center rounded-md bg-[#000] border-2 border-white text-[20px] px-7 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="capitalize place-items-center items-center rounded-md bg-[#000] text-[19px] px-7 py-2 text-white hover:bg-black/90 mt-5"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true);
@@ -189,7 +189,7 @@ function Login() {
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
             />
-            <h1 className="text-[25px] font-bold text-[#0b5e86] text-center">
+            <h1 className="text-[25px] font-bold text-black text-center">
               Login
             </h1>
             {/* <p className=" text-black text-center mt-2 px-10 text-[20px]">
@@ -289,12 +289,12 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 mt-1 px-0 py-2 text-[19px] font-semibold text-black border-black border shadow-sm shadow-[#ccc] hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-700 mt-1 px-0 py-2 text-[19px] text-white shadow-sm shadow-[#ccc] hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Login Here
               </button>
               <button
-                className="lg:hidden capitalize items-center rounded-md bg-black text-[19px] px-7 py-2 font-semibold text-white hover:bg-black/90"
+                className="lg:hidden capitalize items-center rounded-md bg-black text-[19px] px-7 py-2 text-white hover:bg-black"
                 type="submit"
                 onClick={() => {
                   handleModal(false, true);

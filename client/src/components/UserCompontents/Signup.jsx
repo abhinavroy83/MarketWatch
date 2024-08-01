@@ -128,7 +128,7 @@ function Signup() {
         }}
       >
         <div className="capitalize w-full flex h-full">
-          <div className="capitalize bg-gradient-to-r from-cyan-400 to-green-400 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
+          <div className="capitalize bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
             {/* <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex"> */}
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
@@ -142,10 +142,10 @@ function Signup() {
               </div>
               <p className="text-black text-center mt-5 text-[30px]">Welcome</p>
               <p className=" text-black text-center px-10 text-[20px]">
-                Already have account login here
+                Already have account <br></br>login here
               </p>
               <button
-                className="place-items-center items-center rounded-md bg-[#000] border-2 border-white text-[19px] px-5 py-2 font-semibold text-white hover:bg-black/90 mt-5"
+                className="place-items-center items-center rounded-md bg-[#000] text-[19px] px-5 py-2 text-white hover:bg-black/90 mt-5"
                 type="button"
                 onClick={() => {
                   handleModal(true, false);
@@ -160,7 +160,7 @@ function Signup() {
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
               onClick={() => handleModal(false, false)}
             />
-            <h1 className="text-[25px] font-bold text-[#0b5e86] mt-3 font-['udemy-regular']">
+            <h1 className="text-[25px] font-bold text-black mt-3 font-['udemy-regular']">
               Create your Account
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -330,13 +330,13 @@ function Signup() {
                   )} */}
                   <div className="text-center flex flex-col">
                     <button
-                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-[#17b19f] px-0 py-2 text-[19px] font-semibold text-white hover:bg-black/70"
+                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-green-700 px-0 py-2 text-[19px] text-white hover:bg-black"
                       type="submit"
                     >
                       Create Account
                     </button>
                     <button
-                      className="lg:hidden items-center rounded-md bg-black text-[19px] py-2 font-semibold text-white hover:bg-black/90 mt-2"
+                      className="lg:hidden items-center rounded-md bg-black text-[19px] py-2 text-white hover:bg-black mt-2"
                       type="button"
                       onClick={() => {
                         handleModal(true, false);
