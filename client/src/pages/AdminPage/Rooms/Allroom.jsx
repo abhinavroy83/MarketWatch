@@ -160,7 +160,7 @@ function Allroom() {
             </div>
             <div className="flex">
               <select
-                className="mr-4 bg-white p-2 rounded-md"
+                className="mr-4 bg-white p-2 rounded-md border"
                 name="city"
                 onChange={handlecity}
               >
@@ -175,7 +175,7 @@ function Allroom() {
                 onClick={() => {
                   navigate(`/admin/postroom`);
                 }}
-                className="whitespace-nowrap flex rounded-md bg-green-800 px-3 py-2 text-[19px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="whitespace-nowrap flex rounded-md bg-green-800 px-3 py-2 text-[19px] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add Room
               </button>

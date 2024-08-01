@@ -16,8 +16,8 @@ function AdminDashboard({ children }) {
   const role = useSelector((state) => state.adminauth.role);
 
   return (
-    <div className="max-w-[1600px] mx-auto px-4 flex items-center h-screen overflow-hidden font-['udemy-regular'] mt-[1rem] text-[20px]">
-      <div className="w-[20%] h-[630px] border p-2 flex flex-col items-center">
+    <div className="max-w-[1600px] mx-auto px-4 flex items-center justify-center h-screen overflow-hidden font-['udemy-regular'] mt-[1rem] text-[20px]">
+      <div className="w-[20%] h-[630px] border p-2 hidden lg:flex flex-col items-center">
         <button
           onClick={() => {
             navigate(`/admin/dashboard`);
