@@ -4,7 +4,7 @@ const usershema = new mongoose.Schema({
   isVerified: {
     type: Boolean,
     default: false,
-  },
+  },  
   belongcity: {
     type: String,
   },
