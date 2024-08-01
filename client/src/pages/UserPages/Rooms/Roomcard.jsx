@@ -160,7 +160,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         />
       </div>
 
-      <p className="absolute font-['udemy-bold'] bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
+      <p className="absolute font-bold bg-white/80 top-0 left-0 p-1 px-3 rounded-br-lg text-center">
         <p className="left-5 top-2 text-[22px] text-green-700 text-right">
           ${item.Expected_Rooms}
         </p>

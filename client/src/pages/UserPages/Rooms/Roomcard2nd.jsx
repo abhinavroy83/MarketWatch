@@ -220,8 +220,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
             )}
           </div>
         )}{" "}
-        <p className="text-[22px] text-green-700 font-['udemy-regular'] font-bold w-[80px]">
-          ${item.Expected_Rooms}
+        <p className="text-[22px] text-green-700 font-bold w-[80px]">
+        ${item.Expected_Rooms}
         </p>
       </div>
     </Link>
