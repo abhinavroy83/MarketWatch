@@ -66,7 +66,7 @@ async function sendemailverification(email, token) {
   });
 
   await transport.sendMail({
-    from: "Verydesi.com",
+    from: "noreply@verydesi.com",
     to: email,
     subject: "Reset Password",
     html: `<h1>Reset Your Password</h1>

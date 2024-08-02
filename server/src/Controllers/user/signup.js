@@ -67,7 +67,7 @@ async function sendemailverification(email, jwttoken) {
   });
 
   await transport.sendMail({
-    from: "Verydesi.com",
+    from: "noreply@verydesi.com",
     to: email,
     subject: "Email Verification",
     html: `<h1>click on the below link to verify</h1>
