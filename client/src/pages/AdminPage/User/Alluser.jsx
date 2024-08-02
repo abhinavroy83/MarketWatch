@@ -48,6 +48,7 @@ function Alluser() {
   }, []);
 
   const deleteuser = async (_id) => {
+    console.log(_id);
     try {
       const userId = _id;
 

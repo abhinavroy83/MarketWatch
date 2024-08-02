@@ -14,7 +14,7 @@ function Forgetpassword() {
   const { token } = useParams();
   // console.log(token);
   const onsubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       const res = await axios.post(
         `https://api.verydesi.com/user/resetpassword/${token}`,

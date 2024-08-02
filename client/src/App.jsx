@@ -21,22 +21,22 @@ function App() {
       dispatch(
         authlogin({
           token: storeused?.data?.jwttoken,
-          user: storeused.data.data.firstName,
-          userID: storeused.data.data._id,
-          bussinessac: storeused.data.data.bussinessac,
-          isverified: storeused.data.data.isVerified,
+          user: storeused?.data?.data?.firstName,
+          userID: storeused?.data?.data?._id,
+          bussinessac: storeused?.data?.data?.bussinessac,
+          isverified: storeused?.data?.data?.isVerified,
           // userimg: storeused.data.data.userimg,
         })
       );
-      dispatch(cities({ city: storeused.data.data.city }));
-      dispatch(UserImage({ userimg: storeused.data.data.userimg }));
+      dispatch(cities({ city: storeused?.data?.data?.city }));
+      dispatch(UserImage({ userimg: storeused?.data?.data?.userimg }));
     }
     const adminstoredata = JSON.parse(localStorage.getItem("admindetails"));
     if (adminstoredata) {
       dispatch(
         adminauth({
-          token: adminstoredata.data.jwttoken,
-          role: adminstoredata.data.data.role,
+          token: adminstoredata?.data?.jwttoken,
+          role: adminstoredata?.data?.data?.role,
         })
       );
     }

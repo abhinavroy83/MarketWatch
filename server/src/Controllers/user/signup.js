@@ -16,6 +16,10 @@ const singup = async (req, res) => {
       country,
       city,
     } = req.body;
+    const existinguser = await User.findOne({ email: email });
+    if (existinguser) {
+      return res.json({ status: false, message: "email already exists" });
+    }
     const encrytpass = await bcrypt.hash(password, 10);
     const joinedon = new Date().toISOString().split("T")[0];
     const newUser = new User({
@@ -28,13 +32,14 @@ const singup = async (req, res) => {
       country,
       city,
       password: encrytpass,
-      joinedon
+      joinedon,
     });
     const ress = await newUser.save();
     if (ress) {
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
       await sendemailverification(email, jwttoken);
       res.json({
+        cnfstatus: true,
         data: newUser,
         status: "User registered successfully. Please verify your email.",
         jwttoken,
@@ -58,19 +63,21 @@ const singup = async (req, res) => {
 
 async function sendemailverification(email, jwttoken) {
   const transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+    host: "live.smtp.mailtrap.io",
+    port: 587,
     auth: {
-      user: "c54cb5a4091909",
-      pass: "9cf3912f1f618f",
+      user: "api",
+      pass: "7f1dff9b3ce3afe2e2b65a3c693f927b",
     },
   });
 
   await transport.sendMail({
-    from: "your@example.com",
+    from: "noreply@verydesi.com",
     to: email,
     subject: "Email Verification",
-    text: `Click this link to verify your email:  https://api.verydesi.com/user/verifyemail/${jwttoken}`,
+    html: `<h1>click on the below link to verify</h1>
+    <p>Click this link to verify your email:</p>
+    <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}">https://api.verydesi.com/user/verifyemail/${jwttoken}</a>`,
   });
 }
 
