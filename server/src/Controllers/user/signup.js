@@ -28,7 +28,7 @@ const singup = async (req, res) => {
       country,
       city,
       password: encrytpass,
-      joinedon
+      joinedon,
     });
     const ress = await newUser.save();
     if (ress) {
@@ -70,7 +70,9 @@ async function sendemailverification(email, jwttoken) {
     from: "your@example.com",
     to: email,
     subject: "Email Verification",
-    text: `Click this link to verify your email:  https://api.verydesi.com/user/verifyemail/${jwttoken}`,
+    html: `<h1>Reset Your Password</h1>
+    <p>Click this link to verify your email:</p>
+    <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}">https://api.verydesi.com/user/verifyemail/${jwttoken}</a>`,
   });
 }
 
