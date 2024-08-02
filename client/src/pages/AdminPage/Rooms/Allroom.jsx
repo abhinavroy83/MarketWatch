@@ -15,6 +15,12 @@ import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import door from "../../../assets/door.png";
+import email from "../../../assets/email.png";
+import edit from "../../../assets/edit.png";
+import removed from "../../../assets/removed.png";
+import pricetag from "../../../assets/pricetag.png";
+import map from "../../../assets/map.png";
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -202,7 +208,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <MdOutlineMeetingRoom size={23} /> Room
+                            {/* <MdOutlineMeetingRoom size={23} /> */}
+                            <img className="h-7 w-7" src={door} alt="" />
+                            Room
                           </div>
                         </th>
                         <th
@@ -211,7 +219,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <MdOutlineEmail size={23} /> Email
+                            {/* <MdOutlineEmail size={23} /> */}
+                            <img className="h-7 w-7" src={email} alt="" />
+                            Email
                           </div>
                         </th>
                         <th
@@ -220,10 +230,11 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <TfiMoney size={20} /> Rent
+                            {/* <TfiMoney size={20} /> */}
+                            <img className="h-7 w-7" src={pricetag} alt="" />
+                            Rent
                           </div>
                         </th>
-
                         {/* <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
@@ -236,7 +247,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <FaMapPin size={20} /> City
+                            {/* <FaMapPin size={20} />  */}
+                            <img className="h-7 w-7" src={map} alt="" />
+                            City
                           </div>
                         </th>
                         <th
@@ -245,7 +258,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <FaMapLocationDot size={20} /> Country
+                            {/* <FaMapLocationDot size={20} /> */}
+                            <img className="h-7 w-7" src={map} alt="" />
+                            Country
                           </div>
                         </th>
                         <th
@@ -254,7 +269,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <MdEdit size={23} /> Edit
+                            {/* <MdEdit size={23} /> */}
+                            <img className="h-7 w-7" src={edit} alt="" />
+                            Edit
                           </div>
                         </th>
                         <th
@@ -263,7 +280,9 @@ function Allroom() {
                         >
                           <div className="flex gap-1">
                             {" "}
-                            <MdDeleteForever size={25} /> Delete
+                            {/* <MdDeleteForever size={25} /> */}
+                            <img className="h-7 w-7" src={removed} alt="" />
+                            Delete
                           </div>
                         </th>
                       </tr>

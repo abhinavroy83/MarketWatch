@@ -23,9 +23,9 @@ function AdminHome() {
     <div className="font-['udemy-regular'] text-[20px]">
       <AdminHeader />
       <AdminDashboard>
-        <div className="text-black text-[25px] mt-4 items-center justify-center text-center">
+        <div className="text-black lg:text-[25px] text-[22px] items-center justify-center text-center">
           <p className="">Home Page</p> <p className="mt-2">Welcome , {role}</p>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 flex-wrap w-auto m-auto justify-center lg:mt-10 mt-4 max-w-[860px]">
+          <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 max-w-[860px]">
             <Link>
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">

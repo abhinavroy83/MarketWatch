@@ -21,8 +21,12 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import settings2 from "../../assets/settings2.png";
 import Favorites from "../../assets/Favorites.png";
+import rooms from "../../assets/rooms.png";
 import home from "../../assets/home.png";
 import post from "../../assets/post.png";
+import bag from "../../assets/bag.png";
+import { FaRegShareFromSquare } from "react-icons/fa6";
+
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
 
 function DashConatiner({ children }) {
@@ -270,9 +274,9 @@ function DashConatiner({ children }) {
                   </div>
                   <div className="flex flex-col items-center gap-2 text-gray-700">
                     <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
-                      <IoPersonAddOutline size={23} />
+                      <FaRegShareFromSquare size={23} />
                     </p>
-                    <p className="text-gray-500 text-[0.9rem]">Add Friends</p>
+                    <p className="text-gray-500 text-[0.9rem]">Share</p>
                   </div>
                 </div>
                 {/* <p>{Date.now()}</p> */}
@@ -361,10 +365,22 @@ function DashConatiner({ children }) {
                   }}
                   className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
                 >
-                  <MdMeetingRoom size={22} /> My Rooms
+                  <img
+                    className="w-[1.7rem] h-[1.7rem]"
+                    src={rooms}
+                    alt="logo"
+                  />{" "}
+                  {/* <MdMeetingRoom size={22} /> */}
+                  My Rooms
                 </button>
                 <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
-                  <MdBusinessCenter size={20} /> My Business
+                  {/* <MdBusinessCenter size={20} /> My Business */}
+                  <img
+                    className="w-[1.5rem] h-[1.5rem]"
+                    src={bag}
+                    alt="logo"
+                  />{" "}
+                  My Business
                 </button>
               </details>
               <hr className="mt-2"></hr>
@@ -416,7 +432,7 @@ function DashConatiner({ children }) {
             </div>
           </div>
         </div>
-        <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
+        <main className="w-auto lg:w-4/5 h-auto border overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
           {children}
         </main>
       </div>

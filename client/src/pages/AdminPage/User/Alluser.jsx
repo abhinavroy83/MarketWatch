@@ -18,6 +18,11 @@ import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
+import removed from "../../../assets/removed.png";
+import edit from "../../../assets/edit.png";
+import map from "../../../assets/map.png";
+import email from "../../../assets/email.png";
+import namee from "../../../assets/namee.png";
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -103,12 +108,12 @@ function Alluser() {
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
         </td> */}
-        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium">
+        <td className="whitespace-nowrap px-4 py-4 text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-right text-base font-medium hover:text-red-600 text-gray-500">
+        <td className="whitespace-nowrap px-4 py-4 text-base font-medium hover:text-red-600 text-gray-500">
           <button
             onClick={() => {
               const _id = items._id;
@@ -185,36 +190,43 @@ function Alluser() {
                           scope="col"
                           className="px-6 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                          <div className="flex gap-1">
+                          <div className="flex gap-2">
                             {" "}
-                            <BsFillPersonBadgeFill size={20} /> First Name
+                            {/* <BsFillPersonBadgeFill size={20} /> */}
+                            <img className="h-7 w-7" src={namee} alt="" />
+                            First Name
                           </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
-                          <div className="flex gap-1">
+                          <div className="flex gap-2">
                             {" "}
-                            <BsFillPersonBadgeFill size={20} /> Last Name
+                            {/* <BsFillPersonBadgeFill size={20} />  */}
+                            <img className="h-7 w-7" src={namee} alt="" />
+                            Last Name
                           </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1">
-                            {" "}
-                            <MdOutlineEmail size={23} /> Email
+                          <div className="flex gap-2">
+                            {/* <MdOutlineEmail size={23} /> */}
+                            <img className="h-7 w-7" src={email} alt="" />
+                            Email
                           </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1">
+                          <div className="flex gap-2">
                             {" "}
-                            <FaMapPin size={20} /> City
+                            {/* <FaMapPin size={20} />  */}
+                            <img className="h-7 w-7" src={map} alt="" />
+                            City
                           </div>
                         </th>
                         {/* <th
@@ -230,18 +242,20 @@ function Alluser() {
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1">
-                            {" "}
-                            <MdEdit size={23} /> Edit
+                          <div className="flex gap-2">
+                            {/* <MdEdit size={23} /> Edit */}
+                            <img className="h-7 w-7" src={edit} alt="" />
+                            Edit
                           </div>
                         </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
-                          <div className="flex gap-1">
-                            {" "}
-                            <MdDeleteForever size={25} /> Delete
+                          <div className="flex gap-2">
+                            {/* <MdDeleteForever size={25} /> */}
+                            <img className="h-7 w-7" src={removed} alt="" />
+                            Delete
                           </div>
                         </th>
                       </tr>
