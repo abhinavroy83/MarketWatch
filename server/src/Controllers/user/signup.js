@@ -58,19 +58,19 @@ const singup = async (req, res) => {
 
 async function sendemailverification(email, jwttoken) {
   const transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+    host: "live.smtp.mailtrap.io",
+    port: 587,
     auth: {
-      user: "c54cb5a4091909",
-      pass: "9cf3912f1f618f",
+      user: "api",
+      pass: "7f1dff9b3ce3afe2e2b65a3c693f927b",
     },
   });
 
   await transport.sendMail({
-    from: "your@example.com",
+    from: "Verydesi.com",
     to: email,
     subject: "Email Verification",
-    html: `<h1>Reset Your Password</h1>
+    html: `<h1>click on the below link to verify</h1>
     <p>Click this link to verify your email:</p>
     <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}">https://api.verydesi.com/user/verifyemail/${jwttoken}</a>`,
   });

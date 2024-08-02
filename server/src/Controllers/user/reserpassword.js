@@ -57,16 +57,16 @@ const resetpassword = async (req, res) => {
 
 async function sendemailverification(email, token) {
   const transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+    host: "live.smtp.mailtrap.io",
+    port: 587,
     auth: {
-      user: "c54cb5a4091909",
-      pass: "9cf3912f1f618f",
+      user: "api",
+      pass: "7f1dff9b3ce3afe2e2b65a3c693f927b",
     },
   });
 
   await transport.sendMail({
-    from: "your@example.com",
+    from: "Verydesi.com",
     to: email,
     subject: "Reset Password",
     html: `<h1>Reset Your Password</h1>
