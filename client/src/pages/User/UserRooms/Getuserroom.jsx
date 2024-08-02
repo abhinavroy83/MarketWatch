@@ -88,20 +88,20 @@ function Getuserroom() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4">
-          <div className="text-[20px] text-gray-700">{items.city}</div>
+          <div className="text-base text-gray-700">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-[20px] text-gray-700">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-[20px] text-gray-700">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700">
           {items.Expected_Rooms}
         </td>
-        <td className="whitespace-nowrap gap-2 px-8 py-6 text-[20px] font-medium">
+        <td className="whitespace-nowrap gap-2 px-8 py-6 text-base font-medium">
           <a
             onClick={() => {
               handledeleterooms(items._id);
             }}
-            className="text-gray-700 cursor-pointer text-[20px]"
+            className="text-gray-700 cursor-pointer text-base"
           >
             Delete
           </a>
@@ -133,7 +133,7 @@ function Getuserroom() {
               Rooms Posted
             </p>
             <div className="flex items-center justify-between w-full mt-4 px-4">
-              <p className="text-[1.2rem] text-[#232f3e]">
+              <p className="text-[17px] text-[#232f3e]">
                 This is a list of all rooms. You can add new rooms, edit or
                 delete existing ones.
               </p>
@@ -144,7 +144,7 @@ function Getuserroom() {
                     onClick={() => {
                       navigate(`/addroom/${userID}`);
                     }}
-                    className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[1.2rem] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+                    className="font-['udemy-regular'] rounded-md bg-green-800 px-3 py-2 text-[19px] text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
                   >
                     Add Room
                   </button>
@@ -153,7 +153,7 @@ function Getuserroom() {
             </div>
           </div>
         </div>
-        <div className="mt-4 flex flex-col text-[20px] px-4">
+        <div className="mt-4 flex flex-col text-base px-4">
           <div className="sm:-mx-6 lg:-mx-8 overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="border border-gray-200 md:rounded-lg gap-3 flex lg:w-full">
