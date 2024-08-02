@@ -18,8 +18,9 @@ function ResetPassword() {
         `https://api.verydesi.com/user/forgotpassword`,
         data
       );
-      if (res) {
-        alert("Link send ");
+
+      if (!res.data.status) {
+        alert(res.data.message);
       }
     } catch (error) {
       console.log(error);

@@ -54,11 +54,12 @@ function Signup() {
     // console.log(datsa);
     try {
       // console.log(datsa);
-      const res = await axios.post(
-        " https://api.verydesi.com/user/signup",
-        datsa
-      );
-      if (res) {
+      const res = await axios.post("https://api.verydesi.com/user/signup", datsa);
+      if (!res.data.status) {
+        alert(res.data.message);
+      }
+
+      if (res.data.cnfstatus) {
         // console.log(res);
         alert("signup successfully added");
         localStorage.setItem("userdetails", JSON.stringify(res));

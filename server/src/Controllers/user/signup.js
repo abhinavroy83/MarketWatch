@@ -16,6 +16,10 @@ const singup = async (req, res) => {
       country,
       city,
     } = req.body;
+    const existinguser = await User.findOne({ email: email });
+    if (existinguser) {
+      return res.json({ status: false, message: "email already exists" });
+    }
     const encrytpass = await bcrypt.hash(password, 10);
     const joinedon = new Date().toISOString().split("T")[0];
     const newUser = new User({
@@ -35,6 +39,7 @@ const singup = async (req, res) => {
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
       await sendemailverification(email, jwttoken);
       res.json({
+        cnfstatus: true,
         data: newUser,
         status: "User registered successfully. Please verify your email.",
         jwttoken,

@@ -7,11 +7,13 @@ import axios from "axios";
 function Userdashboardconatiner({ children }) {
   const navigate = useNavigate();
   const { id } = useParams();
+  console.log(id);
   const handledeleteuser = async () => {
     try {
       const dlt = await axios.delete(
-        ` https://api.verydesi.com.com/api/admin/deleteuser/${id}`
+        ` https://api.verydesi.com/api/admin/deleteuser/${id}`
       );
+      console.log(dlt);
       if (dlt) {
         alert("successfully deleted");
         navigate("/admin/alluser");
@@ -23,8 +25,9 @@ function Userdashboardconatiner({ children }) {
   const handledeleteuserwithdata = async () => {
     try {
       const dlt = await axios.delete(
-        ` https://api.verydesi.com.com/api/admin/deleteuserwithdata/${id}`
+        ` https://api.verydesi.com/api/admin/deleteuserwithdata/${id}`
       );
+      console.log(dlt);
       if (dlt) {
         alert("successfully deleted");
         navigate("/admin/alluser");
@@ -33,7 +36,7 @@ function Userdashboardconatiner({ children }) {
       console.log("error");
     }
   };
-  
+
   return (
     <div>
       <AdminHeader />
