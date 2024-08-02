@@ -6,14 +6,15 @@ import {
 import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
-import { FaMapPin } from "react-icons/fa";
+import { FaHome, FaMapPin } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { TfiMoney } from "react-icons/tfi";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlineMeetingRoom } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -149,6 +150,13 @@ function Allroom() {
     <div>
       <AdminHeader />
       <AdminDashboard>
+        <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+          <Link to="/admin/dashboard">
+            <FaHome size={20} />
+          </Link>
+          <IoIosArrowForward />
+          <p>Allroom</p>
+        </div>
         <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>

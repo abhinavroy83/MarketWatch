@@ -5,8 +5,8 @@ import {
 } from "../../../components/AdminCompontents";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
@@ -16,6 +16,8 @@ import { MdOutlineEmail } from "react-icons/md";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoPeopleSharp } from "react-icons/io5";
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -146,6 +148,13 @@ function Alluser() {
       <AdminDashboard>
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+            <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+              <Link to="/admin/dashboard">
+                <FaHome size={20} />
+              </Link>
+              <IoIosArrowForward />
+              <p>users</p>
+            </div>
             <div>
               <h2 className="text-[20px] font-semibold">All User</h2>
               <p className="mt-1 text-[17px] text-gray-700">

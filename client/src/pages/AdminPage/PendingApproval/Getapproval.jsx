@@ -4,6 +4,9 @@ import {
   AdminHeader,
 } from "../../../components/AdminCompontents";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 function Getapproval() {
   const [data, setdata] = useState([]);
@@ -89,10 +92,17 @@ function Getapproval() {
     <div>
       <AdminHeader />
       <AdminDashboard>
+        <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+          <Link to="/admin/dashboard">
+            <FaHome size={20} />
+          </Link>
+          <IoIosArrowForward />
+          <p>Pending Requests</p>
+        </div>
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div>
-            <h2 className="text-[20px] font-semibold text-black">List</h2>
+              <h2 className="text-[20px] font-semibold text-black">List</h2>
               <p className="mt-1 text-[17px] text-gray-700">
                 List of all Pending and Approval
               </p>

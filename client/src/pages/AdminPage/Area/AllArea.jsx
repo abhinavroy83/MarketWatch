@@ -5,13 +5,15 @@ import {
 } from "../../../components/AdminCompontents";
 import { useForm } from "react-hook-form";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
 import { HiMinusCircle } from "react-icons/hi";
 import { MdEdit } from "react-icons/md";
 import Update_del_Area from "./Modify/Update_del_Area";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { FaHome } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 function AllArea() {
   const { handleSubmit, register } = useForm();
@@ -111,6 +113,13 @@ function AllArea() {
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
       <AdminHeader />
       <AdminDashboard>
+        <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+          <Link to="/admin/dashboard">
+            <FaHome size={20} />
+          </Link>
+          <IoIosArrowForward />
+          <p>Area</p>
+        </div>
         {/* <div className="mx-5 mt-6 flex justify-between">
           <p className="text-[22px] font-semibold font-['udemy-regular']">
             Add Area Details Here -
@@ -167,7 +176,7 @@ function AllArea() {
             </div>
           </div>
 
-          <div className="flex gap-20 justify-center mt-5">
+          <div className="lg:flex lg:gap-20 lg:justify-center mt-5">
             <div className="flex flex-col border-2 border-gray-400 w-[15rem]">
               <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                 List of Area in{" "}
