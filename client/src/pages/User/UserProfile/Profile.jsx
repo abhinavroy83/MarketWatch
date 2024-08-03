@@ -755,7 +755,7 @@ function Profile() {
                 Delete Account
               </p> */}
               <button
-                className=" font-['udemy-regular'] bg-green-800 text-white px-3 py-2 text-[1.1rem]"
+                className=" font-['udemy-regular'] bg-green-800 rounded-md text-white px-3 py-2 text-[1.1rem] mb-3"
                 type="submit"
               >
                 Update Profile
@@ -770,7 +770,7 @@ function Profile() {
             </div>
           ) : (
             <button
-              className=" font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem]"
+              className=" font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem] mb-3 rounded-md"
               type="button"
               onClick={toggleEdit}
             >

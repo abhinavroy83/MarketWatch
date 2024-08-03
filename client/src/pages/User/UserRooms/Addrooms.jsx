@@ -1413,7 +1413,7 @@ function Addrooms({ editdata }) {
             {editdata ? (
               <button
                 type="submit"
-                className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 my-5 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Update Room
               </button>
