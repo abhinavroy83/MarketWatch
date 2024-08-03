@@ -93,7 +93,7 @@ function ListAllwish() {
     const endIndex = Math.min(startIndex + 10, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id}>
-        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
+        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-base">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
@@ -140,7 +140,7 @@ function ListAllwish() {
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
-          <p className="text-[1.5rem] p-2 mt-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
+          <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
             {/* <FaHeart size={25} /> */}
             <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" />
             Favorites
@@ -157,10 +157,10 @@ function ListAllwish() {
           <IoIosArrowForward />
           <p>Favorites</p>
         </div>
-        <div className="mt-6 flex flex-col">
-          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="mt-6 flex flex-col px-4 text-base">
+          <div className="mx-4 my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-md text-[1.2rem] border border-gray-200 md:rounded-lg w-full">
+              <div className="overflow-hidden rounded-md border border-gray-200 md:rounded-lg w-full">
                 <table className="min-w-full divide-gray-200 divide-y">
                   <thead className="bg-gray-50">
                     <tr>
@@ -221,7 +221,7 @@ function ListAllwish() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 bg-white ">
+                  <tbody className="divide-y divide-gray-200 bg-white text-base">
                     {renderRows()}
                   </tbody>
                 </table>

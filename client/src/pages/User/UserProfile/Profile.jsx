@@ -217,7 +217,7 @@ function Profile() {
         />
       )}
 
-      <div className="flex justify-center text-center self-center  font-['udemy-regular'] ">
+      <div className="flex justify-center text-center self-center font-['udemy-regular'] ">
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-3 justify-center shadow-black shadow-sm items-center text-center">
           {/* <ImProfile /> */}
           <img className="w-[2rem] h-[2rem]" src={settings2} alt="logo" />

@@ -432,24 +432,6 @@ function Rooms() {
           </div>
 
           <div className="flex gap-4 items-center ">
-            {/* <div
-              className="flex justify-end"
-              onClick={fetchNextRoom}
-              disabled={!hasPreviousRoom}
-            >
-              <button className="rounded-xl flex p-1 px-3 bg-blue-700 text-[22px] items-center text-white shadow-sm shadow-[#000] gap-2 hover:shadow-lg">
-                <button
-                  // type="submit"
-                  className="flex text-[22px] items-center text-white font-bold"
-                >
-                  NEXT
-                </button>
-                <MdKeyboardDoubleArrowRight
-                  size={45}
-                  className="flex text-[22px] items-center text-white font-bold"
-                />
-              </button>
-            </div> */}
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
@@ -572,15 +554,6 @@ function Rooms() {
               <div>
                 <p className=" text-xl capitalize">By {rooms.user_name}</p>
               </div>
-              {/* {userstatus && (
-                <button className="flex items-center text-red-700 gap-2 text-[24px]"
-                  onClick={() => {
-                    navigate(`/room/editroom/${_id}`);
-                  }}
-                >
-                 <FaEdit/> Edit
-                </button>
-              )} */}
             </div>
 
             <div>
@@ -643,10 +616,6 @@ function Rooms() {
         </div>
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
-          {/* <div className=" gap-3 border p-5">
-           <div className="flex gap-1 mt-2"><MdSubtitles size={30}/><p className="">Title: Cozy Apartment in Downtown</p></div>
-            <div className="flex gap-1 mt-3"><MdInsertComment size={30}/><p>Description: A spacious and cozy apartment in the heart of the city with all modern amenities.</p></div>
-           </div> */}
           <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
             <GiEntryDoor size={30} />
             More Info About Room-{" "}
@@ -906,28 +875,7 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              {/* <div className="flex gap-2 items-center">
-                <FaAddressCard size={35} />
-                <div className="flex">
-                  <p className="text-gray-500 text-[20px]">
-                    Address
-                    <p className="text-black flex text-[18px]">
-                      {rooms.address}
-                    </p>
-                  </p>
-                </div>
-              </div> */}
-              {/* <div className="flex gap-2 items-center">
-                <BiSolidMessageRoundedDots size={35} />
-                <div className="flex">
-                  <p className="text-gray-500 text-[20px]">
-                    Zip code
-                    <p className="text-black flex text-[18px]">
-                      {rooms.zip_code}
-                    </p>
-                  </p>
-                </div>
-              </div> */}
+
               <div className="flex gap-2 items-center">
                 {/* <MdOutlineEmail size={35} /> */}
                 <img className="h-10 w-10" src={email} alt="" />
