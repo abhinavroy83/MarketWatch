@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
+import basicuser from "../../../assets/basicuser.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import {
   SkyScrapper,
@@ -560,7 +561,7 @@ function Rooms() {
               <div className="flex items-center justify-between text-[1.2rem] lg:text-[25px]">
                 {
                   <div className="flex ">
-                    <BsBuildingsFill className="" size={35} />
+                    <img className="h-10 w-10" src={SkyScrapper} alt="" />
                     <p className="px-2">{rooms.Propertytype}</p>
                   </div>
                 }
@@ -609,171 +610,174 @@ function Rooms() {
           <MdInsertComment size={35} />
         </div> */}
         <div className="border p-3 mt-2">
-          <p className=" text-[22px] font-bold px-1">Description -</p>
+          <p className=" text-[25px] px-1">Description -</p>
           <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize break-words">
             {rooms.Description}
           </p>
         </div>
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
-          <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
-            <GiEntryDoor size={30} />
-            More Info About Room-{" "}
-          </h1>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 border p-5 mt-2">
-            <div className="flex gap-2 items-center">
-              {/* <BsBuildingsFill className="" size={35} /> */}
-              <img className="h-10 w-10" src={SkyScrapper} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Property Type
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Propertytype}
+          <div className="border mt-3">
+            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
+              {/* <GiEntryDoor size={30} /> */}
+              {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
+              More Info About Room -{" "}
+            </h1>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
+              <div className="flex gap-2 items-center">
+                {/* <BsBuildingsFill className="" size={35} /> */}
+                <img className="h-10 w-10" src={SkyScrapper} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Property Type
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Propertytype}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <FaMapMarkerAlt className="" size={35} /> */}
-              <img className="h-10 w-10" src={map} alt="" />
+              <div className="flex gap-2 items-center">
+                {/* <FaMapMarkerAlt className="" size={35} /> */}
+                <img className="h-10 w-10" src={map} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    City
+                    <p className="text-black flex text-[18px]">{rooms.city}</p>
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                {/* <MdOutlineTimer className="" size={35} /> */}
+                <img className="h-10 w-10" src={stayhome} alt="" />
 
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  City
-                  <p className="text-black flex text-[18px]">{rooms.city}</p>
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <MdOutlineTimer className="" size={35} /> */}
-              <img className="h-10 w-10" src={stayhome} alt="" />
-
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Stay/Lease
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Stay_lease}
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Stay/Lease
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Stay_lease}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <LuClock10 size={35} /> */}
-              <img className="h-10 w-10" src={clock} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Avaliblity From
-                  <p className="text-black flex text-[18px] break-all">
-                    {rooms.Avaliblity_from}
+              <div className="flex gap-2 items-center">
+                {/* <LuClock10 size={35} /> */}
+                <img className="h-10 w-10" src={clock} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Avaliblity From
+                    <p className="text-black flex text-[18px] break-all">
+                      {rooms.Avaliblity_from}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <LuClock3 size={35} /> */}
-              <img className="h-10 w-10" src={clock} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Available To
-                  <p className="text-black flex text-[18px] break-all">
-                    {rooms.Available_to}
+              <div className="flex gap-2 items-center">
+                {/* <LuClock3 size={35} /> */}
+                <img className="h-10 w-10" src={clock} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Available To
+                    <p className="text-black flex text-[18px] break-all">
+                      {rooms.Available_to}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <IoToday size={35} /> */}
-              <img className="h-10 w-10" src={schedule} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Day Available
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Day_Available}
+              <div className="flex gap-2 items-center">
+                {/* <IoToday size={35} /> */}
+                <img className="h-10 w-10" src={schedule} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Day Available
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Day_Available}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <FaBath size={35} /> */}
-              <img className="h-10 w-10" src={bathroom1} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Attachted Bath
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Attchd_Bath}
+              <div className="flex gap-2 items-center">
+                {/* <FaBath size={35} /> */}
+                <img className="h-10 w-10" src={bathroom1} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Attachted Bath
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Attchd_Bath}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <BsGenderTrans size={35} /> */}
-              <img className="h-10 w-10" src={gendericon} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Preferred Gender
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Preferred_gender}
+              <div className="flex gap-2 items-center">
+                {/* <BsGenderTrans size={35} /> */}
+                <img className="h-10 w-10" src={gendericon} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Preferred Gender
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Preferred_gender}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            {/* <div className="flex gap-2 items-center"><MdOutlineMeetingRoom size={35}/><div className="flex">
+              {/* <div className="flex gap-2 items-center"><MdOutlineMeetingRoom size={35}/><div className="flex">
             <p className="text-gray-500 text-[20px]">Expected Rooms
             <p className="text-black flex">1</p>
             </p></div></div> */}
-            <div className="flex gap-2 items-center">
-              {/* <MdOutlinePriceChange size={35} /> */}{" "}
-              <img className="h-10 w-10" src={pricing} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Pricemodel
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Pricemodel}
+              <div className="flex gap-2 items-center">
+                {/* <MdOutlinePriceChange size={35} /> */}{" "}
+                <img className="h-10 w-10" src={pricing} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Pricemodel
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Pricemodel}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <RiMoneyDollarCircleFill size={35} /> */}
-              <img className="h-10 w-10" src={deposit} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Deposit
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Desposite}
+              <div className="flex gap-2 items-center">
+                {/* <RiMoneyDollarCircleFill size={35} /> */}
+                <img className="h-10 w-10" src={deposit} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Deposit
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Desposite}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <MdBedroomParent size={35} /> */}
-              <img className="h-10 w-10" src={furniture} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Is Room Furnished
-                  <p className="text-black flex text-[18px]">
-                    {rooms.is_room_furnished}
+              <div className="flex gap-2 items-center">
+                {/* <MdBedroomParent size={35} /> */}
+                <img className="h-10 w-10" src={furniture} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Is Room Furnished
+                    <p className="text-black flex text-[18px]">
+                      {rooms.is_room_furnished}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <GrDocumentTime size={35} /> */}
-              <img className="h-10 w-10" src={schedule} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Open House Schedule
-                  <p className="text-black flex text-[18px]">
-                    {rooms?.Open_house_schedule}
+              <div className="flex gap-2 items-center">
+                {/* <GrDocumentTime size={35} /> */}
+                <img className="h-10 w-10" src={schedule} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Open House Schedule
+                    <p className="text-black flex text-[18px]">
+                      {rooms?.Open_house_schedule}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
             </div>
           </div>
           {rooms.Amenities_include.length > 1 && (
             <div>
               <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
-                <MdRoomPreferences size={30} />
+                {/* <MdRoomPreferences size={30} /> */}{" "}
+                <img className="h-10 w-10" src={furniture} alt="" />
                 Amenities Included-
               </h1>
               <div className="border p-5 grid grid-cols-2 lg:grid-cols-3 gap-4 text-[18px] text-black mt-2">
@@ -792,109 +796,115 @@ function Rooms() {
               </div>
             </div>
           )}
-          <h1 className="text-[#000] text-[22px] font-bold mt-5 flex gap-2">
-            <MdAddBusiness size={30} />
-            Additional Information-{" "}
-          </h1>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
-            <div className="flex gap-2 items-center">
-              {/* <BiFoodTag size={35} /> */}
-              <img className="h-10 w-10" src={dietary} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Dietary Preference
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Vegeterian_prefernce}
+          <div className="border mt-3">
+            <h1 className="text-[#000] text-[25px] ml-5 flex gap-2 mt-2">
+              {/* <MdAddBusiness size={30} /> */}
+              {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
+              Additional Information -
+            </h1>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 px-5 py-3">
+              <div className="flex gap-2 items-center">
+                {/* <BiFoodTag size={35} /> */}
+                <img className="h-10 w-10" src={dietary} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Dietary Preference
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Vegeterian_prefernce}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <FaSmoking size={35} /> */}
-              <img className="h-10 w-10" src={smoke} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Smoking Policy
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Smoking_policy}
+              <div className="flex gap-2 items-center">
+                {/* <FaSmoking size={35} /> */}
+                <img className="h-10 w-10" src={smoke} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Smoking Policy
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Smoking_policy}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              {/* <MdPets size={35} /> */}
-              <img className="h-10 w-10" src={dog} alt="" />
-              <div className="flex">
-                <p className="text-gray-500 text-[20px]">
-                  Pet Friendly
-                  <p className="text-black flex text-[18px]">
-                    {rooms.Pet_friendly}
+              <div className="flex gap-2 items-center">
+                {/* <MdPets size={35} /> */}
+                <img className="h-10 w-10" src={dog} alt="" />
+                <div className="flex">
+                  <p className="text-gray-500 text-[20px]">
+                    Pet Friendly
+                    <p className="text-black flex text-[18px]">
+                      {rooms.Pet_friendly}
+                    </p>
                   </p>
-                </p>
+                </div>
               </div>
             </div>
           </div>
-          <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2 items-center">
-            <FaUserFriends size={37} />
-            User Details-{" "}
-            {!authstatus && (
-              <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
-                <MdErrorOutline /> Login To See Details
-              </span>
-            )}
-          </h1>
-          {authstatus && (
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 border p-5 mt-2">
-              <div className="flex gap-2 items-center">
-                {/* <FaUserAlt size={35} /> */}
-                <img className="h-10 w-10" src={name} alt="" />
-                <div className="flex">
-                  <p className="text-gray-500 text-[20px]">
-                    Name
-                    <p className="text-black flex text-[18px]">
-                      {rooms.user_name}
+          <div className="border mt-3">
+            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
+              {/* <FaUserFriends size={37} /> */}{" "}
+              {/* <img className="w-[1.9rem] h-[1.9rem]" src={basicuser} alt="logo" /> */}
+              User Details-{" "}
+              {!authstatus && (
+                <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
+                  <MdErrorOutline /> Login To See Details
+                </span>
+              )}
+            </h1>
+            {authstatus && (
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
+                <div className="flex gap-2 items-center">
+                  {/* <FaUserAlt size={35} /> */}
+                  <img className="h-10 w-10" src={name} alt="" />
+                  <div className="flex">
+                    <p className="text-gray-500 text-[20px]">
+                      Name
+                      <p className="text-black flex text-[18px]">
+                        {rooms.user_name}
+                      </p>
                     </p>
-                  </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-2 items-center">
-                {/* <FaPhoneVolume size={35} /> */}
-                <img className="h-10 w-10" src={number} alt="" />
-                <div className="flex">
-                  <p className="text-gray-500 text-[20px]">
-                    Phone Number
-                    <p className="text-black flex text-[18px]">
-                      <a
-                        href={`tel:${rooms.phone_number}`}
-                        className="text-black"
-                      >
-                        {/* {rooms.phone_number} */}
-                        {formatPhoneNumber(rooms.phone_number)}
-                      </a>
+                <div className="flex gap-2 items-center">
+                  {/* <FaPhoneVolume size={35} /> */}
+                  <img className="h-10 w-10" src={number} alt="" />
+                  <div className="flex">
+                    <p className="text-gray-500 text-[20px]">
+                      Phone Number
+                      <p className="text-black flex text-[18px]">
+                        <a
+                          href={`tel:${rooms.phone_number}`}
+                          className="text-black"
+                        >
+                          {/* {rooms.phone_number} */}
+                          {formatPhoneNumber(rooms.phone_number)}
+                        </a>
+                      </p>
                     </p>
-                  </p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex gap-2 items-center">
-                {/* <MdOutlineEmail size={35} /> */}
-                <img className="h-10 w-10" src={email} alt="" />
-                <div className="flex flex-col">
-                  <p className="text-gray-500 text-[20px]">
-                    Email
-                    <p className="text-blue-600 flex text-[18px] lowercase">
-                      <a
-                        href={`mailto:${rooms.email}`}
-                        className="hover:underline"
-                      >
-                        {rooms.email}
-                      </a>
+                <div className="flex gap-2 items-center">
+                  {/* <MdOutlineEmail size={35} /> */}
+                  <img className="h-10 w-10" src={email} alt="" />
+                  <div className="flex flex-col">
+                    <p className="text-gray-500 text-[20px]">
+                      Email
+                      <p className="text-blue-600 flex text-[18px] lowercase">
+                        <a
+                          href={`mailto:${rooms.email}`}
+                          className="hover:underline"
+                        >
+                          {rooms.email}
+                        </a>
+                      </p>
                     </p>
-                  </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         <div className="mt-4 mb-2 capitalize">
           <div className="mt-2 flex items-center ">
