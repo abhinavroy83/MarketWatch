@@ -330,6 +330,9 @@ function Profile() {
             </div>
             <div className="ml-2 lg:ml-0 mb-[0.4rem]">
               <button
+                onClick={() => {
+                  alert("in process coming soon");
+                }}
                 type="button"
                 className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] hover:bg-gray-400 font-bold text-black"
               >
@@ -395,35 +398,7 @@ function Profile() {
             )}
             </div> */}
           </div>
-          <div className="flex gap-[1rem]">
-            {/* <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
-              <label className="text-[1.2rem]">Number</label>
-              {isedit ? (
-                <input
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="text"
-                  {...register("number")}
-                  defaultValue={data.phone_number}
-                />
-              ) : (
-                <p className="text-[1.2rem]">{data.phone_number}</p>
-              )}
-            </div> */}
-            {/* <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 text-[1.2rem]">
-              <label className="">Date of Birth</label>
-              {isedit ? (
-                <input
-                  className="font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="date"
-                  {...register("dob")}
-                  defaultValue={data.dob}
-                />
-              ) : (
-                <p className="text-[1.2rem]">{data.dob}</p>
-              )}
-            </div> */}
-          </div>
-
+         
           {data.isVerified ? (
             <div className="z-0 relative">
               {isedit && (
