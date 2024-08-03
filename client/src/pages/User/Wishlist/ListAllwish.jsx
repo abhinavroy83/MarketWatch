@@ -123,14 +123,15 @@ function ListAllwish() {
         >
           Click here
         </td>
-        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 text-right font-medium font-['udemy-regular']">
+        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular']">
           <a
             onClick={() => {
               handleDeleteRoom(items._id);
             }}
-            className="text-red-500 font-semibold items-center cursor-pointer flex gap-3"
+            className="text-gray-700 cursor-pointer text-base hover:text-red-600"
           >
-            <BiMinusCircle size={25} /> Remove
+            {/* <BiMinusCircle size={25} />  */}
+            Remove
           </a>
         </td>
       </tr>

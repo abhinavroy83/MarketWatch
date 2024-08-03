@@ -73,27 +73,27 @@ function Getuserroom() {
       <tr key={items._id}>
         <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
-            <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
+            <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular'] cursor-pointer">
               <img
                 className="h-10 w-10 rounded-full object-cover"
                 src={items.Imgurl[0]}
                 alt=""
               />
             </div>
-            <div className="ml-4 font-['udemy-regular']">
+            <div className="ml-4 font-['udemy-regular'] cursor-pointer">
               <div className="text-[20px] font-medium text-gray-900">
                 {items.Hotelname}
               </div>
             </div>
           </div>
         </td>
-        <td className="whitespace-nowrap px-12 py-4">
+        <td className="whitespace-nowrap px-12 py-4 cursor-pointer">
           <div className="text-base text-gray-700">{items.city}</div>
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer">
           {items.address}
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer">
           {items.Expected_Rooms}
         </td>
         <td className="whitespace-nowrap gap-2 px-8 py-6 text-base font-medium">
@@ -101,7 +101,7 @@ function Getuserroom() {
             onClick={() => {
               handledeleterooms(items._id);
             }}
-            className="text-gray-700 cursor-pointer text-base"
+            className="text-gray-700 cursor-pointer text-base hover:text-red-600"
           >
             Delete
           </a>
