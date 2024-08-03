@@ -583,9 +583,9 @@ function Rooms() {
                 </div>
               </div>
               {locationsndString ? (
-                <div className="mt-2">
+                <div className="mt-2 rounded-md">
                   <LeafletMap2
-                    className="w-[9rem]"
+                    className="w-[9rem] rounded-md"
                     onLocationReceived={locationsndString}
                     style={{
                       height: "350px",
@@ -609,7 +609,7 @@ function Rooms() {
         {/* <div className="flex gap-1 text-[25px] font-bold mt-2">
           <MdInsertComment size={35} />
         </div> */}
-        <div className="border p-3 mt-2">
+        <div className="border p-3 mt-2 rounded-md">
           <p className=" text-[25px] px-1">Description -</p>
           <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize break-words">
             {rooms.Description}
@@ -617,7 +617,7 @@ function Rooms() {
         </div>
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
-          <div className="border mt-3">
+          <div className="border mt-3 rounded-md">
             <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
               {/* <GiEntryDoor size={30} /> */}
               {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
@@ -774,17 +774,17 @@ function Rooms() {
             </div>
           </div>
           {rooms.Amenities_include.length > 1 && (
-            <div>
-              <h1 className="flex text-[#000] text-[22px] font-bold mt-5 gap-2">
-                {/* <MdRoomPreferences size={30} /> */}{" "}
-                <img className="h-10 w-10" src={furniture} alt="" />
-                Amenities Included-
+            <div className="border mt-3 rounded-md">
+            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2 items-center">
+            {/* <MdRoomPreferences size={30} /> */}{" "}
+                {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
+                Amenities Included -
               </h1>
-              <div className="border p-5 grid grid-cols-2 lg:grid-cols-3 gap-4 text-[18px] text-black mt-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-[20px] text-gray-500 items-center">
                 {rooms?.Amenities_include?.map((amenity) => {
                   const IconComponent = amenityIcons[amenity];
                   return (
-                    <div key={amenity} className="flex gap-2">
+                    <div key={amenity} className="flex gap-2 items-center">
                       {IconComponent && (
                         // <IconComponent className="amenity-icon" size={30} />
                         <img src={IconComponent} className="h-10 w-10" alt="" />
@@ -796,7 +796,7 @@ function Rooms() {
               </div>
             </div>
           )}
-          <div className="border mt-3">
+          <div className="border mt-3 rounded-md">
             <h1 className="text-[#000] text-[25px] ml-5 flex gap-2 mt-2">
               {/* <MdAddBusiness size={30} /> */}
               {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
@@ -841,11 +841,11 @@ function Rooms() {
               </div>
             </div>
           </div>
-          <div className="border mt-3">
+          <div className="border mt-3 rounded-md">
             <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
               {/* <FaUserFriends size={37} /> */}{" "}
               {/* <img className="w-[1.9rem] h-[1.9rem]" src={basicuser} alt="logo" /> */}
-              User Details-{" "}
+              User Details -{" "}
               {!authstatus && (
                 <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
                   <MdErrorOutline /> Login To See Details
