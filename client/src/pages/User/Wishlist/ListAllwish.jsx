@@ -146,7 +146,7 @@ function ListAllwish() {
             Favorites
           </p>
         </div>
-        <div className="lg:hidden flex items-center text-gray-700 mt-2">
+        <div className="lg:hidden flex items-center text-gray-700 mt-2 ml-3">
           <Link to="/">
             <FaHome size={20} />
           </Link>
@@ -157,7 +157,7 @@ function ListAllwish() {
           <IoIosArrowForward />
           <p>Favorites</p>
         </div>
-        <div className="mt-6 flex flex-col px-4 text-base">
+        <div className="lg:mt-6 flex flex-col lg:px-4 text-base">
           <div className="mx-4 my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden rounded-md border border-gray-200 md:rounded-lg w-full">

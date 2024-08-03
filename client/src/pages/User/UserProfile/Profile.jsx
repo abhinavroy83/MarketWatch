@@ -217,14 +217,14 @@ function Profile() {
         />
       )}
 
-      <div className="flex justify-center text-center self-center font-['udemy-regular'] ">
+      <div className="flex justify-center text-center self-center font-['udemy-regular']">
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-3 justify-center shadow-black shadow-sm items-center text-center">
           {/* <ImProfile /> */}
           <img className="w-[2rem] h-[2rem]" src={settings2} alt="logo" />
           Settings
         </p>
       </div>
-      <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+      <div className="lg:hidden flex items-center text-gray-700 mt-2 ml-3 font-['udemy-regular'] ">
         <Link to="/">
           <FaHome size={20} />
         </Link>
@@ -236,7 +236,7 @@ function Profile() {
         <p>Settings</p>
       </div>
 
-      <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-4 w-[100%]  font-['udemy-regular'] ">
+      <div className="px-2 lg:px-10 overflow-y-scroll flex justify-center lg:mt-7 mt-1 w-[100%] font-['udemy-regular'] ">
         {/* <h1 className="text-[1.4rem] text-[#232f3e] font-['udemy-regular'] ">
           Your Personal Details Are -
         </h1> */}

@@ -113,8 +113,14 @@ function Getuserroom() {
   return (
     <DashConatiner>
       <section className="mx-auto w-full max-w-7xl rounded-sm font-['udemy-regular']">
+        <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
+          {/* <FaHeart size={25} /> */}
+          {/* <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" /> */}
+          <img className="w-[2rem] h-[2rem]" src={rooms} alt="" />
+          Rooms Posted
+        </p>
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-          <div className="lg:hidden items-center text-gray-700 flex">
+          <div className="lg:hidden items-center text-gray-700 flex ml-3 mt-2">
             <Link to="/">
               <FaHome size={20} />
             </Link>
@@ -126,13 +132,7 @@ function Getuserroom() {
             <p>Rooms</p>
           </div>
           <div className="flex-col w-full">
-            <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
-              {/* <FaHeart size={25} /> */}
-              {/* <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" /> */}
-              <img className="w-[2rem] h-[2rem]" src={rooms} alt="" />
-              Rooms Posted
-            </p>
-            <div className="flex items-center justify-between w-full mt-4 px-4">
+            <div className="flex items-center justify-between w-full lg:mt-4 px-4">
               <p className="text-[17px] text-[#232f3e]">
                 This is a list of all rooms. You can add new rooms, edit or
                 delete existing ones.
@@ -156,7 +156,7 @@ function Getuserroom() {
         <div className="mt-4 flex flex-col text-base px-4">
           <div className="sm:-mx-6 lg:-mx-8 overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="border border-gray-200 md:rounded-lg gap-3 flex lg:w-full">
+              <div className="border border-gray-200 rounded-md gap-3 flex lg:w-full ">
                 <table className="min-w-full gap-4 divide-y divide-gray-200 ">
                   <thead className="bg-gray-50">
                     <tr>
