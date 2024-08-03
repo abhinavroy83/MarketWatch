@@ -30,7 +30,7 @@ function AdsNotification() {
   }, []);
 
   return (
-    <div className="bg-white flex flex-col absolute bottom-0 top-[1.5rem] rounded-md right-[2px] w-[300px] border h-[220px] shadow-md shadow-gray-400">
+    <div className="bg-white flex flex-col absolute bottom-0 top-[1.5rem] rounded-md lg:right-[2px] right-[-53px] w-[300px] border h-[220px] shadow-md shadow-gray-400">
       <div className="w-full justify-between flex items-center mt-[0.4rem] p-1">
         <p className="text-[1.2rem]">Notification</p>
         <IoSettingsOutline size={20} />

@@ -152,7 +152,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
-      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden rounded-tl-md rounded-bl-md">
+      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden lg:rounded-tl-md lg:rounded-bl-md lg:rounded-none rounded-tl-md rounded-tr-md">
         <img
           src={item.Imgurl[0] || noimg}
           alt=""

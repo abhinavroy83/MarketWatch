@@ -663,7 +663,7 @@ function Rooms() {
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Avaliblity From
-                  <p className="text-black flex text-[18px]">
+                  <p className="text-black flex text-[18px] break-all">
                     {rooms.Avaliblity_from}
                   </p>
                 </p>
@@ -675,7 +675,7 @@ function Rooms() {
               <div className="flex">
                 <p className="text-gray-500 text-[20px]">
                   Available To
-                  <p className="text-black flex text-[18px]">
+                  <p className="text-black flex text-[18px] break-all">
                     {rooms.Available_to}
                   </p>
                 </p>
