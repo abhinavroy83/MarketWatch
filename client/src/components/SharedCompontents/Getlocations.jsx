@@ -8,8 +8,8 @@ function Getlocations() {
   const [showmap, setshowmap] = useState(true);
   const dispatch = useDispatch();
   const [currentLocation, setcurrentLocation] = useState({
-    lat: 0,
-    lng: 0,
+    lat: 45.5231,
+    lng: -122.6765,
   });
   useEffect(() => {
     const getLocation = () => {

@@ -4,21 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import axios from "axios";
 import { UserImage } from "../../store/authslice";
-import { FaUserPen } from "react-icons/fa6";
-import { FaHeart } from "react-icons/fa";
-import { ImProfile } from "react-icons/im";
-import { BsPostcard } from "react-icons/bs";
-import { FaHome } from "react-icons/fa";
-import { useId } from "react";
-import { MdMeetingRoom } from "react-icons/md";
-import { BsPostcardHeartFill } from "react-icons/bs";
-import { MdBusinessCenter } from "react-icons/md";
 import { GrEdit } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
-import { IoPersonAddOutline } from "react-icons/io5";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoPeopleSharp } from "react-icons/io5";
 import settings2 from "../../assets/settings2.png";
 import Favorites from "../../assets/Favorites.png";
 import rooms from "../../assets/rooms.png";
@@ -91,7 +78,20 @@ function DashConatiner({ children }) {
             // console.log(res);
             alert("updated successfuly");
             // console.log(res.data.user.userimg);
-            dispatch(UserImage({ userimg: res.data.user.userimg }));
+            const newUserImg = res.data.user.userimg;
+            dispatch(UserImage({ userimg: newUserImg }));
+            const currentData = JSON.parse(localStorage.getItem("userdetails"));
+            const updatedData = {
+              ...currentData,
+              data: {
+                ...currentData.data,
+                data: {
+                  ...currentData.data.data,
+                  userimg: newUserImg,
+                },
+              },
+            };
+            localStorage.setItem("userdetails", JSON.stringify(updatedData));
           }
         } catch (error) {
           console.log("Error during upload img at database", error);
@@ -140,7 +140,7 @@ function DashConatiner({ children }) {
     <div className="lg:mt-[9rem] mt-[10rem] overflow-x-hidden overflow-y-hidden mx-auto px-4 flex flex-col max-w-[1600px] h-auto w-full m-auto overflow-hidden font-['udemy-regular']">
       {alertstatus && (
         <div>
-          {!isverified && (
+          {!data?.isVerified && (
             <div
               role="alert"
               className="rounded border-s-4 border-red-500 bg-red-50 p-4"

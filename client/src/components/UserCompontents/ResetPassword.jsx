@@ -3,6 +3,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { MdLockReset } from "react-icons/md";
 import resetimg from "../../assets/reset.jpg";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { modalopen } from "../../store/modalslice";
 function ResetPassword() {
   const {
     register,
@@ -10,6 +13,9 @@ function ResetPassword() {
     reset,
     formState: { errors },
   } = useForm();
+
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
 
   const onsubmit = async (data) => {
     // console.log(data);
@@ -19,6 +25,15 @@ function ResetPassword() {
         data
       );
 
+      if (res.data.status) {
+        alert(res.data.message);
+        naviagte("/");
+        dispatch(
+          modalopen({
+            isloginmodalopen: true,
+          })
+        );
+      }
       if (!res.data.status) {
         alert(res.data.message);
       }

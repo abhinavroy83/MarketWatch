@@ -21,6 +21,7 @@ function Forgetpassword() {
         data
       );
       if (res) {
+        console.log(res.data);
         alert(res.data.message);
         // setTimeout(() => {
         //   window.location.href = "/signup";

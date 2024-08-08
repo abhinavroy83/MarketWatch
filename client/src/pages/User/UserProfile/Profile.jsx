@@ -140,9 +140,20 @@ function Profile() {
       if (res) {
         // console.log(res);
         alert("updated successfuly");
-        // console.log(res.data.user.userimg);
-        dispatch(UserImage({ userimg: res.data.user.userimg }));
-        navigate(`/myaccount/${userID}`);
+        const newUserImg = res.data.user.userimg;
+        dispatch(UserImage({ userimg: newUserImg }));
+        const currentData = JSON.parse(localStorage.getItem("userdetails"));
+        const updatedData = {
+          ...currentData,
+          data: {
+            ...currentData.data,
+            data: {
+              ...currentData.data.data,
+              userimg: newUserImg,
+            },
+          },
+        };
+        localStorage.setItem("userdetails", JSON.stringify(updatedData));        navigate(`/myaccount/${userID}`);
       }
     } catch (error) {
       console.log("error", error);
