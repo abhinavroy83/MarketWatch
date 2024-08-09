@@ -153,7 +153,8 @@ function Profile() {
             },
           },
         };
-        localStorage.setItem("userdetails", JSON.stringify(updatedData));        navigate(`/myaccount/${userID}`);
+        localStorage.setItem("userdetails", JSON.stringify(updatedData));
+        navigate(`/myaccount/${userID}`);
       }
     } catch (error) {
       console.log("error", error);
@@ -409,7 +410,7 @@ function Profile() {
             )}
             </div> */}
           </div>
-         
+
           {data.isVerified ? (
             <div className="z-0 relative">
               {isedit && (
@@ -521,6 +522,7 @@ function Profile() {
                   <label className="min-w-[120px]">City</label>
                   <input
                     className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    defaultValue={data.city}
                     type="text"
                   />
                   {/* {isedit ? (

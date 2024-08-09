@@ -17,7 +17,7 @@ const forgetPassword = async (req, res) => {
           expiresIn: "10m",
         }
       );
-      await sendemailverification(mail, jwttoken);
+      await sendemailverification(mail, jwttoken, user.firstName);
       return res.json({ status: true, message: "Verification email sent" });
     }
   } catch (error) {
@@ -55,7 +55,7 @@ const resetpassword = async (req, res) => {
   }
 };
 
-async function sendemailverification(email, token) {
+async function sendemailverification(email, token, username) {
   const transport = nodemailer.createTransport({
     host: "live.smtp.mailtrap.io",
     port: 587,
@@ -68,12 +68,35 @@ async function sendemailverification(email, token) {
   await transport.sendMail({
     from: "noreply@verydesi.com",
     to: email,
-    subject: "Reset Password",
-    html: `<h1>Reset Your Password</h1>
-    <p>Click on the following link to reset your password:</p>
-    <a href="https://verydesi.com/reset-password/${token}">https://verydesi.com/reset-password/${token}</a>
-    <p>The link will expire in 10 minutes.</p>
-    <p>If you didn't request a password reset, please ignore this email.</p>`,
+    subject: "Reset Your Password",
+    html: `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h1 style="background-color: #f8f8f8; padding: 10px 20px; border-bottom: 2px solid #e2e2e2; text-align: center; color: #ff5722;">
+          Password Reset Request
+        </h1>
+        <p>Dear <strong>${username}</strong>,</p>
+        <p>We received a request to reset your password. Click the link below to proceed:</p>
+        <p style="text-align: center;">
+          <a href="https://verydesi.com/reset-password/${token}" style="display: inline-block; padding: 10px 20px; background-color: #ff5722; color: #fff; text-decoration: none; border-radius: 5px;">
+            Reset Password
+          </a>
+        </p>
+        <p>If the button above doesn't work, you can copy and paste the following link into your browser:</p>
+        <p style="word-wrap: break-word;">
+          <a href="https://verydesi.com/reset-password/${token}">
+            https://verydesi.com/reset-password/${token}
+          </a>
+        </p>
+        <p><strong>Note:</strong> This link will expire in 10 minutes.</p>
+        <p>If you didn't request a password reset, you can safely ignore this email.</p>
+        <p style="color: #999; font-size: 12px; text-align: center;">
+          This is an automated email, please do not reply.
+        </p>
+        <p style="color: #999; font-size: 12px; text-align: center;">
+          &copy; ${new Date().getFullYear()} VeryDesi. All rights reserved.
+        </p>
+      </div>
+    `,
   });
 }
 
