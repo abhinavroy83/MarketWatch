@@ -2,6 +2,7 @@ const User = require("../../model/user");
 const bcrypt = require("bcrypt");
 
 const verifypassword = async (req, res) => {
+const verifypassword = async (req, res) => {
   const { userID, password } = req.body;
   // console.log(req.body);
 

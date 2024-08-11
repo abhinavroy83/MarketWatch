@@ -313,7 +313,7 @@ function DashConatiner({ children }) {
                   alt="logo"
                 />
                 Setting
-              </button>
+            </button>
               <hr className="mt-2"></hr>
               <button
                 onClick={() => {

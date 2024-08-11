@@ -343,7 +343,7 @@ function Profile() {
             <div className="ml-2 lg:ml-0 mb-[0.4rem]">
               <button
                 onClick={() => {
-                  alert("in process coming soon");
+                  navigate(`/setting/changepassword/${userID}`);
                 }}
                 type="button"
                 className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] hover:bg-gray-400 font-bold text-black"
@@ -487,11 +487,8 @@ function Profile() {
                       type="text"
                       placeholder="Enter Address"
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("address", {
-                        required: "Address is required",
-                      })}
+                      {...register("address")}
                       defaultValue={data.address}
-                      errorMessage={errors.address?.message}
                     />
                   ) : (
                     <p className="">{data.address}</p>
@@ -580,9 +577,8 @@ function Profile() {
                       type="text"
                       placeholder="Enter Pin"
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("pin", { required: "Pin is required" })}
+                      {...register("pin")}
                       defaultValue={data.pin}
-                      errorMessage={errors.pin?.message}
                     />
                   ) : (
                     <p className="text-[1rem]">{data.pin}</p>
