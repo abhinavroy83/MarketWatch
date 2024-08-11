@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Authlayout } from "./components/index.js";
+import Updatepass from "./pages/User/Setting/Updatepass.jsx";
 
 const Home = React.lazy(() => import("./components/UserCompontents/Home.jsx"));
 const Login = React.lazy(() =>
@@ -156,6 +157,14 @@ const router = createBrowserRouter([
               <User />
             </Authlayout>
           </Suspense>
+        ),
+      },
+      {
+        path: "/setting/changepassword/:userID",
+        element: (
+          <Authlayout authentication>
+            <Updatepass />
+          </Authlayout>
         ),
       },
       {

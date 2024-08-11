@@ -7,6 +7,7 @@ const updateuser = require("../Controllers/user/updateuser");
 const verifyemail = require("../Controllers/user/verifyuser");
 const deleteuser = require("../Controllers/user/Deleteuser");
 const verifypassword = require("../Controllers/user/verifypassword");
+const updatepassword = require("../Controllers/user/updatepassword");
 const {
   forgetPassword,
   resetpassword,
@@ -21,5 +22,6 @@ router.post("/verifypassword", verifypassword);
 router.post("/forgotpassword", forgetPassword);
 router.post("/resetpassword/:token", resetpassword);
 router.delete("/deleteuser/:_id", deleteuser);
+router.put("/updatepassword/:_id", updatepassword);
 
 module.exports = router;
