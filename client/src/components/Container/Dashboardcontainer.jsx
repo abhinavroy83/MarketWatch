@@ -194,7 +194,7 @@ function DashConatiner({ children }) {
           )}
         </div>
       )}
-      <div className="flex lg:flex-row flex-col">
+      <div className="flex lg:flex-row flex-col shadow-lg shadow-gray-400">
         <div className="border-gray-300 border hidden lg:flex overflow-x-hidden overflow-y-hidden">
           <div className="w-auto bg-white px-3 mt-4 flex flex-col">
             {/* <svg
@@ -210,7 +210,7 @@ function DashConatiner({ children }) {
               d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg> */}
-            <div className="border w-full p-[1.6rem] self-center justify-center items-center flex flex-col rounded-lg ">
+            <div className="border w-full p-[1.6rem] self-center justify-center items-center flex flex-col rounded-lg shadow-lg shadow-gray-300">
               <div className="relative">
                 <img
                   className="rounded-full w-[9.5rem] h-[9.5rem] items-center justify-center cover"
@@ -288,7 +288,7 @@ function DashConatiner({ children }) {
                   setbgcolor(true);
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                className="bg-transparent rounded-md py-1 px-4 w-full  flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 {/* <FaHome size={20} /> */}
                 <img
@@ -363,7 +363,7 @@ function DashConatiner({ children }) {
                   onClick={() => {
                     navigate(`/user/room/${userID}`);
                   }}
-                  className="mt-2 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                  className="mt-2 px-4 ml-2 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
                 >
                   <img
                     className="w-[1.7rem] h-[1.7rem]"
@@ -373,7 +373,7 @@ function DashConatiner({ children }) {
                   {/* <MdMeetingRoom size={22} /> */}
                   My Rooms
                 </button>
-                <button className="mt-1 px-4 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1.1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
+                <button className="mt-1 px-5 ml-2 leading-relaxed rounded-md bg-transparent w-full items-center whitespace-nowrap flex gap-4 self-start capitalize text-[1rem] text-black hover:text-[#232f3e] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black ">
                   {/* <MdBusinessCenter size={20} /> My Business */}
                   <img
                     className="w-[1.5rem] h-[1.5rem]"
