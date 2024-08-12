@@ -40,8 +40,9 @@ function Login() {
       const urlParams = new URLSearchParams(window.location.search);
       const jwttoken = urlParams.get("jwttoken");
 
-      // console.log(jwttoken);
-
+      // localStorage.setItem("jwturltoken", JSON.stringify(jwttoken));
+      // // console.log(jwttoken);
+      // const jwtdecodedtoken=
       if (jwttoken) {
         try {
           const decoded = jwtDecode(jwttoken);
@@ -73,7 +74,7 @@ function Login() {
     };
 
     handleGoogleCallback();
-  }, [location.search]);
+  }, []);
 
   const onsubmit = async (data) => {
     try {
