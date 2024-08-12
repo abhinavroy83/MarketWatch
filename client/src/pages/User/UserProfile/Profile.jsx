@@ -14,6 +14,7 @@ import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import settings2 from "../../../assets/settings2.png";
+import { toast, ToastContainer } from "react-toastify";
 function Profile() {
   const { userID } = useParams();
   const {
@@ -139,7 +140,7 @@ function Profile() {
       );
       if (res) {
         // console.log(res);
-        alert("updated successfuly");
+        toast("profile update successfully");
         const newUserImg = res.data.user.userimg;
         dispatch(UserImage({ userimg: newUserImg }));
         const currentData = JSON.parse(localStorage.getItem("userdetails"));
@@ -216,18 +217,32 @@ function Profile() {
 
   return (
     <DashConatiner>
-      {showConfirm && (
-        <ConfirmationDialog
-          onConfirm={confirmDelete}
-          onCancel={cancelDelete}
-          onClose={cancelDelete}
-          Heading={"Delete Account"}
-          Para={
-            "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
-            // "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
-          }
-        />
-      )}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
+      {isverified ||
+        (showConfirm && (
+          <ConfirmationDialog
+            onConfirm={confirmDelete}
+            onCancel={cancelDelete}
+            onClose={cancelDelete}
+            Heading={"Delete Account"}
+            Para={
+              "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
+              // "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
+            }
+          />
+        ))}
 
       <div className="flex justify-center text-center self-center font-['udemy-regular']">
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-3 justify-center shadow-black shadow-sm items-center text-center">
@@ -520,6 +535,7 @@ function Profile() {
                   <input
                     className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     defaultValue={data.city}
+                    {...register("city")}
                     type="text"
                   />
                   {/* {isedit ? (

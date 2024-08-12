@@ -21,12 +21,12 @@ const updatepassword = async (req, res) => {
       user.password = updatedpass;
       await user.save();
       await sendemailverification(user.email, user.firstName);
-      res.status(200).json({
+      res.json({
         status: true,
         msg: "Password updated successfully",
       });
     } else {
-      res.status(401).json({
+      res.json({
         status: false,
         msg: "Invalid old password",
       });

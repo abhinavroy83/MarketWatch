@@ -40,13 +40,12 @@ function Login() {
       const urlParams = new URLSearchParams(window.location.search);
       const jwttoken = urlParams.get("jwttoken");
 
-      console.log(jwttoken);
+      // console.log(jwttoken);
 
       if (jwttoken) {
         try {
           const decoded = jwtDecode(jwttoken);
           // console.log("Decoded JWT:", decoded);
-          localStorage.setItem("userdetails", JSON.stringify(decoded));
           dispatch(
             authlogin({
               token: jwttoken,
@@ -56,6 +55,12 @@ function Login() {
               isverified: decoded.user.isVerified,
             })
           );
+          const localdata = {
+            ...decoded,
+            token: jwttoken,
+          };
+          localStorage.setItem("userdetails", JSON.stringify(localdata));
+
           dispatch(cities({ city: decoded.user.city }));
           dispatch(UserImage({ userimg: decoded.user.userimg }));
           dispatch(modalclose(isLoginModalOpen));

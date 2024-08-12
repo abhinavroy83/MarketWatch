@@ -10,7 +10,7 @@ import Getlocations from "./components/SharedCompontents/Getlocations";
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,6 +30,21 @@ function App() {
       );
       dispatch(cities({ city: storeused?.data?.data?.city }));
       dispatch(UserImage({ userimg: storeused?.data?.data?.userimg }));
+    }
+    console.log("storeused", storeused);
+    if (storeused && storeused.user) {
+      dispatch(
+        authlogin({
+          token: storeused?.jwttoken,
+          user: storeused?.user?.user.firstName,
+          userID: storeused?.user?.user._id,
+          bussinessac: storeused?.user?.user.bussinessac,
+          isverified: storeused?.user?.user.isVerified,
+          // userimg: storeused.data.data.userimg,
+        })
+      );
+      dispatch(cities({ city: storeused?.user?.city }));
+      dispatch(UserImage({ userimg: storeused?.user?.userimg }));
     }
     const adminstoredata = JSON.parse(localStorage.getItem("admindetails"));
     if (adminstoredata) {
@@ -57,7 +72,7 @@ function App() {
   const isAddRoomPage = location.pathname.includes("addroom");
 
   return (
-    <div className={`flex flex-col ${isAddRoomPage && "bg-slate-100"}` }>
+    <div className={`flex flex-col ${isAddRoomPage && "bg-slate-100"}`}>
       <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}

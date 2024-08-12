@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import resetpassword from "../../../assets/resetpassword.png";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 function Updatepass() {
   const {
@@ -11,18 +12,45 @@ function Updatepass() {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
   const { userID } = useParams();
 
   const onsubmit = async (data) => {
-    // try {
-    //   const res = await axios.put(
-    //     `http://localhost:8000/user/updatepassword/${userID}`
-    //   );
-    // } catch (error) {}
+    try {
+      const res = await axios.put(
+        `https://api.verydesi.com/user/updatepassword/${userID}`,
+        data
+      );
+      if (!res.data.status) {
+        toast(res.data.msg);
+      }
+      if (res.data.status) {
+        toast(res.data.msg);
+        reset();
+      }
+    } catch (error) {
+      console.log("Error while updating password", error);
+      toast.error(
+        "An error occurred while updating your password. Please try again."
+      );
+    }
   };
   return (
     <DashConatiner>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
       <div>
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
           {/* <FaHeart size={25} /> */}
@@ -59,7 +87,7 @@ function Updatepass() {
             <div className="flex flex-col gap-1">
               <input
                 className="font-['udemy-regular'] h-10 w-[200px] lg:w-[280px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                type="text"
+                type="password"
                 placeholder="New Password"
                 {...register("newpassword", {
                   required: "New Password is required",
