@@ -46,6 +46,12 @@ function Login() {
         try {
           const decoded = jwtDecode(jwttoken);
           // console.log("Decoded JWT:", decoded);
+          const localdata = {
+            ...decoded,
+            token: jwttoken,
+          };
+          localStorage.setItem("userdetails", JSON.stringify(localdata));
+
           dispatch(
             authlogin({
               token: jwttoken,
@@ -55,11 +61,6 @@ function Login() {
               isverified: decoded.user.isVerified,
             })
           );
-          const localdata = {
-            ...decoded,
-            token: jwttoken,
-          };
-          localStorage.setItem("userdetails", JSON.stringify(localdata));
 
           dispatch(cities({ city: decoded.user.city }));
           dispatch(UserImage({ userimg: decoded.user.userimg }));

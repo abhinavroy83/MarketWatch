@@ -31,7 +31,7 @@ function App() {
       dispatch(cities({ city: storeused?.data?.data?.city }));
       dispatch(UserImage({ userimg: storeused?.data?.data?.userimg }));
     }
-    console.log("storeused", storeused);
+    // console.log("storeused", storeused);
     if (storeused && storeused.user) {
       dispatch(
         authlogin({
