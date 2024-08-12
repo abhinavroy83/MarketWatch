@@ -36,10 +36,10 @@ function App() {
       dispatch(
         authlogin({
           token: storeused?.jwttoken,
-          user: storeused?.user?.user.firstName,
-          userID: storeused?.user?.user._id,
-          bussinessac: storeused?.user?.user.bussinessac,
-          isverified: storeused?.user?.user.isVerified,
+          user: storeused?.user?.firstName,
+          userID: storeused?.user?._id,
+          bussinessac: storeused?.user?.bussinessac,
+          isverified: storeused?.user?.isVerified,
           // userimg: storeused.data.data.userimg,
         })
       );
