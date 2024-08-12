@@ -31,11 +31,13 @@ function App() {
       dispatch(cities({ city: storeused?.data?.data?.city }));
       dispatch(UserImage({ userimg: storeused?.data?.data?.userimg }));
     }
+
+    // oauth
     // console.log("storeused", storeused);
     if (storeused && storeused.user) {
       dispatch(
         authlogin({
-          token: storeused?.jwttoken,
+          token: storeused?.token,
           user: storeused?.user?.firstName,
           userID: storeused?.user?._id,
           bussinessac: storeused?.user?.bussinessac,
