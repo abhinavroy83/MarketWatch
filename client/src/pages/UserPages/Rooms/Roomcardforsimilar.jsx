@@ -151,12 +151,14 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
-      <img
-        src={item.Imgurl[0]}
-        alt=""
-        // width={200}
-        className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full h-full"
-      />
+      <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden lg:rounded-tl-md lg:rounded-bl-md lg:rounded-none rounded-tl-md rounded-tr-md">
+        <img
+          src={item.Imgurl[0]}
+          alt=""
+          // width={200}
+          className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full h-full"
+        />
+      </div>
       {/* <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">
         <span className="block text-[27px]">
           {new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date)}
@@ -167,7 +169,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       </p> */}
 
       <img
-        className={"absolute bottom-[1.4rem] right-[3.2rem]"}
+        className={"absolute bottom-[1.4rem] right-[1rem]"}
         height={22}
         width={25}
         src={
