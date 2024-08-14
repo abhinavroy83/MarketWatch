@@ -166,7 +166,7 @@ function Signup() {
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mx-10 font-['udemy-regular'] whitespace-nowrap">
-                <div className="flex flex-col gap-3 mt-1">
+                <div className="flex flex-col gap-1 lg:gap-3 mt-1">
                   <div className="flex gap-3 mt-1 lg:mt-3">
                     <Input
                       label="First Name"
@@ -331,7 +331,7 @@ function Signup() {
                   )} */}
                   <div className="text-center flex flex-col">
                     <button
-                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-green-700 px-0 py-2 text-[19px] text-white hover:bg-black"
+                      className="mt-1 font-['udemy-regular'] items-center shadow-sm shadow-[#ccc] rounded-md bg-green-800 px-0 py-2 text-[19px] text-white hover:bg-black"
                       type="submit"
                     >
                       Create Account
