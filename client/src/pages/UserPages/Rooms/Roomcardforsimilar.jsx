@@ -154,8 +154,8 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       <img
         src={item.Imgurl[0]}
         alt=""
-        width={200}
-        className="scale-95 hover:scale-100 ease-in duration-500 w-full lg:w-52 rounded-md lg:h-[100%] max-w-4xl transition "
+        // width={200}
+        className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full h-full"
       />
       {/* <p className="absolute font-roboto bg-white top-0 left-0 px-2 rounded-br-lg text-center">
         <span className="block text-[27px]">
