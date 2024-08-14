@@ -54,7 +54,10 @@ function Signup() {
     // console.log(datsa);
     try {
       // console.log(datsa);
-      const res = await axios.post("https://api.verydesi.com/user/signup", datsa);
+      const res = await axios.post(
+        "https://api.verydesi.com/user/signup",
+        datsa
+      );
       if (!res.data.status) {
         alert(res.data.message);
       }
@@ -211,7 +214,7 @@ function Signup() {
                       {...register("phone_number", {
                         required: "Phone Number is required",
                       })}
-                      errorMessage={errors.phonenumber?.message}
+                      errorMessage={errors.phone_number?.message}
                     />
                   </div>
                   <Input
@@ -220,6 +223,11 @@ function Signup() {
                     type="text"
                     {...register("password", {
                       required: "Password is required",
+                      pattern: {
+                        value: /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                        message:
+                          "Password must contain at least one uppercase letter, one special character, and be at least 8 characters long",
+                      },
                     })}
                     errorMessage={errors.password?.message}
                   />
