@@ -380,7 +380,7 @@ function Rooms() {
             </li>
           </ol>
         </nav>
-        <div className="flex flex-col items-start lg:justify-between lg:flex-row mb-7 lg:mb-0">
+        <div className="flex items-start w-full justify-between lg:flex-row mb-5 lg:mb-0">
           <div className=" flex gap-2">
             <div>
               {hasNextRoom ? (
@@ -390,7 +390,7 @@ function Rooms() {
                     onClick={fetchPreviousRoom}
                     disabled={!hasNextRoom}
                   >
-                    <button className="p-1 px-2 rounded-xl flex bg-red-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                    <button className="p-1 lg:px-2 rounded-xl flex bg-red-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                       <MdKeyboardDoubleArrowLeft className="text-white flex lg:w-10 lg:h-10 w-7 h-7" />
                       <button
                         // type="submit"
@@ -413,7 +413,7 @@ function Rooms() {
                   onClick={fetchNextRoom}
                   disabled={!hasPreviousRoom}
                 >
-                  <button className="p-1 px-2 rounded-xl flex bg-blue-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                  <button className="p-1 lg:px-2 rounded-xl flex bg-blue-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                     <button
                       // type="submit"
                       className="flex lg:text-[22px] text-[17px] items-center text-white font-bold"
@@ -432,7 +432,7 @@ function Rooms() {
             </div>
           </div>
 
-          <div className="flex gap-4 items-center ">
+          <div className="flex gap-4 items-center ml-1 lg:ml-0">
             <div className="gap-2 flex">
               {!wishliststatys ? (
                 <div
@@ -775,8 +775,8 @@ function Rooms() {
           </div>
           {rooms.Amenities_include.length > 1 && (
             <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2 items-center">
-            {/* <MdRoomPreferences size={30} /> */}{" "}
+              <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2 items-center">
+                {/* <MdRoomPreferences size={30} /> */}{" "}
                 {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
                 Amenities Included -
               </h1>
