@@ -670,11 +670,9 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Avaliblity From
                     <p className="text-black flex text-[18px] break-all">
-                      {
-                        new Date(rooms.Avaliblity_from)
-                          .toISOString()
-                          .split("T")[0]
-                      }
+                      {(rooms?.Avaliblity_from &&
+                        rooms?.Avaliblity_from.split("T")[0]) ||
+                        "Immediate"}
                     </p>
                   </p>
                 </div>
@@ -686,7 +684,9 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Available To
                     <p className="text-black flex text-[18px] break-all">
-                      {new Date(rooms.Available_to).toISOString().split("T")[0]}{" "}
+                      {(rooms?.Available_to &&
+                        rooms?.Available_to.split("T")[0]) ||
+                        "Immediate"}{" "}
                     </p>
                   </p>
                 </div>
