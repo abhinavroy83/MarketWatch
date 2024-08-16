@@ -212,7 +212,7 @@ function Signup() {
                       Placeholder="Phone Number"
                       type="Number"
                       {...register("phone_number", {
-                        required: "Phone Number is required",
+                        required: "Number is required",
                       })}
                       errorMessage={errors.phone_number?.message}
                     />
