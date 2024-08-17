@@ -17,7 +17,6 @@ import { FaHome } from "react-icons/fa";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -47,6 +46,7 @@ function ListAllwish() {
           `https://api.verydesi.com/api/getlist/${userID}`
         );
 
+        console.log(listResponse);
         if (listResponse.data.status === "error") {
           console.error(listResponse.data.msg);
           setLoading(false);
@@ -56,17 +56,18 @@ function ListAllwish() {
         const list = listResponse.data.wishlist.rooms.map(
           (item) => item.roomId
         );
+        // console.log(list);
 
         // Fetch the rooms
-        const roomResponse = await axios.get(
-          `https://api.verydesi.com/api/getrooms/${userID}`
+        const roomResponse = await Promise.all(
+          list.map((roomId) =>
+            axios.get(`https://api.verydesi.com/api/getspecificroom/${roomId}`)
+          )
         );
-
-        const rooms = roomResponse.data.rooms;
-
-        const matchedRooms = rooms.filter((room) => list.includes(room._id));
-
-        setdata(matchedRooms);
+        // console.log(roomResponse);
+        const rooms = roomResponse.map((response) => response.data.rooms);
+        // console.log(rooms);
+        setdata(rooms);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching wishlist or rooms:", error);
@@ -98,7 +99,7 @@ function ListAllwish() {
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.Imgurl[0]}
+                src={items?.Imgurl[0]}
                 alt=""
               />
             </div>

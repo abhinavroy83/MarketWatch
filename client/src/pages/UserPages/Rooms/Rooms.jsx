@@ -680,7 +680,7 @@ function Rooms() {
               <div className="flex gap-2 items-center">
                 {/* <LuClock3 size={35} /> */}
                 <img className="h-10 w-10" src={clock} alt="" />
-                <div className="flex">
+                <div className="flex">k
                   <p className="text-gray-500 text-[20px]">
                     Available To
                     <p className="text-black flex text-[18px] break-all">
