@@ -413,27 +413,31 @@ function Rooms() {
 
           <div className="flex gap-4 items-center ml-1 lg:ml-0">
             <div className="gap-2 flex">
-              {!wishliststatys ? (
-                <div
-                  className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600 "
-                  onClick={makewishlist}
-                >
-                  <FaHeart
-                    className="flex lg:w-7 lg:h-7 w-5 h-5"
-                    color="#fff"
-                    // size={30}
-                  />
-                </div>
-              ) : (
-                <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
-                  onClick={unwish}
-                >
-                  <FaHeart
-                    className=" flex lg:w-7 lg:h-7 w-5 h-5"
-                    color="#fff"
-                    // size={30}
-                  />
+              {authstatus && (
+                <div>
+                  {!wishliststatys ? (
+                    <div
+                      className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600 "
+                      onClick={makewishlist}
+                    >
+                      <FaHeart
+                        className="flex lg:w-7 lg:h-7 w-5 h-5"
+                        color="#fff"
+                        // size={30}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
+                      onClick={unwish}
+                    >
+                      <FaHeart
+                        className=" flex lg:w-7 lg:h-7 w-5 h-5"
+                        color="#fff"
+                        // size={30}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
               {/* <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
@@ -622,7 +626,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Property Type
                     <p className="text-black flex text-[18px]">
-                      {rooms.Propertytype}
+                      {rooms.Propertytype || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -657,7 +661,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Stay/Lease
                     <p className="text-black flex text-[18px]">
-                      {rooms.Stay_lease}
+                      {rooms.Stay_lease || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -675,7 +679,9 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Avaliblity From
                     <p className="text-black flex text-[18px] break-all">
-                      {rooms.Avaliblity_from}
+                      {(rooms?.Avaliblity_from &&
+                        rooms?.Avaliblity_from.split("T")[0]) ||
+                        "Immediate"}
                     </p>
                   </p>
                 </div>
@@ -693,7 +699,9 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Available To
                     <p className="text-black flex text-[18px] break-all">
-                      {rooms.Available_to}
+                      {(rooms?.Available_to &&
+                        rooms?.Available_to.split("T")[0]) ||
+                        "Immediate"}{" "}
                     </p>
                   </p>
                 </div>
@@ -711,7 +719,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Day Available
                     <p className="text-black flex text-[18px]">
-                      {rooms.Day_Available}
+                      {rooms.Day_Available || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -729,7 +737,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Attachted Bath
                     <p className="text-black flex text-[18px]">
-                      {rooms.Attchd_Bath}
+                      {rooms.Attchd_Bath || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -747,7 +755,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Preferred Gender
                     <p className="text-black flex text-[18px]">
-                      {rooms.Preferred_gender}
+                      {rooms.Preferred_gender || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -769,7 +777,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Pricemodel
                     <p className="text-black flex text-[18px]">
-                      {rooms.Pricemodel}
+                      {rooms.Pricemodel || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -787,7 +795,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Deposit
                     <p className="text-black flex text-[18px]">
-                      {rooms.Desposite}
+                      $ {rooms.Desposite || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -805,7 +813,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Is Room Furnished
                     <p className="text-black flex text-[18px]">
-                      {rooms.is_room_furnished}
+                      {rooms.is_room_furnished || "Not Available"}
                     </p>
                   </p>
                 </div>
@@ -823,7 +831,7 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Open House Schedule
                     <p className="text-black flex text-[18px]">
-                      {rooms?.Open_house_schedule}
+                      {rooms?.Open_house_schedule || "Not Available"}
                     </p>
                   </p>
                 </div>

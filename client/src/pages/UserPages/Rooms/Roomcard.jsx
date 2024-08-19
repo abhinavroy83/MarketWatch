@@ -156,7 +156,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <img
           src={item.Imgurl[0] || noimg}
           alt=""
-          className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full h-full"
+          className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full lg:h-full "
         />
       </div>
 

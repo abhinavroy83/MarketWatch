@@ -30,7 +30,7 @@ const Input = forwardRef(function Input(
         id={id}
       />
       {errorMessage && (
-        <p className="mt-1 text-sm text-red-500" id={id}>
+        <p className="mt-1 text-xs text-red-500" id={id}>
           {errorMessage}
         </p>
       )}

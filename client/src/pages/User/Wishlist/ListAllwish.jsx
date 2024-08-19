@@ -8,28 +8,42 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const token = useSelector((state) => state.auth.token);
 
   const handleDeleteRoom = async (deleteId) => {
     // console.log(deleteId);
     try {
-      const res = await axios.delete(
-        ` https://api.verydesi.com/api/deletelist/${deleteId}`
+      const dat = { roomId: deleteId, status: false };
+      const res = await axios.post(
+        `https://api.verydesi.com/api/addtowish`,
+        dat,
+        {
+          headers: {
+            jwttoken: `${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
       );
-      if (res) {
+      if (
+        res.data.msg === "Successfully removed" ||
+        res.data.msg === "Wishlist cleared"
+      ) {
         setdata((prevRoomData) =>
           prevRoomData.filter((room) => room._id !== deleteId)
         );
-        alert("Unwish Successful");
+        toast("Removed");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error removing from wishlist:", error);
     }
   };
 
@@ -41,6 +55,7 @@ function ListAllwish() {
           `https://api.verydesi.com/api/getlist/${userID}`
         );
 
+        // console.log(listResponse);
         if (listResponse.data.status === "error") {
           console.error(listResponse.data.msg);
           setLoading(false);
@@ -50,17 +65,18 @@ function ListAllwish() {
         const list = listResponse.data.wishlist.rooms.map(
           (item) => item.roomId
         );
+        // console.log(list);
 
         // Fetch the rooms
-        const roomResponse = await axios.get(
-          `https://api.verydesi.com/api/getrooms/${userID}`
+        const roomResponse = await Promise.all(
+          list.map((roomId) =>
+            axios.get(`https://api.verydesi.com/api/getspecificroom/${roomId}`)
+          )
         );
-
-        const rooms = roomResponse.data.rooms;
-
-        const matchedRooms = rooms.filter((room) => list.includes(room._id));
-
-        setdata(matchedRooms);
+        // console.log(roomResponse);
+        const rooms = roomResponse.map((response) => response.data.rooms);
+        // console.log(rooms);
+        setdata(rooms);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching wishlist or rooms:", error);
@@ -83,8 +99,8 @@ function ListAllwish() {
   // }
 
   const renderRows = () => {
-    const startIndex = (currentPage - 1) * 10;
-    const endIndex = Math.min(startIndex + 10, data.length);
+    const startIndex = (currentPage - 1) * 7;
+    const endIndex = Math.min(startIndex + 7, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id}>
         <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-base">
@@ -92,7 +108,7 @@ function ListAllwish() {
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={items.Imgurl[0]}
+                src={items?.Imgurl[0]}
                 alt=""
               />
             </div>
@@ -133,6 +149,19 @@ function ListAllwish() {
   };
   return (
     <DashConatiner>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
           <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">

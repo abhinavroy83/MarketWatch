@@ -212,7 +212,7 @@ function Signup() {
                       Placeholder="Phone Number"
                       type="Number"
                       {...register("phone_number", {
-                        required: "Phone Number is required",
+                        required: "Number is required",
                       })}
                       errorMessage={errors.phone_number?.message}
                     />
@@ -220,13 +220,12 @@ function Signup() {
                   <Input
                     label="Password"
                     Placeholder="Password"
-                    type="text"
+                    type="password"
                     {...register("password", {
                       required: "Password is required",
                       pattern: {
                         value: /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
-                        message:
-                          "Password must contain at least one uppercase letter, one special character, and be at least 8 characters long",
+                        message: `Password: 1 uppercase, 1 special character, 8+ chars.`,
                       },
                     })}
                     errorMessage={errors.password?.message}
