@@ -7,12 +7,6 @@ import AdminDashboard from "./container/Dashboard";
 import AdminHeader from "./AdminHeader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import home from "../../assets/home.png";
-import basicuser from "../../assets/basicuser.png";
-import adminuser from "../../assets/adminuser.png";
-import pending from "../../assets/pending.png";
-import map from "../../assets/map.png";
-import rooms from "../../assets/rooms.png";
 function AdminHome() {
   const role = useSelector((state) => state.adminauth.role);
   const dispatch = useDispatch();
@@ -31,7 +25,9 @@ function AdminHome() {
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
                     className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                    src={home}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/akrrzl8olto182qtjfpk.png"
+                    }
                     alt="logo"
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -45,7 +41,9 @@ function AdminHome() {
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
                     className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                    src={basicuser}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/imzqwxnajxibddxvva8z.png"
+                    }
                     alt="logo"
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -58,7 +56,9 @@ function AdminHome() {
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                  src={adminuser}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819313/assests/ovw4cjt2lh2vgjh8ldtc.png"
+                  }
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -70,7 +70,9 @@ function AdminHome() {
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                  src={pending}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/xyfjounlsemq9i8ttn3x.png"
+                  }
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -82,7 +84,9 @@ function AdminHome() {
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                  src={map}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                  }
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -98,8 +102,10 @@ function AdminHome() {
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
-                    className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                    src={rooms}
+                    className="w-[2.5rem] h-[2.5rem] lg:w-[4.4rem] lg:h-[4.4rem]"
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
+                    }
                     alt="logo"
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">

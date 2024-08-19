@@ -152,7 +152,9 @@ function Ads() {
                 // height={300}
                 width={300}
                 className="w-[120px] lg:w-[190px]"
-                src={WebsiteLogo}
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819326/assests/dsv7r2gelw3efmrvbufl.png"
+                }
                 alt=""
               />
             </Link>

@@ -104,7 +104,9 @@ export default function Footer() {
                     // height={300}
                     width={300}
                     className="w-[170px] lg:w-[140px]"
-                    src={WebsiteLogo}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819327/assests/x31ydsmb8hkg05fqbkjf.png"
+                    }
                     alt=""
                   />
                 </Link>

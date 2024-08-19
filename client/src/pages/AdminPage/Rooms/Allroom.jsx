@@ -4,23 +4,12 @@ import {
   AdminHeader,
 } from "../../../components/AdminCompontents";
 import axios from "axios";
-import { MdDeleteForever } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
 import { FaHome, FaMapPin } from "react-icons/fa";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { TfiMoney } from "react-icons/tfi";
-import { MdOutlineEmail } from "react-icons/md";
-import { MdOutlineMeetingRoom } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
-import door from "../../../assets/door.png";
-import email from "../../../assets/email.png";
-import edit from "../../../assets/edit.png";
-import removed from "../../../assets/removed.png";
-import pricetag from "../../../assets/pricetag.png";
-import map from "../../../assets/map.png";
+
 function Allroom() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -209,7 +198,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <MdOutlineMeetingRoom size={23} /> */}
-                            <img className="h-7 w-7" src={door} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ly9sxoqztlo9bh2fz6iv.png"
+                              }
+                              alt=""
+                            />
                             Room
                           </div>
                         </th>
@@ -220,7 +215,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <MdOutlineEmail size={23} /> */}
-                            <img className="h-7 w-7" src={email} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
+                              }
+                              alt=""
+                            />
                             Email
                           </div>
                         </th>
@@ -231,7 +232,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <TfiMoney size={20} /> */}
-                            <img className="h-7 w-7" src={pricetag} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/q0rjjk9jli8t8yorkfy9.png"
+                              }
+                              alt=""
+                            />
                             Rent
                           </div>
                         </th>
@@ -248,7 +255,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <FaMapPin size={20} />  */}
-                            <img className="h-7 w-7" src={map} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                              }
+                              alt=""
+                            />
                             City
                           </div>
                         </th>
@@ -259,7 +272,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <FaMapLocationDot size={20} /> */}
-                            <img className="h-7 w-7" src={map} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                              }
+                              alt=""
+                            />
                             Country
                           </div>
                         </th>
@@ -270,7 +289,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <MdEdit size={23} /> */}
-                            <img className="h-7 w-7" src={edit} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/g4etlnb8nxgrgxdfusct.png"
+                              }
+                              alt=""
+                            />
                             Edit
                           </div>
                         </th>
@@ -281,7 +306,13 @@ function Allroom() {
                           <div className="flex gap-1">
                             {" "}
                             {/* <MdDeleteForever size={25} /> */}
-                            <img className="h-7 w-7" src={removed} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+                              }
+                              alt=""
+                            />
                             Delete
                           </div>
                         </th>

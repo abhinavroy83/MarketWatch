@@ -1,17 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { FiEdit } from "react-icons/fi";
 import axios from "axios";
 import { UserImage } from "../../store/authslice";
 import { GrEdit } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
-import settings2 from "../../assets/settings2.png";
-import Favorites from "../../assets/Favorites.png";
-import rooms from "../../assets/rooms.png";
-import home from "../../assets/home.png";
-import post from "../../assets/post.png";
-import bag from "../../assets/bag.png";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
@@ -266,7 +259,9 @@ function DashConatiner({ children }) {
                 {/* <FaHome size={20} /> */}
                 <img
                   className="w-[1.7rem] h-[1.7rem]"
-                  src={home}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/akrrzl8olto182qtjfpk.png"
+                  }
                   alt="logo"
                 />{" "}
                 Dashboard
@@ -282,7 +277,9 @@ function DashConatiner({ children }) {
                 {/* <FaUserPen size={25} /> Setting */}
                 <img
                   className="w-[1.7rem] h-[1.7rem]"
-                  src={settings2}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/jxhk73i2js2oxrdxwb1h.png"
+                  }
                   alt="logo"
                 />
                 Setting
@@ -298,7 +295,9 @@ function DashConatiner({ children }) {
                 {/* <FaHeart size={20} /> Favorites */}
                 <img
                   className="w-[1.7rem] h-[1.7rem]"
-                  src={Favorites}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/vhigwxcoye0vxytnraij.png"
+                  }
                   alt="logo"
                 />
                 Favorites
@@ -312,7 +311,9 @@ function DashConatiner({ children }) {
                   {/* <BsPostcardHeartFill size={20} /> */}
                   <img
                     className="w-[1.7rem] h-[1.7rem]"
-                    src={post}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/nua5wy3gjdriat0ze2im.png"
+                    }
                     alt="logo"
                   />{" "}
                   <h2 className="font-medium">My Post</h2>
@@ -340,7 +341,9 @@ function DashConatiner({ children }) {
                 >
                   <img
                     className="w-[1.7rem] h-[1.7rem]"
-                    src={rooms}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/q6veig3biuyx8y2ggv2e.png"
+                    }
                     alt="logo"
                   />{" "}
                   {/* <MdMeetingRoom size={22} /> */}
@@ -350,7 +353,9 @@ function DashConatiner({ children }) {
                   {/* <MdBusinessCenter size={20} /> My Business */}
                   <img
                     className="w-[1.5rem] h-[1.5rem]"
-                    src={bag}
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/xbkgj4gzt58fgas7fqz4.png"
+                    }
                     alt="logo"
                   />{" "}
                   My Business

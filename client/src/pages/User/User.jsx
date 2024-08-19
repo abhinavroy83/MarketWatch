@@ -57,7 +57,9 @@ function User() {
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                  src={settings2}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/jxhk73i2js2oxrdxwb1h.png"
+                  }
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
@@ -71,7 +73,9 @@ function User() {
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                  src={rooms}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/q6veig3biuyx8y2ggv2e.png"
+                  }
                   alt="logo"
                 />
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
@@ -84,7 +88,9 @@ function User() {
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
                 className="w-[2.5rem] h-[2.5rem] lg:w-[3.7rem] lg:h-[3.7rem]"
-                src={Favorites}
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/vhigwxcoye0vxytnraij.png"
+                }
                 alt="logo"
               />
               <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
@@ -108,7 +114,9 @@ function User() {
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
                 className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
-                src={event2}
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/bmskguxwd4vaiasjioux.png"
+                }
                 alt="logo"
               />
               <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">

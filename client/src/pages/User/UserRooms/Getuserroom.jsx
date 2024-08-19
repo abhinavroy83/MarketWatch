@@ -5,14 +5,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
-import door from "../../../assets/door.png";
-import { SkyScrapper } from "../../../assets";
-import map from "../../../assets/map.png";
-import pricetag from "../../../assets/pricetag.png";
-import removed from "../../../assets/removed.png";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
-import rooms from "../../../assets/rooms.png";
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
@@ -116,7 +110,13 @@ function Getuserroom() {
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
           {/* <FaHeart size={25} /> */}
           {/* <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" /> */}
-          <img className="w-[2rem] h-[2rem]" src={rooms} alt="" />
+          <img
+            className="w-[2rem] h-[2rem]"
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/q6veig3biuyx8y2ggv2e.png"
+            }
+            alt=""
+          />
           Rooms Posted
         </p>
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -166,7 +166,13 @@ function Getuserroom() {
                       >
                         <div className="flex">
                           {" "}
-                          <img className="h-7 w-7" src={door} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ly9sxoqztlo9bh2fz6iv.png"
+                            }
+                            alt=""
+                          />
                           Room
                         </div>{" "}
                       </th>
@@ -176,7 +182,13 @@ function Getuserroom() {
                       >
                         <div className="flex gap-1">
                           {" "}
-                          <img className="h-7 w-7" src={SkyScrapper} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
+                            }
+                            alt=""
+                          />
                           City
                         </div>{" "}
                       </th>
@@ -185,7 +197,13 @@ function Getuserroom() {
                         className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
                         <div className="flex gap-1">
-                          <img className="h-7 w-7" src={map} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                            }
+                            alt=""
+                          />
                           Address
                         </div>
                       </th>
@@ -195,7 +213,13 @@ function Getuserroom() {
                       >
                         {" "}
                         <div className="flex gap-1">
-                          <img className="h-7 w-7" src={pricetag} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/q0rjjk9jli8t8yorkfy9.png"
+                            }
+                            alt=""
+                          />
                           Price
                         </div>
                       </th>
@@ -204,7 +228,13 @@ function Getuserroom() {
                         className="px-8 py-3.5 text-left font-normal text-gray-700 flex gap-1"
                       >
                         <div className="flex gap-1">
-                          <img className="h-7 w-7" src={removed} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+                            }
+                            alt=""
+                          />
                           Delete
                         </div>
                       </th>

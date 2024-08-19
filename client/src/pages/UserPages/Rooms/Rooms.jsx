@@ -13,28 +13,7 @@ import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
 import basicuser from "../../../assets/basicuser.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import {
-  SkyScrapper,
-  email,
-  number,
-  name,
-  dog,
-  smoke,
-  dietary,
-  schedule,
-  furniture,
-  clock,
-  deposit,
-  pricing,
-  gay,
-  map,
-  bathroom1,
-  stayhome,
-} from "../../../assets/index";
 import noimg from "../../../assets/noimg.png";
-import rooms from "../../../assets/rooms.png";
-import gendericon from "../../../assets/gendericon.png";
-import availability from "../../../assets/availability.png";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
@@ -561,7 +540,13 @@ function Rooms() {
               <div className="flex items-center justify-between text-[1.2rem] lg:text-[25px]">
                 {
                   <div className="flex ">
-                    <img className="h-10 w-10" src={SkyScrapper} alt="" />
+                    <img
+                      className="h-10 w-10"
+                      src={
+                        "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
+                      }
+                      alt=""
+                    />
                     <p className="px-2">{rooms.Propertytype}</p>
                   </div>
                 }
@@ -626,7 +611,13 @@ function Rooms() {
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
               <div className="flex gap-2 items-center">
                 {/* <BsBuildingsFill className="" size={35} /> */}
-                <img className="h-10 w-10" src={SkyScrapper} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Property Type
@@ -638,7 +629,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <FaMapMarkerAlt className="" size={35} /> */}
-                <img className="h-10 w-10" src={map} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     City
@@ -648,7 +645,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <MdOutlineTimer className="" size={35} /> */}
-                <img className="h-10 w-10" src={stayhome} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zrtjmdv3unizy9kc4efj.png"
+                  }
+                  alt=""
+                />
 
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
@@ -661,7 +664,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <LuClock10 size={35} /> */}
-                <img className="h-10 w-10" src={clock} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/yab7dkq4ewer1lqj5bzw.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Avaliblity From
@@ -673,7 +682,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <LuClock3 size={35} /> */}
-                <img className="h-10 w-10" src={clock} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/yab7dkq4ewer1lqj5bzw.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Available To
@@ -685,7 +700,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <IoToday size={35} /> */}
-                <img className="h-10 w-10" src={schedule} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/ykhntfquuh4c9jcr6tt7.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Day Available
@@ -697,7 +718,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <FaBath size={35} /> */}
-                <img className="h-10 w-10" src={bathroom1} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/f5kwtmcletn80cos5jdf.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Attachted Bath
@@ -709,7 +736,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <BsGenderTrans size={35} /> */}
-                <img className="h-10 w-10" src={gendericon} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/eaothlg3pgktke4bwcjn.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Preferred Gender
@@ -725,7 +758,13 @@ function Rooms() {
             </p></div></div> */}
               <div className="flex gap-2 items-center">
                 {/* <MdOutlinePriceChange size={35} /> */}{" "}
-                <img className="h-10 w-10" src={pricing} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/gbitwpzwnzlbilwykv1t.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Pricemodel
@@ -737,7 +776,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <RiMoneyDollarCircleFill size={35} /> */}
-                <img className="h-10 w-10" src={deposit} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/ixjbbnuet0gmrwbiiftf.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Deposit
@@ -749,7 +794,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <MdBedroomParent size={35} /> */}
-                <img className="h-10 w-10" src={furniture} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Is Room Furnished
@@ -761,7 +812,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <GrDocumentTime size={35} /> */}
-                <img className="h-10 w-10" src={schedule} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/ykhntfquuh4c9jcr6tt7.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Open House Schedule
@@ -805,7 +862,13 @@ function Rooms() {
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 px-5 py-3">
               <div className="flex gap-2 items-center">
                 {/* <BiFoodTag size={35} /> */}
-                <img className="h-10 w-10" src={dietary} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/mlosfdjqkz3nvnfuhkjb.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Dietary Preference
@@ -817,7 +880,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <FaSmoking size={35} /> */}
-                <img className="h-10 w-10" src={smoke} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/vedl4zyyodlvjagqaz6v.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Smoking Policy
@@ -829,7 +898,13 @@ function Rooms() {
               </div>
               <div className="flex gap-2 items-center">
                 {/* <MdPets size={35} /> */}
-                <img className="h-10 w-10" src={dog} alt="" />
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/n0koqmlpu1kbdzkj50tk.png"
+                  }
+                  alt=""
+                />
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Pet Friendly
@@ -856,7 +931,13 @@ function Rooms() {
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
                 <div className="flex gap-2 items-center">
                   {/* <FaUserAlt size={35} /> */}
-                  <img className="h-10 w-10" src={name} alt="" />
+                  <img
+                    className="h-10 w-10"
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819321/assests/xvg4sjgqjgjilynyxs0a.png"
+                    }
+                    alt=""
+                  />
                   <div className="flex">
                     <p className="text-gray-500 text-[20px]">
                       Name
@@ -868,7 +949,13 @@ function Rooms() {
                 </div>
                 <div className="flex gap-2 items-center">
                   {/* <FaPhoneVolume size={35} /> */}
-                  <img className="h-10 w-10" src={number} alt="" />
+                  <img
+                    className="h-10 w-10"
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/fljdbb2rrycts9fmradi.png"
+                    }
+                    alt=""
+                  />
                   <div className="flex">
                     <p className="text-gray-500 text-[20px]">
                       Phone Number
@@ -887,7 +974,13 @@ function Rooms() {
 
                 <div className="flex gap-2 items-center">
                   {/* <MdOutlineEmail size={35} /> */}
-                  <img className="h-10 w-10" src={email} alt="" />
+                  <img
+                    className="h-10 w-10"
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
+                    }
+                    alt=""
+                  />
                   <div className="flex flex-col">
                     <p className="text-gray-500 text-[20px]">
                       Email

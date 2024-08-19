@@ -7,22 +7,9 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
-import { FaMapPin } from "react-icons/fa";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { MdOutlineEmail } from "react-icons/md";
-import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoPeopleSharp } from "react-icons/io5";
-import removed from "../../../assets/removed.png";
-import edit from "../../../assets/edit.png";
-import map from "../../../assets/map.png";
-import email from "../../../assets/email.png";
-import namee from "../../../assets/namee.png";
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -194,7 +181,13 @@ function Alluser() {
                           <div className="flex gap-2">
                             {" "}
                             {/* <BsFillPersonBadgeFill size={20} /> */}
-                            <img className="h-7 w-7" src={namee} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/nxmtyldoiednbigmryxy.png"
+                              }
+                              alt=""
+                            />
                             First Name
                           </div>
                         </th>
@@ -205,7 +198,13 @@ function Alluser() {
                           <div className="flex gap-2">
                             {" "}
                             {/* <BsFillPersonBadgeFill size={20} />  */}
-                            <img className="h-7 w-7" src={namee} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/nxmtyldoiednbigmryxy.png"
+                              }
+                              alt=""
+                            />
                             Last Name
                           </div>
                         </th>
@@ -215,7 +214,13 @@ function Alluser() {
                         >
                           <div className="flex gap-2">
                             {/* <MdOutlineEmail size={23} /> */}
-                            <img className="h-7 w-7" src={email} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
+                              }
+                              alt=""
+                            />
                             Email
                           </div>
                         </th>
@@ -226,7 +231,13 @@ function Alluser() {
                           <div className="flex gap-2">
                             {" "}
                             {/* <FaMapPin size={20} />  */}
-                            <img className="h-7 w-7" src={map} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                              }
+                              alt=""
+                            />
                             City
                           </div>
                         </th>
@@ -245,7 +256,13 @@ function Alluser() {
                         >
                           <div className="flex gap-2">
                             {/* <MdEdit size={23} /> Edit */}
-                            <img className="h-7 w-7" src={edit} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/g4etlnb8nxgrgxdfusct.png"
+                              }
+                              alt=""
+                            />
                             Edit
                           </div>
                         </th>
@@ -255,7 +272,13 @@ function Alluser() {
                         >
                           <div className="flex gap-2">
                             {/* <MdDeleteForever size={25} /> */}
-                            <img className="h-7 w-7" src={removed} alt="" />
+                            <img
+                              className="h-7 w-7"
+                              src={
+                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+                              }
+                              alt=""
+                            />
                             Delete
                           </div>
                         </th>

@@ -1,22 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { IoPeopleSharp } from "react-icons/io5";
-import { RiAdminFill } from "react-icons/ri";
-import { MdOutlineSpatialTracking } from "react-icons/md";
-import { MdPendingActions } from "react-icons/md";
-import { FaMapMarkedAlt } from "react-icons/fa";
-import { MdOutlineMeetingRoom } from "react-icons/md";
-import { FaMapPin } from "react-icons/fa6";
-import { BsPostcard } from "react-icons/bs";
-import home from "../../../assets/home.png";
-import team from "../../../assets/team.png";
-import basicuser from "../../../assets/basicuser.png";
-import adminuser from "../../../assets/adminuser.png";
-import pending from "../../../assets/pending.png";
-import map from "../../../assets/map.png";
-import post from "../../../assets/post.png";
 import track from "../../../assets/track.png";
 function AdminDashboard({ children }) {
   const navigate = useNavigate();
@@ -32,7 +16,13 @@ function AdminDashboard({ children }) {
           className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
         >
           {/* <FaHome size={22} /> */}
-          <img className="w-[1.7rem] h-[1.7rem]" src={home} alt="logo" />{" "}
+          <img
+            className="w-[1.7rem] h-[1.7rem]"
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/akrrzl8olto182qtjfpk.png"
+            }
+            alt="logo"
+          />{" "}
           Dashboard
         </button>
         <button
@@ -42,7 +32,13 @@ function AdminDashboard({ children }) {
           className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
         >
           {/* <IoPeopleSharp size={25} /> */}
-          <img className="w-[1.9rem] h-[1.9rem]" src={basicuser} alt="logo" />
+          <img
+            className="w-[1.9rem] h-[1.9rem]"
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/imzqwxnajxibddxvva8z.png"
+            }
+            alt="logo"
+          />
           Basic Users
         </button>
         {role === "Admin" && (
@@ -53,7 +49,13 @@ function AdminDashboard({ children }) {
             className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             {/* <RiAdminFill size={25} /> */}
-            <img className="w-[1.9rem] h-[1.9rem]" src={adminuser} alt="logo" />
+            <img
+              className="w-[1.9rem] h-[1.9rem]"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819313/assests/ovw4cjt2lh2vgjh8ldtc.png"
+              }
+              alt="logo"
+            />
             Admin Users
           </button>
         )}
@@ -65,7 +67,13 @@ function AdminDashboard({ children }) {
             className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             {/* <MdPendingActions size={25} /> */}
-            <img className="w-[1.7rem] h-[1.7rem]" src={pending} alt="logo" />
+            <img
+              className="w-[1.7rem] h-[1.7rem]"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/xyfjounlsemq9i8ttn3x.png"
+              }
+              alt="logo"
+            />
             Pending Requests
           </button>
         ) : null}
@@ -77,7 +85,13 @@ function AdminDashboard({ children }) {
             className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             {/* <FaMapPin size={22} /> */}
-            <img className="w-[1.7rem] h-[1.7rem]" src={map} alt="logo" />
+            <img
+              className="w-[1.7rem] h-[1.7rem]"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+              }
+              alt="logo"
+            />
             Area
           </button>
         ) : null}
@@ -99,7 +113,13 @@ function AdminDashboard({ children }) {
             }}
             className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
-            <img className="w-[1.7rem] h-[1.7rem]" src={post} alt="logo" />
+            <img
+              className="w-[1.7rem] h-[1.7rem]"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
+              }
+              alt="logo"
+            />
             {/* <BsPostcard size={25} />  */}
             Posts
           </button>

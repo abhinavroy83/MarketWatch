@@ -2,17 +2,11 @@ import React, { useEffect, useState } from "react";
 import { DashConatiner } from "../../../components";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { BiMinusCircle } from "react-icons/bi";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-import door from "../../../assets/door.png";
-import { SkyScrapper } from "../../../assets";
-import pagelink from "../../../assets/pagelink.png";
-import pricetag from "../../../assets/pricetag.png";
-import removed from "../../../assets/removed.png";
+
 import { IoPeopleSharp } from "react-icons/io5";
-import Favorites from "../../../assets/Favorites.png";
 import { FaHome } from "react-icons/fa";
 function ListAllwish() {
   const { userID } = useParams();
@@ -143,7 +137,13 @@ function ListAllwish() {
         <div className="flex justify-center text-center self-center">
           <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
             {/* <FaHeart size={25} /> */}
-            <img className="w-[2rem] h-[2rem]" src={Favorites} alt="logo" />
+            <img
+              className="w-[2rem] h-[2rem]"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/vhigwxcoye0vxytnraij.png"
+              }
+              alt="logo"
+            />
             Favorites
           </p>
         </div>
@@ -171,7 +171,13 @@ function ListAllwish() {
                       >
                         <span className="flex gap-1">
                           {/* <MdMeetingRoom size={25} /> */}
-                          <img className="h-7 w-7" src={door} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ly9sxoqztlo9bh2fz6iv.png"
+                            }
+                            alt=""
+                          />
                           Room
                         </span>
                       </th>
@@ -180,7 +186,13 @@ function ListAllwish() {
                         className="px-12 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
-                          <img className="h-7 w-7" src={SkyScrapper} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
+                            }
+                            alt=""
+                          />
                           City
                         </span>
                       </th>
@@ -190,7 +202,13 @@ function ListAllwish() {
                       >
                         <span className="flex gap-1">
                           {/* <AiFillDollarCircle size={24} /> */}
-                          <img className="h-7 w-7" src={pricetag} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/q0rjjk9jli8t8yorkfy9.png"
+                            }
+                            alt=""
+                          />
                           Price{" "}
                         </span>
                       </th>
@@ -200,7 +218,13 @@ function ListAllwish() {
                       >
                         <span className="flex gap-1">
                           {/* <MdFindInPage size={24} /> */}
-                          <img className="h-7 w-7" src={pagelink} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/iv0ffu9emgi4k0q7frqg.png"
+                            }
+                            alt=""
+                          />
                           Visit Page
                         </span>
                       </th>
@@ -216,7 +240,13 @@ function ListAllwish() {
                       >
                         <span className="flex gap-1">
                           {/* <IoIosRemoveCircle size={24} /> */}
-                          <img className="h-7 w-7" src={removed} alt="" />
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+                            }
+                            alt=""
+                          />
                           Remove
                         </span>
                       </th>
