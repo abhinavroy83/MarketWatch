@@ -2,7 +2,6 @@ import React from "react";
 import { DashConatiner } from "../../../components";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import resetpassword from "../../../assets/resetpassword.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 

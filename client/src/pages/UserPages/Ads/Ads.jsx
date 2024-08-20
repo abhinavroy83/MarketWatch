@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "../../../components";
-import WebsiteLogo from "../../../assets/website_logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link, useNavigate } from "react-router-dom";
@@ -153,7 +152,7 @@ function Ads() {
                 width={300}
                 className="w-[120px] lg:w-[190px]"
                 src={
-                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819326/assests/dsv7r2gelw3efmrvbufl.png"
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
                 }
                 alt=""
               />

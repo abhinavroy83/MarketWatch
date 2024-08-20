@@ -35,7 +35,7 @@ function Forgetpassword() {
     <div className="mt-[11rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[550px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
       <img
         className="w-[370px] lg:h-[460px] h-[300px]"
-        src={`https://providerportal.lifeisgreat.com.my/Content/images/fpassword.png`}
+        src={`https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/fuypxxcnvqrv8ctgwn9i.jpg`}
         alt="logo"
       />
       <div className="w-[300px] lg:w-[400px] flex flex-col gap-3">

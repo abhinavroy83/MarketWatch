@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { login as authlogin } from "../../store/authslice";
 import { modalopen } from "../../store/modalslice";
 import ReCAPTCHA from "react-google-recaptcha";
-import WebsiteLogo from "../../assets/logo-transparent.png";
 import { RxCross1 } from "react-icons/rx";
 import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
 
@@ -132,15 +131,17 @@ function Signup() {
         }}
       >
         <div className="capitalize w-full flex h-full">
-          <div className="capitalize bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
-            {/* <div className="bg-[url('https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex"> */}
+          {/* <div className="capitalize bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 justify-center bg-cover h-full items-center hidden md:flex"> */}
+          <div className="bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] bg-cover w-full md:w-1/2 justify-center items-center font-['udemy-regular'] hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <div class="bg-cover bg-center justify-center">
                 <img
                   height={300}
                   width={300}
                   className="w-50 h-50"
-                  src={WebsiteLogo}
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
+                  }
                   alt=""
                 />
               </div>

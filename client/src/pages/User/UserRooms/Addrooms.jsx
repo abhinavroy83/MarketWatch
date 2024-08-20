@@ -11,12 +11,7 @@ import authslice from "../../../store/authslice";
 import DatePicker from "react-datepicker";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
-import { CgGenderMale } from "react-icons/cg";
-import { TbGenderFemale } from "react-icons/tb";
-import Loader from "../../../components/UserCompontents/Loader";
-import male from "../../../assets/male.png";
-import female2 from "../../../assets/female2.png";
-import any from "../../../assets/any.png";
+
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
 
 const libraries = ["places"];
@@ -833,7 +828,13 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center gap-1">
                         Male
-                        <img className="h-5 w-5" src={male} alt="" />
+                        <img
+                          className="h-5 w-5"
+                          src={
+                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/kjkamlgskyfqpgzvjocz.png"
+                          }
+                          alt=""
+                        />
                       </p>
                     </div>
                     <div className="flex items-center gap-1">
@@ -846,7 +847,13 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center">
                         Female
-                        <img className="h-4 w-4" src={female2} alt="" />
+                        <img
+                          className="h-4 w-4"
+                          src={
+                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/acn46dsajdgzwlmk9j5v.png"
+                          }
+                          alt=""
+                        />
                       </p>
                     </div>
                     <div className="flex gap-1 items-center">
@@ -859,7 +866,13 @@ function Addrooms({ editdata }) {
                       />
                       <p className="flex items-center gap-1">
                         Any
-                        <img className="h-5 w-5" src={any} alt="" />
+                        <img
+                          className="h-5 w-5"
+                          src={
+                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
+                          }
+                          alt=""
+                        />
                       </p>
                     </div>
                   </div>

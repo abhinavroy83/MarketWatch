@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
-import noimg from "../../../assets/noimg.png";
-import { IoHeartCircle } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaHeart } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
@@ -154,7 +151,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     >
       <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden lg:rounded-tl-md lg:rounded-bl-md lg:rounded-none rounded-tl-md rounded-tr-md">
         <img
-          src={item.Imgurl[0] || noimg}
+          src={
+            item.Imgurl[0] ||
+            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/tss6j8gnbbccyxwgxzzx.png"
+          }
           alt=""
           className="hover:scale-110 object-cover transition-transform duration-500 ease-in duration-70 w-full lg:h-full "
         />

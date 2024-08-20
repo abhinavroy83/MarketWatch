@@ -3,12 +3,6 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { FormInput } from "../../../components";
 import { RxCross1 } from "react-icons/rx";
-import { BsChatText } from "react-icons/bs";
-import name from "../../../assets/name.png";
-import email from "../../../assets/email.png";
-import number from "../../../assets/number.png";
-import info from "../../../assets/info.png";
-import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -73,7 +67,13 @@ function Conractform({ isOpen, onClose }) {
           />{" "}
           <div className="flex items-center">
             {/* <FaEnvelopeOpenText className="items-center" size={30} /> */}
-            <img className="h-8 w-8" src={info} alt="" />
+            <img
+              className="h-8 w-8"
+              src={
+                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/i195e6ejjhwwwqhagw6t.png"
+              }
+              alt=""
+            />
             <p className="text-[25px] text-black p-3 font-bold">Contact</p>
           </div>
           <form
@@ -82,7 +82,13 @@ function Conractform({ isOpen, onClose }) {
           >
             <div className="flex font-['udemy-regular'] p-2 items-center">
               <label className="w-[120px] lg:w-[120px] flex text-[17px] items-center gap-2">
-                <img className="h-8 w-8" src={name} alt="" />
+                <img
+                  className="h-8 w-8"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819321/assests/xvg4sjgqjgjilynyxs0a.png"
+                  }
+                  alt=""
+                />
                 Name
               </label>
               <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
@@ -91,7 +97,13 @@ function Conractform({ isOpen, onClose }) {
             </div>
             <div className="flex font-['udemy-regular']  p-2 items-center">
               <label className="w-[120px] lg:w-[120px] flex text-[17px] items-center gap-2">
-                <img className="h-8 w-8" src={email} alt="" />
+                <img
+                  className="h-8 w-8"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
+                  }
+                  alt=""
+                />
                 Email
               </label>
               <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
@@ -100,7 +112,13 @@ function Conractform({ isOpen, onClose }) {
             </div>
             <div className="flex font-['udemy-regular'] p-2 items-center">
               <label className="w-[120px] lg:w-[120px] flex text-[17px] items-center gap-2">
-                <img className="h-8 w-8" src={number} alt="" />
+                <img
+                  className="h-8 w-8"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/fljdbb2rrycts9fmradi.png"
+                  }
+                  alt=""
+                />
                 Number
               </label>
               <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">

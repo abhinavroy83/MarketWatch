@@ -13,7 +13,6 @@ import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
 import basicuser from "../../../assets/basicuser.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import noimg from "../../../assets/noimg.png";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
@@ -26,11 +25,6 @@ import maleLogo from "../../../assets/male.jpeg";
 import { CgSmartHomeWashMachine } from "react-icons/cg";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { BsBuildingsFill } from "react-icons/bs";
-import { MdRoomPreferences } from "react-icons/md";
-import { FaUserFriends } from "react-icons/fa";
-import { GiEntryDoor } from "react-icons/gi";
-import { MdAddBusiness } from "react-icons/md";
 import Loader from "../../../components/UserCompontents/Loader";
 import { MdErrorOutline } from "react-icons/md";
 import { amenityIcons } from "../../../constants/Index";
@@ -493,7 +487,9 @@ function Rooms() {
               />
             ) : (
               <img
-                src={noimg}
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/tss6j8gnbbccyxwgxzzx.png"
+                }
                 alt="not"
                 className="lg:h-[560px] lg:w-[880px] rounded-md object-contain"
               />

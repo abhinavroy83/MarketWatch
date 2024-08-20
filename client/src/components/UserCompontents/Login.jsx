@@ -9,7 +9,6 @@ import { modalclose, modalopen } from "../../store/modalslice";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
-import WebsiteLogo from "../../assets/logo-transparent.png";
 import Signup from "./Signup";
 import { FaGoogle } from "react-icons/fa";
 import { AiOutlineApple } from "react-icons/ai";
@@ -165,13 +164,15 @@ function Login() {
         }}
       >
         <div className="flex flex-row items-center bg-white rounded-md h-full w-full font-['udemy-regular']">
-          <div className="capitalize bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
+          <div className="capitalize bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] w-1/2 justify-center bg-cover h-full items-center hidden md:flex">
             <div className="text-center justify-center flex flex-col items-center">
               <img
                 height={300}
                 width={300}
                 className="w-50 h-50"
-                src={WebsiteLogo}
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
+                }
                 alt=""
               />
               <p className=" text-black text-center mt-5 text-[30px]">

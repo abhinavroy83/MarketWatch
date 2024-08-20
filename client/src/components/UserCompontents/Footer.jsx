@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import WebsiteLogo from "../../assets/whitelogo.png";
 import { Link } from "react-router-dom";
 import Avalableloc from "../../pages/UserPages/Ads/Avalableloc";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
