@@ -17,7 +17,7 @@ function AdminHeader() {
             width={150}
             className="w-50 h-50"
             src={
-              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819327/assests/x31ydsmb8hkg05fqbkjf.png"
             }
             alt=""
           />
