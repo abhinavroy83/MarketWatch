@@ -11,6 +11,7 @@ import { MdDateRange } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { LuHeart } from "react-icons/lu";
+import { FaHeart } from "react-icons/fa";
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -199,7 +200,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <LuHeart className="text-black hover:text-gray-600" size={22} />
+                <LuHeart className="text-black hover:bg-red-600 border rounded-full" size={22} />
               </div>
             ) : (
               <div

@@ -126,7 +126,7 @@ function ListAllwish() {
           {items.Expected_Rooms}
         </td>
         <td
-          className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular']  cursor-pointer"
+          className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600"
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
@@ -222,7 +222,7 @@ function ListAllwish() {
                             }
                             alt=""
                           />
-                          City
+                          City, State
                         </span>
                       </th>
                       <th

@@ -189,7 +189,7 @@ function Getuserroom() {
                             }
                             alt=""
                           />
-                          City
+                          City, State
                         </div>{" "}
                       </th>
                       <th

@@ -277,14 +277,14 @@ function Profile() {
           className="w-full font-['udemy-regular'] "
         >
           {isedit && (
-            <div className="flex flex-col p-2 gap-1 lg:text-[1.2rem] text-[1.1rem]">
+            <div className="flex items-center p-2 gap-3 lg:text-[1.2rem] text-[1.1rem]">
               <label htmlFor="" className="">
                 Your Account belong to{" "}
               </label>
               <select
                 {...register("belongcity")}
                 defaultValue={data.belongcity}
-                className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="font-['udemy-regular'] h-10 w-[300px] lg:w-[500px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select Belong city</option>
                 {cty.map((item, index) => (
@@ -330,11 +330,22 @@ function Profile() {
                 <p className="text-[1rem]">{data.lastName}</p>
               )}
             </div>
+          </div>
+          <div className="flex items-end">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
               <label className="min-w-[120px]">Email</label>
-              <p className="text-[1rem]">{data.email}</p>
-
-              {/* {isedit ? (
+              <p className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                {data.email}
+              </p>
+            </div>
+            <p className="mb-4 text-[1.2rem] text-green-600">
+              Email is verified
+            </p>
+            <p className="mb-4 text-[1.2rem] text-red-600">
+              Email is not verified
+            </p>
+          </div>
+          {/* {isedit ? (
               <FormInput
                 className="p-1 rounded-base"
                 type="text"
@@ -344,11 +355,10 @@ function Profile() {
             ) : (
               <p className="text-[20px]">{data.email}</p>
             )} */}
-            </div>
-          </div>
+
           <div className="flex flex-col lg:flex-row lg:items-end lg:text-[1.2rem] text-[1.1rem] lg:gap-[1.5rem]">
             <div className="flex flex-col gap-1 font-['udemy-regular'] p-2">
-              <label className="">Number</label>
+              <label className="">Phone Number</label>
               {isedit ? (
                 <input
                   className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -433,7 +443,7 @@ function Profile() {
 
           {data.isVerified ? (
             <div className="z-0 relative">
-              {isedit && (
+              {/* {isedit && (
                 <div class="border border-dashed ml-2 border-gray-400 relative mt-3 lg:text-[1.2rem] text-[1.1rem] flex flex-col justify-center w-[300px] lg:w-[713px] mb-2 bg-white">
                   <div className="">
                     <input
@@ -453,16 +463,16 @@ function Profile() {
                     </div>
                   </div>
                 </div>
-                // <div className="flex font-['udemy-regular'] p-2 text-[1.2rem] flex-col gap-1">
-                //   <label className="min-w-[120px]">Image</label>
-                //   <input
-                //     className="text-[1rem]"
-                //     type="file"
-                //     accept="image/*"
-                //     onChange={handleimgchange}
-                //   />
-                // </div>
-              )}
+                <div className="flex font-['udemy-regular'] p-2 text-[1.2rem] flex-col gap-1">
+                  <label className="min-w-[120px]">Image</label>
+                  <input
+                    className="text-[1rem]"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleimgchange}
+                  />
+                </div>
+              )} */}
               {/* <div className="flex font-['udemy-regular'] p-2 items-center text-[1.2rem]">
                 <label className="min-w-[120px]">Date of Birth:</label>
                 {isedit ? (
@@ -515,22 +525,30 @@ function Profile() {
                   )}
                 </div>
                 <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
-                  <label className="min-w-[120px]">Country</label>
+                  <label className="min-w-[120px]">State</label>
                   {isedit ? (
                     <select
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("country")}
-                      defaultValue={data.country}
+                      {...register("state")}
+                      onChange={handlestatechange}
+                      defaultValue={data.state}
                     >
                       <option
-                        value="Usa"
-                        className="lg:text-[1.1rem] text-[1rem]"
+                        value=""
+                        disabled
+                        hidden
+                        className="text-[1.1rem]"
                       >
-                        USA
-                      </option>
+                        Select State
+                      </option>{" "}
+                      {states.map((state) => (
+                        <option key={state.ste_name} value={state.ste_name}>
+                          {state.ste_name}
+                        </option>
+                      ))}
                     </select>
                   ) : (
-                    <p className="">{data.country}</p>
+                    <p className="">{data.state}</p>
                   )}
                 </div>
               </div>
@@ -564,35 +582,9 @@ function Profile() {
                     <p className="">{data.city}</p>
                   )} */}
                 </div>
+
                 <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
-                  <label className="min-w-[120px]">State</label>
-                  {isedit ? (
-                    <select
-                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("state")}
-                      onChange={handlestatechange}
-                      defaultValue={data.state}
-                    >
-                      <option
-                        value=""
-                        disabled
-                        hidden
-                        className="text-[1.1rem]"
-                      >
-                        Select State
-                      </option>{" "}
-                      {states.map((state) => (
-                        <option key={state.ste_name} value={state.ste_name}>
-                          {state.ste_name}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <p className="">{data.state}</p>
-                  )}
-                </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
-                  <label className="min-w-[120px]">Pin</label>
+                  <label className="min-w-[120px]">Zip Code</label>
                   {isedit ? (
                     <input
                       type="text"
@@ -605,6 +597,25 @@ function Profile() {
                     <p className="text-[1rem]">{data.pin}</p>
                   )}
                 </div>
+              </div>
+              <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
+                <label className="min-w-[120px]">Country</label>
+                {isedit ? (
+                  <select
+                    className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    {...register("country")}
+                    defaultValue={data.country}
+                  >
+                    <option
+                      value="Usa"
+                      className="lg:text-[1.1rem] text-[1rem]"
+                    >
+                      USA
+                    </option>
+                  </select>
+                ) : (
+                  <p className="">{data.country}</p>
+                )}
               </div>
               {/* <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                 <label className="min-w-[120px]">Pin</label>

@@ -1086,7 +1086,7 @@ function Addrooms({ editdata }) {
                   <div className="flex gap-1 items-center whitespace-nowrap">
                     <input
                       type="radio"
-                      value="Yes,Vegeterian mandatory"
+                      value="Yes, Vegetarian only"
                       {...register("Vegeterian_prefernce")}
                     />
                     <p>Vegeterian</p>
@@ -1094,7 +1094,7 @@ function Addrooms({ editdata }) {
                   <div className=" flex gap-1 items-center">
                     <input
                       type="radio"
-                      value="No,Non-veg is ok"
+                      value="No, Non-veg is ok"
                       {...register("Vegeterian_prefernce")}
                     />
                     <p>Non-Veg</p>

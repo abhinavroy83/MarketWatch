@@ -276,20 +276,20 @@ function Ads() {
                           to={`/myaccount/${userID}`}
                           className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white"
                         >
-                          <RiAccountPinCircleFill /> My Account
+                          <RiAccountPinCircleFill /> Dashboard
                         </Link>
                         <Link
                           to={`/dashboard/profile/${userID}`}
                           className="flex items-center text-[18px] gap-2 p-2 whitespace-nowrap text-ellipsis hover:bg-[#232f3e] hover:text-white overflow-auto text-center cursor-pointer "
                         >
-                          <RiContactsFill /> Edit Profile
+                          <IoSettingsSharp /> Settings{" "}
                         </Link>
                         {/* <p className="flex items-center text-[22px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer hover:text-[#0b5e86] pb-2">
                        <ImProfile /> Personality Profile
                   </p> */}
-                        <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
-                          <IoSettingsSharp /> Data & Settings
-                        </p>
+                        {/* <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
+                          <IoSettingsSharp /> Settings
+                        </p> */}
                         <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
                           <IoIosHelpCircle size={25} /> Help
                         </p>
