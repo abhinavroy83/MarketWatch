@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { MdLockReset } from "react-icons/md";
-import resetimg from "../../assets/reset.jpg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { modalopen } from "../../store/modalslice";
