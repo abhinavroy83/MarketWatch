@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../store/adminauthslice";
-import WebsiteLogo from "../../assets/whitelogo.png";
 import { IoHome } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 
@@ -17,7 +16,9 @@ function AdminHeader() {
             height={100}
             width={150}
             className="w-50 h-50"
-            src={WebsiteLogo}
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
+            }
             alt=""
           />
         </Link>

@@ -6,7 +6,6 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login as adminauth } from "../../store/adminauthslice";
 import { useNavigate } from "react-router-dom";
-import login from "../../assets/login.png";
 function Adminlogin() {
   const {
     register,
@@ -45,15 +44,21 @@ function Adminlogin() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-green-500 w-full">
+    <div className="bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] bg-cover w-full">
       <div className="w-full max-w-7xl mx-auto font-['udemy-regular']">
         <div className=" flex justify-center items-center h-screen ">
           <div className="lg:w-[600px] w-[350px] h-[350px] font-['udemy-regular'] bg-white items-center flex flex-col justify-center gap-2 rounded-md shadow-lg shadow-gray-800">
             {/* <div className="bg-contain flex min-h-[300px] bg-[url('https://img.freepik.com/premium-vector/sign-account-user-authorization-login-authentication-page-concept-laptop-with-login-password-form-page-screen-stock-illustration_100456-1590.jpg')]">
         </div> */}
-            <div className="bg-gradient-to-r from-cyan-500 to-green-500 w-full max-w-7xl p-4 text-black text-[33px] items-center justify-center flex border-t-2 border-white shadow-md shadow-gray-600">
+            <div className="bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] w-full max-w-7xl p-4 text-black text-[33px] items-center justify-center flex border-t-2 border-white shadow-md shadow-gray-600">
               <p className="flex gap-2 items-center text-[27px]">
-                <img className="h-12 w-12" src={login} alt="" />
+                {/* <img
+                  className="h-12 w-12"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
+                  }
+                  alt=""
+                /> */}
                 DASHBOARD
               </p>
             </div>
@@ -105,7 +110,7 @@ function Adminlogin() {
               </div>
               <div className="flex mx-auto justify-center items-center ">
                 <button
-                  className="self-center justify-center items-center rounded-md bg-green-700 mt-7 py-2 px-4 text-[20px] text-white shadow-sm hover:bg-black"
+                  className="self-center justify-center items-center rounded-md bg-green-800 mt-7 py-2 px-4 text-[20px] text-white shadow-sm hover:bg-black"
                   type="submit"
                 >
                   Click To Login

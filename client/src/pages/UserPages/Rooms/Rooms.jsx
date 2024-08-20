@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
-import basicuser from "../../../assets/basicuser.png";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
@@ -922,9 +921,7 @@ function Rooms() {
           </div>
           <div className="border mt-3 rounded-md">
             <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
-              {/* <FaUserFriends size={37} /> */}{" "}
-              {/* <img className="w-[1.9rem] h-[1.9rem]" src={basicuser} alt="logo" /> */}
-              User Details -{" "}
+              {/* <FaUserFriends size={37} /> */} User Details -{" "}
               {!authstatus && (
                 <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
                   <MdErrorOutline /> Login To See Details

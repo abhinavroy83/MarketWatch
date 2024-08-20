@@ -13,7 +13,6 @@ import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
-import settings2 from "../../../assets/settings2.png";
 import { toast, ToastContainer } from "react-toastify";
 function Profile() {
   const { userID } = useParams();

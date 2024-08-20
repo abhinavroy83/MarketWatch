@@ -4,13 +4,6 @@ import { DashConatiner } from "../../components";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import settings2 from "../../assets/settings2.png";
-import rooms from "../../assets/rooms.png";
-import job2 from "../../assets/job2.png";
-import event2 from "../../assets/event2.png";
-import movie2 from "../../assets/movie2.png";
-import work from "../../assets/work.png";
-import Favorites from "../../assets/Favorites.png";
 import Alert from "../../components/UserCompontents/Alert/Alert";
 function User() {
   const username = useSelector((state) => state.auth.user);
