@@ -235,8 +235,24 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           className={`flex absolute bottom-[1.4rem]  items-center ${
             auth ? "right-[3.2rem]" : "right-[1rem]"
           }`}
-          height={22}
-          width={25}
+          height={
+            item.Preferred_gender === "Female only"
+              ? 22
+              : item.Preferred_gender === "Male only"
+              ? 30
+              : item.Preferred_gender === "Any"
+              ? 22
+              : 22
+          }
+          width={
+            item.Preferred_gender === "Female only"
+              ? 25
+              : item.Preferred_gender === "Male only"
+              ? 28
+              : item.Preferred_gender === "Any"
+              ? 28
+              : 22
+          }
           src={
             item.Preferred_gender === "Female only"
               ? femaleLogo

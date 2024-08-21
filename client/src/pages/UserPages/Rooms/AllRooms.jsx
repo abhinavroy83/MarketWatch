@@ -132,6 +132,7 @@ function AllRooms() {
         pauseOnHover
         theme="light"
         transition:Bounce
+        toastStyle={{ backgroundColor: "green" }}
       />
       {/* Same as */}
       <ToastContainer />
