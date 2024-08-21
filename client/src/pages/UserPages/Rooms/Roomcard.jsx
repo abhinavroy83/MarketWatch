@@ -214,7 +214,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 }}
               >
                 <LuHeart
-                  className="text-black hover:bg-red-600 border rounded-full"
+                  className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]"
                   size={22}
                 />
               </div>
@@ -235,7 +235,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           className={`flex absolute bottom-[1.4rem]  items-center ${
             auth ? "right-[3.2rem]" : "right-[1rem]"
           }`}
-          height={22}
+          height={25}
           width={25}
           src={
             item.Preferred_gender === "Female only"
