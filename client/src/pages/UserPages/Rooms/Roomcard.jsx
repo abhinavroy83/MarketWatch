@@ -200,7 +200,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <LuHeart className="text-black hover:bg-red-600 border rounded-full" size={22} />
+                <LuHeart className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]" size={22} />
               </div>
             ) : (
               <div

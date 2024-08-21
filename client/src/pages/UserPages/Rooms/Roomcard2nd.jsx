@@ -205,7 +205,10 @@ function Roomcard2nd({ isSingleRow, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <LuHeart className="text-black hover:text-gray-600" size={22} />
+                <LuHeart
+                  className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]"
+                  size={22}
+                />
               </div>
             ) : (
               <div
@@ -221,7 +224,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           </div>
         )}{" "}
         <p className="text-[22px] text-green-700 font-bold w-[80px]">
-        ${item.Expected_Rooms}
+          ${item.Expected_Rooms}
         </p>
       </div>
     </Link>
