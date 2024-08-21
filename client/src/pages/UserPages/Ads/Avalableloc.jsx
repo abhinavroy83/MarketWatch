@@ -29,7 +29,7 @@ function Avalableloc({ isOpen, onClose }) {
   };
 
   return (
-    <div className="flex flex-col absolute left-0 top-4 shadow-lg p-2 shadow-gray-700 mt-2 lg:w-[400px] w-[170px] h-90 bg-white justify-center mx-auto font-['udemy-regular'] border-2 rounded-md border-black">
+    <div className="flex flex-col absolute left-0 top-4 shadow-lg p-2 shadow-gray-700 mt-2 lg:w-[350px] w-[170px] h-90 bg-white justify-center mx-auto font-['udemy-regular'] border-2 rounded-md border-black">
       {" "}
       {/* <RxCross1
         className="h-5 w-5 text-white absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
@@ -40,10 +40,10 @@ function Avalableloc({ isOpen, onClose }) {
         USA
       </p>
       <p className="text-[16px] font-bold px-2">Nearby Cities</p>
-      <ul className="text-[18px] p-3">
+      <ul className="text-[18px]">
         {cty.map((item, index) => (
           <li
-            className="w-[70%] cursor-pointer px-1 py-1.5 rounded-md ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
+            className="w-full cursor-pointer px-2 py-1.5 rounded-md ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
             key={index}
             onClick={() => handleLocation(item)}
           >
