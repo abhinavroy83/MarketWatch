@@ -7,7 +7,7 @@ import {
   LeafletMap2,
   ShareComponent,
 } from "../../../components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { GiWashingMachine } from "react-icons/gi";
@@ -30,6 +30,7 @@ import { amenityIcons } from "../../../constants/Index";
 import { FaEdit } from "react-icons/fa";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
+import { modalopen } from "../../../store/modalslice";
 
 function Rooms() {
   const { _id } = useParams();
@@ -143,6 +144,7 @@ function Rooms() {
   }
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const renderRooms = () => {
     return similarrooms
@@ -406,7 +408,7 @@ function Rooms() {
 
           <div className="flex gap-4 items-center ml-1 lg:ml-0">
             <div className="gap-2 flex">
-              {authstatus && (
+              {authstatus ? (
                 <div>
                   {!wishliststatys ? (
                     <div
@@ -431,6 +433,19 @@ function Rooms() {
                       />
                     </div>
                   )}
+                </div>
+              ) : (
+                <div
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
+                  onClick={() => {
+                    toast("please login");
+                  }}
+                >
+                  <FaHeart
+                    className=" flex lg:w-7 lg:h-7 w-5 h-5"
+                    color="#fff"
+                    // size={30}
+                  />
                 </div>
               )}
               {/* <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
@@ -556,12 +571,18 @@ function Rooms() {
                 >
                   <button
                     type="button"
-                    onClick={handleloginmodelopen}
+                    onClick={() => {
+                      if (authstatus) {
+                        handleloginmodelopen();
+                      } else {
+                        dispatch(modalopen({ isloginmodalopen: true }));
+                      }
+                    }}
                     className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[19px] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     <LuPhoneCall size={25} />
                     <span class="items-center justify-center">
-                      Get In touch{" "}
+                      Get In touch
                     </span>
                   </button>
                 </div>
@@ -923,8 +944,14 @@ function Rooms() {
             <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
               {/* <FaUserFriends size={37} /> */} User Details -{" "}
               {!authstatus && (
-                <span className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1">
-                  <MdErrorOutline /> Login To See Details
+                <span
+                  onClick={() => {
+                    dispatch(modalopen({ isloginmodalopen: true }));
+                  }}
+                  className="text-red-600 text-[20px] items-center text-center capitalize flex gap-1"
+                >
+                  <MdErrorOutline />
+                  <p className=" cursor-pointer">Login To See Details</p>
                 </span>
               )}
             </h1>

@@ -6,6 +6,7 @@ import { Footer, Header } from "./components";
 import { login as adminauth } from "./store/adminauthslice";
 import Ads from "./pages/UserPages/Ads/Ads";
 import Getlocations from "./components/SharedCompontents/Getlocations";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,19 @@ function App() {
 
   return (
     <div className={`flex flex-col ${isAddRoomPage && "bg-slate-100"}`}>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
       <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
       {!isAdminPanel && <Header />}

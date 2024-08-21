@@ -12,6 +12,7 @@ import { modalopen } from "../../store/modalslice";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RxCross1 } from "react-icons/rx";
 import { getScreenSizeHook } from "../../../Hooks/GetScreenSizeHook";
+import { toast } from "react-toastify";
 
 function Signup() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function Signup() {
 
       if (res.data.cnfstatus) {
         // console.log(res);
-        alert("signup successfully added");
+        toast.warn("signup successfully added");
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(
           authlogin({
@@ -76,11 +77,11 @@ function Signup() {
         );
         navigate(`/dashboard/profile/${res.data.data._id}`);
         handleModal(false, false);
+        reset();
       }
     } catch (error) {
       console.log(error);
     }
-    reset();
   };
   // console.log("signupdata",signupdata);
   useEffect(() => {

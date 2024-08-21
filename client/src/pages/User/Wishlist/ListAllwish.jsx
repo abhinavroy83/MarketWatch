@@ -119,7 +119,7 @@ function ListAllwish() {
         </td>
         <td className="whitespace-nowrap px-12 py-4">
           <div className=" text-gray-700 font-['udemy-regular']">
-            {items.city}
+            {items.city},{items.state}
           </div>
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular']">
