@@ -229,19 +229,18 @@ function Profile() {
         theme="light"
         transition:Bounce
       />
-      {isverified ||
-        (showConfirm && (
-          <ConfirmationDialog
-            onConfirm={confirmDelete}
-            onCancel={cancelDelete}
-            onClose={cancelDelete}
-            Heading={"Delete Account"}
-            Para={
-              "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
-              // "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
-            }
-          />
-        ))}
+      {showConfirm && (
+        <ConfirmationDialog
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+          onClose={cancelDelete}
+          Heading={"Delete Account"}
+          Para={
+            "Are you sure you want to delete your account? This cannot be undone, and all posted ads will be deleted with it."
+            // "Deleting your account will permanently remove all your data and you will not be able to access your room. Are you 100% sure you want to proceed?"
+          }
+        />
+      )}
 
       <div className="flex justify-center text-center self-center font-['udemy-regular']">
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-3 justify-center shadow-black shadow-sm items-center text-center">
@@ -719,12 +718,11 @@ function Profile() {
             </p>
 
             <p
-              // onClick={() => {
-              //   handleDelete;
-              // }}
-              onClick={handleDelete}
+              onClick={() => {
+                setShowConfirm(true);
+              }}
+              // onClick={handleDelete}
               className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition focus:outline-none focus:ring"
-              href="#"
             >
               Delete Account
             </p>
