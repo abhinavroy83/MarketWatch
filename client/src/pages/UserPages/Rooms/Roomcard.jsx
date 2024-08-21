@@ -190,6 +190,19 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           <MdDateRange />
           {calculateTimeDifference(item.postedon)}
         </p>
+        {!auth && (
+          <div className="absolute bottom-4 right-9">
+            <div
+              className="cursor-pointer p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                toast.warn("please login");
+              }}
+            >
+              <LuHeart className="" color="red" size={22} />
+            </div>
+          </div>
+        )}
         {auth && (
           <div className="absolute bottom-4 right-4">
             {!wishliststatys ? (
@@ -200,7 +213,10 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                   makewishlist(item._id);
                 }}
               >
-                <LuHeart className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]" size={22} />
+                <LuHeart
+                  className="text-black hover:bg-red-600 border rounded-full"
+                  size={22}
+                />
               </div>
             ) : (
               <div
@@ -226,9 +242,11 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
               ? femaleLogo
               : item.Preferred_gender === "Male only"
               ? maleLogo
+              : item.Preferred_gender === "Any"
+              ? "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
               : femaleLogo
           }
-          alt=""
+          alt="na"
         />
       </div>
     </Link>

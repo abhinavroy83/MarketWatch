@@ -102,9 +102,9 @@ function Login() {
         Navigate("/");
         Setalerton(true);
       } else if (res.data.Status === "Incorrect password") {
-        alert("incorrect password");
+        toast.warn("incorrect password");
       } else if (res.data.msg === "user not find") {
-        alert("user not find");
+        toast.warn("user not find");
       } else {
         alert("something went wrong");
       }

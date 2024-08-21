@@ -82,7 +82,9 @@ function Getuserroom() {
           </div>
         </td>
         <td className="whitespace-nowrap px-12 py-4 cursor-pointer">
-          <div className="text-base text-gray-700">{items.city}</div>
+          <div className="text-base text-gray-700">
+            {items.city},{items.state}
+          </div>
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer">
           {items.address}

@@ -338,12 +338,15 @@ function Profile() {
                 {data.email}
               </p>
             </div>
-            <p className="mb-4 text-[1.2rem] text-green-600">
-              Email is verified
-            </p>
-            <p className="mb-4 text-[1.2rem] text-red-600">
-              Email is not verified
-            </p>
+            {isverified ? (
+              <p className="mb-4 text-[1.2rem] text-green-600">
+                Email is verified
+              </p>
+            ) : (
+              <p className="mb-4 text-[1.2rem] text-red-600">
+                Email is not verified
+              </p>
+            )}
           </div>
           {/* {isedit ? (
               <FormInput
