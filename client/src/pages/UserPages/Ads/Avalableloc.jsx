@@ -43,7 +43,7 @@ function Avalableloc({ isOpen, onClose }) {
       <ul className="text-[18px] p-3">
         {cty.map((item, index) => (
           <li
-            className="w-[80%] cursor-pointer px-3 py-1.5 ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
+            className="w-[70%] cursor-pointer px-1 py-1.5 rounded-md ease-in-out duration-150 bg-white whitespace-nowrap hover:bg-[#232f3e] hover:text-white"
             key={index}
             onClick={() => handleLocation(item)}
           >
