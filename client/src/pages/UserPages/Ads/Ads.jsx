@@ -252,9 +252,9 @@ function Ads() {
                   </div>
 
                   {openMenu && (
-                    <div className="bg-white flex flex-col gap-3 absolute bottom-0 top-[45px] right-[2px] w-[270px] h-[320px] shadow-lg shadow-black">
+                    <div className="bg-white flex flex-col rounded-md gap-3 absolute bottom-0 top-[45px] right-[2px] w-[270px] h-[270px] shadow-lg shadow-gray-700">
                       {/* <div className="bg-[url('https://img.freepik.com/premium-vector/abstract-nature-geometric-triangular-low-poly-background_48799-402.jpg')] bg-cover p-2 flex text-white gap-4 items-center"> */}
-                      <div className="bg-[#232f3e] bg-cover p-2 flex text-white gap-4 items-center">
+                      <div className="bg-[#232f3e] bg-cover p-2 flex text-white gap-4 items-center rounded-tr-md rounded-tl-md">
                         <img
                           className="rounded-full w-[50px] h-[50px]"
                           height={50}
@@ -274,13 +274,13 @@ function Ads() {
                       <div className="px-2 flex flex-col gap-1">
                         <Link
                           to={`/myaccount/${userID}`}
-                          className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white"
+                          className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md"
                         >
                           <RiAccountPinCircleFill /> Dashboard
                         </Link>
                         <Link
                           to={`/dashboard/profile/${userID}`}
-                          className="flex items-center text-[18px] gap-2 p-2 whitespace-nowrap text-ellipsis hover:bg-[#232f3e] hover:text-white overflow-auto text-center cursor-pointer "
+                          className="flex items-center text-[18px] gap-2 p-2 whitespace-nowrap text-ellipsis hover:bg-[#232f3e] hover:text-white overflow-auto text-center cursor-pointer rounded-md"
                         >
                           <IoSettingsSharp /> Settings{" "}
                         </Link>
@@ -290,12 +290,12 @@ function Ads() {
                         {/* <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
                           <IoSettingsSharp /> Settings
                         </p> */}
-                        <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
+                        <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md">
                           <IoIosHelpCircle size={25} /> Help
                         </p>
                         <p
                           onClick={handlelogout}
-                          className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white"
+                          className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md"
                         >
                           <BiLogOut /> Logout{" "}
                         </p>

@@ -254,7 +254,7 @@ function DashConatiner({ children }) {
                   setbgcolor(true);
                   navigate(`/myaccount/${userID}`);
                 }}
-                className="bg-transparent rounded-md py-1 px-4 w-full  flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+                className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >
                 {/* <FaHome size={20} /> */}
                 <img
