@@ -214,7 +214,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
                 }}
               >
                 <LuHeart
-                  className="text-black hover:bg-red-600 border rounded-full"
+                  className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]"
                   size={22}
                 />
               </div>
