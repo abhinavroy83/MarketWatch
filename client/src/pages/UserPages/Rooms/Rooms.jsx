@@ -16,7 +16,7 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import Conractform from "../Contactform/Conractform";
 import Roomcardforsimilar from "./Roomcardforsimilar";
-import { ToastContainer, toast } from "react-toastify";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LuPhoneCall } from "react-icons/lu";
 import femaleLogo from "../../../assets/female.png";
@@ -307,7 +307,8 @@ function Rooms() {
         draggable
         pauseOnHover
         theme="light"
-        transition:Bounce
+        transition={Bounce}
+        toastClassName={() => "bg-green-500 text-white font-bold"}
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className=" w-full mx-auto px-4 py-2 mt-0 lg:mt-10 font-['udemy-regular']">
