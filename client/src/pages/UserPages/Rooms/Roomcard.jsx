@@ -237,7 +237,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           }`}
           height={
             item.Preferred_gender === "Female only"
-              ? 22
+              ? 29
               : item.Preferred_gender === "Male only"
               ? 30
               : item.Preferred_gender === "Any"
@@ -246,7 +246,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           }
           width={
             item.Preferred_gender === "Female only"
-              ? 25
+              ? 24
               : item.Preferred_gender === "Male only"
               ? 28
               : item.Preferred_gender === "Any"

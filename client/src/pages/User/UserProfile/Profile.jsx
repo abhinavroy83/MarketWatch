@@ -331,7 +331,7 @@ function Profile() {
               )}
             </div>
           </div>
-          <div className="flex items-end">
+          <div className="flex items-start flex-col lg:flex-row lg:items-end">
             <div className=" font-['udemy-regular'] p-2 flex flex-col gap-1 lg:text-[1.2rem] text-[1.1rem]">
               <label className="min-w-[120px]">Email</label>
               <p className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
@@ -339,11 +339,11 @@ function Profile() {
               </p>
             </div>
             {isverified ? (
-              <p className="mb-4 text-[1.2rem] text-green-600">
+              <p className="mb-3 ml-2 lg:ml-7 lg:text-[1.2rem] text-[1.1rem] text-green-600">
                 Email is verified
               </p>
             ) : (
-              <p className="mb-4 text-[1.2rem] text-red-600">
+              <p className="mb-3 ml-2 lg:ml-7 lg:text-[1.2rem] text-[1.1rem] text-red-600">
                 Email is not verified
               </p>
             )}
@@ -373,7 +373,7 @@ function Profile() {
                 <p className="text-[1.2rem]">{data.phone_number}</p>
               )}
             </div>
-            <div className="ml-2 lg:ml-0 mb-[0.4rem]">
+            {/* <div className="ml-2 lg:ml-0 mb-[0.4rem]">
               <button
                 onClick={() => {
                   navigate(`/setting/changepassword/${userID}`);
@@ -383,7 +383,7 @@ function Profile() {
               >
                 Change Password
               </button>
-            </div>
+            </div> */}
             {/* <button
               type="button"
               className=" bg-red-600 px-6 py-2 text-[1rem] w-[340px] font-bold text-white mb-[0.4rem]"
@@ -601,24 +601,37 @@ function Profile() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
-                <label className="min-w-[120px]">Country</label>
-                {isedit ? (
-                  <select
-                    className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    {...register("country")}
-                    defaultValue={data.country}
-                  >
-                    <option
-                      value="Usa"
-                      className="lg:text-[1.1rem] text-[1rem]"
+              <div>
+                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
+                  <label className="min-w-[120px]">Country</label>
+                  {isedit ? (
+                    <select
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("country")}
+                      defaultValue={data.country}
                     >
-                      USA
-                    </option>
-                  </select>
-                ) : (
-                  <p className="">{data.country}</p>
-                )}
+                      <option
+                        value="Usa"
+                        className="lg:text-[1.1rem] text-[1rem]"
+                      >
+                        USA
+                      </option>
+                    </select>
+                  ) : (
+                    <p className="">{data.country}</p>
+                  )}
+                </div>
+                <div className="ml-2 mt-2 mb-[0.4rem]">
+                  <button
+                    onClick={() => {
+                      navigate(`/setting/changepassword/${userID}`);
+                    }}
+                    type="button"
+                    className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] hover:bg-gray-400 font-bold text-black"
+                  >
+                    Change Password
+                  </button>
+                </div>
               </div>
               {/* <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                 <label className="min-w-[120px]">Pin</label>
@@ -710,7 +723,7 @@ function Profile() {
               //   handleDelete;
               // }}
               onClick={handleDelete}
-              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition  focus:outline-none focus:ring"
+              className="inline-block rounded text-red-500 cursor-pointer text-[1rem] font-medium transition focus:outline-none focus:ring"
               href="#"
             >
               Delete Account
