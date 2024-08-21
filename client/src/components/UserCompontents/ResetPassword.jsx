@@ -5,6 +5,7 @@ import { MdLockReset } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { modalopen } from "../../store/modalslice";
+import { toast } from "react-toastify";
 function ResetPassword() {
   const {
     register,
@@ -25,7 +26,7 @@ function ResetPassword() {
       );
 
       if (res.data.status) {
-        alert(res.data.message);
+        toast.success(res.data.message);
         naviagte("/");
         dispatch(
           modalopen({
@@ -34,7 +35,7 @@ function ResetPassword() {
         );
       }
       if (!res.data.status) {
-        alert(res.data.message);
+        toast.warn(res.data.message);
       }
     } catch (error) {
       console.log(error);

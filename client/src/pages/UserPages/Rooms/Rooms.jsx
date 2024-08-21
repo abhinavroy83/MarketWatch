@@ -306,12 +306,12 @@ function Rooms() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
-        transition={Bounce}
-        toastClassName={() => "bg-green-500 text-white font-bold"}
+        toastClassName={() =>
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+        }
       />
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
-      <div className=" w-full mx-auto px-4 py-2 mt-0 lg:mt-10 font-['udemy-regular']">
+      <div className="  w-full mx-auto px-4 py-2 mt-0 lg:mt-10 font-['udemy-regular']">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-1 py-1 text-xl text-gray-600">
             <li>

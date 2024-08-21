@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Forgetpassword() {
   const {
@@ -22,7 +23,7 @@ function Forgetpassword() {
       );
       if (res) {
         console.log(res.data);
-        alert(res.data.message);
+        toast(res.data.message);
         // setTimeout(() => {
         //   window.location.href = "/signup";
         // }, 3000);

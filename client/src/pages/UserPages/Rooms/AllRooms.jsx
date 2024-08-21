@@ -130,12 +130,11 @@ function AllRooms() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
-        transition:Bounce
-        toastStyle={{ backgroundColor: "green" }}
+        toastClassName={() =>
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+        }
       />
-      {/* Same as */}
-      <ToastContainer />
+
       {rooms.length > 0 ? (
         <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[2rem] lg:mt-1">
           <div className="flex justify-between items-center gap-1">

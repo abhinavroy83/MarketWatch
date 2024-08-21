@@ -8,10 +8,11 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import { toast } from "react-toastify";
 
 const ShareComponent = ({ url, title, onClose }) => {
   const handleCopy = () => {
-    alert("Link Copied");
+    toast.success("Link Copied");
   };
 
   const ref = useRef();

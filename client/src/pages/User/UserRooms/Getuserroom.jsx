@@ -7,6 +7,7 @@ import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
@@ -38,7 +39,7 @@ function Getuserroom() {
         ` https://api.verydesi.com/rooms/${deleteid}`
       );
       if (res) {
-        alert("Room delete Sucessfully");
+        toast.success("Room delete Sucessfully");
         setRoomDetails((prevRooms) =>
           prevRooms.filter((room) => room._id !== deleteid)
         );

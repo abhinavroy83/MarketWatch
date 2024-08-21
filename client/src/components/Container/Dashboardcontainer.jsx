@@ -8,6 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
+import { toast } from "react-toastify";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -69,7 +70,7 @@ function DashConatiner({ children }) {
           );
           if (res) {
             // console.log(res);
-            alert("updated successfuly");
+            toast.success("updated successfuly");
             // console.log(res.data.user.userimg);
             const newUserImg = res.data.user.userimg;
             dispatch(UserImage({ userimg: newUserImg }));

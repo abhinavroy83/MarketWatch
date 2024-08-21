@@ -7,6 +7,7 @@ import { login as adminauth } from "./store/adminauthslice";
 import Ads from "./pages/UserPages/Ads/Ads";
 import Getlocations from "./components/SharedCompontents/Getlocations";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,8 +87,9 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
-        transition:Bounce
+        toastClassName={() =>
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+        }
       />
       <Getlocations />
       {/* {!isAdminPanel && <Ads />} */}
