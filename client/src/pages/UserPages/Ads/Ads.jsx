@@ -290,9 +290,12 @@ function Ads() {
                         {/* <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white">
                           <IoSettingsSharp /> Settings
                         </p> */}
-                        <p className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md">
+                        <Link
+                          to={`/user/help/${userID}`}
+                          className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md"
+                        >
                           <IoIosHelpCircle size={25} /> Help
-                        </p>
+                        </Link>
                         <p
                           onClick={handlelogout}
                           className="flex items-center text-[18px] gap-2 whitespace-nowrap text-ellipsis overflow-auto text-center cursor-pointer p-2 hover:bg-[#232f3e] hover:text-white rounded-md"
