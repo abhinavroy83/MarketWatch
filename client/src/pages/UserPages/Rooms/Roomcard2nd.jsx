@@ -47,9 +47,9 @@ function Roomcard2nd({ isSingleRow, ...item }) {
     }
   };
 
-  const notify = () => toast("Added to Wishlist.");
-  const unnotify = () => toast("Remove from Wishlist.");
-  const unauthnotify = () => toast("Please Login");
+  const notify = () => toast.success("Added to Wishlist.");
+  const unnotify = () => toast.success("Remove from Wishlist.");
+  const unauthnotify = () => toast.info("Please Login");
 
   const makewishlist = async (_id) => {
     if (auth) {

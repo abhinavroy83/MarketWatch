@@ -23,7 +23,7 @@ function Forgetpassword() {
       );
       if (res) {
         console.log(res.data);
-        toast(res.data.message);
+        toast.success(res.data.message);
         // setTimeout(() => {
         //   window.location.href = "/signup";
         // }, 3000);

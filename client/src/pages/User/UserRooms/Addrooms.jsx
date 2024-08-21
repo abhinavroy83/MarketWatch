@@ -13,6 +13,7 @@ import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
 
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { toast } from "react-toastify";
 
 const libraries = ["places"];
 
@@ -129,7 +130,7 @@ function Addrooms({ editdata }) {
   const handleSelectFile = (e) => {
     const selectedFiles = Array.from(e.target.files);
     if (selectedFiles.length + files.length > 5) {
-      alert("You can upload up to 5 images.");
+      toast.info("You can upload up to 5 images.");
       return;
     }
     const newFiles = selectedFiles.map((file) => {
@@ -161,7 +162,7 @@ function Addrooms({ editdata }) {
         setUploadstats(true);
       }
     } catch (error) {
-      alert(error.message);
+      toast.info(error.message);
     } finally {
       setLoading(false);
     }
@@ -260,7 +261,7 @@ function Addrooms({ editdata }) {
           if (res) {
             // console.log(res);
 
-            alert("update room successfully");
+            toast.success("update room successfully");
             navigate(`/rooms/${editdata._id}`);
           }
         } catch (error) {
@@ -281,7 +282,7 @@ function Addrooms({ editdata }) {
           );
           if (res) {
             // console.log(res);
-            alert("rooms added successfully");
+            toast.success("rooms added successfully");
             reset();
             navigate(`/rooms/${res.data.rooms._id}`);
           }
@@ -290,7 +291,7 @@ function Addrooms({ editdata }) {
         }
       }
     } else {
-      alert("Enter Address is not available");
+      toast.warn("Enter Address is not available");
     }
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
@@ -410,7 +411,7 @@ function Addrooms({ editdata }) {
                       const selectedValue = e.target.value;
 
                       if (selectedValue !== profiledata.belongcity) {
-                        alert(
+                        toast.info(
                           `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
                         );
                       }

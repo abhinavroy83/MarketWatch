@@ -220,7 +220,12 @@ function DashConatiner({ children }) {
 
                 <div className="flex gap-6 mt-4">
                   <div className="flex flex-col items-center gap-2 text-gray-700">
-                    <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
+                    <p
+                      onClick={() => {
+                        navigate(`/dashboard/profile/${userID}`);
+                      }}
+                      className="bg-gray-200 cursor-pointer rounded-full w-[3rem] h-[3rem] items-center justify-center flex"
+                    >
                       <GrEdit size={23} />
                     </p>
                     <p className="text-gray-500 text-[0.9rem]">Edit Profile</p>

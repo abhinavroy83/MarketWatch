@@ -64,7 +64,7 @@ function Signup() {
 
       if (res.data.cnfstatus) {
         // console.log(res);
-        toast.warn("signup successfully added");
+        toast.success("signup successfully added");
         localStorage.setItem("userdetails", JSON.stringify(res));
         dispatch(
           authlogin({

@@ -160,7 +160,7 @@ function Rooms() {
     if (authstatus) {
       setloginmodeopen(true);
     } else {
-      toast("login to contact");
+      toast.info("login to contact");
     }
   };
 
@@ -169,8 +169,8 @@ function Rooms() {
   };
 
   // console.log(rooms._id);
-  const notify = () => toast("Added to Wishlist.");
-  const unnotify = () => toast("Remove from Wishlist.");
+  const notify = () => toast.success("Added to Wishlist.");
+  const unnotify = () => toast.success("Remove from Wishlist.");
 
   const makewishlist = async () => {
     try {
@@ -439,7 +439,7 @@ function Rooms() {
                 <div
                   className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
                   onClick={() => {
-                    toast("please login");
+                    toast.info("please login");
                   }}
                 >
                   <FaHeart
