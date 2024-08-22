@@ -14,6 +14,8 @@ import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import { toast, ToastContainer } from "react-toastify";
+import { IoSettingsSharp } from "react-icons/io5";
+
 function Profile() {
   const { userID } = useParams();
   const {
@@ -252,6 +254,7 @@ function Profile() {
             }
             alt="logo"
           />
+          {/* <IoSettingsSharp /> */}
           Settings
         </p>
       </div>

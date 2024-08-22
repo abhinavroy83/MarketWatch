@@ -5,7 +5,7 @@ import axios from "axios";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-
+import { FaHeart } from "react-icons/fa";
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
