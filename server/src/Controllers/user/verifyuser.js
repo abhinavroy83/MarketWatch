@@ -8,11 +8,15 @@ const verifyemail = async (req, res) => {
 
     const decoded = jwt.verify(jwttoken, process.env.JWTSECRETKEY);
     const userEmail = decoded.email;
-    await User.findOneAndUpdate(
+    const updatedUser = await User.findOneAndUpdate(
       { email: userEmail },
       { $set: { isVerified: true } }
     );
-    res.send("Email verify succesfully");
+    if (updatedUser) {
+      return res.redirect("https://verydesi.com");
+    } else {
+      return res.status(404).send("User not found.");
+    }
   } catch (error) {
     console.error("Error verifying email:", error);
     res.status(400).send("Invalid or expired token.");

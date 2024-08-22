@@ -36,21 +36,22 @@ const singup = async (req, res) => {
     });
     const ress = await newUser.save();
     if (ress) {
+      console.log(res);
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
-      await sendemailverification(email, jwttoken, newUser.firstName);
+      await sendemailverification(email, jwttoken, ress.firstName);
       return res.json({
         cnfstatus: true,
-        data: newUser,
+        data: ress,
         status: "User registered successfully. Please verify your email.",
         jwttoken,
         msg: "Successfully signup",
       });
     }
   } catch (error) {
-    if (error.code === 11000 && error.keyPattern && error.keyPattern.username) {
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
       return res.status(400).json({
         status: "failed",
-        msg: "Username is already Exits",
+        msg: "email is already Exits",
       });
     } else {
       return res.status(500).json({
@@ -72,7 +73,7 @@ async function sendemailverification(email, jwttoken, username) {
   });
 
   await transport.sendMail({
-    from: "verydesi.com",
+    from: `"VeryDesi" <no-reply@verydesi.com>`,
     to: email,
     subject: "Email Verification",
     html: `
