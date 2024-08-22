@@ -49,14 +49,14 @@ function User() {
           <Link to={`/dashboard/profile/${userID}`}>
             <div className="">
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
-                {/* <img
+                <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/jxhk73i2js2oxrdxwb1h.png"
                   }
                   alt="logo"
-                /> */}
-                <IoSettingsSharp />
+                />
+                {/* <IoSettingsSharp /> */}
                 <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
                   Settings
                 </h1>
