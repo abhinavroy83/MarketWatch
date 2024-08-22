@@ -45,7 +45,7 @@ const ConfirmationDialog = ({
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
       id="modalOuter"
     >
-      <div className="bg-white p-8 shadow-2xl relative">
+      <div className="bg-white p-8 shadow-2xl relative rounded-md">
         <RxCross1
           className="h-5 w-5 text-black absolute top-3 right-5 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
           onClick={onClose}

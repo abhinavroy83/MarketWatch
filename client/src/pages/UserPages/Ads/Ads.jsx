@@ -76,7 +76,7 @@ function Ads() {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className="bg-gray-200 rounded-lg text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
+          <div className="bg-gray-200 rounded-md text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
             <RxCross1
               className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300"
               onClick={onClose}
