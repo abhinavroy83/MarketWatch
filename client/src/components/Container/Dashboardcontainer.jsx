@@ -6,7 +6,7 @@ import { UserImage } from "../../store/authslice";
 import { GrEdit } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 import { FaRegShareFromSquare } from "react-icons/fa6";
-
+import { IoMdHelpCircle } from "react-icons/io";
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -323,6 +323,24 @@ function DashConatiner({ children }) {
                 Favorites
               </button>
               <hr className="mt-2"></hr>
+              <button
+                onClick={() => {
+                  setbgcolor(true);
+                  navigate(`/dashboard/profile/${userID}`);
+                }}
+                className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+              >
+                {/* <FaUserPen size={25} /> Setting */}
+                <img
+                  className="w-[1.7rem] h-[1.7rem]"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
+                  }
+                  alt="logo"
+                />
+                Help
+              </button>
+              <hr className="mt-2"></hr>
               <details
                 className="group [&_summary::-webkit-details-marker]:hidden"
                 open
@@ -430,7 +448,7 @@ function DashConatiner({ children }) {
             </div>
           </div>
         </div>
-        <main className="w-auto lg:w-4/5 h-auto border overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
+        <main className="w-auto lg:w-4/5 h-auto border overflow-scroll overflow-x-hidden overflow-y-hidden">
           {children}
         </main>
       </div>

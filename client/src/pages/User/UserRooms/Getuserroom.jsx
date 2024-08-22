@@ -223,7 +223,7 @@ function Getuserroom() {
                             }
                             alt=""
                           />
-                          Price
+                          Rent
                         </div>
                       </th>
                       <th

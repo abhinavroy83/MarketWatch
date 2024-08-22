@@ -243,7 +243,7 @@ function ListAllwish() {
                             }
                             alt=""
                           />
-                          Price{" "}
+                          Rent{" "}
                         </span>
                       </th>
                       <th
