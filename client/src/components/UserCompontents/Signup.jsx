@@ -59,25 +59,42 @@ function Signup() {
         datsa
       );
       if (!res.data.status) {
-        alert(res.data.message);
+        toast.warn(res.data.message);
       }
 
       if (res.data.cnfstatus) {
-        // console.log(res);
-        toast.success("signup successfully added");
-        localStorage.setItem("userdetails", JSON.stringify(res));
-        dispatch(
-          authlogin({
-            token: res.data.jwttoken,
-            user: res.data.data.firstName,
-            userID: res.data.data._id,
-            bussinessac: res.data.data.bussinessac,
-            isverified: res.data.data.isVerified,
+        const signupProcess = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            try {
+              localStorage.setItem("userdetails", JSON.stringify(res));
+              dispatch(
+                authlogin({
+                  token: res.data.jwttoken,
+                  user: res.data.data.firstName,
+                  userID: res.data.data._id,
+                  bussinessac: res.data.data.bussinessac,
+                  isverified: res.data.data.isVerified,
+                })
+              );
+              resolve(); // Resolve the promise after successful operations
+            } catch (error) {
+              reject(error); // Reject the promise if an error occurs
+            }
+          }, 2000);
+        });
+
+        toast
+          .promise(signupProcess, {
+            pending: "Processing your signup...",
+            success: "Signup successfully added!",
+            error: "Something went wrong. Please try again.",
           })
-        );
-        navigate(`/dashboard/profile/${res.data.data._id}`);
-        handleModal(false, false);
-        reset();
+          .then(() => {
+            // Execute navigation and other actions after the promise is resolved
+            navigate(`/dashboard/profile/${res.data.data._id}`);
+            handleModal(false, false);
+            reset();
+          });
       }
     } catch (error) {
       console.log(error);

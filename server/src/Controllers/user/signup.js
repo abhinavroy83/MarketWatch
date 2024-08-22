@@ -38,7 +38,7 @@ const singup = async (req, res) => {
     if (ress) {
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
       await sendemailverification(email, jwttoken, newUser.firstName);
-      res.json({
+      return res.json({
         cnfstatus: true,
         data: newUser,
         status: "User registered successfully. Please verify your email.",
