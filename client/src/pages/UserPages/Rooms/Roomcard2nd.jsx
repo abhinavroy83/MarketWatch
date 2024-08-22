@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { minuscart, pluscart } from "../../../store/cartslice";
+import { FaHeart } from "react-icons/fa";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -223,7 +224,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
                   unwish(item._id);
                 }}
               >
-                <LuHeart className="" color="red" size={22} />
+                <FaHeart className="" color="red" size={22} />
               </div>
             )}
           </div>
