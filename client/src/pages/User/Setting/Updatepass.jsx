@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 function Updatepass() {
   const {
@@ -54,6 +55,7 @@ function Updatepass() {
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
           {/* <FaHeart size={25} /> */}
           {/* <img className="w-[2rem] h-[2rem]" src="resetpassword" alt="" /> */}
+          <RiLockPasswordFill />
           Change Password
         </p>{" "}
         <div className="flex justify-center items-center">

@@ -50,13 +50,21 @@ const ConfirmationDialog = ({
           className="h-5 w-5 text-black absolute top-3 right-5 cursor-pointer hover:rotate-[360deg] transition-transform duration-300 "
           onClick={onClose}
         />
-        <h2 className="text-[1.4rem] font-bold ">{Heading}</h2>
-
+        <div className="flex gap-1">
+          <img
+            className="h-7 w-7"
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+            }
+            alt=""
+          />
+          <h2 className="text-[1.4rem] font-bold ">{Heading}</h2>
+        </div>
         <p className="mt-2 text-[1.1rem] text-gray-500">{Para}</p>
 
         <input
           type="password"
-          className="mt-4 font-['udemy-regular'] h-10 w-[340px] text-[1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-4 font-['udemy-regular'] h-10 w-[340px] text-[1rem] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
@@ -74,7 +82,7 @@ const ConfirmationDialog = ({
           {!isPasswordVerified && (
             <p
               onClick={handlePasswordVerification}
-              className="rounded bg-red-600 px-6 py-2 text-[1rem] font-medium text-white cursor-pointer"
+              className="rounded bg-gray-300 px-6 py-2 text-[1rem] font-medium text-black cursor-pointer"
             >
               Verify Password
             </p>
