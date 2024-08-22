@@ -22,7 +22,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const notify = () => toast.success("Added to Wishlist.");
   const unnotify = () => toast.success("Remove from Wishlist.");
   const unauthnotify = () => toast.info("Please Login");
-
+ 
   const makewishlist = async (_id) => {
     if (auth) {
       try {
