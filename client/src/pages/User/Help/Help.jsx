@@ -8,14 +8,14 @@ function Help() {
       <div className="flex justify-center text-center self-center font-['udemy-regular']">
         <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center shadow-black shadow-sm items-center text-center">
           {/* <ImProfile /> */}
-          {/* <img
+          <img
             className="w-[2rem] h-[2rem]"
             src={
-              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/jxhk73i2js2oxrdxwb1h.png"
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
             }
             alt="logo"
-          /> */}
-          <IoIosHelpCircle size={33} />
+          />
+          {/* <IoIosHelpCircle size={33} /> */}
           Help
         </p>
       </div>
