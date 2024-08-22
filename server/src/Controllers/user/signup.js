@@ -37,7 +37,7 @@ const singup = async (req, res) => {
     const ress = await newUser.save();
     if (ress) {
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
-      await sendemailverification(email, jwttoken);
+      await sendemailverification(email, jwttoken, newUser.firstName);
       res.json({
         cnfstatus: true,
         data: newUser,
@@ -61,7 +61,7 @@ const singup = async (req, res) => {
   }
 };
 
-async function sendemailverification(email, jwttoken) {
+async function sendemailverification(email, jwttoken, username) {
   const transport = nodemailer.createTransport({
     host: "live.smtp.mailtrap.io",
     port: 587,
@@ -72,12 +72,35 @@ async function sendemailverification(email, jwttoken) {
   });
 
   await transport.sendMail({
-    from: "noreply@verydesi.com",
+    from: "verydesi.com",
     to: email,
     subject: "Email Verification",
-    html: `<h1>click on the below link to verify</h1>
-    <p>Click this link to verify your email:</p>
-    <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}">https://api.verydesi.com/user/verifyemail/${jwttoken}</a>`,
+    html: `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h1 style="background-color: #f8f8f8; padding: 10px 20px; border-bottom: 2px solid #e2e2e2; text-align: center; color: #ff5722;">
+          Verydesi.com
+        </h1>
+        <p>Dear <strong>${username}</strong>,</p>
+        <p>Thank you for registering up on VeryDesi.com! To activate your account and start exploring, please click the verification link below:</p>
+        <p style="text-align: center;">
+          <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}" style="display: inline-block; padding: 10px 20px; background-color: #ff5722; color: #fff; text-decoration: none; border-radius: 5px;">
+            verify email
+          </a>
+        </p>
+        <p>If the button above doesn't work, you can copy and paste the following link into your browser:</p>
+        <p style="word-wrap: break-word;">
+          <a href="https://api.verydesi.com/user/verifyemail/${jwttoken}">
+            https://api.verydesi.com/user/verifyemail/${jwttoken}
+          </a>
+        </p>
+        <p><strong>Note:</strong> This link will expire in 10 minutes.</p>
+        <p style="color: #999; font-size: 12px; text-align: center;">
+          This is an automated email, please do not reply.
+        </p>
+        <p style="color: #999; font-size: 12px; text-align: center;">
+          &copy; ${new Date().getFullYear()} VeryDesi. All rights reserved.
+        </p>
+      </div>`,
   });
 }
 

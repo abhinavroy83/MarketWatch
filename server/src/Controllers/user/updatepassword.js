@@ -48,7 +48,7 @@ async function sendemailverification(email, username) {
   });
 
   await transport.sendMail({
-    from: "noreply@verydesi.com",
+    from: "verydesi.com",
     to: email,
     subject: "Password Change Successful",
     html: `

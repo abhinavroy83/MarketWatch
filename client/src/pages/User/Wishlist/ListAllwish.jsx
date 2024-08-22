@@ -40,7 +40,7 @@ function ListAllwish() {
         setdata((prevRoomData) =>
           prevRoomData.filter((room) => room._id !== deleteId)
         );
-        toast("Removed");
+        toast.success("Removed");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -57,7 +57,7 @@ function ListAllwish() {
 
         // console.log(listResponse);
         if (listResponse.data.status === "error") {
-          console.error(listResponse.data.msg);
+          // console.error(listResponse.data.msg);
           setLoading(false);
           return;
         }
@@ -159,8 +159,9 @@ function ListAllwish() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
-        transition:Bounce
+        toastClassName={() =>
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+        }
       />
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
