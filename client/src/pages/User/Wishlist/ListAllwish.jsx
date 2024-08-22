@@ -9,7 +9,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { minuscart } from "../../../store/cartslice";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
@@ -17,6 +18,7 @@ function ListAllwish() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const token = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch();
 
   const handleDeleteRoom = async (deleteId) => {
     // console.log(deleteId);
@@ -37,6 +39,8 @@ function ListAllwish() {
         res.data.msg === "Successfully removed" ||
         res.data.msg === "Wishlist cleared"
       ) {
+        dispatch(minuscart());
+
         setdata((prevRoomData) =>
           prevRoomData.filter((room) => room._id !== deleteId)
         );

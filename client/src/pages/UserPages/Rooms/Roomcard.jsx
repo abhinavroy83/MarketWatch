@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +12,7 @@ import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { LuHeart } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
+import { minuscart, pluscart } from "../../../store/cartslice";
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -22,7 +23,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const notify = () => toast.success("Added to Wishlist.");
   const unnotify = () => toast.success("Remove from Wishlist.");
   const unauthnotify = () => toast.info("Please Login");
- 
+  const dispatch = useDispatch();
+
   const makewishlist = async (_id) => {
     if (auth) {
       try {
@@ -43,6 +45,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
           res.data.msg === "Successfully added to wishlist" ||
           res.data.msg === "Successfully updated"
         ) {
+          dispatch(pluscart());
           setWishlistStatus(true);
           notify();
         }
@@ -73,6 +76,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         res.data.msg === "Successfully removed" ||
         res.data.msg === "Wishlist cleared"
       ) {
+        dispatch(minuscart());
         setWishlistStatus(false);
         unnotify();
       }

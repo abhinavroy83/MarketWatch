@@ -29,6 +29,7 @@ import { HiOutlineBellAlert } from "react-icons/hi2";
 import { LuHeart } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import AdsNotification from "../../../components/UserCompontents/Notification/AdsNotification";
+import cartslice, { pluscart, setCartCount } from "../../../store/cartslice";
 
 function Ads() {
   const img = useSelector((state) => state.auth.userimg);
@@ -41,20 +42,19 @@ function Ads() {
   const userID = useSelector((state) => state.auth.userID);
   const authstatus = useSelector((state) => state.auth.status);
   const [isHovered, setIsHovered] = useState(false);
-  const [cartno, setCartno] = useState("1");
+  const cartcount = useSelector((state) => state.cart.cartcount);
   const navigate = useNavigate();
-  // console.log(authstatus);
   const fetchcount = async () => {
     if (userID) {
       try {
         const res = await axios.get(
           ` https://api.verydesi.com/api/getlist/${userID}`
         );
-        console.log(res.data.count);
+        // console.log(res.data.count);
         if (res.data.status === "error") {
           setCartno("");
         } else {
-          setCartno(res.data.count);
+          dispatch(setCartCount(res.data.count));
         }
       } catch (error) {
         console.log("error during fetcing count api in header", error);
@@ -220,9 +220,9 @@ function Ads() {
                       navigate(`/dashboard/wishlist/${userID}`);
                     }}
                   />
-                  {cartno > 0 && (
+                  {cartcount > 0 && (
                     <div className="absolute top-[0.2rem] right-[-0.2rem] transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-[14px] text-white w-5 h-5 flex justify-center items-center rounded-full">
-                      {cartno}
+                      {cartcount}
                     </div>
                   )}
                 </div>

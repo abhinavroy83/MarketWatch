@@ -8,13 +8,15 @@ import { CgProfile } from "react-icons/cg";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { LuHeart } from "react-icons/lu";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { minuscart, pluscart } from "../../../store/cartslice";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const auth = useSelector((state) => state.auth.status);
+  const dispatch = useDispatch();
 
   const [wishliststatys, setWishlistStatus] = useState(false);
   function truncateCharacters(str, numCharacters) {
@@ -72,6 +74,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           res.data.msg === "Successfully updated"
         ) {
           setWishlistStatus(true);
+          dispatch(pluscart());
+
           notify();
         }
       } catch (error) {
@@ -100,6 +104,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
         res.data.msg === "Successfully removed" ||
         res.data.msg === "Wishlist cleared"
       ) {
+        dispatch(minuscart());
         setWishlistStatus(false);
         unnotify();
       }

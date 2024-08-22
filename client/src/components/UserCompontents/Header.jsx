@@ -54,9 +54,9 @@ export default function Header() {
       }
     }
   };
-  useEffect(() => {
-    fetchcount();
-  }, [userID]);
+  // useEffect(() => {
+  //   fetchcount();
+  // }, [userID]);
 
   useEffect(() => {
     let lat, lng;

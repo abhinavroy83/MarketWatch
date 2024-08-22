@@ -31,6 +31,7 @@ import { FaEdit } from "react-icons/fa";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 import { modalopen } from "../../../store/modalslice";
+import { minuscart, pluscart } from "../../../store/cartslice";
 
 function Rooms() {
   const { _id } = useParams();
@@ -191,6 +192,8 @@ function Rooms() {
         res.data.msg === "Successfully added to wishlist" ||
         res.data.msg === "Successfully updated"
       ) {
+        dispatch(pluscart());
+
         setWishlistStatus(true);
         notify();
       }
@@ -218,6 +221,7 @@ function Rooms() {
         res.data.msg === "Successfully removed" ||
         res.data.msg === "Wishlist cleared"
       ) {
+        dispatch(minuscart());
         setWishlistStatus(false);
         unnotify();
       }

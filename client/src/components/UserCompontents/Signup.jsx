@@ -329,7 +329,7 @@ function Signup() {
                   <ReCAPTCHA
                     sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                     onChange={(value) => {
-                      console.log("Captcha Value", value);
+                      // console.log("Captcha Value", value);
                     }}
                     // {...register("captcha", { required: "Verify your self" })}
                   />
