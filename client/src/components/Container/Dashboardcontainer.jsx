@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -132,6 +132,20 @@ function DashConatiner({ children }) {
 
   return (
     <div className="lg:mt-[9rem] mt-[10rem] overflow-x-hidden overflow-y-hidden mx-auto px-4 flex flex-col max-w-[1600px] h-auto w-full m-auto overflow-hidden font-['udemy-regular']">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName={() =>
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+        }
+      />
       {alertstatus && (
         <div>
           {!data?.isVerified && (
