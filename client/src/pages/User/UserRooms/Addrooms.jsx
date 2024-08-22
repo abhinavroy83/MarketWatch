@@ -13,7 +13,7 @@ import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
 
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const libraries = ["places"];
 
@@ -387,6 +387,19 @@ function Addrooms({ editdata }) {
 
   return (
     <div className="w-full mx-auto mt-[9rem] items-center lg:mt-[7%]">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
       <div className="w-full lg:max-w-[1400px] md:max-w-sm mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-4 lg:mx-20">
           <form
