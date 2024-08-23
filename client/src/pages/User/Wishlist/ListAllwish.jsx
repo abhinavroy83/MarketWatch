@@ -103,7 +103,12 @@ function ListAllwish() {
     const endIndex = Math.min(startIndex + 7, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id}>
-        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-base">
+        <td
+          onClick={() => {
+            navigate(`/rooms/${items._id}`);
+          }}
+          className="whitespace-nowrap cursor-pointer px-4 py-4 font-['udemy-regular'] text-base"
+        >
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">
               <img
@@ -117,16 +122,26 @@ function ListAllwish() {
             </div>
           </div>
         </td>
-        <td className="whitespace-nowrap px-12 py-4">
+        <td
+          onClick={() => {
+            navigate(`/rooms/${items._id}`);
+          }}
+          className="whitespace-nowrap cursor-pointer px-12 py-4"
+        >
           <div className=" text-gray-700 font-['udemy-regular']">
             {items.city},{items.state}
           </div>
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular']">
+        <td
+          onClick={() => {
+            navigate(`/rooms/${items._id}`);
+          }}
+          className="whitespace-nowrap cursor-pointer px-8 py-4 text-gray-700 font-['udemy-regular']"
+        >
           {items.Expected_Rooms}
         </td>
         <td
-          className="whitespace-nowrap px-8 py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600"
+          className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600"
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
