@@ -118,7 +118,7 @@ function AllArea() {
             <FaHome size={20} />
           </Link>
           <IoIosArrowForward />
-          <p>Area</p>
+          <p className="">Area</p>
         </div>
         {/* <div className="mx-5 mt-6 flex justify-between">
           <p className="text-[22px] font-semibold font-['udemy-regular']">
@@ -228,7 +228,7 @@ function AllArea() {
               </ul>
             </div>
 
-            <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md mt-5 lg:mt-0">
               <p className="text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2 rounded-md">
                 List of States
               </p>
