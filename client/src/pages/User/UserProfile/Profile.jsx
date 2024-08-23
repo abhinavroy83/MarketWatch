@@ -398,7 +398,7 @@ function Profile() {
               <label className="min-w-[120px]">Gender</label>
               {isedit ? (
                 <select
-                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("gender")}
                   defaultValue={data.gender}
                 >

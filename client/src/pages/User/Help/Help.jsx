@@ -23,7 +23,7 @@ function Help() {
         // onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col font-['udemy-regular'] text-black justify-center items-center gap-1 mt-2"
       >
-        <div className="flex font-['udemy-regular'] p-2 items-center">
+        <div className="flex p-2 items-center">
           <label className="w-[120px] lg:w-[190px] flex text-[17px] items-center gap-2">
             Name
           </label>
@@ -31,7 +31,7 @@ function Help() {
             {/* {data?.firstName} {data?.lastName} */}
           </input>
         </div>
-        <div className="flex font-['udemy-regular']  p-2 items-center">
+        <div className="flex p-2 items-center">
           <label className="w-[120px] lg:w-[190px] flex text-[17px] items-center gap-2">
             Email
           </label>
@@ -39,7 +39,7 @@ function Help() {
             {/* {data?.email} */}
           </input>
         </div>
-        <div className="flex font-['udemy-regular'] p-2 items-center">
+        <div className="flex p-2 items-center">
           <label className="w-[120px] lg:w-[190px] flex text-[17px] items-center gap-2">
             Phone Number
           </label>
@@ -47,12 +47,12 @@ function Help() {
             {/* {data?.phone_number} */}
           </input>
         </div>
-        <div className="flex font-['udemy-regular'] p-2">
+        <div className="flex p-2">
           <label className="w-[120px] lg:w-[190px] flex text-[17px] gap-2">
             Description
           </label>
           <input
-            className="flex h-[100px] font-['udemy-regular'] w-[200px] lg:w-[300px] bg-white text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+            className="flex h-[100px] w-[200px] lg:w-[300px] bg-white text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
             type="text"
           />
         </div>
