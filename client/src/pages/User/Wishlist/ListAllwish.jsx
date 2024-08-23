@@ -243,7 +243,7 @@ function ListAllwish() {
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
                         <span className="flex gap-1">
                           {/* <AiFillDollarCircle size={24} /> */}
