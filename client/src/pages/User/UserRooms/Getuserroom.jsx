@@ -183,7 +183,7 @@ function Getuserroom() {
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
                       >
                         <div className="flex gap-1">
                           {" "}
@@ -194,7 +194,7 @@ function Getuserroom() {
                             }
                             alt=""
                           />
-                          City, State
+                          City,State
                         </div>{" "}
                       </th>
                       <th

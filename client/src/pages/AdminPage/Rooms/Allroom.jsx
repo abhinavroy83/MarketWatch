@@ -104,24 +104,24 @@ function Allroom() {
           <div className="text-base text-gray-500">{items.email}</div>
         </td>
 
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.Expected_Rooms}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.address}
         </td> */}
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.city}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.country}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-left text-base font-medium">
+        <td className="whitespace-nowrap px-8 py-4 text-left text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="px-4 py-4 text-left text-base text-gray-500 hover:text-red-700">
+        <td className="px-8 py-4 text-left text-base text-gray-500 hover:text-red-700">
           <button
             className="hover:text-red-600"
             onClick={() => {
@@ -145,12 +145,12 @@ function Allroom() {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
+        <div className="lg:hidden flex items-center text-gray-700 mt-2 text-[16px] font-['udemy-regular'] ">
           <Link to="/admin/dashboard">
             <FaHome size={20} />
           </Link>
           <IoIosArrowForward />
-          <p>Allroom</p>
+          <p className="text-[16px]">Allroom</p>
         </div>
         <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -250,7 +250,7 @@ function Allroom() {
                         </th> */}
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-1">
                             {" "}
@@ -262,7 +262,7 @@ function Allroom() {
                               }
                               alt=""
                             />
-                            City
+                            City,State
                           </div>
                         </th>
                         <th
