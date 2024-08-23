@@ -190,7 +190,7 @@ function AddArea({ editdata }) {
   }, [selectedstate, primaryState, subarea, setValue, zipcode]);
 
   return (
-    <div>
+    <div className=" !mt-0">
       <AdminHeader />
       <AdminDashboard>
         <p className="text-[22px] font-bold text-[#232f3e] my-7 font-roboto flex justify-center">

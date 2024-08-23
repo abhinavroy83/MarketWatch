@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 function AdminDashboard({ children }) {
   const navigate = useNavigate();
   const role = useSelector((state) => state.adminauth.role);
+  const isaddareapage = location.pathname.includes("admin/allarea");
 
   return (
-    <div className="max-w-[1600px] mx-auto flex justify-center shadow-lg shadow-gray-400 h-[700px] overflow-hidden font-['udemy-regular'] mt-[7rem] text-[20px]">
+    <div className="max-w-[1600px] mx-auto flex justify-center shadow-lg shadow-gray-400 h-[700px] overflow-hidden font-['udemy-regular'] mt-[5rem] text-[20px]">
       <div className="w-[20%] h-auto border p-2 hidden lg:flex flex-col items-center">
         <button
           onClick={() => {

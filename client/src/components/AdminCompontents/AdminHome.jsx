@@ -52,7 +52,7 @@ function AdminHome() {
                 </div>
               </div>
             </Link>
-            <div className="" onClick={notify}>
+            <div className="" >
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -66,7 +66,7 @@ function AdminHome() {
                 </h1>
               </div>
             </div>
-            <Link className="" onClick={notify} to={`/admin/getapproval`}>
+            <Link className=""  to={`/admin/getapproval`}>
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -80,7 +80,7 @@ function AdminHome() {
                 </h1>
               </div>
             </Link>
-            <Link className="" onClick={notify} to={`/admin/allarea`}>
+            <Link className="" to={`/admin/allarea`}>
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -95,7 +95,6 @@ function AdminHome() {
               </div>
             </Link>
             <Link
-              onClick={notify}
               // to={`/user/bussiness/${userID}`}
               to={`/admin/allroom`}
             >
