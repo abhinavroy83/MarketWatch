@@ -141,8 +141,8 @@ function AllArea() {
         </p>
         <form className=" font-['udemy-regular'] mt-5">
           <div className=" flex w-full mx-auto justify-center items-center">
-            <div className="flex flex-col border-2 border-gray-400 w-[15rem] bg-white text-[18px]">
-              <p className="rounded-sm text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem] bg-white text-[18px] rounded-md">
+              <p className="rounded-md text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
                 Country -
               </p>
               <ul>
@@ -177,8 +177,8 @@ function AllArea() {
           </div>
 
           <div className="lg:flex lg:gap-20 lg:justify-center mt-5">
-            <div className="flex flex-col border-2 border-gray-400 w-[15rem]">
-              <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md">
+              <p className="text-[20px] bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400 rounded-md">
                 List of Area in{" "}
                 {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
               </p>
@@ -228,8 +228,8 @@ function AllArea() {
               </ul>
             </div>
 
-            <div className="flex flex-col border-2 border-gray-400 w-[15rem]">
-              <p className="rounded-sm text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2">
+            <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md">
+              <p className="text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2 rounded-md">
                 List of States
               </p>
               <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white text-[18px]">
@@ -253,8 +253,8 @@ function AllArea() {
             </div>
 
             <div className="flex flex-col w-[15rem]">
-              <div className="border-2 border-gray-400 ">
-                <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
+              <div className="border-2 border-gray-400 rounded-md">
+                <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of Subarea
                 </p>
                 <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
@@ -271,8 +271,8 @@ function AllArea() {
               </div>
             </div>
             <div className="flex flex-col w-[15rem]">
-              <div className="border-2 border-gray-400">
-                <p className="text-[20px] rounded-sm bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
+              <div className="border-2 border-gray-400 rounded-md">
+                <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
                   List of zipcode
                 </p>
                 <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">

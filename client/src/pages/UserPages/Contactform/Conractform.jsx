@@ -91,7 +91,7 @@ function Conractform({ isOpen, onClose }) {
                 />
                 Name
               </label>
-              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
                 {data?.firstName} {data?.lastName}
               </p>
             </div>
@@ -106,7 +106,7 @@ function Conractform({ isOpen, onClose }) {
                 />
                 Email
               </label>
-              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border rounded-md border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
                 {data?.email}
               </p>
             </div>
@@ -121,7 +121,7 @@ function Conractform({ isOpen, onClose }) {
                 />
                 Number
               </label>
-              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
+              <p className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 ">
                 {data?.phone_number}
               </p>
             </div>

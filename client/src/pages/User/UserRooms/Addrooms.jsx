@@ -1279,7 +1279,7 @@ function Addrooms({ editdata }) {
                     </div>
                   </div>
                   <div className="">
-                    <div className="image-preview flex flex-wrap justify-evenly">
+                    <div className="image-preview flex flex-wrap justify-evenly mt-3">
                       {files.map((file, index) => (
                         <div className="relative" key={index}>
                           <img
@@ -1304,7 +1304,7 @@ function Addrooms({ editdata }) {
                           <button
                             type="button"
                             onClick={handleUpload}
-                            className=" bg-green-700 py-2 px-3 text-white text-[1.2rem] font-bold rounded-md ml-2 mt-4"
+                            className=" bg-green-800 py-2 px-3 text-white text-[1.1rem] font-bold rounded-md ml-2 mt-4 hover:bg-green-900"
                           >
                             {loading ? "Uploading..." : "Upload"}
                           </button>
@@ -1486,7 +1486,7 @@ function Addrooms({ editdata }) {
             ) : (
               <button
                 type="submit"
-                className="rounded-md bg-green-800 mt-6 px-4 py-4 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Add New Room
               </button>
