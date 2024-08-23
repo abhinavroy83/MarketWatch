@@ -143,7 +143,7 @@ function DashConatiner({ children }) {
         draggable
         pauseOnHover
         toastClassName={() =>
-          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2 border border-gray-100"
         }
       />
       {alertstatus && (

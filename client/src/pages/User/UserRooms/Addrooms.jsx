@@ -428,25 +428,25 @@ function Addrooms({ editdata }) {
                         confirmAlert({
                           customUI: ({ onClose }) => {
                             return (
-                              <div className="bg-gray-200 rounded-md text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
+                              <div className="w-[430px] bg-gray-200 rounded-md text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
                                 <RxCross1
                                   className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300"
                                   onClick={onClose}
                                 />
                                 <p className="text-[20px] text-gray-600">
-                                  Your profile is connected to
+                                  Your profile is connected to  
                                   {profiledata.belongcity}, are you sure you
                                   want to post in {selectedValue}?
                                 </p>
-                                <div className="flex gap-4 items-center mt-4">
+                                <div className="flex gap-4 items-center mt-7">
                                   <button
                                     className="bg-red-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
                                     onClick={() => {
                                       field.onChange("Portland");
                                       onClose();
-                                    }}
+                                  }}
                                   >
-                                    Cancel
+                                    No
                                   </button>
                                   <button
                                     onClick={() => {
