@@ -11,6 +11,7 @@ import { FaHome } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { minuscart } from "../../../store/cartslice";
+import Pagination from "../../../components/SharedCompontents/Pagination";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
@@ -91,13 +92,8 @@ function ListAllwish() {
     fetchAllList();
   }, [userID]);
 
-  const nextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const prevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
   // if (loading) {
   //   return <Loader className={"h-screen flex justify-center items-center"} />;
   // }
@@ -294,29 +290,13 @@ function ListAllwish() {
             </div>
           </div>
         </div>
-        <div className="mt-4 w-full border-gray-300">
-          <div className="mt-2 flex items-center justify-end">
-            <div className="space-x-2 flex">
-              {currentPage > 1 && (
-                <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                  onClick={prevPage}
-                >
-                  <FaArrowLeft /> Previous
-                </button>
-              )}
-              {data.length > currentPage * 4 && (
-                <button
-                  className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                  onClick={nextPage}
-                >
-                  Next <FaArrowRight />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
       </section>
+      <Pagination
+        currentPage={currentPage}
+        totalRooms={data.length}
+        roomsPerPage="8"
+        paginate={paginate}
+      />
     </DashConatiner>
   );
 }

@@ -13,7 +13,9 @@ import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
 
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert";
+import { RxCross1 } from "react-icons/rx";
 
 const libraries = ["places"];
 
@@ -178,7 +180,7 @@ function Addrooms({ editdata }) {
   // }, [files]);
   // console.log(resimgurl);
   const fetchAreaData = async (city) => {
-    console.log(city);
+    // console.log(city);
     const response = await axios(
       `https://api.verydesi.com/api/admin/area/${city}`
     );
@@ -387,6 +389,19 @@ function Addrooms({ editdata }) {
 
   return (
     <div className="w-full mx-auto mt-[9rem] items-center lg:mt-[7%]">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
       <div className="w-full lg:max-w-[1400px] md:max-w-sm mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
         <div className="font-['udemy-regular'] mx-4 lg:mx-20">
           <form
@@ -409,14 +424,51 @@ function Addrooms({ editdata }) {
                     className="mt-6 text-[1.5rem] font-['udemy-regular'] rounded-md bg-gray-200 text-black border-2 placeholder:text-gray-400 cursor-pointer"
                     onChange={(e) => {
                       const selectedValue = e.target.value;
-
                       if (selectedValue !== profiledata.belongcity) {
-                        toast.info(
-                          `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
-                        );
-                      }
+                        confirmAlert({
+                          customUI: ({ onClose }) => {
+                            return (
+                              <div className="bg-gray-200 rounded-md text-black flex flex-col p-5 lg:p-10 items-center justify-center font-['udemy-regular'] relative">
+                                <RxCross1
+                                  className="h-5 w-5 text-black absolute top-3 right-3 cursor-pointer hover:rotate-[360deg] transition-transform duration-300"
+                                  onClick={onClose}
+                                />
+                                <p className="text-[20px] text-gray-600">
+                                  Your profile is connected to
+                                  {profiledata.belongcity}, are you sure you
+                                  want to post in {selectedValue}?
+                                </p>
+                                <div className="flex gap-4 items-center mt-4">
+                                  <button
+                                    className="bg-red-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
+                                    onClick={() => {
+                                      field.onChange("Portland");
+                                      onClose();
+                                    }}
+                                  >
+                                    Cancel
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      field.onChange(selectedValue);
+                                      onClose();
+                                    }}
+                                    className="bg-green-700 text-[20px] cursor-pointer px-7 py-2 rounded-md text-white"
+                                  >
+                                    Yes
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          },
+                        });
 
-                      field.onChange(selectedValue);
+                        // toast.info(
+                        //   `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
+                        // );
+                      } else {
+                        field.onChange(selectedValue);
+                      }
                     }}
                   >
                     <option className="text-gray-200" value="" disabled hidden>

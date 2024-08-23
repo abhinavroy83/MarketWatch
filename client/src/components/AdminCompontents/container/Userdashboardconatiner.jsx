@@ -7,13 +7,13 @@ import axios from "axios";
 function Userdashboardconatiner({ children }) {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const handledeleteuser = async () => {
     try {
       const dlt = await axios.delete(
         ` https://api.verydesi.com/api/admin/deleteuser/${id}`
       );
-      console.log(dlt);
+      // console.log(dlt);
       if (dlt) {
         alert("successfully deleted");
         navigate("/admin/alluser");
@@ -27,7 +27,7 @@ function Userdashboardconatiner({ children }) {
       const dlt = await axios.delete(
         ` https://api.verydesi.com/api/admin/deleteuserwithdata/${id}`
       );
-      console.log(dlt);
+      // console.log(dlt);
       if (dlt) {
         alert("successfully deleted");
         navigate("/admin/alluser");
