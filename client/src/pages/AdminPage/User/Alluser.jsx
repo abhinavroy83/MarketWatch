@@ -81,27 +81,27 @@ function Alluser() {
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className="">
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.firstName}
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.lastName}
         </td>
         <td className="whitespace-nowrap px-6 py-4">
           <div className="text-base text-gray-500">{items.email}</div>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.city}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
         </td> */}
-        <td className="whitespace-nowrap px-4 py-4 text-base font-medium">
+        <td className="whitespace-nowrap px-8 py-4 text-base font-medium">
           <a href="#" className="text-gray-500 hover:text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-4 py-4 text-base font-medium hover:text-red-600 text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base font-medium hover:text-red-600 text-gray-500">
           <button
             onClick={() => {
               const _id = items._id;
@@ -176,7 +176,7 @@ function Alluser() {
                       <tr className="">
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
                           <div className="flex gap-2">
                             {" "}
@@ -193,7 +193,7 @@ function Alluser() {
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700 whitespace-nowrap"
                         >
                           <div className="flex gap-2">
                             {" "}
@@ -210,7 +210,7 @@ function Alluser() {
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-2">
                             {/* <MdOutlineEmail size={23} /> */}
@@ -226,7 +226,7 @@ function Alluser() {
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-2">
                             {" "}
@@ -252,7 +252,7 @@ function Alluser() {
                         </th> */}
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-2">
                             {/* <MdEdit size={23} /> Edit */}
@@ -268,7 +268,7 @@ function Alluser() {
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-2">
                             {/* <MdDeleteForever size={25} /> */}

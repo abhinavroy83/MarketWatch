@@ -145,7 +145,7 @@ function AllArea() {
               <p className="rounded-md text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
                 Country -
               </p>
-              <ul>
+              <ul className="">
                 <li
                   value={"Usa"}
                   onClick={() => {
@@ -157,7 +157,7 @@ function AllArea() {
                       : ""
                   }`}
                 >
-                  Usa
+                  <p className="ml-3">USA</p>
                 </li>
                 <li
                   value={"Canada"}
@@ -170,7 +170,7 @@ function AllArea() {
                       : ""
                   }`}
                 >
-                  Canada
+                  <p className="ml-3">Canada</p>
                 </li>
               </ul>
             </div>
