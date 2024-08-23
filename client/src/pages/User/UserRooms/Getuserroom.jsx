@@ -8,6 +8,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
+import Pagination from "../../../components/SharedCompontents/Pagination";
 function Getuserroom() {
   const { userID } = useParams();
   const token = useSelector((state) => state.auth.token);
@@ -60,6 +61,7 @@ function Getuserroom() {
   const prevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const renderRows = () => {
     const startIndex = (currentPage - 1) * 5;
@@ -251,30 +253,13 @@ function Getuserroom() {
             </div>
           </div>
         </div>
-
-        <div className="mt-4 w-full border-gray-300">
-          <div className="mt-2 flex items-center justify-end">
-            <div className="space-x-2 flex">
-              {currentPage > 1 && (
-                <button
-                  className="rounded-md bg-green-800 px-3 py-2 text-[20px] flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
-                  onClick={prevPage}
-                >
-                  <FaArrowAltCircleLeft /> Previous
-                </button>
-              )}
-              {roomsdeatails.length > currentPage * 4 && (
-                <button
-                  className="rounded-md bg-green-800 px-3 py-2 text-[20px] flex items-center justify-center gap-2 font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
-                  onClick={nextPage}
-                >
-                  Next <FaArrowAltCircleRight />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
       </section>
+      <Pagination
+        currentPage={currentPage}
+        totalRooms={roomsdeatails.length}
+        roomsPerPage="8"
+        paginate={paginate}
+      />
     </DashConatiner>
   );
 }

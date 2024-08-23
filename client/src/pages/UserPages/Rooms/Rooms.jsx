@@ -700,9 +700,16 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Avaliblity From
                     <p className="text-black flex text-[18px] break-all">
-                      {(rooms?.Avaliblity_from &&
-                        rooms?.Avaliblity_from.split("T")[0]) ||
-                        "Immediate"}
+                      {rooms?.Avaliblity_from
+                        ? new Date(rooms.Avaliblity_from).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "2-digit",
+                              day: "2-digit",
+                              year: "numeric",
+                            }
+                          )
+                        : "Immediate"}
                     </p>
                   </p>
                 </div>
@@ -720,9 +727,16 @@ function Rooms() {
                   <p className="text-gray-500 text-[20px]">
                     Available To
                     <p className="text-black flex text-[18px] break-all">
-                      {(rooms?.Available_to &&
-                        rooms?.Available_to.split("T")[0]) ||
-                        "Immediate"}{" "}
+                      {rooms?.Available_to
+                        ? new Date(rooms.Available_to).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "2-digit",
+                              day: "2-digit",
+                              year: "numeric",
+                            }
+                          )
+                        : "Immediate"}
                     </p>
                   </p>
                 </div>
@@ -851,8 +865,16 @@ function Rooms() {
                 <div className="flex">
                   <p className="text-gray-500 text-[20px]">
                     Open House Schedule
-                    <p className="text-black flex text-[18px]">
-                      {rooms?.Open_house_schedule || "Not Available"}
+                    <p className="text-black flex text-[18px] break-all">
+                      {rooms?.Open_house_schedule
+                        ? new Date(
+                            rooms.Open_house_schedule
+                          ).toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                            year: "numeric",
+                          })
+                        : "Immediate"}
                     </p>
                   </p>
                 </div>

@@ -148,7 +148,7 @@ function DashConatiner({ children }) {
       />
       {alertstatus && (
         <div>
-          {!data?.isVerified && (
+          {!isverified && !data?.isVerified && (
             <div
               role="alert"
               className="rounded border-s-4 border-red-500 bg-red-50 p-4"
