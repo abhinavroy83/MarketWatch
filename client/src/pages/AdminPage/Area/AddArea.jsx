@@ -193,18 +193,18 @@ function AddArea({ editdata }) {
     <div className=" !mt-0">
       <AdminHeader />
       <AdminDashboard>
-        <p className="text-[22px] font-bold text-[#232f3e] my-7 font-roboto flex justify-center">
+        <p className="text-[22px] font-bold text-[#232f3e] my-7 font-['udemy-regular'] flex justify-center">
           Here You can Add Area
         </p>
         <form onSubmit={handleSubmit(onsubmit)}>
           <div className="flex flex-col gap-3 justify-center items-center">
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[18px]" htmlFor="country">
+              <label className="w-[160px] text-[18px]" htmlFor="country">
                 Select Country
               </label>
               <div>
                 <select
-                  className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("country", {
                     required: "Please fill the country",
                   })}
@@ -225,11 +225,11 @@ function AddArea({ editdata }) {
             </div>
 
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[18px]" htmlFor="state">
+              <label className="w-[160px] text-[18px]" htmlFor="state">
                 Select State
               </label>
               <select
-                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 onChange={handleStateChange}
               >
                 <option value="" disabled hidden>
@@ -280,11 +280,11 @@ function AddArea({ editdata }) {
             </div>
 
             <div className="flex items-center">
-              <label className="min-w-[160px] text-[18px]" htmlFor="area">
+              <label className="w-[160px] text-[18px]" htmlFor="area">
                 Area
               </label>
               <input
-                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 required="true"
                 {...register("area")}
@@ -292,41 +292,43 @@ function AddArea({ editdata }) {
               />
             </div>
             {/* previosuly we named this as subarea ,now its cities  */}
-            <div className="flex gap-2 items-center text-[17px]">
+            <div className="flex gap-2 text-[17px]">
               <label
-                className="min-w-[150px] text-[18px] ml-[5.7rem]"
+                className="w-[150px] text-[18px] lg:ml-[5.7rem]"
                 htmlFor="subarea"
               >
                 Cities
               </label>
-              <input
-                className="flex h-10 font-roboto w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                type="text"
-                value={subareaInput}
-                onChange={(e) => setSubareaInput(e.target.value)}
-                placeholder="Type Subarea "
-              />
-              <select
-                className="flex h-10 font-roboto w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                onChange={(e) => setstateab(e.target.value)}
-              >
-                <option value="" disabled selected>
-                  Select State
-                </option>
-                {selectedstate.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
+              <div className="flex flex-col lg:flex-row gap-2">
+                <input
+                  className="flex h-10 w-[200px] lg:w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  value={subareaInput}
+                  onChange={(e) => setSubareaInput(e.target.value)}
+                  placeholder="Type Subarea "
+                />
+                <select
+                  className="flex h-10 w-[200px] lg:w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setstateab(e.target.value)}
+                >
+                  <option value="" disabled selected>
+                    Select State
                   </option>
-                ))}
-              </select>
+                  {selectedstate.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
 
-              <button
-                type="button"
-                onClick={handleAddSubarea}
-                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
-              >
-                Add
-              </button>
+                <button
+                  type="button"
+                  onClick={handleAddSubarea}
+                  className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
+                >
+                  Add
+                </button>
+              </div>
             </div>
             <div className="flex flex-wrap text-[17px] text-red-600 items-center">
               {subarea.map((subarea) => (
@@ -353,7 +355,7 @@ function AddArea({ editdata }) {
                 Zip & Codes
               </label>
               <input
-                className="flex h-10 font-roboto w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
                 value={zipcodeInput}
                 onChange={(e) => setZipcodeInput(e.target.value)}
@@ -363,7 +365,7 @@ function AddArea({ editdata }) {
               <button
                 type="button"
                 onClick={handleAddZipcode}
-                className="ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
+                className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
               >
                 Add
               </button>
@@ -392,14 +394,14 @@ function AddArea({ editdata }) {
             {editdata ? (
               <div className=" flex gap-2">
                 <button
-                  className="rounded-md bg-green-800 px-4 py-2 text-[19px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-green-800 px-4 py-2 text-[19px] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   type="button"
                   onClick={() => navigate(`/admin/allarea`)}
                 >
                   Back
                 </button>
                 <button
-                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   type="submit"
                 >
                   Update Area
@@ -415,10 +417,10 @@ function AddArea({ editdata }) {
             )}
           </div>
         </form>
-        <p className=" text-xl text-red-600 capitalize">
+        <p className="text-[18px] text-red-600 capitalize">
           * Primary state is a state where area is located
         </p>
-        <p className=" text-xl text-red-600 capitalize">
+        <p className="text-[18px] text-red-600 capitalize">
           * Whole state is where the entire state is listed after the subarea
           are done
         </p>

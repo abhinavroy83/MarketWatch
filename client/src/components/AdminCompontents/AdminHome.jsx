@@ -101,7 +101,7 @@ function AdminHome() {
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
-                    className="w-[2.5rem] h-[2.5rem] lg:w-[4.4rem] lg:h-[4.4rem]"
+                    className="w-[3rem] h-[3rem] lg:w-[4.4rem] lg:h-[4.4rem]"
                     src={
                       "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
                     }

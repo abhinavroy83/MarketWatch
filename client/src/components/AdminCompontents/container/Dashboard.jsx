@@ -6,7 +6,7 @@ function AdminDashboard({ children }) {
   const role = useSelector((state) => state.adminauth.role);
 
   return (
-    <div className="max-w-[1600px] mx-auto flex justify-center shadow-lg shadow-gray-400 h-[700px] overflow-hidden font-['udemy-regular'] mt-[5rem] text-[20px]">
+    <div className="max-w-[1600px] mx-auto flex justify-center shadow-lg shadow-gray-400 h-[700px] overflow-hidden font-['udemy-regular'] mt-[3rem] text-[20px]">
       <div className="w-[20%] h-auto border p-2 hidden lg:flex flex-col items-center ">
         <button
           onClick={() => {
@@ -113,7 +113,7 @@ function AdminDashboard({ children }) {
             className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
           >
             <img
-              className="w-[1.7rem] h-[1.7rem]"
+              className="w-[1.9rem] h-[1.9rem]"
               src={
                 "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
               }
@@ -123,6 +123,22 @@ function AdminDashboard({ children }) {
             Posts
           </button>
         ) : null}
+        <button
+          onClick={() => {
+            navigate(`/admin/Help`);
+          }}
+          className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start lg:mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
+        >
+          <img
+            className="w-[1.9rem] h-[1.9rem]"
+            src={
+              "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
+            }
+            alt="logo"
+          />
+          {/* <BsPostcard size={25} />  */}
+          Help
+        </button>
         {/* <button
           onClick={() => {
             // navigate(`/user/job/${userID}`);
@@ -140,6 +156,7 @@ function AdminDashboard({ children }) {
           Bussiness
         </button> */}
       </div>
+
       <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
         {children}
       </main>

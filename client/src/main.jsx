@@ -67,6 +67,8 @@ const Allmovie = React.lazy(() =>
 const Getapproval = React.lazy(() =>
   import("./pages/AdminPage/PendingApproval/Getapproval.jsx")
 );
+const Help = React.lazy(() => import("./pages/AdminPage/Help/Help.jsx"));
+
 const Adminusers = React.lazy(() =>
   import("./pages/AdminPage/User/Adminusers.jsx")
 );
@@ -409,6 +411,14 @@ const router = createBrowserRouter([
               <Allbussiness />
             </Adminauthlayout>
           </Suspense>
+        ),
+      },
+      {
+        path: "/admin/getHelp",
+        element: (
+          <Adminauthlayout authentication>
+            <Help />
+          </Adminauthlayout>
         ),
       },
       {
