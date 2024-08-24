@@ -138,7 +138,7 @@ function ListAllwish() {
           }}
           className="whitespace-nowrap cursor-pointer px-8 py-4 text-gray-700 font-['udemy-regular']"
         >
-          {items.Expected_Rooms}
+          ${items.Expected_Rooms}
         </td>
         <td
           className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600"

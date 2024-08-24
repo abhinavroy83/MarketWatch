@@ -10,6 +10,7 @@ import { FaArrowAltCircleRight, FaHome } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
+import Pagination from "../../../components/SharedCompontents/Pagination";
 function Alluser() {
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,13 +69,9 @@ function Alluser() {
     }
   };
 
-  const nextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
+ 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const prevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
   const renderRows = () => {
     const itemsPerPage = 7;
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -292,28 +289,12 @@ function Alluser() {
               </div>
             </div>
           </div>
-          <div className="mt-4 w-full border-gray-300">
-            <div className="mt-2 flex items-center justify-end">
-              <div className="space-x-2 flex">
-                {currentPage > 1 && (
-                  <button
-                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                    onClick={prevPage}
-                  >
-                    <FaArrowLeft /> Previous
-                  </button>
-                )}
-                {data.length > currentPage * 4 && (
-                  <button
-                    className="mx-2 px-4 py-2 border rounded-md flex items-center justify-center gap-2 bg-white text-gray-500 text-[17px] hover:bg-gray-300 hover:text-black"
-                    onClick={nextPage}
-                  >
-                    Next <FaArrowRight />
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalRooms={data.length}
+            roomsPerPage="8"
+            paginate={paginate}
+          />
         </section>
       </AdminDashboard>
     </div>
