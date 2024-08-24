@@ -3,6 +3,18 @@ import {
   AdminDashboard,
   AdminHeader,
 } from "../../../components/AdminCompontents";
+const deleteuser = async (_id) => {
+  try {
+    const dlt = await axios.delete(
+      ` https://api.verydesi.com/api/admin/deleteroom/${_id}`
+    );
+    if (dlt) {
+      alert("successfully deleted");
+    }
+  } catch (error) {
+    console.log("some issue while deleting try again", error);
+  }
+};
 function AdminHelpMessage() {
   <tr
     // key={items._id}
@@ -62,6 +74,7 @@ function AdminHelpMessage() {
       </button>
     </td>
   </tr>;
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
@@ -200,7 +213,7 @@ function AdminHelpMessage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
-                      {/* {renderRows()} */}
+                      name{" "}
                     </tbody>
                   </table>
                 </div>

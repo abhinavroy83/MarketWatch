@@ -69,9 +69,7 @@ function Alluser() {
     }
   };
 
- 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const renderRows = () => {
     const itemsPerPage = 7;
     const startIndex = (currentPage - 1) * itemsPerPage;
