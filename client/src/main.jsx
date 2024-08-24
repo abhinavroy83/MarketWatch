@@ -8,6 +8,7 @@ import store from "./store/store.js";
 import { Authlayout } from "./components/index.js";
 import Updatepass from "./pages/User/Setting/Updatepass.jsx";
 import Help from "./pages/User/Help/Help.jsx";
+import AdminHelpMessage from "./pages/AdminPage/Area/Help.jsx";
 
 const Home = React.lazy(() => import("./components/UserCompontents/Home.jsx"));
 const Login = React.lazy(() =>
@@ -67,7 +68,6 @@ const Allmovie = React.lazy(() =>
 const Getapproval = React.lazy(() =>
   import("./pages/AdminPage/PendingApproval/Getapproval.jsx")
 );
-const Help = React.lazy(() => import("./pages/AdminPage/Help/Help.jsx"));
 
 const Adminusers = React.lazy(() =>
   import("./pages/AdminPage/User/Adminusers.jsx")
@@ -417,7 +417,7 @@ const router = createBrowserRouter([
         path: "/admin/getHelp",
         element: (
           <Adminauthlayout authentication>
-            <Help />
+            <AdminHelpMessage />
           </Adminauthlayout>
         ),
       },

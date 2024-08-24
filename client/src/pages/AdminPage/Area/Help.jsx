@@ -1,7 +1,7 @@
 import React from "react";
 
-function Help() {
+function AdminHelpMessage() {
   return <div>Help</div>;
 }
 
-export default Help;
+export default AdminHelpMessage;
