@@ -94,9 +94,7 @@ function AdminHome() {
                 </h1>
               </div>
             </Link>
-            <Link
-              to={`/admin/allroom`}
-            >
+            <Link to={`/admin/allroom`}>
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
@@ -112,9 +110,7 @@ function AdminHome() {
                 </div>
               </div>
             </Link>
-            <Link
-              to={`/admin/Help`}
-            >
+            <Link to={`/admin/getHelp`}>
               <div className="">
                 <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                   <img
