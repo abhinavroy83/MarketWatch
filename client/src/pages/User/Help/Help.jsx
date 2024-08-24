@@ -4,6 +4,7 @@ import { DashConatiner } from "../../../components";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function Help() {
   const { userID } = useParams();
@@ -12,6 +13,7 @@ function Help() {
     handleSubmit,
     setValue,
     formState: { errors },
+    reset,
   } = useForm();
 
   const [data, setdata] = useState([]);
@@ -26,12 +28,27 @@ function Help() {
     }
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/adminpage/sendmsg",
+        data
+      );
+      if (res.data.success) {
+        toast.success("Message send Successfully");
+        reset();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     fetchuser();
+    setValue("username", `${data.firstName} ${data.lastName}`);
+    setValue("useremail", data.email);
+    setValue("user_phone_number", data.phone_number);
   }, []);
   return (
     <DashConatiner>
@@ -59,8 +76,7 @@ function Help() {
           </label>
           <input
             className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border rounded-md border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-            // defaultValue={data?.firstName}
-            defaultValue={`${data?.firstName} ${data?.lastName}`}
+            // defaultValue={`${data?.firstName} ${data?.lastName}`}
             {...register("username")}
           />
           {/* {data?.firstName} {data?.lastName} */}
@@ -71,7 +87,6 @@ function Help() {
           </label>
           <input
             className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border rounded-md border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-            defaultValue={data.email}
             {...register("useremail")}
           />
         </div>
@@ -81,7 +96,7 @@ function Help() {
           </label>
           <input
             className="flex h-10 w-[200px] lg:w-[300px] text-black text-[17px] border rounded-md border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-            defaultValue={data.user_phone_number}
+            {...register("user_phone_number")}
           />
         </div>
         <div className="flex p-2">
@@ -106,6 +121,13 @@ function Help() {
           Send response
         </button>
       </form>
+
+      <p>
+        Or you can send an email on
+        <a href={`mailto:verydesionline@gmail.com`} className="hover:underline">
+          verydesionline@gmail.com
+        </a>
+      </p>
     </DashConatiner>
   );
 }
