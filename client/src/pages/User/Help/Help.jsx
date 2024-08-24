@@ -22,6 +22,7 @@ function Help() {
       const res = await axios.get(
         ` https://api.verydesi.com/user/dashboard/profile/${userID}`
       );
+
       setdata(res.data.user);
     } catch (error) {
       console.log("error during fetcing userdetails", error);
@@ -29,7 +30,7 @@ function Help() {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       const res = await axios.post(
         "http://localhost:8000/api/adminpage/sendmsg",
@@ -49,7 +50,7 @@ function Help() {
     setValue("username", `${data.firstName} ${data.lastName}`);
     setValue("useremail", data.email);
     setValue("user_phone_number", data.phone_number);
-  }, []);
+  }, [userID]);
   return (
     <DashConatiner>
       <div className="flex justify-center text-center self-center font-['udemy-regular']">

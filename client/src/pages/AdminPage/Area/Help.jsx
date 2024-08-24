@@ -1,79 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AdminDashboard,
   AdminHeader,
 } from "../../../components/AdminCompontents";
-const deleteuser = async (_id) => {
-  try {
-    const dlt = await axios.delete(
-      ` https://api.verydesi.com/api/admin/deleteroom/${_id}`
-    );
-    if (dlt) {
-      alert("successfully deleted");
-    }
-  } catch (error) {
-    console.log("some issue while deleting try again", error);
-  }
-};
-function AdminHelpMessage() {
-  <tr
-    // key={items._id}
-    className=" mb-4 "
-  >
-    <td className="whitespace-nowrap px-4 py-4">
-      <div className="flex items-center">
-        <div className="h-10 w-10 flex-shrink-0">
-          <img
-            className="h-10 w-10 rounded-full object-cover"
-            // src={items.Imgurl[0]}
-            alt=""
-          />
-        </div>
-        <div className="ml-4">
-          <div className="text-base font-medium text-gray-500">
-            {/* {items.Title} */}
-          </div>
-        </div>
-      </div>
-    </td>
-    <td className="whitespace-nowrap px-6 py-4">
-      <div className="text-base text-gray-500">{/* {items.email} */}</div>
-    </td>
+import axios from "axios";
+import Pagination from "../../../components/SharedCompontents/Pagination";
 
-    <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-      {/* {items.Expected_Rooms} */}
-    </td>
-    {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
-          {items.address}
-        </td> */}
-    <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-      {/* {items.city} */}
-    </td>
-    <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-      {/* {items.country} */}
-    </td>
-    <td className="whitespace-nowrap px-8 py-4 text-left text-base font-medium">
-      <a href="#" className="text-gray-500 hover:text-indigo-600">
-        Edit
-      </a>
-    </td>
-    <td className="px-8 py-4 text-left text-base text-gray-500 hover:text-red-700">
-      <button
-        className="hover:text-red-600"
-        // onClick={() => {
-        //   const _id = items._id;
-        //   // console.log(_id);
-        //   if (confirm("Confirm to delete") == true) {
-        //     deleteuser(_id);
-        //   } else {
-        //     console.log("cancel");
-        //   }
-        // }}
-      >
-        Delete
-      </button>
-    </td>
-  </tr>;
+function AdminHelpMessage() {
+  const [data, setdata] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const fetchdata = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:8000/api/admin/gethepmessages"
+      );
+      // console.log(res);
+      setdata(res.data.data);
+    } catch (error) {
+      console.log("error while fetcing api in helpdahs", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
+  const renderRows = () => {
+    const startIndex = (currentPage - 1) * 7;
+    const endIndex = Math.min(startIndex + 7, data.length);
+    return data.slice(startIndex, endIndex).map((items) => (
+      <tr key={items._id}>
+        <td className="whitespace-nowrap cursor-pointer px-12 py-4">
+          <div className=" text-gray-700 font-['udemy-regular']">
+            {items.username}
+          </div>
+        </td>
+        <td className="whitespace-nowrap cursor-pointer px-8 py-4 text-gray-700 font-['udemy-regular']">
+          {items.useremail}
+        </td>
+        <td className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600">
+          {items.user_phone_number}
+        </td>
+        <td className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600">
+          {items.msg}
+        </td>
+        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular']">
+          <a
+            onClick={() => {
+              handleDeleteRoom(items._id);
+            }}
+            className="text-gray-700 cursor-pointer text-base hover:text-red-600"
+          >
+            {/* <BiMinusCircle size={25} />  */}
+            Remove
+          </a>
+        </td>
+      </tr>
+    ));
+  };
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -213,7 +199,7 @@ function AdminHelpMessage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
-                      name{" "}
+                      {renderRows()}
                     </tbody>
                   </table>
                 </div>
@@ -221,12 +207,12 @@ function AdminHelpMessage() {
             </div>
           </div>
         </section>
-        {/* <Pagination
+        <Pagination
           currentPage={currentPage}
           totalRooms={data.length}
           roomsPerPage="8"
           paginate={paginate}
-        /> */}
+        />
       </AdminDashboard>
     </div>
   );
