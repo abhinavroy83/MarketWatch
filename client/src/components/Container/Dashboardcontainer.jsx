@@ -9,6 +9,7 @@ import { FaRegShareFromSquare } from "react-icons/fa6";
 import { IoMdHelpCircle } from "react-icons/io";
 import stateAbbreviations from "../../Services/StateAprevation/stateAbbreviations.json";
 import { toast, ToastContainer } from "react-toastify";
+import ShareComponent from "../UserCompontents/ShareComponent";
 
 function DashConatiner({ children }) {
   const username = useSelector((state) => state.auth.user);
@@ -126,6 +127,14 @@ function DashConatiner({ children }) {
     return date.getFullYear();
   };
 
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+
+  const toggleSharePopup = () => {
+    setIsSharePopupOpen(!isSharePopupOpen);
+  };
+  const toggleSharePopupclose = () => {
+    setIsSharePopupOpen(false);
+  };
   useEffect(() => {
     fetchuser();
   }, [userID]);
@@ -148,7 +157,7 @@ function DashConatiner({ children }) {
       />
       {alertstatus && (
         <div>
-          {!isverified && !data?.isVerified && (
+          {!data?.isVerified && !isverified ? (
             <div
               role="alert"
               className="rounded border-s-4 border-red-500 bg-red-50 p-4"
@@ -199,6 +208,8 @@ function DashConatiner({ children }) {
                 </button>
               </div>
             </div>
+          ) : (
+            ""
           )}
         </div>
       )}
@@ -259,12 +270,33 @@ function DashConatiner({ children }) {
                     <p className="text-gray-500 text-[0.9rem]">Add Photo</p>
                   </div>
                   <div className="flex flex-col items-center gap-2 text-gray-700">
-                    <p className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex">
+                    <p
+                      onClick={toggleSharePopup}
+                      className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex"
+                    >
                       <FaRegShareFromSquare size={23} />
                     </p>
                     <p className="text-gray-500 text-[0.9rem]">Share</p>
                   </div>
+                  {isSharePopupOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                      <div className="bg-white rounded-lg shadow-lg">
+                        <ShareComponent
+                          url={`https://verydesi.com`}
+                          title="Room title"
+                          onClose={toggleSharePopupclose}
+                        />
+                        {/* <button
+                      onClick={toggleSharePopup}
+                      className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+                    >
+                      Close
+                    </button> */}
+                      </div>
+                    </div>
+                  )}
                 </div>
+
                 {/* <p>{Date.now()}</p> */}
               </div>
             </div>
@@ -326,7 +358,7 @@ function DashConatiner({ children }) {
               <button
                 onClick={() => {
                   setbgcolor(true);
-                  navigate(`/dashboard/profile/${userID}`);
+                  navigate(`/user/help/${userID}`);
                 }}
                 className="bg-transparent rounded-md py-1 px-4 w-full flex gap-4 items-center hover:bg-gray-200 text-black leading-8 self-start mt-2 capitalize text-[1.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visibl2:outline-black "
               >

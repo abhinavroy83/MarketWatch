@@ -340,7 +340,7 @@ function Profile() {
                 {data.email}
               </p>
             </div>
-            {isverified ? (
+            {data.isVerified || isverified ? (
               <p className="mb-3 ml-2 lg:ml-7 lg:text-[1.2rem] text-[1.1rem] text-green-600">
                 Email is verified
               </p>

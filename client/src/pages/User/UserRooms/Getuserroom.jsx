@@ -78,9 +78,7 @@ function Getuserroom() {
               />
             </div>
             <div className="ml-4 font-['udemy-regular'] cursor-pointer">
-              <div className="text-[20px] font-medium text-gray-900">
-                {items.Hotelname}
-              </div>
+              <div className="text-base text-gray-700">{items.Title}</div>
             </div>
           </div>
         </td>
@@ -93,7 +91,17 @@ function Getuserroom() {
           {items.address}
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer">
-          {items.Expected_Rooms}
+          ${items.Expected_Rooms}
+        </td>
+        <td
+          onClick={(e) => {
+            // e.preventDefault();
+            // window.open(`/room/editroom/${_id}`, "_blank");
+            navigate(`/room/editroom/${items._id}`);
+          }}
+          className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer hover:text-blue-700"
+        >
+          Edit
         </td>
         <td className="whitespace-nowrap gap-2 px-8 py-6 text-base font-medium">
           <a
@@ -226,6 +234,22 @@ function Getuserroom() {
                             alt=""
                           />
                           Rent
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700"
+                      >
+                        {" "}
+                        <div className="flex gap-1">
+                          <img
+                            className="h-7 w-7"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/q0rjjk9jli8t8yorkfy9.png"
+                            }
+                            alt=""
+                          />
+                          Edit
                         </div>
                       </th>
                       <th

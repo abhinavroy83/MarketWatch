@@ -63,6 +63,7 @@ const approval = require("./src/Routes/Approval");
 const city = require("./src/Routes/City");
 const wish = require("./src/Routes/wishlist");
 const authRoutes = require("./src/Routes/Auth");
+const help = require("./src/Routes/Help");
 
 app.use("/api", authRoutes);
 app.use("/user", user);
@@ -75,6 +76,7 @@ app.use(admin);
 app.use(approval);
 app.use(city);
 app.use(wish);
+app.use(help);
 
 //healt check
 
