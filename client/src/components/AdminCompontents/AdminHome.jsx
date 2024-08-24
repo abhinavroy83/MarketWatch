@@ -52,7 +52,7 @@ function AdminHome() {
                 </div>
               </div>
             </Link>
-            <div className="" >
+            <div className="">
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -66,7 +66,7 @@ function AdminHome() {
                 </h1>
               </div>
             </div>
-            <Link className=""  to={`/admin/getapproval`}>
+            <Link className="" to={`/admin/getapproval`}>
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
                   className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -95,7 +95,6 @@ function AdminHome() {
               </div>
             </Link>
             <Link
-              // to={`/user/bussiness/${userID}`}
               to={`/admin/allroom`}
             >
               <div className="">
@@ -109,6 +108,24 @@ function AdminHome() {
                   />
                   <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
                     Rooms
+                  </h1>
+                </div>
+              </div>
+            </Link>
+            <Link
+              to={`/admin/Help`}
+            >
+              <div className="">
+                <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
+                  <img
+                    className="w-[3rem] h-[3rem] lg:w-[4.4rem] lg:h-[4.4rem]"
+                    src={
+                      "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
+                    }
+                    alt="logo"
+                  />
+                  <h1 className="text-[17px] lg:text-[22px] text-center text-[#000]">
+                    Help
                   </h1>
                 </div>
               </div>

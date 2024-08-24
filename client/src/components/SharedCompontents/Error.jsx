@@ -2,14 +2,20 @@ import React from "react";
 
 function Error() {
   return (
-    <div className="h-screen justify-center items-center font-['udemy-regular'] flex flex-col mt-5">
+    <div className="h-screen justify-center items-center font-['udemy-regular'] flex flex-col">
       <img
         className="w-50 h-50"
-        src={`https://media.istockphoto.com/id/1388733994/vector/404-error-icon-with-alien-spaceship-page-lost-and-message-not-found-ufo-vector-flat.jpg?s=612x612&w=0&k=20&c=OYQ4jo8uFdgJ6tN5PxorrgIbUBR2rlhJ7RRKdF8zgTw=`}
+        src={`https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-1932.jpg`}
         alt="logo"
       />
-      <p className="text-[55px] text-orange-600 font-bold">Oops!</p>
+      {/* <p className="text-[55px] text-[#232f3e] font-bold">Oops!</p> */}
       <p className="text-[30px]">Page not found</p>
+      <button
+        className="self-center justify-center items-center rounded-md bg-blue-600 mt-5 py-2 px-4 text-[20px] text-white shadow-sm hover:bg-black"
+        type="submit"
+      >
+        Home Page{" "}
+      </button>
     </div>
   );
 }

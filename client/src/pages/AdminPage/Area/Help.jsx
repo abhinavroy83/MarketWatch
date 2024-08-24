@@ -30,19 +30,19 @@ function AdminHelpMessage() {
     const startIndex = (currentPage - 1) * 7;
     const endIndex = Math.min(startIndex + 7, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
-      <tr key={items._id}>
-        <td className="whitespace-nowrap cursor-pointer px-12 py-4">
-          <div className=" text-gray-700 font-['udemy-regular']">
+      <tr key={items._id} className="text-base">
+        <td className="whitespace-nowrap cursor-pointer px-8 py-4">
+          <div className=" text-gray-500 font-['udemy-regular']">
             {items.username}
           </div>
         </td>
-        <td className="whitespace-nowrap cursor-pointer px-8 py-4 text-gray-700 font-['udemy-regular']">
+        <td className="whitespace-nowrap cursor-pointer px-8 py-4 text-gray-500 font-['udemy-regular'] text-base">
           {items.useremail}
         </td>
-        <td className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600">
+        <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer">
           {items.user_phone_number}
         </td>
-        <td className="whitespace-nowrap px-8  py-4 text-gray-700 font-['udemy-regular'] cursor-pointer hover:text-blue-600">
+        <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer">
           {items.msg}
         </td>
         <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular']">
@@ -50,7 +50,7 @@ function AdminHelpMessage() {
             onClick={() => {
               handleDeleteRoom(items._id);
             }}
-            className="text-gray-700 cursor-pointer text-base hover:text-red-600"
+            className="text-gray-500 cursor-pointer text-base hover:text-red-600"
           >
             {/* <BiMinusCircle size={25} />  */}
             Remove
@@ -91,7 +91,7 @@ function AdminHelpMessage() {
                       <tr className="">
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-1">
                             {" "}
@@ -108,7 +108,7 @@ function AdminHelpMessage() {
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-1">
                             {" "}
@@ -125,7 +125,7 @@ function AdminHelpMessage() {
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-1">
                             {" "}
@@ -137,7 +137,7 @@ function AdminHelpMessage() {
                               }
                               alt=""
                             />
-                            Phone Number
+                            Phonenumber
                           </div>
                         </th>
                         {/* <th
@@ -181,7 +181,7 @@ function AdminHelpMessage() {
                         </th> */}
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
                         >
                           <div className="flex gap-1">
                             {" "}
