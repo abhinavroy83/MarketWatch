@@ -17,7 +17,7 @@ function Help() {
   } = useForm();
 
   const [data, setdata] = useState([]);
-  const fetchuser = async () => {
+  const fetchUser = async () => {
     try {
       const res = await axios.get(
         ` https://api.verydesi.com/user/dashboard/profile/${userID}`
@@ -28,6 +28,18 @@ function Help() {
       console.log("error during fetcing userdetails", error);
     }
   };
+  useEffect(() => {
+    fetchUser();
+  }, [userID]);
+
+  useEffect(() => {
+    if (data) {
+      const fullname = `${data.firstName || ""} ${data.lastName || ""}`;
+      setValue("username", fullname);
+      setValue("useremail", data.email || "");
+      setValue("user_phone_number", data.phone_number || "");
+    }
+  }, [data, setValue]);
 
   const onSubmit = async (data) => {
     // console.log(data);
@@ -45,12 +57,6 @@ function Help() {
     }
   };
 
-  useEffect(() => {
-    fetchuser();
-    setValue("username", `${data.firstName} ${data.lastName}`);
-    setValue("useremail", data.email);
-    setValue("user_phone_number", data.phone_number);
-  }, [userID]);
   return (
     <DashConatiner>
       <div className="flex justify-center text-center self-center font-['udemy-regular']">
@@ -115,15 +121,7 @@ function Help() {
         {errors.msg && (
           <p className=" text-red-700 text-xs ml-7">{errors.msg.message}</p>
         )}
-        <p className="flex gap-1 text-[17px]">
-          Or you can send an email on
-          <a
-            href={`mailto:verydesionline@gmail.com`}
-            className="hover:underline hover:text-blue-600"
-          >
-            verydesionline@gmail.com
-          </a>
-        </p>
+
         <button
           className="flex mb-4 bg-green-800 rounded-md mt-4 p-2 px-3 text-[19px] font-normal text-white shadow-sm hover:bg-green-900 hover:text-white"
           type="submit"
@@ -131,6 +129,15 @@ function Help() {
           Send response
         </button>
       </form>
+      <p className="flex gap-1 text-[17px] text-red-500 text-sm px-2">
+        **Alternatively, you can reach out via email at{" "}
+        <a
+          href={`mailto:verydesionline@gmail.com`}
+          className="hover:underline hover:text-blue-600"
+        >
+          verydesionline@gmail.com
+        </a>
+      </p>
     </DashConatiner>
   );
 }
