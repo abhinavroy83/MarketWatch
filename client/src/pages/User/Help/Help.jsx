@@ -115,20 +115,22 @@ function Help() {
         {errors.msg && (
           <p className=" text-red-700 text-xs ml-7">{errors.msg.message}</p>
         )}
+        <p className="flex gap-1 text-[17px]">
+          Or you can send an email on
+          <a
+            href={`mailto:verydesionline@gmail.com`}
+            className="hover:underline hover:text-blue-600"
+          >
+            verydesionline@gmail.com
+          </a>
+        </p>
         <button
-          className="flex mb-4 bg-green-800 rounded-md mt-4 p-2 px-3 text-[20px] font-normal text-white shadow-sm hover:bg-green-900 hover:text-white"
+          className="flex mb-4 bg-green-800 rounded-md mt-4 p-2 px-3 text-[19px] font-normal text-white shadow-sm hover:bg-green-900 hover:text-white"
           type="submit"
         >
           Send response
         </button>
       </form>
-
-      <p>
-        Or you can send an email on
-        <a href={`mailto:verydesionline@gmail.com`} className="hover:underline">
-          verydesionline@gmail.com
-        </a>
-      </p>
     </DashConatiner>
   );
 }
