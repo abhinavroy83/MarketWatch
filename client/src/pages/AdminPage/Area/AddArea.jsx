@@ -124,18 +124,18 @@ function AddArea({ editdata }) {
 
   const handleAddZipcode = async () => {
     if (zipcodeInput.trim() !== "") {
-      const newZipcodes = zipcodeInput.split(",").map((zip) => zip.trim());
+      const newZipcodes = zipcodeInput.split(/[\s,]+/).map((zip) => zip.trim());
       const filteredZipcodes = newZipcodes.filter(
         (zip) => zip !== "" && !zipcode.includes(zip)
       );
 
       let exists = false;
       for (const zip of filteredZipcodes) {
-        console.log(zip);
+        // console.log(zip);
         const response = await axios(
           `https://api.verydesi.com/api/admin/check-zipcode?zipcode=${zip}`
         );
-        console.log(response);
+        // console.log(response);
         // const result = await response.json();
         if (response.data.exists) {
           alert(`Zip code  already exists`);
