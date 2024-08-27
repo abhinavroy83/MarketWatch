@@ -13,7 +13,7 @@ function AdminHelpMessage() {
   const fetchdata = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/admin/gethepmessages"
+        "https://api.verydesi.com/api/admin/gethepmessages"
       );
       // console.log(res);
       setdata(res.data.data);
