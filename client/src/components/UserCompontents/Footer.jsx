@@ -35,8 +35,8 @@ export default function Footer() {
           alt="logo"
         />
       </div> */}
-      <div className="flex flex-col justify-center items-center mb-2">
-        <div className="w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500">
+      <div className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']">
+        <div className="lg:w-[40rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
           <img
             className="w-[120px] lg:w-[190px]"
             src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
@@ -49,7 +49,7 @@ export default function Footer() {
               // onClick={() => {
               //   navigate(`/addroom/${userID}`);
               // }}
-              className="rounded-md bg-[#232f3e] px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Visit Site
             </button>

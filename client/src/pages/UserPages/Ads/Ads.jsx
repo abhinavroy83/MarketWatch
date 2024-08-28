@@ -189,7 +189,7 @@ function Ads() {
                 // onClick={() => {
                 //   navigate(`/addroom/${userID}`);
                 // }}
-                className="rounded-md bg-[#232f3e] px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Visit Site
               </button>
