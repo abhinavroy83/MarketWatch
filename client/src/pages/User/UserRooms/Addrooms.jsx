@@ -434,7 +434,7 @@ function Addrooms({ editdata }) {
                                   onClick={onClose}
                                 />
                                 <p className="text-[20px] text-gray-600">
-                                  Your profile is connected to  
+                                  Your profile is connected to
                                   {profiledata.belongcity}, are you sure you
                                   want to post in {selectedValue}?
                                 </p>
@@ -444,7 +444,7 @@ function Addrooms({ editdata }) {
                                     onClick={() => {
                                       field.onChange("Portland");
                                       onClose();
-                                  }}
+                                    }}
                                   >
                                     No
                                   </button>
@@ -573,7 +573,7 @@ function Addrooms({ editdata }) {
                         <option value="Apartment">Apartment</option>
                         <option value="Condo">Condo</option>
                         <option value="Town">Town House</option>
-                        <option value="Home">Homes</option>
+                        <option value="Home">Home</option>
                         <option value="House">House</option>
                         <option value="Basement">Basement Apartment</option>
                       </select>
