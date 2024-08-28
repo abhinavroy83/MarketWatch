@@ -294,37 +294,26 @@ export default function Footer() {
             <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-2 cursor-pointer">
               © 2024, VeryDesi.com, Inc.
             </p>
-            <div className="justify-center flex mb-2 gap-3 mt-7">
-              <img
-                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              />
-              <img
-                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              />
-              <img
-                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              />
-              <img
-                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              />
-              <img
-                className="w-[3.9rem] h-15 lg:w-[7.9rem]"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              />
-              {/* <img
-                className="w-[7.9rem] h-15"
-                src={`https://png.monster/wp-content/uploads/2020/11/Google-Adsense-95d03cf7-370x278.png`}
-                alt="logo"
-              /> */}
+            <div className="flex flex-col mt-2 justify-center items-center mb-2 font-['udemy-regular'] bg-white">
+              <div className="lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
+                <img
+                  className="w-[120px] lg:w-[190px]"
+                  src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+                  alt="logo"
+                />
+                <div>
+                  {/* <p>hi</p> */}
+                  <button
+                    type="submit"
+                    // onClick={() => {
+                    //   navigate(`/addroom/${userID}`);
+                    // }}
+                    className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Visit Site
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">

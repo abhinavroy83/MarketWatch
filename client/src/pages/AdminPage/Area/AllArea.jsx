@@ -11,6 +11,7 @@ import { HiMinusCircle } from "react-icons/hi";
 import { MdEdit } from "react-icons/md";
 import Update_del_Area from "./Modify/Update_del_Area";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import canadainstateAbbreviations from "../../../Services/StateAprevation/candainstateAbbreviations.json";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
@@ -33,7 +34,7 @@ function AllArea() {
   // const state=
 
   const selcedata = {
-    country: "Usa",
+    country: selectedcountry,
     state: selectedstate,
     area: selectedCity,
   };
@@ -235,20 +236,28 @@ function AllArea() {
                   List of States
                 </p>
                 <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white text-[18px]">
-                  <ul className=" list-none p-0 ml-3 mt-2 ">
-                    {Object.entries(stateAbbreviations).map(
-                      ([state, abbreviation]) => (
+                  <ul className="list-none p-0 ml-3 mt-2">
+                    {selectedcountry ? (
+                      Object.entries(
+                        selectedcountry === "Usa"
+                          ? stateAbbreviations
+                          : canadainstateAbbreviations
+                      ).map(([state, abbreviation]) => (
                         <li
                           key={abbreviation}
                           className={`cursor-pointer ${
                             uniquestate.includes(state)
-                              ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400 <HiMinusCircle/> "
+                              ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                               : ""
                           }`}
                         >
                           {state} ({abbreviation})
                         </li>
-                      )
+                      ))
+                    ) : (
+                      <li className="text-gray-500">
+                        Please select a country.
+                      </li>
                     )}
                   </ul>
                 </div>

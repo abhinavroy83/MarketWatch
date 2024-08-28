@@ -208,12 +208,16 @@ function AddArea({ editdata }) {
                     {...register("country", {
                       required: "Please fill the country",
                     })}
+                    disabled={!!editdata}
                   >
                     <option value="" disabled hidden>
                       Select Country
                     </option>
                     <option className="text-[15px]" value="Usa">
                       USA
+                    </option>
+                    <option className="text-[15px]" value="Canada">
+                      CANADA
                     </option>
                   </select>
                   {errors.country && (
@@ -259,21 +263,22 @@ function AddArea({ editdata }) {
                         : "bg-white"
                     } rounded-md mx-2 px-2 border-2 border-black`}
                   >
-                    <MdOutlineErrorOutline />
+                   
                     <span className="mr-2">{item}</span>
-                    <button
-                      type="button"
-                      onClick={() => removeState(item)}
-                      className="text-black mr-2"
-                    >
-                      x
-                    </button>
+
                     <button
                       type="button"
                       onClick={() => setAsPrimaryState(item)}
                       className="text-black"
                     >
                       {primaryState === item ? "Primary" : "Choose as Primary"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeState(item)}
+                      className="text-red-600 pl-2 font-bold text-sm"
+                    >
+                      x
                     </button>
                   </div>
                 ))}
@@ -289,6 +294,7 @@ function AddArea({ editdata }) {
                   required="true"
                   {...register("area")}
                   placeholder="Type Area"
+                  disabled={!!editdata}
                 />
               </div>
               {/* previosuly we named this as subarea ,now its cities  */}
@@ -305,7 +311,7 @@ function AddArea({ editdata }) {
                     type="text"
                     value={subareaInput}
                     onChange={(e) => setSubareaInput(e.target.value)}
-                    placeholder="Type Subarea "
+                    placeholder="Type Cities "
                   />
                   <select
                     className="flex h-10 w-[200px] lg:w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -394,7 +400,7 @@ function AddArea({ editdata }) {
               {editdata ? (
                 <div className=" flex gap-2">
                   <button
-                    className="rounded-md bg-green-800 px-4 py-2 text-[19px] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-gray-600 px-4 py-2 text-[19px] self-center justify-center flex text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     type="button"
                     onClick={() => navigate(`/admin/allarea`)}
                   >

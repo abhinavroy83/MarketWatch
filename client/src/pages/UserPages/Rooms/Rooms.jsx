@@ -170,8 +170,8 @@ function Rooms() {
   };
 
   // console.log(rooms._id);
-  const notify = () => toast.success("Added to Wishlist.");
-  const unnotify = () => toast.success("Remove from Wishlist.");
+  const notify = () => toast.success("Added to Favorites.");
+  const unnotify = () => toast.success("Remove from Favorites.");
 
   const makewishlist = async () => {
     try {

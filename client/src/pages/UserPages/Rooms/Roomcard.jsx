@@ -20,8 +20,8 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
   const auth = useSelector((state) => state.auth.status);
   const [wishliststatys, setWishlistStatus] = useState(false);
 
-  const notify = () => toast.success("Added to Wishlist.");
-  const unnotify = () => toast.success("Remove from Wishlist.");
+  const notify = () => toast.success("Added to Favorites.");
+  const unnotify = () => toast.success("Remove from Favorites.");
   const unauthnotify = () => toast.info("Please Login");
   const dispatch = useDispatch();
 
