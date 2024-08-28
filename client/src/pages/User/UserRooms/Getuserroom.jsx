@@ -84,7 +84,7 @@ function Getuserroom() {
         </td>
         <td className="whitespace-nowrap px-12 py-4 cursor-pointer">
           <div className="text-base text-gray-700">
-            {items.city},{items.state}
+            {items.city}, {items.state}
           </div>
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-700 cursor-pointer">
@@ -254,9 +254,9 @@ function Getuserroom() {
                       </th>
                       <th
                         scope="col"
-                        className="px-8 py-3.5 text-left font-normal text-gray-700 flex gap-1"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700 flex gap-1 items-center"
                       >
-                        <div className="flex gap-1">
+                        <div className="flex gap-1 items-center">
                           <img
                             className="h-7 w-7"
                             src={

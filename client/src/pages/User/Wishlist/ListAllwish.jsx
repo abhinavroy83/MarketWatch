@@ -128,8 +128,8 @@ function ListAllwish() {
           }}
           className="whitespace-nowrap cursor-pointer px-12 py-4"
         >
-          <div className=" text-gray-700 font-['udemy-regular']">
-            {items.city},{items.state}
+          <div className=" text-gray-700 font-['udemy-regular'] ">
+            {items.city}, {items.state}
           </div>
         </td>
         <td
