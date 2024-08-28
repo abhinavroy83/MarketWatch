@@ -166,7 +166,7 @@ function AdminPostRooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    if (data.city !== city) {
+    if (data.postingincity !== city) {
       alert("Your Posting city and enter not matched");
     } else {
       const roomdata = {
