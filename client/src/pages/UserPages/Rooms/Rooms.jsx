@@ -1058,7 +1058,7 @@ function Rooms() {
         </div>
         <div className="mt-4 mb-2 capitalize">
           <div className="mt-2 flex items-center ">
-            <div className=" flex justify-between w-full text-[25px] font-['udemy-regular'] text-black font-bold">
+            <div className=" flex justify-between w-full text-[23px] font-['udemy-regular'] text-black font-bold">
               <p>Similar room In The Area</p>
               <p
                 className=" cursor-pointer"
