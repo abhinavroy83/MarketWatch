@@ -30,7 +30,7 @@ function AdminHelpMessage() {
     const startIndex = (currentPage - 1) * 7;
     const endIndex = Math.min(startIndex + 7, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
-      <tr key={items._id} className="text-base">
+      <tr key={items._id} className="text-base ">
         <td className="whitespace-nowrap cursor-pointer px-8 py-4">
           <div className=" text-gray-500 font-['udemy-regular']">
             {items.username}
@@ -42,10 +42,10 @@ function AdminHelpMessage() {
         <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer">
           {items.user_phone_number}
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer w-[10rem]">
+        <td className="px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer w-[20rem] break-words">
           {items.msg}
         </td>
-        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular']">
+        <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular'] ">
           <a
             onClick={() => {
               handleDeleteRoom(items._id);
@@ -66,104 +66,105 @@ function AdminHelpMessage() {
     <div>
       <AdminHeader />
       <AdminDashboard>
-        <div className="lg:hidden flex items-center text-gray-700 mt-2 text-[16px] font-['udemy-regular'] ">
-          {/* <Link to="/admin/dashboard">
+        <div className=" h-full overflow-y-auto">
+          <div className="lg:hidden flex items-center text-gray-700 mt-2 text-[16px] font-['udemy-regular'] ">
+            {/* <Link to="/admin/dashboard">
             <FaHome size={20} />
           </Link>
           <IoIosArrowForward /> */}
-          <p className="text-[16px]">Help</p>
-        </div>
-        <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">
-          <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-            <div>
-              <p className="text-[20px] font-semibold">Helped Messages</p>
-              <p className="mt-1 text-[17px] text-gray-700 font-['udemy-regular']">
-                This is list of all messages.
-              </p>
-            </div>
+            <p className="text-[16px]">Help</p>
           </div>
-          <div className="mt-6 flex flex-col">
-            <div className="-mx-4 -my-2 overflow-scroll sm:-mx-6 lg:-mx-8">
-              <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div className="overflow-hidden border border-gray-200 md:rounded-lg">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
-                      <tr className="">
-                        <th
-                          scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1">
-                            {" "}
-                            {/* <MdOutlineMeetingRoom size={23} /> */}
-                            <img
-                              className="h-7 w-7"
-                              src={
-                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/nxmtyldoiednbigmryxy.png"
-                              }
-                              alt=""
-                            />
-                            Name
-                          </div>
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1">
-                            {" "}
-                            {/* <MdOutlineEmail size={23} /> */}
-                            <img
-                              className="h-6 w-6"
-                              src={
-                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
-                              }
-                              alt=""
-                            />
-                            Email
-                          </div>
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1">
-                            {" "}
-                            {/* <TfiMoney size={20} /> */}
-                            <img
-                              className="h-7 w-7"
-                              src={
-                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/fljdbb2rrycts9fmradi.png"
-                              }
-                              alt=""
-                            />
-                            Phonenumber
-                          </div>
-                        </th>
-                        {/* <th
+          <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">
+            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+              <div>
+                <p className="text-[20px] font-semibold">Helped Messages</p>
+                <p className="mt-1 text-[17px] text-gray-700 font-['udemy-regular']">
+                  This is list of all messages.
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-col">
+              <div className="-mx-4 -my-2 overflow-scroll sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                  <div className="overflow-hidden border border-gray-200 md:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr className="">
+                          <th
+                            scope="col"
+                            className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          >
+                            <div className="flex gap-1">
+                              {" "}
+                              {/* <MdOutlineMeetingRoom size={23} /> */}
+                              <img
+                                className="h-7 w-7"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/nxmtyldoiednbigmryxy.png"
+                                }
+                                alt=""
+                              />
+                              Name
+                            </div>
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          >
+                            <div className="flex gap-1">
+                              {" "}
+                              {/* <MdOutlineEmail size={23} /> */}
+                              <img
+                                className="h-6 w-6"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
+                                }
+                                alt=""
+                              />
+                              Email
+                            </div>
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          >
+                            <div className="flex gap-1">
+                              {" "}
+                              {/* <TfiMoney size={20} /> */}
+                              <img
+                                className="h-7 w-7"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/fljdbb2rrycts9fmradi.png"
+                                }
+                                alt=""
+                              />
+                              Phonenumber
+                            </div>
+                          </th>
+                          {/* <th
                         scope="col"
                         className="px-4 py-3.5 text-left text-base font-normal text-gray-500"
                       >
                         Address
                       </th> */}
-                        <th
-                          scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1">
-                            {" "}
-                            {/* <FaMapPin size={20} />  */}
-                            <img
-                              className="h-7 w-7"
-                              src={
-                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
-                              }
-                              alt=""
-                            />
-                            Messages
-                          </div>
-                        </th>
-                        {/* <th
+                          <th
+                            scope="col"
+                            className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          >
+                            <div className="flex gap-1">
+                              {" "}
+                              {/* <FaMapPin size={20} />  */}
+                              <img
+                                className="h-7 w-7"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
+                                }
+                                alt=""
+                              />
+                              Messages
+                            </div>
+                          </th>
+                          {/* <th
                           scope="col"
                           className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
                         >
@@ -179,40 +180,41 @@ function AdminHelpMessage() {
                             Edit
                           </div>
                         </th> */}
-                        <th
-                          scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
-                        >
-                          <div className="flex gap-1">
-                            {" "}
-                            {/* <MdDeleteForever size={25} /> */}
-                            <img
-                              className="h-7 w-7"
-                              src={
-                                "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
-                              }
-                              alt=""
-                            />
-                            Delete
-                          </div>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
-                      {renderRows()}
-                    </tbody>
-                  </table>
+                          <th
+                            scope="col"
+                            className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          >
+                            <div className="flex gap-1">
+                              {" "}
+                              {/* <MdDeleteForever size={25} /> */}
+                              <img
+                                className="h-7 w-7"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/ypojptmu0i6hqvvsjd1r.png"
+                                }
+                                alt=""
+                              />
+                              Delete
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200 bg-white">
+                        {renderRows()}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <Pagination
-          currentPage={currentPage}
-          totalRooms={data.length}
-          roomsPerPage="8"
-          paginate={paginate}
-        />
+          </section>
+          <Pagination
+            currentPage={currentPage}
+            totalRooms={data.length}
+            roomsPerPage="8"
+            paginate={paginate}
+          />
+        </div>
       </AdminDashboard>
     </div>
   );
