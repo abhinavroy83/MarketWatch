@@ -173,6 +173,7 @@ function AdminPostRooms({ editdata }) {
         Title: data.Title,
         Description: data.Description,
         Propertytype: data.Propertytype,
+        postingincity: data.postingincity,
         city: data.city,
         Stay_lease: data.Stay_lease,
         Avaliblity_from: data.Avaliblity_from,
@@ -358,8 +359,9 @@ function AdminPostRooms({ editdata }) {
                 </p>
                 <Controller
                   className="bg-black"
-                  name="city"
+                  name="postingincity"
                   control={control}
+                  defaultValue="Portland"
                   rules={{ required: "PostingIn is required" }}
                   render={({ field }) => (
                     <select
@@ -398,7 +400,7 @@ function AdminPostRooms({ editdata }) {
                 />
               </div>
               <p className="text-[16px] mt-1 text-red-500">
-                {errors.city && <p>{errors.city.message}</p>}
+                {errors.postingincity && <p>{errors.postingincity.message}</p>}
               </p>
               {/* <p className="text-[1.1rem]">
                 Your Account is belong {profiledata.belongcity}

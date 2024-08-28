@@ -26,6 +26,7 @@ function AllRooms() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   // console.log("usercity", usercity);
+  console.log(usercity)
   const getRooms = async () => {
     try {
       const res = await axios.get(
@@ -33,6 +34,7 @@ function AllRooms() {
           ? ` https://api.verydesi.com/api/getallrooms?city=${usercity}`
           : ` https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
       );
+      console.log(res)
       const rooms = res.data.Allrooms.reverse();
       const areaRes = await axios.get(
         `https://api.verydesi.com/api/admin/area/${usercity}`
@@ -70,6 +72,7 @@ function AllRooms() {
       console.log("error during fetching api", error);
     }
   };
+
 
   const getRoomonlocation = async () => {
     try {
