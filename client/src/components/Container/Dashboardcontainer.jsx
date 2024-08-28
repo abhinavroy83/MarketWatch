@@ -227,12 +227,12 @@ function DashConatiner({ children }) {
                   alt=""
                 />
               </div>
-              <div className="text-center text-black text-[1.1rem]">
+              <div className="text-center text-black text-[1.1rem] justify-center flex flex-col">
                 <p className="text-[1.8rem] font-bold">{data.firstName}</p>
                 {/* <p className="text-gray-600">{data.address}</p> */}
-                <p className="text-gray-600">
+                <p className="text-gray-600 flex flex-row text-center justify-center ">
                   Since
-                  {extractyear(data?.joinedon)}
+                 <p className="ml-1"> {extractyear(data?.joinedon)}</p>
                 </p>
                 <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 text-center justify-center items-center">
                   {data.city && <span>{data.city},</span>}
@@ -244,7 +244,7 @@ function DashConatiner({ children }) {
                 </p>
 
                 <div className="flex gap-6 mt-4">
-                  <div className="flex flex-col items-center gap-2 text-gray-700">
+                  <div className="flex flex-col items-center gap-2 text-gray-700 cursor-pointer">
                     <p
                       onClick={() => {
                         navigate(`/dashboard/profile/${userID}`);
@@ -255,7 +255,7 @@ function DashConatiner({ children }) {
                     </p>
                     <p className="text-gray-500 text-[0.9rem]">Edit Profile</p>
                   </div>
-                  <div className="flex flex-col items-center gap-2 text-gray-700">
+                  <div className="flex flex-col items-center gap-2 text-gray-700 cursor-pointer">
                     <div className="bg-gray-200 rounded-full cursor-pointer w-[3rem] h-[3rem] items-center justify-center flex">
                       <input
                         type="file"
@@ -269,7 +269,7 @@ function DashConatiner({ children }) {
 
                     <p className="text-gray-500 text-[0.9rem]">Add Photo</p>
                   </div>
-                  <div className="flex flex-col items-center gap-2 text-gray-700">
+                  <div className="flex flex-col items-center gap-2 text-gray-700 cursor-pointer">
                     <p
                       onClick={toggleSharePopup}
                       className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex"
