@@ -36,7 +36,7 @@ export default function Footer() {
         />
       </div> */}
       <div className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']">
-        <div className="lg:w-[40rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
+        <div className="lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
           <img
             className="w-[120px] lg:w-[190px]"
             src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
