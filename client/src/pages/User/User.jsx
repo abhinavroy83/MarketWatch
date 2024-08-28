@@ -52,7 +52,7 @@ function User() {
             <div className="">
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
-                  className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                  className="w-[2.5rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem]"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/jxhk73i2js2oxrdxwb1h.png"
                   }
@@ -69,7 +69,7 @@ function User() {
             <div className="">
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
                 <img
-                  className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                  className="w-[2.5rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem]"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/q6veig3biuyx8y2ggv2e.png"
                   }
@@ -84,7 +84,7 @@ function User() {
           <Link to={`/dashboard/wishlist/${userID}`} className="">
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
-                className="w-[2.5rem] h-[2.5rem] lg:w-[3.7rem] lg:h-[3.7rem]"
+                className="w-[2.5rem] h-[2.5rem] "
                 src={
                   "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/vhigwxcoye0vxytnraij.png"
                 }
@@ -125,7 +125,7 @@ function User() {
           <Link to={`/user/help/${userID}`} className="">
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
-                className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                className="w-[2.5rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem]"
                 src={
                   "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
                 }

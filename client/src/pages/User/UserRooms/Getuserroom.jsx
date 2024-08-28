@@ -191,7 +191,7 @@ function Getuserroom() {
                       </th>
                       <th
                         scope="col"
-                        className="px-8 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700 w-[11rem] inline-block"
                       >
                         <div className="flex gap-1">
                           {" "}
@@ -202,7 +202,7 @@ function Getuserroom() {
                             }
                             alt=""
                           />
-                          City,State
+                          City, State
                         </div>{" "}
                       </th>
                       <th
@@ -245,7 +245,7 @@ function Getuserroom() {
                           <img
                             className="h-7 w-7"
                             src={
-                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/q0rjjk9jli8t8yorkfy9.png"
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/g4etlnb8nxgrgxdfusct.png"
                             }
                             alt=""
                           />

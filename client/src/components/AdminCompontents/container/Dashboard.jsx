@@ -120,7 +120,7 @@ function AdminDashboard({ children }) {
               alt="logo"
             />
             {/* <BsPostcard size={25} />  */}
-            Posts
+            Rooms
           </button>
         ) : null}
         <button
@@ -137,7 +137,7 @@ function AdminDashboard({ children }) {
             alt="logo"
           />
           {/* <BsPostcard size={25} />  */}
-          Help
+          Customer Message
         </button>
         {/* <button
           onClick={() => {
