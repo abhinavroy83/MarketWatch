@@ -117,11 +117,11 @@ function Ads() {
   };
 
   return (
-    <div className="flex px-1 py-2 lg:py-0 lg:gap-0 justify-between bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
+    <div className="flex px-1 py-2 lg:py-0 lg:gap-0 bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
       {/* <Avalableloc /> */}
       <div className="w-[100%]">
         <div className=" justify-center gap-3 lg:gap-7 flex lg:hidden">
-          <img
+          {/* <img
             className="w-[3.9rem] h-15 lg:w-[6.9rem]"
             src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
             alt="logo"
@@ -135,7 +135,7 @@ function Ads() {
             className="w-[3.9rem] h-15 lg:w-[6.9rem]"
             src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
             alt="logo"
-          />
+          /> */}
           {/* <img
           className="w-[6.9rem] h-15"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
@@ -176,22 +176,29 @@ function Ads() {
             </div>
           </div>
 
-          <div className=" justify-center gap-4 lg:gap-7 hidden lg:flex">
+          <div className=" w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500">
             <img
+              className="w-[120px] lg:w-[190px]"
+              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+              alt="logo"
+            />
+            <div>
+              {/* <p>hi</p> */}
+              <button
+                type="submit"
+                // onClick={() => {
+                //   navigate(`/addroom/${userID}`);
+                // }}
+                className="rounded-md bg-[#232f3e] px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Visit Site
+              </button>
+            </div>
+            {/* <img
               className="w-[3.9rem] h-15 lg:w-[6.9rem]"
               src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
               alt="logo"
-            />
-            <img
-              className="w-[3.9rem] h-15 lg:w-[6.9rem]"
-              src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
-              alt="logo"
-            />
-            <img
-              className="w-[3.9rem] h-15 lg:w-[6.9rem]"
-              src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
-              alt="logo"
-            />
+            /> */}
             {/* <img
           className="w-[6.9rem] h-15"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}

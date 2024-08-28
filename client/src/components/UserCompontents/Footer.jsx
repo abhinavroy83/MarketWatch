@@ -12,8 +12,8 @@ export default function Footer() {
 
   //  https://api.verydesi.com/
   return (
-    <div className="lg:mt-9 mt-6 w-full ">
-      <div className="justify-center flex mb-2 gap-7">
+    <div className="lg:mt-9 mt-6 w-full">
+      {/* <div className="justify-center flex mb-2 gap-7">
         <img
           className="w-[3.9rem] h-15 lg:w-[7.9rem]"
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
@@ -34,7 +34,29 @@ export default function Footer() {
           src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
           alt="logo"
         />
+      </div> */}
+      <div className="flex flex-col justify-center items-center mb-2">
+        <div className="w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500">
+          <img
+            className="w-[120px] lg:w-[190px]"
+            src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+            alt="logo"
+          />
+          <div>
+            {/* <p>hi</p> */}
+            <button
+              type="submit"
+              // onClick={() => {
+              //   navigate(`/addroom/${userID}`);
+              // }}
+              className="rounded-md bg-[#232f3e] px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Visit Site
+            </button>
+          </div>
+        </div>
       </div>
+
       <div className=" mx-auto">
         <div className="bg-[#232f3e] flex text-[#232f3e] justify-center items-center gap-10 ">
           <p>hi</p>
@@ -158,111 +180,7 @@ export default function Footer() {
                   {isHovered && <Avalableloc />}
                 </div>
               </div> */}
-                {/* <div className="text-[16px] ml-0 lg:ml-6 ">
-                <Link
-                  to={`/about-us`}
-                  className="font-semibold tracking-wide text-white"
-                >
-                  About Us
-                </Link>
-                <ul className="mt-2 leading-4 space-y-2 text-[14px]">
-                  <li>
-                    <Link
-                      to={`/about-us`}
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      About VeryDesi.com
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={`/admin/login`}
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Advertise with Us
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                    >
-                      Work with us
-                    </a>
-                  </li>
-                </ul>
-              </div> */}
-                {/* <div className="">
-                  <p className="font-semibold tracking-wide text-[#ddd]">
-                    Connect with Us
-                  </p>
-                  <ul className="mt-2 leading-4 space-y-2 text-[14px]">
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                      >
-                        Facebook
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                      >
-                        Twitter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                      >
-                        Instagram
-                      </a>
-                    </li>
-                  </ul>
-                </div> */}
 
-                {/* <div className="">
-                  <p className="font-semibold tracking-wide text-[#DDD]">
-                    Make Money
-                  </p>
-                  <ul className="mt-2 space-y-1 leading-4 text-[14px]">
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline "
-                      >
-                        Facebook
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                      >
-                        Twitter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="text-[#999] transition-colors duration-300 hover:text-deep-purple-accent-400 hover:underline"
-                      >
-                        Instagram
-                      </a>
-                    </li>
-                  </ul>
-                </div> */}
                 <div className="">
                   <p className="font-semibold tracking-wide text-[#DDD]">
                     Make Money
