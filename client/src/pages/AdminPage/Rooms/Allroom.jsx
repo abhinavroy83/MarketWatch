@@ -86,7 +86,7 @@ function Allroom() {
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
       <tr key={items._id} className=" mb-4 ">
-        <td className="whitespace-nowrap px-4 py-4">
+        <td className="px-4 py-4">
           <div className="flex items-center">
             <div className="h-10 w-10 flex-shrink-0">
               <img
@@ -106,7 +106,7 @@ function Allroom() {
           <div className="text-base text-gray-500">{items.email}</div>
         </td>
 
-        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
+        <td className=" px-8 py-4 text-base text-gray-500">
           {items.Expected_Rooms}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">

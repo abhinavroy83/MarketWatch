@@ -107,7 +107,7 @@ function ListAllwish() {
           onClick={() => {
             navigate(`/rooms/${items._id}`);
           }}
-          className="whitespace-nowrap cursor-pointer px-4 py-4 font-['udemy-regular'] text-base"
+          className=" cursor-pointer px-4 py-4 font-['udemy-regular'] text-base"
         >
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular']">

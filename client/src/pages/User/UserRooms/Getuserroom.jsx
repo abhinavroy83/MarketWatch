@@ -68,7 +68,7 @@ function Getuserroom() {
     const endIndex = Math.min(startIndex + 5, roomsdeatails.length);
     return roomsdeatails.slice(startIndex, endIndex).map((items, index) => (
       <tr key={items._id}>
-        <td className="whitespace-nowrap px-4 py-4 font-['udemy-regular'] text-[20px]">
+        <td className=" px-4 py-4 font-['udemy-regular'] text-[20px]">
           <div className="flex items-center font-['udemy-regular']">
             <div className="h-10 w-10 flex-shrink-0 font-['udemy-regular'] ">
               <img
