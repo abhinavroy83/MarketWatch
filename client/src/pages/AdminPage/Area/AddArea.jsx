@@ -53,7 +53,6 @@ function AddArea({ editdata }) {
         if (res) {
           alert("Update area successfully");
           setSelectedstate([]);
-          reset();
           // navigate(`/admin/allarea`);
         }
       } catch (error) {

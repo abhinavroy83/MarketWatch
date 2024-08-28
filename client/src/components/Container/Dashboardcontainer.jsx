@@ -272,7 +272,7 @@ function DashConatiner({ children }) {
                   <div className="flex flex-col items-center gap-2 text-gray-700">
                     <p
                       onClick={toggleSharePopup}
-                      className="bg-gray-200 rounded-full w-[3rem] h-[3rem] items-center justify-center flex"
+                      className="bg-gray-200 cursor-pointer rounded-full w-[3rem] h-[3rem] items-center justify-center flex"
                     >
                       <FaRegShareFromSquare size={23} />
                     </p>

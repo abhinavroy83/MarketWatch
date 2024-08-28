@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Error() {
+  const navigate = useNavigate();
   return (
     <div className="h-screen justify-center items-center font-['udemy-regular'] flex flex-col">
       <img
@@ -12,7 +14,9 @@ function Error() {
       <p className="text-[30px]">Page not found</p>
       <button
         className="self-center justify-center items-center rounded-md bg-blue-600 mt-5 py-2 px-4 text-[20px] text-white shadow-sm hover:bg-black"
-        type="submit"
+        onClick={() => {
+          navigate("/");
+        }}
       >
         Home Page{" "}
       </button>
