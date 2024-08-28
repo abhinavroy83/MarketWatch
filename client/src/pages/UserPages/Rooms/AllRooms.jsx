@@ -201,7 +201,7 @@ function AllRooms() {
           {rooms.length < 6 && (
             <div>
               <>
-                <p className="text-[26px] capitalize text-black font-bold font-['udemy-bold'] mt-7">
+                <p className="text-[23px] capitalize text-black font-bold font-['udemy-bold'] mt-7">
                   More Room on Your Current location{" "}
                 </p>
                 <div className="mt-4 ">
