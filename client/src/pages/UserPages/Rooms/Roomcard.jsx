@@ -180,7 +180,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 font-['udemy-regular'] items-center">
           <GrLocation size={20} />
           <span>{item.city},</span>
-          <span className=" px-1">
+          <span className="">
             {item?.state?.length > 2
               ? stateAbbreviations[item.State]
               : item.state}
@@ -252,9 +252,9 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
             item.Preferred_gender === "Female only"
               ? 24
               : item.Preferred_gender === "Male only"
-              ? 28
+              ? 26
               : item.Preferred_gender === "Any"
-              ? 28
+              ? 26
               : 22
           }
           src={

@@ -369,7 +369,7 @@ function Rooms() {
                     onClick={fetchPreviousRoom}
                     disabled={!hasNextRoom}
                   >
-                    <button className="p-1 lg:px-2 rounded-xl flex bg-red-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                    <button className="p-1 lg:px-2 rounded-xl flex bg-red-600 hover:bg-red-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                       <MdKeyboardDoubleArrowLeft className="text-white flex lg:w-10 lg:h-10 w-7 h-7" />
                       <button
                         // type="submit"
@@ -392,7 +392,7 @@ function Rooms() {
                   onClick={fetchNextRoom}
                   disabled={!hasPreviousRoom}
                 >
-                  <button className="p-1 lg:px-2 rounded-xl flex bg-blue-600 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                  <button className="p-1 lg:px-2 rounded-xl flex bg-blue-600 hover:bg-blue-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
                     <button
                       // type="submit"
                       className="flex lg:text-[22px] text-[17px] items-center text-white font-bold"
@@ -417,7 +417,7 @@ function Rooms() {
                 <div>
                   {!wishliststatys ? (
                     <div
-                      className="cursor-pointer p-2 bg-gray-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600 "
+                      className="cursor-pointer p-2 bg-gray-600 hover:bg-gray-900 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-800"
                       onClick={makewishlist}
                     >
                       <FaHeart
@@ -441,7 +441,7 @@ function Rooms() {
                 </div>
               ) : (
                 <div
-                  className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600 "
+                  className="cursor-pointer p-2 border border-gray-300 rounded-full bg-red-600"
                   onClick={() => {
                     toast.info("please login");
                   }}
@@ -468,10 +468,10 @@ function Rooms() {
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="rounded-md justify-between bg-gray-400 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[20px] flex items-center text-black shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="text-black hover:text-white rounded-md justify-between bg-gray-400 hover:bg-gray-900 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[20px] flex items-center shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <FaShare className="text-black flex lg:w-5 lg:h-5 w-4 h-4" />
-                Share
+                <FaShare className="flex lg:w-5 lg:h-5 w-4 h-4" />
+                <p>Share</p>
               </button>
 
               {isSharePopupOpen && (
@@ -540,11 +540,13 @@ function Rooms() {
                 )}
               </div>
               <div className="flex justify-between my-2">
-                <p className="text-[25px] capitalize">
+                <p className="text-[25px] capitalize flex gap-1">
                   {rooms.city},
-                  {rooms?.state?.length > 2
-                    ? stateAbbreviations[rooms?.state]
-                    : rooms.state}
+                  <p>
+                    {rooms?.state?.length > 2
+                      ? stateAbbreviations[rooms?.state]
+                      : rooms.state}
+                  </p>
                 </p>
                 <p className="text-green-700 font-bold capitalize">
                   $ {rooms.Expected_Rooms}

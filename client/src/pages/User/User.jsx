@@ -39,13 +39,15 @@ function User() {
         // theme="dark"
       /> */}
       {showAlert && <Alert close={false} type="error" text="Coming Soon" />}
-      <div className="p-3">
-        <h1 className="lg:text-[25px] text-[22px] text-center text-[#232f3e] mt-0 lg:mt-7 font-['udemy-regular']">
-          Welcome Back {username}
-        </h1>
+      <div className="">
+        <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">
+          <h1 className="lg:text-[25px] text-[22px] text-center text-[#fff] mt-0 font-['udemy-regular']">
+            Welcome {username}
+          </h1>
+        </p>
         <p className="text-gray-600 text-center lg:hidden">address</p>
 
-        <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 lg:mt-10 max-w-[860px] font-['udemy-regular']">
+        <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 lg:mt-10 max-w-[860px] font-['udemy-regular'] p-3">
           <Link to={`/dashboard/profile/${userID}`}>
             <div className="">
               <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
@@ -105,7 +107,8 @@ function User() {
             </h1>
           </div>
         </div> */}
-          <div className="" onClick={handleAlertBar}>
+
+          {/* <div className="" onClick={handleAlertBar}>
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
                 className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -116,6 +119,20 @@ function User() {
               />
               <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
                 Events
+              </h1>
+            </div>
+          </div> */}
+          <div className="" onClick={handleAlertBar}>
+            <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
+              <img
+                className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
+                src={
+                  "https://res.cloudinary.com/druohnmyv/image/upload/v1724350531/assests/oyqisjnu9p3lotoidgry.png"
+                }
+                alt="logo"
+              />
+              <h1 className="text-[17px] lg:text-[22px] text-center text-[#000] font-['udemy-regular']">
+                Help
               </h1>
             </div>
           </div>
