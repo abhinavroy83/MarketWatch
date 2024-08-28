@@ -47,7 +47,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     }
     if (mapContainerRef.current) {
       const map = L.map(mapContainerRef.current).setView(
-        [45.56123,-122.61345],
+        [45.56123, -122.61345],
         10
       );
       mapRef.current = map;
@@ -74,27 +74,64 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       return () => map.remove();
     }
   }, [onLocationReceived, usercity]);
-
   useEffect(() => {
     if (mapRef.current && locdata.length > 0) {
-      locdata.forEach((coords) => {
-        L.marker([coords[1], coords[0]], {
-          icon: L.icon({
-            iconUrl: markerIcon,
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            tooltipAnchor: [16, -28],
-          }),
-        }).addTo(mapRef.current);
+      // Group locations by coordinates
+      const locationMap = locdata.reduce((acc, coords) => {
+        if (
+          coords.length < 2 ||
+          typeof coords[0] !== "number" ||
+          typeof coords[1] !== "number"
+        ) {
+          console.error("Invalid coordinates:", coords); // Log invalid coordinates
+          return acc;
+        }
+
+        const key = `${coords[1]},${coords[0]}`; // [lat, lng] => lat,lng
+        if (!acc[key]) {
+          acc[key] = { coordinates: coords, count: 0 };
+        }
+        acc[key].count += 1;
+        return acc;
+      }, {});
+
+      console.log("Grouped locations:", locationMap); // Log the grouped locations
+
+      // Create markers for each unique location with a count
+      Object.values(locationMap).forEach((location) => {
+        const { coordinates, count } = location;
+        const [lng, lat] = coordinates;
+
+        if (typeof lat !== "number" || typeof lng !== "number") {
+          console.error("Invalid latitude or longitude:", lat, lng); // Log invalid lat/lng
+          return;
+        }
+
+        // Create a custom icon with a count displayed
+        const icon = L.divIcon({
+          className: "custom-div-icon",
+          html: `<div style="
+            background-color:blue ;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 50%;
+            padding: 5px;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+          ">${count}</div>`,
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          tooltipAnchor: [16, -28],
+        });
+
+        L.marker([lat, lng], { icon }).addTo(mapRef.current);
       });
     }
   }, [locdata]);
-
-  useEffect(() => {
-    // dispatch(redlocation({ location: currentLocation }));
-    // console.log(currentLocation);
-  }, [currentLocation]);
 
   return (
     <div

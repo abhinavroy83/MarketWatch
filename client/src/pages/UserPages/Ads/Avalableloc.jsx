@@ -18,6 +18,8 @@ function Avalableloc({ isOpen, onClose }) {
       const uniquecity = Array.from(
         new Set(res.data.city.map((item) => item.area))
       );
+
+      uniquecity.sort((a, b) => a.localeCompare(b));
       setcty(uniquecity);
     };
     fetchdata();

@@ -45,7 +45,7 @@ function Help() {
     // console.log(data);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/adminpage/sendmsg",
+        "https://api.verydesi.com/api/adminpage/sendmsg",
         data
       );
       if (res.data.success) {
