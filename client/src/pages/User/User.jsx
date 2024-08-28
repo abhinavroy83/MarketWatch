@@ -45,7 +45,7 @@ function User() {
             Welcome {username}
           </h1>
         </p>
-        <p className="text-gray-600 text-center lg:hidden">address</p>
+        {/* <p className="text-gray-600 text-center lg:hidden">address</p> */}
 
         <div className="grid grid-cols-3 gap-4 flex-wrap w-auto m-auto justify-center mt-4 lg:mt-10 max-w-[860px] font-['udemy-regular'] p-3">
           <Link to={`/dashboard/profile/${userID}`}>
@@ -122,7 +122,7 @@ function User() {
               </h1>
             </div>
           </div> */}
-          <div className="" onClick={handleAlertBar}>
+          <Link to={`/user/help/${userID}`} className="">
             <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
               <img
                 className="w-[2.5rem] h-[2.5rem] lg:w-[4rem] lg:h-[4rem]"
@@ -135,7 +135,7 @@ function User() {
                 Help
               </h1>
             </div>
-          </div>
+          </Link>
           {/* <div className="" onClick={notify}>
           <div className="bg-white text-center border flex flex-col gap-3 items-center rounded-lg shadow-md hover:shadow-xl w-full justify-center h-[110px] lg:h-[170px]">
             <img

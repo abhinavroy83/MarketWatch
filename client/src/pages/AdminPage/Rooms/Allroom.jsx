@@ -113,7 +113,7 @@ function Allroom() {
           {items.address}
         </td> */}
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-          {items.city}
+          {items.city},{items.state}
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
           {items.country}
