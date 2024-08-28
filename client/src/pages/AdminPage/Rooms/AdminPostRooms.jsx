@@ -166,89 +166,85 @@ function AdminPostRooms({ editdata }) {
   // console.log(resimgurl);
 
   const onsubmit = async (data) => {
-    if (data.postingincity !== city) {
-      alert("Your Posting city and enter not matched");
+    const roomdata = {
+      Title: data.Title,
+      Description: data.Description,
+      Propertytype: data.Propertytype,
+      postingincity: data.postingincity,
+      city: data.city,
+      Stay_lease: data.Stay_lease,
+      Avaliblity_from: data.Avaliblity_from,
+      Available_to: data.Available_to,
+      Immediate: data.Immediate,
+      Attchd_Bath: data.Attchd_Bath,
+      Bath_Location: data.Bath_Location,
+      Preferred_gender: data.Preferred_gender,
+      Couples_welcome: data.Couples_welcome,
+      Expected_Rooms: data.Expected_Rooms,
+      Pricemodel: data.Pricemodel,
+      Desposite: data.Desposite,
+      is_room_furnished: data.is_room_furnished,
+      Amenities_include: data.Amenities_include,
+      Vegeterian_prefernce: data.Vegeterian_prefernce,
+      Smoking_policy: data.Smoking_policy,
+      Pet_friendly: data.Pet_friendly,
+      Open_house_schedule: data.Open_house_schedule,
+      Imgurl: resimgurl,
+      user_name: data.user_name,
+      email: data.email,
+      phone_number: data.phone_number,
+      address: data.address,
+      state: data.state,
+      zip_code: data.zip_code,
+      location: {
+        coordinates: [location.lng, location.lat],
+      },
+    };
+
+    if (editdata) {
+      try {
+        console.log("ddcds", editdata._id);
+        const res = await axios.put(
+          `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (res) {
+          // console.log(res);
+
+          alert("update room successfully");
+          navigate(`/rooms/${editdata._id}`);
+        }
+      } catch (error) {
+        console.log("error while update room ", error);
+      }
     } else {
-      const roomdata = {
-        Title: data.Title,
-        Description: data.Description,
-        Propertytype: data.Propertytype,
-        postingincity: data.postingincity,
-        city: data.city,
-        Stay_lease: data.Stay_lease,
-        Avaliblity_from: data.Avaliblity_from,
-        Available_to: data.Available_to,
-        Immediate: data.Immediate,
-        Attchd_Bath: data.Attchd_Bath,
-        Bath_Location: data.Bath_Location,
-        Preferred_gender: data.Preferred_gender,
-        Couples_welcome: data.Couples_welcome,
-        Expected_Rooms: data.Expected_Rooms,
-        Pricemodel: data.Pricemodel,
-        Desposite: data.Desposite,
-        is_room_furnished: data.is_room_furnished,
-        Amenities_include: data.Amenities_include,
-        Vegeterian_prefernce: data.Vegeterian_prefernce,
-        Smoking_policy: data.Smoking_policy,
-        Pet_friendly: data.Pet_friendly,
-        Open_house_schedule: data.Open_house_schedule,
-        Imgurl: resimgurl,
-        user_name: data.user_name,
-        email: data.email,
-        phone_number: data.phone_number,
-        address: data.address,
-        state: data.state,
-        zip_code: data.zip_code,
-        location: {
-          coordinates: [location.lng, location.lat],
-        },
-      };
-
-      if (editdata) {
-        try {
-          console.log("ddcds", editdata._id);
-          const res = await axios.put(
-            `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
-            roomdata,
-            {
-              headers: {
-                jwttoken: `${token}`,
-                "Content-Type": "application/json",
-              },
-              withCredentials: true,
-            }
-          );
-          if (res) {
-            // console.log(res);
-
-            alert("update room successfully");
-            navigate(`/rooms/${editdata._id}`);
+      try {
+        const res = await axios.post(
+          "https://api.verydesi.com/api/addrooms",
+          roomdata,
+          {
+            headers: {
+              jwttoken: `${token}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
           }
-        } catch (error) {
-          console.log("error while update room ", error);
+        );
+        if (res) {
+          // console.log(res);
+          alert("rooms added successfully");
+          reset();
+          navigate(`/rooms/${res.data.rooms._id}`);
         }
-      } else {
-        try {
-          const res = await axios.post(
-            "https://api.verydesi.com/api/addrooms",
-            roomdata,
-            {
-              headers: {
-                jwttoken: `${token}`,
-                "Content-Type": "application/json",
-              },
-              withCredentials: true,
-            }
-          );
-          if (res) {
-            // console.log(res);
-            alert("rooms added successfully");
-            reset();
-            navigate(`/rooms/${res.data.rooms._id}`);
-          }
-        } catch (error) {
-          console.log("error during sending data to roomapi", error);
-        }
+      } catch (error) {
+        console.log("error during sending data to roomapi", error);
       }
     }
 
