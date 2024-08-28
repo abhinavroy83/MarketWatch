@@ -42,7 +42,7 @@ function AdminHelpMessage() {
         <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer">
           {items.user_phone_number}
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-gray-500 font-['udemy-regular'] cursor-pointer w-[10rem]">
+        <td className=" px-8 py-4 text-gray-500 hover:text-gray-700 font-['udemy-regular'] cursor-pointer w-[17rem]  inline-block break-words">
           {items.msg}
         </td>
         <td className="whitespace-nowrap items-center gap-2 px-8 py-6 font-medium font-['udemy-regular']">
