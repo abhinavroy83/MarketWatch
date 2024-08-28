@@ -228,7 +228,7 @@ function ListAllwish() {
                       </th>
                       <th
                         scope="col"
-                        className="px-8 py-3.5 text-left font-normal text-gray-700"
+                        className="px-8 py-3.5 text-left font-normal text-gray-700 w-[11rem] inline-block"
                       >
                         <span className="flex gap-1">
                           <img
@@ -238,7 +238,7 @@ function ListAllwish() {
                             }
                             alt=""
                           />
-                          City,State
+                          City, State
                         </span>
                       </th>
                       <th

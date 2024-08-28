@@ -50,7 +50,7 @@ function AdminHelpMessage() {
             onClick={() => {
               handleDeleteRoom(items._id);
             }}
-            className="text-gray-500 cursor-pointer text-base hover:text-red-600"
+            className="cursor-pointer text-base text-red-600"
           >
             {/* <BiMinusCircle size={25} />  */}
             Remove

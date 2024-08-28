@@ -92,11 +92,11 @@ function Alluser() {
           {items.country}
         </td> */}
         <td className="whitespace-nowrap px-8 py-4 text-base font-medium">
-          <a href="#" className="text-gray-500 hover:text-indigo-600">
+          <a href="#" className="text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-base font-medium hover:text-red-600 text-gray-500">
+        <td className="whitespace-nowrap px-8 py-4 text-base font-medium text-red-600">
           <button
             onClick={() => {
               const _id = items._id;

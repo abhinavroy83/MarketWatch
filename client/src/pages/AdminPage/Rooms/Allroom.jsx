@@ -119,11 +119,11 @@ function Allroom() {
           {items.country}
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-left text-base font-medium">
-          <a href="#" className="text-gray-500 hover:text-indigo-600">
+          <a href="#" className="text-indigo-600">
             Edit
           </a>
         </td>
-        <td className="px-8 py-4 text-left text-base text-gray-500 hover:text-red-700">
+        <td className="px-8 py-4 text-left text-base text-red-600">
           <button
             className="hover:text-red-600"
             onClick={() => {
@@ -252,7 +252,7 @@ function Allroom() {
                         </th> */}
                         <th
                           scope="col"
-                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-8 py-3.5 text-left text-base font-normal text-gray-700 w-[11rem] inline-block"
                         >
                           <div className="flex gap-1">
                             {" "}
@@ -264,12 +264,12 @@ function Allroom() {
                               }
                               alt=""
                             />
-                            City,State
+                            City, State
                           </div>
                         </th>
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700"
+                          className="px-4 py-3.5 text-left text-base font-normal text-gray-700 "
                         >
                           <div className="flex gap-1">
                             {" "}
