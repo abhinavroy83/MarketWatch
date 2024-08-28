@@ -232,7 +232,7 @@ function DashConatiner({ children }) {
                 {/* <p className="text-gray-600">{data.address}</p> */}
                 <p className="text-gray-600 flex flex-row text-center justify-center ">
                   Since
-                 <p className="ml-1"> {extractyear(data?.joinedon)}</p>
+                  <p className="ml-1"> {extractyear(data?.joinedon)}</p>
                 </p>
                 <p className=" flex gap-1 text-[19px] text-gray-600 mt-1 text-center justify-center items-center">
                   {data.city && <span>{data.city},</span>}
