@@ -111,10 +111,19 @@ function Help() {
             Description
           </label>
           <textarea
-            className="flex h-[100px] w-[200px] lg:w-[300px] bg-white text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
+            className="flex h-[100px] w-[200px] lg:w-[300px] bg-white text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40"
             type="text"
             {...register("msg", {
-              required: `Description can't be empty`,
+              required: "Description can't be empty",
+              validate: (value) => {
+                // Match words and check length
+                const words = value.match(/\b\w+\b/g);
+                return (
+                  !words ||
+                  words.length <= 150 ||
+                  "Description must be at most 150 words"
+                );
+              },
             })}
           />
         </div>

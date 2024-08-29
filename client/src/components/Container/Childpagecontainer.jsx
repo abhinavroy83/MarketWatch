@@ -111,7 +111,10 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 py-5 px-5 mr-3 lg:mr-3">
+        <div className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] ">
+          <LeafletMap onLocationReceived={currentloc} />
+        </div>
+        {/* <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 py-5 px-5 mr-3 lg:mr-3">
           <div className="h-full flex flex-wrap flex-col gap-1">
             <div className="text-[20px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
               <div className="flex gap-2 items-center">
@@ -139,15 +142,8 @@ function ChildContainer({ className, children, onLocationReceived }) {
                 </div>
               )}
             </div>
-
-            <div className="mt-3">
-              <LeafletMap
-                onLocationReceived={currentloc}
-                style={{ height: "300px", width: "" }}
-              />
-            </div>
           </div>
-        </aside>
+        </aside> */}
       </div>
     </div>
   );

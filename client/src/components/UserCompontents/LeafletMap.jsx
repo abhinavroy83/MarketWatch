@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+import "leaflet.markercluster";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 import axios from "axios";
-import markerIcon from "../../assets/map-marker5.png";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  const markerRef = useRef(null);
+  const markerClusterRef = useRef(null); // To store marker cluster
   const usercity = useSelector((state) => state.auth.city);
-  const circleRef = useRef(null);
   const dispatch = useDispatch();
   const currentloc = useSelector((state) => state.auth.location);
   const [locdata, setlocdata] = useState([]);
@@ -27,10 +28,9 @@ const LeafletMap = ({ onLocationReceived, style }) => {
           ? `https://api.verydesi.com/api/getallrooms?city=${usercity}`
           : `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
-      // console.log(res.data.Allrooms);
       setlocdata(res.data.Allrooms.map((room) => room.location.coordinates));
     } catch (error) {
-      console.log("error during fetching api", error);
+      console.log("Error fetching API:", error);
     }
   };
 
@@ -45,37 +45,57 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     } else {
       return;
     }
+
     if (mapContainerRef.current) {
       const map = L.map(mapContainerRef.current).setView(
         [45.56123, -122.61345],
         10
       );
       mapRef.current = map;
-      setCurrentLocation({ lat, lng });
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
-        attribution: "© ",
+        attribution: "© OpenStreetMap contributors",
       }).addTo(map);
 
-      // markerRef.current = L.marker([lat, lng], {
-      //   draggable: true,
-      // }).addTo(map);
+      const markerClusterGroup = L.markerClusterGroup({
+        iconCreateFunction: (cluster) => {
+          const count = cluster.getChildCount();
 
-      // markerRef.current = L.circle([lat, lng], {
-      //   color: "",
-      //   fillColor: "#f03",
-      //   fillOpacity: 0.3,
-      //   radius: 1000,
-      // }).addTo(map);
+          return L.divIcon({
+            html: `<div style="
+              background-color: blue;
+              color: white;
+              font-size: 14px;
+              font-weight: bold;
+              text-align: center;
+              border-radius: 50%;
+              width: 30px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">${count}</div>`,
+            className: "custom-cluster-icon",
+            iconSize: [30, 30],
+          });
+        },
+      });
+      markerClusterRef.current = markerClusterGroup;
+      map.addLayer(markerClusterGroup);
+      setCurrentLocation({ lat, lng });
 
       getRooms();
 
       return () => map.remove();
     }
   }, [onLocationReceived, usercity]);
+
   useEffect(() => {
     if (mapRef.current && locdata.length > 0) {
+      // Clear previous markers from the cluster group
+      markerClusterRef.current.clearLayers();
+
       // Group locations by coordinates
       const locationMap = locdata.reduce((acc, coords) => {
         if (
@@ -111,24 +131,24 @@ const LeafletMap = ({ onLocationReceived, style }) => {
         const icon = L.divIcon({
           className: "custom-div-icon",
           html: `<div style="
-            background-color:blue ;
+            background-color: blue; 
             color: white;
             font-size: 14px;
             font-weight: bold;
             text-align: center;
             border-radius: 50%;
-            padding: 5px;
-            width: 25px;
-            height: 25px;
-            line-height: 25px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           ">${count}</div>`,
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-          popupAnchor: [1, -34],
-          tooltipAnchor: [16, -28],
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
         });
 
-        L.marker([lat, lng], { icon }).addTo(mapRef.current);
+        // Add the marker to the cluster group
+        L.marker([lat, lng], { icon }).addTo(markerClusterRef.current);
       });
     }
   }, [locdata]);
@@ -138,7 +158,14 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       ref={(div) => {
         mapContainerRef.current = div;
       }}
-      style={{ ...style, position: "relative", zIndex: 0 }}
+      style={{
+        ...style,
+        height: "400px",
+        width: "320px",
+        borderRadius: "8px",
+        position: "relative",
+        zIndex: 0,
+      }}
     />
   );
 };

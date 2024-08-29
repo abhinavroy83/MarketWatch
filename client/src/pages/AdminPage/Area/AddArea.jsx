@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { MdOutlineErrorOutline } from "react-icons/md";
+import canadainstateAbbreviations from "../../../Services/StateAprevation/candainstateAbbreviations.json";
 
 function AddArea({ editdata }) {
   const [stateab, setstateab] = useState("");
+  const [selectedcountry, setSelectedcountry] = useState("");
   const [selectedstate, setSelectedstate] = useState([]);
   const [primaryState, setPrimaryState] = useState("");
   const [subarea, setSubareas] = useState([]);
@@ -86,7 +88,9 @@ function AddArea({ editdata }) {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
+
     const abbreviation = stateAbbreviations[selectedState];
+
     const stateAndAbbreviation = `${selectedState},${abbreviation}`;
 
     if (!selectedstate.includes(selectedState)) {
@@ -105,13 +109,24 @@ function AddArea({ editdata }) {
       setPrimaryState("");
     }
   };
-  //Subarea or cities is same here
+
   const handleAddSubarea = () => {
-    const abbreviation = stateAbbreviations[stateab];
-    const cities = `${subareaInput},${abbreviation}`;
-    if (cities) {
-      setSubareas((prevSubareas) => [...prevSubareas, cities]);
+    let abbreviation;
+
+    if (selectedcountry === "Usa") {
+      abbreviation = stateAbbreviations[stateab];
+    } else if (selectedcountry === "Canada") {
+      abbreviation = canadainstateAbbreviations[stateab];
+    }
+    const newEntry = `${subareaInput},${abbreviation}`;
+
+    const isDuplicate = subarea.some((subarea) => subarea === newEntry);
+
+    if (!isDuplicate) {
+      setSubareas((prevSubareas) => [...prevSubareas, newEntry]);
       setSubareaInput("");
+    } else {
+      alert("City and state combination already exists.");
     }
   };
 
@@ -209,10 +224,9 @@ function AddArea({ editdata }) {
                       required: "Please fill the country",
                     })}
                     disabled={!!editdata}
+                    onChange={(e) => setSelectedcountry(e.target.value)}
                   >
-                    <option value="" disabled hidden>
-                      Select Country
-                    </option>
+                    <option value="">Select Country</option>
                     <option className="text-[15px]" value="Usa">
                       USA
                     </option>
@@ -239,8 +253,13 @@ function AddArea({ editdata }) {
                   <option value="" disabled hidden>
                     Select State
                   </option>
-                  {Object.entries(stateAbbreviations).map(
-                    ([state, abbreviation]) => (
+
+                  {selectedcountry ? (
+                    Object.entries(
+                      selectedcountry === "Usa"
+                        ? stateAbbreviations
+                        : canadainstateAbbreviations
+                    ).map(([state, abbreviation]) => (
                       <option
                         className="text-[15px]"
                         key={abbreviation}
@@ -248,7 +267,11 @@ function AddArea({ editdata }) {
                       >
                         {state} ({abbreviation})
                       </option>
-                    )
+                    ))
+                  ) : (
+                    <option className="text-gray-500">
+                      Please select a country.
+                    </option>
                   )}
                 </select>
               </div>
@@ -263,7 +286,6 @@ function AddArea({ editdata }) {
                         : "bg-white"
                     } rounded-md mx-2 px-2 border-2 border-black`}
                   >
-                   
                     <span className="mr-2">{item}</span>
 
                     <button

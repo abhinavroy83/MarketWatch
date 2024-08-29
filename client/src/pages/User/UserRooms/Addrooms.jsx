@@ -493,6 +493,13 @@ function Addrooms({ editdata }) {
             <p className="text-[1.1rem]">
               Your Account is belong {profiledata.belongcity}
             </p>
+            {/* <div className=" flex">
+              <label htmlFor="">type</label>
+              <p>rentals</p>
+              <input type="radio" />
+              <p>room</p>
+              <input type="radio" />
+            </div> */}
             <div className="w-full items-center">
               <div className="flex mt-5">
                 <label
