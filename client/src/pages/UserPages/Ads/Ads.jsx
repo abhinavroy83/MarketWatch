@@ -180,7 +180,7 @@ function Ads() {
             onClick={() => {
               window.open("https://www.redletterjobs.com/", "_blank");
             }}
-            className=" w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
+            className="cursor-pointer w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
           >
             <img
               className="w-[120px] lg:w-[190px]"
@@ -194,7 +194,7 @@ function Ads() {
                 // onClick={() => {
                 //   navigate(`/addroom/${userID}`);
                 // }}
-                className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Visit Site
               </button>
