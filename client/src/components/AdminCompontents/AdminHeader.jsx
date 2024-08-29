@@ -9,7 +9,7 @@ function AdminHeader() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div className=" mx-auto w-full bg-[#232f3e] shadow-2xl font-['udemy-regular']  ">
+    <div className=" mx-auto w-full bg-[#232f3e] shadow-2xl font-['udemy-regular'] fixed  ">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <Link to={"/"} className="inline-flex items-center space-x-2">
           <img

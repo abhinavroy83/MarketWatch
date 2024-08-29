@@ -71,7 +71,7 @@ function Alluser() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const renderRows = () => {
-    const itemsPerPage = 7;
+    const itemsPerPage = 50;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
@@ -290,7 +290,7 @@ function Alluser() {
           <Pagination
             currentPage={currentPage}
             totalRooms={data.length}
-            roomsPerPage="8"
+            roomsPerPage="50"
             paginate={paginate}
           />
         </section>

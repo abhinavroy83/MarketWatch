@@ -453,18 +453,7 @@ function Rooms() {
                   />
                 </div>
               )}
-              {/* <div className="cursor-pointer p-2 bg-green-500 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-600">
-                <BiSolidMessageRounded
-                  className="flex lg:w-7 lg:h-7 w-5 h-5"
-                  color="#fff"
-                  // size={30}
-                />
-              </div> */}
-              {/* <div className="cursor-pointer p-2 bg-blue-600 rounded-full">
-                <CopyToClipboard text={url} onCopy={handlecopy}>
-                  <IoIosShareAlt color="#fff" size={30} />
-                </CopyToClipboard>
-              </div> */}
+            
               <button
                 type="submit"
                 onClick={toggleSharePopup}
