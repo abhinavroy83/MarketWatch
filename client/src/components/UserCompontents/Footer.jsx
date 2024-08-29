@@ -35,7 +35,12 @@ export default function Footer() {
           alt="logo"
         />
       </div> */}
-      <div className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']">
+      <div
+        onClick={() => {
+          window.open("https://www.redletterjobs.com/", "_blank");
+        }}
+        className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']"
+      >
         <div className="lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
           <img
             className="w-[120px] lg:w-[190px]"
@@ -294,7 +299,12 @@ export default function Footer() {
             <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-2 cursor-pointer">
               © 2024, VeryDesi.com, Inc.
             </p>
-            <div className="flex flex-col mt-2 justify-center items-center mb-2 font-['udemy-regular'] bg-white">
+            <div
+              onClick={() => {
+                window.open("https://www.redletterjobs.com/", "_blank");
+              }}
+              className="flex flex-col mt-2 justify-center items-center mb-2 font-['udemy-regular'] bg-white"
+            >
               <div className="lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
                 <img
                   className="w-[120px] lg:w-[190px]"

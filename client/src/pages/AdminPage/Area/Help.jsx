@@ -22,6 +22,23 @@ function AdminHelpMessage() {
     }
   };
 
+  const handleDeleteRoom = async (dltid) => {
+    try {
+      const res = await axios.delete(
+        `https://api.verydesi.com/api/admin/deletemsg/${dltid}`
+      );
+      console.log(res);
+      if (res.data.success) {
+        alert("Deleted successfully");
+        setdata((prvs) => prvs.filter((msg) => msg._id !== dltid));
+      } else {
+        alert("Failed to delete the message");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchdata();
   }, []);

@@ -54,8 +54,6 @@ function AddArea({ editdata }) {
 
         if (res) {
           alert("Update area successfully");
-          setSelectedstate([]);
-          // navigate(`/admin/allarea`);
         }
       } catch (error) {
         console.log("Error during adding area", error);
@@ -193,6 +191,7 @@ function AddArea({ editdata }) {
       setPrimaryState(editdata.primaryState || "");
       setSubareas(editdata.subarea || []);
       setZipcode(editdata.zipcode || []);
+      setSelectedcountry(editdata.country || "");
     }
   }, [editdata, setValue]);
 
@@ -201,7 +200,14 @@ function AddArea({ editdata }) {
     setValue("primaryState", primaryState);
     setValue("subarea", subarea);
     setValue("zipcode", zipcode);
-  }, [selectedstate, primaryState, subarea, setValue, zipcode]);
+  }, [
+    selectedstate,
+    selectedcountry,
+    primaryState,
+    subarea,
+    setValue,
+    zipcode,
+  ]);
 
   return (
     <div className=" !mt-0">

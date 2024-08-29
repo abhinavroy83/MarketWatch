@@ -31,4 +31,28 @@ const gethelpmsg = async (req, res) => {
   }
 };
 
-module.exports = { posthelpmsg, gethelpmsg };
+const deletemsg = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const res = await Help.findByIdAndDelete({ _id });
+    console.log(res);
+    if (res) {
+      return res.status(200).json({
+        success: true,
+        message: "Message deleted successfully",
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: "Message not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while delete the help message",
+    });
+  }
+};
+
+module.exports = { posthelpmsg, gethelpmsg, deletemsg };

@@ -176,7 +176,12 @@ function Ads() {
             </div>
           </div>
 
-          <div className=" w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500">
+          <div
+            onClick={() => {
+              window.open("https://www.redletterjobs.com/", "_blank");
+            }}
+            className=" w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
+          >
             <img
               className="w-[120px] lg:w-[190px]"
               src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
@@ -199,11 +204,6 @@ function Ads() {
               src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
               alt="logo"
             /> */}
-            {/* <img
-          className="w-[6.9rem] h-15"
-          src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
-          alt="logo"
-        /> */}
           </div>
           <div className="flex-row">
             {isloged ? (
