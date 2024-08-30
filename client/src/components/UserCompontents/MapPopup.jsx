@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-export default function Component({ roomDetails }) {
+export default function MapPopup({ roomDetails, onNavigate }) {
   return (
     <div className="max-w-[200px] bg-white rounded-lg shadow-md overflow-hidden text-sm">
       <img
@@ -18,7 +18,12 @@ export default function Component({ roomDetails }) {
           <span className="font-bold text-xs">
             ${roomDetails.Expected_Rooms}
           </span>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-2 rounded">
+          <button
+            onClick={() => {
+              onNavigate(`/rooms/${roomDetails._id}`);
+            }}
+            className="bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-2 rounded"
+          >
             View
           </button>
         </div>

@@ -10,6 +10,7 @@ import axios from "axios";
 import markerIcon from "../../assets/map-marker2.png";
 import { renderToString } from "react-dom/server";
 import MapPopup from "./MapPopup";
+import { useNavigate } from "react-router-dom";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
@@ -17,6 +18,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   const markerClusterRef = useRef(null);
   const usercity = useSelector((state) => state.auth.city);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentloc = useSelector((state) => state.auth.location);
   const [locdata, setlocdata] = useState([]);
   const [currentLocation, setCurrentLocation] = useState({
@@ -157,21 +159,25 @@ const LeafletMap = ({ onLocationReceived, style }) => {
         });
         marker.on("click", async () => {
           try {
-            const _id = roomIds[0]; // Example: Using the first room ID
+            const _id = roomIds[0];
             const roomDetailResponse = await axios.get(
               `https://api.verydesi.com/api/getspecificroom/${_id}`
             );
 
             const roomDetails = roomDetailResponse.data.rooms;
 
-            // Display room details in a popup
             L.popup({
               maxWidth: 150,
               className: "custom-popup",
             })
               .setLatLng([lat, lng])
               .setContent(
-                renderToString(<MapPopup roomDetails={roomDetails} />)
+                renderToString(
+                  <MapPopup
+                    roomDetails={roomDetails}
+                    onNavigate={(path) => navigate(path)}
+                  />
+                )
               )
               .openOn(mapRef.current);
           } catch (error) {
@@ -179,7 +185,6 @@ const LeafletMap = ({ onLocationReceived, style }) => {
           }
         });
 
-        // Add the marker to the cluster group
         markerClusterRef.current.addLayer(marker);
       });
     }
