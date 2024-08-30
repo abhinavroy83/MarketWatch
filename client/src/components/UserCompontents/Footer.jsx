@@ -41,10 +41,15 @@ export default function Footer() {
         }}
         className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']"
       >
-        <div className="cursor-pointer lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
+        <div className="cursor-pointer lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
           <img
             className="w-[120px] lg:w-[190px]"
             src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+            alt="logo"
+          />
+          <img
+            className="w-[120px] lg:w-[190px]"
+            src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724996141/R.2894cf285c04316dd503b8d215827e2c_vbweas.png`}
             alt="logo"
           />
           <div>
