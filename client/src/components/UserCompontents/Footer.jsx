@@ -37,36 +37,72 @@ export default function Footer() {
       </div> */}
       <div
         onClick={() => {
-          window.open("https://www.redletterjobs.com/", "_blank");
+          window.open("https://redletterweb.com/", "_blank");
         }}
         className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']"
       >
-        <div className="cursor-pointer lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
-          <img
-            className="w-[120px] lg:w-[190px]"
-            src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
-            alt="logo"
-          />
+        <div className="cursor-pointer lg:w-[44rem] w-[22rem] justify-between gap-4 lg:gap-7 flex p-2 lg:p-0 shadow-sm shadow-gray-500 rounded-md">
+          <div className="flex flex-col gap-3 justify-center">
+            <img
+              className="w-[120px] lg:w-[190px]"
+              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+              alt="logo"
+            />
+            <span className="bg-[#232f3e] text-white rounded-br-full rounded-tr-full p-2 px-6">
+              Very Desi Guides
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-[23px] font-bold">Red Letter Webs</h2>
+            <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
+            {/* <p>hi</p> */}
+            {/* <button
+              type="submit"
+              className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Visit Site
+            </button> */}
+          </div>
           <img
             className="w-[120px] lg:w-[190px]"
             src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724996141/R.2894cf285c04316dd503b8d215827e2c_vbweas.png`}
             alt="logo"
           />
-          <div>
-            {/* <p>hi</p> */}
-            <button
-              type="submit"
-              // onClick={() => {
-              //   navigate(`/addroom/${userID}`);
-              // }}
-              className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Visit Site
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-[500px] h-[170px] bg-[#232f3e] text-white p-6  mt-3 rounded-lg shadow-lg flex items-center justify-between font-['udemy-regular'] mb-4">
+          <div className="flex flex-col justify-between">
+            <div>
+              <h2 className="text-[23px] font-bold mb-2">Red Letter Webs</h2>
+              <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
+            </div>
+            <button className="bg-white text-[#232f3e] px-6 py-2 rounded-full font-semibold text-sm transition-colors w-fit">
+              Get Started
             </button>
+          </div>
+          <div className="flex flex-col justify-center">
+            <ul className="text-[#DDD] text-[14px] cursor-pointer space-y-2">
+              <li className="flex items-center">
+                {/* <ArrowRight className="w-4 h-4 mr-2 text-emerald-200" /> */}
+                Custom Web Design
+              </li>
+              <li className="flex items-center">
+                {/* <ArrowRight className="w-4 h-4 mr-2 text-emerald-200" /> */}
+                Responsive Development
+              </li>
+              <li className="flex items-center">
+                {/* <ArrowRight className="w-4 h-4 mr-2 text-emerald-200" /> */}
+                SEO Optimization
+              </li>
+              <li className="flex items-center">
+                {/* <ArrowRight className="w-4 h-4 mr-2 text-emerald-200" /> */}
+                24/7 Support
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
       <div className=" mx-auto">
         <div className="bg-[#232f3e] flex text-[#232f3e] justify-center items-center gap-10 ">
           <p>hi</p>
@@ -304,32 +340,6 @@ export default function Footer() {
             <p className="text-[#DDD] text-[14px] flex gap-4 font-bold justify-center mt-2 cursor-pointer">
               © 2024, VeryDesi.com, Inc.
             </p>
-            <div
-              onClick={() => {
-                window.open("https://www.redletterjobs.com/", "_blank");
-              }}
-              className="flex flex-col mt-2 justify-center items-center mb-2 font-['udemy-regular'] bg-white"
-            >
-              <div className="cursor-pointer lg:w-[50rem] w-[22rem] justify-between gap-4 lg:gap-7 flex items-center border border-gray-500 p-2 lg:p-0 lg:px-10 shadow-sm shadow-gray-500">
-                <img
-                  className="w-[120px] lg:w-[190px]"
-                  src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
-                  alt="logo"
-                />
-                <div>
-                  {/* <p>hi</p> */}
-                  <button
-                    type="submit"
-                    // onClick={() => {
-                    //   navigate(`/addroom/${userID}`);
-                    // }}
-                    className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                  >
-                    Visit Site
-                  </button>
-                </div>
-              </div>
-            </div>
 
             <div className="flex flex-col justify-between pt-5 sm:flex-row sm:items-center max-w-[1600px] w-full mx-auto">
               {/* <a

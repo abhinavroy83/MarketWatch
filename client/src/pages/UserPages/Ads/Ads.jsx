@@ -180,7 +180,7 @@ function Ads() {
             onClick={() => {
               window.open("https://www.redletterjobs.com/", "_blank");
             }}
-            className="cursor-pointer w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
+            className=" cursor-pointer w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
           >
             <img
               className="w-[120px] lg:w-[190px]"
