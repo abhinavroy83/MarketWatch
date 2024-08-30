@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3 justify-center">
             <img
               className="w-[120px] lg:w-[190px]"
-              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
               alt="logo"
             />
             <span className="bg-[#232f3e] text-white rounded-br-full rounded-tr-full p-2 px-6">
@@ -53,7 +53,9 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-[23px] font-bold">Red Letter Webs</h2>
+            <h2 className="text-[23px] font-bold">
+              Get your business online
+            </h2>
             <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
             {/* <p>hi</p> */}
             {/* <button
@@ -74,7 +76,7 @@ export default function Footer() {
         <div className="w-[500px] h-[170px] bg-[#232f3e] text-white p-6  mt-3 rounded-lg shadow-lg flex items-center justify-between font-['udemy-regular'] mb-4">
           <div className="flex flex-col justify-between">
             <div>
-              <h2 className="text-[23px] font-bold mb-2">Red Letter Webs</h2>
+              <h2 className="text-[23px] font-bold mb-2">Red Letter Web</h2>
               <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
             </div>
             <button className="bg-white text-[#232f3e] px-6 py-2 rounded-full font-semibold text-sm transition-colors w-fit">

@@ -178,13 +178,13 @@ function Ads() {
 
           <div
             onClick={() => {
-              window.open("https://www.redletterjobs.com/", "_blank");
+              window.open("https://redletterweb.com/", "_blank");
             }}
             className=" cursor-pointer w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
           >
             <img
               className="w-[120px] lg:w-[190px]"
-              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724862699/Screenshot_2024-08-28_215758_arpycv.png`}
+              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
               alt="logo"
             />
             <div>
