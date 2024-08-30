@@ -6,8 +6,8 @@ function AdminDashboard({ children }) {
   const role = useSelector((state) => state.adminauth.role);
 
   return (
-    <div className="max-w-[1600px] mx-auto flex justify-center shadow-lg shadow-gray-400 h-[700px] overflow-hidden font-['udemy-regular'] mt-[3rem] text-[20px]">
-      <div className="w-[20%] h-auto border p-2 hidden lg:flex flex-col items-center ">
+    <div className="max-w-screen mx-auto flex max-h-full mt-16 justify-center  overflow-hidden font-['udemy-regular'] text-[20px]">
+      <div className="w-[20%] h-full border p-2 hidden lg:flex flex-col items-center overflow-y-hidden fixed top-0 left-0 mt-20  ">
         <button
           onClick={() => {
             navigate(`/admin/dashboard`);
@@ -157,7 +157,7 @@ function AdminDashboard({ children }) {
         </button> */}
       </div>
 
-      <main className="w-auto lg:w-4/5 h-auto border p-2 overflow-scroll overflow-x-hidden overflow-y-hidden mt-3 lg:mt-0">
+      <main className="w-auto h-screen lg:w-4/5 border p-2 ml-[20%] overflow-y-auto  mt-3 lg:mt-0">
         {children}
       </main>
     </div>

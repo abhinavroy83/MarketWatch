@@ -34,10 +34,9 @@ const gethelpmsg = async (req, res) => {
 const deletemsg = async (req, res) => {
   try {
     const { _id } = req.params;
-    const res = await Help.findByIdAndDelete({ _id });
-    console.log(res);
-    if (res) {
-      return res.status(200).json({
+    const result = await Help.findByIdAndDelete(_id);
+    if (result) {
+      return res.json({
         success: true,
         message: "Message deleted successfully",
       });
