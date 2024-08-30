@@ -7,11 +7,14 @@ import "leaflet.markercluster";
 import { useDispatch, useSelector } from "react-redux";
 import { location as redlocation } from "../../store/authslice";
 import axios from "axios";
+import markerIcon from "../../assets/map-marker2.png";
+import { renderToString } from "react-dom/server";
+import MapPopup from "./MapPopup";
 
 const LeafletMap = ({ onLocationReceived, style }) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  const markerClusterRef = useRef(null); // To store marker cluster
+  const markerClusterRef = useRef(null);
   const usercity = useSelector((state) => state.auth.city);
   const dispatch = useDispatch();
   const currentloc = useSelector((state) => state.auth.location);
@@ -28,7 +31,12 @@ const LeafletMap = ({ onLocationReceived, style }) => {
           ? `https://api.verydesi.com/api/getallrooms?city=${usercity}`
           : `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
       );
-      setlocdata(res.data.Allrooms.map((room) => room.location.coordinates));
+      setlocdata(
+        res.data.Allrooms.map((room) => ({
+          id: room._id,
+          coordinates: room.location.coordinates,
+        }))
+      );
     } catch (error) {
       console.log("Error fetching API:", error);
     }
@@ -93,62 +101,86 @@ const LeafletMap = ({ onLocationReceived, style }) => {
 
   useEffect(() => {
     if (mapRef.current && locdata.length > 0) {
-      // Clear previous markers from the cluster group
       markerClusterRef.current.clearLayers();
 
-      // Group locations by coordinates
-      const locationMap = locdata.reduce((acc, coords) => {
+      const locationMap = locdata.reduce((acc, room) => {
+        const { coordinates, id } = room;
+
         if (
-          coords.length < 2 ||
-          typeof coords[0] !== "number" ||
-          typeof coords[1] !== "number"
+          coordinates.length < 2 ||
+          typeof coordinates[0] !== "number" ||
+          typeof coordinates[1] !== "number"
         ) {
-          console.error("Invalid coordinates:", coords); // Log invalid coordinates
+          console.error("Invalid coordinates:", coordinates);
           return acc;
         }
 
-        const key = `${coords[1]},${coords[0]}`; // [lat, lng] => lat,lng
+        const key = `${coordinates[1]},${coordinates[0]}`; // [lat, lng] => lat,lng
         if (!acc[key]) {
-          acc[key] = { coordinates: coords, count: 0 };
+          acc[key] = { coordinates, count: 0, roomIds: [] };
         }
         acc[key].count += 1;
+        acc[key].roomIds.push(id);
         return acc;
       }, {});
 
-      console.log("Grouped locations:", locationMap); // Log the grouped locations
-
-      // Create markers for each unique location with a count
       Object.values(locationMap).forEach((location) => {
-        const { coordinates, count } = location;
+        const { coordinates, count, roomIds } = location;
         const [lng, lat] = coordinates;
 
         if (typeof lat !== "number" || typeof lng !== "number") {
-          console.error("Invalid latitude or longitude:", lat, lng); // Log invalid lat/lng
+          console.error("Invalid latitude or longitude:", lat, lng);
           return;
         }
 
-        // Create a custom icon with a count displayed
-        const icon = L.divIcon({
-          className: "custom-div-icon",
-          html: `<div style="
-            background-color: blue; 
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          ">${count}</div>`,
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
+        const marker = L.marker([lat, lng], {
+          icon: L.divIcon({
+            className: "custom-div-icon",
+            html: `
+              <div style="
+                background-color: white; 
+                border-radius: 50%; 
+                width: 40px; 
+                height: 40px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                <img src="${markerIcon}" style="width: 25px; height: 25px;" />
+              </div>
+            `,
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40],
+            tooltipAnchor: [20, -20],
+          }),
+        });
+        marker.on("click", async () => {
+          try {
+            const _id = roomIds[0]; // Example: Using the first room ID
+            const roomDetailResponse = await axios.get(
+              `https://api.verydesi.com/api/getspecificroom/${_id}`
+            );
+
+            const roomDetails = roomDetailResponse.data.rooms;
+
+            // Display room details in a popup
+            L.popup({
+              maxWidth: 150,
+              className: "custom-popup",
+            })
+              .setLatLng([lat, lng])
+              .setContent(
+                renderToString(<MapPopup roomDetails={roomDetails} />)
+              )
+              .openOn(mapRef.current);
+          } catch (error) {
+            console.log("Error fetching room details:", error);
+          }
         });
 
         // Add the marker to the cluster group
-        L.marker([lat, lng], { icon }).addTo(markerClusterRef.current);
+        markerClusterRef.current.addLayer(marker);
       });
     }
   }, [locdata]);

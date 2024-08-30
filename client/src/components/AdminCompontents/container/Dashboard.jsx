@@ -41,7 +41,7 @@ function AdminDashboard({ children }) {
                   />
                 </svg>
               </button>
-              <Link href="/" className="flex items-center space-x-2">
+              <Link to="/" className="flex items-center space-x-2">
                 <img
                   height={100}
                   width={150}
