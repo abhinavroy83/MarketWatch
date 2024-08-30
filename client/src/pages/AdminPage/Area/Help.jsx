@@ -81,7 +81,7 @@ function AdminHelpMessage() {
 
   return (
     <div>
-      <AdminHeader />
+     
       <AdminDashboard>
         <div className=" h-full overflow-y-auto">
           <div className="lg:hidden flex items-center text-gray-700 mt-2 text-[16px] font-['udemy-regular'] ">

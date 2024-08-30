@@ -112,7 +112,7 @@ function AllArea() {
   return (
     <div>
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
-      <AdminHeader />
+      
       <AdminDashboard>
         <div className=" h-full overflow-auto max-full">
           <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">

@@ -96,7 +96,7 @@ function Pendingrequest() {
 
   return (
     <div>
-      <AdminHeader />
+      
       <AdminDashboard>
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
           <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">

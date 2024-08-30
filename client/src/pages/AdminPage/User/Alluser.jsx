@@ -71,7 +71,7 @@ function Alluser() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const renderRows = () => {
-    const itemsPerPage = 50;
+    const itemsPerPage = 10;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
     return data.slice(startIndex, endIndex).map((items) => (
@@ -132,9 +132,8 @@ function Alluser() {
   };
   return (
     <div>
-      <AdminHeader />
       <AdminDashboard>
-        <section className="mx-auto w-full max-w-7xl px-4 py-4">
+        <section className="mx-auto w-full  px-4 py-4">
           <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
               <Link to="/admin/dashboard">
@@ -290,7 +289,7 @@ function Alluser() {
           <Pagination
             currentPage={currentPage}
             totalRooms={data.length}
-            roomsPerPage="50"
+            roomsPerPage="10"
             paginate={paginate}
           />
         </section>

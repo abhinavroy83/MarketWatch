@@ -10,7 +10,7 @@ import { IoIosArrowForward } from "react-icons/io";
 function Adminusers() {
   return (
     <div>
-      <AdminHeader />
+   
       <AdminDashboard>
         <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
           <Link to="/admin/dashboard">

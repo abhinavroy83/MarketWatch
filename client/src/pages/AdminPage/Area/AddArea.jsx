@@ -211,7 +211,6 @@ function AddArea({ editdata }) {
 
   return (
     <div className=" !mt-0">
-      <AdminHeader />
       <AdminDashboard>
         <div className=" h-full overflow-y-auto ">
           <p className="text-[22px] font-bold text-[#232f3e] my-7 font-['udemy-regular'] flex justify-center">

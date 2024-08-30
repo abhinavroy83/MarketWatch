@@ -39,7 +39,6 @@ function Userdashboardconatiner({ children }) {
 
   return (
     <div>
-      <AdminHeader />
       <AdminDashboard>
         <div className="flex flex-col">
           <div className=" flex">
