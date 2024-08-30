@@ -358,7 +358,7 @@ function AddArea({ editdata }) {
                   <button
                     type="button"
                     onClick={handleAddSubarea}
-                    className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
+                    className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[1rem]"
                   >
                     Add
                   </button>
@@ -399,7 +399,7 @@ function AddArea({ editdata }) {
                 <button
                   type="button"
                   onClick={handleAddZipcode}
-                  className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[19px]"
+                  className="lg:ml-3 rounded-md bg-green-800 px-4 py-2 text-white text-[1rem]"
                 >
                   Add
                 </button>
@@ -428,14 +428,14 @@ function AddArea({ editdata }) {
               {editdata ? (
                 <div className=" flex gap-2">
                   <button
-                    className="rounded-md bg-gray-600 px-4 py-2 text-[19px] self-center justify-center flex text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-gray-300 hover:bg-gray-400 font-bold text-black px-4 py-2 text-[1rem] self-center justify-center flex shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     type="button"
                     onClick={() => navigate(`/admin/allarea`)}
                   >
                     Back
                   </button>
                   <button
-                    className="rounded-md bg-green-800 px-4 py-2 text-[18px] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 px-4 py-2 text-[1rem] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     type="submit"
                   >
                     Update Area
@@ -443,7 +443,7 @@ function AddArea({ editdata }) {
                 </div>
               ) : (
                 <button
-                  className="rounded-md bg-green-800 px-4 py-2 text-[18px] justify-center text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-md bg-green-800 px-4 py-2 text-[1rem] justify-center text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   type="submit"
                 >
                   Create Area

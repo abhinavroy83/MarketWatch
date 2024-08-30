@@ -417,7 +417,7 @@ function Rooms() {
                 <div>
                   {!wishliststatys ? (
                     <div
-                      className="cursor-pointer p-2 bg-gray-600 hover:bg-gray-900 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-800"
+                      className="cursor-pointer p-2 bg-gray-600 hover:bg-red-600 rounded-full shadow-lg shadow-gray-500 hover:shadow-gray-800"
                       onClick={makewishlist}
                     >
                       <FaHeart
@@ -453,11 +453,11 @@ function Rooms() {
                   />
                 </div>
               )}
-            
+
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="text-black hover:text-white rounded-md justify-between bg-gray-400 hover:bg-gray-900 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[20px] flex items-center shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="text-black hover:text-white rounded-md justify-between bg-gray-400 hover:bg-gray-900 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[19px] flex items-center shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="flex lg:w-5 lg:h-5 w-4 h-4" />
                 <p>Share</p>
@@ -574,7 +574,7 @@ function Rooms() {
                         dispatch(modalopen({ isloginmodalopen: true }));
                       }
                     }}
-                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[19px] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[1rem] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     <LuPhoneCall size={25} />
                     <span class="items-center justify-center">

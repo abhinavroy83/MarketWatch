@@ -521,7 +521,7 @@ function Profile() {
                     <input
                       type="text"
                       placeholder="Enter Address"
-                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[712px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("address")}
                       defaultValue={data.address}
                     />
@@ -529,7 +529,7 @@ function Profile() {
                     <p className="">{data.address}</p>
                   )}
                 </div>
-                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
+                {/* <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
                   <label className="min-w-[120px]">State</label>
                   {isedit ? (
                     <select
@@ -555,7 +555,7 @@ function Profile() {
                   ) : (
                     <p className="">{data.state}</p>
                   )}
-                </div>
+                </div> */}
               </div>
               <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:text-[1.2rem] text-[1.1rem]">
                 <div className="flex flex-col font-['udemy-regular'] p-2 gap-1">
@@ -587,23 +587,35 @@ function Profile() {
                     <p className="">{data.city}</p>
                   )} */}
                 </div>
-
                 <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
-                  <label className="min-w-[120px]">Zip Code</label>
+                  <label className="min-w-[120px]">State</label>
                   {isedit ? (
-                    <input
-                      type="text"
-                      placeholder="Enter Pin"
+                    <select
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("pin")}
-                      defaultValue={data.pin}
-                    />
+                      {...register("state")}
+                      onChange={handlestatechange}
+                      defaultValue={data.state}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        hidden
+                        className="text-[1.1rem]"
+                      >
+                        Select State
+                      </option>{" "}
+                      {states.map((state) => (
+                        <option key={state.ste_name} value={state.ste_name}>
+                          {state.ste_name}
+                        </option>
+                      ))}
+                    </select>
                   ) : (
-                    <p className="text-[1rem]">{data.pin}</p>
+                    <p className="">{data.state}</p>
                   )}
                 </div>
               </div>
-              <div>
+              <div className="flex flex-col lg:flex-row lg:gap-[1rem] lg:text-[1.2rem] text-[1.1rem]">
                 <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
                   <label className="min-w-[120px]">Country</label>
                   {isedit ? (
@@ -623,17 +635,31 @@ function Profile() {
                     <p className="">{data.country}</p>
                   )}
                 </div>
-                <div className="ml-2 mt-2 mb-[0.4rem]">
-                  <button
-                    onClick={() => {
-                      navigate(`/setting/changepassword/${userID}`);
-                    }}
-                    type="button"
-                    className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] rounded-md  hover:bg-gray-400 font-bold text-black"
-                  >
-                    Change Password
-                  </button>
+                <div className="flex flex-col font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem] gap-1">
+                  <label className="min-w-[120px]">Zip Code</label>
+                  {isedit ? (
+                    <input
+                      type="text"
+                      placeholder="Enter Pin"
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("pin")}
+                      defaultValue={data.pin}
+                    />
+                  ) : (
+                    <p className="text-[1rem]">{data.pin}</p>
+                  )}
                 </div>
+              </div>
+              <div className="ml-2 mt-2 mb-[0.4rem]">
+                <button
+                  onClick={() => {
+                    navigate(`/setting/changepassword/${userID}`);
+                  }}
+                  type="button"
+                  className=" bg-gray-300 px-6 py-2 text-[1rem] w-[300px] lg:w-[340px] rounded-md hover:bg-gray-400 font-bold text-black"
+                >
+                  Change Password
+                </button>
               </div>
               {/* <div className="flex flex-col font-['udemy-regular'] p-2 text-[1.2rem]">
                 <label className="min-w-[120px]">Pin</label>
@@ -788,7 +814,7 @@ function Profile() {
                 Delete Account
               </p> */}
               <button
-                className=" font-['udemy-regular'] bg-green-800 rounded-md text-white px-3 py-2 text-[1.1rem] mb-3"
+                className=" font-['udemy-regular'] bg-green-800 rounded-md text-white px-3 py-2 text-[1rem] mb-3"
                 type="submit"
               >
                 Update Profile
@@ -803,7 +829,7 @@ function Profile() {
             </div>
           ) : (
             <button
-              className=" font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1.1rem] mb-3 rounded-md"
+              className=" font-['udemy-regular'] bg-green-800 text-white mt-2 px-4 py-3 text-[1rem] mb-3 rounded-md"
               type="button"
               onClick={toggleEdit}
             >

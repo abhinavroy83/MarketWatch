@@ -133,14 +133,14 @@ function AllRooms() {
         draggable
         pauseOnHover
         toastClassName={() =>
-          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
+          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2 border border-gray-100"
         }
       />
 
       {rooms.length > 0 ? (
-        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg mt-[2rem] lg:mt-1">
+        <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg ">
           <div className="flex justify-between items-center gap-1">
-            <h1 className="capitalize text-[1.1rem] lg:text-[23px] font-['udemy-bold']">
+            <h1 className="capitalize text-[23px] lg:text-[23px] font-['udemy-bold']">
               {usercity ? (
                 <p>Featured Rooms In {usercity}</p>
               ) : (
@@ -153,7 +153,7 @@ function AllRooms() {
                 onClick={() => {
                   navigate(`/addroom/${userID}`);
                 }}
-                className="rounded-md bg-green-800 px-2 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-green-800 whitespace-nowrap py-2 px-3 lg:px-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Post Room
               </button>
