@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-[23px] font-bold">
-              Get your business online
+              Get Your Business Online
             </h2>
             <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
             {/* <p>hi</p> */}
