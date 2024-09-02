@@ -81,14 +81,13 @@ function AdminHelpMessage() {
 
   return (
     <div>
-     
       <AdminDashboard>
         <div className=" h-full overflow-y-auto">
           <div className="lg:hidden flex items-center text-gray-700 mt-2 text-[16px] font-['udemy-regular'] ">
             {/* <Link to="/admin/dashboard">
-            <FaHome size={20} />
+           <FaHome size={20} />
           </Link>
-          <IoIosArrowForward /> */}
+          <IoIosArrowForward /> */} 
             <p className="text-[16px]">Help</p>
           </div>
           <section className="mx-auto font-['udemy-regular'] w-full max-w-7xl px-4 py-4">

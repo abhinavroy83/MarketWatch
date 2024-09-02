@@ -86,15 +86,20 @@ function Alluser() {
           <div className="text-base text-gray-500">{items.email}</div>
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-          {items.city}
+          {items.isVerified ? "verify" : "unverify"}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
         </td> */}
         <td className="whitespace-nowrap px-8 py-4 text-base font-medium">
-          <a href="#" className="text-indigo-600">
+          <button
+            onClick={() => {
+              navigate(`/admin/userprofile/${items._id}`);
+            }}
+            className="text-indigo-600"
+          >
             Edit
-          </a>
+          </button>
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-base font-medium text-red-600">
           <button
@@ -232,7 +237,7 @@ function Alluser() {
                               }
                               alt=""
                             />
-                            City
+                            status
                           </div>
                         </th>
                         {/* <th

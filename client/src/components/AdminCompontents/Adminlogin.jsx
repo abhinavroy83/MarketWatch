@@ -44,79 +44,98 @@ function Adminlogin() {
   };
 
   return (
-    <div className="bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] bg-cover w-full">
-      <div className="w-full max-w-7xl mx-auto font-['udemy-regular']">
-        <div className=" flex justify-center items-center h-screen ">
-          <div className="lg:w-[600px] w-[350px] h-[350px] font-['udemy-regular'] bg-white items-center flex flex-col justify-center gap-2 rounded-md shadow-lg shadow-gray-800">
-            {/* <div className="bg-contain flex min-h-[300px] bg-[url('https://img.freepik.com/premium-vector/sign-account-user-authorization-login-authentication-page-concept-laptop-with-login-password-form-page-screen-stock-illustration_100456-1590.jpg')]">
-        </div> */}
-            <div className="bg-[url('https://res.cloudinary.com/druohnmyv/image/upload/v1724156127/assests/ugibefslubs1sabio2xq.avif')] w-full max-w-7xl p-4 text-black text-[33px] items-center justify-center flex border-t-2 border-white shadow-md shadow-gray-600">
-              <p className="flex gap-2 items-center text-[27px]">
-                {/* <img
-                  className="h-12 w-12"
-                  src={
-                    "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/ydvr3eeqwwho5kimj5hk.png"
-                  }
-                  alt=""
-                /> */}
-                DASHBOARD
-              </p>
-            </div>
-            {/* <div className="text-[34px] text-[#0b5e86] font-bold mt-2">
-              Log In Here
-            </div> */}
-            <form onSubmit={handleSubmit(onsubmit)} className="mt-7">
-              {/* <Input
-            type="text"
-            Placeholder="Username"
-            {...register("username", { required: "username is required" })}
-            errorMessage={errors.username?.message}
-          /> */}
-              {/* <Input
-            type="text"
-            Placeholder="Password"
-            {...register("password", { required: "password is required" })}
-            errorMessage={errors.password?.message}
-          />             */}
-              <div className="justify-center">
-                <div className="flex font-['udemy-regular'] justify-center items-center">
-                  <label className="w-[120px] lg:w-[130px] text-[20px] text-black">
-                    User Name
-                  </label>
-                  <input
-                    className="flex h-10 lg:w-[300px] w-[200px] bg-black text-[19px] border-2 border-black/10 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-                    type="text"
-                    Placeholder="Username"
-                    {...register("username", {
-                      required: "username is required",
-                    })}
-                    errorMessage={errors.username?.message}
-                  />
-                </div>
-                <div className="flex font-['udemy-regular'] items-center mt-5">
-                  <label className="w-[120px] lg:w-[130px] text-[20px] text-black">
-                    Password
-                  </label>
-                  <input
-                    className="flex h-10 lg:w-[300px] w-[200px] bg-black text-[19px] border-2 border-black/10 bg-transparent px-3 py-2 placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 "
-                    type="text"
-                    Placeholder="Password"
-                    {...register("password", {
-                      required: "password is required",
-                    })}
-                    errorMessage={errors.password?.message}
-                  />
-                </div>
-              </div>
-              <div className="flex mx-auto justify-center items-center ">
-                <button
-                  className="self-center justify-center items-center rounded-md bg-green-800 mt-7 py-2 px-4 text-[20px] text-white shadow-sm hover:bg-black"
-                  type="submit"
+    <div className="min-h-screen bg-gray-200 flex items-center justify-center p-6">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6 space-y-10">
+          <div className="mb-8 text-center">
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+              Welcome Back
+            </h1>
+            <p className="text-gray-600">Please sign in to your account</p>
+          </div>
+          <form onSubmit={handleSubmit(onsubmit)} className="space-y-4">
+            <div>
+              <label htmlFor="username" className="sr-only">
+                Username
+              </label>
+              <div className="relative">
+                <svg
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  Click To Login
-                </button>
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <input
+                  id="username"
+                  type="text"
+                  {...register("username")}
+                  placeholder="Username"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  required
+                />
               </div>
-            </form>
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
+              <div className="relative">
+                <svg
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input
+                  id="password"
+                  type="password"
+                  {...register("password")}
+                  placeholder="Password"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  required
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-emerald-500 text-white py-2 rounded-md hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors duration-300"
+            >
+              Login
+            </button>
+          </form>
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Don't have an account?
+              <a
+                href="#"
+                className="font-medium text-emerald-500 hover:text-emerald-500"
+              >
+                Contact your administrator
+              </a>
+            </p>
           </div>
         </div>
       </div>

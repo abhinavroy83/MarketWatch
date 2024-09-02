@@ -36,7 +36,6 @@ const singup = async (req, res) => {
     });
     const ress = await newUser.save();
     if (ress) {
-      console.log(res);
       const jwttoken = jwt.sign({ email }, process.env.JWTSECRETKEY);
       await sendemailverification(email, jwttoken, ress.firstName);
       return res.json({

@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link, useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
+import { Search, Plus, Edit2, ChevronDown } from "lucide-react";
 import { HiMinusCircle } from "react-icons/hi";
 import { MdEdit } from "react-icons/md";
 import Update_del_Area from "./Modify/Update_del_Area";
@@ -21,7 +22,7 @@ function AllArea() {
   const [data, setData] = useState([]);
   const [filterstate, setfilterstate] = useState([]);
   const [Filtercity, setFiltercity] = useState([]);
-  const [selectedcountry, setSelectedcountry] = useState("");
+  const [selectedcountry, setSelectedcountry] = useState("Usa");
   const [selectedstate, setSelectedstate] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [uniquestate, setuniquestate] = useState("");
@@ -112,196 +113,235 @@ function AllArea() {
   return (
     <div>
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
-      
-      <AdminDashboard>
-        <div className=" h-full overflow-auto max-full">
-          <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
-            <Link to="/admin/dashboard">
-              <FaHome size={20} />
-            </Link>
-            <IoIosArrowForward />
-            <p className="">Area</p>
-          </div>
 
-          {/* <div className="mx-5 mt-6 flex justify-between">
-          <p className="text-[22px] font-semibold font-['udemy-regular']">
-            Add Area Details Here -
-          </p>
-          <div className="flex gap-3">
-            <button
-              className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              onClick={(e) => {
-                e.preventDefault();
-                onAddSuburbClick();
-              }}
-            >
-              Add New Subrs
-            </button>
+      <AdminDashboard>
+        <main className="flex-1 p-8 overflow-auto">
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-2xl font-semibold text-gray-800">
+              Area Management
+            </h2>
           </div>
-        </div> */}
-          <p className="text-center text-[22px] text-[#232f3e] font-['udemy-regular'] justify-center w-full">
-            List of Avaible Area
-          </p>
-          <form className=" font-['udemy-regular'] mt-5">
-            <div className=" flex w-full mx-auto justify-center items-center">
-              <div className="flex flex-col border-2 border-gray-400 w-[15rem] bg-white text-[18px] rounded-md">
-                <p className="rounded-md text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
-                  Country -
-                </p>
-                <ul className="">
-                  <li
-                    value={"Usa"}
-                    onClick={() => {
-                      setSelectedcountry("Usa");
-                    }}
-                    className={`cursor-pointer    ${
-                      selectedcountry === "Usa"
-                        ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                        : ""
-                    }`}
-                  >
-                    <p className="ml-3">USA</p>
-                  </li>
-                  <li
-                    value={"Canada"}
-                    onClick={() => {
-                      setSelectedcountry("Canada");
-                    }}
-                    className={`cursor-pointer    ${
-                      selectedcountry === "Canada"
-                        ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                        : ""
-                    }`}
-                  >
-                    <p className="ml-3">Canada</p>
-                  </li>
-                </ul>
+          <nav className="text-sm font-medium mb-2" aria-label="Breadcrumb">
+            <ol className="list-none p-0 inline-flex">
+              <li className="flex items-center">
+                <Link
+                  to="/admin/dashboard"
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  Home
+                </Link>
+                <svg
+                  className="fill-current w-3 h-3 mx-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                </svg>
+              </li>
+              <li>
+                <span className="text-gray-700" aria-current="page">
+                  Area
+                </span>
+              </li>
+            </ol>
+          </nav>
+
+          <div className="bg-white shadow rounded-lg p-6">
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center space-x-4">
+                <select
+                  value={selectedcountry}
+                  onChange={(e) => setSelectedcountry(e.target.value)}
+                  className="block w-40 px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
+                >
+                  <option>Select Country</option>
+                  <option value={"Usa"}>USA</option>
+                  <option value={"Canada"}>Canada</option>
+                </select>
               </div>
+              <button
+                onClick={() => {
+                  navigate("/admin/addarea");
+                }}
+                className="px-4 py-2 text-sm text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              >
+                <Plus className="inline-block mr-2 h-4 w-4" /> Add Area
+              </button>
             </div>
 
-            <div className="lg:flex lg:gap-20 lg:justify-center mt-5">
-              <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md">
-                <p className="text-[20px] bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400 rounded-md">
-                  List of Area in{" "}
-                  {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
-                </p>
-                <button
-                  onClick={() => {
-                    <div className="flex flex-col">
-                      <p className=" text-[17px]">List of Suburbs</p>
-                      <ul>
-                        {Filteresub.length > 0 &&
-                          Filteresub.map((item, index) => (
-                            <li key={index}>{item.subarea}</li>
-                          ))}
-                      </ul>
-                    </div>;
-                    navigate("/admin/addarea");
-                  }}
-                  className="flex gap-2 items-center bg-white py-2 text-[18px] font-semibold text-black border shadow-sm hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  <IoAddCircleOutline size={22} />
-                  Add Area
-                </button>
-                <ul className="rounded-sm text-[18px] bg-white p-1">
-                  {Filtercity.map((city, index) => (
-                    <div className=" flex justify-between">
-                      <li
-                        key={index}
-                        value={city}
-                        className={`cursor-pointer    ${
-                          selectedCity === city
-                            ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                            : ""
-                        }`}
-                        onClick={() => {
-                          setSelectedCity(city);
-                        }}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* list of Area  */}
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold mb-3 flex justify-between items-center">
+                  Area
+                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                </h3>
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
-                        {city}
-                      </li>
-                      <MdEdit
-                        className=" cursor-pointer justify-center"
-                        onClick={() => {
-                          navigate(`/admin/area/update/${city}`);
-                        }}
-                      />
-                    </div>
-                  ))}
-                </ul>
+                        Name
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-1 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {Filtercity.map((item, i) => (
+                      <tr key={i}>
+                        <td
+                          onClick={() => {
+                            setSelectedCity(item);
+                          }}
+                          className={`cursor-pointer px-6 py-4 whitespace-nowrap text-sm text-gray-500    ${
+                            selectedCity === item
+                              ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                              : ""
+                          }`}
+                        >
+                          {item}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <button
+                            onClick={() => {
+                              navigate(`/admin/area/update/${item}`);
+                            }}
+                            className="text-red-600 hover:text-red-900"
+                          >
+                            <Edit2 className="h-4 w-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
 
-              <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md mt-5 lg:mt-0">
-                <p className="text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2 rounded-md">
-                  List of States
-                </p>
-                <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white text-[18px]">
-                  <ul className="list-none p-0 ml-3 mt-2">
+              {/* list of states */}
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold mb-3 flex justify-between items-center">
+                  States
+                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                </h3>
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className="bg-white divide-y divide-gray-200 overflow-y-auto h-[calc(100vh-100px) block"
+                    style={{ maxHeight: "calc(80vh - 80px)" }}
+                  >
                     {selectedcountry ? (
                       Object.entries(
                         selectedcountry === "Usa"
                           ? stateAbbreviations
                           : canadainstateAbbreviations
                       ).map(([state, abbreviation]) => (
-                        <li
-                          key={abbreviation}
-                          className={`cursor-pointer ${
-                            uniquestate.includes(state)
-                              ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                              : ""
-                          }`}
-                        >
-                          {state} ({abbreviation})
-                        </li>
+                        <tr className=" ">
+                          <td
+                            key={abbreviation}
+                            className={`px-6 py-4 whitespace-nowrap text-sm text-gray-500 ${
+                              uniquestate.includes(state)
+                                ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400"
+                                : ""
+                            }`}
+                          >
+                            {state} ({abbreviation})
+                          </td>
+                        </tr>
                       ))
                     ) : (
-                      <li className="text-gray-500">
+                      <td className="text-gray-500">
                         Please select a country.
-                      </li>
+                      </td>
                     )}
-                  </ul>
-                </div>
+                  </tbody>
+                </table>
               </div>
 
-              <div className="flex flex-col w-[15rem]">
-                <div className="border-2 border-gray-400 rounded-md">
-                  <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
-                    List of Subarea
-                  </p>
-                  <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
-                    <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
-                      {Filteresub.length > 0 &&
-                        Filteresub.map((item, index) => (
-                          <li key={index} className="">
+              {/* List of subareas */}
+
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold mb-3 flex justify-between items-center">
+                  Subarea
+                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                </h3>
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className="bg-white divide-y divide-gray-200 overflow-y-auto h-[calc(100vh-100px) block "
+                    style={{ maxHeight: "calc(80vh - 80px)" }}
+                  >
+                    {Filteresub.length > 0 &&
+                      Filteresub.map((item, i) => (
+                        <tr key={i}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {item}
-                            {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="flex flex-col w-[15rem]">
-                <div className="border-2 border-gray-400 rounded-md">
-                  <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
-                    List of zipcode
-                  </p>
-                  <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
-                    <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
-                      {filterpin.length > 0 &&
-                        filterpin.map((item, index) => (
-                          <li key={index} className="">
+
+              {/* list of zipcodes */}
+
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold mb-3 flex justify-between items-center">
+                  Zipcodes
+                </h3>
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        code
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className="bg-white divide-y divide-gray-200 overflow-y-auto h-[calc(100vh-100px) block"
+                    style={{ maxHeight: "calc(80vh - 80px)" }}
+                  >
+                    {filterpin.length > 0 &&
+                      filterpin.map((item, i) => (
+                        <tr key={i}>
+                          <td className="px-6   py-4 whitespace-nowrap text-sm text-gray-500">
                             {item}
-                            {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </main>
       </AdminDashboard>
     </div>
   );

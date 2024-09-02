@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../../store/adminauthslice";
+import { LogOut, X } from "lucide-react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 function AdminDashboard({ children }) {
   const navigate = useNavigate();
   const role = useSelector((state) => state.adminauth.role);
@@ -17,8 +21,56 @@ function AdminDashboard({ children }) {
     { name: "Customer Message", icon: "💬", to: "/admin/getHelp" },
   ];
 
+  const handlelogout = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="bg-white rounded-lg shadow-lg max-w-sm w-full overflow-hidden">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Confirm Logout
+                </h3>
+                <button
+                  onClick={onClose}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <p className="text-gray-600 mb-6">
+                Are you sure you want to log out?
+              </p>
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={onClose}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    dispatch(logout());
+                    localStorage.removeItem("admindetails");
+                    navigate("/admin/login");
+                    onClose();
+                  }}
+                  className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      },
+    });
+  };
+
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col bg-gray-100">
       <header className=" bg-gray-700 shadow-md">
         <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -61,9 +113,7 @@ function AdminDashboard({ children }) {
                 >
                   <span
                     onClick={() => {
-                      dispatch(logout());
-                      localStorage.removeItem("admindetails");
-                      navigate("/admin/login");
+                      handlelogout();
                     }}
                     className="hidden md:inline-block px-4 py-2 rounded-lg text-white hover:bg-red-700 hover:text-white"
                   >

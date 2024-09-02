@@ -34,7 +34,6 @@ const usershema = new mongoose.Schema({
   },
   country: {
     type: String,
-    enum: ["Usa"],
     // required: true,
   },
   state: {

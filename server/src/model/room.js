@@ -7,6 +7,7 @@ const roomSchema = mongoose.Schema({
   postedon: { type: Date, default: Date.now },
   Title: { type: String },
   postingincity: { type: String },
+  postingtype: { type: String },
   Description: { type: String },
   Propertytype: { type: String },
   city: { type: String },

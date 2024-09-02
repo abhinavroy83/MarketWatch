@@ -9,6 +9,7 @@ import { Authlayout } from "./components/index.js";
 import Updatepass from "./pages/User/Setting/Updatepass.jsx";
 import Help from "./pages/User/Help/Help.jsx";
 import AdminHelpMessage from "./pages/AdminPage/Area/Help.jsx";
+import AdminUserProfiles from "./pages/AdminPage/User/Edituser.jsx";
 
 const Home = React.lazy(() => import("./components/UserCompontents/Home.jsx"));
 const Login = React.lazy(() =>
@@ -393,6 +394,15 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: `/admin/userprofile/:userid`,
+        element: (
+          <Adminauthlayout authentication>
+            <AdminUserProfiles />
+          </Adminauthlayout>
+        ),
+      },
+
       {
         path: "/admin/allroom",
         element: (

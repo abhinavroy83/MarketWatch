@@ -5,18 +5,13 @@ import { Controller, useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
-import { IoInformationCircleSharp } from "react-icons/io5";
-import { FaCalendarAlt } from "react-icons/fa";
-import authslice from "../../../store/authslice";
 import DatePicker from "react-datepicker";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import "react-datepicker/dist/react-datepicker.css";
-
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
 import { toast, ToastContainer } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 import { RxCross1 } from "react-icons/rx";
-
 const libraries = ["places"];
 
 function Addrooms({ editdata }) {
@@ -216,6 +211,7 @@ function Addrooms({ editdata }) {
         Description: data.Description,
         Propertytype: data.Propertytype,
         postingincity: data.postingincity,
+        postingtype: data.postingtype,
         Stay_lease: data.Stay_lease,
         Avaliblity_from: data.Avaliblity_from,
         Available_to: data.Available_to,
@@ -326,6 +322,7 @@ function Addrooms({ editdata }) {
       // console.log("Populating form with editdata:", editdata);
       setStayLeaseOption(editdata?.Stay_lease);
       setValue("postingincity", editdata?.postingincity || "Portland");
+      setValue("postingtype", editdata?.postingtype || "");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");
@@ -493,13 +490,41 @@ function Addrooms({ editdata }) {
             <p className="text-[1.1rem]">
               Your Account is belong {profiledata.belongcity}
             </p>
-            {/* <div className=" flex">
-              <label htmlFor="">type</label>
-              <p>rentals</p>
-              <input type="radio" />
-              <p>room</p>
-              <input type="radio" />
-            </div> */}
+            <div className="flex mt-5 w-full">
+              <label
+                htmlFor=""
+                className="w-[118px] lg:w-[270px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+              >
+                Posting type<span className=" text-red-500">*</span>
+              </label>
+              <div>
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-auto">
+                  <div className=" flex gap-2 whitespace-nowrap ">
+                    <input
+                      type="radio"
+                      value="rooms"
+                      {...register("postingtype", {
+                        required: "Postingtype required",
+                      })}
+                    />
+                    <p>Rooms</p>
+                  </div>
+                  <div className="flex gap-2 whitespace-nowrap lg:px-2">
+                    <input
+                      type="radio"
+                      value="rental"
+                      {...register("postingtype", {
+                        required: "Postingtype required",
+                      })}
+                    />
+                    <p>Rental </p>
+                  </div>
+                </div>
+                <p className="text-[16px] mt-1 text-red-500">
+                  {errors.postingtype && <p>{errors.postingtype.message}</p>}
+                </p>
+              </div>
+            </div>
             <div className="w-full items-center">
               <div className="flex mt-5">
                 <label

@@ -15,6 +15,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import { toast, ToastContainer } from "react-toastify";
 import { IoSettingsSharp } from "react-icons/io5";
+import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
+const libraries = ["places"];
 
 function Profile() {
   const { userID } = useParams();
@@ -38,6 +40,49 @@ function Profile() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [isPasswordVerified, setIsPasswordVerified] = useState(false);
   // const imgg = useSelector((state) => state.auth.userimg);
+
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: "AIzaSyDV2wKeoUG0TSghZ1adR-t8z0cJJS8EM24",
+    libraries,
+  });
+  const [autocomplete, setAutocomplete] = useState(null);
+
+  const onLoad = (autocompleteInstance) => {
+    setAutocomplete(autocompleteInstance);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlaces()[0];
+      setValue("address", place.formatted_address);
+      const addressComponents = place.address_components;
+      let city = "";
+      let state = "";
+      let zip = "";
+      let country = "";
+
+      for (let component of addressComponents) {
+        if (component.types.includes("locality")) {
+          city = component.long_name;
+        }
+        if (component.types.includes("administrative_area_level_1")) {
+          state = component.short_name;
+        }
+        if (component.types.includes("postal_code")) {
+          zip = component.long_name;
+        }
+        if (component.types.includes("country")) {
+          country = component.long_name;
+        }
+      }
+      setValue("city", city);
+      setValue("state", state);
+      setValue("zip_code", zip);
+      setValue("country", country);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
 
   const fetchuser = async () => {
     try {
@@ -215,6 +260,13 @@ function Profile() {
   const cancelDelete = () => {
     setShowConfirm(false);
   };
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div>Loading Maps</div>;
+  }
 
   return (
     <DashConatiner>
@@ -518,13 +570,18 @@ function Profile() {
                 <div className="flex flex-col font-['udemy-regular'] p-2 gap-1">
                   <label className="min-w-[120px]">Address </label>
                   {isedit ? (
-                    <input
-                      type="text"
-                      placeholder="Enter Address"
-                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[712px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("address")}
-                      defaultValue={data.address}
-                    />
+                    <StandaloneSearchBox
+                      onLoad={onLoad}
+                      onPlacesChanged={onPlaceChanged}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Enter Address"
+                        className="font-['udemy-regular'] h-10 w-[300px] lg:w-[712px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        {...register("address")}
+                        defaultValue={data.address}
+                      />
+                    </StandaloneSearchBox>
                   ) : (
                     <p className="">{data.address}</p>
                   )}
