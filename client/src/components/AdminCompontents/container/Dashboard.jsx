@@ -125,11 +125,11 @@ function AdminDashboard({ children }) {
           </div>
         </div>
       </header>
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex">
         <aside
           className={`${
             isSidebarOpen ? "block" : "hidden"
-          } md:flex md:flex-col  bg-white border-r overflow-y-auto w-[16%]`}
+          } md:flex md:flex-col  bg-white border-r overflow-y-auto lg:w-[16%] w-auto`}
         >
           <nav className="flex-1 px-2 py-4 space-y-2">
             {menuItems.map((item) => (
@@ -145,7 +145,7 @@ function AdminDashboard({ children }) {
           </nav>
         </aside>
 
-        <main className="w-auto h-screen lg:w-5/6 border  overflow-y-auto  mt-3 lg:mt-0">
+        <main className="w-full h-screen lg:w-5/6 border  overflow-y-auto  mt-3 lg:mt-0">
           {children}
         </main>
       </div>

@@ -2,191 +2,251 @@ import React from "react";
 
 function A() {
   return (
-    <div className=" h-full overflow-auto max-full">
-      <div className="lg:hidden flex items-center text-gray-700 mt-2  font-['udemy-regular'] ">
-        <Link to="/admin/dashboard">
-          <FaHome size={20} />
-        </Link>
-        <IoIosArrowForward />
-        <p className="">Area</p>
-      </div>
-
-      {/* <div className="mx-5 mt-6 flex justify-between">
-    <p className="text-[22px] font-semibold font-['udemy-regular']">
-      Add Area Details Here -
-    </p>
-    <div className="flex gap-3">
-      <button
-        className="rounded-md bg-green-800 px-4 py-2 text-[20px] font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        onClick={(e) => {
-          e.preventDefault();
-          onAddSuburbClick();
-        }}
-      >
-        Add New Subrs
-      </button>
-    </div>
-  </div> */}
-      <p className="text-center text-[22px] text-[#232f3e] font-['udemy-regular'] justify-center w-full">
-        List of Avaible Area
+    <div className=" h-full overflow-y-auto ">
+      <p className="text-[22px] font-bold text-[#232f3e] my-7 font-['udemy-regular'] flex justify-center">
+        Here You can Add Area
       </p>
-      <form className=" font-['udemy-regular'] mt-5">
-        <div className=" flex w-full mx-auto justify-center items-center">
-          <div className="flex flex-col border-2 border-gray-400 w-[15rem] bg-white text-[18px] rounded-md">
-            <p className="rounded-md text-[20px] bg-[#232f3e] text-white p-1 shadow-lg shadow-gray-400">
-              Country -
-            </p>
-            <ul className="">
-              <li
-                value={"Usa"}
-                onClick={() => {
-                  setSelectedcountry("Usa");
-                }}
-                className={`cursor-pointer    ${
+      <form onSubmit={handleSubmit(onsubmit)}>
+        <div className="flex flex-col gap-3 justify-center items-center">
+          <div className="flex items-center">
+            <label className="w-[160px] text-[18px]" htmlFor="country">
+              Select Country
+            </label>
+            <div>
+              <select
+                className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                {...register("country", {
+                  required: "Please fill the country",
+                })}
+                disabled={!!editdata}
+                onChange={(e) => setSelectedcountry(e.target.value)}
+              >
+                <option value="">Select Country</option>
+                <option className="text-[15px]" value="Usa">
+                  USA
+                </option>
+                <option className="text-[15px]" value="Canada">
+                  CANADA
+                </option>
+              </select>
+              {errors.country && (
+                <p className="text-red-500 text-[16px] mt-2">
+                  {errors.country?.message}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            <label className="w-[160px] text-[18px]" htmlFor="state">
+              Select State
+            </label>
+            <select
+              className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              onChange={handleStateChange}
+            >
+              <option value="" disabled hidden>
+                Select State
+              </option>
+
+              {selectedcountry ? (
+                Object.entries(
                   selectedcountry === "Usa"
-                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                    : ""
-                }`}
+                    ? stateAbbreviations
+                    : canadainstateAbbreviations
+                ).map(([state, abbreviation]) => (
+                  <option
+                    className="text-[15px]"
+                    key={abbreviation}
+                    value={state}
+                  >
+                    {state} ({abbreviation})
+                  </option>
+                ))
+              ) : (
+                <option className="text-gray-500">
+                  Please select a country.
+                </option>
+              )}
+            </select>
+          </div>
+
+          <div className="flex space-x-2">
+            {selectedstate.map((item) => (
+              <div
+                key={item}
+                className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                  primaryState === item
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
+                } `}
               >
-                <p className="ml-3">USA</p>
-              </li>
-              <li
-                value={"Canada"}
-                onClick={() => {
-                  setSelectedcountry("Canada");
-                }}
-                className={`cursor-pointer    ${
-                  selectedcountry === "Canada"
-                    ? "text-[18px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                    : ""
-                }`}
+                <span className="mr-2">{item}</span>
+
+                <button
+                  type="button"
+                  onClick={() => setAsPrimaryState(item)}
+                  className="text-black"
+                >
+                  {primaryState === item ? "Primary" : "Choose as Primary"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => removeState(item)}
+                  className="ml-2 text-green-600 hover:text-green-800"
+                >
+                  <XCircle className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center">
+            <label className="w-[160px] text-[18px]" htmlFor="area">
+              Area
+            </label>
+            <input
+              className="flex h-10 w-[200px] lg:w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              type="text"
+              required="true"
+              {...register("area")}
+              placeholder="Type Area"
+              disabled={!!editdata}
+            />
+          </div>
+          {/* previosuly we named this as subarea ,now its cities  */}
+          <div className="flex gap-2 text-[17px]">
+            <label
+              className="w-[150px] text-[18px] lg:ml-[5.7rem]"
+              htmlFor="subarea"
+            >
+              Cities
+            </label>
+            <div className="flex flex-col lg:flex-row gap-2">
+              <input
+                className="flex h-10 w-[200px] lg:w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                type="text"
+                value={subareaInput}
+                onChange={(e) => setSubareaInput(e.target.value)}
+                placeholder="Type Cities "
+              />
+              <select
+                className="flex h-10 w-[200px] lg:w-[150px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                onChange={(e) => setstateab(e.target.value)}
               >
-                <p className="ml-3">Canada</p>
-              </li>
-            </ul>
+                <option value="" disabled selected>
+                  Select State
+                </option>
+                {selectedstate.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                type="button"
+                onClick={handleAddSubarea}
+                className="lg:ml-3 rounded-md bg-green-800 px-4 py-1 text-white text-[1rem]"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-wrap text-[17px] text-red-600 items-center">
+            {subarea.map((subarea) => (
+              <div
+                key={subarea}
+                className="flex m-2 p-2 items-center bg-gray-200 rounded-md px-1"
+              >
+                <span className="mr-2">{subarea}</span>
+                <button
+                  type="button"
+                  onClick={() => removeSubarea(subarea)}
+                  className="text-black"
+                >
+                  x
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center">
+            <label
+              className="min-w-[160px] text-[18px] ml-[5rem]"
+              htmlFor="zipcode"
+            >
+              Zip & Codes
+            </label>
+            <input
+              className="flex h-10 w-[300px] text-[17px] rounded-md border border-black/30 bg-transparent px-3 py-2 placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              type="text"
+              value={zipcodeInput}
+              onChange={(e) => setZipcodeInput(e.target.value)}
+              placeholder="Zip Code"
+            />
+
+            <button
+              type="button"
+              onClick={handleAddZipcode}
+              className="lg:ml-3 rounded-md bg-green-800 px-4 py-2 text-white text-[1rem]"
+            >
+              Add
+            </button>
+          </div>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+          <div className="flex flex-wrap text-[17px] text-red-600 items-center">
+            {zipcode?.map((item) => (
+              <div
+                key={item}
+                className="flex m-2 items-center bg-gray-200 rounded-md px-1"
+              >
+                <span className="mr-2">{item}</span>
+                <button
+                  type="button"
+                  onClick={() => removezipcode(item)}
+                  className="text-black"
+                >
+                  x
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="lg:flex lg:gap-20 lg:justify-center mt-5">
-          <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md">
-            <p className="text-[20px] bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400 rounded-md">
-              List of Area in{" "}
-              {selectedstate ? <p>{selectedstate}</p> : <span>City</span>}
-            </p>
+        <div className="flex justify-center items-center mt-5">
+          {editdata ? (
+            <div className=" flex gap-2">
+              <button
+                className="rounded-md bg-gray-300 hover:bg-gray-400 font-bold text-black px-4 py-2 text-[1rem] self-center justify-center flex shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                type="button"
+                onClick={() => navigate(`/admin/allarea`)}
+              >
+                Back
+              </button>
+              <button
+                className="rounded-md bg-green-800 px-4 py-2 text-[1rem] self-center justify-center flex text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                type="submit"
+              >
+                Update Area
+              </button>
+            </div>
+          ) : (
             <button
-              onClick={() => {
-                <div className="flex flex-col">
-                  <p className=" text-[17px]">List of Suburbs</p>
-                  <ul>
-                    {Filteresub.length > 0 &&
-                      Filteresub.map((item, index) => (
-                        <li key={index}>{item.subarea}</li>
-                      ))}
-                  </ul>
-                </div>;
-                navigate("/admin/addarea");
-              }}
-              className="flex gap-2 items-center bg-white py-2 text-[18px] font-semibold text-black border shadow-sm hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md bg-green-800 px-4 py-2 text-[1rem] justify-center text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              type="submit"
             >
-              <IoAddCircleOutline size={22} />
-              Add Area
+              Create Area
             </button>
-            <ul className="rounded-sm text-[18px] bg-white p-1">
-              {Filtercity.map((city, index) => (
-                <div className=" flex justify-between">
-                  <li
-                    key={index}
-                    value={city}
-                    className={`cursor-pointer    ${
-                      selectedCity === city
-                        ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                        : ""
-                    }`}
-                    onClick={() => {
-                      setSelectedCity(city);
-                    }}
-                  >
-                    {city}
-                  </li>
-                  <MdEdit
-                    className=" cursor-pointer justify-center"
-                    onClick={() => {
-                      navigate(`/admin/area/update/${city}`);
-                    }}
-                  />
-                </div>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col border-2 border-gray-400 w-[15rem] rounded-md mt-5 lg:mt-0">
-            <p className="text-[20px] bg-[#232f3e] text-white shadow-lg shadow-gray-400 p-2 rounded-md">
-              List of States
-            </p>
-            <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white text-[18px]">
-              <ul className="list-none p-0 ml-3 mt-2">
-                {selectedcountry ? (
-                  Object.entries(
-                    selectedcountry === "Usa"
-                      ? stateAbbreviations
-                      : canadainstateAbbreviations
-                  ).map(([state, abbreviation]) => (
-                    <li
-                      key={abbreviation}
-                      className={`cursor-pointer ${
-                        uniquestate.includes(state)
-                          ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400"
-                          : ""
-                      }`}
-                    >
-                      {state} ({abbreviation})
-                    </li>
-                  ))
-                ) : (
-                  <li className="text-gray-500">Please select a country.</li>
-                )}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col w-[15rem]">
-            <div className="border-2 border-gray-400 rounded-md">
-              <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
-                List of Subarea
-              </p>
-              <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
-                <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
-                  {Filteresub.length > 0 &&
-                    Filteresub.map((item, index) => (
-                      <li key={index} className="">
-                        {item}
-                        {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-[15rem]">
-            <div className="border-2 border-gray-400 rounded-md">
-              <p className="text-[20px] rounded-md bg-[#232f3e] text-white p-2 shadow-lg shadow-gray-400">
-                List of zipcode
-              </p>
-              <div className=" overflow-y-auto max-h-96 scroll-m-0 justify-center bg-white">
-                <ul className="rounded-sm text-[18px] flex flex-col ml-3 mt-2">
-                  {filterpin.length > 0 &&
-                    filterpin.map((item, index) => (
-                      <li key={index} className="">
-                        {item}
-                        {/* {item.zipcodes.length > 0 && item.zipcodes.join(", ")} */}
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </form>
+      <p className="text-[18px] text-red-600 capitalize">
+        * Primary state is a state where area is located
+      </p>
+      <p className="text-[18px] text-red-600 capitalize">
+        * Whole state is where the entire state is listed after the subarea are
+        done
+      </p>
     </div>
   );
 }

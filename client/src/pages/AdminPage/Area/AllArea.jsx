@@ -22,10 +22,10 @@ function AllArea() {
   const [data, setData] = useState([]);
   const [filterstate, setfilterstate] = useState([]);
   const [Filtercity, setFiltercity] = useState([]);
-  const [selectedcountry, setSelectedcountry] = useState("Usa");
+  const [selectedcountry, setSelectedcountry] = useState("");
   const [selectedstate, setSelectedstate] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-  const [uniquestate, setuniquestate] = useState("");
+  const [uniquestate, setuniquestate] = useState([]);
   const [Filteresub, setFiltersub] = useState("");
   const [filterarea, setfilterarea] = useState("");
   const [filterpin, setfilterpin] = useState("");
@@ -110,6 +110,7 @@ function AllArea() {
     setismodalopen(false);
   };
 
+
   return (
     <div>
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
@@ -150,7 +151,6 @@ function AllArea() {
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center space-x-4">
                 <select
-                  value={selectedcountry}
                   onChange={(e) => setSelectedcountry(e.target.value)}
                   className="block w-40 px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                 >
@@ -245,6 +245,16 @@ function AllArea() {
                     className="bg-white divide-y divide-gray-200 overflow-y-auto h-[calc(100vh-100px) block"
                     style={{ maxHeight: "calc(80vh - 80px)" }}
                   >
+                    <tr className=" flex flex-col">
+                      {uniquestate.map((item, index) => (
+                        <td
+                          key={index}
+                          className="px-6 py-4 my-1 whitespace-nowrap text-sm text-white bg-gray-600"
+                        >
+                          {item}
+                        </td>
+                      ))}
+                    </tr>
                     {selectedcountry ? (
                       Object.entries(
                         selectedcountry === "Usa"

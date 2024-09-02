@@ -159,45 +159,47 @@ export default function AdminUserProfiles() {
     <div className=" h-full">
       <AdminDashboard>
         <main className="flex-1 p-8 h-full">
-          <nav className="text-sm font-medium mb-4" aria-label="Breadcrumb">
-            <ol className="list-none p-0 inline-flex">
-              <li className="flex items-center">
-                <Link
-                  to="/admin/dashboard"
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  Home
-                </Link>
-                <svg
-                  className="fill-current w-3 h-3 mx-3"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
-                </svg>
-              </li>
-              <li className="flex items-center">
-                <Link
-                  to={"/admin/alluser"}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  Users List
-                </Link>
-                <svg
-                  className="fill-current w-3 h-3 mx-3"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
-                </svg>
-              </li>
-              <li>
-                <span className="text-gray-700" aria-current="page">
-                  Admin Settings
-                </span>
-              </li>
-            </ol>
-          </nav>
+          <div className=" max-w-7xl mx-auto">
+            <nav className="text-sm font-medium mb-4" aria-label="Breadcrumb">
+              <ol className="list-none p-0 inline-flex">
+                <li className="flex items-center">
+                  <Link
+                    to="/admin/dashboard"
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Home
+                  </Link>
+                  <svg
+                    className="fill-current w-3 h-3 mx-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                  </svg>
+                </li>
+                <li className="flex items-center">
+                  <Link
+                    to={"/admin/alluser"}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Users List
+                  </Link>
+                  <svg
+                    className="fill-current w-3 h-3 mx-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                  </svg>
+                </li>
+                <li>
+                  <span className="text-gray-700" aria-current="page">
+                    Admin Settings
+                  </span>
+                </li>
+              </ol>
+            </nav>
+          </div>
           <div className="bg-white rounded-lg shadow-md p-6 max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800">
@@ -205,7 +207,7 @@ export default function AdminUserProfiles() {
               </h1>
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 {isEditing ? "Cancel" : "Edit Profile"}
               </button>

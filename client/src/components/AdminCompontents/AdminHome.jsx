@@ -14,7 +14,6 @@ function AdminHome() {
   const notify = () => toast("Coming Soon...");
 
   const menuItems = [
-    { name: "Dashboard", icon: "🏠", to: "/admin/dashboard" },
     { name: "Basic Users", icon: "👥", to: "/admin/alluser" },
     { name: "Admin Users", icon: "👤", to: "/admin/getalladminsuser" },
     { name: "Pending Requests", icon: "📋", to: "/admin/getapproval" },
@@ -35,8 +34,11 @@ function AdminHome() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {menuItems.map((item) => (
                 <div
+                  onClick={() => {
+                    navigate(item.to);
+                  }}
                   key={item.name}
-                  className="bg-white overflow-hidden shadow rounded-lg"
+                  className="bg-white overflow-hidden shadow rounded-lg  cursor-pointer"
                 >
                   <div className="px-4 py-5 sm:p-6">
                     <div className="flex items-center">

@@ -85,8 +85,12 @@ function Alluser() {
         <td className="whitespace-nowrap px-6 py-4">
           <div className="text-base text-gray-500">{items.email}</div>
         </td>
-        <td className="whitespace-nowrap px-8 py-4 text-base text-gray-500">
-          {items.isVerified ? "verify" : "unverify"}
+        <td
+          className={`whitespace-nowrap px-8 py-4 text-base   ${
+            items.isVerified ? "text-green-500" : "text-red-500"
+          }`}
+        >
+          {items.isVerified ? "verified" : "unverified"}
         </td>
         {/* <td className="whitespace-nowrap px-4 py-4 text-base text-gray-500">
           {items.country}
@@ -148,22 +152,33 @@ function Alluser() {
               <p>users</p>
             </div>
             <div>
-              <h2 className="text-[20px] font-semibold">All User</h2>
-              <p className="mt-1 text-[17px] text-gray-700">
-                This is a list of all All User. You can add new User, edit or
-                delete existing ones.
-              </p>
-            </div>
-            <div>
-              {/* <button
-                type="button"
-                onClick={() => {
-                  // navigate(`/addjobs/${userID}`);
-                }}
-                className="rounded-md bg-black px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Add new User
-              </button> */}
+              <h2 className="text-2xl font-semibold text-gray-800">All User</h2>
+              
+              <nav className="text-sm font-medium my-1" aria-label="Breadcrumb">
+                <ol className="list-none p-0 inline-flex">
+                  <li className="flex items-center">
+                    <Link
+                      to="/admin/dashboard"
+                      className="text-gray-500 hover:text-gray-700"
+                    >
+                      Home
+                    </Link>
+                    <svg
+                      className="fill-current w-3 h-3 mx-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 320 512"
+                    >
+                      <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                  </li>
+
+                  <li>
+                    <span className="text-gray-700" aria-current="page">
+                      Users List
+                    </span>
+                  </li>
+                </ol>
+              </nav>
             </div>
           </div>
           <div className="mt-6 flex flex-col">
