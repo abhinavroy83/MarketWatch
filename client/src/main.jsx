@@ -5,11 +5,12 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import { Authlayout } from "./components/index.js";
+import { Authlayout, LeafletMap } from "./components/index.js";
 import Updatepass from "./pages/User/Setting/Updatepass.jsx";
 import Help from "./pages/User/Help/Help.jsx";
 import AdminHelpMessage from "./pages/AdminPage/Area/Help.jsx";
 import AdminUserProfiles from "./pages/AdminPage/User/Edituser.jsx";
+import Admineditrooms from "./pages/AdminPage/Rooms/Admineditrooms.jsx";
 
 const Home = React.lazy(() => import("./components/UserCompontents/Home.jsx"));
 const Login = React.lazy(() =>
@@ -131,6 +132,14 @@ const router = createBrowserRouter([
           <Suspense fallback={<div>Loading...</div>}>
             <Home />
           </Suspense>
+        ),
+      },
+      {
+        path: "/leflet",
+        element: (
+          <Authlayout authentication>
+            <LeafletMap />
+          </Authlayout>
         ),
       },
       {
@@ -519,6 +528,14 @@ const router = createBrowserRouter([
               <AdminPostRooms />
             </Adminauthlayout>
           </Suspense>
+        ),
+      },
+      {
+        path: "/admin/editroom/:_id",
+        element: (
+          <Adminauthlayout authentication>
+            <Admineditrooms />
+          </Adminauthlayout>
         ),
       },
       {

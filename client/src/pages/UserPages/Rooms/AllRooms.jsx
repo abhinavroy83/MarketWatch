@@ -25,8 +25,8 @@ function AllRooms() {
   const roomsPerPage = 25;
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  // console.log("usercity", usercity);
-  console.log(usercity);
+  
+  
   const getRooms = async () => {
     try {
       const res = await axios.get(

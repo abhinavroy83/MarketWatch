@@ -120,9 +120,14 @@ function Allroom() {
           {items.address}
         </td>
         <td className="whitespace-nowrap px-8 py-4 text-left text-base font-medium">
-          <a href="#" className="text-indigo-600">
+          <button
+            onClick={() => {
+              navigate(`/admin/editroom/${items._id}`);
+            }}
+            className="text-indigo-600"
+          >
             Edit
-          </a>
+          </button>
         </td>
         <td className="px-8 py-4 text-left text-base text-red-600">
           <button

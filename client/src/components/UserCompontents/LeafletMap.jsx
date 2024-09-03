@@ -172,12 +172,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
             })
               .setLatLng([lat, lng])
               .setContent(
-                renderToString(
-                  <MapPopup
-                    roomDetails={roomDetails}
-                    onNavigate={(path) => navigate(path)}
-                  />
-                )
+                renderToString(<MapPopup roomDetails={roomDetails} />)
               )
               .openOn(mapRef.current);
           } catch (error) {
