@@ -51,6 +51,7 @@ function Addrooms({ editdata }) {
   } = useForm();
   const selectedBathroom = watch("Attchd_Bath");
   const preferredGender = watch("Preferred_gender");
+  const rental = watch("postingtype");
 
   const [autocomplete, setAutocomplete] = useState(null);
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -834,143 +835,160 @@ function Addrooms({ editdata }) {
                 >
                   Separate Bathroom<span className="text-red-500">*</span>
                 </label>
-                <div>
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
-                    <div className="flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Yes"
-                        {...register("Attchd_Bath", {
-                          required: "Please select Bath",
-                        })}
-                      />
-                      <p>Yes</p>
+                {rental === "rooms" ? (
+                  <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Yes"
+                          {...register("Attchd_Bath", {
+                            required: "Please select Bath",
+                          })}
+                        />
+                        <p>Yes</p>
+                      </div>
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="No"
+                          {...register("Attchd_Bath", {
+                            required: "Please select Bath",
+                          })}
+                        />
+                        <p>No</p>
+                      </div>
                     </div>
-                    <div className="flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="No"
-                        {...register("Attchd_Bath", {
-                          required: "Please select Bath",
-                        })}
-                      />
-                      <p>No</p>
-                    </div>
-                  </div>
-                  {errors.Attchd_Bath && (
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {errors.Attchd_Bath.message}
-                    </p>
-                  )}
 
-                  {selectedBathroom === "Yes" && (
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
+                    {selectedBathroom === "Yes" && (
+                      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
+                        <div className="flex gap-1 items-center">
+                          <input
+                            type="radio"
+                            value="Attached in Room"
+                            {...register("Bath_Location", {
+                              required: "Please select Bath location",
+                            })}
+                          />
+                          <p>Attached in Room</p>
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <input
+                            type="radio"
+                            value="Outside the room"
+                            {...register("Bath_Location", {
+                              required: "Please select Bath location",
+                            })}
+                          />
+                          <p>Outside the room</p>
+                        </div>
+                        {errors.Bath_Location && (
+                          <p className="text-[16px] mt-1 text-red-500">
+                            {errors.Bath_Location.message}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <select
+                    className="h-100px lg:w-[300px] w-[220px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    {...register("Attchd_Bath", {
+                      required: "Please select Bath Number",
+                    })}
+                  >
+                    <option>select number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5+">5+</option>
+                  </select>
+                )}
+              </div>
+              {errors.Attchd_Bath && (
+                <p className="text-[16px] mt-1 text-red-500">
+                  {errors.Attchd_Bath.message}
+                </p>
+              )}
+
+              {rental === "rooms" && (
+                <div className="flex mt-5 text-[1.1rem] lg:gap-20">
+                  <label
+                    className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    htmlFor=""
+                  >
+                    Preferred Gender<span className="text-red-500">*</span>
+                  </label>
+                  <div>
+                    <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
                       <div className="flex gap-1 items-center">
                         <input
                           type="radio"
-                          value="Attached in Room"
-                          {...register("Bath_Location", {
-                            required: "Please select Bath location",
+                          value="Male only"
+                          {...register("Preferred_gender", {
+                            required: "Please select gender",
                           })}
                         />
-                        <p>Attached in Room</p>
-                      </div>
-                      <div className="flex gap-1 items-center">
-                        <input
-                          type="radio"
-                          value="Outside the room"
-                          {...register("Bath_Location", {
-                            required: "Please select Bath location",
-                          })}
-                        />
-                        <p>Outside the room</p>
-                      </div>
-                      {errors.Bath_Location && (
-                        <p className="text-[16px] mt-1 text-red-500">
-                          {errors.Bath_Location.message}
+                        <p className="flex items-center gap-1">
+                          Male
+                          <img
+                            className="h-5 w-5"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/kjkamlgskyfqpgzvjocz.png"
+                            }
+                            alt=""
+                          />
                         </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex mt-5 text-[1.1rem] lg:gap-20">
-                <label
-                  className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  htmlFor=""
-                >
-                  Preferred Gender<span className="text-red-500">*</span>
-                </label>
-                <div>
-                  <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
-                    <div className="flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Male only"
-                        {...register("Preferred_gender", {
-                          required: "Please select gender",
-                        })}
-                      />
-                      <p className="flex items-center gap-1">
-                        Male
-                        <img
-                          className="h-5 w-5"
-                          src={
-                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/kjkamlgskyfqpgzvjocz.png"
-                          }
-                          alt=""
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <input
+                          type="radio"
+                          value="Female only"
+                          {...register("Preferred_gender", {
+                            required: "Please select gender",
+                          })}
                         />
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <input
-                        type="radio"
-                        value="Female only"
-                        {...register("Preferred_gender", {
-                          required: "Please select gender",
-                        })}
-                      />
-                      <p className="flex items-center">
-                        Female
-                        <img
-                          className="h-4 w-4"
-                          src={
-                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/acn46dsajdgzwlmk9j5v.png"
-                          }
-                          alt=""
+                        <p className="flex items-center">
+                          Female
+                          <img
+                            className="h-4 w-4"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/acn46dsajdgzwlmk9j5v.png"
+                            }
+                            alt=""
+                          />
+                        </p>
+                      </div>
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Any"
+                          {...register("Preferred_gender", {
+                            required: "Please select gender",
+                          })}
                         />
-                      </p>
+                        <p className="flex items-center gap-1">
+                          Any
+                          <img
+                            className="h-5 w-5"
+                            src={
+                              "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
+                            }
+                            alt=""
+                          />
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Any"
-                        {...register("Preferred_gender", {
-                          required: "Please select gender",
-                        })}
-                      />
-                      <p className="flex items-center gap-1">
-                        Any
-                        <img
-                          className="h-5 w-5"
-                          src={
-                            "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
-                          }
-                          alt=""
-                        />
+                    {errors.Preferred_gender && (
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {errors.Preferred_gender.message}
                       </p>
-                    </div>
+                    )}
                   </div>
-                  {errors.Preferred_gender && (
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {errors.Preferred_gender.message}
-                    </p>
-                  )}
                 </div>
-              </div>
-
-              {preferredGender && (
+              )}
+              {rental === "rooms" && preferredGender && (
                 <div className="flex mt-5 gap-[3rem] lg:gap-20 text-[1.1rem]">
                   <label
                     className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"

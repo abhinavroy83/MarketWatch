@@ -15,6 +15,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
 import { toast, ToastContainer } from "react-toastify";
 import { IoSettingsSharp } from "react-icons/io5";
+import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviations.json";
+import canadainstateAbbreviations from "../../../Services/StateAprevation/candainstateAbbreviations.json";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import DatePicker from "react-datepicker";
 const libraries = ["places"];
@@ -29,6 +31,7 @@ function Profile() {
     formState: { errors },
   } = useForm();
   const [isedit, setisedit] = useState(true);
+  const [selectedcountry, setSelectedcountry] = useState("");
   const [data, setdata] = useState([]);
   const [states, setStates] = useState([]);
   const [citys, setcitys] = useState([]);
@@ -159,7 +162,6 @@ function Profile() {
     fetchdata();
   }, []);
 
-  // console.log(isverified);
   const handleclick = async (data) => {
     const dateObj = new Date(data.dob);
 
@@ -218,12 +220,6 @@ function Profile() {
   };
 
   // console.log(citys);
-  const handlestatechange = (e) => {
-    const state = e.target.value;
-    setsetselectedstate(state);
-    // console.log(state);
-    setValue("state", state);
-  };
 
   useEffect(() => {
     const fetchcity = async () => {
@@ -243,6 +239,10 @@ function Profile() {
       for (const key in data) {
         setValue(key, data[key]);
       }
+    }
+    if (data) {
+      setValue("state", data.state || "");
+      setSelectedcountry(data.country || []);
     }
   }, [data, setValue]);
 
@@ -665,22 +665,29 @@ function Profile() {
                     <select
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("state")}
-                      onChange={handlestatechange}
-                      defaultValue={data.state}
                     >
-                      <option
-                        value=""
-                        disabled
-                        hidden
-                        className="text-[1.1rem]"
-                      >
+                      <option value="" disabled hidden>
                         Select State
-                      </option>{" "}
-                      {states.map((state) => (
-                        <option key={state.ste_name} value={state.ste_name}>
-                          {state.ste_name}
+                      </option>
+                      {selectedcountry ? (
+                        Object.entries(
+                          selectedcountry === "Usa"
+                            ? stateAbbreviations
+                            : canadainstateAbbreviations
+                        ).map(([state, abbreviation]) => (
+                          <option
+                            className="text-[15px]"
+                            key={abbreviation}
+                            value={state}
+                          >
+                            {state} ({abbreviation})
+                          </option>
+                        ))
+                      ) : (
+                        <option className="text-gray-500">
+                          Please select a country.
                         </option>
-                      ))}
+                      )}
                     </select>
                   ) : (
                     <p className="">{data.state}</p>
@@ -694,13 +701,22 @@ function Profile() {
                     <select
                       className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("country")}
+                      onChange={(e) => setSelectedcountry(e.target.value)}
                       defaultValue={data.country}
                     >
+                      <option value="">Select Country</option>
+
                       <option
                         value="Usa"
                         className="lg:text-[1.1rem] text-[1rem]"
                       >
                         USA
+                      </option>
+                      <option
+                        value="Canada"
+                        className="lg:text-[1.1rem] text-[1rem]"
+                      >
+                        CANADA
                       </option>
                     </select>
                   ) : (
