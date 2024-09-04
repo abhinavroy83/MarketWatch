@@ -137,6 +137,7 @@ function Addrooms({ editdata }) {
       };
     });
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    handleUpload()
     setimgerror(false);
   };
 
