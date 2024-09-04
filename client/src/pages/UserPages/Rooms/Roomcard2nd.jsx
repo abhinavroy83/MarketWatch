@@ -159,6 +159,8 @@ function Roomcard2nd({ isSingleRow, ...item }) {
             ? femaleLogo
             : item.Preferred_gender === "Male only"
             ? maleLogo
+            : item.Preferred_gender === "Any"
+            ? "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
             : femaleLogo
         }
         alt=""

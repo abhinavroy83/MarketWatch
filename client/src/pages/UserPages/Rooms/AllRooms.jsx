@@ -25,8 +25,7 @@ function AllRooms() {
   const roomsPerPage = 25;
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  
-  
+
   const getRooms = async () => {
     try {
       const res = await axios.get(
@@ -197,7 +196,7 @@ function AllRooms() {
               />
             </>
           )}
-          {rooms.length < 6 && (
+          {/* {rooms.length < 6 && (
             <div>
               <>
                 <p className="text-[23px] capitalize text-black font-bold font-['udemy-bold'] mt-7">
@@ -216,7 +215,7 @@ function AllRooms() {
                 />
               </>
             </div>
-          )}
+          )} */}
         </div>
       ) : (
         <div className="font-roboto text-lg flex items-center text-black h-screen justify-center">
