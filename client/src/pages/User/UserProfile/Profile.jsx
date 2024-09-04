@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DashConatiner, FormInput } from "../../../components";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import jsoncity from "./city.json";
 import { useDispatch, useSelector } from "react-redux";
 import { UserImage, login, logout } from "../../../store/authslice";
@@ -16,6 +16,7 @@ import { IoPeopleSharp } from "react-icons/io5";
 import { toast, ToastContainer } from "react-toastify";
 import { IoSettingsSharp } from "react-icons/io5";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
+import DatePicker from "react-datepicker";
 const libraries = ["places"];
 
 function Profile() {
@@ -23,6 +24,7 @@ function Profile() {
   const {
     register,
     handleSubmit,
+    control,
     setValue,
     formState: { errors },
   } = useForm();
@@ -159,12 +161,19 @@ function Profile() {
 
   // console.log(isverified);
   const handleclick = async (data) => {
+    const dateObj = new Date(data.dob);
+
+    // Format the date as MM DD YYYY
+    const formattedDob = dateObj.toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    });
     const formdt = {
       belongcity: data.belongcity,
       firstName: data.firstName,
       lastName: data.lastName,
-      userimg: userimgs,
-      dob: data.dob,
+      dob: formattedDob,
       gender: data.gender,
       country: data.country,
       state: data.state,
@@ -187,20 +196,20 @@ function Profile() {
       if (res) {
         // console.log(res);
         toast("profile update successfully");
-        const newUserImg = res.data.user.userimg;
-        dispatch(UserImage({ userimg: newUserImg }));
-        const currentData = JSON.parse(localStorage.getItem("userdetails"));
-        const updatedData = {
-          ...currentData,
-          data: {
-            ...currentData.data,
-            data: {
-              ...currentData.data.data,
-              userimg: newUserImg,
-            },
-          },
-        };
-        localStorage.setItem("userdetails", JSON.stringify(updatedData));
+        // const newUserImg = res.data.user.userimg;
+        // dispatch(UserImage({ userimg: newUserImg }));
+        // const currentData = JSON.parse(localStorage.getItem("userdetails"));
+        // const updatedData = {
+        //   ...currentData,
+        //   data: {
+        //     ...currentData.data,
+        //     data: {
+        //       ...currentData.data.data,
+        //       userimg: newUserImg,
+        //     },
+        //   },
+        // };
+        // localStorage.setItem("userdetails", JSON.stringify(updatedData));
         navigate(`/myaccount/${userID}`);
       }
     } catch (error) {
@@ -471,11 +480,17 @@ function Profile() {
             <div className="flex flex-col gap-1 font-['udemy-regular'] p-2 lg:text-[1.2rem] text-[1.1rem]">
               <label className="">Date of Birth</label>
               {isedit ? (
-                <input
-                  className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="date"
-                  {...register("dob")}
+                <Controller
+                  name="dob"
+                  control={control}
                   defaultValue={data.dob}
+                  render={({ field }) => (
+                    <DatePicker
+                      {...field}
+                      selected={field.value || data.dob}
+                      className="font-['udemy-regular'] h-10 w-[300px] lg:w-[340px] text-[1rem] rounded-md  border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    />
+                  )}
                 />
               ) : (
                 <p className="text-[1.2rem]">{data.dob}</p>

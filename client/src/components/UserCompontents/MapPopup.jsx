@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function MapPopup({ roomDetails, onNavigate }) {
+export default function MapPopup({ roomDetails }) {
   return (
     <div className="max-w-[200px] bg-white rounded-lg shadow-md overflow-hidden text-sm">
       <img

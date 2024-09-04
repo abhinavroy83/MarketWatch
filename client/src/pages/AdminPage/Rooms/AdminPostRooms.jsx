@@ -14,7 +14,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CgGenderMale } from "react-icons/cg";
 import { TbGenderFemale } from "react-icons/tb";
 import Loader from "../../../components/UserCompontents/Loader";
-import { AdminHeader } from "../../../components/AdminCompontents";
+import {
+  AdminDashboard,
+  AdminHeader,
+} from "../../../components/AdminCompontents";
 
 const libraries = ["places"];
 
@@ -203,7 +206,6 @@ function AdminPostRooms({ editdata }) {
 
     if (editdata) {
       try {
-        console.log("ddcds", editdata._id);
         const res = await axios.put(
           `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
           roomdata,
@@ -219,7 +221,7 @@ function AdminPostRooms({ editdata }) {
           // console.log(res);
 
           alert("update room successfully");
-          navigate(`/rooms/${editdata._id}`);
+          navigate(`/admin/allroom`);
         }
       } catch (error) {
         console.log("error while update room ", error);
@@ -303,6 +305,8 @@ function AdminPostRooms({ editdata }) {
       setValue("address", editdata?.address || "");
       setValue("state", editdata?.state || "");
       setValue("zip_code", editdata?.zip_code || "");
+      setValue("user_name", editdata?.user_name || "");
+      setValue("email", editdata?.email || "");
       if (editdata.Imgurl) {
         setFiles(editdata.Imgurl.map((url) => ({ preview: url })));
         setResimgurl(editdata.Imgurl);
@@ -341,506 +345,372 @@ function AdminPostRooms({ editdata }) {
 
   return (
     <div>
-      <AdminHeader />
-      <div className="w-full mx-auto mt-32 items-center">
-        <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
-          <div className="font-['udemy-regular'] mx-20">
-            <form
-              onSubmit={handleSubmit(onsubmit)}
-              className="flex flex-col justify-center mt-7 items-center"
-            >
-              <div className="flex gap-2 items-center">
-                <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
-                  {editdata ? <p>Edit Room In</p> : <p>Post Room In</p>}
-                </p>
-                <Controller
-                  className="bg-black"
-                  name="postingincity"
-                  control={control}
-                  defaultValue="Portland"
-                  rules={{ required: "PostingIn is required" }}
-                  render={({ field }) => (
-                    <select
-                      {...field}
-                      className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-white border-2 placeholder:text-gray-400 cursor-pointer"
-                      onChange={(e) => {
-                        const selectedValue = e.target.value;
-                        field.onChange(selectedValue);
+      <AdminDashboard>
+        <div className="w-full mx-auto items-center">
+          <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
+            <div className="font-['udemy-regular'] mx-20">
+              <form
+                onSubmit={handleSubmit(onsubmit)}
+                className="flex flex-col justify-center mt-7 items-center"
+              >
+                <div className="flex gap-2 items-center">
+                  <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
+                    {editdata ? <p>Edit Room In</p> : <p>Post Room In</p>}
+                  </p>
+                  <Controller
+                    className="bg-black"
+                    name="postingincity"
+                    control={control}
+                    defaultValue="Portland"
+                    rules={{ required: "PostingIn is required" }}
+                    render={({ field }) => (
+                      <select
+                        {...field}
+                        className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-white border-2 placeholder:text-gray-400 cursor-pointer"
+                        onChange={(e) => {
+                          const selectedValue = e.target.value;
+                          field.onChange(selectedValue);
 
-                        // if (selectedValue !== profiledata.belongcity) {
-                        //   alert(
-                        //     `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
-                        //   );
-                        // }
-                      }}
-                    >
-                      <option
-                        className="text-gray-200"
-                        value=""
-                        disabled
-                        hidden
+                          // if (selectedValue !== profiledata.belongcity) {
+                          //   alert(
+                          //     `Your profile is connected to ${profiledata.belongcity}, are you sure you want to post in ${selectedValue}?`
+                          //   );
+                          // }
+                        }}
                       >
-                        Select city
-                      </option>
-                      {filtercity.map((city, index) => (
                         <option
-                          value={city}
-                          key={index}
-                          className="text-[17px] bg-white text-[#232f3e]"
+                          className="text-gray-200"
+                          value=""
+                          disabled
+                          hidden
                         >
-                          {city}
+                          Select city
                         </option>
-                      ))}
-                    </select>
+                        {filtercity.map((city, index) => (
+                          <option
+                            value={city}
+                            key={index}
+                            className="text-[17px] bg-white text-[#232f3e]"
+                          >
+                            {city}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                  />
+                </div>
+                <p className="text-[16px] mt-1 text-red-500">
+                  {errors.postingincity && (
+                    <p>{errors.postingincity.message}</p>
                   )}
-                />
-              </div>
-              <p className="text-[16px] mt-1 text-red-500">
-                {errors.postingincity && <p>{errors.postingincity.message}</p>}
-              </p>
-              {/* <p className="text-[1.1rem]">
+                </p>
+                {/* <p className="text-[1.1rem]">
                 Your Account is belong {profiledata.belongcity}
               </p> */}
-              <div className="w-full items-center">
-                <div className="flex mt-5 text-[1.1rem] items-center">
-                  <label
-                    className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Title <span className=" text-red-500">*</span>
-                  </label>
-                  <div className="">
-                    <input
-                      className="font-['udemy-regular'] h-10 w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      label="Title"
-                      type="text"
-                      // defaultValue={editdata?.Title}
-                      placeholder="Title"
-                      {...register("Title", {
-                        required: "Title is required",
-                      })}
-                    />
+                <div className="w-full items-center">
+                  <div className="flex mt-5 text-[1.1rem] items-center">
+                    <label
+                      className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Title <span className=" text-red-500">*</span>
+                    </label>
+                    <div className="">
+                      <input
+                        className="font-['udemy-regular'] h-10 w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        label="Title"
+                        type="text"
+                        // defaultValue={editdata?.Title}
+                        placeholder="Title"
+                        {...register("Title", {
+                          required: "Title is required",
+                        })}
+                      />
 
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {errors.Title && <p>{errors.Title.message}</p>}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-5 flex text-[1.1rem] items-center">
-                  <label
-                    className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Description <span className=" text-red-500">*</span>
-                  </label>
-                  <div>
-                    <textarea
-                      className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      name="description"
-                      placeholder="Description"
-                      {...register("Description", {
-                        required: "Description is required",
-                        validate: {
-                          minChars: (value) =>
-                            value.trim().length >= 50 ||
-                            "Description must be at least 50 characters",
-                        },
-                      })}
-                    />
-                    <p className="text-[16px] text-red-500">
-                      {errors.Description && (
-                        <p>{errors.Description.message}</p>
-                      )}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex mt-4 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Property Type <span className=" text-red-500">*</span>
-                  </label>
-                  <div>
-                    <Controller
-                      name="Propertytype"
-                      control={control}
-                      rules={{ required: "Property Type is required" }}
-                      defaultValue=""
-                      render={({ field }) => (
-                        <select
-                          {...field}
-                          className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                          name=""
-                          id=""
-                        >
-                          <option value="">Select</option>
-                          <option value="Single Family Home">
-                            Single Family Home
-                          </option>
-                          <option value="Apartment">Apartment</option>
-                          <option value="Condo">Condo</option>
-                          <option value="Town">Town House</option>
-                          <option value="Home">Homes</option>
-                          <option value="House">House</option>
-                          <option value="Basement">Basement Apartment</option>
-                        </select>
-                      )}
-                    />
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {errors.Propertytype && (
-                        <p>{errors.Propertytype.message}</p>
-                      )}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex text-[1.1rem] mt-5 items-center">
-                  <label
-                    htmlFor=""
-                    className=" w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                  >
-                    Stay/Lease <span className=" text-red-500">*</span>
-                  </label>
-                  <div>
-                    <div className="grid grid-cols-4 gap-4 w-auto">
-                      <div className=" flex gap-2 whitespace-nowrap ">
-                        <input
-                          type="radio"
-                          value="Short term"
-                          {...register("Stay_lease", {
-                            required: "Stay/Lease required",
-                          })}
-                          onChange={handleStayLeaseChange}
-                        />
-                        <p>Short term(1Day to 6Months) </p>
-                      </div>
-                      <div className="flex gap-2 whitespace-nowrap px-2">
-                        <input
-                          type="radio"
-                          value="Long term(6+ months)"
-                          {...register("Stay_lease", {
-                            required: "Stay/Lease required",
-                          })}
-                          onChange={handleStayLeaseChange}
-                        />
-                        <p>Long term(6+ Months) </p>
-                      </div>
-                      <div className=" flex gap-2">
-                        <input
-                          type="radio"
-                          value="Both"
-                          {...register("Stay_lease", {
-                            required: "Stay/Lease required",
-                          })}
-                          onChange={handleStayLeaseChange}
-                        />
-                        <p>Both* </p>
-                      </div>
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {errors.Title && <p>{errors.Title.message}</p>}
+                      </p>
                     </div>
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {" "}
-                      {errors.Stay_lease && <p>{errors.Stay_lease.message}</p>}
-                    </p>
                   </div>
-                </div>
 
-                <div className="mt-5 flex text-[1.1rem] items-center">
-                  <label
-                    className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Price Model <span className=" text-red-500">*</span>
-                  </label>
-                  <div>
-                    <Controller
-                      name="Pricemodel"
-                      control={control}
-                      rules={{ required: "Pricemodel is required" }}
-                      render={({ field, fieldState: { error } }) => (
-                        <>
+                  <div className="mt-5 flex text-[1.1rem] items-center">
+                    <label
+                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Description <span className=" text-red-500">*</span>
+                    </label>
+                    <div>
+                      <textarea
+                        className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        name="description"
+                        placeholder="Description"
+                        {...register("Description", {
+                          required: "Description is required",
+                          validate: {
+                            minChars: (value) =>
+                              value.trim().length >= 50 ||
+                              "Description must be at least 50 characters",
+                          },
+                        })}
+                      />
+                      <p className="text-[16px] text-red-500">
+                        {errors.Description && (
+                          <p>{errors.Description.message}</p>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex mt-4 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Property Type <span className=" text-red-500">*</span>
+                    </label>
+                    <div>
+                      <Controller
+                        name="Propertytype"
+                        control={control}
+                        rules={{ required: "Property Type is required" }}
+                        defaultValue=""
+                        render={({ field }) => (
                           <select
                             {...field}
-                            value={field.value || ""}
-                            className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                            name=""
+                            id=""
                           >
                             <option value="">Select</option>
-                            {stayLeaseOption === "Short term" && (
-                              <>
-                                <option value="Per Night">Per Night</option>
-                                <option value="Per Day">Per Day</option>
-                                <option value="Per Week">Per Week</option>
-                              </>
-                            )}
-                            {stayLeaseOption === "Long term(6+ months)" && (
-                              <option value="Per Month">Per Month</option>
-                            )}
-                            {stayLeaseOption === "Both" && (
-                              <>
-                                <option value="Per Month">Per Month</option>
-                                <option value="Per Night">Per Night</option>
-                                <option value="Per Day">Per Day</option>
-                                <option value="Per Week">Per Week</option>
-                              </>
-                            )}
+                            <option value="Single Family Home">
+                              Single Family Home
+                            </option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="Condo">Condo</option>
+                            <option value="Town">Town House</option>
+                            <option value="Home">Homes</option>
+                            <option value="House">House</option>
+                            <option value="Basement">Basement Apartment</option>
                           </select>
-                          {error && (
-                            <p className="text-[16px] mt-1 text-red-500">
-                              {error.message}
-                            </p>
-                          )}
-                        </>
-                      )}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex mt-5 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Rent <span className=" text-red-500">*</span>
-                  </label>
-                  <div className="items-center">
-                    <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                      $
-                    </span>
-                    <input
-                      type="number"
-                      placeholder="Rent"
-                      className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("Expected_Rooms", {
-                        required: "Rent is require",
-                      })}
-                    />
-                    <p className="text-[16px] mt-1 text-red-500">
-                      {" "}
-                      {errors.Expected_Rooms && (
-                        <p>{errors.Expected_Rooms.message}</p>
-                      )}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1 ml-5">
-                    <input
-                      type="checkbox"
-                      // {...register("Negotiable")}
-                    />
-                    <p className="px-3 py-2 text-black">Negotiable</p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <input type="checkbox" />
-                    <p className="px-3 py-2 text-black">Hide Rent</p>
-                  </div>
-                </div>
-
-                <div className="flex mt-4 gap-5 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Availability <span className="text-red-500">*</span>
-                  </label>
-                  <div>
-                    <Controller
-                      name="Avaliblity_from"
-                      control={control}
-                      render={({ field }) => (
-                        <DatePicker
-                          {...field}
-                          selected={field.value}
-                          className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
-                            isImmediate
-                              ? "bg-gray-200 cursor-not-allowed"
-                              : "bg-white"
-                          }`}
-                          placeholderText="Available from"
-                          disabled={isImmediate}
-                        />
-                      )}
-                    />
-                    {errors.Avaliblity_from && (
-                      <p className="text-[16px] mt-1 text-red-500">
-                        {errors.Avaliblity_from.message}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <Controller
-                      name="Available_to"
-                      control={control}
-                      render={({ field }) => (
-                        <DatePicker
-                          {...field}
-                          selected={field.value}
-                          className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
-                            isImmediate
-                              ? "bg-gray-200 cursor-not-allowed"
-                              : "bg-white"
-                          }`}
-                          placeholderText="Available to"
-                          disabled={isImmediate}
-                        />
-                      )}
-                    />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      {...register("Immediate")}
-                      checked={isImmediate}
-                      onChange={handleCheckboxChange}
-                    />
-                    <p className="py-2 text-black text-[18px]">Immediate</p>
-                  </div>
-                </div>
-
-                <div className="flex mt-5 text-[1.1rem] items-center gap-20">
-                  <label
-                    className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Separate Bathroom <span className="text-red-500">*</span>
-                  </label>
-                  <div>
-                    <div className="grid grid-cols-4 gap-4 w-[976px]">
-                      <div className="flex gap-1 items-center">
-                        <input
-                          type="radio"
-                          value="Yes"
-                          {...register("Attchd_Bath", {
-                            required: "Please select Bath",
-                          })}
-                        />
-                        <p>Yes</p>
-                      </div>
-                      <div className="flex gap-1 items-center">
-                        <input
-                          type="radio"
-                          value="No"
-                          {...register("Attchd_Bath", {
-                            required: "Please select Bath",
-                          })}
-                        />
-                        <p>No</p>
-                      </div>
-                    </div>
-                    {errors.Attchd_Bath && (
-                      <p className="text-[16px] mt-1 text-red-500">
-                        {errors.Attchd_Bath.message}
-                      </p>
-                    )}
-
-                    {selectedBathroom === "Yes" && (
-                      <div className="grid grid-cols-4 gap-4 w-[976px] mt-2">
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="Attached in Room"
-                            {...register("Bath_Location", {
-                              required: "Please select Bath location",
-                            })}
-                          />
-                          <p>Attached in Room</p>
-                        </div>
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="Outside the room"
-                            {...register("Bath_Location", {
-                              required: "Please select Bath location",
-                            })}
-                          />
-                          <p>Outside the room</p>
-                        </div>
-                        {errors.Bath_Location && (
-                          <p className="text-[16px] mt-1 text-red-500">
-                            {errors.Bath_Location.message}
-                          </p>
                         )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex mt-5 text-[1.1rem] items-center gap-20">
-                  <label
-                    className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Preferred Gender <span className="text-red-500">*</span>
-                  </label>
-                  <div>
-                    <div className="grid grid-cols-4 gap-4 w-[976px]">
-                      <div className="flex gap-1 items-center">
-                        <input
-                          type="radio"
-                          value="Male only"
-                          {...register("Preferred_gender", {
-                            required: "Please select gender",
-                          })}
-                        />
-                        <p className="flex items-center gap-1">
-                          Male
-                          <img
-                            className="w-5 h-5"
-                            src={`https://static.vecteezy.com/system/resources/previews/017/178/570/original/male-symbol-isolated-icon-on-transparent-background-free-png.png`}
-                            alt="logo"
-                          />
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <input
-                          type="radio"
-                          value="Female only"
-                          {...register("Preferred_gender", {
-                            required: "Please select gender",
-                          })}
-                        />
-                        <p className="flex items-center">
-                          Female
-                          <img
-                            className="w-5 h-5"
-                            src={`https://th.bing.com/th/id/R.1aea569e5445749d245b1dafe88aceb1?rik=duC79JxhKgHKSA&riu=httpfemale-symbol-transparent-5.png&ehk=3Nz1Zx0ol8BnZKZZLEarwiLHRGPiQBTA9EkJ%2b2%2b9Y%2bA%3d&risl=&pid=ImgRaw&r=0`}
-                            alt="logo"
-                          />{" "}
-                        </p>
-                      </div>
-                      <div className="flex gap-1 items-center">
-                        <input
-                          type="radio"
-                          value="Any"
-                          {...register("Preferred_gender", {
-                            required: "Please select gender",
-                          })}
-                        />
-                        <p className="flex items-center gap-1">
-                          Any
-                          <img
-                            className="w-6 h-6"
-                            src={`https://th.bing.com/th/id/R.4ce35e0c60e819c849bd95b9eb74e759?rik=55m8E7sNenQhvQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fGender-Symbol-PNG-Free-Download.png&ehk=5R2DPMpY54MPw4g17Q47uY7EXmDBexZa4wVXcXe1KiU%3d&risl=&pid=ImgRaw&r=0`}
-                            alt="logo"
-                          />{" "}
-                        </p>
-                      </div>
-                    </div>
-                    {errors.Preferred_gender && (
+                      />
                       <p className="text-[16px] mt-1 text-red-500">
-                        {errors.Preferred_gender.message}
+                        {errors.Propertytype && (
+                          <p>{errors.Propertytype.message}</p>
+                        )}
                       </p>
-                    )}
+                    </div>
                   </div>
-                </div>
 
-                {preferredGender && (
-                  <div className="flex mt-5 items-center gap-20 text-[1.1rem]">
+                  <div className="flex text-[1.1rem] mt-5 items-center">
+                    <label
+                      htmlFor=""
+                      className=" w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                    >
+                      Stay/Lease <span className=" text-red-500">*</span>
+                    </label>
+                    <div>
+                      <div className="grid grid-cols-4 gap-4 w-auto">
+                        <div className=" flex gap-2 whitespace-nowrap ">
+                          <input
+                            type="radio"
+                            value="Short term"
+                            {...register("Stay_lease", {
+                              required: "Stay/Lease required",
+                            })}
+                            onChange={handleStayLeaseChange}
+                          />
+                          <p>Short term(1Day to 6Months) </p>
+                        </div>
+                        <div className="flex gap-2 whitespace-nowrap px-2">
+                          <input
+                            type="radio"
+                            value="Long term(6+ months)"
+                            {...register("Stay_lease", {
+                              required: "Stay/Lease required",
+                            })}
+                            onChange={handleStayLeaseChange}
+                          />
+                          <p>Long term(6+ Months) </p>
+                        </div>
+                        <div className=" flex gap-2">
+                          <input
+                            type="radio"
+                            value="Both"
+                            {...register("Stay_lease", {
+                              required: "Stay/Lease required",
+                            })}
+                            onChange={handleStayLeaseChange}
+                          />
+                          <p>Both* </p>
+                        </div>
+                      </div>
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {" "}
+                        {errors.Stay_lease && (
+                          <p>{errors.Stay_lease.message}</p>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 flex text-[1.1rem] items-center">
+                    <label
+                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Price Model <span className=" text-red-500">*</span>
+                    </label>
+                    <div>
+                      <Controller
+                        name="Pricemodel"
+                        control={control}
+                        rules={{ required: "Pricemodel is required" }}
+                        render={({ field, fieldState: { error } }) => (
+                          <>
+                            <select
+                              {...field}
+                              value={field.value || ""}
+                              className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                            >
+                              <option value="">Select</option>
+                              {stayLeaseOption === "Short term" && (
+                                <>
+                                  <option value="Per Night">Per Night</option>
+                                  <option value="Per Day">Per Day</option>
+                                  <option value="Per Week">Per Week</option>
+                                </>
+                              )}
+                              {stayLeaseOption === "Long term(6+ months)" && (
+                                <option value="Per Month">Per Month</option>
+                              )}
+                              {stayLeaseOption === "Both" && (
+                                <>
+                                  <option value="Per Month">Per Month</option>
+                                  <option value="Per Night">Per Night</option>
+                                  <option value="Per Day">Per Day</option>
+                                  <option value="Per Week">Per Week</option>
+                                </>
+                              )}
+                            </select>
+                            {error && (
+                              <p className="text-[16px] mt-1 text-red-500">
+                                {error.message}
+                              </p>
+                            )}
+                          </>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex mt-5 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Rent <span className=" text-red-500">*</span>
+                    </label>
+                    <div className="items-center">
+                      <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                        $
+                      </span>
+                      <input
+                        type="number"
+                        placeholder="Rent"
+                        className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        {...register("Expected_Rooms", {
+                          required: "Rent is require",
+                        })}
+                      />
+                      <p className="text-[16px] mt-1 text-red-500">
+                        {" "}
+                        {errors.Expected_Rooms && (
+                          <p>{errors.Expected_Rooms.message}</p>
+                        )}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1 ml-5">
+                      <input
+                        type="checkbox"
+                        // {...register("Negotiable")}
+                      />
+                      <p className="px-3 py-2 text-black">Negotiable</p>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <input type="checkbox" />
+                      <p className="px-3 py-2 text-black">Hide Rent</p>
+                    </div>
+                  </div>
+
+                  <div className="flex mt-4 gap-5 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Availability <span className="text-red-500">*</span>
+                    </label>
+                    <div>
+                      <Controller
+                        name="Avaliblity_from"
+                        control={control}
+                        render={({ field }) => (
+                          <DatePicker
+                            {...field}
+                            selected={field.value}
+                            className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                              isImmediate
+                                ? "bg-gray-200 cursor-not-allowed"
+                                : "bg-white"
+                            }`}
+                            placeholderText="Available from"
+                            disabled={isImmediate}
+                          />
+                        )}
+                      />
+                      {errors.Avaliblity_from && (
+                        <p className="text-[16px] mt-1 text-red-500">
+                          {errors.Avaliblity_from.message}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <Controller
+                        name="Available_to"
+                        control={control}
+                        render={({ field }) => (
+                          <DatePicker
+                            {...field}
+                            selected={field.value}
+                            className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                              isImmediate
+                                ? "bg-gray-200 cursor-not-allowed"
+                                : "bg-white"
+                            }`}
+                            placeholderText="Available to"
+                            disabled={isImmediate}
+                          />
+                        )}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        {...register("Immediate")}
+                        checked={isImmediate}
+                        onChange={handleCheckboxChange}
+                      />
+                      <p className="py-2 text-black text-[18px]">Immediate</p>
+                    </div>
+                  </div>
+
+                  <div className="flex mt-5 text-[1.1rem] items-center gap-20">
                     <label
                       className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                      htmlFor="couples_welcome"
+                      htmlFor=""
                     >
-                      Couples Welcome
+                      Separate Bathroom <span className="text-red-500">*</span>
                     </label>
                     <div>
                       <div className="grid grid-cols-4 gap-4 w-[976px]">
@@ -848,8 +718,8 @@ function AdminPostRooms({ editdata }) {
                           <input
                             type="radio"
                             value="Yes"
-                            {...register("Couples_welcome", {
-                              required: "Please select an option",
+                            {...register("Attchd_Bath", {
+                              required: "Please select Bath",
                             })}
                           />
                           <p>Yes</p>
@@ -858,443 +728,583 @@ function AdminPostRooms({ editdata }) {
                           <input
                             type="radio"
                             value="No"
-                            {...register("Couples_welcome", {
-                              required: "Please select an option",
+                            {...register("Attchd_Bath", {
+                              required: "Please select Bath",
                             })}
                           />
                           <p>No</p>
                         </div>
                       </div>
-                      {errors.Couples_welcome && (
+                      {errors.Attchd_Bath && (
                         <p className="text-[16px] mt-1 text-red-500">
-                          {errors.Couples_welcome.message}
+                          {errors.Attchd_Bath.message}
                         </p>
+                      )}
+
+                      {selectedBathroom === "Yes" && (
+                        <div className="grid grid-cols-4 gap-4 w-[976px] mt-2">
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="Attached in Room"
+                              {...register("Bath_Location", {
+                                required: "Please select Bath location",
+                              })}
+                            />
+                            <p>Attached in Room</p>
+                          </div>
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="Outside the room"
+                              {...register("Bath_Location", {
+                                required: "Please select Bath location",
+                              })}
+                            />
+                            <p>Outside the room</p>
+                          </div>
+                          {errors.Bath_Location && (
+                            <p className="text-[16px] mt-1 text-red-500">
+                              {errors.Bath_Location.message}
+                            </p>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
-                )}
 
-                <div className="mt-5 text-[1.1rem]">
-                  <label
-                    className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Deposit
-                  </label>
-                  <span className=" bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                    $
-                  </span>
-                  <input
-                    type="number"
-                    placeholder="Deposit"
-                    className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    {...register("Desposite")}
-                  />
-                </div>
-                <div className="mt-5 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Is the room/furnished ?
-                  </label>
-                  <select
-                    className="h-100px w-[500px] text-[1.1rem] items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    {...register("is_room_furnished")}
-                  >
-                    <option value="">Select</option>
-                    <option value="Unfurnished">Unfurnished</option>
-                    <option value="Furnished with Bed">
-                      Furnished only with Bed
-                    </option>
-                    <option value="Semi Furnished">Semi Furnished</option>
-                    <option value="Fully Furnished">Fully Furnished</option>
-                  </select>
-                </div>
-
-                <div className=" flex mt-5 text-[1.1rem]">
-                  <label
-                    className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Amenities include
-                  </label>
-
-                  <div className=" grid grid-cols-4 gap-4 w-[980px]">
-                    <div className=" flex gap-1">
-                      <input
-                        // className="px-3 py-2 text-black mr-1 "
-                        value="Gym/Fitness Center"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Gym/Fitness Center</p>
-                    </div>
-                    <div className="flex gap-1">
-                      <input
-                        type="checkbox"
-                        value="Swimming Pool"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Swimming Pool</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Car Park"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Car Park</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Visitors Parking"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Visitors Parking</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Power Backup"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Power Backup</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Garbage Disposal"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Garbage Disposal</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Private Lawn"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Private Lawn</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Water Heater Plant"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Water Heater Plant</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Security System"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Security System</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Laundry Service"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Laundry Service</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Elevator"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Elevator</p>
-                    </div>
-                    <div className=" flex gap-1">
-                      <input
-                        value="Club House"
-                        type="checkbox"
-                        {...register("Amenities_include")}
-                      />
-                      <p>Club House</p>
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex mt-5 gap-20 text-[1.1rem] items-center">
-                  <label
-                    className="whitespace-nowrap w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Dietary Preference
-                  </label>
-                  <div className=" grid grid-cols-4 gap-4 w-[980px]">
-                    <div className="flex gap-1 items-center whitespace-nowrap">
-                      <input
-                        type="radio"
-                        value="Yes,Vegeterian mandatory"
-                        {...register("Vegeterian_prefernce")}
-                      />
-                      <p>Vegeterian</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="No,Non-veg is ok"
-                        {...register("Vegeterian_prefernce")}
-                      />
-                      <p>Non-Veg</p>
-                    </div>
-                    <div className="flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Both"
-                        {...register("Vegeterian_prefernce")}
-                      />
-                      <p>Both Ok</p>
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex gap-20 mt-5 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Smoking Policy
-                  </label>
-                  <div className=" grid grid-cols-4 gap-4 w-[980px]">
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="No Smoking"
-                        {...register("Smoking_policy")}
-                      />
-                      <p>No Smoking</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Smoking is ok"
-                        {...register("Smoking_policy")}
-                      />
-                      <p>Smoking is ok</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Smoke outside only"
-                        {...register("Smoking_policy")}
-                      />
-                      <p>Smoke outside only</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className=" flex mt-5 text-[1.1rem] items-center gap-20">
-                  <label
-                    className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Pet Friendly
-                  </label>
-
-                  <div className=" grid grid-cols-4 gap-4 w-[980px]">
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="No Pets"
-                        {...register("Pet_friendly")}
-                      />
-                      <p>No Pets</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Only Dogs"
-                        {...register("Pet_friendly")}
-                      />
-                      <p>Only Dogs</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input
-                        type="radio"
-                        value="Only Cats"
-                        {...register("Pet_friendly")}
-                      />
-                      <p>Only Cats</p>
-                    </div>
-                    <div className=" flex gap-1 items-center">
-                      <input type="radio" {...register("Pet_friendly")} />
-                      <p>Any Pet is Ok</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-5 text-[1.1rem] items-center">
-                  <label
-                    className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Open House Schedule
-                  </label>
-                  <input
-                    type="date"
-                    placeholder="Open House Date"
-                    {...register("Open_house_schedule")}
-                    className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                </div>
-
-                {/* Imgae  */}
-                <div></div>
-                <div className=" mt-5 text-[1.1rem]">
-                  <p className="text-[1.1rem] mt-2 font-bold">
-                    Add your photos below
-                  </p>
-                  <div className="flex">
-                    <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
-                      <div className="">
-                        <input
-                          type="file"
-                          accept="image/*"
-                          id="file"
-                          onChange={handleSelectFile}
-                          multiple
-                          class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
-                        />
-                        <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
-                          <h4>
-                            Drop files anywhere to upload
-                            <br />
-                            or
-                          </h4>
-                          <p class="">Select Files</p>
+                  <div className="flex mt-5 text-[1.1rem] items-center gap-20">
+                    <label
+                      className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Preferred Gender <span className="text-red-500">*</span>
+                    </label>
+                    <div>
+                      <div className="grid grid-cols-4 gap-4 w-[976px]">
+                        <div className="flex gap-1 items-center">
+                          <input
+                            type="radio"
+                            value="Male only"
+                            {...register("Preferred_gender", {
+                              required: "Please select gender",
+                            })}
+                          />
+                          <p className="flex items-center gap-1">
+                            Male
+                            <img
+                              className="w-5 h-5"
+                              src={`https://static.vecteezy.com/system/resources/previews/017/178/570/original/male-symbol-isolated-icon-on-transparent-background-free-png.png`}
+                              alt="logo"
+                            />
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <input
+                            type="radio"
+                            value="Female only"
+                            {...register("Preferred_gender", {
+                              required: "Please select gender",
+                            })}
+                          />
+                          <p className="flex items-center">
+                            Female
+                            <img
+                              className="w-5 h-5"
+                              src={`https://th.bing.com/th/id/R.1aea569e5445749d245b1dafe88aceb1?rik=duC79JxhKgHKSA&riu=httpfemale-symbol-transparent-5.png&ehk=3Nz1Zx0ol8BnZKZZLEarwiLHRGPiQBTA9EkJ%2b2%2b9Y%2bA%3d&risl=&pid=ImgRaw&r=0`}
+                              alt="logo"
+                            />{" "}
+                          </p>
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <input
+                            type="radio"
+                            value="Any"
+                            {...register("Preferred_gender", {
+                              required: "Please select gender",
+                            })}
+                          />
+                          <p className="flex items-center gap-1">
+                            Any
+                            <img
+                              className="w-6 h-6"
+                              src={`https://th.bing.com/th/id/R.4ce35e0c60e819c849bd95b9eb74e759?rik=55m8E7sNenQhvQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fGender-Symbol-PNG-Free-Download.png&ehk=5R2DPMpY54MPw4g17Q47uY7EXmDBexZa4wVXcXe1KiU%3d&risl=&pid=ImgRaw&r=0`}
+                              alt="logo"
+                            />{" "}
+                          </p>
                         </div>
                       </div>
+                      {errors.Preferred_gender && (
+                        <p className="text-[16px] mt-1 text-red-500">
+                          {errors.Preferred_gender.message}
+                        </p>
+                      )}
                     </div>
-                    <div className="">
-                      <div className="image-preview flex flex-wrap justify-evenly">
-                        {files.map((file, index) => (
-                          <div className="relative" key={index}>
-                            <img
-                              className="h-20 w-20 rounded-md"
-                              src={file.preview}
-                              alt={`preview-${index}`}
+                  </div>
+
+                  {preferredGender && (
+                    <div className="flex mt-5 items-center gap-20 text-[1.1rem]">
+                      <label
+                        className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        htmlFor="couples_welcome"
+                      >
+                        Couples Welcome
+                      </label>
+                      <div>
+                        <div className="grid grid-cols-4 gap-4 w-[976px]">
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="Yes"
+                              {...register("Couples_welcome", {
+                                required: "Please select an option",
+                              })}
                             />
-                            <button
-                              type="button"
-                              onClick={() => handleRemoveFile(index)}
-                              className="absolute top-0 left-0 bg-red-500 text-white rounded-full h-6 w-6 flex items-center justify-center"
-                            >
-                              &times;
-                            </button>
+                            <p>Yes</p>
                           </div>
-                        ))}
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="No"
+                              {...register("Couples_welcome", {
+                                required: "Please select an option",
+                              })}
+                            />
+                            <p>No</p>
+                          </div>
+                        </div>
+                        {errors.Couples_welcome && (
+                          <p className="text-[16px] mt-1 text-red-500">
+                            {errors.Couples_welcome.message}
+                          </p>
+                        )}
                       </div>
+                    </div>
+                  )}
 
-                      {files.length > 0 && (
-                        <>
-                          {!uploadstats ? (
-                            <button
-                              type="button"
-                              onClick={handleUpload}
-                              className=" bg-green-700 py-2 px-3 text-white text-[1.2rem] font-bold rounded-md ml-2 mt-4"
-                            >
-                              {loading ? "Uploading..." : "Upload"}
-                            </button>
-                          ) : (
-                            <p>uploaded</p>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-[1.2rem] mt-5 font-bold">Your Details:-</p>
-                  <div className="flex items-center">
-                    <label
-                      className="mt-2 w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                      htmlFor=""
-                    >
-                      Name
-                    </label>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Enter Name"
-                        {...register("user_name", {
-                          required: "Username is required",
-                        })}
-                        className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      />
-                      {errors.user_name && (
-                        <p className=" text-red-600 text-sm">
-                          {errors.user_name.message}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  <div className="mt-5 flex">
-                    <label
-                      className=" w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                      htmlFor=""
-                    >
-                      Email
-                    </label>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Enter Email"
-                        {...register("email", {
-                          required: "Email is required",
-                        })}
-                        className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      />
-                      {errors.email && (
-                        <p className=" text-red-600 text-sm">
-                          {errors.email.message}
-                        </p>
-                      )}
-                    </div>
-                  </div>
                   <div className="mt-5 text-[1.1rem]">
                     <label
-                      className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
-                      Phone Number <span className=" text-red-500">*</span>
+                      Deposit
+                    </label>
+                    <span className=" bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                      $
+                    </span>
+                    <input
+                      type="number"
+                      placeholder="Deposit"
+                      className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("Desposite")}
+                    />
+                  </div>
+                  <div className="mt-5 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Is the room/furnished ?
+                    </label>
+                    <select
+                      className="h-100px w-[500px] text-[1.1rem] items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      {...register("is_room_furnished")}
+                    >
+                      <option value="">Select</option>
+                      <option value="Unfurnished">Unfurnished</option>
+                      <option value="Furnished with Bed">
+                        Furnished only with Bed
+                      </option>
+                      <option value="Semi Furnished">Semi Furnished</option>
+                      <option value="Fully Furnished">Fully Furnished</option>
+                    </select>
+                  </div>
+
+                  <div className=" flex mt-5 text-[1.1rem]">
+                    <label
+                      className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Amenities include
+                    </label>
+
+                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                      <div className=" flex gap-1">
+                        <input
+                          // className="px-3 py-2 text-black mr-1 "
+                          value="Gym/Fitness Center"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Gym/Fitness Center</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <input
+                          type="checkbox"
+                          value="Swimming Pool"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Swimming Pool</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Car Park"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Car Park</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Visitors Parking"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Visitors Parking</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Power Backup"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Power Backup</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Garbage Disposal"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Garbage Disposal</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Private Lawn"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Private Lawn</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Water Heater Plant"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Water Heater Plant</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Security System"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Security System</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Laundry Service"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Laundry Service</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Elevator"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Elevator</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Club House"
+                          type="checkbox"
+                          {...register("Amenities_include")}
+                        />
+                        <p>Club House</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" flex mt-5 gap-20 text-[1.1rem] items-center">
+                    <label
+                      className="whitespace-nowrap w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Dietary Preference
+                    </label>
+                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                      <div className="flex gap-1 items-center whitespace-nowrap">
+                        <input
+                          type="radio"
+                          value="Yes,Vegeterian mandatory"
+                          {...register("Vegeterian_prefernce")}
+                        />
+                        <p>Vegeterian</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="No,Non-veg is ok"
+                          {...register("Vegeterian_prefernce")}
+                        />
+                        <p>Non-Veg</p>
+                      </div>
+                      <div className="flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Both"
+                          {...register("Vegeterian_prefernce")}
+                        />
+                        <p>Both Ok</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" flex gap-20 mt-5 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Smoking Policy
+                    </label>
+                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="No Smoking"
+                          {...register("Smoking_policy")}
+                        />
+                        <p>No Smoking</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Smoking is ok"
+                          {...register("Smoking_policy")}
+                        />
+                        <p>Smoking is ok</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Smoke outside only"
+                          {...register("Smoking_policy")}
+                        />
+                        <p>Smoke outside only</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className=" flex mt-5 text-[1.1rem] items-center gap-20">
+                    <label
+                      className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Pet Friendly
+                    </label>
+
+                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="No Pets"
+                          {...register("Pet_friendly")}
+                        />
+                        <p>No Pets</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Only Dogs"
+                          {...register("Pet_friendly")}
+                        />
+                        <p>Only Dogs</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input
+                          type="radio"
+                          value="Only Cats"
+                          {...register("Pet_friendly")}
+                        />
+                        <p>Only Cats</p>
+                      </div>
+                      <div className=" flex gap-1 items-center">
+                        <input type="radio" {...register("Pet_friendly")} />
+                        <p>Any Pet is Ok</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 text-[1.1rem] items-center">
+                    <label
+                      className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Open House Schedule
                     </label>
                     <input
-                      type="text"
-                      placeholder="Enter Number"
-                      {...register("phone_number")}
+                      type="date"
+                      placeholder="Open House Date"
+                      {...register("Open_house_schedule")}
                       className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
-                </div>
-                <div className="flex mt-5 text-[1.1rem]">
-                  <label
-                    className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    Address <span className=" text-red-500">*</span>
-                  </label>
+
+                  {/* Imgae  */}
+                  <div></div>
+                  <div className=" mt-5 text-[1.1rem]">
+                    <p className="text-[1.1rem] mt-2 font-bold">
+                      Add your photos below
+                    </p>
+                    <div className="flex">
+                      <div class="border border-dashed border-gray-400 rounded-sm relative mt-3 text-[1.1rem] flex flex-col justify-center w-[770px] bg-white">
+                        <div className="">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            id="file"
+                            onChange={handleSelectFile}
+                            multiple
+                            class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50"
+                          />
+                          <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
+                            <h4>
+                              Drop files anywhere to upload
+                              <br />
+                              or
+                            </h4>
+                            <p class="">Select Files</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <div className="image-preview flex flex-wrap justify-evenly">
+                          {files.map((file, index) => (
+                            <div className="relative" key={index}>
+                              <img
+                                className="h-20 w-20 rounded-md"
+                                src={file.preview}
+                                alt={`preview-${index}`}
+                              />
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveFile(index)}
+                                className="absolute top-0 left-0 bg-red-500 text-white rounded-full h-6 w-6 flex items-center justify-center"
+                              >
+                                &times;
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+
+                        {files.length > 0 && (
+                          <>
+                            {!uploadstats ? (
+                              <button
+                                type="button"
+                                onClick={handleUpload}
+                                className=" bg-green-700 py-2 px-3 text-white text-[1.2rem] font-bold rounded-md ml-2 mt-4"
+                              >
+                                {loading ? "Uploading..." : "Upload"}
+                              </button>
+                            ) : (
+                              <p>uploaded</p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
                   <div>
-                    <StandaloneSearchBox
-                      onLoad={onLoad}
-                      onPlacesChanged={onPlaceChanged}
-                    >
+                    <p className="text-[1.2rem] mt-5 font-bold">
+                      Your Details:-
+                    </p>
+                    <div className="flex items-center">
+                      <label
+                        className="mt-2 w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        htmlFor=""
+                      >
+                        Name
+                      </label>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Enter Name"
+                          {...register("user_name", {
+                            required: "Username is required",
+                          })}
+                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        />
+                        {errors.user_name && (
+                          <p className=" text-red-600 text-sm">
+                            {errors.user_name.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-5 flex">
+                      <label
+                        className=" w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        htmlFor=""
+                      >
+                        Email
+                      </label>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Enter Email"
+                          {...register("email", {
+                            required: "Email is required",
+                          })}
+                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        />
+                        {errors.email && (
+                          <p className=" text-red-600 text-sm">
+                            {errors.email.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-5 text-[1.1rem]">
+                      <label
+                        className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        htmlFor=""
+                      >
+                        Phone Number <span className=" text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
-                        placeholder="Enter a location"
-                        {...register("address")}
+                        placeholder="Enter Number"
+                        {...register("phone_number")}
                         className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       />
-                    </StandaloneSearchBox>
-                    <input type="hidden" {...register("latitude")} />
-                    <input type="hidden" {...register("longitude")} />
-                    {/* <input
+                    </div>
+                  </div>
+                  <div className="flex mt-5 text-[1.1rem]">
+                    <label
+                      className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Address <span className=" text-red-500">*</span>
+                    </label>
+                    <div>
+                      <StandaloneSearchBox
+                        onLoad={onLoad}
+                        onPlacesChanged={onPlaceChanged}
+                      >
+                        <input
+                          type="text"
+                          placeholder="Enter a location"
+                          {...register("address")}
+                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        />
+                      </StandaloneSearchBox>
+                      <input type="hidden" {...register("latitude")} />
+                      <input type="hidden" {...register("longitude")} />
+                      {/* <input
                     type="text"
                     {...register("address", {
                       required: "Address is required",
@@ -1302,107 +1312,108 @@ function AdminPostRooms({ editdata }) {
                     placeholder="Enter Address"
                     className="font-['udemy-regular'] h-10 w-[500px] text-[18px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   /> */}
-                    {/* <p className="text-[16px] mt-1 text-red-500">
+                      {/* <p className="text-[16px] mt-1 text-red-500">
                     {" "}
                     {errors.address && <p>{errors.address.message}</p>}
                   </p> */}
-                  </div>
-                </div>
-                <div className="flex  text-[1.1rem]">
-                  <label
-                    className="text-[1.1rem] text-white w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                    htmlFor=""
-                  >
-                    City
-                  </label>
-                  <div className="flex gap-4 items-center">
-                    <div className="flex items-center mt-5 text-[1.1rem]">
-                      <div>
-                        <input
-                          type="text"
-                          className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                          placeholder="City"
-                          {...register("city")}
-                        />
-                      </div>
                     </div>
+                  </div>
+                  <div className="flex  text-[1.1rem]">
+                    <label
+                      className="text-[1.1rem] text-white w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      City
+                    </label>
+                    <div className="flex gap-4 items-center">
+                      <div className="flex items-center mt-5 text-[1.1rem]">
+                        <div>
+                          <input
+                            type="text"
+                            className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            placeholder="City"
+                            {...register("city")}
+                          />
+                        </div>
+                      </div>
 
-                    <div className="flex items-center mt-5 text-[1.1rem]">
-                      {/* <label
+                      <div className="flex items-center mt-5 text-[1.1rem]">
+                        {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     State
                   </label> */}
-                      <div>
-                        <input
-                          type="text"
-                          className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                          placeholder="State"
-                          {...register("state")}
-                        />
+                        <div>
+                          <input
+                            type="text"
+                            className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            placeholder="State"
+                            {...register("state")}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-center mt-5 text-[1.1rem]">
-                      {/* <label
+                      <div className="flex items-center mt-5 text-[1.1rem]">
+                        {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Zip code
                   </label> */}
-                      <div>
-                        <input
-                          type="text"
-                          // defaultValue={profiledata?.pin}
-                          className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                          placeholder="Enter zipcode"
-                          {...register("zip_code")}
-                        />
-                        <p className="text-[16px] text-red-500">
-                          {" "}
-                          {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
-                        </p>
+                        <div>
+                          <input
+                            type="text"
+                            // defaultValue={profiledata?.pin}
+                            className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            placeholder="Enter zipcode"
+                            {...register("zip_code")}
+                          />
+                          <p className="text-[16px] text-red-500">
+                            {" "}
+                            {/* {errors.subarea && <p>{errors.subarea?.message}</p>} */}
+                          </p>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="flex items-center mt-5 text-[1.1rem]">
-                      {/* <label
+                      <div className="flex items-center mt-5 text-[1.1rem]">
+                        {/* <label
                     className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
                   >
                     Country
                   </label> */}
-                      <div>
-                        <input
-                          type="text"
-                          className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                          placeholder="Country"
-                          {...register("country")}
-                        />
+                        <div>
+                          <input
+                            type="text"
+                            className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            placeholder="Country"
+                            {...register("country")}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              {editdata ? (
-                <button
-                  type="submit"
-                  className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Update Room
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  className="rounded-md bg-green-800 my-4 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Add New Room
-                </button>
-              )}
-            </form>
+                {editdata ? (
+                  <button
+                    type="submit"
+                    className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Update Room
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="rounded-md bg-green-800 my-4 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Add New Room
+                  </button>
+                )}
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </AdminDashboard>
     </div>
   );
 }

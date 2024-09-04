@@ -37,7 +37,7 @@ const addroom = async (req, res) => {
       location,
     } = req.body;
     const UserId = req.user.user._id;
-    const postedon = new Date().toISOString().split("T")[0];
+    const postedon = new Date().toISOString();
     const rooms = new Room({
       UserId,
       postedon,

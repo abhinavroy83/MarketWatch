@@ -26,6 +26,18 @@ function Avalableloc({ isOpen, onClose }) {
   }, []);
   const handleLocation = (city) => {
     dispatch(cities({ city: city }));
+    const currentData = JSON.parse(localStorage.getItem("userdetails"));
+    const updatedData = {
+      ...currentData,
+      data: {
+        ...currentData.data,
+        data: {
+          ...currentData.data.data,
+          city: city,
+        },
+      },
+    };
+    localStorage.setItem("userdetails", JSON.stringify(updatedData));
     onClose(false);
     // console.log("Selected location:", city);
   };

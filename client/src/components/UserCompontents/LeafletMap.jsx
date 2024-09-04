@@ -5,7 +5,6 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import "leaflet.markercluster";
 import { useDispatch, useSelector } from "react-redux";
-import { location as redlocation } from "../../store/authslice";
 import axios from "axios";
 import markerIcon from "../../assets/map-marker2.png";
 import { renderToString } from "react-dom/server";
@@ -17,8 +16,6 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   const mapRef = useRef(null);
   const markerClusterRef = useRef(null);
   const usercity = useSelector((state) => state.auth.city);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const currentloc = useSelector((state) => state.auth.location);
   const [locdata, setlocdata] = useState([]);
   const [currentLocation, setCurrentLocation] = useState({
@@ -26,12 +23,26 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     lng: 0,
   });
 
-  const getRooms = async () => {
+  // Function to fetch coordinates based on the city name
+  const fetchCoordinatesByCity = async (city) => {
+    try {
+      const res = await axios.get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=2c4e1822d22e4f4ca5f6ca577b523dfe`
+      );
+      const { lat, lng } = res.data.results[0].geometry;
+      return { lat, lng };
+    } catch (error) {
+      console.log("Error fetching city coordinates:", error);
+      return null;
+    }
+  };
+
+  const getRooms = async (lat, lng) => {
     try {
       const res = await axios.get(
         usercity
           ? `https://api.verydesi.com/api/getallrooms?city=${usercity}`
-          : `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lat}&lng=${currentloc.lng}`
+          : `https://api.verydesi.com/api/getallrooms?lat=${lat}&lng=${lng}`
       );
       setlocdata(
         res.data.Allrooms.map((room) => ({
@@ -45,60 +56,71 @@ const LeafletMap = ({ onLocationReceived, style }) => {
   };
 
   useEffect(() => {
-    let lat, lng;
-    if (onLocationReceived) {
-      lat = onLocationReceived.lat;
-      lng = onLocationReceived.lng;
-    } else if (currentloc) {
-      lat = currentloc.lat;
-      lng = currentloc.lng;
-    } else {
-      return;
-    }
+    const initializeMap = async () => {
+      let lat, lng;
 
-    if (mapContainerRef.current) {
-      const map = L.map(mapContainerRef.current).setView(
-        [45.56123, -122.61345],
-        10
-      );
-      mapRef.current = map;
+      if (usercity) {
+        const cityCoords = await fetchCoordinatesByCity(usercity);
+        if (cityCoords) {
+          lat = cityCoords.lat;
+          lng = cityCoords.lng;
+        }
+      } else if (onLocationReceived) {
+        lat = onLocationReceived.lat;
+        lng = onLocationReceived.lng;
+      } else if (currentloc) {
+        lat = currentloc.lat;
+        lng = currentloc.lng;
+      } else {
+        return;
+      }
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        attribution: "© OpenStreetMap contributors",
-      }).addTo(map);
+      if (mapContainerRef.current) {
+        const map = L.map(mapContainerRef.current).setView([lat, lng], 10);
+        mapRef.current = map;
 
-      const markerClusterGroup = L.markerClusterGroup({
-        iconCreateFunction: (cluster) => {
-          const count = cluster.getChildCount();
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 18,
+          attribution: "© OpenStreetMap contributors",
+        }).addTo(map);
 
-          return L.divIcon({
-            html: `<div style="
-              background-color: blue;
-              color: white;
-              font-size: 14px;
-              font-weight: bold;
-              text-align: center;
-              border-radius: 50%;
-              width: 30px;
-              height: 30px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            ">${count}</div>`,
-            className: "custom-cluster-icon",
-            iconSize: [30, 30],
-          });
-        },
-      });
-      markerClusterRef.current = markerClusterGroup;
-      map.addLayer(markerClusterGroup);
-      setCurrentLocation({ lat, lng });
+        const markerClusterGroup = L.markerClusterGroup({
+          iconCreateFunction: (cluster) => {
+            const count = cluster.getChildCount();
+            return L.divIcon({
+              html: `<div style="
+                background-color: blue;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">${count}</div>`,
+              className: "custom-cluster-icon",
+              iconSize: [30, 30],
+            });
+          },
+        });
+        markerClusterRef.current = markerClusterGroup;
+        map.addLayer(markerClusterGroup);
+        setCurrentLocation({ lat, lng });
 
-      getRooms();
+        getRooms(lat, lng);
+      }
+    };
 
-      return () => map.remove();
-    }
+    initializeMap();
+
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+      }
+    };
   }, [onLocationReceived, usercity]);
 
   useEffect(() => {
@@ -117,7 +139,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
           return acc;
         }
 
-        const key = `${coordinates[1]},${coordinates[0]}`; // [lat, lng] => lat,lng
+        const key = `${coordinates[1]},${coordinates[0]}`;
         if (!acc[key]) {
           acc[key] = { coordinates, count: 0, roomIds: [] };
         }
@@ -172,12 +194,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
             })
               .setLatLng([lat, lng])
               .setContent(
-                renderToString(
-                  <MapPopup
-                    roomDetails={roomDetails}
-                    onNavigate={(path) => navigate(path)}
-                  />
-                )
+                renderToString(<MapPopup roomDetails={roomDetails} />)
               )
               .openOn(mapRef.current);
           } catch (error) {
