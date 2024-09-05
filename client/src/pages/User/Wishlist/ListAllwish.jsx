@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import { DashConatiner } from "../../../components";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaArrowRight } from "react-icons/fa6";
-import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-import { FaHeart } from "react-icons/fa";
 import { IoPeopleSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { minuscart } from "../../../store/cartslice";
 import Pagination from "../../../components/SharedCompontents/Pagination";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 function ListAllwish() {
   const { userID } = useParams();
   const [data, setdata] = useState([]);
@@ -20,7 +18,14 @@ function ListAllwish() {
   const [loading, setLoading] = useState(true);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const handleDeleteRoom = async (deleteId) => {
     // console.log(deleteId);
     try {
@@ -41,11 +46,10 @@ function ListAllwish() {
         res.data.msg === "Wishlist cleared"
       ) {
         dispatch(minuscart());
-
         setdata((prevRoomData) =>
           prevRoomData.filter((room) => room._id !== deleteId)
         );
-        toast.success("Removed");
+        showToast("unsuccess", "Removed from Favorites.");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -164,20 +168,13 @@ function ListAllwish() {
   };
   return (
     <DashConatiner>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        toastClassName={() =>
-          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
-        }
-      />
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <section className="mx-auto w-full max-w-7xl font-['udemy-regular']">
         <div className="flex justify-center text-center self-center">
           <p className="text-[1.5rem] p-2 bg-[#232f3e] text-white w-full flex gap-2 justify-center items-center text-center">

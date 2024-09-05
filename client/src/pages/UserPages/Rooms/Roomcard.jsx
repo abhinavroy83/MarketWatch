@@ -13,18 +13,22 @@ import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviat
 import { LuHeart } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
 import { minuscart, pluscart } from "../../../store/cartslice";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 
 function Roomcard({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const userID = useSelector((state) => state.auth.userId);
   const auth = useSelector((state) => state.auth.status);
   const [wishliststatys, setWishlistStatus] = useState(false);
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
-  const notify = () => toast.success("Added to Favorites.");
-  const unnotify = () => toast.success("Remove from Favorites.");
-  const unauthnotify = () => toast.info("Please Login");
   const dispatch = useDispatch();
-
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const makewishlist = async (_id) => {
     if (auth) {
       try {
@@ -47,13 +51,13 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         ) {
           dispatch(pluscart());
           setWishlistStatus(true);
-          notify();
+          showToast("success", "Added to Favorites.");
         }
       } catch (error) {
         console.error("Error adding to wishlist:", error);
       }
     } else {
-      unauthnotify();
+      showToast("unsuccess", "Removed from Favorites.");
     }
   };
 
@@ -78,7 +82,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
       ) {
         dispatch(minuscart());
         setWishlistStatus(false);
-        unnotify();
+        showToast("unsuccess", "Removed from Favorites.");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -154,6 +158,13 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden lg:rounded-tl-md lg:rounded-bl-md lg:rounded-none rounded-tl-md rounded-tr-md">
         <img
           src={

@@ -215,7 +215,7 @@ const LeafletMap = ({ onLocationReceived, style }) => {
       style={{
         ...style,
         height: "400px",
-        width: "320px",
+        width: "290px",
         borderRadius: "8px",
         position: "relative",
         zIndex: 0,

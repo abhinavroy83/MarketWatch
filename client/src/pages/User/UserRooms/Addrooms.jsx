@@ -137,8 +137,12 @@ function Addrooms({ editdata }) {
         preview: URL.createObjectURL(file),
       };
     });
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    handleUpload()
+    setFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles, ...newFiles];
+      handleUpload(updatedFiles);
+      return updatedFiles;
+    });
+
     setimgerror(false);
   };
 
@@ -148,7 +152,6 @@ function Addrooms({ editdata }) {
 
   const handleUpload = async () => {
     try {
-      // setLoader(true);
       const data = new FormData();
       files.forEach(({ file }) => {
         data.append("my_files", file);
@@ -175,7 +178,7 @@ function Addrooms({ editdata }) {
   //     return () => clearTimeout(timeout);
   //   }
   // }, [files]);
-  // console.log(resimgurl);
+
   const fetchAreaData = async (city) => {
     // console.log(city);
     const response = await axios(
@@ -1348,7 +1351,7 @@ function Addrooms({ editdata }) {
                         </div>
                       ))}
                     </div>
-
+                    {/* 
                     {files.length > 0 && (
                       <>
                         {!uploadstats ? (
@@ -1363,7 +1366,7 @@ function Addrooms({ editdata }) {
                           <p>uploaded</p>
                         )}
                       </>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>

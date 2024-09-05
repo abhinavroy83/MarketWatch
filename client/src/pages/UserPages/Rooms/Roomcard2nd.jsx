@@ -13,11 +13,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { minuscart, pluscart } from "../../../store/cartslice";
 import { FaHeart } from "react-icons/fa";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 
 function Roomcard2nd({ isSingleRow, ...item }) {
   const token = useSelector((state) => state.auth.token);
   const auth = useSelector((state) => state.auth.status);
   const dispatch = useDispatch();
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
   const [wishliststatys, setWishlistStatus] = useState(false);
   function truncateCharacters(str, numCharacters) {
@@ -50,10 +52,12 @@ function Roomcard2nd({ isSingleRow, ...item }) {
     }
   };
 
-  const notify = () => toast.success("Added to Favorites.");
-  const unnotify = () => toast.success("Remove from Favorites.");
-  const unauthnotify = () => toast.info("Please Login");
-
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const makewishlist = async (_id) => {
     if (auth) {
       try {
@@ -77,13 +81,13 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           setWishlistStatus(true);
           dispatch(pluscart());
 
-          notify();
+          showToast("success", "Added to Favorites.");
         }
       } catch (error) {
         console.error("Error adding to wishlist:", error);
       }
     } else {
-      unauthnotify();
+      showToast("unsuccess", "Removed from Favorites.");
     }
   };
   const unwish = async (_id) => {
@@ -107,7 +111,7 @@ function Roomcard2nd({ isSingleRow, ...item }) {
       ) {
         dispatch(minuscart());
         setWishlistStatus(false);
-        unnotify();
+        showToast("unsuccess", "Removed from Favorites.");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -150,6 +154,13 @@ function Roomcard2nd({ isSingleRow, ...item }) {
           : "justify-start border shadow-md p-2 rounded-xl hover:shadow-lg"
       }`}
     >
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <img
         className="flex"
         height={37}

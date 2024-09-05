@@ -32,6 +32,7 @@ import stateAbbreviations from "../../../Services/StateAprevation/stateAbbreviat
 import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 import { modalopen } from "../../../store/modalslice";
 import { minuscart, pluscart } from "../../../store/cartslice";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 
 function Rooms() {
   const { _id } = useParams();
@@ -48,6 +49,8 @@ function Rooms() {
   const [hasNextRoom, setHasNextRoom] = useState(true);
   const [hasPreviousRoom, setHasPreviousRoom] = useState(true);
   const [userstatus, setuserstatus] = useState(false);
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
+
   // console.log(usrid);
 
   const url = `https://verydesi.com/rooms/${_id}`;
@@ -170,9 +173,12 @@ function Rooms() {
   };
 
   // console.log(rooms._id);
-  const notify = () => toast.success("Added to Favorites.");
-  const unnotify = () => toast.success("Remove from Favorites.");
-
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const makewishlist = async () => {
     try {
       const dat = { roomId: _id, status: true };
@@ -195,7 +201,7 @@ function Rooms() {
         dispatch(pluscart());
 
         setWishlistStatus(true);
-        notify();
+        showToast("success", "Added to Favorites.");
       }
     } catch (error) {
       console.error("Error adding to wishlist:", error);
@@ -223,7 +229,7 @@ function Rooms() {
       ) {
         dispatch(minuscart());
         setWishlistStatus(false);
-        unnotify();
+        showToast("unsuccess", "Removed from Favorites.");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -300,20 +306,13 @@ function Rooms() {
 
   return (
     <div className="lg:mt-[4.4rem] mt-[9.4rem] h-full w-full max-w-[1600px] mx-auto capitalize">
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        toastClassName={() =>
-          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2  border border-gray-100"
-        }
-      />
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <Conractform isOpen={isloginmodalopen} onClose={isloginmodelclose} />
       <div className="  w-full mx-auto px-4 py-2 mt-0 lg:mt-10 font-['udemy-regular']">
         <nav aria-label="Breadcrumb">

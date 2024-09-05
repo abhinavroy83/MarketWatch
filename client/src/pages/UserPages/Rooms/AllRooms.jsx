@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Roomcardforsimilar from "./Roomcardforsimilar";
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -121,20 +122,13 @@ function AllRooms() {
         locationsndString?.lat ? locationsndString : undefined
       }
     >
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        toastClassName={() =>
-          "w-80 font-medium text-gray-900 flex items-center gap-2 bg-green-100 fixed top-[7rem] right-4 py-2 border border-gray-100"
-        }
-      />
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
 
       {rooms.length > 0 ? (
         <div className="px-3 font-['udemy-regular'] md:px- md:py-0 text-lg ">

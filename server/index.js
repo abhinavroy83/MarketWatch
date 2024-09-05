@@ -118,6 +118,11 @@ cloudinary.config({
 async function handleUpload(file) {
   const res = await cloudinary.uploader.upload(file, {
     resource_type: "auto",
+    transformation: [
+      { width: 1000, crop: "scale" },
+      { quality: "auto" },
+      { fetch_format: "auto" },
+    ],
   });
   return res;
 }

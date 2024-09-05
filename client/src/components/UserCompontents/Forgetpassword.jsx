@@ -1,8 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Alert from "./Alert/Alert";
 
 function Forgetpassword() {
   const {
@@ -11,6 +12,7 @@ function Forgetpassword() {
     register,
     reset,
   } = useForm();
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
   const { token } = useParams();
   // console.log(token);
@@ -22,18 +24,29 @@ function Forgetpassword() {
         data
       );
       if (res) {
-        console.log(res.data);
-        toast.success(res.data.message);
-        // setTimeout(() => {
-        //   window.location.href = "/signup";
-        // }, 3000);
+        setToast({
+          isOpen: true,
+          type: success,
+          text: res.data.message,
+        });
+        toast.success();
       }
     } catch (error) {
       console.log(error);
     }
   };
+  setTimeout(() => {
+    setToast({ isOpen: false, type: "", text: "" });
+  }, 3000);
   return (
     <div className="mt-[11rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[550px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <img
         className="w-[370px] lg:h-[460px] h-[300px]"
         src={`https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/fuypxxcnvqrv8ctgwn9i.jpg`}

@@ -1,11 +1,12 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdLockReset } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { modalopen } from "../../store/modalslice";
 import { toast } from "react-toastify";
+import Alert from "./Alert/Alert";
 function ResetPassword() {
   const {
     register,
@@ -16,6 +17,7 @@ function ResetPassword() {
 
   const naviagte = useNavigate();
   const dispatch = useDispatch();
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
   const onsubmit = async (data) => {
     // console.log(data);
@@ -26,7 +28,11 @@ function ResetPassword() {
       );
 
       if (res.data.status) {
-        toast.success(res.data.message);
+        setToast({
+          isOpen: true,
+          type: "success",
+          text: res.data.message,
+        });
         naviagte("/");
         dispatch(
           modalopen({
@@ -35,7 +41,11 @@ function ResetPassword() {
         );
       }
       if (!res.data.status) {
-        toast.warn(res.data.message);
+        setToast({
+          isOpen: true,
+          type: "unsuccess",
+          text: res.data.message,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -44,6 +54,13 @@ function ResetPassword() {
 
   return (
     <div className="mt-[11rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[620px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <img
         className="w-[370px] lg:h-[460px] h-[300px]"
         // src={resetimg}
