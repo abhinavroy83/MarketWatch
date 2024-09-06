@@ -287,7 +287,7 @@ function Allroom() {
                                 }
                                 alt=""
                               />
-                              Adress
+                              Address
                             </div>
                           </th>
                           <th
