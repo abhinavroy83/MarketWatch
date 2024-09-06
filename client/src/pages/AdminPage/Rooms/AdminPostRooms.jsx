@@ -10,6 +10,8 @@ import { FaCalendarAlt } from "react-icons/fa";
 import authslice from "../../../store/authslice";
 import DatePicker from "react-datepicker";
 import { useLoadScript, StandaloneSearchBox } from "@react-google-maps/api";
+import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
+import { toast, ToastContainer } from "react-toastify";
 import "react-datepicker/dist/react-datepicker.css";
 import { CgGenderMale } from "react-icons/cg";
 import { TbGenderFemale } from "react-icons/tb";
@@ -129,7 +131,11 @@ function AdminPostRooms({ editdata }) {
         preview: URL.createObjectURL(file),
       };
     });
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    setFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles, ...newFiles];
+      handleUpload(updatedFiles);
+      return updatedFiles;
+    });
     setimgerror(false);
   };
 
@@ -168,88 +174,121 @@ function AdminPostRooms({ editdata }) {
   // }, [files]);
   // console.log(resimgurl);
 
+  const fetchAreaData = async (city) => {
+    // console.log(city);
+    const response = await axios(
+      `https://api.verydesi.com/api/admin/area/${city}`
+    );
+    // const data = response.j();
+    // console.log(response.data.area[0]);
+    return response.data.area[0];
+  };
   const onsubmit = async (data) => {
-    const roomdata = {
-      Title: data.Title,
-      Description: data.Description,
-      Propertytype: data.Propertytype,
-      postingincity: data.postingincity,
-      city: data.city,
-      Stay_lease: data.Stay_lease,
-      Avaliblity_from: data.Avaliblity_from,
-      Available_to: data.Available_to,
-      Immediate: data.Immediate,
-      Attchd_Bath: data.Attchd_Bath,
-      Bath_Location: data.Bath_Location,
-      Preferred_gender: data.Preferred_gender,
-      Couples_welcome: data.Couples_welcome,
-      Expected_Rooms: data.Expected_Rooms,
-      Pricemodel: data.Pricemodel,
-      Desposite: data.Desposite,
-      is_room_furnished: data.is_room_furnished,
-      Amenities_include: data.Amenities_include,
-      Vegeterian_prefernce: data.Vegeterian_prefernce,
-      Smoking_policy: data.Smoking_policy,
-      Pet_friendly: data.Pet_friendly,
-      Open_house_schedule: data.Open_house_schedule,
-      Imgurl: resimgurl,
-      user_name: data.user_name,
-      email: data.email,
-      phone_number: data.phone_number,
-      address: data.address,
-      state: data.state,
-      zip_code: data.zip_code,
-      location: {
-        coordinates: [location.lng, location.lat],
-      },
-    };
+    const city = data.postingincity;
+    const areaData = await fetchAreaData(city);
+    const enteredStateAbbreviation = state;
+    const enteredStateFullName = Object.keys(stateAbbreviationMapping).find(
+      (key) => stateAbbreviationMapping[key] === enteredStateAbbreviation
+    );
+    // const enteredState = data.state;
+    const enteredCity = data.city;
+    const enteredZip = data.zipcode;
+    const isPrimaryState = areaData.primaryState.includes(
+      enteredStateFullName || data.state
+    );
+    const isStateInList = areaData.state.includes(
+      enteredStateFullName || data.state
+    );
+    const isValidCity = areaData.subarea.some(
+      (subarea) => subarea.split(",")[0] === enteredCity
+    );
+    const isValidZip = areaData.zipcode.includes(enteredZip);
 
-    if (editdata) {
-      try {
-        const res = await axios.put(
-          `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
+    if (isPrimaryState || (isStateInList && (isValidCity || isValidZip))) {
+      const roomdata = {
+        Title: data.Title,
+        Description: data.Description,
+        Propertytype: data.Propertytype,
+        postingincity: data.postingincity,
+        postingtype: data.postingtype,
+        Stay_lease: data.Stay_lease,
+        Avaliblity_from: data.Avaliblity_from,
+        Available_to: data.Available_to,
+        Immediate: data.Immediate,
+        Attchd_Bath: data.Attchd_Bath,
+        Bath_Location: data.Bath_Location,
+        Preferred_gender: data.Preferred_gender,
+        Couples_welcome: data.Couples_welcome,
+        Expected_Rooms: data.Expected_Rooms,
+        Pricemodel: data.Pricemodel,
+        Desposite: data.Desposite,
+        is_room_furnished: data.is_room_furnished,
+        Amenities_include: data.Amenities_include,
+        Vegeterian_prefernce: data.Vegeterian_prefernce,
+        Smoking_policy: data.Smoking_policy,
+        Pet_friendly: data.Pet_friendly,
+        Open_house_schedule: data.Open_house_schedule,
+        Imgurl: resimgurl,
+        user_name: data.user_name,
+        email: data.email,
+        phone_number: data.phone_number,
+        city: data.city,
+        address: data.address,
+        state: data.state,
+        zip_code: data.zipcode,
+        location: {
+          coordinates: [location.lng, location.lat],
+        },
+      };
+
+      if (editdata) {
+        try {
+          // console.log("ddcds", editdata._id);
+          const res = await axios.put(
+            `https://api.verydesi.com/api/updaterooms/${editdata._id}`,
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+            navigate(`/admin/allroom`);
+            toast.success("update room successfully");
           }
-        );
-        if (res) {
-          // console.log(res);
-
-          alert("update room successfully");
-          navigate(`/admin/allroom`);
+        } catch (error) {
+          console.log("error while update room ", error);
         }
-      } catch (error) {
-        console.log("error while update room ", error);
+      } else {
+        try {
+          const res = await axios.post(
+            " https://api.verydesi.com/api/addrooms",
+            roomdata,
+            {
+              headers: {
+                jwttoken: `${token}`,
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          if (res) {
+            // console.log(res);
+            toast.success("rooms added successfully");
+            reset();
+            navigate(`/admin/allroom`);
+          }
+        } catch (error) {
+          console.log("error during sending data to roomapi", error);
+        }
       }
     } else {
-      try {
-        const res = await axios.post(
-          "https://api.verydesi.com/api/addrooms",
-          roomdata,
-          {
-            headers: {
-              jwttoken: `${token}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        );
-        if (res) {
-          // console.log(res);
-          alert("rooms added successfully");
-          reset();
-          navigate(`/rooms/${res.data.rooms._id}`);
-        }
-      } catch (error) {
-        console.log("error during sending data to roomapi", error);
-      }
+      toast.warn("Enter Address is not available");
     }
-
     // console.log("resimgurl", resimgurl);
     // console.log(roomdata);
   };
@@ -346,6 +385,19 @@ function AdminPostRooms({ editdata }) {
   return (
     <div>
       <AdminDashboard>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+        />
         <div className="w-full mx-auto items-center">
           <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
             <div className="font-['udemy-regular'] mx-20">
