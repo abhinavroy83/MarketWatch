@@ -41,14 +41,14 @@ export default function Footer() {
         }}
         className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']"
       >
-        <div className="cursor-pointer lg:w-[44rem] w-[22rem] bg-red-700 justify-between gap-4 lg:gap-7 flex p-2 lg:p-0 shadow-sm shadow-gray-500 rounded-md">
-          <div className="flex flex-col gap-3 justify-center">
+        <div className="cursor-pointer lg:w-[44rem] w-[22rem] bg-red-700 border-4 border-[#232f3e] justify-between gap-4 lg:gap-7 flex p-2 lg:p-0 shadow-sm shadow-gray-500 rounded-md">
+          <div className="flex flex-col gap-3 ">
             {/* <img
               className="w-[120px] lg:w-[190px]"
               src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
               alt="logo"
             /> */}
-            <span className="bg-white text-[#232f3e] rounded-br-full rounded-tr-full p-2 px-6">
+            <span className="text-[#232f3e] bg-white rounded-br-full font-bold p-2 px-6">
               Very Desi Guides
             </span>
           </div>
