@@ -540,7 +540,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <input
-                    className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
                     // defaultValue={editdata?.Title}
@@ -565,7 +565,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <textarea
-                    className="font-['udemy-regular'] h-20 w-[220px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-20 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     name="description"
                     placeholder="Description"
                     {...register("Description", {
@@ -599,7 +599,7 @@ function Addrooms({ editdata }) {
                     render={({ field }) => (
                       <select
                         {...field}
-                        className="font-['udemy-regular'] h-10 w-[220px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         name=""
                         id=""
                       >
@@ -690,7 +690,7 @@ function Addrooms({ editdata }) {
                         <select
                           {...field}
                           value={field.value || ""}
-                          className="h-100px w-[220px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="h-100px w-[274px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           <option value="">Select</option>
                           {stayLeaseOption === "Short term" && (
@@ -739,7 +739,7 @@ function Addrooms({ editdata }) {
                       <input
                         type="number"
                         placeholder="Rent"
-                        className="h-100px w-[182px] lg:w-[462px] rounded-tr-md rounded-br-md font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="h-100px w-[234px] lg:w-[462px] rounded-tr-md rounded-br-md font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         {...register("Expected_Rooms", {
                           required: "Rent is require",
                         })}
@@ -784,7 +784,7 @@ function Addrooms({ editdata }) {
                         <DatePicker
                           {...field}
                           selected={field.value}
-                          className={`h-100px w-[220px] lg:w-[240px] font-['udemy-regular'] rounded-md border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                             isImmediate
                               ? "bg-gray-200 cursor-not-allowed"
                               : "bg-white"
@@ -808,7 +808,7 @@ function Addrooms({ editdata }) {
                         <DatePicker
                           {...field}
                           selected={field.value}
-                          className={`h-100px w-[220px] lg:w-[240px] font-['udemy-regular'] rounded-md  border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md  border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                             isImmediate
                               ? "bg-gray-200 cursor-not-allowed"
                               : "bg-white"
@@ -895,7 +895,7 @@ function Addrooms({ editdata }) {
                   </div>
                 ) : (
                   <select
-                    className="h-100px lg:w-[300px] w-[220px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="h-100px lg:w-[300px] w-[274px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("Attchd_Bath", {
                       required: "Please select Bath Number",
                     })}
@@ -916,7 +916,7 @@ function Addrooms({ editdata }) {
               )}
 
               {rental === "rooms" && (
-                <div className="flex mt-5 text-[1.1rem] lg:gap-20">
+                <div className="flex mt-5 text-[1.1rem] items-center gap-20">
                   <label
                     className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -1046,7 +1046,7 @@ function Addrooms({ editdata }) {
                     <input
                       type="number"
                       placeholder="Deposit"
-                      className="h-100px w-[182px] lg:w-[462px] font-['udemy-regular'] rounded-tr-md rounded-br-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="h-100px w-[234px] lg:w-[462px] font-['udemy-regular'] rounded-tr-md rounded-br-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("Desposite")}
                     />
                   </div>
@@ -1061,7 +1061,7 @@ function Addrooms({ editdata }) {
                   Is room/ furnished?
                 </label>
                 <select
-                  className="h-100px lg:w-[500px] w-[220px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="h-100px lg:w-[500px] w-[274px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("is_room_furnished")}
                 >
                   <option value="">Select</option>
@@ -1415,7 +1415,7 @@ function Addrooms({ editdata }) {
                     placeholder="Enter Number"
                     {...register("phone_number")}
                     defaultValue={profiledata?.phone_number}
-                    className="font-['udemy-regular'] h-10 w-[230px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -1435,7 +1435,7 @@ function Addrooms({ editdata }) {
                       type="text"
                       placeholder="Enter a location"
                       {...register("address")}
-                      className="font-['udemy-regular'] h-10 w-[230px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </StandaloneSearchBox>
                   <input type="hidden" {...register("latitude")} />
@@ -1466,7 +1466,7 @@ function Addrooms({ editdata }) {
                     <div>
                       <input
                         type="text"
-                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[230px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         placeholder="City"
                         {...register("city")}
                       />
@@ -1483,7 +1483,7 @@ function Addrooms({ editdata }) {
                     <div>
                       <input
                         type="text"
-                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[230px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         placeholder="State"
                         {...register("state")}
                       />
@@ -1500,7 +1500,7 @@ function Addrooms({ editdata }) {
                       <input
                         type="text"
                         // defaultValue={profiledata?.pin}
-                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[230px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         placeholder="Enter zipcode"
                         {...register("zipcode")}
                       />
@@ -1521,7 +1521,7 @@ function Addrooms({ editdata }) {
                     <div>
                       <input
                         type="text"
-                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[230px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                        className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                         placeholder="Country"
                         {...register("country")}
                       />

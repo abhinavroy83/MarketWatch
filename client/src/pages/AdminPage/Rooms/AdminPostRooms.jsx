@@ -400,10 +400,10 @@ function AdminPostRooms({ editdata }) {
         />
         <div className="w-full mx-auto items-center">
           <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
-            <div className="font-['udemy-regular'] mx-20">
+            <div className="font-['udemy-regular'] mx-4 lg:mx-20">
               <form
                 onSubmit={handleSubmit(onsubmit)}
-                className="flex flex-col justify-center mt-7 items-center"
+                className="flex flex-col justify-center text-[1.1rem] mt-7 items-center"
               >
                 <div className="flex gap-2 items-center">
                   <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
@@ -418,7 +418,7 @@ function AdminPostRooms({ editdata }) {
                     render={({ field }) => (
                       <select
                         {...field}
-                        className="mt-6 text-[1.5rem] font-['udemy-regular'] bg-gray-300 text-white border-2 placeholder:text-gray-400 cursor-pointer"
+                        className="mt-6 text-[1.5rem] font-['udemy-regular'] rounded-md bg-gray-200 text-black border-2 placeholder:text-gray-400 cursor-pointer"
                         onChange={(e) => {
                           const selectedValue = e.target.value;
                           field.onChange(selectedValue);
@@ -460,16 +460,16 @@ function AdminPostRooms({ editdata }) {
                 Your Account is belong {profiledata.belongcity}
               </p> */}
                 <div className="w-full items-center">
-                  <div className="flex mt-5 text-[1.1rem] items-center">
+                  <div className="flex mt-5 text-[1.1rem]">
                     <label
-                      className="w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Title <span className=" text-red-500">*</span>
                     </label>
                     <div className="">
                       <input
-                        className="font-['udemy-regular'] h-10 w-[740px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         label="Title"
                         type="text"
                         // defaultValue={editdata?.Title}
@@ -485,16 +485,16 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex text-[1.1rem] items-center">
+                  <div className="mt-5 flex text-[1.1rem] ">
                     <label
-                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Description <span className=" text-red-500">*</span>
                     </label>
                     <div>
                       <textarea
-                        className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-20 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         name="description"
                         placeholder="Description"
                         {...register("Description", {
@@ -514,9 +514,9 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-4 text-[1.1rem] items-center">
+                  <div className="flex mt-4 text-[1.1rem]">
                     <label
-                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Property Type <span className=" text-red-500">*</span>
@@ -530,7 +530,7 @@ function AdminPostRooms({ editdata }) {
                         render={({ field }) => (
                           <select
                             {...field}
-                            className="h-100px w-[740px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                             name=""
                             id=""
                           >
@@ -555,15 +555,15 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex text-[1.1rem] mt-5 items-center">
+                  <div className="flex text-[1.1rem] mt-5">
                     <label
                       htmlFor=""
-                      className=" w-[283px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[275px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     >
                       Stay/Lease <span className=" text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-4 gap-4 w-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-auto">
                         <div className=" flex gap-2 whitespace-nowrap ">
                           <input
                             type="radio"
@@ -575,7 +575,7 @@ function AdminPostRooms({ editdata }) {
                           />
                           <p>Short term(1Day to 6Months) </p>
                         </div>
-                        <div className="flex gap-2 whitespace-nowrap px-2">
+                        <div className="flex gap-2 whitespace-nowrap lg:px-2">
                           <input
                             type="radio"
                             value="Long term(6+ months)"
@@ -607,9 +607,9 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex text-[1.1rem] items-center">
+                  <div className="mt-5 flex text-[1.1rem]">
                     <label
-                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Price Model <span className=" text-red-500">*</span>
@@ -624,7 +624,7 @@ function AdminPostRooms({ editdata }) {
                             <select
                               {...field}
                               value={field.value || ""}
-                              className="h-100px w-[500px] text-[18px] font-['udemy-regular'] text-21px border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                              className="h-100px w-[274px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                             >
                               <option value="">Select</option>
                               {stayLeaseOption === "Short term" && (
@@ -657,115 +657,122 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] items-center">
+                  <div className="flex mt-5 text-[1.1rem]">
                     <label
-                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Rent <span className=" text-red-500">*</span>
                     </label>
-                    <div className="items-center">
-                      <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                        $
-                      </span>
-                      <input
-                        type="number"
-                        placeholder="Rent"
-                        className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                        {...register("Expected_Rooms", {
-                          required: "Rent is require",
-                        })}
-                      />
-                      <p className="text-[16px] mt-1 text-red-500">
-                        {" "}
-                        {errors.Expected_Rooms && (
-                          <p>{errors.Expected_Rooms.message}</p>
-                        )}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1 ml-5">
-                      <input
-                        type="checkbox"
-                        // {...register("Negotiable")}
-                      />
-                      <p className="px-3 py-2 text-black">Negotiable</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <input type="checkbox" />
-                      <p className="px-3 py-2 text-black">Hide Rent</p>
+                    <div className="flex lg:flex-row flex-col">
+                      <div className="items-center">
+                        <div className="flex">
+                          <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                            $
+                          </span>
+                          <input
+                            type="number"
+                            placeholder="Rent"
+                            className="h-100px w-[234px] lg:w-[462px] rounded-tr-md rounded-br-md font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                            {...register("Expected_Rooms", {
+                              required: "Rent is require",
+                            })}
+                          />
+                        </div>
+                        <p className="text-[16px] mt-1 text-red-500">
+                          {" "}
+                          {errors.Expected_Rooms && (
+                            <p>{errors.Expected_Rooms.message}</p>
+                          )}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-1 lg:ml-5 ml-0">
+                        <input
+                          type="checkbox"
+                          // {...register("Negotiable")}
+                        />
+                        <p className="px-3 py-2 text-black">Negotiable</p>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <input type="checkbox" />
+                        <p className="px-3 py-2 text-black">Hide Rent</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex mt-4 gap-5 text-[1.1rem] items-center">
+                  <div className="flex mt-4 gap-5 text-[1.1rem] ">
                     <label
-                      className=" w-[246px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[245px] flex gap-1 font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:inline-block"
                       htmlFor=""
                     >
                       Availability <span className="text-red-500">*</span>
                     </label>
-                    <div>
-                      <Controller
-                        name="Avaliblity_from"
-                        control={control}
-                        render={({ field }) => (
-                          <DatePicker
-                            {...field}
-                            selected={field.value}
-                            className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
-                              isImmediate
-                                ? "bg-gray-200 cursor-not-allowed"
-                                : "bg-white"
-                            }`}
-                            placeholderText="Available from"
-                            disabled={isImmediate}
-                          />
+                    <div className="flex flex-col lg:flex-row lg:gap-5 gap-2">
+                      <div>
+                        <Controller
+                          name="Avaliblity_from"
+                          control={control}
+                          render={({ field }) => (
+                            <DatePicker
+                              {...field}
+                              selected={field.value}
+                              className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                                isImmediate
+                                  ? "bg-gray-200 cursor-not-allowed"
+                                  : "bg-white"
+                              }`}
+                              placeholderText="Available from"
+                              disabled={isImmediate}
+                            />
+                          )}
+                        />
+                        {errors.Avaliblity_from && (
+                          <p className="text-[16px] mt-1 text-red-500">
+                            {errors.Avaliblity_from.message}
+                          </p>
                         )}
-                      />
-                      {errors.Avaliblity_from && (
-                        <p className="text-[16px] mt-1 text-red-500">
-                          {errors.Avaliblity_from.message}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <Controller
-                        name="Available_to"
-                        control={control}
-                        render={({ field }) => (
-                          <DatePicker
-                            {...field}
-                            selected={field.value}
-                            className={`h-100px w-[240px] font-['udemy-regular'] border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
-                              isImmediate
-                                ? "bg-gray-200 cursor-not-allowed"
-                                : "bg-white"
-                            }`}
-                            placeholderText="Available to"
-                            disabled={isImmediate}
-                          />
-                        )}
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        {...register("Immediate")}
-                        checked={isImmediate}
-                        onChange={handleCheckboxChange}
-                      />
-                      <p className="py-2 text-black text-[18px]">Immediate</p>
+                      </div>
+                      <div>
+                        <Controller
+                          name="Available_to"
+                          control={control}
+                          render={({ field }) => (
+                            <DatePicker
+                              {...field}
+                              selected={field.value}
+                              className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md  border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                                isImmediate
+                                  ? "bg-gray-200 cursor-not-allowed"
+                                  : "bg-white"
+                              }`}
+                              placeholderText="Available to"
+                              disabled={isImmediate}
+                            />
+                          )}
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          {...register("Immediate")}
+                          checked={isImmediate}
+                          onChange={handleCheckboxChange}
+                        />
+                        <p className="py-2 text-black text-[18px]">Immediate</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] items-center gap-20">
+                  <div className="flex mt-5 text-[1.1rem] lg:gap-20">
                     <label
-                      className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Separate Bathroom <span className="text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-4 gap-4 w-[976px]">
+                      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
                         <div className="flex gap-1 items-center">
                           <input
                             type="radio"
@@ -794,7 +801,7 @@ function AdminPostRooms({ editdata }) {
                       )}
 
                       {selectedBathroom === "Yes" && (
-                        <div className="grid grid-cols-4 gap-4 w-[976px] mt-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
                           <div className="flex gap-1 items-center">
                             <input
                               type="radio"
@@ -825,15 +832,15 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] items-center gap-20">
+                  <div className="flex mt-5 text-[1.1rem] items-center lg:gap-20">
                     <label
-                      className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Preferred Gender <span className="text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-4 gap-4 w-[976px]">
+                      <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
                         <div className="flex gap-1 items-center">
                           <input
                             type="radio"
@@ -895,15 +902,15 @@ function AdminPostRooms({ editdata }) {
                   </div>
 
                   {preferredGender && (
-                    <div className="flex mt-5 items-center gap-20 text-[1.1rem]">
+                    <div className="flex mt-5 gap-[3rem] lg:gap-20 text-[1.1rem]">
                       <label
-                        className=" w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor="couples_welcome"
                       >
                         Couples Welcome
                       </label>
                       <div>
-                        <div className="grid grid-cols-4 gap-4 w-[976px]">
+                        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-[976px]">
                           <div className="flex gap-1 items-center">
                             <input
                               type="radio"
@@ -934,32 +941,36 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   )}
 
-                  <div className="mt-5 text-[1.1rem]">
+                  <div className="flex mt-5 text-[1.1rem]">
                     <label
-                      className=" w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] lg:w-[266px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Deposit
                     </label>
-                    <span className=" bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                      $
-                    </span>
-                    <input
-                      type="number"
-                      placeholder="Deposit"
-                      className="h-100px w-[462px] font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      {...register("Desposite")}
-                    />
+                    <div className="flex lg:flex-row flex-col">
+                      <div className="flex">
+                        <span className=" bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                          $
+                        </span>
+                        <input
+                          type="number"
+                          placeholder="Deposit"
+                          className="h-100px w-[234px] lg:w-[462px] font-['udemy-regular'] rounded-tr-md rounded-br-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          {...register("Desposite")}
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-5 text-[1.1rem] items-center">
+                  <div className="mt-5 text-[1.1rem] items-center flex">
                     <label
-                      className=" w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className=" w-[118px] lg:w-[267px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
-                      Is the room/furnished ?
+                      Is room/ furnished?
                     </label>
                     <select
-                      className="h-100px w-[500px] text-[1.1rem] items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="h-100px lg:w-[500px] w-[274px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("is_room_furnished")}
                     >
                       <option value="">Select</option>
@@ -974,13 +985,13 @@ function AdminPostRooms({ editdata }) {
 
                   <div className=" flex mt-5 text-[1.1rem]">
                     <label
-                      className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className=" w-[118px] lg:w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Amenities include
                     </label>
 
-                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[980px]">
                       <div className=" flex gap-1">
                         <input
                           // className="px-3 py-2 text-black mr-1 "
@@ -1080,14 +1091,14 @@ function AdminPostRooms({ editdata }) {
                       </div>
                     </div>
                   </div>
-                  <div className=" flex mt-5 gap-20 text-[1.1rem] items-center">
+                  <div className=" flex mt-5 lg:gap-20 gap-[3rem] text-[1.1rem]">
                     <label
-                      className="whitespace-nowrap w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="lg:whitespace-nowrap w-[74px] lg:w-[185px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Dietary Preference
                     </label>
-                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
                       <div className="flex gap-1 items-center whitespace-nowrap">
                         <input
                           type="radio"
@@ -1114,14 +1125,14 @@ function AdminPostRooms({ editdata }) {
                       </div>
                     </div>
                   </div>
-                  <div className=" flex gap-20 mt-5 text-[1.1rem] items-center">
+                  <div className=" flex lg:gap-20 gap-[3.1rem] mt-5 text-[1.1rem]">
                     <label
                       className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Smoking Policy
                     </label>
-                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
                       <div className=" flex gap-1 items-center">
                         <input
                           type="radio"
@@ -1149,7 +1160,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className=" flex mt-5 text-[1.1rem] items-center gap-20">
+                  <div className=" flex mt-5 text-[1.1rem] lg:gap-20 gap-[3.3rem]">
                     <label
                       className=" w-[187px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
@@ -1157,7 +1168,7 @@ function AdminPostRooms({ editdata }) {
                       Pet Friendly
                     </label>
 
-                    <div className=" grid grid-cols-4 gap-4 w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
                       <div className=" flex gap-1 items-center">
                         <input
                           type="radio"
@@ -1189,7 +1200,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="mt-5 text-[1.1rem] items-center">
+                  <div className="mt-5 text-[1.1rem] flex">
                     <label
                       className=" w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
@@ -1200,7 +1211,7 @@ function AdminPostRooms({ editdata }) {
                       type="date"
                       placeholder="Open House Date"
                       {...register("Open_house_schedule")}
-                      className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
 
@@ -1274,9 +1285,9 @@ function AdminPostRooms({ editdata }) {
                     <p className="text-[1.2rem] mt-5 font-bold">
                       Your Details:-
                     </p>
-                    <div className="flex items-center">
+                    <div className="flex mt-4">
                       <label
-                        className="mt-2 w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        className="lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor=""
                       >
                         Name
@@ -1288,10 +1299,10 @@ function AdminPostRooms({ editdata }) {
                           {...register("user_name", {
                             required: "Username is required",
                           })}
-                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {errors.user_name && (
-                          <p className=" text-red-600 text-sm">
+                          <p className="text-[16px] text-red-500">
                             {errors.user_name.message}
                           </p>
                         )}
@@ -1299,7 +1310,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                     <div className="mt-5 flex">
                       <label
-                        className=" w-[270px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        className="lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor=""
                       >
                         Email
@@ -1311,10 +1322,10 @@ function AdminPostRooms({ editdata }) {
                           {...register("email", {
                             required: "Email is required",
                           })}
-                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {errors.email && (
-                          <p className=" text-red-600 text-sm">
+                          <p className="text-[16px] text-red-500">
                             {errors.email.message}
                           </p>
                         )}
@@ -1322,7 +1333,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                     <div className="mt-5 text-[1.1rem]">
                       <label
-                        className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        className="lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor=""
                       >
                         Phone Number <span className=" text-red-500">*</span>
@@ -1331,13 +1342,13 @@ function AdminPostRooms({ editdata }) {
                         type="text"
                         placeholder="Enter Number"
                         {...register("phone_number")}
-                        className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       />
                     </div>
                   </div>
                   <div className="flex mt-5 text-[1.1rem]">
                     <label
-                      className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="lg:w-[270px] w-[118px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Address <span className=" text-red-500">*</span>
@@ -1351,7 +1362,7 @@ function AdminPostRooms({ editdata }) {
                           type="text"
                           placeholder="Enter a location"
                           {...register("address")}
-                          className="font-['udemy-regular'] h-10 w-[500px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         />
                       </StandaloneSearchBox>
                       <input type="hidden" {...register("latitude")} />
@@ -1372,17 +1383,17 @@ function AdminPostRooms({ editdata }) {
                   </div>
                   <div className="flex  text-[1.1rem]">
                     <label
-                      className="text-[1.1rem] text-white w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="text-[1.1rem] text-white w-[118px] lg:w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       City
                     </label>
-                    <div className="flex gap-4 items-center">
-                      <div className="flex items-center mt-5 text-[1.1rem]">
+                    <div className="flex flex-col lg:flex-row gap-4 items-center mt-4">
+                      <div className="flex items-center mt-1 text-[1.1rem]">
                         <div>
                           <input
                             type="text"
-                            className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                             placeholder="City"
                             {...register("city")}
                           />
@@ -1399,7 +1410,7 @@ function AdminPostRooms({ editdata }) {
                         <div>
                           <input
                             type="text"
-                            className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                             placeholder="State"
                             {...register("state")}
                           />
@@ -1416,7 +1427,7 @@ function AdminPostRooms({ editdata }) {
                           <input
                             type="text"
                             // defaultValue={profiledata?.pin}
-                            className="flex h-10 font-['udemy-regular'] w-[180px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] text-[1.1rem] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                             placeholder="Enter zipcode"
                             {...register("zip_code")}
                           />
@@ -1437,7 +1448,7 @@ function AdminPostRooms({ editdata }) {
                         <div>
                           <input
                             type="text"
-                            className="flex h-10 font-['udemy-regular'] w-[180px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                            className="flex h-10 font-['udemy-regular'] rounded-md lg:w-[180px] w-[271px] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                             placeholder="Country"
                             {...register("country")}
                           />
@@ -1449,14 +1460,14 @@ function AdminPostRooms({ editdata }) {
                 {editdata ? (
                   <button
                     type="submit"
-                    className="rounded-md bg-green-800 my-5 mt-0 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
                     Update Room
                   </button>
                 ) : (
                   <button
                     type="submit"
-                    className="rounded-md bg-green-800 my-4 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="rounded-md bg-green-800 mt-6 px-4 py-3 mb-10 text-[1.1rem] self-center font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
                     Add New Room
                   </button>
