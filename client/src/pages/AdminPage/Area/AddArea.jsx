@@ -110,23 +110,26 @@ function AddArea({ editdata }) {
 
   const handleAddSubarea = () => {
     let abbreviation;
-
+    
     if (selectedcountry === "Usa") {
       abbreviation = stateAbbreviations[stateab];
     } else if (selectedcountry === "Canada") {
       abbreviation = canadainstateAbbreviations[stateab];
     }
-    const newEntry = `${subareaInput},${abbreviation}`;
-
-    const isDuplicate = subarea.some((subarea) => subarea === newEntry);
-
-    if (!isDuplicate) {
-      setSubareas((prevSubareas) => [...prevSubareas, newEntry]);
+  
+    const newSubareas = subareaInput.split(/[\s,]+/).map((sub) => `${sub.trim()},${abbreviation}`);
+    const filteredSubareas = newSubareas.filter(
+      (sub) => sub !== "," && !subarea.includes(sub)
+    );
+  
+    if (filteredSubareas.length > 0) {
+      setSubareas((prevSubareas) => [...prevSubareas, ...filteredSubareas]);
       setSubareaInput("");
     } else {
-      alert("City and state combination already exists.");
+      alert("City and state combination already exists or input is invalid.");
     }
   };
+  
 
   const removeSubarea = (subarea) => {
     setSubareas((prevSubareas) =>
