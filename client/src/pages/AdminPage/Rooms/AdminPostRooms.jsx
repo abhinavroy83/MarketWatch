@@ -133,29 +133,38 @@ function AdminPostRooms({ editdata }) {
     });
     setFiles((prevFiles) => {
       const updatedFiles = [...prevFiles, ...newFiles];
-      handleUpload(updatedFiles);
       return updatedFiles;
     });
+
     setimgerror(false);
   };
 
   const handleRemoveFile = (index) => {
-    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    setFiles((prevFiles) => {
+      const fileToRemove = prevFiles[index];
+
+      URL.revokeObjectURL(fileToRemove.preview);
+
+      // Remove the file from state
+      return prevFiles.filter((_, i) => i !== index);
+    });
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async (updatedFiles) => {
     try {
       // setLoader(true);
       const data = new FormData();
-      files.forEach(({ file }) => {
+      updatedFiles.forEach(({ file }) => {
         data.append("my_files", file);
       });
 
-      const res = await axios.post("https://api.verydesi.com/img/upload", data);
-      const urls = res.data.map((img) => img.url);
-      if (res) {
+      const res = await axios.post("http://localhost:8000/img/upload", data);
+      if (res.status === 200) {
+        const urls = res.data.urls;
         setResimgurl(urls);
         setUploadstats(true);
+      } else {
+        throw new Error("Upload failed");
       }
     } catch (error) {
       alert(error.message);
@@ -163,6 +172,14 @@ function AdminPostRooms({ editdata }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (files.length > 0) {
+      handleUpload(files);
+    }
+  }, [files]);
+
+  console.log(resimgurl);
   // useEffect(() => {
   //   if (files.length > 0) {
   //     const timeout = setTimeout(() => {
@@ -172,7 +189,6 @@ function AdminPostRooms({ editdata }) {
   //     return () => clearTimeout(timeout);
   //   }
   // }, [files]);
-  // console.log(resimgurl);
 
   const fetchAreaData = async (city) => {
     // console.log(city);
@@ -319,7 +335,8 @@ function AdminPostRooms({ editdata }) {
     if (editdata) {
       // console.log("Populating form with editdata:", editdata);
       setStayLeaseOption(editdata?.Stay_lease);
-      setValue("city", editdata?.city || "Portland");
+      setValue("city", editdata?.city || "");
+      setValue("postingincity", editdata?.postingincity || "Portland");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");

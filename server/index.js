@@ -5,11 +5,16 @@ const app = express();
 const cors = require("cors");
 const IsloggedIn = require("./src/middleware/isloggedin");
 const cloudinary = require("cloudinary");
-const Multer = require("multer");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
 const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
+const AWS = require("aws-sdk");
 require("./src/Config/Passport");
+const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3");
+const { Upload } = require("@aws-sdk/lib-storage");
+const fs = require("fs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -109,44 +114,76 @@ app.get("/dashboard", verifyadminpage, (req, res) => {
   }
 });
 
-cloudinary.config({
-  cloud_name: "druohnmyv",
-  api_key: "362627323663318",
-  api_secret: "YFYPQAtq-5xXddsrIl1sTEQ3siI",
+const s3 = new S3Client({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
-async function handleUpload(file) {
-  const res = await cloudinary.uploader.upload(file, {
-    resource_type: "auto",
-    transformation: [
-      { width: 1000, crop: "scale" },
-      { quality: "auto" },
-      { fetch_format: "auto" },
-    ],
-  });
-  return res;
-}
-
-const storage = new Multer.memoryStorage();
-const upload = Multer({
+const storage = multer.memoryStorage();
+const upload = multer({
   storage,
 });
 
-app.post("/img/upload", upload.array("my_files", 5), async (req, res) => {
+const uploadToS3 = async (file) => {
   try {
-    const uploadPromises = req.files.map(async (file) => {
-      const b64 = Buffer.from(file.buffer).toString("base64");
-      let dataURI = "data:" + file.mimetype + ";base64," + b64;
-      return await handleUpload(dataURI);
+    // Creating a unique filename
+    const fileName = `${Date.now()}_${file.originalname}`;
+
+    // AWS S3 upload using lib-storage (for multipart uploads)
+    const parallelUpload = new Upload({
+      client: s3,
+      params: {
+        Bucket: process.env.AWS_BUCKET_NAME, // S3 bucket name from environment
+        Key: fileName, // File name in the S3 bucket
+        Body: file.buffer, // File content as a buffer
+        ContentType: file.mimetype, // Set MIME type
+      },
     });
 
-    const uploadResults = await Promise.all(uploadPromises);
-    res.json(uploadResults);
+    // Await upload completion
+    const result = await parallelUpload.done();
+
+    // Return the CloudFront URL (or S3 URL if CloudFront is not configured)
+    const cloudFrontUrl = `${process.env.CLOUDFRONT_URL}/${fileName}`;
+    return cloudFrontUrl; // Return the CloudFront URL of the uploaded file
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      message: error.message,
-    });
+    console.error("Error uploading to S3:", error.message);
+    throw new Error("S3 upload failed");
+  }
+};
+
+app.post("/img/upload", upload.array("my_files", 5), async (req, res) => {
+  try {
+    const uploadPromises = req.files.map((file) => uploadToS3(file)); // Upload each file
+    const uploadedFiles = await Promise.all(uploadPromises); // Wait for all uploads to complete
+
+    res.json({ urls: uploadedFiles }); // Send the uploaded file URLs back to the client
+  } catch (error) {
+    console.error("Upload error:", error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.delete("/img/delete", async (req, res) => {
+  const { fileKey } = req.body;
+  if (!fileKey) {
+    return res.status(400).send({ message: "File key is required" });
+  }
+  try {
+    await s3.send(
+      new DeleteObjectCommand({
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: fileKey,
+      })
+    );
+
+    res.status(200).send({ message: "File deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting file:", error.message);
+    res.status(500).send({ message: error.message });
   }
 });
 
