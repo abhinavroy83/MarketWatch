@@ -33,6 +33,7 @@ import { getScreenSizeHook } from "../../../../Hooks/GetScreenSizeHook";
 import { modalopen } from "../../../store/modalslice";
 import { minuscart, pluscart } from "../../../store/cartslice";
 import Alert from "../../../components/UserCompontents/Alert/Alert";
+import { utilitiesicons } from "../../../constants/Utilitiesicons";
 
 function Rooms() {
   const { _id } = useParams();
@@ -875,43 +876,26 @@ function Rooms() {
             <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
               <p className="ml-5">Utilities Included -</p>
             </h1>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-[20px] text-gray-500 items-center">
-              <div className="flex gap-3 items-center">
-                <img
-                  className="h-9 w-9"
-                  src={
-                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974351/1683015_kd8zal.png"
-                  }
-                  alt=""
-                />
-                <div className="flex">
-                  <p className="text-black flex text-[18px]">Water </p>
-                </div>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  className="h-9 w-9"
-                  src={
-                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974543/1864126_jerf1w.png"
-                  }
-                  alt=""
-                />
-                <div className="flex">
-                  <p className="text-black flex text-[18px]">Wi-Fi </p>
-                </div>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  className="h-9 w-9"
-                  src={
-                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974806/222506_x4nnoe.png"
-                  }
-                  alt=""
-                />
-                <div className="flex">
-                  <p className="text-black flex text-[18px]">Electricity </p>
-                </div>
-              </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-black text-[18px] items-center">
+              {[
+                "Water",
+                "Wi-Fi",
+                "Electricity",
+                "Refrigerator",
+                "Dishwasher",
+              ].map((utility) => {
+                const IconComponent = utilitiesicons[utility];
+                return (
+                  <div key={utility} className="flex gap-3 items-center">
+                    {IconComponent && (
+                      // <IconComponent className="amenity-icon" size={30} />
+                      <img src={IconComponent} className="h-9 w-9" alt="" />
+                    )}
+                    <p>{utility}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

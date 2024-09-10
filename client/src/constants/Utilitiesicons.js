@@ -1,4 +1,4 @@
-const utilitiesicons = {
+export const utilitiesicons = {
   Water:
     "https://res.cloudinary.com/druohnmyv/image/upload/v1725974351/1683015_kd8zal.png",
   "Wi-Fi":
