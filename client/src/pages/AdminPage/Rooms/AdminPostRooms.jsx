@@ -172,7 +172,7 @@ function AdminPostRooms({ editdata }) {
   //     return () => clearTimeout(timeout);
   //   }
   // }, [files]);
-  // console.log(resimgurl);
+  
 
   const fetchAreaData = async (city) => {
     // console.log(city);
