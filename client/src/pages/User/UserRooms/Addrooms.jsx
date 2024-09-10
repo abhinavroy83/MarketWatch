@@ -540,7 +540,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <input
-                    className="font-['udemy-regular'] h-10 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[252px] lg:w-[770px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
                     // defaultValue={editdata?.Title}
@@ -565,7 +565,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <textarea
-                    className="font-['udemy-regular'] h-20 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-20 w-[252px] lg:w-[770px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     name="description"
                     placeholder="Description"
                     {...register("Description", {
@@ -599,7 +599,7 @@ function Addrooms({ editdata }) {
                     render={({ field }) => (
                       <select
                         {...field}
-                        className="font-['udemy-regular'] h-10 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[252px] lg:w-[770px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         name=""
                         id=""
                       >
@@ -895,12 +895,12 @@ function Addrooms({ editdata }) {
                   </div>
                 ) : (
                   <select
-                    className="h-100px lg:w-[300px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="h-100px lg:w-[500px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("Attchd_Bath", {
                       required: "Please select Bath Number",
                     })}
                   >
-                    <option>select number</option>
+                    <option>Select Number</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -1415,7 +1415,7 @@ function Addrooms({ editdata }) {
                     placeholder="Enter Number"
                     {...register("phone_number")}
                     defaultValue={profiledata?.phone_number}
-                    className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[271px] lg:w-[770px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -1435,7 +1435,7 @@ function Addrooms({ editdata }) {
                       type="text"
                       placeholder="Enter a location"
                       {...register("address")}
-                      className="font-['udemy-regular'] h-10 w-[271px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="font-['udemy-regular'] h-10 w-[271px] lg:w-[770px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </StandaloneSearchBox>
                   <input type="hidden" {...register("latitude")} />

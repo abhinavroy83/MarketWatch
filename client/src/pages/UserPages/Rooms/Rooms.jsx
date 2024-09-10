@@ -609,19 +609,19 @@ function Rooms() {
         {/* <div className="flex gap-1 text-[25px] font-bold mt-2">
           <MdInsertComment size={35} />
         </div> */}
-        <div className="border p-3 mt-2 rounded-md">
-          <p className=" text-[25px] px-1">Description -</p>
-          <p className=" text-[18px] text-gray-600 text-justify px-1 capitalize break-words">
+        <div className="border mt-2 rounded-md">
+          <h1 className="text-[#000] text-[25px] flex gap-2 py-2 items-center border-b">
+            <p className=" text-[20px] ml-5">Description -</p>
+          </h1>
+          <p className=" text-[18px] text-gray-600 text-justify px-5 py-4 capitalize break-words">
             {rooms.Description}
           </p>
         </div>
         {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
-              {/* <GiEntryDoor size={30} /> */}
-              {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
-              More Info About Room -{" "}
+            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+              <p className="ml-5"> More Info About Room -</p>
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
               <div className="flex gap-2 items-center">
@@ -871,14 +871,56 @@ function Rooms() {
               </div>
             </div>
           </div>
+          <div className="border mt-3 rounded-md">
+            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+              <p className="ml-5">Utilities Included -</p>
+            </h1>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-[20px] text-gray-500 items-center">
+              <div className="flex gap-2 items-center">
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974351/1683015_kd8zal.png"
+                  }
+                  alt=""
+                />
+                <div className="flex">
+                  <p className="text-black flex text-[18px]">Water </p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974543/1864126_jerf1w.png"
+                  }
+                  alt=""
+                />
+                <div className="flex">
+                  <p className="text-black flex text-[18px]">Wi-Fi </p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img
+                  className="h-10 w-10"
+                  src={
+                    "https://res.cloudinary.com/druohnmyv/image/upload/v1725974806/222506_x4nnoe.png"
+                  }
+                  alt=""
+                />
+                <div className="flex">
+                  <p className="text-black flex text-[18px]">Electricity </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {rooms.Amenities_include.length > 1 && (
             <div className="border mt-3 rounded-md">
-              <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2 items-center">
-                {/* <MdRoomPreferences size={30} /> */}{" "}
-                {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
-                Amenities Included -
+              <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+                <p className="ml-5"> Amenities Included -</p>
               </h1>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-[20px] text-gray-500 items-center">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-black text-[18px] items-center">
                 {rooms?.Amenities_include?.map((amenity) => {
                   const IconComponent = amenityIcons[amenity];
                   return (
@@ -895,10 +937,8 @@ function Rooms() {
             </div>
           )}
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[25px] ml-5 flex gap-2 mt-2">
-              {/* <MdAddBusiness size={30} /> */}
-              {/* <img className="h-10 w-10" src={furniture} alt="" /> */}
-              Additional Information -
+            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+              <p className="ml-5"> Additional Information -</p>
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 px-5 py-3">
               <div className="flex gap-2 items-center">
@@ -958,8 +998,8 @@ function Rooms() {
             </div>
           </div>
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[25px] flex gap-2 ml-5 mt-2">
-              {/* <FaUserFriends size={37} /> */} User Details -{" "}
+            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+              <p className="ml-5">User Details -</p>
               {!authstatus && (
                 <span
                   onClick={() => {
