@@ -111,7 +111,7 @@ function ChildContainer({ className, children, onLocationReceived }) {
           </div> */}
           <main>{children}</main>
         </div>
-        <div className="max-w-[352px] lg:max-w-[300px] lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular']">
+        <div className="w-full lg:max-w-[300px] lg:mr-3 lg:ml-0 lg:mt-1 mt-5 h-5/6 flex justify-center">
           <LeafletMap onLocationReceived={currentloc} />
         </div>
         {/* <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 py-5 px-5 mr-3 lg:mr-3">

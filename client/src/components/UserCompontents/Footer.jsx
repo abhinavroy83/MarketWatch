@@ -48,13 +48,13 @@ export default function Footer() {
               src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
               alt="logo"
             /> */}
-            <span className="text-[#232f3e] bg-white rounded-br-full font-bold p-2 px-6">
+            <span className="text-[#232f3e] bg-white rounded-br-full font-bold p-2 px-6 lg:text-[23px] text-[20px]">
               Very Desi Guides
             </span>
           </div>
           <div className="flex flex-col items-center justify-center text-white">
-            <h2 className="text-[23px] font-bold">Get Your Business Online</h2>
-            <p className="text-[19px] mb-4">Elevate Your Online Presence</p>
+            <h2 className="lg:text-[23px] text-[20px] font-bold">Get Your Business Online</h2>
+            <p className="lg:text-[19px] text-[15px]  mb-4">Elevate Your Online Presence</p>
             {/* <p>hi</p> */}
             {/* <button
               type="submit"
