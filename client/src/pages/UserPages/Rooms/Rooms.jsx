@@ -359,16 +359,16 @@ function Rooms() {
           </ol>
         </nav>
         <div className="flex items-start w-full justify-between lg:flex-row mb-5 lg:mb-0">
-          <div className=" flex gap-2">
+          <div className=" flex gap-3">
             <div>
               {hasNextRoom ? (
                 <div className="">
                   <div
-                    className="text-center flex gap-2"
+                    className="text-center flex gap-3"
                     onClick={fetchPreviousRoom}
                     disabled={!hasNextRoom}
                   >
-                    <button className="p-1 lg:px-2 rounded-xl flex bg-red-600 hover:bg-red-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                    <button className="p-1 lg:px-2 rounded-xl flex bg-red-600 hover:bg-red-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-3 hover:shadow-lg">
                       <MdKeyboardDoubleArrowLeft className="text-white flex lg:w-10 lg:h-10 w-7 h-7" />
                       <button
                         // type="submit"
@@ -391,7 +391,7 @@ function Rooms() {
                   onClick={fetchNextRoom}
                   disabled={!hasPreviousRoom}
                 >
-                  <button className="p-1 lg:px-2 rounded-xl flex bg-blue-600 hover:bg-blue-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-2 hover:shadow-lg">
+                  <button className="p-1 lg:px-2 rounded-xl flex bg-blue-600 hover:bg-blue-700 text-[19px] items-center text-white shadow-sm shadow-[#000] mb-3 gap-3 hover:shadow-lg">
                     <button
                       // type="submit"
                       className="flex lg:text-[22px] text-[17px] items-center text-white font-bold"
@@ -411,7 +411,7 @@ function Rooms() {
           </div>
 
           <div className="flex gap-4 items-center ml-1 lg:ml-0">
-            <div className="gap-2 flex">
+            <div className="gap-3 flex">
               {authstatus ? (
                 <div>
                   {!wishliststatys ? (
@@ -456,7 +456,7 @@ function Rooms() {
               <button
                 type="submit"
                 onClick={toggleSharePopup}
-                className="text-black hover:text-white rounded-md justify-between bg-gray-400 hover:bg-gray-900 gap-2 px-5 lg:py-2 py-1 text-[17px] lg:text-[19px] flex items-center shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="text-black hover:text-white rounded-md justify-between bg-gray-400 hover:bg-gray-900 gap-3 px-5 lg:py-2 py-1 text-[17px] lg:text-[19px] flex items-center shadow-lg shadow-gray-500 hover:shadow-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 <FaShare className="flex lg:w-5 lg:h-5 w-4 h-4" />
                 <p>Share</p>
@@ -516,7 +516,7 @@ function Rooms() {
                 </p>
                 {userstatus && (
                   <button
-                    className="flex items-center text-black gap-2 text-[1.2rem] lg:text-[24px]"
+                    className="flex items-center text-black gap-3 text-[1.2rem] lg:text-[24px]"
                     onClick={(e) => {
                       // e.preventDefault();
                       // window.open(`/room/editroom/${_id}`, "_blank");
@@ -550,7 +550,7 @@ function Rooms() {
                 {
                   <div className="flex ">
                     <img
-                      className="h-10 w-10"
+                      className="h-9 w-9"
                       src={
                         "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
                       }
@@ -573,7 +573,7 @@ function Rooms() {
                         dispatch(modalopen({ isloginmodalopen: true }));
                       }
                     }}
-                    className="flex lg:gap-2 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[1rem] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="flex lg:gap-3 gap-[0.5px] self-center rounded-md bg-green-800 px-5 lg:py-4 py-3 lg:text-[1rem] text-[18px] text-white shadow-sm hover:bg-green-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     <LuPhoneCall size={25} />
                     <span class="items-center justify-center">
@@ -610,24 +610,24 @@ function Rooms() {
           <MdInsertComment size={35} />
         </div> */}
         <div className="border mt-2 rounded-md">
-          <h1 className="text-[#000] text-[25px] flex gap-2 py-2 items-center border-b">
+          <h1 className="text-[#000] text-[25px] flex gap-3 py-2 items-center border-b">
             <p className=" text-[20px] ml-5">Description -</p>
           </h1>
           <p className=" text-[18px] text-gray-600 text-justify px-5 py-4 capitalize break-words">
             {rooms.Description}
           </p>
         </div>
-        {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-2 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
+        {/* <h1 className="text-[#0b5e86] text-[29px] font-bold items-center flex gap-3 mt-4"><PiClipboardTextFill size={40}/>Details for the Room-</h1> */}
         <div className="text-[22px] text-gray-500 justify-between max-w-[1600px] gap-3">
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+            <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
               <p className="ml-5"> More Info About Room -</p>
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <BsBuildingsFill className="" size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zneulaispaafq6pzowd5.png"
                   }
@@ -642,10 +642,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <FaMapMarkerAlt className="" size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819320/assests/lesvajdewhwtq2hja4ta.png"
                   }
@@ -658,10 +658,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <MdOutlineTimer className="" size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/zrtjmdv3unizy9kc4efj.png"
                   }
@@ -677,10 +677,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <LuClock10 size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/yab7dkq4ewer1lqj5bzw.png"
                   }
@@ -704,10 +704,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <LuClock3 size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/yab7dkq4ewer1lqj5bzw.png"
                   }
@@ -731,10 +731,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <IoToday size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/ykhntfquuh4c9jcr6tt7.png"
                   }
@@ -749,10 +749,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <FaBath size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/f5kwtmcletn80cos5jdf.png"
                   }
@@ -767,10 +767,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <BsGenderTrans size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819318/assests/eaothlg3pgktke4bwcjn.png"
                   }
@@ -785,14 +785,14 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              {/* <div className="flex gap-2 items-center"><MdOutlineMeetingRoom size={35}/><div className="flex">
+              {/* <div className="flex gap-3 items-center"><MdOutlineMeetingRoom size={35}/><div className="flex">
             <p className="text-gray-500 text-[20px]">Expected Rooms
             <p className="text-black flex">1</p>
             </p></div></div> */}
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <MdOutlinePriceChange size={35} /> */}{" "}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819323/assests/gbitwpzwnzlbilwykv1t.png"
                   }
@@ -807,10 +807,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <RiMoneyDollarCircleFill size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/ixjbbnuet0gmrwbiiftf.png"
                   }
@@ -825,10 +825,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <MdBedroomParent size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/lpw6k7vesuhd4kaipta8.png"
                   }
@@ -843,10 +843,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <GrDocumentTime size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819324/assests/ykhntfquuh4c9jcr6tt7.png"
                   }
@@ -872,13 +872,13 @@ function Rooms() {
             </div>
           </div>
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+            <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
               <p className="ml-5">Utilities Included -</p>
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-[20px] text-gray-500 items-center">
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1725974351/1683015_kd8zal.png"
                   }
@@ -888,9 +888,9 @@ function Rooms() {
                   <p className="text-black flex text-[18px]">Water </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1725974543/1864126_jerf1w.png"
                   }
@@ -900,9 +900,9 @@ function Rooms() {
                   <p className="text-black flex text-[18px]">Wi-Fi </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1725974806/222506_x4nnoe.png"
                   }
@@ -917,17 +917,17 @@ function Rooms() {
 
           {rooms.Amenities_include.length > 1 && (
             <div className="border mt-3 rounded-md">
-              <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+              <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
                 <p className="ml-5"> Amenities Included -</p>
               </h1>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-black text-[18px] items-center">
                 {rooms?.Amenities_include?.map((amenity) => {
                   const IconComponent = amenityIcons[amenity];
                   return (
-                    <div key={amenity} className="flex gap-2 items-center">
+                    <div key={amenity} className="flex gap-3 items-center">
                       {IconComponent && (
                         // <IconComponent className="amenity-icon" size={30} />
-                        <img src={IconComponent} className="h-10 w-10" alt="" />
+                        <img src={IconComponent} className="h-9 w-9" alt="" />
                       )}
                       <p>{amenity}</p>
                     </div>
@@ -937,14 +937,14 @@ function Rooms() {
             </div>
           )}
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+            <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
               <p className="ml-5"> Additional Information -</p>
             </h1>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 px-5 py-3">
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <BiFoodTag size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/mlosfdjqkz3nvnfuhkjb.png"
                   }
@@ -959,10 +959,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <FaSmoking size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819325/assests/vedl4zyyodlvjagqaz6v.png"
                   }
@@ -977,10 +977,10 @@ function Rooms() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 {/* <MdPets size={35} /> */}
                 <img
-                  className="h-10 w-10"
+                  className="h-9 w-9"
                   src={
                     "https://res.cloudinary.com/druohnmyv/image/upload/v1723819315/assests/n0koqmlpu1kbdzkj50tk.png"
                   }
@@ -998,7 +998,7 @@ function Rooms() {
             </div>
           </div>
           <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[20px] flex gap-2 py-2 items-center border-b">
+            <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
               <p className="ml-5">User Details -</p>
               {!authstatus && (
                 <span
@@ -1014,10 +1014,10 @@ function Rooms() {
             </h1>
             {authstatus && (
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-3 items-center">
                   {/* <FaUserAlt size={35} /> */}
                   <img
-                    className="h-10 w-10"
+                    className="h-9 w-9"
                     src={
                       "https://res.cloudinary.com/druohnmyv/image/upload/v1723819321/assests/xvg4sjgqjgjilynyxs0a.png"
                     }
@@ -1032,10 +1032,10 @@ function Rooms() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-3 items-center">
                   {/* <FaPhoneVolume size={35} /> */}
                   <img
-                    className="h-10 w-10"
+                    className="h-9 w-9"
                     src={
                       "https://res.cloudinary.com/druohnmyv/image/upload/v1723819322/assests/fljdbb2rrycts9fmradi.png"
                     }
@@ -1057,10 +1057,10 @@ function Rooms() {
                   </div>
                 </div>
 
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-3 items-center">
                   {/* <MdOutlineEmail size={35} /> */}
                   <img
-                    className="h-10 w-10"
+                    className="h-8 w-8"
                     src={
                       "https://res.cloudinary.com/druohnmyv/image/upload/v1723819316/assests/mt0cax1frqy37toddlr6.png"
                     }
