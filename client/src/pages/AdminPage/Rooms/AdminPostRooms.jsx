@@ -158,7 +158,7 @@ function AdminPostRooms({ editdata }) {
         data.append("my_files", file);
       });
 
-      const res = await axios.post("http://localhost:8000/img/upload", data);
+      const res = await axios.post("https://api.verydesi.com/img/upload", data);
       if (res.status === 200) {
         const urls = res.data.urls;
         setResimgurl(urls);
