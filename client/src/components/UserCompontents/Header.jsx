@@ -195,7 +195,7 @@ export default function Header() {
                       Rooms
                     </button>
                   </ul>
-                  <ul className="space-x-8 ">
+                  {/* <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
@@ -210,8 +210,8 @@ export default function Header() {
                       />
                       Events
                     </button>
-                  </ul>
-                  <ul className="space-x-8 ">
+                  </ul> */}
+                  {/* <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
@@ -225,8 +225,8 @@ export default function Header() {
                       />
                       Jobs
                     </button>
-                  </ul>
-                  <ul className="space-x-8 ">
+                  </ul> */}
+                  {/* <ul className="space-x-8 ">
                     <button
                       type="button"
                       onClick={() => {
@@ -241,8 +241,8 @@ export default function Header() {
                       />
                       Business Listing
                     </button>
-                  </ul>
-                  <ul className="space-x-8 whitespace-nowrap">
+                  </ul> */}
+                  {/* <ul className="space-x-8 whitespace-nowrap">
                     <button
                       type="button"
                       onClick={() => {
@@ -257,7 +257,7 @@ export default function Header() {
                       />
                       Movies & Entertainment
                     </button>
-                  </ul>
+                  </ul> */}
                 </div>
               )}
             </div>
@@ -292,13 +292,9 @@ export default function Header() {
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
                   />
                   Rooms
-                  {/* <FaCaretDown
-                    className="group-hover:rotate-[360deg] transition-transform duration-300 "
-                    size={15}
-                  /> */}
                 </button>
               </ul>
-              <ul className="ml-2 space-x-8 ">
+              {/* <ul className="ml-2 space-x-8 ">
                 <button
                   type="button"
                   onClick={() => {
@@ -314,8 +310,8 @@ export default function Header() {
                   />
                   Events
                 </button>
-              </ul>
-              <ul className="ml-2 space-x-8 ">
+              </ul> */}
+              {/* <ul className="ml-2 space-x-8 ">
                 <button
                   type="button"
                   onClick={() => {
@@ -329,8 +325,8 @@ export default function Header() {
                   />
                   Jobs
                 </button>
-              </ul>
-              <ul className="ml-2 space-x-8 ">
+              </ul> */}
+              {/* <ul className="ml-2 space-x-8 ">
                 <button
                   type="button"
                   onClick={() => {
@@ -345,8 +341,8 @@ export default function Header() {
                   />
                   Business Listing
                 </button>
-              </ul>
-              <ul className="ml-2 space-x-8 ">
+              </ul> */}
+              {/* <ul className="ml-2 space-x-8 ">
                 <button
                   type="button"
                   onClick={() => {
@@ -361,7 +357,7 @@ export default function Header() {
                   />
                   Movies & Entertainment
                 </button>
-              </ul>
+              </ul> */}
             </div>
             <div className=" flex justify-center items-center uppercase">
               <div>

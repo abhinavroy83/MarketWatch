@@ -405,10 +405,10 @@ function Addrooms({ editdata }) {
         transition:Bounce
       />
       <div className="w-full lg:max-w-[1400px] md:max-w-sm mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
-        <div className="font-['udemy-regular'] mx-4 lg:mx-20">
+        <div className="font-['udemy-regular'] mx-2 lg:mx-20">
           <form
             onSubmit={handleSubmit(onsubmit)}
-            className="flex flex-col justify-center text-[1.1rem] mt-7 items-center"
+            className="flex flex-col justify-center text-[1.1rem] lg:mt-7 items-center"
           >
             <div className="flex gap-2 items-center">
               <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
@@ -540,7 +540,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <input
-                    className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-10 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     label="Title"
                     type="text"
                     // defaultValue={editdata?.Title}
@@ -565,7 +565,7 @@ function Addrooms({ editdata }) {
                 </label>
                 <div className="">
                   <textarea
-                    className="font-['udemy-regular'] h-20 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="font-['udemy-regular'] h-20 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     name="description"
                     placeholder="Description"
                     {...register("Description", {
@@ -599,7 +599,7 @@ function Addrooms({ editdata }) {
                     render={({ field }) => (
                       <select
                         {...field}
-                        className="font-['udemy-regular'] h-10 w-[274px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="font-['udemy-regular'] h-10 w-[252px] lg:w-[740px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         name=""
                         id=""
                       >
@@ -690,7 +690,7 @@ function Addrooms({ editdata }) {
                         <select
                           {...field}
                           value={field.value || ""}
-                          className="h-100px w-[274px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="h-100px w-[252px] lg:w-[500px] rounded-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           <option value="">Select</option>
                           {stayLeaseOption === "Short term" && (
@@ -739,7 +739,7 @@ function Addrooms({ editdata }) {
                       <input
                         type="number"
                         placeholder="Rent"
-                        className="h-100px w-[234px] lg:w-[462px] rounded-tr-md rounded-br-md font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="h-100px w-[218px] lg:w-[462px] rounded-tr-md rounded-br-md font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         {...register("Expected_Rooms", {
                           required: "Rent is require",
                         })}
@@ -784,7 +784,7 @@ function Addrooms({ editdata }) {
                         <DatePicker
                           {...field}
                           selected={field.value}
-                          className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          className={`h-100px w-[252px] lg:w-[240px] font-['udemy-regular'] rounded-md border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                             isImmediate
                               ? "bg-gray-200 cursor-not-allowed"
                               : "bg-white"
@@ -808,7 +808,7 @@ function Addrooms({ editdata }) {
                         <DatePicker
                           {...field}
                           selected={field.value}
-                          className={`h-100px w-[274px] lg:w-[240px] font-['udemy-regular'] rounded-md  border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
+                          className={`h-100px w-[252px] lg:w-[240px] font-['udemy-regular'] rounded-md  border border-black/20 px-3 py-2  placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 ${
                             isImmediate
                               ? "bg-gray-200 cursor-not-allowed"
                               : "bg-white"
@@ -895,7 +895,7 @@ function Addrooms({ editdata }) {
                   </div>
                 ) : (
                   <select
-                    className="h-100px lg:w-[300px] w-[274px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="h-100px lg:w-[300px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     {...register("Attchd_Bath", {
                       required: "Please select Bath Number",
                     })}
@@ -1046,7 +1046,7 @@ function Addrooms({ editdata }) {
                     <input
                       type="number"
                       placeholder="Deposit"
-                      className="h-100px w-[234px] lg:w-[462px] font-['udemy-regular'] rounded-tr-md rounded-br-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="h-100px w-[218px] lg:w-[462px] font-['udemy-regular'] rounded-tr-md rounded-br-md border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       {...register("Desposite")}
                     />
                   </div>
@@ -1061,7 +1061,7 @@ function Addrooms({ editdata }) {
                   Is room/ furnished?
                 </label>
                 <select
-                  className="h-100px lg:w-[500px] w-[274px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="h-100px lg:w-[500px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   {...register("is_room_furnished")}
                 >
                   <option value="">Select</option>
