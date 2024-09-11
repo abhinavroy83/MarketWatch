@@ -620,7 +620,7 @@ function AdminPostRooms({ editdata }) {
                       Stay/Lease <span className=" text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-1 lg:grid-cols-4 gap- w-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 w-auto lg:w-[740px]">
                         <div className=" flex gap-2 whitespace-nowrap ">
                           <input
                             type="radio"
@@ -641,7 +641,7 @@ function AdminPostRooms({ editdata }) {
                             })}
                             onChange={handleStayLeaseChange}
                           />
-                          <p>Long term(6+ Months) </p>
+                          <p className="">Long term(6+ Months) </p>
                         </div>
                         <div className=" flex gap-2">
                           <input
