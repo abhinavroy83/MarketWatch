@@ -128,7 +128,7 @@ function Addrooms({ editdata }) {
   const handleSelectFile = (e) => {
     const selectedFiles = Array.from(e.target.files);
     if (selectedFiles.length + files.length > 5) {
-      toast.info("You can upload up to 5 images.");
+      alert("You can upload up to 5 images.");
       return;
     }
     const newFiles = selectedFiles.map((file) => {
@@ -139,7 +139,6 @@ function Addrooms({ editdata }) {
     });
     setFiles((prevFiles) => {
       const updatedFiles = [...prevFiles, ...newFiles];
-      handleUpload(updatedFiles);
       return updatedFiles;
     });
 
@@ -147,28 +146,45 @@ function Addrooms({ editdata }) {
   };
 
   const handleRemoveFile = (index) => {
-    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    setFiles((prevFiles) => {
+      const fileToRemove = prevFiles[index];
+
+      URL.revokeObjectURL(fileToRemove.preview);
+
+      // Remove the file from state
+      return prevFiles.filter((_, i) => i !== index);
+    });
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async (updatedFiles) => {
     try {
+      // setLoader(true);
       const data = new FormData();
-      files.forEach(({ file }) => {
+      updatedFiles.forEach(({ file }) => {
         data.append("my_files", file);
       });
 
       const res = await axios.post("https://api.verydesi.com/img/upload", data);
-      const urls = res.data.map((img) => img.url);
-      if (res) {
+      if (res.status === 200) {
+        const urls = res.data.urls;
         setResimgurl(urls);
         setUploadstats(true);
+      } else {
+        throw new Error("Upload failed");
       }
     } catch (error) {
-      toast.info(error.message);
+      alert(error.message);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (files.length > 0) {
+      handleUpload(files);
+    }
+  }, [files]);
+
   // useEffect(() => {
   //   if (files.length > 0) {
   //     const timeout = setTimeout(() => {
@@ -229,6 +245,7 @@ function Addrooms({ editdata }) {
         Pricemodel: data.Pricemodel,
         Desposite: data.Desposite,
         is_room_furnished: data.is_room_furnished,
+        Utility_include: data.Utility_include,
         Amenities_include: data.Amenities_include,
         Vegeterian_prefernce: data.Vegeterian_prefernce,
         Smoking_policy: data.Smoking_policy,
@@ -343,6 +360,7 @@ function Addrooms({ editdata }) {
       setValue("Couples_welcome", editdata?.Couples_welcome || "");
       setValue("Desposite", editdata?.Desposite || "");
       setValue("is_room_furnished", editdata?.is_room_furnished || "");
+      setValue("Utility_include", editdata?.Utility_include || "");
       setValue("Amenities_include", editdata?.Amenities_include || "");
       setValue("Vegeterian_prefernce", editdata?.Vegeterian_prefernce || "");
       setValue("Smoking_policy", editdata?.Smoking_policy || "");
@@ -1088,7 +1106,7 @@ function Addrooms({ editdata }) {
                       // className="px-3 py-2 text-black mr-1 "
                       value="Water"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Water</p>
                   </div>
@@ -1096,7 +1114,7 @@ function Addrooms({ editdata }) {
                     <input
                       type="checkbox"
                       value="Wi-Fi"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Wi-Fi</p>
                   </div>
@@ -1104,7 +1122,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Electricity"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Electricity</p>
                   </div>
@@ -1112,7 +1130,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Air Conditioner"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Air Conditioner</p>
                   </div>
@@ -1120,7 +1138,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Refrigerator"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Refrigerator</p>
                   </div>
@@ -1128,7 +1146,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Dishwasher"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Dishwasher</p>
                   </div>
@@ -1136,7 +1154,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Dryer"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Dryer</p>
                   </div>
@@ -1144,7 +1162,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Washer"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Washer</p>
                   </div>
@@ -1152,7 +1170,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Kitchen"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Kitchen</p>
                   </div>
@@ -1160,7 +1178,7 @@ function Addrooms({ editdata }) {
                     <input
                       value="Microwave"
                       type="checkbox"
-                      {...register("Amenities_include")}
+                      {...register("Utility_include")}
                     />
                     <p>Microwave</p>
                   </div>

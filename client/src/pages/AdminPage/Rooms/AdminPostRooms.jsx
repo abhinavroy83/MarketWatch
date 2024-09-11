@@ -179,7 +179,6 @@ function AdminPostRooms({ editdata }) {
     }
   }, [files]);
 
-  console.log(resimgurl);
   // useEffect(() => {
   //   if (files.length > 0) {
   //     const timeout = setTimeout(() => {
@@ -239,6 +238,7 @@ function AdminPostRooms({ editdata }) {
         Pricemodel: data.Pricemodel,
         Desposite: data.Desposite,
         is_room_furnished: data.is_room_furnished,
+        Utility_include: data.Utility_include,
         Amenities_include: data.Amenities_include,
         Vegeterian_prefernce: data.Vegeterian_prefernce,
         Smoking_policy: data.Smoking_policy,
@@ -352,6 +352,7 @@ function AdminPostRooms({ editdata }) {
       setValue("Couples_welcome", editdata?.Couples_welcome || "");
       setValue("Desposite", editdata?.Desposite || "");
       setValue("is_room_furnished", editdata?.is_room_furnished || "");
+      setValue("Utility_include", editdata?.Utility_include || "");
       setValue("Amenities_include", editdata?.Amenities_include || "");
       setValue("Vegeterian_prefernce", editdata?.Vegeterian_prefernce || "");
       setValue("Smoking_policy", editdata?.Smoking_policy || "");
@@ -998,6 +999,98 @@ function AdminPostRooms({ editdata }) {
                       <option value="Semi Furnished">Semi Furnished</option>
                       <option value="Fully Furnished">Fully Furnished</option>
                     </select>
+                  </div>
+                  <div className=" flex mt-5 text-[1.1rem]">
+                    <label
+                      className=" w-[118px] lg:w-[269px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      htmlFor=""
+                    >
+                      Utilities include
+                    </label>
+
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[980px]">
+                      <div className=" flex gap-1">
+                        <input
+                          // className="px-3 py-2 text-black mr-1 "
+                          value="Water"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Water</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <input
+                          type="checkbox"
+                          value="Wi-Fi"
+                          {...register("Utility_include")}
+                        />
+                        <p>Wi-Fi</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Electricity"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Electricity</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Air Conditioner"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Air Conditioner</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Refrigerator"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Refrigerator</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Dishwasher"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Dishwasher</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Dryer"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Dryer</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Washer"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Washer</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Kitchen"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Kitchen</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Microwave"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Microwave</p>
+                      </div>
+                    </div>
                   </div>
 
                   <div className=" flex mt-5 text-[1.1rem]">

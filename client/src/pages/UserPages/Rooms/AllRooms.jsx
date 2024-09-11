@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Roomcardforsimilar from "./Roomcardforsimilar";
 import stateAbbreviationMapping from "../../../Services/StateAprevation/stateAbbreviations.json";
 import Alert from "../../../components/UserCompontents/Alert/Alert";
+import { MapPin } from "lucide-react";
 
 function AllRooms() {
   const currentloc = useSelector((state) => state.auth.location);
@@ -212,8 +213,29 @@ function AllRooms() {
           )} */}
         </div>
       ) : (
-        <div className="font-roboto text-lg flex items-center text-black h-screen justify-center">
-          <p>Currently! There is no Room at your location</p>
+        <div className="  flex items-center justify-center">
+          <div className="bg-white  p-8 max-w-md w-full space-y-6">
+            <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mx-auto">
+              <MapPin className="w-8 h-8 text-green-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-center text-gray-800">
+              No Rooms Available
+            </h2>
+            <p className="text-center text-gray-600">
+              Currently, there are no rooms available at your location. Would
+              you like to post a room?
+            </p>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <button
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                onClick={() => {
+                  navigate(`/addroom/${userID}`);
+                }}
+              >
+                Post Room
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </ChildContainer>

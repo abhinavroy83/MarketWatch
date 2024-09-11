@@ -23,6 +23,7 @@ const roomSchema = mongoose.Schema({
   Couples_welcome: { type: String },
   Desposite: { type: Number },
   is_room_furnished: { type: String },
+  Utility_include: { type: [String] },
   Amenities_include: { type: [String] },
   Vegeterian_prefernce: { type: String },
   Smoking_policy: { type: String },

@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { fetchcity } from "../../../Services/CityApi/Cityapi";
 import { Link, useNavigate } from "react-router-dom";
 import Addsuburbs from "./Addsuburbs";
-import { Search, Plus, Edit2, ChevronDown } from "lucide-react";
+import { Search, Plus, Edit2, ChevronDown, Trash2 } from "lucide-react";
 import { HiMinusCircle } from "react-icons/hi";
 import { MdEdit } from "react-icons/md";
 import Update_del_Area from "./Modify/Update_del_Area";
@@ -110,7 +110,6 @@ function AllArea() {
     setismodalopen(false);
   };
 
-
   return (
     <div>
       <Addsuburbs isOpen={ismodelopen} onClose={onclose} {...selcedata} />
@@ -200,13 +199,23 @@ function AllArea() {
                           onClick={() => {
                             setSelectedCity(item);
                           }}
-                          className={`cursor-pointer px-6 py-4 whitespace-nowrap text-sm text-gray-500    ${
+                          className={`cursor-pointer px-10 py-4 whitespace-nowrap text-sm text-gray-500    ${
                             selectedCity === item
                               ? "text-[20px] bg-gray-600 text-white p-1 rounded-sm hover:bg-gray-600 hover:text-white hover:shadow-lg hover:shadow-gray-400"
                               : ""
                           }`}
                         >
                           {item}
+                        </td>
+                        <td className="px-2 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          {filterpin.length <= 0 && Filteresub.length <= 0 && (
+                            <button
+                              onClick={() => {}}
+                              className="text-red-600 hover:text-red-900"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <button
