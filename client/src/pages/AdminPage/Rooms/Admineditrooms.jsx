@@ -15,7 +15,6 @@ function Admineditrooms() {
         const res = await axios.get(
           `https://api.verydesi.com/api/getspecificroom/${_id}`
         );
-        console.log(res.data.rooms);
         setdata(res.data.rooms);
       } catch (error) {
         console.log("error during fetching room at edit room page", error);

@@ -872,32 +872,28 @@ function Rooms() {
               </div>
             </div>
           </div>
-          <div className="border mt-3 rounded-md">
-            <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
-              <p className="ml-5">Utilities Included -</p>
-            </h1>
+          {rooms?.Utility_include?.length > 1 && (
+            <div className="border mt-3 rounded-md">
+              <h1 className="text-[#000] text-[20px] flex gap-3 py-2 items-center border-b">
+                <p className="ml-5">Utilities Included -</p>
+              </h1>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-black text-[18px] items-center">
-              {[
-                "Water",
-                "Wi-Fi",
-                "Electricity",
-                "Refrigerator",
-                "Dishwasher",
-              ].map((utility) => {
-                const IconComponent = utilitiesicons[utility];
-                return (
-                  <div key={utility} className="flex gap-3 items-center">
-                    {IconComponent && (
-                      // <IconComponent className="amenity-icon" size={30} />
-                      <img src={IconComponent} className="h-9 w-9" alt="" />
-                    )}
-                    <p>{utility}</p>
-                  </div>
-                );
-              })}
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5 py-3 text-black text-[18px] items-center">
+                {rooms?.Utility_include?.map((utility) => {
+                  const IconComponent = utilitiesicons[utility];
+                  return (
+                    <div key={utility} className="flex gap-3 items-center">
+                      {IconComponent && (
+                        // <IconComponent className="amenity-icon" size={30} />
+                        <img src={IconComponent} className="h-9 w-9" alt="" />
+                      )}
+                      <p>{utility}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {rooms.Amenities_include.length > 1 && (
             <div className="border mt-3 rounded-md">

@@ -60,6 +60,7 @@ function AdminPostRooms({ editdata }) {
   } = useForm();
   const selectedBathroom = watch("Attchd_Bath");
   const preferredGender = watch("Preferred_gender");
+  const rental = watch("postingtype");
 
   const [autocomplete, setAutocomplete] = useState(null);
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -337,6 +338,7 @@ function AdminPostRooms({ editdata }) {
       setStayLeaseOption(editdata?.Stay_lease);
       setValue("city", editdata?.city || "");
       setValue("postingincity", editdata?.postingincity || "Portland");
+      setValue("postingtype", editdata?.postingtype || "");
       setValue("Title", editdata?.Title || "");
       setValue("Description", editdata?.Description || "");
       setValue("Propertytype", editdata?.Propertytype || "");
@@ -477,6 +479,43 @@ function AdminPostRooms({ editdata }) {
                 {/* <p className="text-[1.1rem]">
                 Your Account is belong {profiledata.belongcity}
               </p> */}
+                <div className="flex mt-5 w-full">
+                  <label
+                    htmlFor=""
+                    className="w-[118px] lg:w-[270px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                  >
+                    Posting type<span className=" text-red-500">*</span>
+                  </label>
+                  <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-auto">
+                      <div className=" flex gap-2 whitespace-nowrap ">
+                        <input
+                          type="radio"
+                          value="rooms"
+                          {...register("postingtype", {
+                            required: "Postingtype required",
+                          })}
+                        />
+                        <p>Rooms</p>
+                      </div>
+                      <div className="flex gap-2 whitespace-nowrap lg:px-2">
+                        <input
+                          type="radio"
+                          value="rental"
+                          {...register("postingtype", {
+                            required: "Postingtype required",
+                          })}
+                        />
+                        <p>Rental </p>
+                      </div>
+                    </div>
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {errors.postingtype && (
+                        <p>{errors.postingtype.message}</p>
+                      )}
+                    </p>
+                  </div>
+                </div>
                 <div className="w-full items-center">
                   <div className="flex mt-5 text-[1.1rem]">
                     <label
@@ -573,7 +612,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex text-[1.1rem] mt-5">
+                  <div className="flex text-[1.1rem] mt-5 lg:gap-30">
                     <label
                       htmlFor=""
                       className="w-[118px] lg:w-[275px] font-['udemy-regular'] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
@@ -581,7 +620,7 @@ function AdminPostRooms({ editdata }) {
                       Stay/Lease <span className=" text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-4 gap- w-auto">
                         <div className=" flex gap-2 whitespace-nowrap ">
                           <input
                             type="radio"
@@ -782,144 +821,167 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] lg:gap-20">
+                  <div className="flex mt-5 text-[1.1rem] lg:gap-40">
                     <label
                       className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
-                      Separate Bathroom <span className="text-red-500">*</span>
+                      Separate Bathroom<span className="text-red-500">*</span>
                     </label>
-                    <div>
-                      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="Yes"
-                            {...register("Attchd_Bath", {
-                              required: "Please select Bath",
-                            })}
-                          />
-                          <p>Yes</p>
+                    {rental === "rooms" ? (
+                      <div>
+                        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px]">
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="Yes"
+                              {...register("Attchd_Bath", {
+                                required: "Please select Bath",
+                              })}
+                            />
+                            <p>Yes</p>
+                          </div>
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="No"
+                              {...register("Attchd_Bath", {
+                                required: "Please select Bath",
+                              })}
+                            />
+                            <p>No</p>
+                          </div>
                         </div>
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="No"
-                            {...register("Attchd_Bath", {
-                              required: "Please select Bath",
-                            })}
-                          />
-                          <p>No</p>
-                        </div>
-                      </div>
-                      {errors.Attchd_Bath && (
-                        <p className="text-[16px] mt-1 text-red-500">
-                          {errors.Attchd_Bath.message}
-                        </p>
-                      )}
 
-                      {selectedBathroom === "Yes" && (
-                        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
+                        {selectedBathroom === "Yes" && (
+                          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[976px] mt-2">
+                            <div className="flex gap-1 items-center">
+                              <input
+                                type="radio"
+                                value="Attached in Room"
+                                {...register("Bath_Location", {
+                                  required: "Please select Bath location",
+                                })}
+                              />
+                              <p>Attached in Room</p>
+                            </div>
+                            <div className="flex gap-1 items-center">
+                              <input
+                                type="radio"
+                                value="Outside the room"
+                                {...register("Bath_Location", {
+                                  required: "Please select Bath location",
+                                })}
+                              />
+                              <p>Outside the room</p>
+                            </div>
+                            {errors.Bath_Location && (
+                              <p className="text-[16px] mt-1 text-red-500">
+                                {errors.Bath_Location.message}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <select
+                        className="h-100px lg:w-[300px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        {...register("Attchd_Bath", {
+                          required: "Please select Bath Number",
+                        })}
+                      >
+                        <option>Select Number</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                      </select>
+                    )}
+                  </div>
+                  {errors.Attchd_Bath && (
+                    <p className="text-[16px] mt-1 text-red-500">
+                      {errors.Attchd_Bath.message}
+                    </p>
+                  )}
+
+                  {rental === "rooms" && (
+                    <div className="flex mt-5 text-[1.1rem] items-center gap-44">
+                      <label
+                        className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        htmlFor=""
+                      >
+                        Preferred Gender<span className="text-red-500">*</span>
+                      </label>
+                      <div>
+                        <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
                           <div className="flex gap-1 items-center">
                             <input
                               type="radio"
-                              value="Attached in Room"
-                              {...register("Bath_Location", {
-                                required: "Please select Bath location",
+                              value="Male only"
+                              {...register("Preferred_gender", {
+                                required: "Please select gender",
                               })}
                             />
-                            <p>Attached in Room</p>
-                          </div>
-                          <div className="flex gap-1 items-center">
-                            <input
-                              type="radio"
-                              value="Outside the room"
-                              {...register("Bath_Location", {
-                                required: "Please select Bath location",
-                              })}
-                            />
-                            <p>Outside the room</p>
-                          </div>
-                          {errors.Bath_Location && (
-                            <p className="text-[16px] mt-1 text-red-500">
-                              {errors.Bath_Location.message}
+                            <p className="flex items-center gap-1">
+                              Male
+                              <img
+                                className="h-5 w-5"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819319/assests/kjkamlgskyfqpgzvjocz.png"
+                                }
+                                alt=""
+                              />
                             </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex mt-5 text-[1.1rem] items-center lg:gap-20">
-                    <label
-                      className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
-                      htmlFor=""
-                    >
-                      Preferred Gender <span className="text-red-500">*</span>
-                    </label>
-                    <div>
-                      <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 lg:w-[976px]">
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="Male only"
-                            {...register("Preferred_gender", {
-                              required: "Please select gender",
-                            })}
-                          />
-                          <p className="flex items-center gap-1">
-                            Male
-                            <img
-                              className="w-5 h-5"
-                              src={`https://static.vecteezy.com/system/resources/previews/017/178/570/original/male-symbol-isolated-icon-on-transparent-background-free-png.png`}
-                              alt="logo"
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <input
+                              type="radio"
+                              value="Female only"
+                              {...register("Preferred_gender", {
+                                required: "Please select gender",
+                              })}
                             />
-                          </p>
+                            <p className="flex items-center">
+                              Female
+                              <img
+                                className="h-4 w-4"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819317/assests/acn46dsajdgzwlmk9j5v.png"
+                                }
+                                alt=""
+                              />
+                            </p>
+                          </div>
+                          <div className="flex gap-1 items-center">
+                            <input
+                              type="radio"
+                              value="Any"
+                              {...register("Preferred_gender", {
+                                required: "Please select gender",
+                              })}
+                            />
+                            <p className="flex items-center gap-1">
+                              Any
+                              <img
+                                className="h-5 w-5"
+                                src={
+                                  "https://res.cloudinary.com/druohnmyv/image/upload/v1723819314/assests/jum9urk9pw7dsladdtuq.png"
+                                }
+                                alt=""
+                              />
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <input
-                            type="radio"
-                            value="Female only"
-                            {...register("Preferred_gender", {
-                              required: "Please select gender",
-                            })}
-                          />
-                          <p className="flex items-center">
-                            Female
-                            <img
-                              className="w-5 h-5"
-                              src={`https://th.bing.com/th/id/R.1aea569e5445749d245b1dafe88aceb1?rik=duC79JxhKgHKSA&riu=httpfemale-symbol-transparent-5.png&ehk=3Nz1Zx0ol8BnZKZZLEarwiLHRGPiQBTA9EkJ%2b2%2b9Y%2bA%3d&risl=&pid=ImgRaw&r=0`}
-                              alt="logo"
-                            />{" "}
+                        {errors.Preferred_gender && (
+                          <p className="text-[16px] mt-1 text-red-500">
+                            {errors.Preferred_gender.message}
                           </p>
-                        </div>
-                        <div className="flex gap-1 items-center">
-                          <input
-                            type="radio"
-                            value="Any"
-                            {...register("Preferred_gender", {
-                              required: "Please select gender",
-                            })}
-                          />
-                          <p className="flex items-center gap-1">
-                            Any
-                            <img
-                              className="w-6 h-6"
-                              src={`https://th.bing.com/th/id/R.4ce35e0c60e819c849bd95b9eb74e759?rik=55m8E7sNenQhvQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fGender-Symbol-PNG-Free-Download.png&ehk=5R2DPMpY54MPw4g17Q47uY7EXmDBexZa4wVXcXe1KiU%3d&risl=&pid=ImgRaw&r=0`}
-                              alt="logo"
-                            />{" "}
-                          </p>
-                        </div>
+                        )}
                       </div>
-                      {errors.Preferred_gender && (
-                        <p className="text-[16px] mt-1 text-red-500">
-                          {errors.Preferred_gender.message}
-                        </p>
-                      )}
                     </div>
-                  </div>
-
-                  {preferredGender && (
+                  )}
+                  {rental === "rooms" && preferredGender && (
                     <div className="flex mt-5 gap-[3rem] lg:gap-20 text-[1.1rem]">
                       <label
                         className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
