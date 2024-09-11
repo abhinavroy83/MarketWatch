@@ -57,6 +57,9 @@ const LeafletMap = ({ onLocationReceived, style }) => {
 
   useEffect(() => {
     const initializeMap = async () => {
+      if (mapRef.current) {
+        return;
+      }
       let lat, lng;
 
       if (usercity) {
@@ -119,9 +122,10 @@ const LeafletMap = ({ onLocationReceived, style }) => {
     return () => {
       if (mapRef.current) {
         mapRef.current.remove();
+        mapRef.current = null;
       }
     };
-  }, [onLocationReceived, usercity]);
+  }, [onLocationReceived, usercity, currentloc]);
 
   useEffect(() => {
     if (mapRef.current && locdata.length > 0) {
