@@ -129,7 +129,7 @@ const findsuburbs = async (req, res) => {
 const deletesub = async (req, res) => {
   try {
     const { id } = req.params;
-    await City.findByIdAndDelete(id);
+    await City.findByIdAndDelete({ _id: id });
     res.json({
       msg: "delete successfully",
     });

@@ -207,16 +207,7 @@ function AllArea() {
                         >
                           {item}
                         </td>
-                        <td className="px-2 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          {filterpin.length <= 0 && Filteresub.length <= 0 && (
-                            <button
-                              onClick={() => {}}
-                              className="text-red-600 hover:text-red-900"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
-                          )}
-                        </td>
+
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <button
                             onClick={() => {

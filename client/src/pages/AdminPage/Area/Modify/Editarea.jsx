@@ -12,7 +12,7 @@ function Editarea() {
       const res = await axios.get(
         `https://api.verydesi.com/api/admin/area/${area_name}`
       );
-      console.log(res.data.area);
+     
       setdata(res.data.area);
     } catch (error) {
       console.log(error);

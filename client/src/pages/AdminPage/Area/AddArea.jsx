@@ -110,18 +110,20 @@ function AddArea({ editdata }) {
 
   const handleAddSubarea = () => {
     let abbreviation;
-    
+
     if (selectedcountry === "Usa") {
       abbreviation = stateAbbreviations[stateab];
     } else if (selectedcountry === "Canada") {
       abbreviation = canadainstateAbbreviations[stateab];
     }
-  
-    const newSubareas = subareaInput.split(/[\s,]+/).map((sub) => `${sub.trim()},${abbreviation}`);
+
+    const newSubareas = subareaInput
+      .split(/[\s,]+/)
+      .map((sub) => `${sub.trim()},${abbreviation}`);
     const filteredSubareas = newSubareas.filter(
       (sub) => sub !== "," && !subarea.includes(sub)
     );
-  
+
     if (filteredSubareas.length > 0) {
       setSubareas((prevSubareas) => [...prevSubareas, ...filteredSubareas]);
       setSubareaInput("");
@@ -129,7 +131,6 @@ function AddArea({ editdata }) {
       alert("City and state combination already exists or input is invalid.");
     }
   };
-  
 
   const removeSubarea = (subarea) => {
     setSubareas((prevSubareas) =>
@@ -173,6 +174,20 @@ function AddArea({ editdata }) {
 
   const setAsPrimaryState = (state) => {
     setPrimaryState(state);
+  };
+
+  const handledeleterarea = async () => {
+    try {
+      const del = await axios.delete(
+        `https://api.verydesi.com/api/admin/deletesub/${editdata._id}`
+      );
+      if (del) {
+        alert("Area delete sucessfully");
+        navigate(`/admin/allarea`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -263,7 +278,25 @@ function AddArea({ editdata }) {
             </nav>
           </div>
           <div className="max-w-6xl mx-auto p-6 bg-white shadow-md rounded-lg">
-            <h1 className="text-xl font-bold mb-6">Add or Update</h1>
+            <div className=" flex justify-between">
+              <h1 className="text-xl font-bold mb-6">Add or Update</h1>
+              {editdata && subarea.length <= 0 && zipcode.length <= 0 && (
+                <button
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to delete this area?"
+                      )
+                    ) {
+                      handledeleterarea();
+                    }
+                  }}
+                  className="px-2 border border-transparent rounded-md  text-xs font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 "
+                >
+                  Delete Area
+                </button>
+              )}
+            </div>
             <form onSubmit={handleSubmit(onsubmit)} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
