@@ -44,6 +44,7 @@ function Update_del_Area() {
       );
       if (del) {
         alert("suburbs delete sucessfully");
+        
       }
     } catch (error) {
       console.log(error);
