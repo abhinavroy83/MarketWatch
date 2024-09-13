@@ -419,11 +419,11 @@ function AdminPostRooms({ editdata }) {
           transition:Bounce
         />
         <div className="w-full mx-auto items-center">
-          <div className="w-full max-w-[1400px] mx-auto items-center justify-center bg-white shadow-lg shadow-black/30">
-            <div className="font-['udemy-regular'] mx-4 lg:mx-20">
+          <div className="w-full max-w-[1400px] items-center justify-center bg-white shadow-lg shadow-black/30">
+            <div className="font-['udemy-regular'] mx-4 lg:mx-10">
               <form
                 onSubmit={handleSubmit(onsubmit)}
-                className="flex flex-col justify-center text-[1.1rem] mt-7 items-center"
+                className="flex flex-col justify-center text-[1.1rem] items-center"
               >
                 <div className="flex gap-2 items-center">
                   <p className="text-[1.5rem] text-[#000] flex items-center justify-center mt-6">
@@ -620,7 +620,7 @@ function AdminPostRooms({ editdata }) {
                       Stay/Lease <span className=" text-red-500">*</span>
                     </label>
                     <div>
-                      <div className="grid grid-cols-1 lg:grid-cols-3 w-auto lg:w-[740px]">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 w-auto lg:w-[800px]">
                         <div className=" flex gap-2 whitespace-nowrap ">
                           <input
                             type="radio"
@@ -724,7 +724,7 @@ function AdminPostRooms({ editdata }) {
                     <div className="flex lg:flex-row flex-col">
                       <div className="items-center">
                         <div className="flex">
-                          <span className="bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                          <span className="bg-gray-200 items-center justify-center rounded-tl-md rounded-bl-md inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                             $
                           </span>
                           <input
@@ -821,7 +821,7 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] lg:gap-40">
+                  <div className="flex mt-5 text-[1.1rem] lg:gap-20">
                     <label
                       className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
@@ -885,7 +885,7 @@ function AdminPostRooms({ editdata }) {
                       </div>
                     ) : (
                       <select
-                        className="h-100px lg:w-[300px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="h-100px lg:w-[500px] w-[252px] text-[1.1rem] rounded-md items-center font-['udemy-regular'] border border-black/20 bg-transparent px-3 py-2 placeholder:text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         {...register("Attchd_Bath", {
                           required: "Please select Bath Number",
                         })}
@@ -1030,7 +1030,7 @@ function AdminPostRooms({ editdata }) {
                     </label>
                     <div className="flex lg:flex-row flex-col">
                       <div className="flex">
-                        <span className=" bg-gray-200 items-center justify-center inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                        <span className="bg-gray-200 items-center justify-center rounded-tl-md rounded-bl-md inline-block font-['udemy-regular'] font-bold border border-black/20 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
                           $
                         </span>
                         <input
@@ -1070,7 +1070,7 @@ function AdminPostRooms({ editdata }) {
                       Utilities include
                     </label>
 
-                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[800px]">
                       <div className=" flex gap-1">
                         <input
                           // className="px-3 py-2 text-black mr-1 "
@@ -1163,7 +1163,7 @@ function AdminPostRooms({ editdata }) {
                       Amenities include
                     </label>
 
-                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-[800px]">
                       <div className=" flex gap-1">
                         <input
                           // className="px-3 py-2 text-black mr-1 "
@@ -1270,7 +1270,7 @@ function AdminPostRooms({ editdata }) {
                     >
                       Dietary Preference
                     </label>
-                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[800px]">
                       <div className="flex gap-1 items-center whitespace-nowrap">
                         <input
                           type="radio"
@@ -1304,7 +1304,7 @@ function AdminPostRooms({ editdata }) {
                     >
                       Smoking Policy
                     </label>
-                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[800px]">
                       <div className=" flex gap-1 items-center">
                         <input
                           type="radio"
@@ -1340,7 +1340,7 @@ function AdminPostRooms({ editdata }) {
                       Pet Friendly
                     </label>
 
-                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[980px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-4 gap-4 w-[650px] lg:w-[800px]">
                       <div className=" flex gap-1 items-center">
                         <input
                           type="radio"
@@ -1503,7 +1503,7 @@ function AdminPostRooms({ editdata }) {
                         )}
                       </div>
                     </div>
-                    <div className="mt-5 text-[1.1rem]">
+                    <div className="flex mt-5 text-[1.1rem]">
                       <label
                         className="lg:w-[270px] w-[118px] text-[1.1rem] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor=""
@@ -1553,7 +1553,7 @@ function AdminPostRooms({ editdata }) {
                   </p> */}
                     </div>
                   </div>
-                  <div className="flex  text-[1.1rem]">
+                  <div className="flex text-[1.1rem]">
                     <label
                       className="text-[1.1rem] text-white w-[118px] lg:w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
@@ -1561,7 +1561,7 @@ function AdminPostRooms({ editdata }) {
                       City
                     </label>
                     <div className="flex flex-col lg:flex-row gap-4 items-center mt-4">
-                      <div className="flex items-center mt-1 text-[1.1rem]">
+                      <div className="flex items-center text-[1.1rem]">
                         <div>
                           <input
                             type="text"
@@ -1572,7 +1572,7 @@ function AdminPostRooms({ editdata }) {
                         </div>
                       </div>
 
-                      <div className="flex items-center mt-5 text-[1.1rem]">
+                      <div className="flex items-center text-[1.1rem]">
                         {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -1588,7 +1588,7 @@ function AdminPostRooms({ editdata }) {
                           />
                         </div>
                       </div>
-                      <div className="flex items-center mt-5 text-[1.1rem]">
+                      <div className="flex items-center text-[1.1rem]">
                         {/* <label
                     className="w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
@@ -1610,7 +1610,7 @@ function AdminPostRooms({ editdata }) {
                         </div>
                       </div>
 
-                      <div className="flex items-center mt-5 text-[1.1rem]">
+                      <div className="flex items-center text-[1.1rem]">
                         {/* <label
                     className=" w-[270px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                     htmlFor=""
