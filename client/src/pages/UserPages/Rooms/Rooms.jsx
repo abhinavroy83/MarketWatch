@@ -42,6 +42,7 @@ function Rooms() {
   const [locationsndString, setLocationsndString] = useState("");
   const [contactdet, setcontachdet] = useState(false);
   const [posteddate, setposteddate] = useState("");
+  const usercity = useSelector((state) => state.auth.city);
   const authstatus = useSelector((state) => state.auth.status);
   const currentloc = useSelector((state) => state.auth.location);
   const usrid = useSelector((state) => state.auth.userID);
@@ -94,7 +95,7 @@ function Rooms() {
   const getRooms = async () => {
     try {
       const res = await axios.get(
-        `https://api.verydesi.com/api/getallrooms?lat=${currentloc.lng}&lng=${currentloc.lat}`
+        `https://api.verydesi.com/api/getallrooms?city=${usercity}`
       );
       setsimilarrooms(res.data.Allrooms);
       // console.log(res.data.Allrooms);
@@ -285,7 +286,7 @@ function Rooms() {
         <img
           src={item?.original}
           alt=""
-          className="lg:h-[560px] w-[880px] rounded-md object-cover"
+          className="lg:h-[600px] w-[880px] rounded-md object-cover"
         />
       </div>
     ),
