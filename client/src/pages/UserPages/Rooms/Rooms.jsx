@@ -1079,7 +1079,7 @@ function Rooms() {
               </p>
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-5 xl:grid-cols-3 xl:gap-8">
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:mt-5 xl:grid-cols-3 xl:gap-2">
             {renderRooms()}
           </div>
         </div>

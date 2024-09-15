@@ -169,7 +169,7 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
       </p> */}
 
       <img
-        className={"absolute bottom-[1.4rem] right-[1rem]"}
+        className={"absolute bottom-[1.4rem] right-[3.2rem]"}
         height={22}
         width={25}
         src={
@@ -191,7 +191,10 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
                 makewishlist(item._id);
               }}
             >
-              <LuHeart className="text-black hover:text-gray-600" size={22} />
+              <LuHeart
+                className="text-black hover:bg-red-600 hover:text-white rounded-full hover:p-[0.1rem]"
+                size={22}
+              />
             </div>
           ) : (
             <div
