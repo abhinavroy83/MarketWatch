@@ -49,19 +49,17 @@ function Avalableloc({ isOpen, onClose }) {
   }, [handleLocation]);
 
   return (
-    <div className="absolute mt-1 w-full lg:w-[350px]   left-0 top-4 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-      <p className="font-['udemy-regular'] p-2 text-[20px] text-black flex gap-1 items-center">
-        <Globe />
+    <div className="absolute w-[250px] top-4 lg:w-[350px] left-0  mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+      <p className="font-medium p-2 text-base sm:text-lg md:text-xl text-black flex gap-1 items-center border-b border-gray-200">
+        <Globe className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
         USA
       </p>
-      <div className="p-2 grid grid-cols-2 gap-1">
+      <div className="p-2 grid grid-cols-1 sm:grid-cols-2 gap-1 max-h-60 overflow-y-auto">
         {cty.map((city, index) => (
           <button
             key={index}
-            onClick={() => {
-              handleLocation(city);
-            }}
-            className={`w-full text-left px-3 py-2 rounded hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out ${
+            onClick={() => handleLocation(city)}
+            className={`w-full text-left px-3 py-2 rounded hover:bg-[#232f3e] hover:text-white focus:outline-none transition duration-150 ease-in-out ${
               selectedCity === city
                 ? "bg-[#232f3e] text-white"
                 : "text-gray-700"

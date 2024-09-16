@@ -53,8 +53,12 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex flex-col items-center justify-center text-white">
-            <h2 className="lg:text-[23px] text-[20px] font-bold">Get Your Business Online</h2>
-            <p className="lg:text-[19px] text-[15px]  mb-4">Elevate Your Online Presence</p>
+            <h2 className="lg:text-[23px] text-[20px] font-bold">
+              Get Your Business Online
+            </h2>
+            <p className="lg:text-[19px] text-[15px]  mb-4">
+              Elevate Your Online Presence
+            </p>
             {/* <p>hi</p> */}
             {/* <button
               type="submit"
@@ -64,7 +68,7 @@ export default function Footer() {
             </button> */}
           </div>
           <img
-            className="w-[120px] lg:w-[190px]"
+            className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
             src={`https://res.cloudinary.com/druohnmyv/image/upload/v1724996141/R.2894cf285c04316dd503b8d215827e2c_vbweas.png`}
             alt="logo"
           />
