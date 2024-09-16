@@ -192,7 +192,7 @@ export default function Header() {
                         className="group-hover:rotate-[360deg] transition-transform duration-300 "
                         size={15}
                       />
-                      Rooms
+                      Roommate
                     </button>
                   </ul>
                   {/* <ul className="space-x-8 ">
@@ -291,7 +291,7 @@ export default function Header() {
                     size={20}
                     className="group-hover:rotate-[360deg] transition-transform duration-300 "
                   />
-                  Rooms
+                  Roommates
                 </button>
               </ul>
               {/* <ul className="ml-2 space-x-8 ">
