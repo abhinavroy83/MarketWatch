@@ -8,8 +8,10 @@ import femaleLogo from "../../../assets/female5.png";
 import maleLogo from "../../../assets/male5.png";
 import { LuHeart } from "react-icons/lu";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import { minuscart, pluscart } from "../../../store/cartslice";
+import Alert from "../../../components/UserCompontents/Alert/Alert";
 
 function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
   const token = useSelector((state) => state.auth.token);
@@ -17,9 +19,15 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
   const auth = useSelector((state) => state.auth.status);
   const [wishliststatys, setWishlistStatus] = useState(false);
 
-  const notify = () => toast("Added to Wishlist.");
-  const unnotify = () => toast("Remove from Wishlist.");
-  const unauthnotify = () => toast("Please Login");
+  const dispatch = useDispatch();
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
+
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
 
   const makewishlist = async (_id) => {
     if (auth) {
@@ -41,14 +49,15 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
           res.data.msg === "Successfully added to wishlist" ||
           res.data.msg === "Successfully updated"
         ) {
+          dispatch(pluscart());
           setWishlistStatus(true);
-          notify();
+          showToast("success", "Added to Favorites.");
         }
       } catch (error) {
         console.error("Error adding to wishlist:", error);
       }
     } else {
-      unauthnotify();
+      showToast("unsuccess", "Removed from Favorites.");
     }
   };
 
@@ -71,8 +80,9 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         res.data.msg === "Successfully removed" ||
         res.data.msg === "Wishlist cleared"
       ) {
+        dispatch(minuscart());
         setWishlistStatus(false);
-        unnotify();
+        showToast("unsuccess", "Removed from Favorites.");
       }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -151,6 +161,13 @@ function Roomcardforsimilar({ isRoomOnlyPage, ...item }) {
         isRoomOnlyPage ? "items-start" : ""
       }`}
     >
+      {toast.isOpen && (
+        <Alert
+          type={toast.type}
+          text={toast.text}
+          close={() => setToast({ isOpen: false, type: "", text: "" })}
+        />
+      )}
       <div className="relative w-full lg:w-72 lg:h-[100%] max-w-4xl overflow-hidden lg:rounded-tl-md lg:rounded-bl-md lg:rounded-none rounded-tl-md rounded-tr-md">
         <img
           src={item.Imgurl[0]}

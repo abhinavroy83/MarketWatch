@@ -27,7 +27,7 @@ function Roomcard({ isRoomOnlyPage, ...item }) {
     setToast({ isOpen: false });
     setTimeout(() => {
       setToast({ isOpen: true, type, text });
-    }, 100);
+    }, 100); 
   };
   const makewishlist = async (_id) => {
     if (auth) {
