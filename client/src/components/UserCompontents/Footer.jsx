@@ -41,14 +41,9 @@ export default function Footer() {
         }}
         className="flex flex-col justify-center items-center mb-2 font-['udemy-regular']"
       >
-        <div className="cursor-pointer lg:w-[44rem] w-[22rem] bg-red-700 border-4 border-[#232f3e] justify-between gap-4 lg:gap-7 flex p-2 lg:p-0 shadow-sm shadow-gray-500 rounded-md">
+        <div className="cursor-pointer lg:w-[44rem] w-[22rem] bg-red-700 border-4 border-[#232f3e] justify-between gap-4 lg:gap-7 flex  lg:p-0 shadow-sm shadow-gray-500 rounded-md">
           <div className="flex flex-col gap-3 ">
-            {/* <img
-              className="w-[120px] lg:w-[190px]"
-              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
-              alt="logo"
-            /> */}
-            <span className="text-[#232f3e] bg-white rounded-br-full font-bold p-2 px-6 whitespace-nowrap text-[18px]">
+            <span className="text-[#232f3e] bg-white rounded-br-full font-bold px-6 text-[18px]">
               Very Desi Guides
             </span>
           </div>
@@ -56,16 +51,9 @@ export default function Footer() {
             <h2 className="lg:text-[23px] text-[20px] font-bold">
               Get Your Business Online
             </h2>
-            <p className="lg:text-[19px] text-[15px]  mb-4">
+            <p className="lg:text-[19px] text-[15px] mb-4">
               Elevate Your Online Presence
             </p>
-            {/* <p>hi</p> */}
-            {/* <button
-              type="submit"
-              className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Visit Site
-            </button> */}
           </div>
           <img
             className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
