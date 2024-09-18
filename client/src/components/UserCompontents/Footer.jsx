@@ -62,7 +62,7 @@ export default function Footer() {
           />
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center lg:px-0 px-3">
         <div className="w-[500px] h-[170px] bg-[#232f3e] text-white p-6  mt-3 rounded-lg shadow-lg flex items-center justify-between font-['udemy-regular'] mb-4">
           <div className="flex flex-col justify-between">
             <div>
