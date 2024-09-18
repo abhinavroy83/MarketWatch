@@ -1152,6 +1152,22 @@ function AdminPostRooms({ editdata }) {
                         />
                         <p>Microwave</p>
                       </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="TV"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>TV</p>
+                      </div>
+                      <div className=" flex gap-1">
+                        <input
+                          value="Heater"
+                          type="checkbox"
+                          {...register("Utility_include")}
+                        />
+                        <p>Heater</p>
+                      </div>
                     </div>
                   </div>
 
