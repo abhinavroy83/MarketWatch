@@ -19,4 +19,7 @@ export const utilitiesicons = {
     "https://res.cloudinary.com/druohnmyv/image/upload/v1725976230/1698691_rt07y1.png",
   Microwave:
     "https://res.cloudinary.com/druohnmyv/image/upload/v1725976298/2333537_wtnnmq.png",
+  TV: "https://res.cloudinary.com/druohnmyv/image/upload/v1726666674/3159543_tkgqis.png",
+  Heater:
+    "https://res.cloudinary.com/druohnmyv/image/upload/v1726666761/1744304_snqhs8.png",
 };

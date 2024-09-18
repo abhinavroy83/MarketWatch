@@ -821,9 +821,9 @@ function AdminPostRooms({ editdata }) {
                     </div>
                   </div>
 
-                  <div className="flex mt-5 text-[1.1rem] lg:gap-20">
+                  <div className="flex mt-5 text-[1.1rem] lg:gap-[9rem]">
                     <label
-                      className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                      className="w-[118px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                       htmlFor=""
                     >
                       Separate Bathroom<span className="text-red-500">*</span>
@@ -906,9 +906,9 @@ function AdminPostRooms({ editdata }) {
                   )}
 
                   {rental === "rooms" && (
-                    <div className="flex mt-5 text-[1.1rem] items-center gap-44">
+                    <div className="flex mt-5 text-[1.1rem] items-center gap-[9rem]">
                       <label
-                        className="w-[118px] lg:w-[188px] font-['udemy-regular'] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
+                        className="w-[118px] font-['udemy-regular'] whitespace-nowrap peer-disabled:cursor-not-allowed peer-disabled:opacity-70 inline-block"
                         htmlFor=""
                       >
                         Preferred Gender<span className="text-red-500">*</span>
