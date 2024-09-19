@@ -592,6 +592,9 @@ function AdminPostRooms({ editdata }) {
                             id=""
                           >
                             <option value="">Select</option>
+                            <option value="Room">Room</option>
+                            <option value="Shared Room">Shared Room</option>
+                            <option value="Single Room">Single Room</option>
                             <option value="Single Family Home">
                               Single Family Home
                             </option>

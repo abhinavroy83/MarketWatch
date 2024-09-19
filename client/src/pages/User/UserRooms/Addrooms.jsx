@@ -625,6 +625,9 @@ function Addrooms({ editdata }) {
                         <option value="Single Family Home">
                           Single Family Home
                         </option>
+                        <option value="Room">Room</option>
+                        <option value="Shared Room">Shared Room</option>
+                        <option value="Single Room">Single Room</option>
                         <option value="Apartment">Apartment</option>
                         <option value="Condo">Condo</option>
                         <option value="Town">Town House</option>
