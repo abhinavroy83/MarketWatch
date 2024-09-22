@@ -118,7 +118,7 @@ function AddArea({ editdata }) {
     }
 
     const newSubareas = subareaInput
-      .split(/[\s,]+/)
+      .split(",")
       .map((sub) => `${sub.trim()},${abbreviation}`);
     const filteredSubareas = newSubareas.filter(
       (sub) => sub !== "," && !subarea.includes(sub)
