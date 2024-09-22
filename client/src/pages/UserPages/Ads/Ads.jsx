@@ -176,7 +176,7 @@ function Ads() {
             </div>
           </div>
 
-          <div
+          {/* <div
             onClick={() => {
               window.open("https://redletterweb.com/", "_blank");
             }}
@@ -188,23 +188,14 @@ function Ads() {
               alt="logo"
             />
             <div>
-              {/* <p>hi</p> */}
               <button
                 type="submit"
-                // onClick={() => {
-                //   navigate(`/addroom/${userID}`);
-                // }}
                 className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Visit Site
               </button>
             </div>
-            {/* <img
-              className="w-[3.9rem] h-15 lg:w-[6.9rem]"
-              src={`https://c1.staticflickr.com/4/3943/15620462055_c69f120931_z.jpg`}
-              alt="logo"
-            /> */}
-          </div>
+          </div> */}
           <div className="flex-row">
             {isloged ? (
               <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
