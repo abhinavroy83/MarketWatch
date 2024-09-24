@@ -35,7 +35,7 @@ const resetpassword = async (req, res) => {
   // console.log(req.params.token);
   try {
     const decodetoken = jwt.verify(req.params.token, process.env.JWTSECRETKEY);
-    console.log(decodetoken.user._id);
+    // console.log(decodetoken.user._id);
     if (!decodetoken) {
       return res.status(401).send({ message: "Invalid token" });
     }

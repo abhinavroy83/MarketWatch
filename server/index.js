@@ -31,6 +31,7 @@ app.use(
       "http://127.0.0.1:5173",
       "http://127.0.0.1:5174",
       "https://copy-market-watch.vercel.app",
+      "https://design.verydesi.com"
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
