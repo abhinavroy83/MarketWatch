@@ -252,9 +252,7 @@ const router = createBrowserRouter([
         path: "/rooms",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <Authlayout >
-              <AllRooms />
-            </Authlayout>
+            <AllRooms />
           </Suspense>
         ),
       },
