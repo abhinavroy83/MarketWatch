@@ -19,6 +19,12 @@ function ResetPassword() {
   const dispatch = useDispatch();
   const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
 
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const onsubmit = async (data) => {
     // console.log(data);
     try {
@@ -28,24 +34,20 @@ function ResetPassword() {
       );
 
       if (res.data.status) {
-        setToast({
-          isOpen: true,
-          type: "success",
-          text: res.data.message,
-        });
-        naviagte("/");
-        dispatch(
-          modalopen({
-            isloginmodalopen: true,
-          })
-        );
+        showToast("success", res.data.message);
+
+        // alert(res.data.message);
+        // naviagte("/");
+        // dispatch(
+        //   modalopen({
+        //     isloginmodalopen: true,
+        //   })
+        // );
       }
       if (!res.data.status) {
-        setToast({
-          isOpen: true,
-          type: "unsuccess",
-          text: res.data.message,
-        });
+        showToast("unsuccess", res.data.message);
+
+        // alert(res.data.message);
       }
     } catch (error) {
       console.log(error);

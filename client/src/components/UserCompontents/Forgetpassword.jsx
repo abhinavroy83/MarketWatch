@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Alert from "./Alert/Alert";
 
@@ -12,8 +13,15 @@ function Forgetpassword() {
     register,
     reset,
   } = useForm();
-  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
+  const naviagte = useNavigate();
 
+  const [toast, setToast] = useState({ isOpen: false, type: "", text: "" });
+  const showToast = (type, text) => {
+    setToast({ isOpen: false });
+    setTimeout(() => {
+      setToast({ isOpen: true, type, text });
+    }, 100);
+  };
   const { token } = useParams();
   // console.log(token);
   const onsubmit = async (data) => {
@@ -24,20 +32,14 @@ function Forgetpassword() {
         data
       );
       if (res) {
-        setToast({
-          isOpen: true,
-          type: success,
-          text: res.data.message,
-        });
-        toast.success();
+        showToast("success", res.data.message);
+        naviagte("/");
       }
     } catch (error) {
       console.log(error);
     }
   };
-  setTimeout(() => {
-    setToast({ isOpen: false, type: "", text: "" });
-  }, 3000);
+
   return (
     <div className="mt-[11rem] lg:mt-[9rem] flex lg:flex-row flex-col bg-white h-[550px] lg:h-[500px] rounded-md border-t-2 border-b-2 border-black w-[370px] lg:w-[850px] font-['udemy-regular'] self-center items-center justify-center shadow-gray-300 shadow-lg">
       {toast.isOpen && (
@@ -60,7 +62,7 @@ function Forgetpassword() {
         <form onSubmit={handleSubmit(onsubmit)}>
           <input
             className="[flex h-10 w-full font-['udemy-regular'] rounded-md border border-black/30 bg-transparent px-3 py-2 text-[16px] placeholder:text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50]"
-            type="text"
+            type="password"
             {...register("newPassword", { required: "Please Enter Password" })}
           />
           <p className="text-[16px] text-red-500 mt-2">
