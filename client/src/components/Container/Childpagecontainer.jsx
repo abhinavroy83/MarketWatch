@@ -114,36 +114,6 @@ function ChildContainer({ className, children, onLocationReceived }) {
         <div className="w-full lg:max-w-[300px] lg:mr-3 lg:ml-0 lg:mt-1 mt-5 h-5/6 flex justify-center">
           <LeafletMap onLocationReceived={currentloc} />
         </div>
-        {/* <aside className="max-w-[392px] lg:max-w-[320px] ml-4 lg:ml-0 lg:mt-1 mt-5 h-5/6 font-['udemy-regular'] rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 py-5 px-5 mr-3 lg:mr-3">
-          <div className="h-full flex flex-wrap flex-col gap-1">
-            <div className="text-[20px] p-2 rounded-sm text-black max-w-[1600px] bg-white shadow-sm shadow-[#000]">
-              <div className="flex gap-2 items-center">
-                <div className="items-center flex">
-                  <AiFillDollarCircle size={20} />
-                  <TbArrowsExchange size={20} />
-                  <TbCoinRupeeFilled size={22} />
-                </div>
-                <input
-                  type="number"
-                  value={amount}
-                  className=" border-black border-b-2 w-[170px]"
-                  onChange={(e) => setAmount(e.target.value)}
-                  min="1"
-                />
-              </div>
-              {exchangeRate && (
-                <div>
-                  <p className="text-sm mt-2">
-                    Exchange Rate (USD to INR ): {exchangeRate}
-                  </p>
-                  <p className=" text-sm">
-                    Converted Amount: {convertedAmount} INR
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </aside> */}
       </div>
     </div>
   );
