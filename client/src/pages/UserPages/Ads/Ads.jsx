@@ -115,6 +115,21 @@ function Ads() {
     // console.log(loginModalState);
     dispatch(modalopen({ isloginmodalopen: loginModalState }));
   };
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement("script");
+    script.src =
+      "https://affiliates.expediagroup.com/products/banners/assets/eg-affiliate-banners.js";
+    script.className = "eg-affiliate-banners-script";
+
+    // Append the script to the body or a specific element
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="flex px-1 py-2 lg:py-0 lg:gap-0 bg-white max-w-[1400px] lg:max-w-[1600px] w-full m-auto font-['udemy-regular'] items-center relative">
@@ -176,26 +191,17 @@ function Ads() {
             </div>
           </div>
 
-          {/* <div
-            onClick={() => {
-              window.open("https://redletterweb.com/", "_blank");
-            }}
-            className=" cursor-pointer w-[40rem] justify-between gap-4 lg:gap-7 hidden lg:flex items-center border border-gray-500 px-10 shadow-sm shadow-gray-500"
-          >
-            <img
-              className="w-[120px] lg:w-[190px]"
-              src={`https://res.cloudinary.com/druohnmyv/image/upload/v1725014970/Screenshot_2024-08-30_161730_bq7eld.png`}
-              alt="logo"
-            />
-            <div>
-              <button
-                type="submit"
-                className="rounded-md bg-[#232f3e] hover:bg-[#232f3e]/90 px-4 py-2 text-[1rem] lg:text-[1.1rem] items-center text-white shadow-sm shadow-[#ccc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Visit Site
-              </button>
-            </div>
-          </div> */}
+          <div
+            className="eg-affiliate-banners"
+            data-program="us-expedia"
+            data-network="pz"
+            data-layout="leaderboard"
+            data-image="city"
+            data-message="explore-world-travel"
+            data-link="flights"
+            data-camref="1011l44Fgm"
+            data-pubref=""
+          />
           <div className="flex-row">
             {isloged ? (
               <div className="flex gap-2 lg:gap-4 items-center cursor-pointer">
