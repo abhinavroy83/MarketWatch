@@ -12,6 +12,7 @@ function AdminDashboard({ children }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const menuItems = [
+    { name: "Dashboard", icon: "🏠", to: "/admin/dashboard", restricted: false },
     { name: "Basic Users", icon: "👥", to: "/admin/alluser", restricted: true },
     {
       name: "Admin Users",
