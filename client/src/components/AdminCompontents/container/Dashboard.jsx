@@ -12,13 +12,27 @@ function AdminDashboard({ children }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const menuItems = [
-    { name: "Dashboard", icon: "🏠", to: "/admin/dashboard" },
-    { name: "Basic Users", icon: "👥", to: "/admin/alluser" },
-    { name: "Admin Users", icon: "👤", to: "/admin/getalladminsuser" },
-    { name: "Pending Requests", icon: "📋", to: "/admin/getapproval" },
-    { name: "Area", icon: "🗺️", to: "/admin/allarea" },
-    { name: "Rooms", icon: "🛏️", to: "/admin/allroom" },
-    { name: "Customer Message", icon: "💬", to: "/admin/getHelp" },
+    { name: "Basic Users", icon: "👥", to: "/admin/alluser", restricted: true },
+    {
+      name: "Admin Users",
+      icon: "👤",
+      to: "/admin/getalladminsuser",
+      restricted: true,
+    },
+    {
+      name: "Pending Requests",
+      icon: "📋",
+      to: "/admin/getapproval",
+      restricted: true,
+    },
+    { name: "Area", icon: "🗺️", to: "/admin/allarea", restricted: false },
+    { name: "Rooms", icon: "🛏️", to: "/admin/allroom", restricted: false },
+    {
+      name: "Customer Message",
+      icon: "💬",
+      to: "/admin/getHelp",
+      restricted: false,
+    },
   ];
 
   const handlelogout = () => {
@@ -132,16 +146,18 @@ function AdminDashboard({ children }) {
           } md:flex md:flex-col  bg-white border-r overflow-y-auto lg:w-[16%] w-auto`}
         >
           <nav className="flex-1 px-2 py-4 space-y-2">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                className="flex items-center space-x-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100"
-              >
-                <span>{item.icon}</span>
-                <span>{item.name}</span>
-              </Link>
-            ))}
+            {menuItems
+              .filter((item) => !(item.restricted && role !== "Admin"))
+              .map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  className="flex items-center space-x-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100"
+                >
+                  <span>{item.icon}</span>
+                  <span>{item.name}</span>
+                </Link>
+              ))}
           </nav>
         </aside>
 

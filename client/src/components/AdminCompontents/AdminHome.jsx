@@ -7,19 +7,36 @@ import AdminDashboard from "./container/Dashboard";
 import AdminHeader from "./AdminHeader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function AdminHome() {
   const role = useSelector((state) => state.adminauth.role);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const notify = () => toast("Coming Soon...");
 
+  // Define menu items and restrict certain items for admin role only
   const menuItems = [
-    { name: "Basic Users", icon: "👥", to: "/admin/alluser" },
-    { name: "Admin Users", icon: "👤", to: "/admin/getalladminsuser" },
-    { name: "Pending Requests", icon: "📋", to: "/admin/getapproval" },
-    { name: "Area", icon: "🗺️", to: "/admin/allarea" },
-    { name: "Rooms", icon: "🛏️", to: "/admin/allroom" },
-    { name: "Customer Message", icon: "💬", to: "/admin/getHelp" },
+    { name: "Basic Users", icon: "👥", to: "/admin/alluser", restricted: true },
+    {
+      name: "Admin Users",
+      icon: "👤",
+      to: "/admin/getalladminsuser",
+      restricted: true,
+    },
+    {
+      name: "Pending Requests",
+      icon: "📋",
+      to: "/admin/getapproval",
+      restricted: true,
+    },
+    { name: "Area", icon: "🗺️", to: "/admin/allarea", restricted: false },
+    { name: "Rooms", icon: "🛏️", to: "/admin/allroom", restricted: false },
+    {
+      name: "Customer Message",
+      icon: "💬",
+      to: "/admin/getHelp",
+      restricted: false,
+    },
   ];
 
   return (
@@ -35,10 +52,16 @@ function AdminHome() {
               {menuItems.map((item) => (
                 <div
                   onClick={() => {
-                    navigate(item.to);
+                    if (!item.restricted || role === "Admin") {
+                      navigate(item.to);
+                    }
                   }}
                   key={item.name}
-                  className="bg-white overflow-hidden shadow rounded-lg  cursor-pointer"
+                  className={`bg-white overflow-hidden shadow rounded-lg cursor-pointer ${
+                    item.restricted && role !== "admin"
+                      ? "opacity-50 cursor-not-allowed"
+                      : ""
+                  }`}
                 >
                   <div className="px-4 py-5 sm:p-6">
                     <div className="flex items-center">
@@ -59,12 +82,16 @@ function AdminHome() {
                   </div>
                   <div className="bg-gray-50 px-4 py-4 sm:px-6">
                     <div className="text-sm">
-                      <Link
-                        to={item.to}
-                        className="font-medium text-red-600 hover:text-red-500"
-                      >
-                        View all<span className="sr-only"> {item.name}</span>
-                      </Link>
+                      {!item.restricted || role === "admin" ? (
+                        <Link
+                          to={item.to}
+                          className="font-medium text-red-600 hover:text-red-500"
+                        >
+                          View all<span className="sr-only"> {item.name}</span>
+                        </Link>
+                      ) : (
+                        <span className="text-gray-400">Restricted</span>
+                      )}
                     </div>
                   </div>
                 </div>
