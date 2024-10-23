@@ -2,7 +2,7 @@ import "./index.css";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Authlayout, LeafletMap } from "./components/index.js";
@@ -128,11 +128,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Navigate to="/admin/login" replace />,
       },
       {
         path: "/leflet",

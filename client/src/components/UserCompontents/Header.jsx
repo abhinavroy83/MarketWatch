@@ -170,7 +170,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => {
-                        navigate("/");
+                        navigate("/rooms");
                         {
                           handlehamburger;
                         }
