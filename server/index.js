@@ -35,7 +35,8 @@ app.use(
       "https://design.verydesi.com",
       "https://admin.verydesi.com",
       "http://18.237.230.139:8000/",
-      "http://ec2-18-237-230-139.us-west-2.compute.amazonaws.com"
+      "http://ec2-18-237-230-139.us-west-2.compute.amazonaws.com",
+      "https://verydesi-client.vercel.app",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
